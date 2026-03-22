@@ -77,7 +77,7 @@ function localLink(path: string): string {
   color: var(--pacs-footer-text);
   font-size: 13px;
   font-weight: 300;
-  line-height: 1.47;
+  line-height: 1.618;
   padding: 1.5rem 0 1rem;
 }
 

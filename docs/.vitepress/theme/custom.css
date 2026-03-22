@@ -1,6 +1,6 @@
 /* ==========================================================================
-   Pacs008 — pain001.com-inspired teal theme with WCAG accessibility
-   Links use underline to meet WCAG 1.4.1 (link vs text distinction)
+   Pacs008 — Matching pain001.com visual style exactly
+   Theme color: rgba(0, 153, 172, .618033988749894) (golden-ratio teal)
    ========================================================================== */
 
 /* ---------- Font-display safeguard (Lighthouse) ---------- */
@@ -10,7 +10,7 @@
   font-display: swap;
 }
 
-/* ---------- Animations ---------- */
+/* ---------- Animations (pain001.com) ---------- */
 @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
 @keyframes dropDown { from { transform: translateY(-0.618rem) } to { transform: translateY(0) } }
 @keyframes slideUp { from { opacity: 0; transform: translateY(1.618rem) } to { opacity: 1; transform: translateY(0) } }
@@ -19,7 +19,10 @@
 :root {
   color-scheme: light;
 
-  /* Typography */
+  /* pain001.com single theme color */
+  --pacs-theme: rgba(0, 153, 172, .618033988749894);
+
+  /* Typography — pain001 uses system default sans-serif */
   --pacs-font:
     system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Helvetica, Arial,
@@ -27,39 +30,33 @@
     "Malgun Gothic", "Noto Sans CJK KR",
     "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC",
     sans-serif;
-  --pacs-font-mono:
-    "SF Mono", SFMono-Regular, ui-monospace, Menlo, Consolas, monospace;
-
-  /* Teal palette */
-  --pacs-teal: #0099AC;
-  --pacs-teal-soft: rgba(0, 153, 172, 0.618);
-  --pacs-teal-bg: rgba(0, 153, 172, 0.1);
+  --pacs-font-mono: monospace;
 
   /* Text */
   --pacs-text-primary: #1d1d1f;
   --pacs-text-secondary: #494950;
 
-  /* Links — underlined for WCAG 1.4.1 (#0099AC is 3.5:1 on white) */
-  --pacs-link: #0099AC;
-  --pacs-link-hover: #007A8A;
+  /* Links = theme color (pain001: same color for links, headings, accents) */
+  --pacs-link: var(--pacs-theme);
+  --pacs-link-hover: var(--pacs-theme);
 
   /* Focus */
-  --pacs-focus: #007A8A;
+  --pacs-focus: var(--pacs-theme);
 
-  /* Surfaces */
+  /* Surfaces (pain001: #f9f9f9 secondary, #ddd borders) */
   --pacs-bg: #ffffff;
   --pacs-bg-secondary: #f9f9f9;
   --pacs-bg-elevated: #ffffff;
   --pacs-border: #dddddd;
   --pacs-divider: #dddddd;
 
-  /* Nav bar — blur background */
+  /* Nav bar — blur (pain001: .blur-light) */
   --pacs-nav-bg: rgba(255, 255, 255, 0.618);
 
   /* Footer */
   --pacs-footer-bg: #f9f9f9;
   --pacs-footer-text: #494950;
-  --pacs-footer-link: #0099AC;
+  --pacs-footer-link: var(--pacs-theme);
   --pacs-footer-title: #1d1d1f;
 
   /* VitePress mappings */
@@ -90,21 +87,19 @@
 .dark {
   color-scheme: dark;
 
-  /* Teal palette */
-  --pacs-teal: #33CFDF;
-  --pacs-teal-soft: rgba(51, 207, 223, 0.618);
-  --pacs-teal-bg: rgba(51, 207, 223, 0.1);
+  /* Lighter teal for dark backgrounds */
+  --pacs-theme: rgba(51, 207, 223, .618033988749894);
 
   /* Text */
   --pacs-text-primary: #f5f5f7;
   --pacs-text-secondary: #acacb0;
 
   /* Links */
-  --pacs-link: #33CFDF;
-  --pacs-link-hover: #66E0EC;
+  --pacs-link: var(--pacs-theme);
+  --pacs-link-hover: var(--pacs-theme);
 
   /* Focus */
-  --pacs-focus: #33CFDF;
+  --pacs-focus: var(--pacs-theme);
 
   /* Surfaces */
   --pacs-bg: #000000;
@@ -119,7 +114,7 @@
   /* Footer */
   --pacs-footer-bg: #1d1d1f;
   --pacs-footer-text: #c0c0c5;
-  --pacs-footer-link: #33CFDF;
+  --pacs-footer-link: var(--pacs-theme);
   --pacs-footer-title: #f5f5f7;
 
   /* VitePress mappings */
@@ -155,11 +150,14 @@
   transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
 }
 
-/* ---------- Base ---------- */
+/* ---------- Base (pain001: * { font-weight: 300 }, line-height: 1.618) ---------- */
+* {
+  font-weight: 300;
+}
+
 html,
 body {
   font-size: 16px;
-  font-weight: 300;
   line-height: 1.618;
   letter-spacing: -0.011em;
   background: var(--vp-c-bg);
@@ -172,17 +170,27 @@ html {
   scroll-padding-top: calc(var(--vp-nav-height, 52px) + 1rem);
 }
 
+/* pain001: a { color: var(--theme-color); text-decoration: none }
+   a:hover { text-decoration: underline } */
 a {
   color: var(--pacs-link);
-  text-decoration: underline;
-  text-decoration-color: rgba(0, 153, 172, 0.4);
-  text-underline-offset: 0.15em;
+  text-decoration: none;
 }
 
 a:hover {
   color: var(--pacs-link-hover);
   text-decoration: underline;
-  text-decoration-color: var(--pacs-link-hover);
+}
+
+/* pain001: .active, h1-h6, strong { font-weight: 400 }
+   h1-h6 { color: var(--theme-color) } */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--pacs-theme);
+  font-weight: 400;
+}
+
+strong {
+  font-weight: 400;
 }
 
 /* ---------- Focus ---------- */
@@ -234,7 +242,8 @@ a:hover {
   border-bottom: 1px solid var(--pacs-divider);
 }
 
-/* Blur navbar */
+/* pain001: .blur-light { backdrop-filter: saturate(180%) blur(20px);
+   background-color: rgba(255,255,255,.618) } */
 .VPNavBar {
   background: var(--pacs-nav-bg) !important;
   backdrop-filter: saturate(180%) blur(20px);
@@ -255,7 +264,7 @@ a:hover {
 }
 
 .VPNavBarTitle .title {
-  font-weight: 600;
+  font-weight: 400;
   font-size: 17px;
   color: var(--pacs-text-primary);
 }
@@ -267,7 +276,7 @@ a:hover {
 .VPNavBarMenuLink,
 .VPNavBarMenuGroup .button {
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 300;
   color: var(--pacs-text-primary);
   min-height: 44px;
   display: inline-flex;
@@ -291,11 +300,12 @@ a:hover {
   animation: fadeIn 1.618s ease;
 }
 
+/* pain001: h1-h6 { color: var(--theme-color); font-weight: 400 } */
 .vp-doc h1 {
   font-size: 32px;
   font-weight: 400;
   line-height: 1.15;
-  color: var(--pacs-text-primary);
+  color: var(--pacs-theme);
   margin-bottom: 0.75rem;
 }
 
@@ -304,6 +314,7 @@ a:hover {
   font-weight: 400;
   line-height: 1.25;
   margin-top: 2rem;
+  color: var(--pacs-theme);
   border-bottom: 0.5px solid var(--pacs-divider);
   padding-bottom: 0.5rem;
 }
@@ -312,16 +323,19 @@ a:hover {
   font-size: 20px;
   font-weight: 400;
   line-height: 1.3;
+  color: var(--pacs-theme);
 }
 
 .vp-doc h4 {
   font-size: 17px;
   font-weight: 400;
   line-height: 1.4;
+  color: var(--pacs-theme);
 }
 
 .vp-doc a {
   color: var(--pacs-link);
+  text-decoration: none;
 }
 
 .vp-doc a:hover {
@@ -329,24 +343,44 @@ a:hover {
   text-decoration: underline;
 }
 
+/* pain001: pre { background: #f9f9f9; border: 1px solid #ddd;
+   border-left: 3px solid var(--theme-color); color: #666;
+   font-family: monospace; font-size: 15px; line-height: 1.618;
+   padding: 1em 1.618em } */
 .vp-doc code {
-  background: var(--pacs-bg-secondary);
+  background: #f9f9f9;
   border: none;
-  color: var(--vp-c-text-1);
-  border-radius: 4px;
+  color: #666;
+  border-radius: 0;
   font-size: 15px;
+  font-family: monospace;
+}
+
+.dark .vp-doc code {
+  color: var(--pacs-text-secondary);
 }
 
 .vp-doc [class*="language-"] {
-  border: none;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-left: 3px solid var(--pacs-theme);
   border-radius: 0;
-  border-left: 3px solid var(--pacs-teal);
+  color: #666;
+  font-family: monospace;
+  font-size: 15px;
+  line-height: 1.618;
+}
+
+.dark .vp-doc [class*="language-"] {
   background: var(--pacs-bg-secondary);
+  border-color: var(--pacs-border);
+  border-left-color: var(--pacs-theme);
+  color: var(--pacs-text-secondary);
 }
 
 .vp-doc blockquote {
-  border-left: 3px solid var(--pacs-teal);
-  background: var(--pacs-teal-bg);
+  border-left: 3px solid var(--pacs-theme);
+  background: rgba(0, 153, 172, 0.1);
 }
 
 .vp-doc th,
@@ -356,13 +390,13 @@ a:hover {
 
 .vp-doc th {
   background: var(--pacs-bg-secondary);
-  font-weight: 600;
+  font-weight: 400;
 }
 
 /* ---------- Home Page ---------- */
 /* Propagate flex-grow so the hero fills the space between navbar and footer.
-   Chain: .Layout (flex column, min-height:100vh) → .VPContent (flex-grow:1)
-   → .VPHome → .VPHomeHero */
+   Chain: .Layout (flex column, min-height:100vh) -> .VPContent (flex-grow:1)
+   -> .VPHome -> .VPHomeHero */
 .VPContent.is-home {
   display: flex !important;
   flex-direction: column;
@@ -376,6 +410,7 @@ a:hover {
   flex-direction: column;
 }
 
+/* pain001: .fade-in { animation: fadeIn 3s ease } */
 .VPHomeHero {
   background: url('https://cloudcdn.pro/stock/images/banners/meiying-ng-OrwkD-iWgqg.webp') center/cover no-repeat;
   position: relative;
@@ -386,6 +421,7 @@ a:hover {
   justify-content: center;
 }
 
+/* pain001 hero overlay: rgba(0,153,172,.618) */
 .VPHomeHero::before {
   content: '';
   position: absolute;
@@ -398,6 +434,7 @@ a:hover {
   background: rgba(0, 80, 90, 0.82);
 }
 
+/* pain001: .drop-down { animation: dropDown 1.618s ease } */
 .VPHomeHero .container {
   max-width: 980px;
   margin: 0 auto;
@@ -416,7 +453,7 @@ a:hover {
 
 .VPHomeHero .heading .name {
   font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.05;
   color: #ffffff;
 }
@@ -429,7 +466,7 @@ a:hover {
 
 .VPHomeHero .tagline {
   font-size: clamp(1rem, 1.5vw, 1.25rem);
-  line-height: 1.55;
+  line-height: 1.618;
   color: rgba(255, 255, 255, 0.9);
   max-width: 68ch;
   margin-left: auto;
@@ -437,19 +474,19 @@ a:hover {
 }
 
 .VPHomeHero .actions {
-  margin-top: 1.5rem;
+  margin-top: 1.618rem;
 }
 
-/* ---------- Bootstrap-style Buttons ---------- */
+/* ---------- Buttons (pain001: .btn-info with theme color) ---------- */
 .VPHome .VPButton.brand,
 .VPButton.brand {
-  background: #1d1d1f !important;
-  border: none !important;
+  background: var(--pacs-theme) !important;
+  border: 1px solid var(--pacs-theme) !important;
   border-radius: 0.618rem !important;
   padding: 0.618rem 1.618rem !important;
   color: #ffffff !important;
   font-size: 17px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.47;
   min-height: 44px;
   min-width: 44px;
@@ -458,43 +495,31 @@ a:hover {
   gap: 0.25em;
   box-shadow: none !important;
   text-decoration: none !important;
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-
-.dark .VPHome .VPButton.brand,
-.dark .VPButton.brand {
-  background: #f5f5f7 !important;
-  color: #1d1d1f !important;
+  transition: transform 0.618s cubic-bezier(0.618, 1, 0.618, 1);
 }
 
 .VPButton.brand::after {
   content: none;
 }
 
+/* pain001: .zoom-in:hover { transform: scale(1.0618) } */
 .VPHome .VPButton.brand:hover,
 .VPButton.brand:hover {
-  background: var(--pacs-teal) !important;
-  border: none !important;
+  background: var(--pacs-theme) !important;
   color: #ffffff !important;
   text-decoration: none !important;
   transform: scale(1.0618);
 }
 
-.dark .VPHome .VPButton.brand:hover,
-.dark .VPButton.brand:hover {
-  background: var(--pacs-teal) !important;
-  color: #ffffff !important;
-}
-
 .VPHome .VPButton.alt,
 .VPButton.alt {
   background: transparent !important;
-  border: 2px solid var(--pacs-teal) !important;
+  border: 1px solid var(--pacs-theme) !important;
   border-radius: 0.618rem !important;
   padding: 0.618rem 1.618rem !important;
-  color: var(--pacs-teal) !important;
+  color: var(--pacs-theme) !important;
   font-size: 17px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.47;
   min-height: 44px;
   min-width: 44px;
@@ -503,7 +528,7 @@ a:hover {
   gap: 0.25em;
   box-shadow: none !important;
   text-decoration: none !important;
-  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+  transition: transform 0.618s cubic-bezier(0.618, 1, 0.618, 1);
 }
 
 .VPButton.alt::after {
@@ -512,8 +537,8 @@ a:hover {
 
 .VPHome .VPButton.alt:hover,
 .VPButton.alt:hover {
-  background: var(--pacs-teal) !important;
-  border: 2px solid var(--pacs-teal) !important;
+  background: var(--pacs-theme) !important;
+  border: 1px solid var(--pacs-theme) !important;
   color: #ffffff !important;
   text-decoration: none !important;
   transform: scale(1.0618);
@@ -543,6 +568,7 @@ a:hover {
   padding: 0 !important;
 }
 
+/* pain001: .zoom-in transition */
 .VPHomeFeatures .item .box {
   border: 1px solid var(--pacs-border);
   background: var(--pacs-bg-elevated);
@@ -550,25 +576,24 @@ a:hover {
   min-height: 180px;
   padding: 1.25rem 1.15rem;
   box-shadow: 0 1px 3px color-mix(in srgb, #000000 6%, transparent);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.618s cubic-bezier(0.618, 1, 0.618, 1);
   animation: slideUp 1.618s ease;
 }
 
 .VPHomeFeatures .item .box:hover {
   transform: scale(1.0618);
-  box-shadow: 0 4px 16px rgba(0, 153, 172, 0.2);
 }
 
 .VPHomeFeatures .item .box .title {
-  color: var(--pacs-text-primary);
+  color: var(--pacs-theme);
   font-size: 17px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .VPHomeFeatures .item .box .details {
   color: var(--pacs-text-secondary);
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.618;
 }
 
 /* ---------- Default VPFooter: hidden (replaced by PacsFooter) ---------- */
@@ -622,7 +647,7 @@ a:hover {
     color: var(--vp-c-text-1);
     min-height: 44px;
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 300;
     text-decoration: none;
   }
 
