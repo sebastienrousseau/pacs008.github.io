@@ -24,7 +24,21 @@ function sidebarFor(locale: string) {
       items: [
         { text: t.home, link: `${prefix}/` },
         { text: t.about, link: `${prefix}/about/` },
-        { text: t.messageTypes, link: `${prefix}/message-types/` },
+        {
+          text: t.messageTypes,
+          link: `${prefix}/message-types/`,
+          collapsed: true,
+          items: [
+            { text: "pacs.002.001.12", link: `${prefix}/pacs.002.001.12/` },
+            { text: "pacs.003.001.09", link: `${prefix}/pacs.003.001.09/` },
+            { text: "pacs.004.001.11", link: `${prefix}/pacs.004.001.11/` },
+            { text: "pacs.007.001.11", link: `${prefix}/pacs.007.001.11/` },
+            { text: "pacs.008.001.13", link: `${prefix}/pacs.008.001.13/` },
+            { text: "pacs.009.001.10", link: `${prefix}/pacs.009.001.10/` },
+            { text: "pacs.010.001.05", link: `${prefix}/pacs.010.001.05/` },
+            { text: "pacs.028.001.05", link: `${prefix}/pacs.028.001.05/` }
+          ]
+        },
         { text: t.api, link: `${prefix}/api/` },
         { text: t.contact, link: `${prefix}/contact/` },
         { text: t.privacy, link: `${prefix}/privacy/` },

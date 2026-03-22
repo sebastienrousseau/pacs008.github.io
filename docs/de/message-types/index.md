@@ -12,26 +12,26 @@ Pacs008 deckt die zentrale pacs.008-Nachrichtendefinition sowie verwandte Nachri
 
 ## Enthaltene Unterstützung
 
-- `pacs.002.001.12`
-- `pacs.003.001.09`
-- `pacs.004.001.11`
-- `pacs.007.001.11`
-- `pacs.008.001.01`
-- `pacs.008.001.02`
-- `pacs.008.001.03`
-- `pacs.008.001.04`
-- `pacs.008.001.05`
-- `pacs.008.001.06`
-- `pacs.008.001.07`
-- `pacs.008.001.08`
-- `pacs.008.001.09`
-- `pacs.008.001.10`
-- `pacs.008.001.11`
-- `pacs.008.001.12`
-- `pacs.008.001.13`
-- `pacs.009.001.10`
-- `pacs.010.001.05`
-- `pacs.028.001.05`
+- [`pacs.002.001.12`](/de/pacs.002.001.12/) — FI to FI Payment Status Report
+- [`pacs.003.001.09`](/de/pacs.003.001.09/) — FI to FI Customer Direct Debit
+- [`pacs.004.001.11`](/de/pacs.004.001.11/) — Payment Return
+- [`pacs.007.001.11`](/de/pacs.007.001.11/) — FI to FI Payment Reversal
+- [`pacs.008.001.01`](/de/pacs.008.001.13/) — FI to FI Customer Credit Transfer
+- [`pacs.008.001.02`](/de/pacs.008.001.13/) — FI to FI Customer Credit Transfer
+- [`pacs.008.001.03`](/de/pacs.008.001.13/) — FI to FI Customer Credit Transfer
+- [`pacs.008.001.04`](/de/pacs.008.001.13/) — FI to FI Customer Credit Transfer
+- [`pacs.008.001.05`](/de/pacs.008.001.13/) — FI to FI Customer Credit Transfer
+- [`pacs.008.001.06`](/de/pacs.008.001.13/) — FI to FI Customer Credit Transfer
+- [`pacs.008.001.07`](/de/pacs.008.001.13/) — FI to FI Customer Credit Transfer
+- [`pacs.008.001.08`](/de/pacs.008.001.13/) — FI to FI Customer Credit Transfer
+- [`pacs.008.001.09`](/de/pacs.008.001.13/) — FI to FI Customer Credit Transfer
+- [`pacs.008.001.10`](/de/pacs.008.001.13/) — FI to FI Customer Credit Transfer
+- [`pacs.008.001.11`](/de/pacs.008.001.13/) — FI to FI Customer Credit Transfer
+- [`pacs.008.001.12`](/de/pacs.008.001.13/) — FI to FI Customer Credit Transfer
+- [`pacs.008.001.13`](/de/pacs.008.001.13/) — FI to FI Customer Credit Transfer
+- [`pacs.009.001.10`](/de/pacs.009.001.10/) — Financial Institution Credit Transfer
+- [`pacs.010.001.05`](/de/pacs.010.001.05/) — Financial Institution Direct Debit
+- [`pacs.028.001.05`](/de/pacs.028.001.05/) — FI to FI Payment Status Request
 
 ## Bereitstellungsmodell
 

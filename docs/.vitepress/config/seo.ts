@@ -37,7 +37,15 @@ export function slugToTitle(value: string): string {
   const map: Record<string, string> = {
     "message-types": "Message Types",
     api: "API",
-    pacs008: "Pacs008"
+    pacs008: "Pacs008",
+    "pacs.002.001.12": "pacs.002.001.12",
+    "pacs.003.001.09": "pacs.003.001.09",
+    "pacs.004.001.11": "pacs.004.001.11",
+    "pacs.007.001.11": "pacs.007.001.11",
+    "pacs.008.001.13": "pacs.008.001.13",
+    "pacs.009.001.10": "pacs.009.001.10",
+    "pacs.010.001.05": "pacs.010.001.05",
+    "pacs.028.001.05": "pacs.028.001.05"
   };
   const lower = value.toLowerCase();
   if (map[lower]) return map[lower];
