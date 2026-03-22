@@ -259,9 +259,10 @@ strong {
   margin: 0 auto;
 }
 
+/* pain001: nav title uses Bootstrap fs-4 = 1.5rem */
 .VPNavBarTitle .title {
   font-weight: 400;
-  font-size: 17px;
+  font-size: 1.5rem;
   color: var(--pacs-text-primary);
 }
 
@@ -271,7 +272,7 @@ strong {
 
 .VPNavBarMenuLink,
 .VPNavBarMenuGroup .button {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 300;
   color: var(--pacs-text-primary);
   min-height: 44px;
@@ -286,13 +287,14 @@ strong {
 }
 
 /* ---------- Documentation Pages ---------- */
+/* pain001: <main class="fs-5 p-5"> = 1.25rem (20px) for all body text */
 .VPDoc .container {
   max-width: 1100px;
 }
 
 .vp-doc {
   max-width: 780px;
-  font-size: 16px;
+  font-size: 1.25rem;
   line-height: 1.618;
   animation: fadeIn 1.618s ease;
 }
@@ -301,23 +303,24 @@ strong {
 .vp-doc li,
 .vp-doc a,
 .vp-doc td {
-  font-size: 16px;
+  font-size: 1.25rem;
   line-height: 1.618;
 }
 
-/* pain001: h1-h6 { color: var(--theme-color); font-weight: 400 } */
+/* pain001: h1 uses browser default (~2em = 32px at 16px base, but fs-5
+   context makes it relative). We use Bootstrap display sizes. */
 .vp-doc h1 {
-  font-size: 32px;
+  font-size: 2.5rem;
   font-weight: 400;
-  line-height: 1.15;
+  line-height: 1.2;
   color: var(--pacs-theme);
   margin-bottom: 0.75rem;
 }
 
 .vp-doc h2 {
-  font-size: 24px;
+  font-size: 2rem;
   font-weight: 400;
-  line-height: 1.25;
+  line-height: 1.2;
   margin-top: 2rem;
   color: var(--pacs-theme);
   border-bottom: 0.5px solid var(--pacs-divider);
@@ -325,16 +328,16 @@ strong {
 }
 
 .vp-doc h3 {
-  font-size: 20px;
+  font-size: 1.75rem;
   font-weight: 400;
-  line-height: 1.3;
+  line-height: 1.2;
   color: var(--pacs-theme);
 }
 
 .vp-doc h4 {
-  font-size: 17px;
+  font-size: 1.5rem;
   font-weight: 400;
-  line-height: 1.4;
+  line-height: 1.2;
   color: var(--pacs-theme);
 }
 
@@ -456,11 +459,19 @@ strong {
   margin: 0 auto;
 }
 
+/* pain001: hero heading uses Bootstrap display-3 =
+   calc(1.525rem + 3.3vw), capped at 4.5rem on >=1200px */
 .VPHomeHero .heading .name {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 400;
-  line-height: 1.05;
+  font-size: calc(1.525rem + 3.3vw);
+  font-weight: 300;
+  line-height: 1.2;
   color: #ffffff;
+}
+
+@media (min-width: 1200px) {
+  .VPHomeHero .heading .name {
+    font-size: 4.5rem;
+  }
 }
 
 /* Override VitePress gradient clip on hero name */
@@ -469,8 +480,9 @@ strong {
   background: none;
 }
 
+/* pain001: hero subtitle uses Bootstrap fs-3 = 1.75rem */
 .VPHomeHero .tagline {
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-size: 1.75rem;
   line-height: 1.618;
   color: rgba(255, 255, 255, 0.9);
   max-width: 68ch;
@@ -482,15 +494,15 @@ strong {
   margin-top: 1.618rem;
 }
 
-/* ---------- Buttons (pain001: .btn-info with theme color) ---------- */
+/* ---------- Buttons (pain001: .btn-dark .fs-5) ---------- */
 .VPHome .VPButton.brand,
 .VPButton.brand {
-  background: var(--pacs-theme) !important;
-  border: 1px solid var(--pacs-theme) !important;
-  border-radius: 0.618rem !important;
+  background: #1d1d1f !important;
+  border: 1px solid #1d1d1f !important;
+  border-radius: 50rem !important;
   padding: 0.618rem 1.618rem !important;
   color: #ffffff !important;
-  font-size: 17px;
+  font-size: 1.25rem;
   font-weight: 300;
   line-height: 1.47;
   min-height: 44px;
@@ -510,7 +522,7 @@ strong {
 /* pain001: .zoom-in:hover { transform: scale(1.0618) } */
 .VPHome .VPButton.brand:hover,
 .VPButton.brand:hover {
-  background: var(--pacs-theme) !important;
+  background: #1d1d1f !important;
   color: #ffffff !important;
   text-decoration: none !important;
   transform: scale(1.0618);
@@ -519,11 +531,11 @@ strong {
 .VPHome .VPButton.alt,
 .VPButton.alt {
   background: transparent !important;
-  border: 1px solid var(--pacs-theme) !important;
-  border-radius: 0.618rem !important;
+  border: 1px solid #1d1d1f !important;
+  border-radius: 50rem !important;
   padding: 0.618rem 1.618rem !important;
-  color: var(--pacs-theme) !important;
-  font-size: 17px;
+  color: #1d1d1f !important;
+  font-size: 1.25rem;
   font-weight: 300;
   line-height: 1.47;
   min-height: 44px;
@@ -542,8 +554,8 @@ strong {
 
 .VPHome .VPButton.alt:hover,
 .VPButton.alt:hover {
-  background: var(--pacs-theme) !important;
-  border: 1px solid var(--pacs-theme) !important;
+  background: #1d1d1f !important;
+  border: 1px solid #1d1d1f !important;
   color: #ffffff !important;
   text-decoration: none !important;
   transform: scale(1.0618);
@@ -591,13 +603,13 @@ strong {
 
 .VPHomeFeatures .item .box .title {
   color: var(--pacs-theme);
-  font-size: 17px;
+  font-size: 1.25rem;
   font-weight: 400;
 }
 
 .VPHomeFeatures .item .box .details {
   color: var(--pacs-text-secondary);
-  font-size: 16px;
+  font-size: 1.25rem;
   line-height: 1.618;
 }
 
@@ -651,7 +663,7 @@ strong {
   .VPNavScreen .VPNavScreenMenuGroup .button {
     color: var(--vp-c-text-1);
     min-height: 44px;
-    font-size: 16px;
+    font-size: 1.25rem;
     font-weight: 300;
     text-decoration: none;
   }
