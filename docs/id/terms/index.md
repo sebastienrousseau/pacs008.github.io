@@ -1,22 +1,22 @@
 ---
-title: Terms | Bahasa Indonesia
-description: Terms information for the Pacs008 website.
+title: Ketentuan | Bahasa Indonesia
+description: Informasi ketentuan untuk situs web Pacs008.
 lang: id-ID
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Terms
+# Ketentuan
 
-This page is part of the public website shell for Pacs008. Replace this placeholder with your final legal copy before production launch if you need jurisdiction-specific wording.
+Halaman ini adalah bagian dari situs publik Pacs008. Ganti teks ini dengan salinan hukum final Anda sebelum peluncuran jika Anda memerlukan kata-kata khusus yurisdiksi.
 
-## Current scope
+## Cakupan saat ini
 
-- project website information
-- repository and package distribution links
-- contact route for questions or support requests
+- informasi situs web proyek
+- tautan repositori dan distribusi paket
+- jalur kontak untuk pertanyaan atau permintaan dukungan
 
-## Practical note
+## Catatan praktis
 
-For operational or regulated deployments, have your legal and compliance teams review any final privacy, retention, or terms language before publishing.
+Untuk penerapan operasional atau yang diatur, minta tim hukum dan kepatuhan Anda meninjau bahasa privasi, retensi, atau ketentuan akhir sebelum menerbitkan.
 

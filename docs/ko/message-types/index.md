@@ -1,16 +1,16 @@
 ---
-title: Message Types | 한국어
-description: Supported ISO 20022 pacs message families and versions.
+title: 메시지 유형 | 한국어
+description: 지원되는 ISO 20022 pacs 메시지 정의 및 버전.
 lang: ko-KR
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Message Types
+# 메시지 유형
 
-Pacs008 covers both the core pacs.008 family and related messages used in adjacent orchestration and reconciliation flows.
+Pacs008은 핵심 pacs.008 메시지 정의와 오케스트레이션 및 조정 플로우에서 사용되는 관련 메시지를 포함합니다.
 
-## Included support
+## 포함된 지원
 
 - `pacs.002.001.12`
 - `pacs.003.001.09`
@@ -33,23 +33,23 @@ Pacs008 covers both the core pacs.008 family and related messages used in adjace
 - `pacs.010.001.05`
 - `pacs.028.001.05`
 
-## Delivery model
+## 제공 모델
 
-Each supported message type is backed by template assets and validation logic so teams can standardise generation and regression testing across multiple downstream channels.
+지원되는 각 메시지 유형은 템플릿 자산과 검증 로직으로 뒷받침되어 팀이 여러 다운스트림 채널에서 생성 및 회귀 테스트를 표준화할 수 있습니다.
 
-## 2026 market context
+## 2026 시장 컨텍스트
 
-- **SEPA SCT / SCT Inst**: pacs.008 remains central for credit transfer exchange and instant-payment processing.
-- **CBPR+**: pacs.008 continues to replace MT103-style cross-border payloads with richer structured data.
-- **Structured addresses**: current market guidance and bank readiness material point to the November 2026 cutover away from fully unstructured postal addresses.
-- **Serial method and STP**: multi-leg bank-to-bank chains still matter, and straight-through variants remain important for operational efficiency.
+- **SEPA SCT / SCT Inst**: pacs.008은 신용 이체 교환 및 즉시 결제 처리의 핵심으로 남아 있습니다.
+- **CBPR+**: pacs.008은 MT103 스타일의 국경 간 페이로드를 더 풍부한 구조화 데이터로 계속 대체하고 있습니다.
+- **구조화 주소**: 현재 시장 지침은 2026년 11월에 완전 비구조화 우편 주소에서 전환하는 것을 가리키고 있습니다.
+- **직렬 방식 및 STP**: 다중 구간 은행 간 체인은 여전히 중요하며, 직통 처리 변형은 운영 효율성에 필수적입니다.
 
-## What Pacs008 adds
+## 운영 기능
 
-Instead of stopping at definitions, Pacs008 gives you template-backed generation and validation across supported revisions so you can:
+Pacs008은 지원되는 메시지 정의 리비전에 걸쳐 템플릿 기반 생성 및 검증을 제공합니다:
 
-- compare versions
-- regression-test scheme updates
-- harden outbound payment data before release
-- support product, operations, and migration teams from one codebase
+- 버전 비교
+- 스키마 업데이트 회귀 테스트
+- 릴리스 전 아웃바운드 결제 메시지 데이터 강화
+- 단일 코드베이스에서 제품, 운영 및 마이그레이션 팀 지원
 

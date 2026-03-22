@@ -1,16 +1,16 @@
 ---
-title: Message Types | Tiếng Việt
-description: Supported ISO 20022 pacs message families and versions.
+title: Loại thông điệp | Tiếng Việt
+description: Các định nghĩa và phiên bản thông điệp pacs ISO 20022 được hỗ trợ.
 lang: vi-VN
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Message Types
+# Loại thông điệp
 
-Pacs008 covers both the core pacs.008 family and related messages used in adjacent orchestration and reconciliation flows.
+Pacs008 bao gồm định nghĩa thông điệp pacs.008 cốt lõi và các thông điệp liên quan được sử dụng trong các luồng điều phối và đối soát.
 
-## Included support
+## Hỗ trợ bao gồm
 
 - `pacs.002.001.12`
 - `pacs.003.001.09`
@@ -33,23 +33,23 @@ Pacs008 covers both the core pacs.008 family and related messages used in adjace
 - `pacs.010.001.05`
 - `pacs.028.001.05`
 
-## Delivery model
+## Mô hình phân phối
 
-Each supported message type is backed by template assets and validation logic so teams can standardise generation and regression testing across multiple downstream channels.
+Mỗi loại thông điệp được hỗ trợ đều có tài nguyên mẫu và logic xác thực để các nhóm có thể chuẩn hóa việc tạo và kiểm tra hồi quy trên nhiều kênh.
 
-## 2026 market context
+## Bối cảnh thị trường 2026
 
-- **SEPA SCT / SCT Inst**: pacs.008 remains central for credit transfer exchange and instant-payment processing.
-- **CBPR+**: pacs.008 continues to replace MT103-style cross-border payloads with richer structured data.
-- **Structured addresses**: current market guidance and bank readiness material point to the November 2026 cutover away from fully unstructured postal addresses.
-- **Serial method and STP**: multi-leg bank-to-bank chains still matter, and straight-through variants remain important for operational efficiency.
+- **SEPA SCT / SCT Inst**: pacs.008 vẫn là trung tâm cho trao đổi chuyển khoản tín dụng và xử lý thanh toán tức thì.
+- **CBPR+**: pacs.008 tiếp tục thay thế tải trọng xuyên biên giới kiểu MT103 bằng dữ liệu có cấu trúc phong phú hơn.
+- **Địa chỉ có cấu trúc**: hướng dẫn thị trường hiện tại chỉ ra việc chuyển đổi vào tháng 11 năm 2026 khỏi địa chỉ bưu điện hoàn toàn không có cấu trúc.
+- **Phương pháp nối tiếp và STP**: chuỗi ngân hàng đến ngân hàng nhiều chặng vẫn quan trọng, và các biến thể xử lý trực tiếp vẫn cần thiết cho hiệu quả vận hành.
 
-## What Pacs008 adds
+## Năng lực vận hành
 
-Instead of stopping at definitions, Pacs008 gives you template-backed generation and validation across supported revisions so you can:
+Pacs008 cung cấp tạo và xác thực dựa trên mẫu qua các bản sửa đổi định nghĩa thông điệp được hỗ trợ:
 
-- compare versions
-- regression-test scheme updates
-- harden outbound payment data before release
-- support product, operations, and migration teams from one codebase
+- so sánh phiên bản
+- kiểm tra hồi quy cập nhật lược đồ
+- củng cố dữ liệu thông điệp thanh toán đi trước khi phát hành
+- hỗ trợ đội ngũ sản phẩm, vận hành và chuyển đổi từ một cơ sở mã duy nhất
 

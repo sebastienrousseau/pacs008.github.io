@@ -1,17 +1,17 @@
 ---
-title: Contact | Bahasa Indonesia
-description: How to reach the Pacs008 project.
+title: Kontak | Bahasa Indonesia
+description: Cara menghubungi proyek Pacs008.
 lang: id-ID
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Contact
+# Kontak
 
-For repository issues, feature requests, and implementation questions, use the project links below.
+Untuk masalah repositori, permintaan fitur, dan pertanyaan implementasi, gunakan tautan proyek di bawah ini.
 
 - Repository: <https://github.com/sebastienrousseau/pacs008>
 - Releases: <https://github.com/sebastienrousseau/pacs008/releases>
 - Package: <https://pypi.org/project/pacs008/>
 
-If you need a private operational discussion, add your preferred contact route here before launch.
+Jika Anda memerlukan diskusi operasional pribadi, tambahkan rute kontak pilihan Anda di sini sebelum peluncuran.

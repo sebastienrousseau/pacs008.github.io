@@ -1,17 +1,17 @@
 ---
-title: Contact | Polski
-description: How to reach the Pacs008 project.
+title: Kontakt | Polski
+description: Jak skontaktować się z projektem Pacs008.
 lang: pl-PL
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Contact
+# Kontakt
 
-For repository issues, feature requests, and implementation questions, use the project links below.
+W sprawie problemów z repozytorium, próśb o funkcje i pytań dotyczących implementacji skorzystaj z poniższych linków projektu.
 
 - Repository: <https://github.com/sebastienrousseau/pacs008>
 - Releases: <https://github.com/sebastienrousseau/pacs008/releases>
 - Package: <https://pypi.org/project/pacs008/>
 
-If you need a private operational discussion, add your preferred contact route here before launch.
+Jeśli potrzebujesz prywatnej dyskusji operacyjnej, dodaj tutaj preferowaną drogę kontaktu przed uruchomieniem.

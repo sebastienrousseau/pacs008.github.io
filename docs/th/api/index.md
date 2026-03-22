@@ -1,6 +1,6 @@
 ---
 title: API | ไทย
-description: REST and CLI workflow support in Pacs008.
+description: การสนับสนุนเวิร์กโฟลว์ REST และ CLI ใน Pacs008
 lang: th-TH
 lastUpdated: true
 image: /logo.svg
@@ -8,40 +8,40 @@ image: /logo.svg
 
 # API
 
-The project ships with both a REST API and a CLI for operational payment workflows.
+โครงการนี้จัดเตรียมทั้ง REST API และ CLI สำหรับเวิร์กโฟลว์การประมวลผลข้อความการชำระเงินเชิงปฏิบัติการ
 
-## API capabilities
+## ความสามารถของ API
 
-- health and readiness endpoints
-- data validation before XML generation
-- synchronous generation for direct workflows
-- asynchronous job execution for longer-running pipelines
-- downloadable generated files through job completion flows
+- จุดปลายทางสุขภาพและความพร้อม
+- การตรวจสอบข้อมูลก่อนการสร้าง XML
+- การสร้างแบบซิงโครนัสสำหรับเวิร์กโฟลว์โดยตรง
+- การดำเนินงานแบบอะซิงโครนัสสำหรับไปป์ไลน์ที่ใช้เวลานาน
+- ไฟล์ที่สร้างขึ้นสามารถดาวน์โหลดได้ผ่านโฟลว์การเสร็จสิ้นงาน
 
-## CLI capabilities
+## ความสามารถของ CLI
 
-- point to a source file and message version
-- validate against XSD before delivery
-- generate XML into pipeline-friendly output directories
-- fit into CI jobs, batch schedules, and local operator tooling
+- ชี้ไปที่ไฟล์ต้นทางและเวอร์ชันข้อความ
+- ตรวจสอบเทียบกับ XSD ก่อนส่งมอบ
+- สร้าง XML ลงในไดเรกทอรีเอาต์พุตที่เป็นมิตรกับไปป์ไลน์
+- เข้ากันได้กับงาน CI กำหนดการแบตช์ และเครื่องมือผู้ปฏิบัติงานในเครื่อง
 
-## Implementation focus
+## จุดเน้นการใช้งาน
 
-Competitor content often explains pacs.008 structure, but rarely shows how teams should operationalise it. Pacs008 is built for:
+Pacs008 ได้รับการออกแบบเพื่อการใช้งานเชิงปฏิบัติการโดยทีมประมวลผลการชำระเงิน:
 
-- pre-flight validation before message creation
-- scheme and version selection at runtime
-- asynchronous generation flows for internal services
-- deterministic outputs for testing and audit trails
+- การตรวจสอบก่อนบินก่อนการสร้างข้อความ
+- การเลือกสคีมาและเวอร์ชันในขณะรันไทม์
+- โฟลว์การสร้างแบบอะซิงโครนัสสำหรับบริการภายใน
+- เอาต์พุตที่กำหนดได้สำหรับการทดสอบและร่องรอยการตรวจสอบ
 
-## Data-quality pressure in 2026
+## ข้อกำหนดคุณภาพข้อมูลสำหรับปี 2026
 
-Operational teams are under increasing pressure to improve message quality, especially around:
+ข้อกำหนดคุณภาพข้อความกำลังเข้มงวดขึ้นทั่วทั้งอุตสาหกรรม โดยเฉพาะเกี่ยวกับ:
 
-- party and agent identification
-- structured or hybrid address readiness
-- richer remittance and reference handling
-- transparency across serial payment chains
+- การระบุตัวตนของฝ่ายและตัวแทน
+- ความพร้อมของที่อยู่ที่มีโครงสร้างหรือแบบผสม
+- การจัดการการส่งเงินและการอ้างอิงที่สมบูรณ์ยิ่งขึ้น
+- ความโปร่งใสตลอดห่วงโซ่การชำระเงินแบบอนุกรม
 
-The API and CLI are designed to make those checks part of the workflow instead of a manual review step.
+API และ CLI ได้รับการออกแบบเพื่อทำให้การตรวจสอบเหล่านี้เป็นส่วนหนึ่งของเวิร์กโฟลว์แทนที่จะเป็นขั้นตอนการตรวจสอบด้วยตนเอง
 

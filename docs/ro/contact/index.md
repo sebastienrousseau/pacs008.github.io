@@ -1,6 +1,6 @@
 ---
 title: Contact | Română
-description: How to reach the Pacs008 project.
+description: Cum să contactați proiectul Pacs008.
 lang: ro-RO
 lastUpdated: true
 image: /logo.svg
@@ -8,10 +8,10 @@ image: /logo.svg
 
 # Contact
 
-For repository issues, feature requests, and implementation questions, use the project links below.
+Pentru probleme de depozit, cereri de funcționalități și întrebări de implementare, utilizați linkurile proiectului de mai jos.
 
 - Repository: <https://github.com/sebastienrousseau/pacs008>
 - Releases: <https://github.com/sebastienrousseau/pacs008/releases>
 - Package: <https://pypi.org/project/pacs008/>
 
-If you need a private operational discussion, add your preferred contact route here before launch.
+Dacă aveți nevoie de o discuție operațională privată, adăugați ruta de contact preferată aici înainte de lansare.

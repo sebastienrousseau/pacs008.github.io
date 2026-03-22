@@ -1,22 +1,22 @@
 ---
-title: Terms | 简体中文
-description: Terms information for the Pacs008 website.
+title: 条款 | 简体中文
+description: Pacs008 网站的条款信息。
 lang: zh-CN
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Terms
+# 条款
 
-This page is part of the public website shell for Pacs008. Replace this placeholder with your final legal copy before production launch if you need jurisdiction-specific wording.
+本页面是 Pacs008 公共网站的一部分。如果您需要特定司法管辖区的措辞，请在正式上线前用最终法律文本替换此占位符。
 
-## Current scope
+## 当前范围
 
-- project website information
-- repository and package distribution links
-- contact route for questions or support requests
+- 项目网站信息
+- 仓库和包分发链接
+- 问题或支持请求的联系渠道
 
-## Practical note
+## 实用说明
 
-For operational or regulated deployments, have your legal and compliance teams review any final privacy, retention, or terms language before publishing.
+对于运营或受监管的部署，请在发布前让法律和合规团队审核隐私、保留或条款方面的最终措辞。
 

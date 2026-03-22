@@ -1,22 +1,22 @@
 ---
-title: Terms | Nederlands
-description: Terms information for the Pacs008 website.
+title: Voorwaarden | Nederlands
+description: Voorwaarden-informatie voor de Pacs008-website.
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Terms
+# Voorwaarden
 
-This page is part of the public website shell for Pacs008. Replace this placeholder with your final legal copy before production launch if you need jurisdiction-specific wording.
+Deze pagina maakt deel uit van de publieke website van Pacs008. Vervang deze tijdelijke tekst door uw definitieve juridische tekst voor de lancering als u jurisdictiespecifieke bewoordingen nodig heeft.
 
-## Current scope
+## Huidige reikwijdte
 
-- project website information
-- repository and package distribution links
-- contact route for questions or support requests
+- projectwebsite-informatie
+- repository- en pakketdistributielinks
+- contactroute voor vragen of ondersteuningsverzoeken
 
-## Practical note
+## Praktische opmerking
 
-For operational or regulated deployments, have your legal and compliance teams review any final privacy, retention, or terms language before publishing.
+Voor operationele of gereguleerde implementaties moeten uw juridische en compliance-teams alle definitieve privacy-, bewaar- of voorwaardenteksten beoordelen voordat u publiceert.
 

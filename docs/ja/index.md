@@ -1,6 +1,6 @@
 ---
 title: Pacs008 | 日本語
-description: 生成、検証、API オーケストレーション、コンプライアンス対応を一つに。
+description: FI-to-FI 顧客クレジット移転ワークフローの生成、検証、API オーケストレーション、コンプライアンス対応。
 lang: ja-JP
 author: Sebastien Rousseau
 lastUpdated: true
@@ -14,10 +14,10 @@ sitemap: true
 breadcrumbTitle: Pacs008
 pageType: home
 schemaType: WebSite
-heroText: pacs.008 を本番品質で自動化。
+heroText: ISO 20022 pacs.008 メッセージ処理を自動化。
 home: true
 metaTitle: Pacs008
-subtitle: 生成、検証、API オーケストレーション、コンプライアンス対応を一つに。
-tagline: 生成、検証、API オーケストレーション、コンプライアンス対応を一つに。
+subtitle: FI-to-FI 顧客クレジット移転ワークフローの生成、検証、API オーケストレーション、コンプライアンス対応。
+tagline: FI-to-FI 顧客クレジット移転ワークフローの生成、検証、API オーケストレーション、コンプライアンス対応。
 actionLink: /ja/about/
 ---

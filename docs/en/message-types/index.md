@@ -1,6 +1,6 @@
 ---
 title: Message Types | English
-description: Supported ISO 20022 pacs message families and versions.
+description: Supported ISO 20022 pacs message definitions and versions.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
@@ -8,7 +8,7 @@ image: /logo.svg
 
 # Message Types
 
-Pacs008 covers both the core pacs.008 family and related messages used in adjacent orchestration and reconciliation flows.
+Pacs008 covers the core pacs.008 message definition and related messages used in orchestration and reconciliation flows.
 
 ## Included support
 
@@ -44,12 +44,12 @@ Each supported message type is backed by template assets and validation logic so
 - **Structured addresses**: current market guidance and bank readiness material point to the November 2026 cutover away from fully unstructured postal addresses.
 - **Serial method and STP**: multi-leg bank-to-bank chains still matter, and straight-through variants remain important for operational efficiency.
 
-## What Pacs008 adds
+## Operational capabilities
 
-Instead of stopping at definitions, Pacs008 gives you template-backed generation and validation across supported revisions so you can:
+Pacs008 provides template-backed generation and validation across supported message definition revisions:
 
 - compare versions
 - regression-test scheme updates
-- harden outbound payment data before release
+- strengthen outbound payment message data before release
 - support product, operations, and migration teams from one codebase
 

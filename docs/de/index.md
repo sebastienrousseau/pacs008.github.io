@@ -1,6 +1,6 @@
 ---
 title: Pacs008 | Deutsch
-description: Generierung, Validierung, API-Orchestrierung und Compliance für FI-to-FI-Kredittransfers.
+description: Generierung, Validierung, API-Orchestrierung und Compliance-Unterstützung für FI-to-FI-Kundenkredittransfer-Workflows.
 lang: de-DE
 author: Sebastien Rousseau
 lastUpdated: true
@@ -14,10 +14,10 @@ sitemap: true
 breadcrumbTitle: Pacs008
 pageType: home
 schemaType: WebSite
-heroText: ISO 20022 pacs.008 sicher automatisieren.
+heroText: ISO 20022 pacs.008 Nachrichtenverarbeitung automatisieren.
 home: true
 metaTitle: Pacs008
-subtitle: Generierung, Validierung, API-Orchestrierung und Compliance für FI-to-FI-Kredittransfers.
-tagline: Generierung, Validierung, API-Orchestrierung und Compliance für FI-to-FI-Kredittransfers.
+subtitle: Generierung, Validierung, API-Orchestrierung und Compliance-Unterstützung für FI-to-FI-Kundenkredittransfer-Workflows.
+tagline: Generierung, Validierung, API-Orchestrierung und Compliance-Unterstützung für FI-to-FI-Kundenkredittransfer-Workflows.
 actionLink: /de/about/
 ---

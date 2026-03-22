@@ -1,6 +1,6 @@
 ---
 title: API | 한국어
-description: REST and CLI workflow support in Pacs008.
+description: Pacs008의 REST 및 CLI 워크플로 지원.
 lang: ko-KR
 lastUpdated: true
 image: /logo.svg
@@ -8,40 +8,40 @@ image: /logo.svg
 
 # API
 
-The project ships with both a REST API and a CLI for operational payment workflows.
+이 프로젝트는 운영 결제 메시지 워크플로를 위한 REST API와 CLI를 모두 제공합니다.
 
-## API capabilities
+## API 기능
 
-- health and readiness endpoints
-- data validation before XML generation
-- synchronous generation for direct workflows
-- asynchronous job execution for longer-running pipelines
-- downloadable generated files through job completion flows
+- 헬스 및 레디니스 엔드포인트
+- XML 생성 전 데이터 검증
+- 직접 워크플로를 위한 동기 생성
+- 장기 파이프라인을 위한 비동기 작업 실행
+- 작업 완료 플로우를 통한 다운로드 가능한 생성 파일
 
-## CLI capabilities
+## CLI 기능
 
-- point to a source file and message version
-- validate against XSD before delivery
-- generate XML into pipeline-friendly output directories
-- fit into CI jobs, batch schedules, and local operator tooling
+- 소스 파일 및 메시지 버전 지정
+- 전달 전 XSD 검증
+- 파이프라인 친화적 출력 디렉토리에 XML 생성
+- CI 작업, 배치 일정 및 로컬 운영자 도구에 통합
 
-## Implementation focus
+## 구현 초점
 
-Competitor content often explains pacs.008 structure, but rarely shows how teams should operationalise it. Pacs008 is built for:
+Pacs008은 결제 처리 팀의 운영 사용을 위해 설계되었습니다:
 
-- pre-flight validation before message creation
-- scheme and version selection at runtime
-- asynchronous generation flows for internal services
-- deterministic outputs for testing and audit trails
+- 메시지 생성 전 사전 검증
+- 런타임 시 스키마 및 버전 선택
+- 내부 서비스를 위한 비동기 생성 플로우
+- 테스트 및 감사 추적을 위한 결정적 출력
 
-## Data-quality pressure in 2026
+## 2026년 데이터 품질 요구 사항
 
-Operational teams are under increasing pressure to improve message quality, especially around:
+메시지 품질 요구 사항이 업계 전반에서 강화되고 있으며, 특히 다음 분야에서:
 
-- party and agent identification
-- structured or hybrid address readiness
-- richer remittance and reference handling
-- transparency across serial payment chains
+- 당사자 및 에이전트 식별
+- 구조화 또는 하이브리드 주소 준비
+- 더 풍부한 송금 및 참조 처리
+- 직렬 결제 체인 전반의 투명성
 
-The API and CLI are designed to make those checks part of the workflow instead of a manual review step.
+API와 CLI는 이러한 검사를 수동 검토 단계가 아닌 워크플로의 일부로 만들도록 설계되었습니다.
 

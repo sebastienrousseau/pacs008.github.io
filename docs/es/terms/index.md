@@ -1,22 +1,22 @@
 ---
-title: Terms | Español
-description: Terms information for the Pacs008 website.
+title: Términos | Español
+description: Información sobre los términos del sitio web de Pacs008.
 lang: es-ES
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Terms
+# Términos
 
-This page is part of the public website shell for Pacs008. Replace this placeholder with your final legal copy before production launch if you need jurisdiction-specific wording.
+Esta página forma parte del sitio público de Pacs008. Reemplace este texto con su versión legal final antes del lanzamiento si necesita una redacción específica para su jurisdicción.
 
-## Current scope
+## Alcance actual
 
-- project website information
-- repository and package distribution links
-- contact route for questions or support requests
+- información del sitio web del proyecto
+- enlaces del repositorio y distribución de paquetes
+- vía de contacto para preguntas o solicitudes de soporte
 
-## Practical note
+## Nota práctica
 
-For operational or regulated deployments, have your legal and compliance teams review any final privacy, retention, or terms language before publishing.
+Para despliegues operativos o regulados, haga que sus equipos legales y de cumplimiento revisen cualquier redacción final de privacidad, retención o términos antes de publicar.
 

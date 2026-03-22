@@ -1,22 +1,22 @@
 ---
-title: Privacy | हिन्दी
-description: Privacy information for the Pacs008 website.
+title: गोपनीयता | हिन्दी
+description: Pacs008 वेबसाइट के लिए गोपनीयता जानकारी।
 lang: hi-IN
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Privacy
+# गोपनीयता
 
-This page is part of the public website shell for Pacs008. Replace this placeholder with your final legal copy before production launch if you need jurisdiction-specific wording.
+यह पेज Pacs008 की सार्वजनिक वेबसाइट का हिस्सा है। यदि आपको क्षेत्राधिकार-विशिष्ट शब्दावली की आवश्यकता है तो उत्पादन लॉन्च से पहले इस प्लेसहोल्डर को अपनी अंतिम कानूनी प्रति से बदलें।
 
-## Current scope
+## वर्तमान दायरा
 
-- project website information
-- repository and package distribution links
-- contact route for questions or support requests
+- प्रोजेक्ट वेबसाइट जानकारी
+- रिपॉजिटरी और पैकेज वितरण लिंक
+- प्रश्नों या समर्थन अनुरोधों के लिए संपर्क मार्ग
 
-## Practical note
+## व्यावहारिक नोट
 
-For operational or regulated deployments, have your legal and compliance teams review any final privacy, retention, or terms language before publishing.
+परिचालन या विनियमित तैनाती के लिए, प्रकाशन से पहले अपनी कानूनी और अनुपालन टीमों से किसी भी अंतिम गोपनीयता, प्रतिधारण या शर्तों की भाषा की समीक्षा करवाएँ।
 

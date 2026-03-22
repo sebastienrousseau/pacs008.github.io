@@ -1,45 +1,45 @@
 ---
-title: About Pacs008 | العربية
-description: What Pacs008 does and who it is for.
+title: حول Pacs008 | العربية
+description: ما يفعله Pacs008 ولمن هو موجّه.
 lang: ar-SA
 lastUpdated: true
 image: /logo.svg
 ---
 
-# About Pacs008
+# حول Pacs008
 
-Pacs008 is a Python toolkit for automating ISO 20022 FI-to-FI customer credit transfer workflows.
+Pacs008 هي مجموعة أدوات Python لأتمتة تدفقات تحويل الائتمان ISO 20022 بين المؤسسات المالية.
 
-## What it does
+## ما يفعله
 
-- Generates XML for `pacs.008` and adjacent pacs message families
-- Validates data and XML against schemas
-- Exposes a FastAPI service for automated workflows
-- Provides a CLI for local execution and CI pipelines
-- Supports structured data sources including CSV, JSON, JSONL, SQLite, and Parquet
+- يُنشئ XML لتعريف `pacs.008` وتعريفات رسائل pacs ذات الصلة
+- يتحقق من صحة البيانات و XML وفقاً للمخططات
+- يوفر خدمة FastAPI لسير العمل الآلي
+- يوفر واجهة سطر أوامر للتنفيذ المحلي وخطوط أنابيب CI
+- يدعم مصادر البيانات المنظمة بما في ذلك CSV و JSON و JSONL و SQLite و Parquet
 
-## Who it is for
+## لمن هو موجّه
 
-- payment operations teams
-- platform engineers building internal banking rails
-- migration programmes moving toward ISO 20022
-- compliance and QA teams validating outbound payment messages
+- فرق عمليات الدفع
+- مهندسو المنصات الذين يبنون البنية التحتية الداخلية لمعالجة المدفوعات
+- برامج الترحيل نحو ISO 20022
+- فرق الامتثال وضمان الجودة التي تتحقق من رسائل الدفع الصادرة
 
-## 2026 readiness
+## جاهزية 2026
 
-Pacs008 is designed around the operational deadlines and data-quality pressures that matter in 2026:
+صُمم Pacs008 حول المواعيد النهائية التشغيلية ومتطلبات جودة البيانات ذات الصلة بعام 2026:
 
-- structured and hybrid postal address handling for CBPR+ and scheme migrations
-- stronger validation around debtor, creditor, and agent data quality
-- version-aware generation across legacy and current pacs.008 revisions
-- automation paths that fit CI, batch operations, and internal payment services
+- معالجة العناوين البريدية المنظمة والهجينة لـ CBPR+ وترحيل الأنظمة
+- تحقق أقوى من جودة بيانات المدين والدائن والوكيل
+- إنشاء مدرك للإصدارات عبر مراجعات pacs.008 القديمة والحالية
+- مسارات أتمتة تناسب CI والعمليات الدُفعية والخدمات المالية الداخلية
 
-## Why this site is different
+## التركيز التشغيلي
 
-Many public pacs.008 pages explain the message at a glossary or advisory level. Pacs008 focuses on execution:
+يتجاوز Pacs008 مرجع تعريف الرسائل لدعم التنفيذ التشغيلي:
 
-- generate XML from real source data
-- validate before delivery
-- model payment chains and downstream formats
-- make scheme-specific changes testable in code
+- إنشاء XML من بيانات مصدر حقيقية
+- التحقق قبل التسليم
+- نمذجة سلاسل الدفع والتنسيقات المتلقية
+- جعل التغييرات الخاصة بالأنظمة قابلة للاختبار في الكود
 

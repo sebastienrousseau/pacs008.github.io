@@ -1,16 +1,16 @@
 ---
-title: Message Types | 简体中文
-description: Supported ISO 20022 pacs message families and versions.
+title: 报文类型 | 简体中文
+description: 支持的 ISO 20022 pacs 报文定义和版本。
 lang: zh-CN
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Message Types
+# 报文类型
 
-Pacs008 covers both the core pacs.008 family and related messages used in adjacent orchestration and reconciliation flows.
+Pacs008 涵盖核心 pacs.008 报文定义和编排及对账流程中使用的相关报文。
 
-## Included support
+## 包含的支持
 
 - `pacs.002.001.12`
 - `pacs.003.001.09`
@@ -33,23 +33,23 @@ Pacs008 covers both the core pacs.008 family and related messages used in adjace
 - `pacs.010.001.05`
 - `pacs.028.001.05`
 
-## Delivery model
+## 交付模型
 
-Each supported message type is backed by template assets and validation logic so teams can standardise generation and regression testing across multiple downstream channels.
+每种支持的报文类型都配备模板资源和验证逻辑，以便团队能够在多个下游渠道中标准化生成和回归测试。
 
-## 2026 market context
+## 2026 市场背景
 
-- **SEPA SCT / SCT Inst**: pacs.008 remains central for credit transfer exchange and instant-payment processing.
-- **CBPR+**: pacs.008 continues to replace MT103-style cross-border payloads with richer structured data.
-- **Structured addresses**: current market guidance and bank readiness material point to the November 2026 cutover away from fully unstructured postal addresses.
-- **Serial method and STP**: multi-leg bank-to-bank chains still matter, and straight-through variants remain important for operational efficiency.
+- **SEPA SCT / SCT Inst**：pacs.008 仍然是信贷转账交换和即时支付处理的核心。
+- **CBPR+**：pacs.008 继续用更丰富的结构化数据替代 MT103 风格的跨境载荷。
+- **结构化地址**：当前市场指引指向 2026 年 11 月从完全非结构化邮政地址的切换。
+- **串行方法和 STP**：多环节银行间链仍然重要，直通处理变体对运营效率仍然至关重要。
 
-## What Pacs008 adds
+## 运营能力
 
-Instead of stopping at definitions, Pacs008 gives you template-backed generation and validation across supported revisions so you can:
+Pacs008 在支持的报文定义修订版本中提供基于模板的生成和验证：
 
-- compare versions
-- regression-test scheme updates
-- harden outbound payment data before release
-- support product, operations, and migration teams from one codebase
+- 比较版本
+- 对方案更新进行回归测试
+- 在发布前加固出站支付报文数据
+- 从单一代码库支持产品、运营和迁移团队
 

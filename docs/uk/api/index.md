@@ -1,6 +1,6 @@
 ---
 title: API | Українська
-description: REST and CLI workflow support in Pacs008.
+description: Підтримка робочих процесів REST та CLI у Pacs008.
 lang: uk-UA
 lastUpdated: true
 image: /logo.svg
@@ -8,40 +8,40 @@ image: /logo.svg
 
 # API
 
-The project ships with both a REST API and a CLI for operational payment workflows.
+Проєкт надає як REST API, так і CLI для операційних потоків обробки платіжних повідомлень.
 
-## API capabilities
+## Можливості API
 
-- health and readiness endpoints
-- data validation before XML generation
-- synchronous generation for direct workflows
-- asynchronous job execution for longer-running pipelines
-- downloadable generated files through job completion flows
+- ендпоінти перевірки працездатності та готовності
+- валідація даних перед генерацією XML
+- синхронна генерація для прямих робочих процесів
+- асинхронне виконання завдань для довших пайплайнів
+- завантажувані згенеровані файли через потоки завершення завдань
 
-## CLI capabilities
+## Можливості CLI
 
-- point to a source file and message version
-- validate against XSD before delivery
-- generate XML into pipeline-friendly output directories
-- fit into CI jobs, batch schedules, and local operator tooling
+- вказівка вихідного файлу та версії повідомлення
+- валідація по XSD перед доставкою
+- генерація XML у дружні до пайплайнів вихідні каталоги
+- інтеграція в завдання CI, пакетні розклади та локальні інструменти оператора
 
-## Implementation focus
+## Фокус реалізації
 
-Competitor content often explains pacs.008 structure, but rarely shows how teams should operationalise it. Pacs008 is built for:
+Pacs008 призначений для операційного використання командами обробки платежів:
 
-- pre-flight validation before message creation
-- scheme and version selection at runtime
-- asynchronous generation flows for internal services
-- deterministic outputs for testing and audit trails
+- попередня валідація перед створенням повідомлення
+- вибір схеми та версії під час виконання
+- асинхронні потоки генерації для внутрішніх сервісів
+- детерміновані вихідні дані для тестування та аудиторських слідів
 
-## Data-quality pressure in 2026
+## Вимоги до якості даних на 2026 рік
 
-Operational teams are under increasing pressure to improve message quality, especially around:
+Вимоги до якості повідомлень посилюються по всій галузі, особливо в області:
 
-- party and agent identification
-- structured or hybrid address readiness
-- richer remittance and reference handling
-- transparency across serial payment chains
+- ідентифікація сторін та агентів
+- готовність структурованих або гібридних адрес
+- багатша обробка переказів та посилань
+- прозорість по серійних платіжних ланцюгах
 
-The API and CLI are designed to make those checks part of the workflow instead of a manual review step.
+API та CLI розроблені так, щоб ці перевірки стали частиною робочого процесу, а не ручним кроком ревізії.
 

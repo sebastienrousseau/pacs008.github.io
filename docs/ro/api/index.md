@@ -1,6 +1,6 @@
 ---
 title: API | Română
-description: REST and CLI workflow support in Pacs008.
+description: Suport pentru fluxuri REST și CLI în Pacs008.
 lang: ro-RO
 lastUpdated: true
 image: /logo.svg
@@ -8,40 +8,40 @@ image: /logo.svg
 
 # API
 
-The project ships with both a REST API and a CLI for operational payment workflows.
+Proiectul oferă atât un REST API, cât și un CLI pentru fluxurile operaționale de mesaje de plăți.
 
-## API capabilities
+## Capacități API
 
-- health and readiness endpoints
-- data validation before XML generation
-- synchronous generation for direct workflows
-- asynchronous job execution for longer-running pipelines
-- downloadable generated files through job completion flows
+- endpoint-uri de sănătate și pregătire
+- validarea datelor înainte de generarea XML
+- generare sincronă pentru fluxuri directe
+- execuție asincronă a sarcinilor pentru pipeline-uri mai lungi
+- fișiere generate descărcabile prin fluxuri de finalizare a sarcinilor
 
-## CLI capabilities
+## Capacități CLI
 
-- point to a source file and message version
-- validate against XSD before delivery
-- generate XML into pipeline-friendly output directories
-- fit into CI jobs, batch schedules, and local operator tooling
+- indicarea unui fișier sursă și a unei versiuni de mesaj
+- validarea față de XSD înainte de livrare
+- generarea XML în directoare de ieșire prietenoase cu pipeline-urile
+- integrarea în sarcini CI, programări batch și instrumente locale de operator
 
-## Implementation focus
+## Focus pe implementare
 
-Competitor content often explains pacs.008 structure, but rarely shows how teams should operationalise it. Pacs008 is built for:
+Pacs008 este conceput pentru utilizare operațională de către echipele de procesare a plăților:
 
-- pre-flight validation before message creation
-- scheme and version selection at runtime
-- asynchronous generation flows for internal services
-- deterministic outputs for testing and audit trails
+- validare pre-zbor înainte de crearea mesajului
+- selecția schemei și versiunii la runtime
+- fluxuri de generare asincrone pentru servicii interne
+- ieșiri deterministe pentru teste și urme de audit
 
-## Data-quality pressure in 2026
+## Cerințe de calitate a datelor pentru 2026
 
-Operational teams are under increasing pressure to improve message quality, especially around:
+Cerințele de calitate a mesajelor se înăspresc în industrie, în special în jurul:
 
-- party and agent identification
-- structured or hybrid address readiness
-- richer remittance and reference handling
-- transparency across serial payment chains
+- identificarea părților și agenților
+- pregătirea adreselor structurate sau hibride
+- gestionare mai bogată a remiterilor și referințelor
+- transparență pe lanțurile de plăți seriale
 
-The API and CLI are designed to make those checks part of the workflow instead of a manual review step.
+API-ul și CLI-ul sunt concepute pentru a face aceste verificări parte din fluxul de lucru în loc de un pas de revizuire manuală.
 

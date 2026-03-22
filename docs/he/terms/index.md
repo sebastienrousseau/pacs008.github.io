@@ -1,22 +1,22 @@
 ---
-title: Terms | עברית
-description: Terms information for the Pacs008 website.
+title: תנאים | עברית
+description: מידע תנאים עבור אתר Pacs008.
 lang: he-IL
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Terms
+# תנאים
 
-This page is part of the public website shell for Pacs008. Replace this placeholder with your final legal copy before production launch if you need jurisdiction-specific wording.
+עמוד זה הוא חלק ממעטפת האתר הציבורי של Pacs008. החליפו טקסט זה בנוסח המשפטי הסופי שלכם לפני ההשקה אם אתם צריכים ניסוח ספציפי לתחום השיפוט.
 
-## Current scope
+## היקף נוכחי
 
-- project website information
-- repository and package distribution links
-- contact route for questions or support requests
+- מידע אתר הפרויקט
+- קישורי מאגר והפצת חבילות
+- ערוץ קשר לשאלות או בקשות תמיכה
 
-## Practical note
+## הערה מעשית
 
-For operational or regulated deployments, have your legal and compliance teams review any final privacy, retention, or terms language before publishing.
+לפריסות תפעוליות או מוסדרות, בקשו מהצוותים המשפטיים ומצוותי הציות שלכם לסקור כל ניסוח סופי לפני הפרסום.
 

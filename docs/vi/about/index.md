@@ -1,45 +1,45 @@
 ---
-title: About Pacs008 | Tiếng Việt
-description: What Pacs008 does and who it is for.
+title: Giới thiệu Pacs008 | Tiếng Việt
+description: Pacs008 làm gì và dành cho ai.
 lang: vi-VN
 lastUpdated: true
 image: /logo.svg
 ---
 
-# About Pacs008
+# Giới thiệu Pacs008
 
-Pacs008 is a Python toolkit for automating ISO 20022 FI-to-FI customer credit transfer workflows.
+Pacs008 là bộ công cụ Python để tự động hóa quy trình chuyển khoản tín dụng khách hàng ISO 20022 giữa các tổ chức tài chính.
 
-## What it does
+## Chức năng
 
-- Generates XML for `pacs.008` and adjacent pacs message families
-- Validates data and XML against schemas
-- Exposes a FastAPI service for automated workflows
-- Provides a CLI for local execution and CI pipelines
-- Supports structured data sources including CSV, JSON, JSONL, SQLite, and Parquet
+- Tạo XML cho `pacs.008` và các định nghĩa thông điệp pacs liên quan
+- Xác thực dữ liệu và XML theo lược đồ
+- Cung cấp dịch vụ FastAPI cho quy trình tự động
+- Cung cấp CLI cho thực thi cục bộ và pipeline CI
+- Hỗ trợ nguồn dữ liệu có cấu trúc bao gồm CSV, JSON, JSONL, SQLite và Parquet
 
-## Who it is for
+## Đối tượng sử dụng
 
-- payment operations teams
-- platform engineers building internal banking rails
-- migration programmes moving toward ISO 20022
-- compliance and QA teams validating outbound payment messages
+- đội ngũ vận hành thanh toán
+- kỹ sư nền tảng xây dựng hạ tầng xử lý thanh toán nội bộ
+- chương trình chuyển đổi sang ISO 20022
+- đội ngũ tuân thủ và QA xác thực thông điệp thanh toán đi
 
-## 2026 readiness
+## Sẵn sàng cho 2026
 
-Pacs008 is designed around the operational deadlines and data-quality pressures that matter in 2026:
+Pacs008 được thiết kế xung quanh các thời hạn vận hành và yêu cầu chất lượng dữ liệu liên quan đến năm 2026:
 
-- structured and hybrid postal address handling for CBPR+ and scheme migrations
-- stronger validation around debtor, creditor, and agent data quality
-- version-aware generation across legacy and current pacs.008 revisions
-- automation paths that fit CI, batch operations, and internal payment services
+- xử lý địa chỉ bưu điện có cấu trúc và kết hợp cho CBPR+ và chuyển đổi lược đồ
+- xác thực mạnh hơn về chất lượng dữ liệu bên nợ, bên có và đại lý
+- tạo nhận biết phiên bản qua các bản sửa đổi pacs.008 cũ và hiện tại
+- đường dẫn tự động hóa phù hợp với CI, hoạt động theo lô và dịch vụ thanh toán nội bộ
 
-## Why this site is different
+## Trọng tâm vận hành
 
-Many public pacs.008 pages explain the message at a glossary or advisory level. Pacs008 focuses on execution:
+Pacs008 vượt ra ngoài tham chiếu định nghĩa thông điệp để hỗ trợ triển khai vận hành:
 
-- generate XML from real source data
-- validate before delivery
-- model payment chains and downstream formats
-- make scheme-specific changes testable in code
+- tạo XML từ dữ liệu nguồn thực
+- xác thực trước khi giao
+- mô hình hóa chuỗi thanh toán và định dạng hạ nguồn
+- làm cho các thay đổi cụ thể theo lược đồ có thể kiểm tra được trong mã
 

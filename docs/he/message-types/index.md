@@ -1,16 +1,16 @@
 ---
-title: Message Types | עברית
-description: Supported ISO 20022 pacs message families and versions.
+title: סוגי הודעות | עברית
+description: הגדרות וגרסאות הודעות pacs נתמכות לפי ISO 20022.
 lang: he-IL
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Message Types
+# סוגי הודעות
 
-Pacs008 covers both the core pacs.008 family and related messages used in adjacent orchestration and reconciliation flows.
+Pacs008 מכסה את הגדרת ההודעה המרכזית pacs.008 והודעות קשורות המשמשות בתהליכי תיאום והתאמה.
 
-## Included support
+## תמיכה כלולה
 
 - `pacs.002.001.12`
 - `pacs.003.001.09`
@@ -33,23 +33,23 @@ Pacs008 covers both the core pacs.008 family and related messages used in adjace
 - `pacs.010.001.05`
 - `pacs.028.001.05`
 
-## Delivery model
+## מודל אספקה
 
-Each supported message type is backed by template assets and validation logic so teams can standardise generation and regression testing across multiple downstream channels.
+כל סוג הודעה נתמך מגובה בנכסי תבניות ולוגיקת אימות כדי שצוותים יוכלו לתקנן יצירה ובדיקות רגרסיה.
 
-## 2026 market context
+## הקשר שוק 2026
 
-- **SEPA SCT / SCT Inst**: pacs.008 remains central for credit transfer exchange and instant-payment processing.
-- **CBPR+**: pacs.008 continues to replace MT103-style cross-border payloads with richer structured data.
-- **Structured addresses**: current market guidance and bank readiness material point to the November 2026 cutover away from fully unstructured postal addresses.
-- **Serial method and STP**: multi-leg bank-to-bank chains still matter, and straight-through variants remain important for operational efficiency.
+- **SEPA SCT / SCT Inst**: pacs.008 נשאר מרכזי להחלפת העברות אשראי ועיבוד תשלומים מיידיים.
+- **CBPR+**: pacs.008 ממשיך להחליף מטענים חוצי גבולות בסגנון MT103 בנתונים מובנים עשירים יותר.
+- **כתובות מובנות**: הנחיות השוק הנוכחיות מצביעות על המעבר בנובמבר 2026 מכתובות דואר לא מובנות לחלוטין.
+- **שיטה סדרתית ו-STP**: שרשראות בנק-לבנק רב-שלביות עדיין חשובות, וגרסאות עיבוד ישיר נשארות חשובות ליעילות תפעולית.
 
-## What Pacs008 adds
+## יכולות תפעוליות
 
-Instead of stopping at definitions, Pacs008 gives you template-backed generation and validation across supported revisions so you can:
+Pacs008 מספק יצירה ואימות מבוססי תבניות לאורך גרסאות הגדרות הודעות נתמכות:
 
-- compare versions
-- regression-test scheme updates
-- harden outbound payment data before release
-- support product, operations, and migration teams from one codebase
+- להשוות גרסאות
+- לבצע בדיקות רגרסיה לעדכוני סכמות
+- לחזק נתוני הודעות תשלום יוצאים לפני שחרור
+- לתמוך בצוותי מוצר, תפעול ומעבר מבסיס קוד אחד
 

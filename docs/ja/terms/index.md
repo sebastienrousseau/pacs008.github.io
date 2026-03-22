@@ -1,22 +1,22 @@
 ---
-title: Terms | 日本語
-description: Terms information for the Pacs008 website.
+title: 利用規約 | 日本語
+description: Pacs008 ウェブサイトの利用規約情報。
 lang: ja-JP
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Terms
+# 利用規約
 
-This page is part of the public website shell for Pacs008. Replace this placeholder with your final legal copy before production launch if you need jurisdiction-specific wording.
+このページは Pacs008 の公開ウェブサイトの一部です。管轄区域固有の文言が必要な場合は、本番リリース前にこのプレースホルダーを最終的な法的文書に置き換えてください。
 
-## Current scope
+## 現在のスコープ
 
-- project website information
-- repository and package distribution links
-- contact route for questions or support requests
+- プロジェクトウェブサイト情報
+- リポジトリおよびパッケージ配布リンク
+- 質問やサポートリクエストの連絡先
 
-## Practical note
+## 実務上の注意
 
-For operational or regulated deployments, have your legal and compliance teams review any final privacy, retention, or terms language before publishing.
+運用または規制対象のデプロイメントでは、公開前に法務およびコンプライアンスチームにプライバシー、保持、または規約に関する最終文言をレビューしてもらってください。
 

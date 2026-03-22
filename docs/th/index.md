@@ -1,6 +1,6 @@
 ---
 title: Pacs008 | ไทย
-description: การสร้าง ตรวจสอบ API และความสอดคล้องสำหรับโฟลว์ FI-to-FI
+description: การสร้าง ตรวจสอบ จัดเรียง API และสนับสนุนการปฏิบัติตามกฎระเบียบสำหรับเวิร์กโฟลว์โอนเครดิตลูกค้า FI-to-FI
 lang: th-TH
 author: Sebastien Rousseau
 lastUpdated: true
@@ -14,10 +14,10 @@ sitemap: true
 breadcrumbTitle: Pacs008
 pageType: home
 schemaType: WebSite
-heroText: ทำงาน pacs.008 แบบอัตโนมัติอย่างมั่นใจ
+heroText: อัตโนมัติการประมวลผลข้อความ pacs.008 ตามมาตรฐาน ISO 20022
 home: true
 metaTitle: Pacs008
-subtitle: การสร้าง ตรวจสอบ API และความสอดคล้องสำหรับโฟลว์ FI-to-FI
-tagline: การสร้าง ตรวจสอบ API และความสอดคล้องสำหรับโฟลว์ FI-to-FI
+subtitle: การสร้าง ตรวจสอบ จัดเรียง API และสนับสนุนการปฏิบัติตามกฎระเบียบสำหรับเวิร์กโฟลว์โอนเครดิตลูกค้า FI-to-FI
+tagline: การสร้าง ตรวจสอบ จัดเรียง API และสนับสนุนการปฏิบัติตามกฎระเบียบสำหรับเวิร์กโฟลว์โอนเครดิตลูกค้า FI-to-FI
 actionLink: /th/about/
 ---

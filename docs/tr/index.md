@@ -1,6 +1,6 @@
 ---
 title: Pacs008 | Türkçe
-description: Üretim düzeyinde oluşturma, doğrulama, API ve uyumluluk desteği.
+description: FI-to-FI müşteri kredi transferi iş akışları için oluşturma, doğrulama, API orkestrasyonu ve uyumluluk desteği.
 lang: tr-TR
 author: Sebastien Rousseau
 lastUpdated: true
@@ -14,10 +14,10 @@ sitemap: true
 breadcrumbTitle: Pacs008
 pageType: home
 schemaType: WebSite
-heroText: pacs.008 otomasyonunu güvenle yönetin.
+heroText: ISO 20022 pacs.008 mesaj işlemeyi otomatikleştirin.
 home: true
 metaTitle: Pacs008
-subtitle: Üretim düzeyinde oluşturma, doğrulama, API ve uyumluluk desteği.
-tagline: Üretim düzeyinde oluşturma, doğrulama, API ve uyumluluk desteği.
+subtitle: FI-to-FI müşteri kredi transferi iş akışları için oluşturma, doğrulama, API orkestrasyonu ve uyumluluk desteği.
+tagline: FI-to-FI müşteri kredi transferi iş akışları için oluşturma, doğrulama, API orkestrasyonu ve uyumluluk desteği.
 actionLink: /tr/about/
 ---

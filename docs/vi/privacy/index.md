@@ -1,22 +1,22 @@
 ---
-title: Privacy | Tiếng Việt
-description: Privacy information for the Pacs008 website.
+title: Quyền riêng tư | Tiếng Việt
+description: Thông tin quyền riêng tư cho trang web Pacs008.
 lang: vi-VN
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Privacy
+# Quyền riêng tư
 
-This page is part of the public website shell for Pacs008. Replace this placeholder with your final legal copy before production launch if you need jurisdiction-specific wording.
+Trang này là một phần của trang web công khai Pacs008. Hãy thay thế văn bản này bằng bản sao pháp lý cuối cùng trước khi ra mắt nếu bạn cần từ ngữ cụ thể theo quyền tài phán.
 
-## Current scope
+## Phạm vi hiện tại
 
-- project website information
-- repository and package distribution links
-- contact route for questions or support requests
+- thông tin trang web dự án
+- liên kết kho lưu trữ và phân phối gói
+- đường liên hệ cho câu hỏi hoặc yêu cầu hỗ trợ
 
-## Practical note
+## Lưu ý thực tế
 
-For operational or regulated deployments, have your legal and compliance teams review any final privacy, retention, or terms language before publishing.
+Đối với các triển khai vận hành hoặc được quản lý, hãy yêu cầu đội ngũ pháp lý và tuân thủ xem xét mọi từ ngữ cuối cùng về quyền riêng tư, lưu giữ hoặc điều khoản trước khi xuất bản.
 

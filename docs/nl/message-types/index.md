@@ -1,16 +1,16 @@
 ---
-title: Message Types | Nederlands
-description: Supported ISO 20022 pacs message families and versions.
+title: Berichttypen | Nederlands
+description: Ondersteunde ISO 20022 pacs-berichtdefinities en versies.
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Message Types
+# Berichttypen
 
-Pacs008 covers both the core pacs.008 family and related messages used in adjacent orchestration and reconciliation flows.
+Pacs008 dekt de kern pacs.008-berichtdefinitie en gerelateerde berichten die worden gebruikt in orkestratie- en afstemmingsstromen.
 
-## Included support
+## Inbegrepen ondersteuning
 
 - `pacs.002.001.12`
 - `pacs.003.001.09`
@@ -33,23 +33,23 @@ Pacs008 covers both the core pacs.008 family and related messages used in adjace
 - `pacs.010.001.05`
 - `pacs.028.001.05`
 
-## Delivery model
+## Leveringsmodel
 
-Each supported message type is backed by template assets and validation logic so teams can standardise generation and regression testing across multiple downstream channels.
+Elk ondersteund berichttype wordt ondersteund door sjablonen en validatielogica zodat teams het genereren en regressietesten over meerdere kanalen kunnen standaardiseren.
 
-## 2026 market context
+## Marktcontext 2026
 
-- **SEPA SCT / SCT Inst**: pacs.008 remains central for credit transfer exchange and instant-payment processing.
-- **CBPR+**: pacs.008 continues to replace MT103-style cross-border payloads with richer structured data.
-- **Structured addresses**: current market guidance and bank readiness material point to the November 2026 cutover away from fully unstructured postal addresses.
-- **Serial method and STP**: multi-leg bank-to-bank chains still matter, and straight-through variants remain important for operational efficiency.
+- **SEPA SCT / SCT Inst**: pacs.008 blijft centraal voor overschrijvingsuitwisseling en instantbetalingsverwerking.
+- **CBPR+**: pacs.008 blijft MT103-stijl grensoverschrijdende payloads vervangen door rijkere gestructureerde gegevens.
+- **Gestructureerde adressen**: huidige marktrichtlijnen wijzen op de omschakeling in november 2026 weg van volledig ongestructureerde postadressen.
+- **Seriële methode en STP**: multi-leg bank-naar-bank-ketens blijven belangrijk, en straight-through-varianten blijven essentieel voor operationele efficiëntie.
 
-## What Pacs008 adds
+## Operationele mogelijkheden
 
-Instead of stopping at definitions, Pacs008 gives you template-backed generation and validation across supported revisions so you can:
+Pacs008 biedt sjabloongestuurde generatie en validatie over ondersteunde berichtdefinitie-revisies:
 
-- compare versions
-- regression-test scheme updates
-- harden outbound payment data before release
-- support product, operations, and migration teams from one codebase
+- versies vergelijken
+- regressietests uitvoeren op schema-updates
+- uitgaande betalingsberichtgegevens versterken vóór release
+- product-, operatie- en migratieteams ondersteunen vanuit één codebase
 

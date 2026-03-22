@@ -1,6 +1,6 @@
 ---
 title: API | Türkçe
-description: REST and CLI workflow support in Pacs008.
+description: Pacs008'de REST ve CLI iş akışı desteği.
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg
@@ -8,40 +8,40 @@ image: /logo.svg
 
 # API
 
-The project ships with both a REST API and a CLI for operational payment workflows.
+Proje, operasyonel ödeme mesajı iş akışları için hem REST API hem de CLI sağlar.
 
-## API capabilities
+## API yetenekleri
 
-- health and readiness endpoints
-- data validation before XML generation
-- synchronous generation for direct workflows
-- asynchronous job execution for longer-running pipelines
-- downloadable generated files through job completion flows
+- sağlık ve hazırlık uç noktaları
+- XML oluşturmadan önce veri doğrulama
+- doğrudan iş akışları için senkron oluşturma
+- daha uzun süren ardışık düzenler için asenkron görev yürütme
+- görev tamamlama akışları aracılığıyla indirilebilir oluşturulan dosyalar
 
-## CLI capabilities
+## CLI yetenekleri
 
-- point to a source file and message version
-- validate against XSD before delivery
-- generate XML into pipeline-friendly output directories
-- fit into CI jobs, batch schedules, and local operator tooling
+- kaynak dosya ve mesaj sürümünü belirtme
+- teslimattan önce XSD'ye göre doğrulama
+- ardışık düzen dostu çıktı dizinlerine XML oluşturma
+- CI işlerine, toplu zamanlamalara ve yerel operatör araçlarına uyum
 
-## Implementation focus
+## Uygulama odağı
 
-Competitor content often explains pacs.008 structure, but rarely shows how teams should operationalise it. Pacs008 is built for:
+Pacs008, ödeme işleme ekipleri tarafından operasyonel kullanım için tasarlanmıştır:
 
-- pre-flight validation before message creation
-- scheme and version selection at runtime
-- asynchronous generation flows for internal services
-- deterministic outputs for testing and audit trails
+- mesaj oluşturmadan önce ön doğrulama
+- çalışma zamanında şema ve sürüm seçimi
+- dahili hizmetler için asenkron oluşturma akışları
+- test ve denetim izleri için deterministik çıktılar
 
-## Data-quality pressure in 2026
+## 2026 için veri kalitesi gereksinimleri
 
-Operational teams are under increasing pressure to improve message quality, especially around:
+Mesaj kalitesi gereksinimleri sektör genelinde sıkılaşmaktadır, özellikle şu konularda:
 
-- party and agent identification
-- structured or hybrid address readiness
-- richer remittance and reference handling
-- transparency across serial payment chains
+- taraf ve aracı kimlik tespiti
+- yapılandırılmış veya hibrit adres hazırlığı
+- daha zengin havale ve referans işleme
+- seri ödeme zincirleri boyunca şeffaflık
 
-The API and CLI are designed to make those checks part of the workflow instead of a manual review step.
+API ve CLI, bu kontrolleri manuel bir inceleme adımı yerine iş akışının bir parçası haline getirmek için tasarlanmıştır.
 

@@ -1,16 +1,16 @@
 ---
-title: Message Types | Русский
-description: Supported ISO 20022 pacs message families and versions.
+title: Типы сообщений | Русский
+description: Поддерживаемые определения и версии сообщений pacs ISO 20022.
 lang: ru-RU
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Message Types
+# Типы сообщений
 
-Pacs008 covers both the core pacs.008 family and related messages used in adjacent orchestration and reconciliation flows.
+Pacs008 охватывает основное определение сообщения pacs.008 и связанные сообщения, используемые в потоках оркестрации и сверки.
 
-## Included support
+## Включённая поддержка
 
 - `pacs.002.001.12`
 - `pacs.003.001.09`
@@ -33,23 +33,23 @@ Pacs008 covers both the core pacs.008 family and related messages used in adjace
 - `pacs.010.001.05`
 - `pacs.028.001.05`
 
-## Delivery model
+## Модель поставки
 
-Each supported message type is backed by template assets and validation logic so teams can standardise generation and regression testing across multiple downstream channels.
+Каждый поддерживаемый тип сообщения обеспечен шаблонами и логикой валидации, чтобы команды могли стандартизировать генерацию и регрессионное тестирование по нескольким каналам.
 
-## 2026 market context
+## Рыночный контекст 2026
 
-- **SEPA SCT / SCT Inst**: pacs.008 remains central for credit transfer exchange and instant-payment processing.
-- **CBPR+**: pacs.008 continues to replace MT103-style cross-border payloads with richer structured data.
-- **Structured addresses**: current market guidance and bank readiness material point to the November 2026 cutover away from fully unstructured postal addresses.
-- **Serial method and STP**: multi-leg bank-to-bank chains still matter, and straight-through variants remain important for operational efficiency.
+- **SEPA SCT / SCT Inst**: pacs.008 остаётся центральным для обмена кредитовыми переводами и обработки мгновенных платежей.
+- **CBPR+**: pacs.008 продолжает заменять трансграничные нагрузки в стиле MT103 более богатыми структурированными данными.
+- **Структурированные адреса**: текущие рыночные рекомендации указывают на переход в ноябре 2026 от полностью неструктурированных почтовых адресов.
+- **Серийный метод и STP**: многоэтапные межбанковские цепочки по-прежнему важны, а варианты сквозной обработки остаются ключевыми для операционной эффективности.
 
-## What Pacs008 adds
+## Операционные возможности
 
-Instead of stopping at definitions, Pacs008 gives you template-backed generation and validation across supported revisions so you can:
+Pacs008 предоставляет генерацию и валидацию на основе шаблонов по поддерживаемым ревизиям определений сообщений:
 
-- compare versions
-- regression-test scheme updates
-- harden outbound payment data before release
-- support product, operations, and migration teams from one codebase
+- сравнивать версии
+- проводить регрессионное тестирование обновлений схем
+- укреплять данные исходящих платёжных сообщений перед релизом
+- поддерживать команды продукта, операций и миграции из одной кодовой базы
 

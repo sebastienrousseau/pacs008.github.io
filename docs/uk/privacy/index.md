@@ -1,22 +1,22 @@
 ---
-title: Privacy | Українська
-description: Privacy information for the Pacs008 website.
+title: Конфіденційність | Українська
+description: Інформація про конфіденційність сайту Pacs008.
 lang: uk-UA
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Privacy
+# Конфіденційність
 
-This page is part of the public website shell for Pacs008. Replace this placeholder with your final legal copy before production launch if you need jurisdiction-specific wording.
+Ця сторінка є частиною публічного сайту Pacs008. Замініть цей текст остаточною юридичною версією перед запуском, якщо вам потрібне формулювання, специфічне для юрисдикції.
 
-## Current scope
+## Поточний обсяг
 
-- project website information
-- repository and package distribution links
-- contact route for questions or support requests
+- інформація сайту проєкту
+- посилання на репозиторій та розповсюдження пакетів
+- канал зв'язку для запитань або запитів підтримки
 
-## Practical note
+## Практична примітка
 
-For operational or regulated deployments, have your legal and compliance teams review any final privacy, retention, or terms language before publishing.
+Для операційних або регульованих розгортань попросіть юридичну службу та службу комплаєнсу перевірити всі остаточні формулювання щодо конфіденційності, зберігання або умов перед публікацією.
 

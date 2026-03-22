@@ -1,22 +1,22 @@
 ---
-title: Privacy | Română
-description: Privacy information for the Pacs008 website.
+title: Confidențialitate | Română
+description: Informații de confidențialitate pentru site-ul Pacs008.
 lang: ro-RO
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Privacy
+# Confidențialitate
 
-This page is part of the public website shell for Pacs008. Replace this placeholder with your final legal copy before production launch if you need jurisdiction-specific wording.
+Această pagină face parte din site-ul public Pacs008. Înlocuiți acest text cu versiunea juridică finală înainte de lansare dacă aveți nevoie de formulare specifice jurisdicției.
 
-## Current scope
+## Domeniu actual
 
-- project website information
-- repository and package distribution links
-- contact route for questions or support requests
+- informații despre site-ul proiectului
+- linkuri către depozit și distribuția pachetelor
+- cale de contact pentru întrebări sau cereri de suport
 
-## Practical note
+## Notă practică
 
-For operational or regulated deployments, have your legal and compliance teams review any final privacy, retention, or terms language before publishing.
+Pentru implementări operaționale sau reglementate, solicitați echipelor juridice și de conformitate să revizuiască orice formulare finală privind confidențialitatea, retenția sau termenii înainte de publicare.
 

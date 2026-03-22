@@ -1,6 +1,6 @@
 ---
 title: Pacs008 | Bahasa Indonesia
-description: Pembuatan, validasi, API, dan kepatuhan untuk alur FI-to-FI.
+description: Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan FI-to-FI.
 lang: id-ID
 author: Sebastien Rousseau
 lastUpdated: true
@@ -14,10 +14,10 @@ sitemap: true
 breadcrumbTitle: Pacs008
 pageType: home
 schemaType: WebSite
-heroText: Otomatisasikan pacs.008 dengan percaya diri.
+heroText: Otomatisasi pemrosesan pesan pacs.008 ISO 20022.
 home: true
 metaTitle: Pacs008
-subtitle: Pembuatan, validasi, API, dan kepatuhan untuk alur FI-to-FI.
-tagline: Pembuatan, validasi, API, dan kepatuhan untuk alur FI-to-FI.
+subtitle: Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan FI-to-FI.
+tagline: Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan FI-to-FI.
 actionLink: /id/about/
 ---

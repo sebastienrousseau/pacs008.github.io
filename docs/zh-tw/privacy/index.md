@@ -1,22 +1,22 @@
 ---
-title: Privacy | 繁體中文
-description: Privacy information for the Pacs008 website.
+title: 隱私 | 繁體中文
+description: Pacs008 網站的隱私資訊。
 lang: zh-TW
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Privacy
+# 隱私
 
-This page is part of the public website shell for Pacs008. Replace this placeholder with your final legal copy before production launch if you need jurisdiction-specific wording.
+本頁面是 Pacs008 公開網站的一部分。如果您需要特定司法管轄區的措辭，請在正式上線前用最終法律文本替換此佔位符。
 
-## Current scope
+## 目前範圍
 
-- project website information
-- repository and package distribution links
-- contact route for questions or support requests
+- 專案網站資訊
+- 儲存庫和套件分發連結
+- 問題或支援請求的聯絡管道
 
-## Practical note
+## 實用說明
 
-For operational or regulated deployments, have your legal and compliance teams review any final privacy, retention, or terms language before publishing.
+對於營運或受監管的部署，請在發布前讓法律和合規團隊審核隱私、保留或條款方面的最終措辭。
 

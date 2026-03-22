@@ -1,45 +1,45 @@
 ---
-title: About Pacs008 | 日本語
-description: What Pacs008 does and who it is for.
+title: Pacs008 について | 日本語
+description: Pacs008 の機能と対象ユーザー。
 lang: ja-JP
 lastUpdated: true
 image: /logo.svg
 ---
 
-# About Pacs008
+# Pacs008 について
 
-Pacs008 is a Python toolkit for automating ISO 20022 FI-to-FI customer credit transfer workflows.
+Pacs008 は、ISO 20022 FI-to-FI 顧客クレジット移転ワークフローを自動化するための Python ツールキットです。
 
-## What it does
+## 機能
 
-- Generates XML for `pacs.008` and adjacent pacs message families
-- Validates data and XML against schemas
-- Exposes a FastAPI service for automated workflows
-- Provides a CLI for local execution and CI pipelines
-- Supports structured data sources including CSV, JSON, JSONL, SQLite, and Parquet
+- `pacs.008` および関連する pacs メッセージ定義の XML を生成
+- スキーマに対してデータと XML を検証
+- 自動化ワークフロー用の FastAPI サービスを公開
+- ローカル実行と CI パイプライン用の CLI を提供
+- CSV、JSON、JSONL、SQLite、Parquet を含む構造化データソースに対応
 
-## Who it is for
+## 対象ユーザー
 
-- payment operations teams
-- platform engineers building internal banking rails
-- migration programmes moving toward ISO 20022
-- compliance and QA teams validating outbound payment messages
+- 決済オペレーションチーム
+- 社内決済処理インフラを構築するプラットフォームエンジニア
+- ISO 20022 への移行プログラム
+- 送信決済メッセージを検証するコンプライアンスおよび QA チーム
 
-## 2026 readiness
+## 2026 年対応
 
-Pacs008 is designed around the operational deadlines and data-quality pressures that matter in 2026:
+Pacs008 は 2026 年に関連する運用期限とデータ品質要件に対応して設計されています：
 
-- structured and hybrid postal address handling for CBPR+ and scheme migrations
-- stronger validation around debtor, creditor, and agent data quality
-- version-aware generation across legacy and current pacs.008 revisions
-- automation paths that fit CI, batch operations, and internal payment services
+- CBPR+ およびスキーマ移行のための構造化・ハイブリッド郵便住所処理
+- 債務者、債権者、エージェントのデータ品質に関するより厳格な検証
+- レガシーおよび現行の pacs.008 リビジョンにわたるバージョン対応生成
+- CI、バッチ処理、社内決済サービスに適合する自動化パス
 
-## Why this site is different
+## 運用の焦点
 
-Many public pacs.008 pages explain the message at a glossary or advisory level. Pacs008 focuses on execution:
+Pacs008 はメッセージ定義の参照を超え、運用実装を支援します：
 
-- generate XML from real source data
-- validate before delivery
-- model payment chains and downstream formats
-- make scheme-specific changes testable in code
+- 実際のソースデータから XML を生成
+- 配信前に検証
+- 決済チェーンとダウンストリームフォーマットをモデル化
+- スキーマ固有の変更をコードでテスト可能に
 

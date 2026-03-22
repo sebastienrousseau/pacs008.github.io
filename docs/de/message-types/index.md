@@ -1,6 +1,6 @@
 ---
 title: Nachrichtentypen | Deutsch
-description: Unterstutzte ISO 20022 pacs-Familien und Versionen.
+description: Unterstützte ISO 20022 pacs-Nachrichtendefinitionen und Versionen.
 lang: de-DE
 lastUpdated: true
 image: /logo.svg
@@ -8,9 +8,9 @@ image: /logo.svg
 
 # Nachrichtentypen
 
-Pacs008 deckt sowohl die zentrale pacs.008-Familie als auch verwandte Nachrichten fur Orchestrierung und Abstimmung ab.
+Pacs008 deckt die zentrale pacs.008-Nachrichtendefinition sowie verwandte Nachrichten für Orchestrierung und Abstimmung ab.
 
-## Enthaltene Unterstutzung
+## Enthaltene Unterstützung
 
 - `pacs.002.001.12`
 - `pacs.003.001.09`
@@ -35,21 +35,21 @@ Pacs008 deckt sowohl die zentrale pacs.008-Familie als auch verwandte Nachrichte
 
 ## Bereitstellungsmodell
 
-Jeder unterstutzte Nachrichtentyp basiert auf Vorlagen und Validierungslogik, damit Teams Generierung und Regressionstests standardisieren konnen.
+Jeder unterstützte Nachrichtentyp basiert auf Vorlagen und Validierungslogik, damit Teams Generierung und Regressionstests standardisieren können.
 
-## 2026 market context
+## Marktkontext 2026
 
-- **SEPA SCT / SCT Inst**: pacs.008 remains central for credit transfer exchange and instant-payment processing.
-- **CBPR+**: pacs.008 continues to replace MT103-style cross-border payloads with richer structured data.
-- **Structured addresses**: current market guidance and bank readiness material point to the November 2026 cutover away from fully unstructured postal addresses.
-- **Serial method and STP**: multi-leg bank-to-bank chains still matter, and straight-through variants remain important for operational efficiency.
+- **SEPA SCT / SCT Inst**: pacs.008 bleibt zentral für den Überweisungsaustausch und die Echtzeit-Zahlungsverarbeitung.
+- **CBPR+**: pacs.008 ersetzt weiterhin MT103-artige grenzüberschreitende Nutzlasten durch reichhaltigere strukturierte Daten.
+- **Strukturierte Adressen**: Aktuelle Marktleitlinien weisen auf die Umstellung im November 2026 weg von vollständig unstrukturierten Postanschriften hin.
+- **Serielle Methode und STP**: Mehrstufige Bank-zu-Bank-Ketten bleiben wichtig, und Straight-Through-Varianten sind weiterhin entscheidend für die operative Effizienz.
 
-## What Pacs008 adds
+## Operative Fähigkeiten
 
-Instead of stopping at definitions, Pacs008 gives you template-backed generation and validation across supported revisions so you can:
+Pacs008 bietet vorlagengestützte Generierung und Validierung über unterstützte Nachrichtendefinitions-Revisionen:
 
-- compare versions
-- regression-test scheme updates
-- harden outbound payment data before release
-- support product, operations, and migration teams from one codebase
+- Versionen vergleichen
+- Regressionstests für Schema-Updates durchführen
+- Ausgehende Zahlungsnachrichtendaten vor der Freigabe stärken
+- Produkt-, Betriebs- und Migrationsteams aus einer einzigen Codebasis unterstützen
 

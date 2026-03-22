@@ -1,45 +1,45 @@
 ---
-title: About Pacs008 | עברית
-description: What Pacs008 does and who it is for.
+title: אודות Pacs008 | עברית
+description: מה Pacs008 עושה ולמי הוא מיועד.
 lang: he-IL
 lastUpdated: true
 image: /logo.svg
 ---
 
-# About Pacs008
+# אודות Pacs008
 
-Pacs008 is a Python toolkit for automating ISO 20022 FI-to-FI customer credit transfer workflows.
+Pacs008 הוא ערכת כלים Python לאוטומציה של תהליכי העברת אשראי ISO 20022 בין מוסדות פיננסיים.
 
-## What it does
+## מה הוא עושה
 
-- Generates XML for `pacs.008` and adjacent pacs message families
-- Validates data and XML against schemas
-- Exposes a FastAPI service for automated workflows
-- Provides a CLI for local execution and CI pipelines
-- Supports structured data sources including CSV, JSON, JSONL, SQLite, and Parquet
+- מייצר XML עבור `pacs.008` והגדרות הודעות pacs קשורות
+- מאמת נתונים ו-XML מול סכמות
+- חושף שירות FastAPI לזרימות עבודה אוטומטיות
+- מספק CLI להרצה מקומית וצינורות CI
+- תומך במקורות נתונים מובנים כולל CSV, JSON, JSONL, SQLite ו-Parquet
 
-## Who it is for
+## למי הוא מיועד
 
-- payment operations teams
-- platform engineers building internal banking rails
-- migration programmes moving toward ISO 20022
-- compliance and QA teams validating outbound payment messages
+- צוותי תפעול תשלומים
+- מהנדסי פלטפורמה הבונים תשתית פנימית לעיבוד תשלומים
+- תוכניות מעבר לכיוון ISO 20022
+- צוותי ציות ו-QA המאמתים הודעות תשלום יוצאות
 
-## 2026 readiness
+## מוכנות 2026
 
-Pacs008 is designed around the operational deadlines and data-quality pressures that matter in 2026:
+Pacs008 תוכנן סביב המועדים התפעוליים ודרישות איכות הנתונים הרלוונטיות ל-2026:
 
-- structured and hybrid postal address handling for CBPR+ and scheme migrations
-- stronger validation around debtor, creditor, and agent data quality
-- version-aware generation across legacy and current pacs.008 revisions
-- automation paths that fit CI, batch operations, and internal payment services
+- טיפול בכתובות דואר מובנות והיברידיות עבור CBPR+ ומעברי סכמות
+- אימות חזק יותר של איכות נתוני חייב, זכאי וסוכן
+- יצירה מודעת גרסאות לאורך גרסאות pacs.008 ישנות ונוכחיות
+- נתיבי אוטומציה המתאימים ל-CI, פעולות אצווה ושירותי תשלום פנימיים
 
-## Why this site is different
+## מיקוד תפעולי
 
-Many public pacs.008 pages explain the message at a glossary or advisory level. Pacs008 focuses on execution:
+Pacs008 חורג מעבר להפניה להגדרת הודעות כדי לתמוך ביישום תפעולי:
 
-- generate XML from real source data
-- validate before delivery
-- model payment chains and downstream formats
-- make scheme-specific changes testable in code
+- יצירת XML מנתוני מקור אמיתיים
+- אימות לפני משלוח
+- מידול שרשראות תשלום ופורמטים במורד הזרם
+- הפיכת שינויים ספציפיים לסכמה לבדיקים בקוד
 

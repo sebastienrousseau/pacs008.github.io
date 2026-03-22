@@ -1,17 +1,17 @@
 ---
-title: Contact | हिन्दी
-description: How to reach the Pacs008 project.
+title: संपर्क | हिन्दी
+description: Pacs008 परियोजना से कैसे संपर्क करें।
 lang: hi-IN
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Contact
+# संपर्क
 
-For repository issues, feature requests, and implementation questions, use the project links below.
+रिपॉजिटरी समस्याओं, सुविधा अनुरोधों और कार्यान्वयन प्रश्नों के लिए, नीचे दिए गए प्रोजेक्ट लिंक का उपयोग करें।
 
 - Repository: <https://github.com/sebastienrousseau/pacs008>
 - Releases: <https://github.com/sebastienrousseau/pacs008/releases>
 - Package: <https://pypi.org/project/pacs008/>
 
-If you need a private operational discussion, add your preferred contact route here before launch.
+यदि आपको निजी परिचालन चर्चा की आवश्यकता है, तो लॉन्च से पहले यहाँ अपना पसंदीदा संपर्क मार्ग जोड़ें।

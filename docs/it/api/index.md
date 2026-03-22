@@ -1,6 +1,6 @@
 ---
 title: API | Italiano
-description: REST and CLI workflow support in Pacs008.
+description: Supporto flussi REST e CLI in Pacs008.
 lang: it-IT
 lastUpdated: true
 image: /logo.svg
@@ -8,40 +8,40 @@ image: /logo.svg
 
 # API
 
-The project ships with both a REST API and a CLI for operational payment workflows.
+Il progetto fornisce sia una REST API sia una CLI per i flussi operativi di elaborazione dei messaggi di pagamento.
 
-## API capabilities
+## Funzionalità API
 
-- health and readiness endpoints
-- data validation before XML generation
-- synchronous generation for direct workflows
-- asynchronous job execution for longer-running pipelines
-- downloadable generated files through job completion flows
+- endpoint di salute e prontezza
+- validazione dei dati prima della generazione XML
+- generazione sincrona per flussi diretti
+- esecuzione asincrona di attività per pipeline più lunghe
+- file generati scaricabili tramite flussi di completamento attività
 
-## CLI capabilities
+## Funzionalità CLI
 
-- point to a source file and message version
-- validate against XSD before delivery
-- generate XML into pipeline-friendly output directories
-- fit into CI jobs, batch schedules, and local operator tooling
+- puntare a un file sorgente e una versione del messaggio
+- validare rispetto a XSD prima della consegna
+- generare XML in directory di output compatibili con le pipeline
+- integrarsi in attività CI, pianificazioni batch e strumenti operatore locali
 
-## Implementation focus
+## Focus sull'implementazione
 
-Competitor content often explains pacs.008 structure, but rarely shows how teams should operationalise it. Pacs008 is built for:
+Pacs008 è progettato per l'uso operativo nei team di elaborazione pagamenti:
 
-- pre-flight validation before message creation
-- scheme and version selection at runtime
-- asynchronous generation flows for internal services
-- deterministic outputs for testing and audit trails
+- validazione pre-volo prima della creazione del messaggio
+- selezione dello schema e della versione a runtime
+- flussi di generazione asincroni per servizi interni
+- output deterministici per test e tracce di audit
 
-## Data-quality pressure in 2026
+## Requisiti di qualità dei dati per il 2026
 
-Operational teams are under increasing pressure to improve message quality, especially around:
+I requisiti di qualità dei messaggi si stanno inasprendo nel settore, in particolare riguardo a:
 
-- party and agent identification
-- structured or hybrid address readiness
-- richer remittance and reference handling
-- transparency across serial payment chains
+- identificazione di parti e agenti
+- prontezza degli indirizzi strutturati o ibridi
+- gestione più ricca di rimesse e riferimenti
+- trasparenza lungo le catene di pagamento seriali
 
-The API and CLI are designed to make those checks part of the workflow instead of a manual review step.
+L'API e la CLI sono progettate per rendere questi controlli parte del flusso di lavoro anziché un passaggio di revisione manuale.
 

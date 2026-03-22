@@ -1,6 +1,6 @@
 ---
 title: API | Tiếng Việt
-description: REST and CLI workflow support in Pacs008.
+description: Hỗ trợ quy trình REST và CLI trong Pacs008.
 lang: vi-VN
 lastUpdated: true
 image: /logo.svg
@@ -8,40 +8,40 @@ image: /logo.svg
 
 # API
 
-The project ships with both a REST API and a CLI for operational payment workflows.
+Dự án cung cấp cả REST API và CLI cho quy trình xử lý thông điệp thanh toán vận hành.
 
-## API capabilities
+## Khả năng API
 
-- health and readiness endpoints
-- data validation before XML generation
-- synchronous generation for direct workflows
-- asynchronous job execution for longer-running pipelines
-- downloadable generated files through job completion flows
+- điểm cuối sức khỏe và sẵn sàng
+- xác thực dữ liệu trước khi tạo XML
+- tạo đồng bộ cho quy trình trực tiếp
+- thực thi công việc bất đồng bộ cho pipeline dài hơn
+- tệp được tạo có thể tải xuống thông qua luồng hoàn thành công việc
 
-## CLI capabilities
+## Khả năng CLI
 
-- point to a source file and message version
-- validate against XSD before delivery
-- generate XML into pipeline-friendly output directories
-- fit into CI jobs, batch schedules, and local operator tooling
+- trỏ đến tệp nguồn và phiên bản thông điệp
+- xác thực theo XSD trước khi giao
+- tạo XML vào thư mục đầu ra thân thiện với pipeline
+- phù hợp với công việc CI, lịch trình theo lô và công cụ vận hành cục bộ
 
-## Implementation focus
+## Trọng tâm triển khai
 
-Competitor content often explains pacs.008 structure, but rarely shows how teams should operationalise it. Pacs008 is built for:
+Pacs008 được thiết kế cho sử dụng vận hành bởi các đội xử lý thanh toán:
 
-- pre-flight validation before message creation
-- scheme and version selection at runtime
-- asynchronous generation flows for internal services
-- deterministic outputs for testing and audit trails
+- xác thực trước chuyến bay trước khi tạo thông điệp
+- chọn lược đồ và phiên bản tại thời gian chạy
+- luồng tạo bất đồng bộ cho dịch vụ nội bộ
+- đầu ra xác định cho kiểm tra và đường kiểm toán
 
-## Data-quality pressure in 2026
+## Yêu cầu chất lượng dữ liệu cho năm 2026
 
-Operational teams are under increasing pressure to improve message quality, especially around:
+Yêu cầu chất lượng thông điệp đang thắt chặt trên toàn ngành, đặc biệt xung quanh:
 
-- party and agent identification
-- structured or hybrid address readiness
-- richer remittance and reference handling
-- transparency across serial payment chains
+- nhận dạng bên và đại lý
+- sẵn sàng địa chỉ có cấu trúc hoặc kết hợp
+- xử lý chuyển tiền và tham chiếu phong phú hơn
+- minh bạch qua chuỗi thanh toán nối tiếp
 
-The API and CLI are designed to make those checks part of the workflow instead of a manual review step.
+API và CLI được thiết kế để biến các kiểm tra này thành một phần của quy trình làm việc thay vì bước xem xét thủ công.
 

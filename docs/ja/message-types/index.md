@@ -1,16 +1,16 @@
 ---
-title: Message Types | 日本語
-description: Supported ISO 20022 pacs message families and versions.
+title: メッセージ種別 | 日本語
+description: サポートされている ISO 20022 pacs メッセージ定義とバージョン。
 lang: ja-JP
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Message Types
+# メッセージ種別
 
-Pacs008 covers both the core pacs.008 family and related messages used in adjacent orchestration and reconciliation flows.
+Pacs008 はコアの pacs.008 メッセージ定義と、オーケストレーションおよびリコンシリエーションフローで使用される関連メッセージをカバーします。
 
-## Included support
+## 含まれるサポート
 
 - `pacs.002.001.12`
 - `pacs.003.001.09`
@@ -33,23 +33,23 @@ Pacs008 covers both the core pacs.008 family and related messages used in adjace
 - `pacs.010.001.05`
 - `pacs.028.001.05`
 
-## Delivery model
+## 提供モデル
 
-Each supported message type is backed by template assets and validation logic so teams can standardise generation and regression testing across multiple downstream channels.
+サポートされている各メッセージタイプにはテンプレートアセットと検証ロジックが含まれており、チームは複数のダウンストリームチャネルで生成とリグレッションテストを標準化できます。
 
-## 2026 market context
+## 2026 年の市場コンテキスト
 
-- **SEPA SCT / SCT Inst**: pacs.008 remains central for credit transfer exchange and instant-payment processing.
-- **CBPR+**: pacs.008 continues to replace MT103-style cross-border payloads with richer structured data.
-- **Structured addresses**: current market guidance and bank readiness material point to the November 2026 cutover away from fully unstructured postal addresses.
-- **Serial method and STP**: multi-leg bank-to-bank chains still matter, and straight-through variants remain important for operational efficiency.
+- **SEPA SCT / SCT Inst**：pacs.008 は送金交換と即時決済処理の中心であり続けます。
+- **CBPR+**：pacs.008 は MT103 スタイルのクロスボーダーペイロードをより豊富な構造化データに置き換え続けます。
+- **構造化住所**：現在の市場ガイダンスは、2026 年 11 月の完全非構造化郵便住所からの切り替えを指し示しています。
+- **シリアル方式と STP**：マルチレッグの銀行間チェーンは依然重要であり、ストレートスルー処理バリアントは運用効率にとって不可欠です。
 
-## What Pacs008 adds
+## 運用機能
 
-Instead of stopping at definitions, Pacs008 gives you template-backed generation and validation across supported revisions so you can:
+Pacs008 はサポートされたメッセージ定義リビジョンにわたるテンプレートベースの生成と検証を提供します：
 
-- compare versions
-- regression-test scheme updates
-- harden outbound payment data before release
-- support product, operations, and migration teams from one codebase
+- バージョンの比較
+- スキーマ更新のリグレッションテスト
+- リリース前の送信決済メッセージデータの強化
+- 単一のコードベースからプロダクト、オペレーション、移行チームをサポート
 

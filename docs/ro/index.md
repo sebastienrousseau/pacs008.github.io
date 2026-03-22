@@ -1,6 +1,6 @@
 ---
 title: Pacs008 | Română
-description: Generare, validare, API și conformitate pentru fluxuri FI-to-FI.
+description: Generare, validare, orchestrare API și suport de conformitate pentru fluxuri de transfer de credit FI-to-FI.
 lang: ro-RO
 author: Sebastien Rousseau
 lastUpdated: true
@@ -14,10 +14,10 @@ sitemap: true
 breadcrumbTitle: Pacs008
 pageType: home
 schemaType: WebSite
-heroText: Automatizați pacs.008 cu rigoare.
+heroText: Automatizați procesarea mesajelor pacs.008 ISO 20022.
 home: true
 metaTitle: Pacs008
-subtitle: Generare, validare, API și conformitate pentru fluxuri FI-to-FI.
-tagline: Generare, validare, API și conformitate pentru fluxuri FI-to-FI.
+subtitle: Generare, validare, orchestrare API și suport de conformitate pentru fluxuri de transfer de credit FI-to-FI.
+tagline: Generare, validare, orchestrare API și suport de conformitate pentru fluxuri de transfer de credit FI-to-FI.
 actionLink: /ro/about/
 ---

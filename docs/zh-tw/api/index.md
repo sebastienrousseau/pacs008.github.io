@@ -1,6 +1,6 @@
 ---
 title: API | 繁體中文
-description: REST and CLI workflow support in Pacs008.
+description: Pacs008 中的 REST 和 CLI 工作流程支援。
 lang: zh-TW
 lastUpdated: true
 image: /logo.svg
@@ -8,40 +8,40 @@ image: /logo.svg
 
 # API
 
-The project ships with both a REST API and a CLI for operational payment workflows.
+該專案同時提供 REST API 和 CLI，用於營運支付訊息處理工作流程。
 
-## API capabilities
+## API 功能
 
-- health and readiness endpoints
-- data validation before XML generation
-- synchronous generation for direct workflows
-- asynchronous job execution for longer-running pipelines
-- downloadable generated files through job completion flows
+- 健康和就緒端點
+- XML 產生前的資料驗證
+- 直接工作流程的同步產生
+- 較長管線的非同步任務執行
+- 透過任務完成流程可下載的產生檔案
 
-## CLI capabilities
+## CLI 功能
 
-- point to a source file and message version
-- validate against XSD before delivery
-- generate XML into pipeline-friendly output directories
-- fit into CI jobs, batch schedules, and local operator tooling
+- 指向來源檔案和訊息版本
+- 交付前按 XSD 驗證
+- 將 XML 產生到管線友善的輸出目錄
+- 適配 CI 任務、批次排程和本機操作工具
 
-## Implementation focus
+## 實施重點
 
-Competitor content often explains pacs.008 structure, but rarely shows how teams should operationalise it. Pacs008 is built for:
+Pacs008 專為支付處理團隊的營運使用而設計：
 
-- pre-flight validation before message creation
-- scheme and version selection at runtime
-- asynchronous generation flows for internal services
-- deterministic outputs for testing and audit trails
+- 訊息建立前的預檢驗證
+- 執行時選擇方案和版本
+- 內部服務的非同步產生流程
+- 用於測試和稽核追蹤的確定性輸出
 
-## Data-quality pressure in 2026
+## 2026 年資料品質要求
 
-Operational teams are under increasing pressure to improve message quality, especially around:
+訊息品質要求正在全行業收緊，特別是在以下方面：
 
-- party and agent identification
-- structured or hybrid address readiness
-- richer remittance and reference handling
-- transparency across serial payment chains
+- 當事方和代理識別
+- 結構化或混合地址就緒性
+- 更豐富的匯款和參考處理
+- 串列支付鏈的透明度
 
-The API and CLI are designed to make those checks part of the workflow instead of a manual review step.
+API 和 CLI 旨在將這些檢查作為工作流程的一部分，而非手動審查步驟。
 

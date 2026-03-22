@@ -1,17 +1,17 @@
 ---
-title: Contact | العربية
-description: How to reach the Pacs008 project.
+title: اتصل بنا | العربية
+description: كيفية التواصل مع مشروع Pacs008.
 lang: ar-SA
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Contact
+# اتصل بنا
 
-For repository issues, feature requests, and implementation questions, use the project links below.
+لمشكلات المستودع وطلبات الميزات وأسئلة التنفيذ، استخدم روابط المشروع أدناه.
 
 - Repository: <https://github.com/sebastienrousseau/pacs008>
 - Releases: <https://github.com/sebastienrousseau/pacs008/releases>
 - Package: <https://pypi.org/project/pacs008/>
 
-If you need a private operational discussion, add your preferred contact route here before launch.
+إذا كنت بحاجة إلى مناقشة تشغيلية خاصة، أضف طريقة التواصل المفضلة لديك هنا قبل الإطلاق.

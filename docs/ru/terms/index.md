@@ -1,22 +1,22 @@
 ---
-title: Terms | Русский
-description: Terms information for the Pacs008 website.
+title: Условия | Русский
+description: Информация об условиях использования сайта Pacs008.
 lang: ru-RU
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Terms
+# Условия
 
-This page is part of the public website shell for Pacs008. Replace this placeholder with your final legal copy before production launch if you need jurisdiction-specific wording.
+Эта страница является частью публичного сайта Pacs008. Замените этот текст окончательной юридической версией перед запуском, если вам нужна формулировка, специфичная для юрисдикции.
 
-## Current scope
+## Текущий охват
 
-- project website information
-- repository and package distribution links
-- contact route for questions or support requests
+- информация сайта проекта
+- ссылки на репозиторий и распространение пакетов
+- канал связи для вопросов или запросов поддержки
 
-## Practical note
+## Практическое замечание
 
-For operational or regulated deployments, have your legal and compliance teams review any final privacy, retention, or terms language before publishing.
+Для операционных или регулируемых развёртываний попросите юридическую службу и службу комплаенса проверить все окончательные формулировки о конфиденциальности, хранении или условиях перед публикацией.
 

@@ -1,16 +1,16 @@
 ---
-title: Message Types | हिन्दी
-description: Supported ISO 20022 pacs message families and versions.
+title: संदेश प्रकार | हिन्दी
+description: समर्थित ISO 20022 pacs संदेश परिभाषाएँ और संस्करण।
 lang: hi-IN
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Message Types
+# संदेश प्रकार
 
-Pacs008 covers both the core pacs.008 family and related messages used in adjacent orchestration and reconciliation flows.
+Pacs008 मुख्य pacs.008 संदेश परिभाषा और ऑर्केस्ट्रेशन और सुलह प्रवाहों में उपयोग किए जाने वाले संबंधित संदेशों को कवर करता है।
 
-## Included support
+## शामिल समर्थन
 
 - `pacs.002.001.12`
 - `pacs.003.001.09`
@@ -33,23 +33,23 @@ Pacs008 covers both the core pacs.008 family and related messages used in adjace
 - `pacs.010.001.05`
 - `pacs.028.001.05`
 
-## Delivery model
+## वितरण मॉडल
 
-Each supported message type is backed by template assets and validation logic so teams can standardise generation and regression testing across multiple downstream channels.
+प्रत्येक समर्थित संदेश प्रकार टेम्पलेट संपत्तियों और सत्यापन तर्क द्वारा समर्थित है ताकि टीमें कई चैनलों में जनरेशन और रिग्रेशन टेस्टिंग को मानकीकृत कर सकें।
 
-## 2026 market context
+## 2026 बाजार संदर्भ
 
-- **SEPA SCT / SCT Inst**: pacs.008 remains central for credit transfer exchange and instant-payment processing.
-- **CBPR+**: pacs.008 continues to replace MT103-style cross-border payloads with richer structured data.
-- **Structured addresses**: current market guidance and bank readiness material point to the November 2026 cutover away from fully unstructured postal addresses.
-- **Serial method and STP**: multi-leg bank-to-bank chains still matter, and straight-through variants remain important for operational efficiency.
+- **SEPA SCT / SCT Inst**: pacs.008 क्रेडिट ट्रांसफर विनिमय और तत्काल भुगतान प्रसंस्करण के लिए केंद्रीय बना हुआ है।
+- **CBPR+**: pacs.008 MT103-शैली के सीमा पार पेलोड को समृद्ध संरचित डेटा से बदलना जारी रखता है।
+- **संरचित पते**: वर्तमान बाजार मार्गदर्शन नवंबर 2026 में पूरी तरह से असंरचित डाक पतों से दूर जाने का संकेत देता है।
+- **सीरियल विधि और STP**: बहु-चरण बैंक-से-बैंक श्रृंखलाएँ अभी भी महत्वपूर्ण हैं, और स्ट्रेट-थ्रू वेरिएंट परिचालन दक्षता के लिए आवश्यक रहते हैं।
 
-## What Pacs008 adds
+## परिचालन क्षमताएँ
 
-Instead of stopping at definitions, Pacs008 gives you template-backed generation and validation across supported revisions so you can:
+Pacs008 समर्थित संदेश परिभाषा संशोधनों में टेम्पलेट-समर्थित जनरेशन और सत्यापन प्रदान करता है:
 
-- compare versions
-- regression-test scheme updates
-- harden outbound payment data before release
-- support product, operations, and migration teams from one codebase
+- संस्करणों की तुलना करें
+- स्कीमा अपडेट का रिग्रेशन परीक्षण करें
+- रिलीज़ से पहले आउटबाउंड भुगतान संदेश डेटा को मजबूत करें
+- एक कोडबेस से उत्पाद, संचालन और माइग्रेशन टीमों का समर्थन करें
 

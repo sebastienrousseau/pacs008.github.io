@@ -1,22 +1,22 @@
 ---
-title: Confidentialite | Français
-description: Informations de confidentialite pour le site Pacs008.
+title: Confidentialité | Français
+description: Informations de confidentialité pour le site Pacs008.
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Confidentialite
+# Confidentialité
 
-Cette page fait partie de l'enveloppe publique du site Pacs008. Remplacez ce texte par votre version juridique finale avant la mise en production si vous avez besoin d'un libelle specifique.
+Cette page fait partie de l'enveloppe publique du site Pacs008. Remplacez ce texte par votre version juridique finale avant la mise en production si vous avez besoin d'un libellé spécifique.
 
-## Portee actuelle
+## Portée actuelle
 
-- project website information
-- repository and package distribution links
-- contact route for questions or support requests
+- informations du site web du projet
+- liens du dépôt et de distribution des paquets
+- voie de contact pour les questions ou les demandes de support
 
 ## Note pratique
 
-Pour les deploiements operationnels ou reglementes, faites relire les formulations finales par vos equipes juridiques et conformite.
+Pour les déploiements opérationnels ou réglementés, faites relire les formulations finales par vos équipes juridiques et conformité.
 

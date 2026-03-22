@@ -1,16 +1,16 @@
 ---
-title: Message Types | العربية
-description: Supported ISO 20022 pacs message families and versions.
+title: أنواع الرسائل | العربية
+description: تعريفات وإصدارات رسائل pacs المدعومة وفق ISO 20022.
 lang: ar-SA
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Message Types
+# أنواع الرسائل
 
-Pacs008 covers both the core pacs.008 family and related messages used in adjacent orchestration and reconciliation flows.
+يغطي Pacs008 تعريف رسالة pacs.008 الأساسي والرسائل ذات الصلة المستخدمة في تدفقات التنسيق والمطابقة.
 
-## Included support
+## الدعم المشمول
 
 - `pacs.002.001.12`
 - `pacs.003.001.09`
@@ -33,23 +33,23 @@ Pacs008 covers both the core pacs.008 family and related messages used in adjace
 - `pacs.010.001.05`
 - `pacs.028.001.05`
 
-## Delivery model
+## نموذج التسليم
 
-Each supported message type is backed by template assets and validation logic so teams can standardise generation and regression testing across multiple downstream channels.
+كل نوع رسالة مدعوم مدعوم بأصول قوالب ومنطق تحقق حتى تتمكن الفرق من توحيد الإنشاء واختبارات الانحدار عبر قنوات متعددة.
 
-## 2026 market context
+## سياق السوق 2026
 
-- **SEPA SCT / SCT Inst**: pacs.008 remains central for credit transfer exchange and instant-payment processing.
-- **CBPR+**: pacs.008 continues to replace MT103-style cross-border payloads with richer structured data.
-- **Structured addresses**: current market guidance and bank readiness material point to the November 2026 cutover away from fully unstructured postal addresses.
-- **Serial method and STP**: multi-leg bank-to-bank chains still matter, and straight-through variants remain important for operational efficiency.
+- **SEPA SCT / SCT Inst**: يظل pacs.008 محورياً لتبادل التحويلات الائتمانية ومعالجة المدفوعات الفورية.
+- **CBPR+**: يستمر pacs.008 في استبدال حمولات MT103 العابرة للحدود ببيانات منظمة أغنى.
+- **العناوين المنظمة**: تشير إرشادات السوق الحالية إلى التحول في نوفمبر 2026 بعيداً عن العناوين البريدية غير المنظمة بالكامل.
+- **الطريقة التسلسلية و STP**: لا تزال سلاسل البنك إلى البنك متعددة المراحل مهمة، وتبقى المتغيرات المباشرة مهمة للكفاءة التشغيلية.
 
-## What Pacs008 adds
+## القدرات التشغيلية
 
-Instead of stopping at definitions, Pacs008 gives you template-backed generation and validation across supported revisions so you can:
+يوفر Pacs008 إنشاءً وتحققاً مدعوماً بالقوالب عبر مراجعات تعريف الرسائل المدعومة:
 
-- compare versions
-- regression-test scheme updates
-- harden outbound payment data before release
-- support product, operations, and migration teams from one codebase
+- مقارنة الإصدارات
+- اختبار انحدار تحديثات الأنظمة
+- تعزيز بيانات رسائل الدفع الصادرة قبل الإصدار
+- دعم فرق المنتج والعمليات والترحيل من قاعدة كود واحدة
 

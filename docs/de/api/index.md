@@ -1,6 +1,6 @@
 ---
 title: API | Deutsch
-description: REST- und CLI-Unterstutzung in Pacs008.
+description: REST- und CLI-Unterstützung in Pacs008.
 lang: de-DE
 lastUpdated: true
 image: /logo.svg
@@ -8,40 +8,40 @@ image: /logo.svg
 
 # API
 
-Das Projekt liefert sowohl eine REST-API als auch eine CLI fur operative Zahlungsablaufe.
+Das Projekt bietet sowohl eine REST-API als auch eine CLI für operative Zahlungsnachrichten-Workflows.
 
-## API-Fahigkeiten
+## API-Fähigkeiten
 
-- health and readiness endpoints
-- data validation before XML generation
-- synchronous generation for direct workflows
-- asynchronous job execution for longer-running pipelines
-- downloadable generated files through job completion flows
+- Gesundheits- und Bereitschaftsendpunkte
+- Datenvalidierung vor der XML-Generierung
+- Synchrone Generierung für direkte Abläufe
+- Asynchrone Auftragsausführung für längere Pipelines
+- Herunterladbare generierte Dateien über Auftragsabschlussflows
 
-## CLI-Fahigkeiten
+## CLI-Fähigkeiten
 
-- point to a source file and message version
-- validate against XSD before delivery
-- generate XML into pipeline-friendly output directories
-- fit into CI jobs, batch schedules, and local operator tooling
+- Auf eine Quelldatei und Nachrichtenversion verweisen
+- Gegen XSD validieren vor der Zustellung
+- XML in pipeline-freundliche Ausgabeverzeichnisse generieren
+- In CI-Aufträge, Batch-Zeitpläne und lokale Operator-Tools einpassen
 
-## Implementation focus
+## Implementierungsfokus
 
-Competitor content often explains pacs.008 structure, but rarely shows how teams should operationalise it. Pacs008 is built for:
+Pacs008 ist für den operativen Einsatz in Zahlungsverarbeitungsteams konzipiert:
 
-- pre-flight validation before message creation
-- scheme and version selection at runtime
-- asynchronous generation flows for internal services
-- deterministic outputs for testing and audit trails
+- Vorab-Validierung vor der Nachrichtenerstellung
+- Schema- und Versionsauswahl zur Laufzeit
+- Asynchrone Generierungsabläufe für interne Dienste
+- Deterministische Ausgaben für Tests und Audit-Trails
 
-## Data-quality pressure in 2026
+## Datenqualitätsanforderungen für 2026
 
-Operational teams are under increasing pressure to improve message quality, especially around:
+Die Anforderungen an die Nachrichtenqualität verschärfen sich branchenweit, insbesondere bei:
 
-- party and agent identification
-- structured or hybrid address readiness
-- richer remittance and reference handling
-- transparency across serial payment chains
+- Identifizierung von Parteien und Agenten
+- Bereitschaft strukturierter oder hybrider Adressen
+- Reichhaltigere Überweisungs- und Referenzverarbeitung
+- Transparenz über serielle Zahlungsketten hinweg
 
-The API and CLI are designed to make those checks part of the workflow instead of a manual review step.
+API und CLI sind so konzipiert, dass diese Prüfungen Teil des Arbeitsablaufs werden, anstatt ein manueller Überprüfungsschritt zu sein.
 

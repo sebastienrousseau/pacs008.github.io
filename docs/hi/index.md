@@ -1,6 +1,6 @@
 ---
 title: Pacs008 | हिन्दी
-description: उत्पादन-स्तरीय जनरेशन, वैलिडेशन, API और अनुपालन समर्थन।
+description: FI-to-FI ग्राहक क्रेडिट ट्रांसफर वर्कफ़्लो के लिए जनरेशन, वैलिडेशन, API ऑर्केस्ट्रेशन और अनुपालन समर्थन।
 lang: hi-IN
 author: Sebastien Rousseau
 lastUpdated: true
@@ -14,10 +14,10 @@ sitemap: true
 breadcrumbTitle: Pacs008
 pageType: home
 schemaType: WebSite
-heroText: pacs.008 को भरोसे के साथ स्वचालित करें।
+heroText: ISO 20022 pacs.008 संदेश प्रसंस्करण को स्वचालित करें।
 home: true
 metaTitle: Pacs008
-subtitle: उत्पादन-स्तरीय जनरेशन, वैलिडेशन, API और अनुपालन समर्थन।
-tagline: उत्पादन-स्तरीय जनरेशन, वैलिडेशन, API और अनुपालन समर्थन।
+subtitle: FI-to-FI ग्राहक क्रेडिट ट्रांसफर वर्कफ़्लो के लिए जनरेशन, वैलिडेशन, API ऑर्केस्ट्रेशन और अनुपालन समर्थन।
+tagline: FI-to-FI ग्राहक क्रेडिट ट्रांसफर वर्कफ़्लो के लिए जनरेशन, वैलिडेशन, API ऑर्केस्ट्रेशन और अनुपालन समर्थन।
 actionLink: /hi/about/
 ---

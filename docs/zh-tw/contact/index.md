@@ -1,17 +1,17 @@
 ---
-title: Contact | 繁體中文
-description: How to reach the Pacs008 project.
+title: 聯絡 | 繁體中文
+description: 如何聯絡 Pacs008 專案。
 lang: zh-TW
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Contact
+# 聯絡
 
-For repository issues, feature requests, and implementation questions, use the project links below.
+如有儲存庫問題、功能請求和實施問題，請使用下方的專案連結。
 
 - Repository: <https://github.com/sebastienrousseau/pacs008>
 - Releases: <https://github.com/sebastienrousseau/pacs008/releases>
 - Package: <https://pypi.org/project/pacs008/>
 
-If you need a private operational discussion, add your preferred contact route here before launch.
+如需私密營運討論，請在上線前在此新增您偏好的聯絡方式。

@@ -1,22 +1,22 @@
 ---
-title: Privacy | 한국어
-description: Privacy information for the Pacs008 website.
+title: 개인정보 | 한국어
+description: Pacs008 웹사이트의 개인정보 보호 정보.
 lang: ko-KR
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Privacy
+# 개인정보
 
-This page is part of the public website shell for Pacs008. Replace this placeholder with your final legal copy before production launch if you need jurisdiction-specific wording.
+이 페이지는 Pacs008 공개 웹사이트의 일부입니다. 관할권별 문구가 필요한 경우 프로덕션 출시 전에 이 자리 표시자를 최종 법적 문구로 교체하세요.
 
-## Current scope
+## 현재 범위
 
-- project website information
-- repository and package distribution links
-- contact route for questions or support requests
+- 프로젝트 웹사이트 정보
+- 저장소 및 패키지 배포 링크
+- 질문 또는 지원 요청을 위한 연락 경로
 
-## Practical note
+## 실무 참고
 
-For operational or regulated deployments, have your legal and compliance teams review any final privacy, retention, or terms language before publishing.
+운영 또는 규제 대상 배포의 경우, 게시 전에 법무 및 컴플라이언스 팀이 개인정보, 보존 또는 약관에 대한 최종 문구를 검토하도록 하세요.
 

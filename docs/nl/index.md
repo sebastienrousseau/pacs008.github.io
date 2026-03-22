@@ -1,6 +1,6 @@
 ---
 title: Pacs008 | Nederlands
-description: Generatie, validatie, API en compliance voor FI-to-FI-stromen.
+description: Generatie, validatie, API-orchestratie en compliance-ondersteuning voor FI-to-FI-klantoverdrachtworkflows.
 lang: nl-NL
 author: Sebastien Rousseau
 lastUpdated: true
@@ -14,10 +14,10 @@ sitemap: true
 breadcrumbTitle: Pacs008
 pageType: home
 schemaType: WebSite
-heroText: Automatiseer pacs.008 met vertrouwen.
+heroText: Automatiseer ISO 20022 pacs.008 berichtverwerking.
 home: true
 metaTitle: Pacs008
-subtitle: Generatie, validatie, API en compliance voor FI-to-FI-stromen.
-tagline: Generatie, validatie, API en compliance voor FI-to-FI-stromen.
+subtitle: Generatie, validatie, API-orchestratie en compliance-ondersteuning voor FI-to-FI-klantoverdrachtworkflows.
+tagline: Generatie, validatie, API-orchestratie en compliance-ondersteuning voor FI-to-FI-klantoverdrachtworkflows.
 actionLink: /nl/about/
 ---

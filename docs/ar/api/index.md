@@ -1,47 +1,47 @@
 ---
-title: API | العربية
-description: REST and CLI workflow support in Pacs008.
+title: واجهة البرمجة | العربية
+description: دعم سير عمل REST و CLI في Pacs008.
 lang: ar-SA
 lastUpdated: true
 image: /logo.svg
 ---
 
-# API
+# واجهة البرمجة
 
-The project ships with both a REST API and a CLI for operational payment workflows.
+يوفر المشروع واجهة REST API و CLI لتدفقات معالجة رسائل الدفع التشغيلية.
 
-## API capabilities
+## قدرات واجهة البرمجة
 
-- health and readiness endpoints
-- data validation before XML generation
-- synchronous generation for direct workflows
-- asynchronous job execution for longer-running pipelines
-- downloadable generated files through job completion flows
+- نقاط نهاية الصحة والجاهزية
+- التحقق من البيانات قبل إنشاء XML
+- إنشاء متزامن لسير العمل المباشر
+- تنفيذ مهام غير متزامن لخطوط الأنابيب الأطول
+- ملفات مُنشأة قابلة للتنزيل عبر تدفقات إتمام المهام
 
-## CLI capabilities
+## قدرات سطر الأوامر
 
-- point to a source file and message version
-- validate against XSD before delivery
-- generate XML into pipeline-friendly output directories
-- fit into CI jobs, batch schedules, and local operator tooling
+- الإشارة إلى ملف مصدر وإصدار رسالة
+- التحقق وفق XSD قبل التسليم
+- إنشاء XML في مجلدات إخراج متوافقة مع خطوط الأنابيب
+- التكامل مع مهام CI والجداول الدُفعية وأدوات المشغل المحلية
 
-## Implementation focus
+## تركيز التنفيذ
 
-Competitor content often explains pacs.008 structure, but rarely shows how teams should operationalise it. Pacs008 is built for:
+Pacs008 مصمم للاستخدام التشغيلي عبر فرق معالجة المدفوعات:
 
-- pre-flight validation before message creation
-- scheme and version selection at runtime
-- asynchronous generation flows for internal services
-- deterministic outputs for testing and audit trails
+- التحقق المسبق قبل إنشاء الرسالة
+- اختيار النظام والإصدار أثناء التشغيل
+- تدفقات إنشاء غير متزامنة للخدمات الداخلية
+- مخرجات حتمية للاختبار ومسارات التدقيق
 
-## Data-quality pressure in 2026
+## متطلبات جودة البيانات لعام 2026
 
-Operational teams are under increasing pressure to improve message quality, especially around:
+تتشدد متطلبات جودة الرسائل عبر القطاع، خاصة فيما يتعلق بـ:
 
-- party and agent identification
-- structured or hybrid address readiness
-- richer remittance and reference handling
-- transparency across serial payment chains
+- تحديد هوية الأطراف والوكلاء
+- جاهزية العناوين المنظمة أو الهجينة
+- معالجة أغنى للتحويلات والمراجع
+- الشفافية عبر سلاسل الدفع التسلسلية
 
-The API and CLI are designed to make those checks part of the workflow instead of a manual review step.
+صُممت واجهة البرمجة وسطر الأوامر لجعل هذه الفحوصات جزءاً من سير العمل بدلاً من خطوة مراجعة يدوية.
 

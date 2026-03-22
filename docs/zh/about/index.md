@@ -1,45 +1,45 @@
 ---
-title: About Pacs008 | 简体中文
-description: What Pacs008 does and who it is for.
+title: 关于 Pacs008 | 简体中文
+description: Pacs008 的功能及适用对象。
 lang: zh-CN
 lastUpdated: true
 image: /logo.svg
 ---
 
-# About Pacs008
+# 关于 Pacs008
 
-Pacs008 is a Python toolkit for automating ISO 20022 FI-to-FI customer credit transfer workflows.
+Pacs008 是一个 Python 工具包，用于自动化 ISO 20022 金融机构间客户信贷转账工作流。
 
-## What it does
+## 功能
 
-- Generates XML for `pacs.008` and adjacent pacs message families
-- Validates data and XML against schemas
-- Exposes a FastAPI service for automated workflows
-- Provides a CLI for local execution and CI pipelines
-- Supports structured data sources including CSV, JSON, JSONL, SQLite, and Parquet
+- 为 `pacs.008` 及相关 pacs 报文定义生成 XML
+- 根据模式验证数据和 XML
+- 提供 FastAPI 服务用于自动化工作流
+- 提供 CLI 用于本地执行和 CI 管道
+- 支持结构化数据源，包括 CSV、JSON、JSONL、SQLite 和 Parquet
 
-## Who it is for
+## 适用对象
 
-- payment operations teams
-- platform engineers building internal banking rails
-- migration programmes moving toward ISO 20022
-- compliance and QA teams validating outbound payment messages
+- 支付运营团队
+- 构建内部支付处理基础设施的平台工程师
+- 向 ISO 20022 迁移的项目
+- 验证出站支付报文的合规和 QA 团队
 
-## 2026 readiness
+## 2026 准备
 
-Pacs008 is designed around the operational deadlines and data-quality pressures that matter in 2026:
+Pacs008 围绕 2026 年相关的运营截止日期和数据质量要求而设计：
 
-- structured and hybrid postal address handling for CBPR+ and scheme migrations
-- stronger validation around debtor, creditor, and agent data quality
-- version-aware generation across legacy and current pacs.008 revisions
-- automation paths that fit CI, batch operations, and internal payment services
+- 为 CBPR+ 和方案迁移处理结构化和混合邮政地址
+- 加强债务人、债权人和代理数据质量验证
+- 跨旧版和当前 pacs.008 修订版本的版本感知生成
+- 适合 CI、批量操作和内部支付服务的自动化路径
 
-## Why this site is different
+## 运营重点
 
-Many public pacs.008 pages explain the message at a glossary or advisory level. Pacs008 focuses on execution:
+Pacs008 超越报文定义参考，支持运营实施：
 
-- generate XML from real source data
-- validate before delivery
-- model payment chains and downstream formats
-- make scheme-specific changes testable in code
+- 从真实源数据生成 XML
+- 交付前验证
+- 建模支付链和下游格式
+- 使方案特定的更改在代码中可测试
 

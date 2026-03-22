@@ -1,6 +1,6 @@
 ---
 title: API | Bahasa Indonesia
-description: REST and CLI workflow support in Pacs008.
+description: Dukungan alur kerja REST dan CLI di Pacs008.
 lang: id-ID
 lastUpdated: true
 image: /logo.svg
@@ -8,40 +8,40 @@ image: /logo.svg
 
 # API
 
-The project ships with both a REST API and a CLI for operational payment workflows.
+Proyek ini menyediakan REST API dan CLI untuk alur kerja pemrosesan pesan pembayaran operasional.
 
-## API capabilities
+## Kemampuan API
 
-- health and readiness endpoints
-- data validation before XML generation
-- synchronous generation for direct workflows
-- asynchronous job execution for longer-running pipelines
-- downloadable generated files through job completion flows
+- endpoint kesehatan dan kesiapan
+- validasi data sebelum pembuatan XML
+- pembuatan sinkron untuk alur kerja langsung
+- eksekusi tugas asinkron untuk pipeline yang lebih lama
+- file yang dihasilkan dapat diunduh melalui alur penyelesaian tugas
 
-## CLI capabilities
+## Kemampuan CLI
 
-- point to a source file and message version
-- validate against XSD before delivery
-- generate XML into pipeline-friendly output directories
-- fit into CI jobs, batch schedules, and local operator tooling
+- menunjuk ke file sumber dan versi pesan
+- memvalidasi terhadap XSD sebelum pengiriman
+- menghasilkan XML ke direktori output yang ramah pipeline
+- cocok dengan tugas CI, jadwal batch, dan peralatan operator lokal
 
-## Implementation focus
+## Fokus implementasi
 
-Competitor content often explains pacs.008 structure, but rarely shows how teams should operationalise it. Pacs008 is built for:
+Pacs008 dirancang untuk penggunaan operasional di seluruh tim pemrosesan pembayaran:
 
-- pre-flight validation before message creation
-- scheme and version selection at runtime
-- asynchronous generation flows for internal services
-- deterministic outputs for testing and audit trails
+- validasi pra-penerbangan sebelum pembuatan pesan
+- pemilihan skema dan versi saat runtime
+- alur pembuatan asinkron untuk layanan internal
+- output deterministik untuk pengujian dan jejak audit
 
-## Data-quality pressure in 2026
+## Persyaratan kualitas data untuk 2026
 
-Operational teams are under increasing pressure to improve message quality, especially around:
+Persyaratan kualitas pesan semakin ketat di seluruh industri, terutama seputar:
 
-- party and agent identification
-- structured or hybrid address readiness
-- richer remittance and reference handling
-- transparency across serial payment chains
+- identifikasi pihak dan agen
+- kesiapan alamat terstruktur atau hibrida
+- penanganan remitansi dan referensi yang lebih kaya
+- transparansi di seluruh rantai pembayaran serial
 
-The API and CLI are designed to make those checks part of the workflow instead of a manual review step.
+API dan CLI dirancang untuk menjadikan pemeriksaan tersebut bagian dari alur kerja alih-alih langkah tinjauan manual.
 

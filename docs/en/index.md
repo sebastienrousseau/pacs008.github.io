@@ -1,6 +1,6 @@
 ---
 title: Pacs008 | English
-description: Production-grade generation, validation, API orchestration, and compliance support for FI-to-FI credit transfer flows.
+description: Generation, validation, API orchestration, and compliance support for FI-to-FI customer credit transfer workflows.
 lang: en-GB
 author: Sebastien Rousseau
 lastUpdated: true
@@ -14,10 +14,10 @@ sitemap: true
 breadcrumbTitle: Pacs008
 pageType: home
 schemaType: WebSite
-heroText: Automate ISO 20022 pacs.008 with confidence.
+heroText: Automate ISO 20022 pacs.008 message processing.
 home: true
 metaTitle: Pacs008
-subtitle: Production-grade generation, validation, API orchestration, and compliance support for FI-to-FI credit transfer flows.
-tagline: Production-grade generation, validation, API orchestration, and compliance support for FI-to-FI credit transfer flows.
+subtitle: Generation, validation, API orchestration, and compliance support for FI-to-FI customer credit transfer workflows.
+tagline: Generation, validation, API orchestration, and compliance support for FI-to-FI customer credit transfer workflows.
 actionLink: /en/about/
 ---

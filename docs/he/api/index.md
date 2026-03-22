@@ -1,6 +1,6 @@
 ---
 title: API | עברית
-description: REST and CLI workflow support in Pacs008.
+description: תמיכת תהליכי REST ו-CLI ב-Pacs008.
 lang: he-IL
 lastUpdated: true
 image: /logo.svg
@@ -8,40 +8,40 @@ image: /logo.svg
 
 # API
 
-The project ships with both a REST API and a CLI for operational payment workflows.
+הפרויקט מספק גם REST API וגם CLI לתהליכי עיבוד הודעות תשלום תפעוליים.
 
-## API capabilities
+## יכולות API
 
-- health and readiness endpoints
-- data validation before XML generation
-- synchronous generation for direct workflows
-- asynchronous job execution for longer-running pipelines
-- downloadable generated files through job completion flows
+- נקודות קצה לבריאות ומוכנות
+- אימות נתונים לפני יצירת XML
+- יצירה סינכרונית לזרימות ישירות
+- הרצת משימות אסינכרונית לצינורות ארוכים יותר
+- קבצים מיוצרים להורדה דרך זרימות השלמת משימות
 
-## CLI capabilities
+## יכולות CLI
 
-- point to a source file and message version
-- validate against XSD before delivery
-- generate XML into pipeline-friendly output directories
-- fit into CI jobs, batch schedules, and local operator tooling
+- להצביע על קובץ מקור וגרסת הודעה
+- לאמת מול XSD לפני משלוח
+- ליצור XML לספריות פלט ידידותיות לצינורות
+- להשתלב במשימות CI, לוחות זמנים אצווה וכלי מפעיל מקומיים
 
-## Implementation focus
+## מיקוד יישום
 
-Competitor content often explains pacs.008 structure, but rarely shows how teams should operationalise it. Pacs008 is built for:
+Pacs008 מיועד לשימוש תפעולי בצוותי עיבוד תשלומים:
 
-- pre-flight validation before message creation
-- scheme and version selection at runtime
-- asynchronous generation flows for internal services
-- deterministic outputs for testing and audit trails
+- אימות מוקדם לפני יצירת הודעה
+- בחירת סכמה וגרסה בזמן ריצה
+- זרימות יצירה אסינכרוניות לשירותים פנימיים
+- פלטים דטרמיניסטיים לבדיקות ושבילי ביקורת
 
-## Data-quality pressure in 2026
+## דרישות איכות נתונים ל-2026
 
-Operational teams are under increasing pressure to improve message quality, especially around:
+דרישות איכות ההודעות מחמירות ברחבי התעשייה, במיוחד סביב:
 
-- party and agent identification
-- structured or hybrid address readiness
-- richer remittance and reference handling
-- transparency across serial payment chains
+- זיהוי צדדים וסוכנים
+- מוכנות כתובות מובנות או היברידיות
+- טיפול עשיר יותר בהעברות והפניות
+- שקיפות לאורך שרשראות תשלום סדרתיות
 
-The API and CLI are designed to make those checks part of the workflow instead of a manual review step.
+ה-API וה-CLI תוכננו לשלב בדיקות אלה בזרימת העבודה במקום שלב סקירה ידני.
 

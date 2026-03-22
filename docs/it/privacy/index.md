@@ -1,6 +1,6 @@
 ---
 title: Privacy | Italiano
-description: Privacy information for the Pacs008 website.
+description: Informazioni sulla privacy del sito web Pacs008.
 lang: it-IT
 lastUpdated: true
 image: /logo.svg
@@ -8,15 +8,15 @@ image: /logo.svg
 
 # Privacy
 
-This page is part of the public website shell for Pacs008. Replace this placeholder with your final legal copy before production launch if you need jurisdiction-specific wording.
+Questa pagina fa parte del sito pubblico di Pacs008. Sostituire questo testo con la versione legale finale prima del lancio se è necessaria una formulazione specifica per la giurisdizione.
 
-## Current scope
+## Ambito attuale
 
-- project website information
-- repository and package distribution links
-- contact route for questions or support requests
+- informazioni del sito web del progetto
+- link del repository e distribuzione dei pacchetti
+- canale di contatto per domande o richieste di supporto
 
-## Practical note
+## Nota pratica
 
-For operational or regulated deployments, have your legal and compliance teams review any final privacy, retention, or terms language before publishing.
+Per distribuzioni operative o regolamentate, far revisionare ai team legali e di conformità qualsiasi formulazione finale su privacy, conservazione o termini prima della pubblicazione.
 

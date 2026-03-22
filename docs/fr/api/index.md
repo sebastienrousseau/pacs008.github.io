@@ -8,40 +8,40 @@ image: /logo.svg
 
 # API
 
-Le projet fournit a la fois une API REST et une CLI pour les flux de paiement operationnels.
+Le projet fournit à la fois une API REST et une CLI pour les flux de traitement des messages de paiement.
 
-## Capacites API
+## Capacités API
 
-- health and readiness endpoints
-- data validation before XML generation
-- synchronous generation for direct workflows
-- asynchronous job execution for longer-running pipelines
-- downloadable generated files through job completion flows
+- points de terminaison de santé et de disponibilité
+- validation des données avant génération XML
+- génération synchrone pour les flux directs
+- exécution asynchrone de tâches pour les pipelines de longue durée
+- fichiers générés téléchargeables via les flux de complétion de tâches
 
-## Capacites CLI
+## Capacités CLI
 
-- point to a source file and message version
-- validate against XSD before delivery
-- generate XML into pipeline-friendly output directories
-- fit into CI jobs, batch schedules, and local operator tooling
+- pointer vers un fichier source et une version de message
+- valider par rapport au XSD avant livraison
+- générer du XML dans des répertoires de sortie compatibles pipeline
+- s'intégrer aux tâches CI, aux planifications par lots et aux outils d'opérateur local
 
-## Implementation focus
+## Orientation de l'implémentation
 
-Competitor content often explains pacs.008 structure, but rarely shows how teams should operationalise it. Pacs008 is built for:
+Pacs008 est conçu pour une utilisation opérationnelle par les équipes de traitement des paiements :
 
-- pre-flight validation before message creation
-- scheme and version selection at runtime
-- asynchronous generation flows for internal services
-- deterministic outputs for testing and audit trails
+- validation pré-vol avant la création du message
+- sélection du schéma et de la version à l'exécution
+- flux de génération asynchrones pour les services internes
+- sorties déterministes pour les tests et les pistes d'audit
 
-## Data-quality pressure in 2026
+## Exigences de qualité des données pour 2026
 
-Operational teams are under increasing pressure to improve message quality, especially around:
+Les exigences de qualité des messages se renforcent dans l'industrie, notamment autour de :
 
-- party and agent identification
-- structured or hybrid address readiness
-- richer remittance and reference handling
-- transparency across serial payment chains
+- identification des parties et des agents
+- disponibilité des adresses structurées ou hybrides
+- gestion enrichie des remises et des références
+- transparence à travers les chaînes de paiement sérielles
 
-The API and CLI are designed to make those checks part of the workflow instead of a manual review step.
+L'API et la CLI sont conçues pour intégrer ces vérifications dans le flux de travail plutôt que comme une étape de revue manuelle.
 

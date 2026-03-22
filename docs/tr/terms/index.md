@@ -1,22 +1,22 @@
 ---
-title: Terms | Türkçe
-description: Terms information for the Pacs008 website.
+title: Koşullar | Türkçe
+description: Pacs008 web sitesi koşullar bilgileri.
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Terms
+# Koşullar
 
-This page is part of the public website shell for Pacs008. Replace this placeholder with your final legal copy before production launch if you need jurisdiction-specific wording.
+Bu sayfa, Pacs008 kamu web sitesinin bir parçasıdır. Yetki alanına özgü ifadelere ihtiyacınız varsa, lansmandan önce bu yer tutucu metni son yasal metninizle değiştirin.
 
-## Current scope
+## Mevcut kapsam
 
-- project website information
-- repository and package distribution links
-- contact route for questions or support requests
+- proje web sitesi bilgileri
+- depo ve paket dağıtım bağlantıları
+- sorular veya destek talepleri için iletişim yolu
 
-## Practical note
+## Pratik not
 
-For operational or regulated deployments, have your legal and compliance teams review any final privacy, retention, or terms language before publishing.
+Operasyonel veya düzenlenmiş dağıtımlar için, yayınlamadan önce hukuk ve uyum ekiplerinizin gizlilik, saklama veya koşullarla ilgili nihai ifadeleri incelemesini sağlayın.
 

@@ -1,6 +1,6 @@
 ---
 title: Pacs008 | עברית
-description: יצירה, ולידציה, API ותמיכת תאימות להעברות FI-to-FI.
+description: יצירה, אימות, תיאום API ותמיכת ציות לתהליכי העברת אשראי FI-to-FI.
 lang: he-IL
 author: Sebastien Rousseau
 lastUpdated: true
@@ -14,10 +14,10 @@ sitemap: true
 breadcrumbTitle: Pacs008
 pageType: home
 schemaType: WebSite
-heroText: אוטומציה של pacs.008 בביטחון.
+heroText: אוטומציה של עיבוד הודעות pacs.008 בתקן ISO 20022.
 home: true
 metaTitle: Pacs008
-subtitle: יצירה, ולידציה, API ותמיכת תאימות להעברות FI-to-FI.
-tagline: יצירה, ולידציה, API ותמיכת תאימות להעברות FI-to-FI.
+subtitle: יצירה, אימות, תיאום API ותמיכת ציות לתהליכי העברת אשראי FI-to-FI.
+tagline: יצירה, אימות, תיאום API ותמיכת ציות לתהליכי העברת אשראי FI-to-FI.
 actionLink: /he/about/
 ---

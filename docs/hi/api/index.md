@@ -1,6 +1,6 @@
 ---
 title: API | हिन्दी
-description: REST and CLI workflow support in Pacs008.
+description: Pacs008 में REST और CLI वर्कफ़्लो समर्थन।
 lang: hi-IN
 lastUpdated: true
 image: /logo.svg
@@ -8,40 +8,40 @@ image: /logo.svg
 
 # API
 
-The project ships with both a REST API and a CLI for operational payment workflows.
+परियोजना परिचालन भुगतान संदेश वर्कफ़्लो के लिए REST API और CLI दोनों प्रदान करती है।
 
-## API capabilities
+## API क्षमताएँ
 
-- health and readiness endpoints
-- data validation before XML generation
-- synchronous generation for direct workflows
-- asynchronous job execution for longer-running pipelines
-- downloadable generated files through job completion flows
+- स्वास्थ्य और तत्परता एंडपॉइंट
+- XML जनरेशन से पहले डेटा सत्यापन
+- प्रत्यक्ष वर्कफ़्लो के लिए समकालिक जनरेशन
+- लंबे समय तक चलने वाली पाइपलाइनों के लिए अतुल्यकालिक कार्य निष्पादन
+- कार्य पूर्णता प्रवाह के माध्यम से डाउनलोड करने योग्य उत्पन्न फ़ाइलें
 
-## CLI capabilities
+## CLI क्षमताएँ
 
-- point to a source file and message version
-- validate against XSD before delivery
-- generate XML into pipeline-friendly output directories
-- fit into CI jobs, batch schedules, and local operator tooling
+- स्रोत फ़ाइल और संदेश संस्करण को इंगित करें
+- वितरण से पहले XSD के विरुद्ध मान्य करें
+- पाइपलाइन-अनुकूल आउटपुट निर्देशिकाओं में XML उत्पन्न करें
+- CI कार्यों, बैच शेड्यूल और स्थानीय ऑपरेटर टूलिंग में फ़िट हों
 
-## Implementation focus
+## कार्यान्वयन फोकस
 
-Competitor content often explains pacs.008 structure, but rarely shows how teams should operationalise it. Pacs008 is built for:
+Pacs008 भुगतान प्रसंस्करण टीमों में परिचालन उपयोग के लिए डिज़ाइन किया गया है:
 
-- pre-flight validation before message creation
-- scheme and version selection at runtime
-- asynchronous generation flows for internal services
-- deterministic outputs for testing and audit trails
+- संदेश निर्माण से पहले पूर्व-उड़ान सत्यापन
+- रनटाइम पर स्कीमा और संस्करण चयन
+- आंतरिक सेवाओं के लिए अतुल्यकालिक जनरेशन प्रवाह
+- परीक्षण और ऑडिट ट्रेल्स के लिए नियतात्मक आउटपुट
 
-## Data-quality pressure in 2026
+## 2026 के लिए डेटा गुणवत्ता आवश्यकताएँ
 
-Operational teams are under increasing pressure to improve message quality, especially around:
+संदेश गुणवत्ता आवश्यकताएँ उद्योग में कड़ी हो रही हैं, विशेष रूप से:
 
-- party and agent identification
-- structured or hybrid address readiness
-- richer remittance and reference handling
-- transparency across serial payment chains
+- पक्ष और एजेंट पहचान
+- संरचित या हाइब्रिड पते की तत्परता
+- समृद्ध प्रेषण और संदर्भ प्रबंधन
+- सीरियल भुगतान श्रृंखलाओं में पारदर्शिता
 
-The API and CLI are designed to make those checks part of the workflow instead of a manual review step.
+API और CLI को इन जांचों को मैन्युअल समीक्षा चरण के बजाय वर्कफ़्लो का हिस्सा बनाने के लिए डिज़ाइन किया गया है।
 

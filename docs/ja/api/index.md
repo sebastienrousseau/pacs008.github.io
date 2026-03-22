@@ -1,6 +1,6 @@
 ---
 title: API | 日本語
-description: REST and CLI workflow support in Pacs008.
+description: Pacs008 の REST および CLI ワークフローサポート。
 lang: ja-JP
 lastUpdated: true
 image: /logo.svg
@@ -8,40 +8,40 @@ image: /logo.svg
 
 # API
 
-The project ships with both a REST API and a CLI for operational payment workflows.
+本プロジェクトは運用決済メッセージワークフロー向けに REST API と CLI の両方を提供します。
 
-## API capabilities
+## API 機能
 
-- health and readiness endpoints
-- data validation before XML generation
-- synchronous generation for direct workflows
-- asynchronous job execution for longer-running pipelines
-- downloadable generated files through job completion flows
+- ヘルスおよびレディネスエンドポイント
+- XML 生成前のデータ検証
+- ダイレクトワークフロー用の同期生成
+- 長時間パイプライン用の非同期ジョブ実行
+- ジョブ完了フローによるダウンロード可能な生成ファイル
 
-## CLI capabilities
+## CLI 機能
 
-- point to a source file and message version
-- validate against XSD before delivery
-- generate XML into pipeline-friendly output directories
-- fit into CI jobs, batch schedules, and local operator tooling
+- ソースファイルとメッセージバージョンを指定
+- 配信前に XSD に対して検証
+- パイプラインフレンドリーな出力ディレクトリに XML を生成
+- CI ジョブ、バッチスケジュール、ローカルオペレーターツールに統合
 
-## Implementation focus
+## 実装の焦点
 
-Competitor content often explains pacs.008 structure, but rarely shows how teams should operationalise it. Pacs008 is built for:
+Pacs008 は決済処理チームでの運用使用のために設計されています：
 
-- pre-flight validation before message creation
-- scheme and version selection at runtime
-- asynchronous generation flows for internal services
-- deterministic outputs for testing and audit trails
+- メッセージ作成前のプリフライト検証
+- ランタイムでのスキーマとバージョンの選択
+- 内部サービス向けの非同期生成フロー
+- テストと監査証跡のための決定論的出力
 
-## Data-quality pressure in 2026
+## 2026 年のデータ品質要件
 
-Operational teams are under increasing pressure to improve message quality, especially around:
+メッセージ品質要件は業界全体で厳格化しています、特に以下の分野：
 
-- party and agent identification
-- structured or hybrid address readiness
-- richer remittance and reference handling
-- transparency across serial payment chains
+- 当事者とエージェントの識別
+- 構造化またはハイブリッドアドレスの準備
+- より豊富な送金および参照処理
+- シリアル決済チェーン全体の透明性
 
-The API and CLI are designed to make those checks part of the workflow instead of a manual review step.
+API と CLI は、これらのチェックを手動レビューステップではなくワークフローの一部にするよう設計されています。
 

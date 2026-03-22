@@ -1,6 +1,6 @@
 ---
 title: Contact | Nederlands
-description: How to reach the Pacs008 project.
+description: Hoe u het Pacs008-project kunt bereiken.
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg
@@ -8,10 +8,10 @@ image: /logo.svg
 
 # Contact
 
-For repository issues, feature requests, and implementation questions, use the project links below.
+Voor repositoryproblemen, functieverzoeken en implementatievragen kunt u de onderstaande projectlinks gebruiken.
 
 - Repository: <https://github.com/sebastienrousseau/pacs008>
 - Releases: <https://github.com/sebastienrousseau/pacs008/releases>
 - Package: <https://pypi.org/project/pacs008/>
 
-If you need a private operational discussion, add your preferred contact route here before launch.
+Als u een privé operationeel gesprek nodig heeft, voeg dan hier uw voorkeurscontactroute toe vóór de lancering.

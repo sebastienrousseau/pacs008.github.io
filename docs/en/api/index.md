@@ -8,7 +8,7 @@ image: /logo.svg
 
 # API
 
-The project ships with both a REST API and a CLI for operational payment workflows.
+The project provides both a REST API and a CLI for operational payment message workflows.
 
 ## API capabilities
 
@@ -27,16 +27,16 @@ The project ships with both a REST API and a CLI for operational payment workflo
 
 ## Implementation focus
 
-Competitor content often explains pacs.008 structure, but rarely shows how teams should operationalise it. Pacs008 is built for:
+Pacs008 is designed for operational use across payment processing teams:
 
 - pre-flight validation before message creation
 - scheme and version selection at runtime
 - asynchronous generation flows for internal services
 - deterministic outputs for testing and audit trails
 
-## Data-quality pressure in 2026
+## Data-quality requirements for 2026
 
-Operational teams are under increasing pressure to improve message quality, especially around:
+Message quality requirements are tightening across the industry, particularly around:
 
 - party and agent identification
 - structured or hybrid address readiness

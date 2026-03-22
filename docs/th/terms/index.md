@@ -1,22 +1,22 @@
 ---
-title: Terms | ไทย
-description: Terms information for the Pacs008 website.
+title: ข้อกำหนด | ไทย
+description: ข้อมูลข้อกำหนดสำหรับเว็บไซต์ Pacs008
 lang: th-TH
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Terms
+# ข้อกำหนด
 
-This page is part of the public website shell for Pacs008. Replace this placeholder with your final legal copy before production launch if you need jurisdiction-specific wording.
+หน้านี้เป็นส่วนหนึ่งของเว็บไซต์สาธารณะ Pacs008 แทนที่ข้อความนี้ด้วยสำเนาทางกฎหมายฉบับสุดท้ายก่อนเปิดตัวหากคุณต้องการถ้อยคำเฉพาะเขตอำนาจศาล
 
-## Current scope
+## ขอบเขตปัจจุบัน
 
-- project website information
-- repository and package distribution links
-- contact route for questions or support requests
+- ข้อมูลเว็บไซต์โครงการ
+- ลิงก์ที่เก็บข้อมูลและการแจกจ่ายแพ็คเกจ
+- ช่องทางติดต่อสำหรับคำถามหรือคำขอการสนับสนุน
 
-## Practical note
+## หมายเหตุเชิงปฏิบัติ
 
-For operational or regulated deployments, have your legal and compliance teams review any final privacy, retention, or terms language before publishing.
+สำหรับการปรับใช้เชิงปฏิบัติการหรือที่มีการกำกับดูแล ให้ทีมกฎหมายและการปฏิบัติตามกฎระเบียบตรวจสอบถ้อยคำสุดท้ายก่อนเผยแพร่
 

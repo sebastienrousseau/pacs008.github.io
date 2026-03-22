@@ -8,10 +8,10 @@ image: /logo.svg
 
 # Contact
 
-Pour les problemes de depot, les demandes de fonctionnalites et les questions d'implementation, utilisez les liens ci-dessous.
+Pour les problèmes de dépôt, les demandes de fonctionnalités et les questions d'implémentation, utilisez les liens ci-dessous.
 
 - Repository: <https://github.com/sebastienrousseau/pacs008>
 - Releases: <https://github.com/sebastienrousseau/pacs008/releases>
 - Package: <https://pypi.org/project/pacs008/>
 
-If you need a private operational discussion, add your preferred contact route here before launch.
+Si vous avez besoin d'une discussion opérationnelle privée, ajoutez votre moyen de contact préféré ici avant le lancement.

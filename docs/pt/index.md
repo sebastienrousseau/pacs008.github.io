@@ -1,6 +1,6 @@
 ---
 title: Pacs008 | Português
-description: Geração, validação, API e conformidade para fluxos FI-to-FI.
+description: Geração, validação, orquestração de API e suporte de conformidade para fluxos de transferência de crédito FI-to-FI.
 lang: pt-BR
 author: Sebastien Rousseau
 lastUpdated: true
@@ -14,10 +14,10 @@ sitemap: true
 breadcrumbTitle: Pacs008
 pageType: home
 schemaType: WebSite
-heroText: Automatize pacs.008 com confiança.
+heroText: Automatize o processamento de mensagens pacs.008 ISO 20022.
 home: true
 metaTitle: Pacs008
-subtitle: Geração, validação, API e conformidade para fluxos FI-to-FI.
-tagline: Geração, validação, API e conformidade para fluxos FI-to-FI.
+subtitle: Geração, validação, orquestração de API e suporte de conformidade para fluxos de transferência de crédito FI-to-FI.
+tagline: Geração, validação, orquestração de API e suporte de conformidade para fluxos de transferência de crédito FI-to-FI.
 actionLink: /pt/about/
 ---

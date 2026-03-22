@@ -1,17 +1,17 @@
 ---
-title: Contact | Türkçe
-description: How to reach the Pacs008 project.
+title: İletişim | Türkçe
+description: Pacs008 projesine nasıl ulaşılır.
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Contact
+# İletişim
 
-For repository issues, feature requests, and implementation questions, use the project links below.
+Depo sorunları, özellik talepleri ve uygulama soruları için aşağıdaki proje bağlantılarını kullanın.
 
 - Repository: <https://github.com/sebastienrousseau/pacs008>
 - Releases: <https://github.com/sebastienrousseau/pacs008/releases>
 - Package: <https://pypi.org/project/pacs008/>
 
-If you need a private operational discussion, add your preferred contact route here before launch.
+Özel bir operasyonel tartışmaya ihtiyacınız varsa, lansmandan önce tercih ettiğiniz iletişim yolunu buraya ekleyin.

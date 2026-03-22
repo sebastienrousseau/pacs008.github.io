@@ -1,6 +1,6 @@
 ---
 title: Pacs008 | Українська
-description: Генерація, валідація, API та комплаєнс для потоків FI-to-FI.
+description: Генерація, валідація, оркестрація API та підтримка комплаєнсу для потоків кредитових переказів FI-to-FI.
 lang: uk-UA
 author: Sebastien Rousseau
 lastUpdated: true
@@ -14,10 +14,10 @@ sitemap: true
 breadcrumbTitle: Pacs008
 pageType: home
 schemaType: WebSite
-heroText: Автоматизуйте pacs.008 впевнено.
+heroText: Автоматизація обробки повідомлень pacs.008 ISO 20022.
 home: true
 metaTitle: Pacs008
-subtitle: Генерація, валідація, API та комплаєнс для потоків FI-to-FI.
-tagline: Генерація, валідація, API та комплаєнс для потоків FI-to-FI.
+subtitle: Генерація, валідація, оркестрація API та підтримка комплаєнсу для потоків кредитових переказів FI-to-FI.
+tagline: Генерація, валідація, оркестрація API та підтримка комплаєнсу для потоків кредитових переказів FI-to-FI.
 actionLink: /uk/about/
 ---

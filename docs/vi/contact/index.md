@@ -1,17 +1,17 @@
 ---
-title: Contact | Tiếng Việt
-description: How to reach the Pacs008 project.
+title: Liên hệ | Tiếng Việt
+description: Cách liên hệ với dự án Pacs008.
 lang: vi-VN
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Contact
+# Liên hệ
 
-For repository issues, feature requests, and implementation questions, use the project links below.
+Đối với các vấn đề kho lưu trữ, yêu cầu tính năng và câu hỏi triển khai, hãy sử dụng các liên kết dự án bên dưới.
 
 - Repository: <https://github.com/sebastienrousseau/pacs008>
 - Releases: <https://github.com/sebastienrousseau/pacs008/releases>
 - Package: <https://pypi.org/project/pacs008/>
 
-If you need a private operational discussion, add your preferred contact route here before launch.
+Nếu bạn cần thảo luận vận hành riêng tư, hãy thêm đường liên hệ ưa thích của bạn tại đây trước khi ra mắt.
