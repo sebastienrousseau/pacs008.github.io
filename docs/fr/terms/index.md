@@ -1,22 +1,22 @@
 ---
-title: Terms | Français
-description: Terms information for the Pacs008 website.
+title: Conditions | Français
+description: Informations sur les conditions du site Pacs008.
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Terms
+# Conditions
 
-This page is part of the public website shell for Pacs008. Replace this placeholder with your final legal copy before production launch if you need jurisdiction-specific wording.
+Cette page fait partie de l'enveloppe publique du site Pacs008. Remplacez ce texte par votre version juridique finale avant la mise en production si vous avez besoin d'un libelle specifique.
 
-## Current scope
+## Portee actuelle
 
 - project website information
 - repository and package distribution links
 - contact route for questions or support requests
 
-## Practical note
+## Note pratique
 
-For operational or regulated deployments, have your legal and compliance teams review any final privacy, retention, or terms language before publishing.
+Pour les deploiements operationnels ou reglementes, faites relire les formulations finales par vos equipes juridiques et conformite.
 

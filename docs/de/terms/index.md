@@ -1,22 +1,22 @@
 ---
-title: Terms | Deutsch
-description: Terms information for the Pacs008 website.
+title: Bedingungen | Deutsch
+description: Informationen zu den Nutzungsbedingungen der Pacs008-Website.
 lang: de-DE
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Terms
+# Bedingungen
 
-This page is part of the public website shell for Pacs008. Replace this placeholder with your final legal copy before production launch if you need jurisdiction-specific wording.
+Diese Seite ist Teil der offentlichen Pacs008-Website. Ersetzen Sie diesen Platzhalter vor dem Produktivstart durch Ihren finalen Rechtstext, falls Sie landerspezifische Formulierungen benotigen.
 
-## Current scope
+## Aktueller Umfang
 
 - project website information
 - repository and package distribution links
 - contact route for questions or support requests
 
-## Practical note
+## Praktischer Hinweis
 
-For operational or regulated deployments, have your legal and compliance teams review any final privacy, retention, or terms language before publishing.
+Bei operativen oder regulierten Einsatzen sollten Ihre Rechts- und Compliance-Teams die endgultigen Texte vor der Veroffentlichung prufen.
 

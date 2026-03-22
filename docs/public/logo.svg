@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-labelledby="title desc">
+  <title id="title">Pacs008 logo</title>
+  <desc id="desc">Layered payment rails with a central transfer pulse.</desc>
+  <rect width="320" height="320" rx="64" fill="#10211d"/>
+  <rect x="42" y="78" width="236" height="42" rx="21" fill="#f0b468" opacity="0.95"/>
+  <rect x="42" y="138" width="188" height="42" rx="21" fill="#fff2dd"/>
+  <rect x="42" y="198" width="236" height="42" rx="21" fill="#d67434"/>
+  <circle cx="246" cy="159" r="40" fill="#f6f0e6"/>
+  <path d="M225 159h42m-14-14 14 14-14 14" stroke="#10211d" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

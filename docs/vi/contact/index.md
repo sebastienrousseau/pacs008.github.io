@@ -8,7 +8,7 @@ image: /logo.svg
 
 # Contact
 
-For repository issues, feature requests, and implementation questions, use the GitHub project as the primary channel.
+For repository issues, feature requests, and implementation questions, use the project links below.
 
 - Repository: <https://github.com/sebastienrousseau/pacs008>
 - Releases: <https://github.com/sebastienrousseau/pacs008/releases>

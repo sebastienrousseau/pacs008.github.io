@@ -1,6 +1,6 @@
 ---
 title: Contact | Français
-description: How to reach the Pacs008 project.
+description: Comment contacter le projet Pacs008.
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg
@@ -8,7 +8,7 @@ image: /logo.svg
 
 # Contact
 
-For repository issues, feature requests, and implementation questions, use the GitHub project as the primary channel.
+Pour les problemes de depot, les demandes de fonctionnalites et les questions d'implementation, utilisez les liens ci-dessous.
 
 - Repository: <https://github.com/sebastienrousseau/pacs008>
 - Releases: <https://github.com/sebastienrousseau/pacs008/releases>
