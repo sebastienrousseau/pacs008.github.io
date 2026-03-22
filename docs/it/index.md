@@ -19,5 +19,6 @@ home: true
 metaTitle: pacs008
 subtitle: Generazione, validazione, orchestrazione API e conformità per i flussi di bonifico cliente FI-to-FI.
 tagline: Generazione, validazione, orchestrazione API e conformità per i flussi di bonifico cliente FI-to-FI.
+actionText: Scopri pacs008
 actionLink: /it/about/
 ---

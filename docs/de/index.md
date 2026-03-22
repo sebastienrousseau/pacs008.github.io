@@ -19,5 +19,6 @@ home: true
 metaTitle: pacs008
 subtitle: Generierung, Validierung, API-Orchestrierung und Compliance-Unterstützung für FI-to-FI-Kundenkredittransfer-Workflows.
 tagline: Generierung, Validierung, API-Orchestrierung und Compliance-Unterstützung für FI-to-FI-Kundenkredittransfer-Workflows.
+actionText: Mehr über pacs008 erfahren
 actionLink: /de/about/
 ---

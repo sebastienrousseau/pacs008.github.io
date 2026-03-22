@@ -19,5 +19,6 @@ home: true
 metaTitle: pacs008
 subtitle: Tạo, xác thực, điều phối API và hỗ trợ tuân thủ cho quy trình chuyển khoản tín dụng khách hàng FI-to-FI.
 tagline: Tạo, xác thực, điều phối API và hỗ trợ tuân thủ cho quy trình chuyển khoản tín dụng khách hàng FI-to-FI.
+actionText: Tìm hiểu về pacs008
 actionLink: /vi/about/
 ---

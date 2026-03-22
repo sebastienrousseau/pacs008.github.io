@@ -19,5 +19,6 @@ home: true
 metaTitle: pacs008
 subtitle: Generatie, validatie, API-orchestratie en compliance-ondersteuning voor FI-to-FI-klantoverdrachtworkflows.
 tagline: Generatie, validatie, API-orchestratie en compliance-ondersteuning voor FI-to-FI-klantoverdrachtworkflows.
+actionText: Meer over pacs008
 actionLink: /nl/about/
 ---

@@ -19,5 +19,6 @@ home: true
 metaTitle: pacs008
 subtitle: 面向 FI-to-FI 客户信贷转账工作流的生成、校验、API 编排与合规支持。
 tagline: 面向 FI-to-FI 客户信贷转账工作流的生成、校验、API 编排与合规支持。
+actionText: 了解 pacs008
 actionLink: /zh/about/
 ---

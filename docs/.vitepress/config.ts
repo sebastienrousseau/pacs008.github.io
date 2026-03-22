@@ -86,7 +86,7 @@ export default defineConfig({
     }
 
     if (fm.layout === "home" && !fm.hero) {
-      const actionText = typeof fm.actionText === "string" ? fm.actionText : "Read more";
+      const actionText = typeof fm.actionText === "string" ? fm.actionText : "Learn about pacs008";
       const actionLink = typeof fm.actionLink === "string" ? fm.actionLink : "/en/about/";
       fm.hero = {
         name: typeof fm.heroText === "string" ? fm.heroText : fm.title || SITE_NAME,

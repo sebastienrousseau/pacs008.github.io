@@ -19,5 +19,6 @@ home: true
 metaTitle: pacs008
 subtitle: FI-to-FI 고객 신용 이체 워크플로를 위한 생성, 검증, API 오케스트레이션, 규정 준수 지원.
 tagline: FI-to-FI 고객 신용 이체 워크플로를 위한 생성, 검증, API 오케스트레이션, 규정 준수 지원.
+actionText: pacs008 알아보기
 actionLink: /ko/about/
 ---

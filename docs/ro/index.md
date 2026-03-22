@@ -19,5 +19,6 @@ home: true
 metaTitle: pacs008
 subtitle: Generare, validare, orchestrare API și suport de conformitate pentru fluxuri de transfer de credit FI-to-FI.
 tagline: Generare, validare, orchestrare API și suport de conformitate pentru fluxuri de transfer de credit FI-to-FI.
+actionText: Aflați despre pacs008
 actionLink: /ro/about/
 ---

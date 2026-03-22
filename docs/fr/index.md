@@ -19,5 +19,6 @@ home: true
 metaTitle: pacs008
 subtitle: Génération, validation, orchestration d'API et conformité pour les flux de virement client FI-to-FI.
 tagline: Génération, validation, orchestration d'API et conformité pour les flux de virement client FI-to-FI.
+actionText: Découvrir pacs008
 actionLink: /fr/about/
 ---

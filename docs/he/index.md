@@ -19,5 +19,6 @@ home: true
 metaTitle: pacs008
 subtitle: יצירה, אימות, תיאום API ותמיכת ציות לתהליכי העברת אשראי FI-to-FI.
 tagline: יצירה, אימות, תיאום API ותמיכת ציות לתהליכי העברת אשראי FI-to-FI.
+actionText: למידע על pacs008
 actionLink: /he/about/
 ---

@@ -8,28 +8,28 @@ const root = path.resolve(__dirname, "..");
 const docsDir = path.join(root, "docs");
 
 const locales = [
-  { key: "en", lang: "en-GB", label: "English", hero: "Automate ISO 20022 pacs.008 message processing.", tagline: "Generation, validation, API orchestration, and compliance support for FI-to-FI customer credit transfer workflows." },
-  { key: "ar", lang: "ar-SA", label: "العربية", hero: "أتمتة معالجة رسائل pacs.008 وفق ISO 20022.", tagline: "التوليد والتحقق وتنسيق واجهات البرمجة ودعم الامتثال لتدفقات تحويل الائتمان بين المؤسسات المالية." },
-  { key: "de", lang: "de-DE", label: "Deutsch", hero: "ISO 20022 pacs.008 Nachrichtenverarbeitung automatisieren.", tagline: "Generierung, Validierung, API-Orchestrierung und Compliance-Unterstützung für FI-to-FI-Kundenkredittransfer-Workflows." },
-  { key: "es", lang: "es-ES", label: "Español", hero: "Automatice el procesamiento de mensajes pacs.008 ISO 20022.", tagline: "Generación, validación, orquestación de API y soporte de cumplimiento para flujos de transferencia de crédito FI-to-FI." },
-  { key: "fr", lang: "fr-FR", label: "Français", hero: "Automatisez le traitement des messages pacs.008 ISO 20022.", tagline: "Génération, validation, orchestration d'API et conformité pour les flux de virement client FI-to-FI." },
-  { key: "he", lang: "he-IL", label: "עברית", hero: "אוטומציה של עיבוד הודעות pacs.008 בתקן ISO 20022.", tagline: "יצירה, אימות, תיאום API ותמיכת ציות לתהליכי העברת אשראי FI-to-FI." },
-  { key: "hi", lang: "hi-IN", label: "हिन्दी", hero: "ISO 20022 pacs.008 संदेश प्रसंस्करण को स्वचालित करें।", tagline: "FI-to-FI ग्राहक क्रेडिट ट्रांसफर वर्कफ़्लो के लिए जनरेशन, वैलिडेशन, API ऑर्केस्ट्रेशन और अनुपालन समर्थन।" },
-  { key: "id", lang: "id-ID", label: "Bahasa Indonesia", hero: "Otomatisasi pemrosesan pesan pacs.008 ISO 20022.", tagline: "Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan FI-to-FI." },
-  { key: "it", lang: "it-IT", label: "Italiano", hero: "Automatizza l'elaborazione dei messaggi pacs.008 ISO 20022.", tagline: "Generazione, validazione, orchestrazione API e conformità per i flussi di bonifico cliente FI-to-FI." },
-  { key: "ja", lang: "ja-JP", label: "日本語", hero: "ISO 20022 pacs.008 メッセージ処理を自動化。", tagline: "FI-to-FI 顧客クレジット移転ワークフローの生成、検証、API オーケストレーション、コンプライアンス対応。" },
-  { key: "ko", lang: "ko-KR", label: "한국어", hero: "ISO 20022 pacs.008 메시지 처리 자동화.", tagline: "FI-to-FI 고객 신용 이체 워크플로를 위한 생성, 검증, API 오케스트레이션, 규정 준수 지원." },
-  { key: "nl", lang: "nl-NL", label: "Nederlands", hero: "Automatiseer ISO 20022 pacs.008 berichtverwerking.", tagline: "Generatie, validatie, API-orchestratie en compliance-ondersteuning voor FI-to-FI-klantoverdrachtworkflows." },
-  { key: "pl", lang: "pl-PL", label: "Polski", hero: "Automatyzacja przetwarzania komunikatów pacs.008 ISO 20022.", tagline: "Generowanie, walidacja, orkiestracja API i wsparcie zgodności dla przepływów przelewów kredytowych FI-to-FI." },
-  { key: "pt", lang: "pt-BR", label: "Português", hero: "Automatize o processamento de mensagens pacs.008 ISO 20022.", tagline: "Geração, validação, orquestração de API e suporte de conformidade para fluxos de transferência de crédito FI-to-FI." },
-  { key: "ro", lang: "ro-RO", label: "Română", hero: "Automatizați procesarea mesajelor pacs.008 ISO 20022.", tagline: "Generare, validare, orchestrare API și suport de conformitate pentru fluxuri de transfer de credit FI-to-FI." },
-  { key: "ru", lang: "ru-RU", label: "Русский", hero: "Автоматизация обработки сообщений pacs.008 ISO 20022.", tagline: "Генерация, валидация, оркестрация API и поддержка комплаенса для потоков кредитовых переводов FI-to-FI." },
-  { key: "th", lang: "th-TH", label: "ไทย", hero: "อัตโนมัติการประมวลผลข้อความ pacs.008 ตามมาตรฐาน ISO 20022", tagline: "การสร้าง ตรวจสอบ จัดเรียง API และสนับสนุนการปฏิบัติตามกฎระเบียบสำหรับเวิร์กโฟลว์โอนเครดิตลูกค้า FI-to-FI" },
-  { key: "tr", lang: "tr-TR", label: "Türkçe", hero: "ISO 20022 pacs.008 mesaj işlemeyi otomatikleştirin.", tagline: "FI-to-FI müşteri kredi transferi iş akışları için oluşturma, doğrulama, API orkestrasyonu ve uyumluluk desteği." },
-  { key: "uk", lang: "uk-UA", label: "Українська", hero: "Автоматизація обробки повідомлень pacs.008 ISO 20022.", tagline: "Генерація, валідація, оркестрація API та підтримка комплаєнсу для потоків кредитових переказів FI-to-FI." },
-  { key: "vi", lang: "vi-VN", label: "Tiếng Việt", hero: "Tự động hóa xử lý thông điệp pacs.008 theo ISO 20022.", tagline: "Tạo, xác thực, điều phối API và hỗ trợ tuân thủ cho quy trình chuyển khoản tín dụng khách hàng FI-to-FI." },
-  { key: "zh", lang: "zh-CN", label: "简体中文", hero: "自动化 ISO 20022 pacs.008 报文处理。", tagline: "面向 FI-to-FI 客户信贷转账工作流的生成、校验、API 编排与合规支持。" },
-  { key: "zh-tw", lang: "zh-TW", label: "繁體中文", hero: "自動化 ISO 20022 pacs.008 訊息處理。", tagline: "面向 FI-to-FI 客戶信貸轉帳工作流程的產生、驗證、API 編排與合規支援。" }
+  { key: "en", lang: "en-GB", label: "English", hero: "Automate ISO 20022 pacs.008 message processing.", tagline: "Generation, validation, API orchestration, and compliance support for FI-to-FI customer credit transfer workflows.", cta: "Learn about pacs008" },
+  { key: "ar", lang: "ar-SA", label: "العربية", hero: "أتمتة معالجة رسائل pacs.008 وفق ISO 20022.", tagline: "التوليد والتحقق وتنسيق واجهات البرمجة ودعم الامتثال لتدفقات تحويل الائتمان بين المؤسسات المالية.", cta: "تعرّف على pacs008" },
+  { key: "de", lang: "de-DE", label: "Deutsch", hero: "ISO 20022 pacs.008 Nachrichtenverarbeitung automatisieren.", tagline: "Generierung, Validierung, API-Orchestrierung und Compliance-Unterstützung für FI-to-FI-Kundenkredittransfer-Workflows.", cta: "Mehr über pacs008 erfahren" },
+  { key: "es", lang: "es-ES", label: "Español", hero: "Automatice el procesamiento de mensajes pacs.008 ISO 20022.", tagline: "Generación, validación, orquestación de API y soporte de cumplimiento para flujos de transferencia de crédito FI-to-FI.", cta: "Conozca pacs008" },
+  { key: "fr", lang: "fr-FR", label: "Français", hero: "Automatisez le traitement des messages pacs.008 ISO 20022.", tagline: "Génération, validation, orchestration d'API et conformité pour les flux de virement client FI-to-FI.", cta: "Découvrir pacs008" },
+  { key: "he", lang: "he-IL", label: "עברית", hero: "אוטומציה של עיבוד הודעות pacs.008 בתקן ISO 20022.", tagline: "יצירה, אימות, תיאום API ותמיכת ציות לתהליכי העברת אשראי FI-to-FI.", cta: "למידע על pacs008" },
+  { key: "hi", lang: "hi-IN", label: "हिन्दी", hero: "ISO 20022 pacs.008 संदेश प्रसंस्करण को स्वचालित करें।", tagline: "FI-to-FI ग्राहक क्रेडिट ट्रांसफर वर्कफ़्लो के लिए जनरेशन, वैलिडेशन, API ऑर्केस्ट्रेशन और अनुपालन समर्थन।", cta: "pacs008 के बारे में जानें" },
+  { key: "id", lang: "id-ID", label: "Bahasa Indonesia", hero: "Otomatisasi pemrosesan pesan pacs.008 ISO 20022.", tagline: "Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan FI-to-FI.", cta: "Pelajari pacs008" },
+  { key: "it", lang: "it-IT", label: "Italiano", hero: "Automatizza l'elaborazione dei messaggi pacs.008 ISO 20022.", tagline: "Generazione, validazione, orchestrazione API e conformità per i flussi di bonifico cliente FI-to-FI.", cta: "Scopri pacs008" },
+  { key: "ja", lang: "ja-JP", label: "日本語", hero: "ISO 20022 pacs.008 メッセージ処理を自動化。", tagline: "FI-to-FI 顧客クレジット移転ワークフローの生成、検証、API オーケストレーション、コンプライアンス対応。", cta: "pacs008 について" },
+  { key: "ko", lang: "ko-KR", label: "한국어", hero: "ISO 20022 pacs.008 메시지 처리 자동화.", tagline: "FI-to-FI 고객 신용 이체 워크플로를 위한 생성, 검증, API 오케스트레이션, 규정 준수 지원.", cta: "pacs008 알아보기" },
+  { key: "nl", lang: "nl-NL", label: "Nederlands", hero: "Automatiseer ISO 20022 pacs.008 berichtverwerking.", tagline: "Generatie, validatie, API-orchestratie en compliance-ondersteuning voor FI-to-FI-klantoverdrachtworkflows.", cta: "Meer over pacs008" },
+  { key: "pl", lang: "pl-PL", label: "Polski", hero: "Automatyzacja przetwarzania komunikatów pacs.008 ISO 20022.", tagline: "Generowanie, walidacja, orkiestracja API i wsparcie zgodności dla przepływów przelewów kredytowych FI-to-FI.", cta: "Poznaj pacs008" },
+  { key: "pt", lang: "pt-BR", label: "Português", hero: "Automatize o processamento de mensagens pacs.008 ISO 20022.", tagline: "Geração, validação, orquestração de API e suporte de conformidade para fluxos de transferência de crédito FI-to-FI.", cta: "Saiba mais sobre o pacs008" },
+  { key: "ro", lang: "ro-RO", label: "Română", hero: "Automatizați procesarea mesajelor pacs.008 ISO 20022.", tagline: "Generare, validare, orchestrare API și suport de conformitate pentru fluxuri de transfer de credit FI-to-FI.", cta: "Aflați despre pacs008" },
+  { key: "ru", lang: "ru-RU", label: "Русский", hero: "Автоматизация обработки сообщений pacs.008 ISO 20022.", tagline: "Генерация, валидация, оркестрация API и поддержка комплаенса для потоков кредитовых переводов FI-to-FI.", cta: "Узнать о pacs008" },
+  { key: "th", lang: "th-TH", label: "ไทย", hero: "อัตโนมัติการประมวลผลข้อความ pacs.008 ตามมาตรฐาน ISO 20022", tagline: "การสร้าง ตรวจสอบ จัดเรียง API และสนับสนุนการปฏิบัติตามกฎระเบียบสำหรับเวิร์กโฟลว์โอนเครดิตลูกค้า FI-to-FI", cta: "เรียนรู้เกี่ยวกับ pacs008" },
+  { key: "tr", lang: "tr-TR", label: "Türkçe", hero: "ISO 20022 pacs.008 mesaj işlemeyi otomatikleştirin.", tagline: "FI-to-FI müşteri kredi transferi iş akışları için oluşturma, doğrulama, API orkestrasyonu ve uyumluluk desteği.", cta: "pacs008 hakkında bilgi alın" },
+  { key: "uk", lang: "uk-UA", label: "Українська", hero: "Автоматизація обробки повідомлень pacs.008 ISO 20022.", tagline: "Генерація, валідація, оркестрація API та підтримка комплаєнсу для потоків кредитових переказів FI-to-FI.", cta: "Дізнатися про pacs008" },
+  { key: "vi", lang: "vi-VN", label: "Tiếng Việt", hero: "Tự động hóa xử lý thông điệp pacs.008 theo ISO 20022.", tagline: "Tạo, xác thực, điều phối API và hỗ trợ tuân thủ cho quy trình chuyển khoản tín dụng khách hàng FI-to-FI.", cta: "Tìm hiểu về pacs008" },
+  { key: "zh", lang: "zh-CN", label: "简体中文", hero: "自动化 ISO 20022 pacs.008 报文处理。", tagline: "面向 FI-to-FI 客户信贷转账工作流的生成、校验、API 编排与合规支持。", cta: "了解 pacs008" },
+  { key: "zh-tw", lang: "zh-TW", label: "繁體中文", hero: "自動化 ISO 20022 pacs.008 訊息處理。", tagline: "面向 FI-to-FI 客戶信貸轉帳工作流程的產生、驗證、API 編排與合規支援。", cta: "了解 pacs008" }
 ];
 
 const versions = [
@@ -6008,6 +6008,7 @@ home: true
 metaTitle: pacs008
 subtitle: ${locale.tagline}
 tagline: ${locale.tagline}
+actionText: ${locale.cta}
 actionLink: /${locale.key}/about/
 ---
 `;

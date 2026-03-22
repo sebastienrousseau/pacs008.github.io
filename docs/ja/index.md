@@ -19,5 +19,6 @@ home: true
 metaTitle: pacs008
 subtitle: FI-to-FI 顧客クレジット移転ワークフローの生成、検証、API オーケストレーション、コンプライアンス対応。
 tagline: FI-to-FI 顧客クレジット移転ワークフローの生成、検証、API オーケストレーション、コンプライアンス対応。
+actionText: pacs008 について
 actionLink: /ja/about/
 ---

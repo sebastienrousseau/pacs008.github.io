@@ -19,5 +19,6 @@ home: true
 metaTitle: pacs008
 subtitle: Generación, validación, orquestación de API y soporte de cumplimiento para flujos de transferencia de crédito FI-to-FI.
 tagline: Generación, validación, orquestación de API y soporte de cumplimiento para flujos de transferencia de crédito FI-to-FI.
+actionText: Conozca pacs008
 actionLink: /es/about/
 ---

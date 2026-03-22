@@ -19,5 +19,6 @@ home: true
 metaTitle: pacs008
 subtitle: Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan FI-to-FI.
 tagline: Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan FI-to-FI.
+actionText: Pelajari pacs008
 actionLink: /id/about/
 ---

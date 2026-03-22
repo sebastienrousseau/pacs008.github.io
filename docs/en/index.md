@@ -19,5 +19,6 @@ home: true
 metaTitle: pacs008
 subtitle: Generation, validation, API orchestration, and compliance support for FI-to-FI customer credit transfer workflows.
 tagline: Generation, validation, API orchestration, and compliance support for FI-to-FI customer credit transfer workflows.
+actionText: Learn about pacs008
 actionLink: /en/about/
 ---
