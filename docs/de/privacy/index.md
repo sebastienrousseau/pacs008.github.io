@@ -1,6 +1,6 @@
 ---
 title: Datenschutz | Deutsch
-description: Datenschutzinformationen für die Pacs008-Website.
+description: Datenschutzinformationen für die pacs008-Website.
 lang: de-DE
 lastUpdated: true
 image: /logo.svg

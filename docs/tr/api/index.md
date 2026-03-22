@@ -1,6 +1,6 @@
 ---
 title: API | Türkçe
-description: Pacs008'de REST ve CLI iş akışı desteği.
+description: pacs008'de REST ve CLI iş akışı desteği.
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg

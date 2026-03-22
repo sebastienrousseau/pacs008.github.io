@@ -1,6 +1,6 @@
 ---
 title: Koşullar | Türkçe
-description: Pacs008 web sitesi koşullar bilgileri.
+description: pacs008 web sitesi koşullar bilgileri.
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg

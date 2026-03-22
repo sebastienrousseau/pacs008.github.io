@@ -1,6 +1,6 @@
 ---
 title: API | English
-description: REST and CLI workflow support in Pacs008.
+description: REST and CLI workflow support in pacs008.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg

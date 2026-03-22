@@ -1,6 +1,6 @@
 ---
 title: プライバシー | 日本語
-description: Pacs008 ウェブサイトのプライバシー情報。
+description: pacs008 ウェブサイトのプライバシー情報。
 lang: ja-JP
 lastUpdated: true
 image: /logo.svg

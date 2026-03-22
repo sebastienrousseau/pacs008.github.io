@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pacs008.github.io/sitemap.xml
+Sitemap: https://pacs008.com/sitemap.xml

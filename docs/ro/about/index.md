@@ -1,14 +1,14 @@
 ---
-title: Despre Pacs008 | Română
-description: Ce face Pacs008 și cui se adresează.
+title: Despre pacs008 | Română
+description: Ce face pacs008 și cui se adresează.
 lang: ro-RO
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Despre Pacs008
+# Despre pacs008
 
-Pacs008 este un set de instrumente Python pentru automatizarea fluxurilor de transfer de credit ISO 20022 între instituții financiare.
+pacs008 este un set de instrumente Python pentru automatizarea fluxurilor de transfer de credit ISO 20022 între instituții financiare.
 
 ## Ce face
 
@@ -27,7 +27,7 @@ Pacs008 este un set de instrumente Python pentru automatizarea fluxurilor de tra
 
 ## Pregătire 2026
 
-Pacs008 este conceput în jurul termenelor operaționale și cerințelor de calitate a datelor relevante pentru 2026:
+pacs008 este conceput în jurul termenelor operaționale și cerințelor de calitate a datelor relevante pentru 2026:
 
 - gestionarea adreselor poștale structurate și hibride pentru CBPR+ și migrări de scheme
 - validare mai puternică a calității datelor debitorului, creditorului și agentului
@@ -36,7 +36,7 @@ Pacs008 este conceput în jurul termenelor operaționale și cerințelor de cali
 
 ## Focus operațional
 
-Pacs008 depășește referința definițiilor de mesaje pentru a susține implementarea operațională:
+pacs008 depășește referința definițiilor de mesaje pentru a susține implementarea operațională:
 
 - generarea XML din date sursă reale
 - validarea înainte de livrare

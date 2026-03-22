@@ -1,6 +1,6 @@
 ---
 title: יצירת קשר | עברית
-description: כיצד ליצור קשר עם פרויקט Pacs008.
+description: כיצד ליצור קשר עם פרויקט pacs008.
 lang: he-IL
 lastUpdated: true
 image: /logo.svg

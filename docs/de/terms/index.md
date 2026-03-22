@@ -1,6 +1,6 @@
 ---
 title: Bedingungen | Deutsch
-description: Informationen zu den Nutzungsbedingungen der Pacs008-Website.
+description: Informationen zu den Nutzungsbedingungen der pacs008-Website.
 lang: de-DE
 lastUpdated: true
 image: /logo.svg

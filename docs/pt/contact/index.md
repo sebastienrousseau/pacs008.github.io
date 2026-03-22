@@ -1,6 +1,6 @@
 ---
 title: Contato | Português
-description: Como entrar em contato com o projeto Pacs008.
+description: Como entrar em contato com o projeto pacs008.
 lang: pt-BR
 lastUpdated: true
 image: /logo.svg

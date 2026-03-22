@@ -1,6 +1,6 @@
 ---
 title: 條款 | 繁體中文
-description: Pacs008 網站的條款資訊。
+description: pacs008 網站的條款資訊。
 lang: zh-TW
 lastUpdated: true
 image: /logo.svg

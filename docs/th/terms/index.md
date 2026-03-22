@@ -1,6 +1,6 @@
 ---
 title: ข้อกำหนด | ไทย
-description: ข้อมูลข้อกำหนดสำหรับเว็บไซต์ Pacs008
+description: ข้อมูลข้อกำหนดสำหรับเว็บไซต์ pacs008
 lang: th-TH
 lastUpdated: true
 image: /logo.svg

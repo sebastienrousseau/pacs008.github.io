@@ -1,6 +1,6 @@
 ---
 title: Privacidad | Español
-description: Información de privacidad del sitio web de Pacs008.
+description: Información de privacidad del sitio web de pacs008.
 lang: es-ES
 lastUpdated: true
 image: /logo.svg

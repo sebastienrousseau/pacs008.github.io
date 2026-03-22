@@ -1,6 +1,6 @@
 ---
 title: API | Nederlands
-description: REST- en CLI-workflowondersteuning in Pacs008.
+description: REST- en CLI-workflowondersteuning in pacs008.
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg

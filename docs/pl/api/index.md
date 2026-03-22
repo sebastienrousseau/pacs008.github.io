@@ -1,6 +1,6 @@
 ---
 title: API | Polski
-description: Obsługa przepływów REST i CLI w Pacs008.
+description: Obsługa przepływów REST i CLI w pacs008.
 lang: pl-PL
 lastUpdated: true
 image: /logo.svg

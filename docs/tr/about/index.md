@@ -1,14 +1,14 @@
 ---
-title: Pacs008 Hakkında | Türkçe
-description: Pacs008 ne yapar ve kimler için tasarlanmıştır.
+title: pacs008 Hakkında | Türkçe
+description: pacs008 ne yapar ve kimler için tasarlanmıştır.
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Pacs008 Hakkında
+# pacs008 Hakkında
 
-Pacs008, ISO 20022 FI-to-FI müşteri kredi transferi iş akışlarını otomatikleştirmek için bir Python araç setidir.
+pacs008, ISO 20022 FI-to-FI müşteri kredi transferi iş akışlarını otomatikleştirmek için bir Python araç setidir.
 
 ## Ne yapar
 
@@ -27,7 +27,7 @@ Pacs008, ISO 20022 FI-to-FI müşteri kredi transferi iş akışlarını otomati
 
 ## 2026 hazırlığı
 
-Pacs008, 2026'da geçerli operasyonel son tarihler ve veri kalitesi gereksinimleri etrafında tasarlanmıştır:
+pacs008, 2026'da geçerli operasyonel son tarihler ve veri kalitesi gereksinimleri etrafında tasarlanmıştır:
 
 - CBPR+ ve şema geçişleri için yapılandırılmış ve hibrit posta adresi işleme
 - borçlu, alacaklı ve aracı veri kalitesinde daha güçlü doğrulama
@@ -36,7 +36,7 @@ Pacs008, 2026'da geçerli operasyonel son tarihler ve veri kalitesi gereksinimle
 
 ## Operasyonel odak
 
-Pacs008, mesaj tanımı referansının ötesine geçerek operasyonel uygulamayı destekler:
+pacs008, mesaj tanımı referansının ötesine geçerek operasyonel uygulamayı destekler:
 
 - gerçek kaynak verilerinden XML oluşturma
 - teslimattan önce doğrulama

@@ -1,5 +1,5 @@
 export const SITE_URL = "https://pacs008.com";
-export const SITE_NAME = "Pacs008";
+export const SITE_NAME = "pacs008";
 export const DEFAULT_AUTHOR = "Sebastien Rousseau";
 export const DEFAULT_OG_IMAGE = "/logo.svg";
 
@@ -37,7 +37,7 @@ export function slugToTitle(value: string): string {
   const map: Record<string, string> = {
     "message-types": "Message Types",
     api: "API",
-    pacs008: "Pacs008",
+    pacs008: "pacs008",
     "pacs.002.001.12": "pacs.002.001.12",
     "pacs.003.001.09": "pacs.003.001.09",
     "pacs.004.001.11": "pacs.004.001.11",
@@ -92,7 +92,7 @@ export function resolvePageMeta(pageData: { title?: string; description?: string
   const description =
     (typeof pageData.frontmatter.description === "string" && pageData.frontmatter.description) ||
     pageData.description ||
-    "Pacs008 is a Python toolkit for ISO 20022 FI-to-FI credit transfer generation, validation, and automation.";
+    "pacs008 is a Python toolkit for ISO 20022 FI-to-FI credit transfer generation, validation, and automation.";
 
   return {
     title: title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`,

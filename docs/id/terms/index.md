@@ -1,6 +1,6 @@
 ---
 title: Ketentuan | Bahasa Indonesia
-description: Informasi ketentuan untuk situs web Pacs008.
+description: Informasi ketentuan untuk situs web pacs008.
 lang: id-ID
 lastUpdated: true
 image: /logo.svg

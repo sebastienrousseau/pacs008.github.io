@@ -1,6 +1,6 @@
 ---
 title: Умови | Українська
-description: Інформація про умови використання сайту Pacs008.
+description: Інформація про умови використання сайту pacs008.
 lang: uk-UA
 lastUpdated: true
 image: /logo.svg

@@ -1,6 +1,6 @@
 ---
 title: Contact | Nederlands
-description: Hoe u het Pacs008-project kunt bereiken.
+description: Hoe u het pacs008-project kunt bereiken.
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg

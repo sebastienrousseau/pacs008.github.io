@@ -1,6 +1,6 @@
 ---
 title: Termeni | Română
-description: Informații despre termenii site-ului Pacs008.
+description: Informații despre termenii site-ului pacs008.
 lang: ro-RO
 lastUpdated: true
 image: /logo.svg

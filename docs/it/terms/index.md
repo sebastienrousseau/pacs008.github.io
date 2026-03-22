@@ -1,6 +1,6 @@
 ---
 title: Termini | Italiano
-description: Informazioni sui termini del sito web Pacs008.
+description: Informazioni sui termini del sito web pacs008.
 lang: it-IT
 lastUpdated: true
 image: /logo.svg

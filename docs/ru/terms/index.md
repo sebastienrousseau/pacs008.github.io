@@ -1,6 +1,6 @@
 ---
 title: Условия | Русский
-description: Информация об условиях использования сайта Pacs008.
+description: Информация об условиях использования сайта pacs008.
 lang: ru-RU
 lastUpdated: true
 image: /logo.svg

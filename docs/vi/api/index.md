@@ -1,6 +1,6 @@
 ---
 title: API | Tiếng Việt
-description: Hỗ trợ quy trình REST và CLI trong Pacs008.
+description: Hỗ trợ quy trình REST và CLI trong pacs008.
 lang: vi-VN
 lastUpdated: true
 image: /logo.svg

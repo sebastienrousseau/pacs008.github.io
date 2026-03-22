@@ -1,6 +1,6 @@
 ---
 title: API | Español
-description: Soporte de flujos REST y CLI en Pacs008.
+description: Soporte de flujos REST y CLI en pacs008.
 lang: es-ES
 lastUpdated: true
 image: /logo.svg

@@ -8,7 +8,7 @@ image: /logo.svg
 
 # Jenis Pesan
 
-Pacs008 mencakup definisi pesan inti pacs.008 dan pesan terkait yang digunakan dalam alur orkestrasi dan rekonsiliasi.
+pacs008 mencakup definisi pesan inti pacs.008 dan pesan terkait yang digunakan dalam alur orkestrasi dan rekonsiliasi.
 
 ## Dukungan yang disertakan
 
@@ -48,7 +48,7 @@ Setiap jenis pesan yang didukung dilengkapi dengan aset template dan logika vali
 
 ## Kemampuan operasional
 
-Pacs008 menyediakan pembuatan dan validasi berbasis template di seluruh revisi definisi pesan yang didukung:
+pacs008 menyediakan pembuatan dan validasi berbasis template di seluruh revisi definisi pesan yang didukung:
 
 - membandingkan versi
 - menguji regresi pembaruan skema

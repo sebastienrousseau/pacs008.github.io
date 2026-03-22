@@ -8,7 +8,7 @@ image: /logo.svg
 
 # Tipuri de mesaje
 
-Pacs008 acoperă definiția de mesaj pacs.008 principală și mesajele conexe utilizate în fluxurile de orchestrare și reconciliere.
+pacs008 acoperă definiția de mesaj pacs.008 principală și mesajele conexe utilizate în fluxurile de orchestrare și reconciliere.
 
 ## Suport inclus
 
@@ -48,7 +48,7 @@ Fiecare tip de mesaj acceptat este susținut de active șablon și logică de va
 
 ## Capacități operaționale
 
-Pacs008 oferă generare și validare bazate pe șabloane pe reviziile definițiilor de mesaje acceptate:
+pacs008 oferă generare și validare bazate pe șabloane pe reviziile definițiilor de mesaje acceptate:
 
 - compara versiunile
 - testa regresiv actualizările de scheme

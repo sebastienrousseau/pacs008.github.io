@@ -8,7 +8,7 @@ image: /logo.svg
 
 # Message Types
 
-Pacs008 covers the core pacs.008 message definition and related messages used in orchestration and reconciliation flows.
+pacs008 covers the core pacs.008 message definition and related messages used in orchestration and reconciliation flows.
 
 ## Included support
 
@@ -48,7 +48,7 @@ Each supported message type is backed by template assets and validation logic so
 
 ## Operational capabilities
 
-Pacs008 provides template-backed generation and validation across supported message definition revisions:
+pacs008 provides template-backed generation and validation across supported message definition revisions:
 
 - compare versions
 - regression-test scheme updates

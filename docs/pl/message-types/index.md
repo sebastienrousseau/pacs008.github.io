@@ -8,7 +8,7 @@ image: /logo.svg
 
 # Typy wiadomości
 
-Pacs008 obejmuje główną definicję wiadomości pacs.008 i powiązane wiadomości wykorzystywane w przepływach orkiestracji i uzgadniania.
+pacs008 obejmuje główną definicję wiadomości pacs.008 i powiązane wiadomości wykorzystywane w przepływach orkiestracji i uzgadniania.
 
 ## Uwzględnione wsparcie
 
@@ -48,7 +48,7 @@ Każdy obsługiwany typ wiadomości jest wspierany przez zasoby szablonów i log
 
 ## Możliwości operacyjne
 
-Pacs008 zapewnia generowanie i walidację opartą na szablonach w ramach obsługiwanych rewizji definicji wiadomości:
+pacs008 zapewnia generowanie i walidację opartą na szablonach w ramach obsługiwanych rewizji definicji wiadomości:
 
 - porównywać wersje
 - przeprowadzać testy regresji aktualizacji schematów

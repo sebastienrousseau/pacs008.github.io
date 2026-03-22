@@ -1,6 +1,6 @@
 ---
 title: الخصوصية | العربية
-description: معلومات الخصوصية لموقع Pacs008.
+description: معلومات الخصوصية لموقع pacs008.
 lang: ar-SA
 lastUpdated: true
 image: /logo.svg

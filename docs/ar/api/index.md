@@ -1,6 +1,6 @@
 ---
 title: واجهة البرمجة | العربية
-description: دعم سير عمل REST و CLI في Pacs008.
+description: دعم سير عمل REST و CLI في pacs008.
 lang: ar-SA
 lastUpdated: true
 image: /logo.svg

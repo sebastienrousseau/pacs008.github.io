@@ -1,6 +1,6 @@
 ---
 title: 聯絡 | 繁體中文
-description: 如何聯絡 Pacs008 專案。
+description: 如何聯絡 pacs008 專案。
 lang: zh-TW
 lastUpdated: true
 image: /logo.svg

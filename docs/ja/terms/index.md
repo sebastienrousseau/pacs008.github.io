@@ -1,6 +1,6 @@
 ---
 title: 利用規約 | 日本語
-description: Pacs008 ウェブサイトの利用規約情報。
+description: pacs008 ウェブサイトの利用規約情報。
 lang: ja-JP
 lastUpdated: true
 image: /logo.svg

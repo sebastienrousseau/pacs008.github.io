@@ -8,7 +8,7 @@ image: /logo.svg
 
 # Nachrichtentypen
 
-Pacs008 deckt die zentrale pacs.008-Nachrichtendefinition sowie verwandte Nachrichten für Orchestrierung und Abstimmung ab.
+pacs008 deckt die zentrale pacs.008-Nachrichtendefinition sowie verwandte Nachrichten für Orchestrierung und Abstimmung ab.
 
 ## Enthaltene Unterstützung
 
@@ -48,7 +48,7 @@ Jeder unterstützte Nachrichtentyp basiert auf Vorlagen und Validierungslogik, d
 
 ## Operative Fähigkeiten
 
-Pacs008 bietet vorlagengestützte Generierung und Validierung über unterstützte Nachrichtendefinitions-Revisionen:
+pacs008 bietet vorlagengestützte Generierung und Validierung über unterstützte Nachrichtendefinitions-Revisionen:
 
 - Versionen vergleichen
 - Regressionstests für Schema-Updates durchführen

@@ -1,6 +1,6 @@
 ---
 title: Confidentialité | Français
-description: Informations de confidentialité pour le site Pacs008.
+description: Informations de confidentialité pour le site pacs008.
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg

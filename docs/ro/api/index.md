@@ -1,6 +1,6 @@
 ---
 title: API | Română
-description: Suport pentru fluxuri REST și CLI în Pacs008.
+description: Suport pentru fluxuri REST și CLI în pacs008.
 lang: ro-RO
 lastUpdated: true
 image: /logo.svg

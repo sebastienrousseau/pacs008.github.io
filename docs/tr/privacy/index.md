@@ -1,6 +1,6 @@
 ---
 title: Gizlilik | Türkçe
-description: Pacs008 web sitesi gizlilik bilgileri.
+description: pacs008 web sitesi gizlilik bilgileri.
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg

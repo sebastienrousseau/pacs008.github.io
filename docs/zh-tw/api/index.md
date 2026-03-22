@@ -1,6 +1,6 @@
 ---
 title: API | 繁體中文
-description: Pacs008 中的 REST 和 CLI 工作流程支援。
+description: pacs008 中的 REST 和 CLI 工作流程支援。
 lang: zh-TW
 lastUpdated: true
 image: /logo.svg

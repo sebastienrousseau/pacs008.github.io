@@ -8,7 +8,7 @@ image: /logo.svg
 
 # Mesaj Türleri
 
-Pacs008, temel pacs.008 mesaj tanımını ve orkestrasyon ve mutabakat akışlarında kullanılan ilgili mesajları kapsar.
+pacs008, temel pacs.008 mesaj tanımını ve orkestrasyon ve mutabakat akışlarında kullanılan ilgili mesajları kapsar.
 
 ## Dahil edilen destek
 
@@ -48,7 +48,7 @@ Desteklenen her mesaj türü, ekiplerin birden çok kanalda oluşturma ve regres
 
 ## Operasyonel yetenekler
 
-Pacs008, desteklenen mesaj tanımı revizyonları boyunca şablon destekli oluşturma ve doğrulama sağlar:
+pacs008, desteklenen mesaj tanımı revizyonları boyunca şablon destekli oluşturma ve doğrulama sağlar:
 
 - sürümleri karşılaştırma
 - şema güncellemelerinin regresyon testi

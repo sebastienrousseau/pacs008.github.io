@@ -1,6 +1,6 @@
 ---
 title: お問い合わせ | 日本語
-description: Pacs008 プロジェクトへの連絡方法。
+description: pacs008 プロジェクトへの連絡方法。
 lang: ja-JP
 lastUpdated: true
 image: /logo.svg

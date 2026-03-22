@@ -1,6 +1,6 @@
 ---
 title: İletişim | Türkçe
-description: Pacs008 projesine nasıl ulaşılır.
+description: pacs008 projesine nasıl ulaşılır.
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg

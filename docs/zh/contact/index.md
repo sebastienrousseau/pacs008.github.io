@@ -1,6 +1,6 @@
 ---
 title: 联系 | 简体中文
-description: 如何联系 Pacs008 项目。
+description: 如何联系 pacs008 项目。
 lang: zh-CN
 lastUpdated: true
 image: /logo.svg

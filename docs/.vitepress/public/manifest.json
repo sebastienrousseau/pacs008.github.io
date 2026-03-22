@@ -1,10 +1,10 @@
 {
-  "name": "Pacs008",
-  "short_name": "Pacs008",
+  "name": "pacs008",
+  "short_name": "pacs008",
   "start_url": "/en/",
   "display": "standalone",
-  "background_color": "#f6f0e6",
-  "theme_color": "#10211d",
+  "background_color": "#ffffff",
+  "theme_color": "#0099AC",
   "icons": [
     {
       "src": "/logo.svg",

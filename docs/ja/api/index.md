@@ -1,6 +1,6 @@
 ---
 title: API | 日本語
-description: Pacs008 の REST および CLI ワークフローサポート。
+description: pacs008 の REST および CLI ワークフローサポート。
 lang: ja-JP
 lastUpdated: true
 image: /logo.svg

@@ -1,6 +1,6 @@
 ---
 title: Conditions | Français
-description: Informations sur les conditions du site Pacs008.
+description: Informations sur les conditions du site pacs008.
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg

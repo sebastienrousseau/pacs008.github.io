@@ -1,6 +1,6 @@
 ---
 title: Privasi | Bahasa Indonesia
-description: Informasi privasi untuk situs web Pacs008.
+description: Informasi privasi untuk situs web pacs008.
 lang: id-ID
 lastUpdated: true
 image: /logo.svg

@@ -8,7 +8,7 @@ image: /logo.svg
 
 # Types de messages
 
-Pacs008 couvre la définition de message pacs.008 principale et les messages liés utilisés dans les flux d'orchestration et de rapprochement.
+pacs008 couvre la définition de message pacs.008 principale et les messages liés utilisés dans les flux d'orchestration et de rapprochement.
 
 ## Prise en charge incluse
 
@@ -48,7 +48,7 @@ Chaque type de message pris en charge repose sur des modèles et une logique de 
 
 ## Capacités opérationnelles
 
-Pacs008 fournit une génération et une validation appuyées par des modèles à travers les révisions de définitions de messages prises en charge :
+pacs008 fournit une génération et une validation appuyées par des modèles à travers les révisions de définitions de messages prises en charge :
 
 - comparer les versions
 - tester en régression les mises à jour de schémas

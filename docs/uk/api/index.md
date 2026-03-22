@@ -1,6 +1,6 @@
 ---
 title: API | Українська
-description: Підтримка робочих процесів REST та CLI у Pacs008.
+description: Підтримка робочих процесів REST та CLI у pacs008.
 lang: uk-UA
 lastUpdated: true
 image: /logo.svg

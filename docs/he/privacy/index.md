@@ -1,6 +1,6 @@
 ---
 title: פרטיות | עברית
-description: מידע פרטיות עבור אתר Pacs008.
+description: מידע פרטיות עבור אתר pacs008.
 lang: he-IL
 lastUpdated: true
 image: /logo.svg

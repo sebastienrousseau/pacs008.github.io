@@ -1,6 +1,6 @@
 ---
 title: ความเป็นส่วนตัว | ไทย
-description: ข้อมูลความเป็นส่วนตัวสำหรับเว็บไซต์ Pacs008
+description: ข้อมูลความเป็นส่วนตัวสำหรับเว็บไซต์ pacs008
 lang: th-TH
 lastUpdated: true
 image: /logo.svg

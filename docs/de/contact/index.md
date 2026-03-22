@@ -1,6 +1,6 @@
 ---
 title: Kontakt | Deutsch
-description: So erreichen Sie das Pacs008-Projekt.
+description: So erreichen Sie das pacs008-Projekt.
 lang: de-DE
 lastUpdated: true
 image: /logo.svg

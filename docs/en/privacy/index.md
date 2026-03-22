@@ -1,6 +1,6 @@
 ---
 title: Privacy | English
-description: Privacy information for the Pacs008 website.
+description: Privacy information for the pacs008 website.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg

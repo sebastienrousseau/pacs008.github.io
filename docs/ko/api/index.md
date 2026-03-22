@@ -1,6 +1,6 @@
 ---
 title: API | 한국어
-description: Pacs008의 REST 및 CLI 워크플로 지원.
+description: pacs008의 REST 및 CLI 워크플로 지원.
 lang: ko-KR
 lastUpdated: true
 image: /logo.svg

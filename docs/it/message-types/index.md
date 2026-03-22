@@ -8,7 +8,7 @@ image: /logo.svg
 
 # Tipi di messaggio
 
-Pacs008 copre la definizione di messaggio pacs.008 principale e i messaggi correlati utilizzati nei flussi di orchestrazione e riconciliazione.
+pacs008 copre la definizione di messaggio pacs.008 principale e i messaggi correlati utilizzati nei flussi di orchestrazione e riconciliazione.
 
 ## Supporto incluso
 
@@ -48,7 +48,7 @@ Ogni tipo di messaggio supportato è affiancato da risorse template e logica di 
 
 ## Capacità operative
 
-Pacs008 fornisce generazione e validazione basate su template attraverso le revisioni delle definizioni di messaggi supportate:
+pacs008 fornisce generazione e validazione basate su template attraverso le revisioni delle definizioni di messaggi supportate:
 
 - confrontare le versioni
 - eseguire test di regressione sugli aggiornamenti degli schemi

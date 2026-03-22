@@ -1,6 +1,6 @@
 ---
 title: Voorwaarden | Nederlands
-description: Voorwaarden-informatie voor de Pacs008-website.
+description: Voorwaarden-informatie voor de pacs008-website.
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg

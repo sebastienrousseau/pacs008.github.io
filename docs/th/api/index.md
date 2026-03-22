@@ -1,6 +1,6 @@
 ---
 title: API | ไทย
-description: การสนับสนุนเวิร์กโฟลว์ REST และ CLI ใน Pacs008
+description: การสนับสนุนเวิร์กโฟลว์ REST และ CLI ใน pacs008
 lang: th-TH
 lastUpdated: true
 image: /logo.svg

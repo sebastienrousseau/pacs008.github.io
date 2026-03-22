@@ -1,6 +1,6 @@
 ---
 title: API | Русский
-description: Поддержка рабочих процессов REST и CLI в Pacs008.
+description: Поддержка рабочих процессов REST и CLI в pacs008.
 lang: ru-RU
 lastUpdated: true
 image: /logo.svg

@@ -1,6 +1,6 @@
 ---
 title: اتصل بنا | العربية
-description: كيفية التواصل مع مشروع Pacs008.
+description: كيفية التواصل مع مشروع pacs008.
 lang: ar-SA
 lastUpdated: true
 image: /logo.svg

@@ -1,6 +1,6 @@
 ---
 title: API | Bahasa Indonesia
-description: Dukungan alur kerja REST dan CLI di Pacs008.
+description: Dukungan alur kerja REST dan CLI di pacs008.
 lang: id-ID
 lastUpdated: true
 image: /logo.svg

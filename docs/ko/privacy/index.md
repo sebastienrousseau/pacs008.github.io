@@ -1,6 +1,6 @@
 ---
 title: 개인정보 | 한국어
-description: Pacs008 웹사이트의 개인정보 보호 정보.
+description: pacs008 웹사이트의 개인정보 보호 정보.
 lang: ko-KR
 lastUpdated: true
 image: /logo.svg

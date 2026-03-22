@@ -1,14 +1,14 @@
 ---
-title: Over Pacs008 | Nederlands
-description: Wat Pacs008 doet en voor wie het bedoeld is.
+title: Over pacs008 | Nederlands
+description: Wat pacs008 doet en voor wie het bedoeld is.
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Over Pacs008
+# Over pacs008
 
-Pacs008 is een Python-toolkit voor het automatiseren van ISO 20022 FI-to-FI kredietoverdrachtworkflows.
+pacs008 is een Python-toolkit voor het automatiseren van ISO 20022 FI-to-FI kredietoverdrachtworkflows.
 
 ## Wat het doet
 
@@ -27,7 +27,7 @@ Pacs008 is een Python-toolkit voor het automatiseren van ISO 20022 FI-to-FI kred
 
 ## Gereedheid 2026
 
-Pacs008 is ontworpen rondom de operationele deadlines en datakwaliteitsvereisten die relevant zijn in 2026:
+pacs008 is ontworpen rondom de operationele deadlines en datakwaliteitsvereisten die relevant zijn in 2026:
 
 - verwerking van gestructureerde en hybride postadressen voor CBPR+ en schemamigraties
 - sterkere validatie van de datakwaliteit van debiteur, crediteur en agent
@@ -36,7 +36,7 @@ Pacs008 is ontworpen rondom de operationele deadlines en datakwaliteitsvereisten
 
 ## Operationele focus
 
-Pacs008 gaat verder dan berichtdefinitiereferentie en ondersteunt operationele implementatie:
+pacs008 gaat verder dan berichtdefinitiereferentie en ondersteunt operationele implementatie:
 
 - XML genereren uit echte brongegevens
 - valideren vóór levering

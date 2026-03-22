@@ -1,6 +1,6 @@
 ---
 title: Privacy | Nederlands
-description: Privacy-informatie voor de Pacs008-website.
+description: Privacy-informatie voor de pacs008-website.
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg

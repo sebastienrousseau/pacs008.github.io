@@ -1,6 +1,6 @@
 ---
 title: Terms | English
-description: Terms information for the Pacs008 website.
+description: Terms information for the pacs008 website.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg

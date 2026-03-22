@@ -8,7 +8,7 @@ image: /logo.svg
 
 # Berichttypen
 
-Pacs008 dekt de kern pacs.008-berichtdefinitie en gerelateerde berichten die worden gebruikt in orkestratie- en afstemmingsstromen.
+pacs008 dekt de kern pacs.008-berichtdefinitie en gerelateerde berichten die worden gebruikt in orkestratie- en afstemmingsstromen.
 
 ## Inbegrepen ondersteuning
 
@@ -48,7 +48,7 @@ Elk ondersteund berichttype wordt ondersteund door sjablonen en validatielogica 
 
 ## Operationele mogelijkheden
 
-Pacs008 biedt sjabloongestuurde generatie en validatie over ondersteunde berichtdefinitie-revisies:
+pacs008 biedt sjabloongestuurde generatie en validatie over ondersteunde berichtdefinitie-revisies:
 
 - versies vergelijken
 - regressietests uitvoeren op schema-updates

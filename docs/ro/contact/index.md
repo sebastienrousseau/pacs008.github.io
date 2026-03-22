@@ -1,6 +1,6 @@
 ---
 title: Contact | Română
-description: Cum să contactați proiectul Pacs008.
+description: Cum să contactați proiectul pacs008.
 lang: ro-RO
 lastUpdated: true
 image: /logo.svg

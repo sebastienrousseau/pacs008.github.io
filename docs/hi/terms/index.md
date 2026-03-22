@@ -1,6 +1,6 @@
 ---
 title: शर्तें | हिन्दी
-description: Pacs008 वेबसाइट के लिए शर्तों की जानकारी।
+description: pacs008 वेबसाइट के लिए शर्तों की जानकारी।
 lang: hi-IN
 lastUpdated: true
 image: /logo.svg

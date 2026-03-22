@@ -1,6 +1,6 @@
 ---
 title: API | עברית
-description: תמיכת תהליכי REST ו-CLI ב-Pacs008.
+description: תמיכת תהליכי REST ו-CLI ב-pacs008.
 lang: he-IL
 lastUpdated: true
 image: /logo.svg

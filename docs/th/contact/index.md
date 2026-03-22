@@ -1,6 +1,6 @@
 ---
 title: ติดต่อ | ไทย
-description: วิธีติดต่อโครงการ Pacs008
+description: วิธีติดต่อโครงการ pacs008
 lang: th-TH
 lastUpdated: true
 image: /logo.svg

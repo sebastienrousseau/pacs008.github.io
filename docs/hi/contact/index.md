@@ -1,6 +1,6 @@
 ---
 title: संपर्क | हिन्दी
-description: Pacs008 परियोजना से कैसे संपर्क करें।
+description: pacs008 परियोजना से कैसे संपर्क करें।
 lang: hi-IN
 lastUpdated: true
 image: /logo.svg

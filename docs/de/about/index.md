@@ -1,14 +1,14 @@
 ---
-title: Über Pacs008 | Deutsch
-description: Was Pacs008 leistet und für wen es gedacht ist.
+title: Über pacs008 | Deutsch
+description: Was pacs008 leistet und für wen es gedacht ist.
 lang: de-DE
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Über Pacs008
+# Über pacs008
 
-Pacs008 ist ein Python-Toolkit zur Automatisierung von ISO 20022 FI-to-FI-Kundenzahlungsabläufen.
+pacs008 ist ein Python-Toolkit zur Automatisierung von ISO 20022 FI-to-FI-Kundenzahlungsabläufen.
 
 ## Funktionen
 
@@ -27,7 +27,7 @@ Pacs008 ist ein Python-Toolkit zur Automatisierung von ISO 20022 FI-to-FI-Kunden
 
 ## Bereitschaft 2026
 
-Pacs008 ist auf die operativen Fristen und Datenqualitätsanforderungen ausgelegt, die 2026 relevant sind:
+pacs008 ist auf die operativen Fristen und Datenqualitätsanforderungen ausgelegt, die 2026 relevant sind:
 
 - Verarbeitung strukturierter und hybrider Postanschriften für CBPR+ und Schema-Migrationen
 - Stärkere Validierung der Datenqualität von Schuldner, Gläubiger und Agent
@@ -36,7 +36,7 @@ Pacs008 ist auf die operativen Fristen und Datenqualitätsanforderungen ausgeleg
 
 ## Operativer Fokus
 
-Pacs008 geht über die Nachrichtendefinitions-Referenz hinaus und unterstützt die operative Implementierung:
+pacs008 geht über die Nachrichtendefinitions-Referenz hinaus und unterstützt die operative Implementierung:
 
 - XML aus echten Quelldaten generieren
 - Vor der Zustellung validieren

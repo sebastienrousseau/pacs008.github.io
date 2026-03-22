@@ -1,6 +1,6 @@
 ---
 title: Контакты | Русский
-description: Как связаться с проектом Pacs008.
+description: Как связаться с проектом pacs008.
 lang: ru-RU
 lastUpdated: true
 image: /logo.svg

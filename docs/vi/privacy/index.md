@@ -1,6 +1,6 @@
 ---
 title: Quyền riêng tư | Tiếng Việt
-description: Thông tin quyền riêng tư cho trang web Pacs008.
+description: Thông tin quyền riêng tư cho trang web pacs008.
 lang: vi-VN
 lastUpdated: true
 image: /logo.svg

@@ -1,6 +1,6 @@
 ---
 title: Конфіденційність | Українська
-description: Інформація про конфіденційність сайту Pacs008.
+description: Інформація про конфіденційність сайту pacs008.
 lang: uk-UA
 lastUpdated: true
 image: /logo.svg

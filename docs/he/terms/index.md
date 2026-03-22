@@ -1,6 +1,6 @@
 ---
 title: תנאים | עברית
-description: מידע תנאים עבור אתר Pacs008.
+description: מידע תנאים עבור אתר pacs008.
 lang: he-IL
 lastUpdated: true
 image: /logo.svg

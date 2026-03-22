@@ -1,6 +1,6 @@
 ---
 title: 문의 | 한국어
-description: Pacs008 프로젝트에 연락하는 방법.
+description: pacs008 프로젝트에 연락하는 방법.
 lang: ko-KR
 lastUpdated: true
 image: /logo.svg

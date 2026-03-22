@@ -1,6 +1,6 @@
 ---
 title: Kontak | Bahasa Indonesia
-description: Cara menghubungi proyek Pacs008.
+description: Cara menghubungi proyek pacs008.
 lang: id-ID
 lastUpdated: true
 image: /logo.svg

@@ -1,6 +1,6 @@
 ---
 title: API | 简体中文
-description: Pacs008 中的 REST 和 CLI 工作流支持。
+description: pacs008 中的 REST 和 CLI 工作流支持。
 lang: zh-CN
 lastUpdated: true
 image: /logo.svg

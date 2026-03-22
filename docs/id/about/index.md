@@ -1,14 +1,14 @@
 ---
-title: Tentang Pacs008 | Bahasa Indonesia
-description: Apa yang dilakukan Pacs008 dan untuk siapa.
+title: Tentang pacs008 | Bahasa Indonesia
+description: Apa yang dilakukan pacs008 dan untuk siapa.
 lang: id-ID
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Tentang Pacs008
+# Tentang pacs008
 
-Pacs008 adalah toolkit Python untuk mengotomatisasi alur kerja transfer kredit ISO 20022 antar lembaga keuangan.
+pacs008 adalah toolkit Python untuk mengotomatisasi alur kerja transfer kredit ISO 20022 antar lembaga keuangan.
 
 ## Apa yang dilakukan
 
@@ -27,7 +27,7 @@ Pacs008 adalah toolkit Python untuk mengotomatisasi alur kerja transfer kredit I
 
 ## Kesiapan 2026
 
-Pacs008 dirancang berdasarkan tenggat operasional dan persyaratan kualitas data yang relevan pada 2026:
+pacs008 dirancang berdasarkan tenggat operasional dan persyaratan kualitas data yang relevan pada 2026:
 
 - penanganan alamat pos terstruktur dan hibrida untuk CBPR+ dan migrasi skema
 - validasi yang lebih kuat terhadap kualitas data debitur, kreditur, dan agen
@@ -36,7 +36,7 @@ Pacs008 dirancang berdasarkan tenggat operasional dan persyaratan kualitas data 
 
 ## Fokus operasional
 
-Pacs008 melampaui referensi definisi pesan untuk mendukung implementasi operasional:
+pacs008 melampaui referensi definisi pesan untuk mendukung implementasi operasional:
 
 - menghasilkan XML dari data sumber nyata
 - memvalidasi sebelum pengiriman

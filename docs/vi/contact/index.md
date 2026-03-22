@@ -1,6 +1,6 @@
 ---
 title: Liên hệ | Tiếng Việt
-description: Cách liên hệ với dự án Pacs008.
+description: Cách liên hệ với dự án pacs008.
 lang: vi-VN
 lastUpdated: true
 image: /logo.svg

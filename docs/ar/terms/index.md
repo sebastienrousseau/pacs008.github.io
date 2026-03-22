@@ -1,6 +1,6 @@
 ---
 title: الشروط | العربية
-description: معلومات الشروط لموقع Pacs008.
+description: معلومات الشروط لموقع pacs008.
 lang: ar-SA
 lastUpdated: true
 image: /logo.svg

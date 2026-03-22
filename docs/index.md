@@ -1,5 +1,5 @@
 ---
-title: Pacs008
+title: pacs008
 description: Redirecting to the English home page.
 lang: en-GB
 layout: page

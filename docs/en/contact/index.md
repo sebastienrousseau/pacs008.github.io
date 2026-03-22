@@ -1,6 +1,6 @@
 ---
 title: Contact | English
-description: How to reach the Pacs008 project.
+description: How to reach the pacs008 project.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg

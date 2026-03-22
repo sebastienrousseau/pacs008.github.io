@@ -1,6 +1,6 @@
 ---
 title: API | Français
-description: Prise en charge REST et CLI dans Pacs008.
+description: Prise en charge REST et CLI dans pacs008.
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg

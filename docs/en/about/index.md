@@ -1,14 +1,14 @@
 ---
-title: About Pacs008 | English
-description: What Pacs008 does and who it is for.
+title: About pacs008 | English
+description: What pacs008 does and who it is for.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
 ---
 
-# About Pacs008
+# About pacs008
 
-Pacs008 is a Python toolkit for automating ISO 20022 FI-to-FI customer credit transfer workflows.
+pacs008 is a Python toolkit for automating ISO 20022 FI-to-FI customer credit transfer workflows.
 
 ## What it does
 
@@ -27,7 +27,7 @@ Pacs008 is a Python toolkit for automating ISO 20022 FI-to-FI customer credit tr
 
 ## 2026 readiness
 
-Pacs008 is designed around the operational deadlines and data-quality requirements relevant to 2026:
+pacs008 is designed around the operational deadlines and data-quality requirements relevant to 2026:
 
 - structured and hybrid postal address handling for CBPR+ and scheme migrations
 - stronger validation around debtor, creditor, and agent data quality
@@ -36,7 +36,7 @@ Pacs008 is designed around the operational deadlines and data-quality requiremen
 
 ## Operational focus
 
-Pacs008 goes beyond message definition reference to support operational implementation:
+pacs008 goes beyond message definition reference to support operational implementation:
 
 - generate XML from real source data
 - validate before delivery

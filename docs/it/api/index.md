@@ -1,6 +1,6 @@
 ---
 title: API | Italiano
-description: Supporto flussi REST e CLI in Pacs008.
+description: Supporto flussi REST e CLI in pacs008.
 lang: it-IT
 lastUpdated: true
 image: /logo.svg

@@ -1,6 +1,6 @@
 ---
 title: Warunki | Polski
-description: Informacje o warunkach strony Pacs008.
+description: Informacje o warunkach strony pacs008.
 lang: pl-PL
 lastUpdated: true
 image: /logo.svg

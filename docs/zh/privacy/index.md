@@ -1,6 +1,6 @@
 ---
 title: 隐私 | 简体中文
-description: Pacs008 网站的隐私信息。
+description: pacs008 网站的隐私信息。
 lang: zh-CN
 lastUpdated: true
 image: /logo.svg

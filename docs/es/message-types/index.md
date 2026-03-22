@@ -8,7 +8,7 @@ image: /logo.svg
 
 # Tipos de mensaje
 
-Pacs008 cubre la definición de mensaje pacs.008 principal y los mensajes relacionados utilizados en flujos de orquestación y reconciliación.
+pacs008 cubre la definición de mensaje pacs.008 principal y los mensajes relacionados utilizados en flujos de orquestación y reconciliación.
 
 ## Soporte incluido
 
@@ -48,7 +48,7 @@ Cada tipo de mensaje compatible está respaldado por plantillas y lógica de val
 
 ## Capacidades operativas
 
-Pacs008 proporciona generación y validación respaldadas por plantillas a través de las revisiones de definiciones de mensajes compatibles:
+pacs008 proporciona generación y validación respaldadas por plantillas a través de las revisiones de definiciones de mensajes compatibles:
 
 - comparar versiones
 - realizar pruebas de regresión de actualizaciones de esquemas

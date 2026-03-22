@@ -1,7 +1,9 @@
 import { defineConfig } from "vitepress";
 import { sharedHead } from "./config/head";
-import { LOCALE_META, buildHreflangTags, resolvePageMeta } from "./config/seo";
+import { LOCALE_META, SITE_URL, buildHreflangTags, resolvePageMeta } from "./config/seo";
 import { getUiStrings } from "./config/i18n";
+
+const RTL_LOCALES = new Set(["ar", "he"]);
 
 function navFor(locale: string) {
   const t = getUiStrings(locale);
@@ -44,6 +46,7 @@ const locales = Object.fromEntries(
         "zh-tw": "繁體中文"
       }[key],
       lang: value.lang,
+      dir: RTL_LOCALES.has(key) ? "rtl" : "ltr",
       link: `/${key}/`,
       themeConfig: {
         nav: navFor(key)
@@ -62,7 +65,10 @@ export default defineConfig({
   head: sharedHead,
   srcExclude: ["public/**"],
   sitemap: {
-    hostname: "https://pacs008.com"
+    hostname: "https://pacs008.com",
+    transformItems(items) {
+      return items.filter((item) => !item.url.includes("404"));
+    }
   },
   locales,
   transformPageData(pageData) {
@@ -112,9 +118,11 @@ export default defineConfig({
     }
 
     const meta = resolvePageMeta(pageData);
-    return [
+    const fm = pageData.frontmatter;
+    const head: Array<[string, Record<string, string>]> = [
       ["meta", { name: "description", content: meta.description }],
       ["link", { rel: "canonical", href: meta.canonical }],
+      ["meta", { property: "og:type", content: "website" }],
       ["meta", { property: "og:title", content: meta.title }],
       ["meta", { property: "og:description", content: meta.description }],
       ["meta", { property: "og:url", content: meta.canonical }],
@@ -128,6 +136,40 @@ export default defineConfig({
       ["meta", { name: "twitter:image", content: meta.ogImage }],
       ...buildHreflangTags(meta.routePath)
     ];
+
+    // JSON-LD: WebSite on homepage, BreadcrumbList on all pages
+    if (fm.layout === "home") {
+      head.push(["script", { type: "application/ld+json" }, JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": SITE_NAME,
+        "url": SITE_URL,
+        "description": meta.description
+      })] as unknown as [string, Record<string, string>]);
+    }
+
+    const segments = pageData.relativePath
+      .replace(/index\.md$/i, "")
+      .replace(/\.md$/i, "")
+      .split("/")
+      .filter(Boolean);
+
+    if (segments.length > 0) {
+      const breadcrumbItems = segments.map((seg, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "name": seg.charAt(0).toUpperCase() + seg.slice(1).replace(/-/g, " "),
+        "item": `${SITE_URL}/${segments.slice(0, i + 1).join("/")}/`
+      }));
+
+      head.push(["script", { type: "application/ld+json" }, JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": breadcrumbItems
+      })] as unknown as [string, Record<string, string>]);
+    }
+
+    return head;
   },
   themeConfig: {
     outline: { level: [2, 3] },

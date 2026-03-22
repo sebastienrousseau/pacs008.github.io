@@ -1,14 +1,14 @@
 ---
-title: Sobre o Pacs008 | Português
-description: O que o Pacs008 faz e para quem é destinado.
+title: Sobre o pacs008 | Português
+description: O que o pacs008 faz e para quem é destinado.
 lang: pt-BR
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Sobre o Pacs008
+# Sobre o pacs008
 
-O Pacs008 é um kit de ferramentas Python para automatizar fluxos de transferência de crédito ISO 20022 entre instituições financeiras.
+O pacs008 é um kit de ferramentas Python para automatizar fluxos de transferência de crédito ISO 20022 entre instituições financeiras.
 
 ## O que faz
 
@@ -27,7 +27,7 @@ O Pacs008 é um kit de ferramentas Python para automatizar fluxos de transferên
 
 ## Preparação 2026
 
-O Pacs008 é projetado em torno dos prazos operacionais e dos requisitos de qualidade de dados relevantes para 2026:
+O pacs008 é projetado em torno dos prazos operacionais e dos requisitos de qualidade de dados relevantes para 2026:
 
 - tratamento de endereços postais estruturados e híbridos para CBPR+ e migrações de esquemas
 - validação mais forte da qualidade de dados de devedor, credor e agente
@@ -36,7 +36,7 @@ O Pacs008 é projetado em torno dos prazos operacionais e dos requisitos de qual
 
 ## Foco operacional
 
-O Pacs008 vai além da referência de definição de mensagem para apoiar a implementação operacional:
+O pacs008 vai além da referência de definição de mensagem para apoiar a implementação operacional:
 
 - gerar XML a partir de dados de origem reais
 - validar antes da entrega

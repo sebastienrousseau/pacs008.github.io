@@ -1,6 +1,6 @@
 ---
 title: गोपनीयता | हिन्दी
-description: Pacs008 वेबसाइट के लिए गोपनीयता जानकारी।
+description: pacs008 वेबसाइट के लिए गोपनीयता जानकारी।
 lang: hi-IN
 lastUpdated: true
 image: /logo.svg
