@@ -75,7 +75,7 @@ function localLink(path: string): string {
 .dot-footer {
   background: var(--pacs-footer-bg);
   color: var(--pacs-footer-text);
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 300;
   line-height: 1.618;
   padding: 1.5rem 0 1rem;
@@ -101,7 +101,7 @@ function localLink(path: string): string {
 }
 
 .dot-footer-title {
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 400;
   color: var(--pacs-footer-title);
   margin: 0 0 0.5rem;

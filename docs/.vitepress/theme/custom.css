@@ -50,8 +50,8 @@
   --pacs-border: #dddddd;
   --pacs-divider: #dddddd;
 
-  /* Nav bar — blur (pain001: .blur-light) */
-  --pacs-nav-bg: rgba(255, 255, 255, 0.618);
+  /* Nav bar — solid */
+  --pacs-nav-bg: #ffffff;
 
   /* Footer */
   --pacs-footer-bg: #f9f9f9;
@@ -108,8 +108,8 @@
   --pacs-border: #424245;
   --pacs-divider: #424245;
 
-  /* Nav bar — blur dark background */
-  --pacs-nav-bg: rgba(29, 29, 31, 0.618);
+  /* Nav bar — solid dark */
+  --pacs-nav-bg: #1d1d1f;
 
   /* Footer */
   --pacs-footer-bg: #1d1d1f;
@@ -159,7 +159,6 @@ html,
 body {
   font-size: 16px;
   line-height: 1.618;
-  letter-spacing: -0.011em;
   background: var(--vp-c-bg);
   color: var(--vp-c-text-1);
   -webkit-font-smoothing: antialiased;
@@ -242,12 +241,9 @@ strong {
   border-bottom: 1px solid var(--pacs-divider);
 }
 
-/* pain001: .blur-light { backdrop-filter: saturate(180%) blur(20px);
-   background-color: rgba(255,255,255,.618) } */
+/* Solid navbar background */
 .VPNavBar {
   background: var(--pacs-nav-bg) !important;
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
 }
 
 .VPNavBar .content-body {
@@ -275,7 +271,7 @@ strong {
 
 .VPNavBarMenuLink,
 .VPNavBarMenuGroup .button {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 300;
   color: var(--pacs-text-primary);
   min-height: 44px;
@@ -296,8 +292,17 @@ strong {
 
 .vp-doc {
   max-width: 780px;
+  font-size: 16px;
   line-height: 1.618;
   animation: fadeIn 1.618s ease;
+}
+
+.vp-doc p,
+.vp-doc li,
+.vp-doc a,
+.vp-doc td {
+  font-size: 16px;
+  line-height: 1.618;
 }
 
 /* pain001: h1-h6 { color: var(--theme-color); font-weight: 400 } */
@@ -592,7 +597,7 @@ strong {
 
 .VPHomeFeatures .item .box .details {
   color: var(--pacs-text-secondary);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.618;
 }
 
@@ -646,7 +651,7 @@ strong {
   .VPNavScreen .VPNavScreenMenuGroup .button {
     color: var(--vp-c-text-1);
     min-height: 44px;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 300;
     text-decoration: none;
   }
