@@ -519,6 +519,14 @@ strong {
   content: none;
 }
 
+/* Dark mode: invert button colors */
+.dark .VPHome .VPButton.brand,
+.dark .VPButton.brand {
+  background: #f5f5f7 !important;
+  border-color: #f5f5f7 !important;
+  color: #1d1d1f !important;
+}
+
 /* pain001: .zoom-in:hover { transform: scale(1.0618) } */
 .VPHome .VPButton.brand:hover,
 .VPButton.brand:hover {
@@ -526,6 +534,12 @@ strong {
   color: #ffffff !important;
   text-decoration: none !important;
   transform: scale(1.0618);
+}
+
+.dark .VPHome .VPButton.brand:hover,
+.dark .VPButton.brand:hover {
+  background: #f5f5f7 !important;
+  color: #1d1d1f !important;
 }
 
 .VPHome .VPButton.alt,
@@ -552,6 +566,13 @@ strong {
   content: none;
 }
 
+/* Dark mode alt button */
+.dark .VPHome .VPButton.alt,
+.dark .VPButton.alt {
+  border-color: #f5f5f7 !important;
+  color: #f5f5f7 !important;
+}
+
 .VPHome .VPButton.alt:hover,
 .VPButton.alt:hover {
   background: #1d1d1f !important;
@@ -559,6 +580,13 @@ strong {
   color: #ffffff !important;
   text-decoration: none !important;
   transform: scale(1.0618);
+}
+
+.dark .VPHome .VPButton.alt:hover,
+.dark .VPButton.alt:hover {
+  background: #f5f5f7 !important;
+  border-color: #f5f5f7 !important;
+  color: #1d1d1f !important;
 }
 
 /* ---------- Features ---------- */
