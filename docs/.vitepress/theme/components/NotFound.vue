@@ -57,29 +57,29 @@ const homeLink = computed(() => `/${locale.value}/`);
 .code {
   font-size: 4rem;
   font-weight: 700;
-  color: var(--apple-text-secondary);
+  color: var(--pacs-text-secondary);
   margin: 0 0 0.5rem;
 }
 
 .title {
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--apple-text-primary);
+  color: var(--pacs-text-primary);
   margin: 0 0 0.75rem;
 }
 
 .body {
-  color: var(--apple-text-secondary);
+  color: var(--pacs-text-secondary);
   margin: 0 0 1.5rem;
 }
 
 .home-link {
-  color: var(--apple-link);
+  color: var(--pacs-link);
   font-weight: 500;
 }
 
 .home-link:hover {
-  color: var(--apple-link-hover);
+  color: var(--pacs-link-hover);
   text-decoration: underline;
 }
 </style>

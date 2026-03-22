@@ -73,9 +73,10 @@ function localLink(path: string): string {
 
 <style scoped>
 .dot-footer {
-  background: var(--apple-footer-bg);
-  color: var(--apple-footer-text);
+  background: var(--pacs-footer-bg);
+  color: var(--pacs-footer-text);
   font-size: 13px;
+  font-weight: 300;
   line-height: 1.47;
   padding: 1.5rem 0 1rem;
 }
@@ -101,8 +102,8 @@ function localLink(path: string): string {
 
 .dot-footer-title {
   font-size: 13px;
-  font-weight: 600;
-  color: var(--apple-footer-title);
+  font-weight: 400;
+  color: var(--pacs-footer-title);
   margin: 0 0 0.5rem;
   letter-spacing: 0;
 }
@@ -112,7 +113,7 @@ function localLink(path: string): string {
 }
 
 .dot-footer-column a {
-  color: var(--apple-footer-link);
+  color: var(--pacs-footer-link);
   text-decoration: none;
   display: inline-block;
   line-height: 2.75;
@@ -120,13 +121,13 @@ function localLink(path: string): string {
 }
 
 .dot-footer-column a:hover {
-  color: var(--apple-text-primary);
+  color: var(--pacs-text-primary);
   text-decoration: underline;
 }
 
 .dot-footer-divider {
   height: 1px;
-  background: var(--apple-divider);
+  background: var(--pacs-divider);
   margin: 0.5rem 0 1rem;
 }
 
@@ -140,7 +141,7 @@ function localLink(path: string): string {
 
 .dot-footer-copyright {
   margin: 0;
-  color: var(--apple-footer-text);
+  color: var(--pacs-footer-text);
 }
 
 .dot-footer-legal {
@@ -153,12 +154,12 @@ function localLink(path: string): string {
 }
 
 .dot-footer-legal a {
-  color: var(--apple-footer-link);
+  color: var(--pacs-footer-link);
   text-decoration: none;
 }
 
 .dot-footer-legal a:hover {
-  color: var(--apple-text-primary);
+  color: var(--pacs-text-primary);
   text-decoration: underline;
 }
 
@@ -172,13 +173,6 @@ function localLink(path: string): string {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
-}
-
-/* Account for fixed sidebar on doc pages */
-@media (min-width: 960px) {
-  .dot-footer {
-    padding-left: 272px;
-  }
 }
 
 @media (max-width: 1068px) {

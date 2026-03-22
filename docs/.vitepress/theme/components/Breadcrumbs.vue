@@ -58,21 +58,21 @@ const localePrefix = computed(() => {
 }
 
 .vp-breadcrumb a {
-  color: var(--apple-link);
+  color: var(--pacs-link);
   text-decoration: none;
 }
 
 .vp-breadcrumb a:hover {
-  color: var(--apple-link-hover);
+  color: var(--pacs-link-hover);
   text-decoration: underline;
 }
 
 .sep {
   margin: 0 0.35rem;
-  color: var(--apple-text-secondary);
+  color: var(--pacs-text-secondary);
 }
 
 .current {
-  color: var(--apple-text-secondary);
+  color: var(--pacs-text-secondary);
 }
 </style>

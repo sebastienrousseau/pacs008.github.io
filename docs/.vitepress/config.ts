@@ -15,51 +15,6 @@ function navFor(locale: string) {
   ];
 }
 
-function sidebarFor(locale: string) {
-  const t = getUiStrings(locale);
-  const prefix = `/${locale}`;
-  return [
-    {
-      text: SITE_NAME,
-      items: [
-        { text: t.home, link: `${prefix}/` },
-        { text: t.about, link: `${prefix}/about/` },
-        {
-          text: t.messageTypes,
-          link: `${prefix}/message-types/`,
-          collapsed: true,
-          items: [
-            { text: "pacs.002.001.12", link: `${prefix}/pacs.002.001.12/` },
-            { text: "pacs.003.001.09", link: `${prefix}/pacs.003.001.09/` },
-            { text: "pacs.004.001.11", link: `${prefix}/pacs.004.001.11/` },
-            { text: "pacs.007.001.11", link: `${prefix}/pacs.007.001.11/` },
-            { text: "pacs.008.001.01", link: `${prefix}/pacs.008.001.13/` },
-            { text: "pacs.008.001.02", link: `${prefix}/pacs.008.001.13/` },
-            { text: "pacs.008.001.03", link: `${prefix}/pacs.008.001.13/` },
-            { text: "pacs.008.001.04", link: `${prefix}/pacs.008.001.13/` },
-            { text: "pacs.008.001.05", link: `${prefix}/pacs.008.001.13/` },
-            { text: "pacs.008.001.06", link: `${prefix}/pacs.008.001.13/` },
-            { text: "pacs.008.001.07", link: `${prefix}/pacs.008.001.13/` },
-            { text: "pacs.008.001.08", link: `${prefix}/pacs.008.001.13/` },
-            { text: "pacs.008.001.09", link: `${prefix}/pacs.008.001.13/` },
-            { text: "pacs.008.001.10", link: `${prefix}/pacs.008.001.13/` },
-            { text: "pacs.008.001.11", link: `${prefix}/pacs.008.001.13/` },
-            { text: "pacs.008.001.12", link: `${prefix}/pacs.008.001.13/` },
-            { text: "pacs.008.001.13", link: `${prefix}/pacs.008.001.13/` },
-            { text: "pacs.009.001.10", link: `${prefix}/pacs.009.001.10/` },
-            { text: "pacs.010.001.05", link: `${prefix}/pacs.010.001.05/` },
-            { text: "pacs.028.001.05", link: `${prefix}/pacs.028.001.05/` }
-          ]
-        },
-        { text: t.api, link: `${prefix}/api/` },
-        { text: t.contact, link: `${prefix}/contact/` },
-        { text: t.privacy, link: `${prefix}/privacy/` },
-        { text: t.terms, link: `${prefix}/terms/` }
-      ]
-    }
-  ];
-}
-
 const locales = Object.fromEntries(
   Object.entries(LOCALE_META).map(([key, value]) => [
     key === "en" ? "root" : key,
@@ -91,8 +46,7 @@ const locales = Object.fromEntries(
       lang: value.lang,
       link: `/${key}/`,
       themeConfig: {
-        nav: navFor(key),
-        sidebar: sidebarFor(key)
+        nav: navFor(key)
       }
     }
   ])
@@ -176,6 +130,7 @@ export default defineConfig({
     ];
   },
   themeConfig: {
+    outline: { level: [2, 3] },
     siteTitle: "Pacs008",
     logo: "/logo.svg",
     langMenuLabel: "Languages",

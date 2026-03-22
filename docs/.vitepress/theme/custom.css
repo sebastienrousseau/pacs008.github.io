@@ -1,6 +1,6 @@
 /* ==========================================================================
-   Apple Developer-Inspired Theme — WCAG 2.2 AAA Compliant
-   All color ratios verified against 7:1 (normal text) / 4.5:1 (large text)
+   Pacs008 — pain001.com-inspired teal theme with WCAG accessibility
+   Links use underline to meet WCAG 1.4.1 (link vs text distinction)
    ========================================================================== */
 
 /* ---------- Font-display safeguard (Lighthouse) ---------- */
@@ -10,139 +10,141 @@
   font-display: swap;
 }
 
+/* ---------- Animations ---------- */
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+@keyframes dropDown { from { transform: translateY(-0.618rem) } to { transform: translateY(0) } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(1.618rem) } to { opacity: 1; transform: translateY(0) } }
+
 /* ---------- Design Tokens: Light Mode ---------- */
 :root {
   color-scheme: light;
 
   /* Typography */
-  --apple-font:
+  --pacs-font:
     system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Helvetica, Arial,
     "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans CJK JP",
     "Malgun Gothic", "Noto Sans CJK KR",
     "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC",
     sans-serif;
-  --apple-font-mono:
+  --pacs-font-mono:
     "SF Mono", SFMono-Regular, ui-monospace, Menlo, Consolas, monospace;
 
-  /* Text — AAA on #ffffff */
-  --apple-text-primary: #1d1d1f; /* 16.75:1 */
-  --apple-text-secondary: #494950; /* 8.5:1 */
+  /* Teal palette */
+  --pacs-teal: #0099AC;
+  --pacs-teal-soft: rgba(0, 153, 172, 0.618);
+  --pacs-teal-bg: rgba(0, 153, 172, 0.1);
 
-  /* Links — AAA on #ffffff */
-  --apple-link: #004fa3; /* 8.2:1 */
-  --apple-link-hover: #003d80; /* 10.8:1 */
+  /* Text */
+  --pacs-text-primary: #1d1d1f;
+  --pacs-text-secondary: #494950;
 
-  /* Focus — AAA non-text 3:1 minimum */
-  --apple-focus: #0058b0; /* 7.2:1 */
+  /* Links — underlined for WCAG 1.4.1 (#0099AC is 3.5:1 on white) */
+  --pacs-link: #0099AC;
+  --pacs-link-hover: #007A8A;
+
+  /* Focus */
+  --pacs-focus: #007A8A;
 
   /* Surfaces */
-  --apple-bg: #ffffff;
-  --apple-bg-secondary: #f5f5f7;
-  --apple-bg-elevated: #ffffff;
-  --apple-border: #d2d2d7; /* decorative */
-  --apple-divider: #d2d2d7;
+  --pacs-bg: #ffffff;
+  --pacs-bg-secondary: #f9f9f9;
+  --pacs-bg-elevated: #ffffff;
+  --pacs-border: #dddddd;
+  --pacs-divider: #dddddd;
 
-  /* Nav bar — solid background */
-  --apple-nav-bg: #f5f5f7;
+  /* Nav bar — blur background */
+  --pacs-nav-bg: rgba(255, 255, 255, 0.618);
 
-  /* Footer — AAA on #f5f5f7 */
-  --apple-footer-bg: #f5f5f7;
-  --apple-footer-text: #494950; /* 7.9:1 */
-  --apple-footer-link: #3b3b40; /* 9.1:1 */
-  --apple-footer-title: #1d1d1f; /* 15.6:1 */
-
-  /* Sidebar — AAA on #f5f5f7 */
-  --apple-sidebar-bg: #f5f5f7;
-  --apple-sidebar-group: #494950; /* 7.9:1 */
-  --apple-sidebar-link: #494950; /* 7.9:1 */
-  --apple-sidebar-active: #004fa3; /* 7.6:1 */
+  /* Footer */
+  --pacs-footer-bg: #f9f9f9;
+  --pacs-footer-text: #494950;
+  --pacs-footer-link: #0099AC;
+  --pacs-footer-title: #1d1d1f;
 
   /* VitePress mappings */
-  --vp-font-family-base: var(--apple-font);
-  --vp-font-family-mono: var(--apple-font-mono);
-  --vp-c-bg: var(--apple-bg);
-  --vp-c-bg-alt: var(--apple-bg-secondary);
-  --vp-c-bg-soft: #f5f5f7;
-  --vp-c-bg-elv: var(--apple-bg-elevated);
-  --vp-c-border: var(--apple-border);
-  --vp-c-divider: var(--apple-divider);
-  --vp-c-text-1: var(--apple-text-primary);
-  --vp-c-text-2: var(--apple-text-secondary);
-  --vp-c-text-3: var(--apple-text-secondary);
-  --vp-c-brand-1: var(--apple-link);
-  --vp-c-brand-2: var(--apple-link-hover);
-  --vp-c-brand-3: var(--apple-link-hover);
-  --vp-c-brand-soft: #e8f0fa;
+  --vp-font-family-base: var(--pacs-font);
+  --vp-font-family-mono: var(--pacs-font-mono);
+  --vp-c-bg: var(--pacs-bg);
+  --vp-c-bg-alt: var(--pacs-bg-secondary);
+  --vp-c-bg-soft: #f9f9f9;
+  --vp-c-bg-elv: var(--pacs-bg-elevated);
+  --vp-c-border: var(--pacs-border);
+  --vp-c-divider: var(--pacs-divider);
+  --vp-c-text-1: var(--pacs-text-primary);
+  --vp-c-text-2: var(--pacs-text-secondary);
+  --vp-c-text-3: var(--pacs-text-secondary);
+  --vp-c-brand-1: var(--pacs-link);
+  --vp-c-brand-2: var(--pacs-link-hover);
+  --vp-c-brand-3: var(--pacs-link-hover);
+  --vp-c-brand-soft: #e0f5f7;
 
-  /* Override VitePress internal nav bg variable for doc pages */
-  --vp-nav-bg-color: var(--apple-nav-bg);
+  /* Override VitePress internal nav bg variable */
+  --vp-nav-bg-color: var(--pacs-nav-bg);
 
-  /* Mobile nav screen background — match nav bar for seamless open */
-  --vp-nav-screen-bg-color: var(--apple-nav-bg);
+  /* Mobile nav screen background */
+  --vp-nav-screen-bg-color: var(--pacs-bg-secondary);
 }
 
 /* ---------- Design Tokens: Dark Mode ---------- */
 .dark {
   color-scheme: dark;
 
-  /* Text — AAA on #000000 */
-  --apple-text-primary: #f5f5f7; /* 18.1:1 */
-  --apple-text-secondary: #acacb0; /* 7.6:1 */
+  /* Teal palette */
+  --pacs-teal: #33CFDF;
+  --pacs-teal-soft: rgba(51, 207, 223, 0.618);
+  --pacs-teal-bg: rgba(51, 207, 223, 0.1);
 
-  /* Links — AAA on #000000 */
-  --apple-link: #4dadff; /* 7.6:1 */
-  --apple-link-hover: #6fc0ff; /* 9.8:1 */
+  /* Text */
+  --pacs-text-primary: #f5f5f7;
+  --pacs-text-secondary: #acacb0;
+
+  /* Links */
+  --pacs-link: #33CFDF;
+  --pacs-link-hover: #66E0EC;
 
   /* Focus */
-  --apple-focus: #4dadff; /* 7.6:1 */
+  --pacs-focus: #33CFDF;
 
   /* Surfaces */
-  --apple-bg: #000000;
-  --apple-bg-secondary: #1d1d1f;
-  --apple-bg-elevated: #1d1d1f;
-  --apple-border: #424245;
-  --apple-divider: #424245;
+  --pacs-bg: #000000;
+  --pacs-bg-secondary: #1d1d1f;
+  --pacs-bg-elevated: #1d1d1f;
+  --pacs-border: #424245;
+  --pacs-divider: #424245;
 
-  /* Nav bar — solid dark background */
-  --apple-nav-bg: #1d1d1f;
+  /* Nav bar — blur dark background */
+  --pacs-nav-bg: rgba(29, 29, 31, 0.618);
 
-  /* Footer — AAA on #1d1d1f */
-  --apple-footer-bg: #1d1d1f;
-  --apple-footer-text: #c0c0c5; /* 8.8:1 */
-  --apple-footer-link: #d0d0d5; /* 10.8:1 */
-  --apple-footer-title: #f5f5f7; /* 16.0:1 */
-
-  /* Sidebar — AAA on #1d1d1f */
-  --apple-sidebar-bg: #1d1d1f;
-  --apple-sidebar-group: #acacb0; /* 6.9:1 — large text */
-  --apple-sidebar-link: #acacb0; /* 6.9:1 */
-  --apple-sidebar-active: #4dadff; /* 6.8:1 — bold */
+  /* Footer */
+  --pacs-footer-bg: #1d1d1f;
+  --pacs-footer-text: #c0c0c5;
+  --pacs-footer-link: #33CFDF;
+  --pacs-footer-title: #f5f5f7;
 
   /* VitePress mappings */
-  --vp-c-bg: var(--apple-bg);
-  --vp-c-bg-alt: var(--apple-bg-secondary);
+  --vp-c-bg: var(--pacs-bg);
+  --vp-c-bg-alt: var(--pacs-bg-secondary);
   --vp-c-bg-soft: #1d1d1f;
-  --vp-c-bg-elv: var(--apple-bg-elevated);
-  --vp-c-border: var(--apple-border);
-  --vp-c-divider: var(--apple-divider);
-  --vp-c-text-1: var(--apple-text-primary);
-  --vp-c-text-2: var(--apple-text-secondary);
-  --vp-c-text-3: var(--apple-text-secondary);
-  --vp-c-brand-1: var(--apple-link);
-  --vp-c-brand-2: var(--apple-link-hover);
-  --vp-c-brand-3: var(--apple-link-hover);
-  --vp-c-brand-soft: #1a2a3a;
+  --vp-c-bg-elv: var(--pacs-bg-elevated);
+  --vp-c-border: var(--pacs-border);
+  --vp-c-divider: var(--pacs-divider);
+  --vp-c-text-1: var(--pacs-text-primary);
+  --vp-c-text-2: var(--pacs-text-secondary);
+  --vp-c-text-3: var(--pacs-text-secondary);
+  --vp-c-brand-1: var(--pacs-link);
+  --vp-c-brand-2: var(--pacs-link-hover);
+  --vp-c-brand-3: var(--pacs-link-hover);
+  --vp-c-brand-soft: #0a2a2e;
 
-  /* Override VitePress internal nav bg variable for doc pages */
-  --vp-nav-bg-color: var(--apple-nav-bg);
+  /* Override VitePress internal nav bg variable */
+  --vp-nav-bg-color: var(--pacs-nav-bg);
 
-  /* Mobile nav screen background — match nav bar for seamless open */
-  --vp-nav-screen-bg-color: var(--apple-nav-bg);
+  /* Mobile nav screen background */
+  --vp-nav-screen-bg-color: var(--pacs-bg-secondary);
 }
 
-/* ---------- Mobile Nav Screen: smooth Apple-style transition ---------- */
-/* Override VitePress scoped fade transition with smoother easing */
+/* ---------- Mobile Nav Screen: smooth transition ---------- */
 .VPNavScreen.fade-enter-active,
 .VPNavScreen.fade-leave-active {
   transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
@@ -157,7 +159,8 @@
 html,
 body {
   font-size: 16px;
-  line-height: 1.5;
+  font-weight: 300;
+  line-height: 1.618;
   letter-spacing: -0.011em;
   background: var(--vp-c-bg);
   color: var(--vp-c-text-1);
@@ -170,19 +173,21 @@ html {
 }
 
 a {
-  color: var(--apple-link);
-  text-decoration: none;
+  color: var(--pacs-link);
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 153, 172, 0.4);
   text-underline-offset: 0.15em;
 }
 
 a:hover {
-  color: var(--apple-link-hover);
+  color: var(--pacs-link-hover);
   text-decoration: underline;
+  text-decoration-color: var(--pacs-link-hover);
 }
 
 /* ---------- Focus ---------- */
 :focus-visible {
-  outline: 3px solid var(--apple-focus);
+  outline: 3px solid var(--pacs-focus);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -197,16 +202,17 @@ a:hover {
   color: #ffffff;
   padding: 0.625rem 1rem;
   border-radius: 8px;
-  border: 2px solid var(--apple-focus);
+  border: 2px solid var(--pacs-focus);
   font-size: 14px;
   font-weight: 600;
   transform: translateY(-200%);
+  text-decoration: none;
 }
 
 .skip-link:focus,
 .skip-link:focus-visible {
   transform: translateY(0);
-  outline: 3px solid var(--apple-focus);
+  outline: 3px solid var(--pacs-focus);
   outline-offset: 3px;
 }
 
@@ -215,26 +221,32 @@ a:hover {
   display: none !important;
 }
 
+/* ---------- Sidebar — hidden (single-column layout) ---------- */
+.VPSidebar {
+  display: none !important;
+}
+
 /* ---------- Navigation ---------- */
 /* IMPORTANT: backdrop-filter must NOT be on .VPNav because VPNavScreen
    (the mobile menu) is a child of .VPNav and uses position:fixed.
    backdrop-filter creates a containing block that traps fixed children. */
 .VPNav {
-  border-bottom: 1px solid var(--apple-divider);
+  border-bottom: 1px solid var(--pacs-divider);
 }
 
-/* Solid grey background on ALL page types via --vp-nav-bg-color override.
-   Also force background on .VPNavBar and its inner content-body/title areas. */
+/* Blur navbar */
 .VPNavBar {
-  background: var(--apple-nav-bg) !important;
+  background: var(--pacs-nav-bg) !important;
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
 }
 
 .VPNavBar .content-body {
-  background: var(--apple-nav-bg) !important;
+  background: transparent !important;
 }
 
 .VPNavBar .title {
-  background: var(--apple-nav-bg) !important;
+  background: transparent !important;
 }
 
 .VPNavBar .content {
@@ -245,7 +257,7 @@ a:hover {
 .VPNavBarTitle .title {
   font-weight: 600;
   font-size: 17px;
-  color: var(--apple-text-primary);
+  color: var(--pacs-text-primary);
 }
 
 .VPNavBarTitle .logo {
@@ -256,52 +268,16 @@ a:hover {
 .VPNavBarMenuGroup .button {
   font-size: 14px;
   font-weight: 400;
-  color: var(--apple-text-primary);
+  color: var(--pacs-text-primary);
   min-height: 44px;
   display: inline-flex;
   align-items: center;
+  text-decoration: none;
 }
 
 .VPNavBarMenuLink:hover,
 .VPNavBarMenuGroup .button:hover {
-  color: var(--apple-link);
-}
-
-/* ---------- Sidebar ---------- */
-.VPSidebar {
-  width: 272px;
-  border-right: none;
-  border-inline-end: none;
-  background: var(--apple-sidebar-bg);
-}
-
-.VPSidebar .group .text {
-  font-size: 12px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: var(--apple-sidebar-group);
-}
-
-.VPSidebar .item .link {
-  font-size: 14px;
-  line-height: 1.4;
-  color: var(--apple-sidebar-link);
-  border-inline-start: 2px solid transparent;
-  border-radius: 0;
-  padding: 4px 10px 4px 12px;
-  text-transform: none;
-}
-
-.VPSidebar .item .link:hover {
-  color: var(--apple-link);
-}
-
-.VPSidebar .item .link.active {
-  font-weight: 700;
-  border-inline-start-color: var(--apple-sidebar-active);
-  background: transparent;
-  color: var(--apple-sidebar-active);
+  color: var(--pacs-link);
 }
 
 /* ---------- Documentation Pages ---------- */
@@ -311,71 +287,75 @@ a:hover {
 
 .vp-doc {
   max-width: 780px;
-  line-height: 1.7;
+  line-height: 1.618;
+  animation: fadeIn 1.618s ease;
 }
 
 .vp-doc h1 {
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.15;
-  color: var(--apple-text-primary);
+  color: var(--pacs-text-primary);
   margin-bottom: 0.75rem;
 }
 
 .vp-doc h2 {
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.25;
   margin-top: 2rem;
-  border-bottom: 0.5px solid var(--apple-divider);
+  border-bottom: 0.5px solid var(--pacs-divider);
   padding-bottom: 0.5rem;
 }
 
 .vp-doc h3 {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.3;
 }
 
 .vp-doc h4 {
   font-size: 17px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.4;
 }
 
 .vp-doc a {
-  color: var(--apple-link);
+  color: var(--pacs-link);
 }
 
 .vp-doc a:hover {
-  color: var(--apple-link-hover);
+  color: var(--pacs-link-hover);
   text-decoration: underline;
 }
 
 .vp-doc code {
-  background: var(--apple-bg-secondary);
+  background: var(--pacs-bg-secondary);
   border: none;
   color: var(--vp-c-text-1);
   border-radius: 4px;
+  font-size: 15px;
 }
 
 .vp-doc [class*="language-"] {
   border: none;
-  border-radius: 12px;
+  border-radius: 0;
+  border-left: 3px solid var(--pacs-teal);
+  background: var(--pacs-bg-secondary);
 }
 
 .vp-doc blockquote {
-  border-left: 4px solid var(--apple-link);
-  background: var(--vp-c-brand-soft);
+  border-left: 3px solid var(--pacs-teal);
+  background: var(--pacs-teal-bg);
 }
 
 .vp-doc th,
 .vp-doc td {
-  border: 1px solid var(--apple-divider);
+  border: 1px solid var(--pacs-divider);
 }
 
 .vp-doc th {
-  background: var(--apple-bg-secondary);
+  background: var(--pacs-bg-secondary);
   font-weight: 600;
 }
 
@@ -387,18 +367,19 @@ a:hover {
 .VPHomeHero {
   background: url('https://cloudcdn.pro/stock/images/banners/meiying-ng-OrwkD-iWgqg.webp') center/cover no-repeat;
   position: relative;
+  animation: fadeIn 3s ease;
 }
 
 .VPHomeHero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(0, 153, 172, 0.618);
   z-index: 0;
 }
 
 .dark .VPHomeHero::before {
-  background: rgba(0, 0, 0, 0.78);
+  background: rgba(0, 80, 90, 0.82);
 }
 
 .VPHomeHero .container {
@@ -409,6 +390,7 @@ a:hover {
   text-align: center;
   position: relative;
   z-index: 1;
+  animation: dropDown 1.618s ease;
 }
 
 .VPHomeHero .main {
@@ -420,19 +402,19 @@ a:hover {
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 700;
   line-height: 1.05;
-  color: var(--apple-text-primary);
+  color: #ffffff;
 }
 
 /* Override VitePress gradient clip on hero name */
 .VPHomeHero .name.clip {
-  -webkit-text-fill-color: var(--apple-text-primary);
+  -webkit-text-fill-color: #ffffff;
   background: none;
 }
 
 .VPHomeHero .tagline {
   font-size: clamp(1rem, 1.5vw, 1.25rem);
   line-height: 1.55;
-  color: var(--apple-text-secondary);
+  color: rgba(255, 255, 255, 0.9);
   max-width: 68ch;
   margin-left: auto;
   margin-right: auto;
@@ -442,19 +424,14 @@ a:hover {
   margin-top: 1.5rem;
 }
 
-/* ---------- Apple "More Link" Style Buttons ---------- */
-/* Replaces pill buttons with Apple-style text links + chevron >
-   VitePress scoped styles use .VPButton.brand[data-v-*] (specificity 0,3,0).
-   We use .VPHome and !important on key props to override. */
+/* ---------- Bootstrap-style Buttons ---------- */
 .VPHome .VPButton.brand,
-.VPHome .VPButton.alt,
-.VPButton.brand,
-.VPButton.alt {
-  background: none !important;
+.VPButton.brand {
+  background: #1d1d1f !important;
   border: none !important;
-  border-radius: 0 !important;
-  padding: 0 !important;
-  color: var(--apple-link) !important;
+  border-radius: 0.618rem !important;
+  padding: 0.618rem 1.618rem !important;
+  color: #ffffff !important;
   font-size: 17px;
   font-weight: 400;
   line-height: 1.47;
@@ -464,29 +441,71 @@ a:hover {
   align-items: center;
   gap: 0.25em;
   box-shadow: none !important;
+  text-decoration: none !important;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
-.VPButton.brand::after,
-.VPButton.alt::after {
-  content: "\203A";
-  font-size: 1.3em;
-  line-height: 1;
-  font-weight: 300;
+.dark .VPHome .VPButton.brand,
+.dark .VPButton.brand {
+  background: #f5f5f7 !important;
+  color: #1d1d1f !important;
+}
+
+.VPButton.brand::after {
+  content: none;
 }
 
 .VPHome .VPButton.brand:hover,
-.VPHome .VPButton.alt:hover,
-.VPButton.brand:hover,
-.VPButton.alt:hover {
-  background: none !important;
+.VPButton.brand:hover {
+  background: var(--pacs-teal) !important;
   border: none !important;
-  color: var(--apple-link-hover) !important;
-  text-decoration: underline;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  transform: scale(1.0618);
 }
 
-/* Features */
+.dark .VPHome .VPButton.brand:hover,
+.dark .VPButton.brand:hover {
+  background: var(--pacs-teal) !important;
+  color: #ffffff !important;
+}
+
+.VPHome .VPButton.alt,
+.VPButton.alt {
+  background: transparent !important;
+  border: 2px solid var(--pacs-teal) !important;
+  border-radius: 0.618rem !important;
+  padding: 0.618rem 1.618rem !important;
+  color: var(--pacs-teal) !important;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.47;
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+  box-shadow: none !important;
+  text-decoration: none !important;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.VPButton.alt::after {
+  content: none;
+}
+
+.VPHome .VPButton.alt:hover,
+.VPButton.alt:hover {
+  background: var(--pacs-teal) !important;
+  border: 2px solid var(--pacs-teal) !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  transform: scale(1.0618);
+}
+
+/* ---------- Features ---------- */
 .VPHomeFeatures {
-  background: var(--apple-bg-secondary);
+  background: var(--pacs-bg-secondary);
 }
 
 .VPHomeFeatures .container {
@@ -509,50 +528,39 @@ a:hover {
 }
 
 .VPHomeFeatures .item .box {
-  border: 1px solid var(--apple-border);
-  background: var(--apple-bg-elevated);
-  border-radius: 16px;
+  border: 1px solid var(--pacs-border);
+  background: var(--pacs-bg-elevated);
+  border-radius: 0.618rem;
   min-height: 180px;
   padding: 1.25rem 1.15rem;
   box-shadow: 0 1px 3px color-mix(in srgb, #000000 6%, transparent);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: slideUp 1.618s ease;
 }
 
 .VPHomeFeatures .item .box:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px color-mix(in srgb, #000000 10%, transparent);
+  transform: scale(1.0618);
+  box-shadow: 0 4px 16px rgba(0, 153, 172, 0.2);
 }
 
 .VPHomeFeatures .item .box .title {
-  color: var(--apple-text-primary);
+  color: var(--pacs-text-primary);
   font-size: 17px;
   font-weight: 600;
 }
 
 .VPHomeFeatures .item .box .details {
-  color: var(--apple-text-secondary);
+  color: var(--pacs-text-secondary);
   font-size: 14px;
   line-height: 1.5;
 }
 
-/* ---------- Default VPFooter: hidden (replaced by AppleFooter) ---------- */
+/* ---------- Default VPFooter: hidden (replaced by PacsFooter) ---------- */
 .VPFooter {
   display: none !important;
 }
 
 /* ---------- Responsive ---------- */
-
-/* Tablet — match VitePress sidebar breakpoint */
-@media (max-width: 1279px) {
-  .VPSidebar {
-    width: 240px;
-  }
-
-  .vp-doc {
-    max-width: 100%;
-  }
-}
-
 @media (max-width: 1068px) {
   .VPNavBar .content {
     max-width: 692px;
@@ -583,8 +591,8 @@ a:hover {
   }
 
   .VPNavScreen {
-    background: var(--apple-nav-bg) !important;
-    border-top: 1px solid var(--apple-divider);
+    background: var(--pacs-bg-secondary) !important;
+    border-top: 1px solid var(--pacs-divider);
   }
 
   .VPNavScreen .container,
@@ -599,11 +607,12 @@ a:hover {
     min-height: 44px;
     font-size: 15px;
     font-weight: 400;
+    text-decoration: none;
   }
 
   .VPNavScreen .VPNavScreenMenuLink:hover,
   .VPNavScreen .VPNavScreenMenuGroup .button:hover {
-    color: var(--apple-link);
+    color: var(--pacs-link);
   }
 
   .VPHomeHero .container {
