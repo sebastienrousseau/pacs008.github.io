@@ -59,54 +59,40 @@ function pageTemplate({ title, description, lang, body }) {
   return `---\ntitle: ${title}\ndescription: ${description}\nlang: ${lang}\nlastUpdated: true\nimage: /logo.svg\n---\n\n${body}\n`;
 }
 
-function homeBody(locale) {
-  return `# ${locale.hero}
-
-${locale.tagline}
-
-<div class="hero-panel">
-
-Built for teams that need deterministic ISO 20022 file generation, version-aware templates, schema validation, and delivery tooling without building the whole stack from scratch.
-
-- Python package for XML generation and validation
-- REST API for orchestrated message workflows
-- CLI for local pipelines and batch jobs
-- Coverage across pacs.008 versions and adjacent message families
-
-[Get started on GitHub](https://github.com/sebastienrousseau/pacs008){.vp-button .brand}
-[Install from PyPI](https://pypi.org/project/pacs008/){.vp-button .alt}
-
-</div>
-
-<div class="signal-strip">
-  <div><strong>20</strong><span>supported ISO 20022 message families and versions</span></div>
-  <div><strong>13</strong><span>pacs.008 templates covering early and current revisions</span></div>
-  <div><strong>API</strong><span>async job management and validation endpoints</span></div>
-  <div><strong>CLI</strong><span>pipeline-friendly execution for local and CI workflows</span></div>
-</div>
-
-## Why Pacs008
-
-<div class="showcase-grid">
-  <article>
-    <h3>Version-aware delivery</h3>
-    <p>Generate and validate the exact XML flavor your bank, network, or migration programme expects.</p>
-  </article>
-  <article>
-    <h3>Operations-first tooling</h3>
-    <p>Use JSON, JSONL, CSV, SQLite, or Parquet as sources and keep message production inside existing back-office flows.</p>
-  </article>
-  <article>
-    <h3>Compliance pressure reduced</h3>
-    <p>Schema validation, SWIFT-safe sanitisation, BIC and IBAN checks, and path hardening are already built in.</p>
-  </article>
-</div>
-
-## Supported message types
-
-<ul class="type-list">
-${versions.map((version) => `  <li><strong>${version}</strong><br/>Template and validation support for production and migration work.</li>`).join("\n")}
-</ul>
+function homeFrontmatter(locale) {
+  return `---
+title: Pacs008 | ${locale.label}
+description: ${locale.tagline}
+lang: ${locale.lang}
+author: Sebastien Rousseau
+lastUpdated: true
+image: /logo.svg
+imageAlt: Pacs008
+canonical: /${locale.key}/
+robots: index, follow
+draft: false
+noindex: false
+sitemap: true
+breadcrumbTitle: Pacs008
+pageType: home
+schemaType: WebSite
+heroText: ${locale.hero}
+home: true
+metaTitle: Pacs008
+subtitle: ${locale.tagline}
+tagline: ${locale.tagline}
+actionText: Explore Pacs008
+actionLink: /${locale.key}/about/
+features:
+  - title: Version-aware generation
+    details: Covers the pacs.008 family and adjacent payment messages with template-driven XML output.
+  - title: Operational delivery
+    details: REST API and CLI workflows fit batch processing, CI validation, and internal payment rails.
+  - title: Compliance controls
+    details: XSD validation, SWIFT-safe sanitisation, IBAN and BIC checks, and secure path handling.
+  - title: Structured inputs
+    details: Works with JSON, JSONL, CSV, SQLite, and Parquet sources for back-office integration.
+---
 `;
 }
 
@@ -218,12 +204,7 @@ await write(
 
 for (const locale of locales) {
   const base = path.join(docsDir, locale.key);
-  await write(path.join(base, "index.md"), pageTemplate({
-    title: `Pacs008 | ${locale.label}`,
-    description: locale.tagline,
-    lang: locale.lang,
-    body: homeBody(locale)
-  }));
+  await write(path.join(base, "index.md"), homeFrontmatter(locale));
   await write(path.join(base, "about", "index.md"), pageTemplate({
     title: `About Pacs008 | ${locale.label}`,
     description: "What Pacs008 does and who it is for.",

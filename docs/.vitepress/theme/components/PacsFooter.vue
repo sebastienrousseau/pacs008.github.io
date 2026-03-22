@@ -1,109 +1,198 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useRoute } from "vitepress";
+import { LOCALE_KEYS } from "../../config/seo";
 import { getUiStrings } from "../../config/i18n";
 
 const route = useRoute();
-const year = new Date().getFullYear();
+const currentYear = new Date().getFullYear();
 
 const locale = computed(() => {
-  const first = route.path.split("/").filter(Boolean)[0];
-  return first || "en";
+  const segments = route.path.split("/").filter(Boolean);
+  const first = segments[0];
+  return first && LOCALE_KEYS.has(first) ? first : "en";
 });
 
+const localePrefix = computed(() => `/${locale.value}`);
 const t = computed(() => getUiStrings(locale.value));
-const prefix = computed(() => `/${locale.value}`);
+
+function localLink(path: string): string {
+  return `${localePrefix.value}${path}`;
+}
 </script>
 
 <template>
-  <footer class="pacs-footer">
-    <div class="pacs-footer-inner">
-      <div class="pacs-footer-grid">
-        <div>
-          <p class="pacs-footer-title">Pacs008</p>
-          <p class="pacs-footer-copy">
-            ISO 20022 FI-to-FI automation for engineering teams, operations, and compliance.
-          </p>
-        </div>
-        <nav aria-label="Footer navigation">
-          <ul class="pacs-footer-links">
-            <li><a :href="`${prefix}/about/`">{{ t.about }}</a></li>
-            <li><a :href="`${prefix}/message-types/`">{{ t.messageTypes }}</a></li>
-            <li><a :href="`${prefix}/api/`">{{ t.api }}</a></li>
-            <li><a :href="`${prefix}/privacy/`">{{ t.privacy }}</a></li>
-            <li><a :href="`${prefix}/terms/`">{{ t.terms }}</a></li>
-            <li><a :href="`${prefix}/contact/`">{{ t.contact }}</a></li>
+  <footer class="dot-footer" role="contentinfo">
+    <div class="dot-footer-inner">
+      <nav class="dot-footer-nav" aria-label="Footer navigation">
+        <div class="dot-footer-column">
+          <p class="dot-footer-title">Documentation</p>
+          <ul>
+            <li><a :href="localLink('/about/')">{{ t.about }}</a></li>
+            <li><a :href="localLink('/message-types/')">{{ t.messageTypes }}</a></li>
+            <li><a :href="localLink('/api/')">{{ t.api }}</a></li>
+            <li><a :href="localLink('/contact/')">{{ t.contact }}</a></li>
           </ul>
-        </nav>
-        <div class="pacs-footer-external">
-          <a href="https://github.com/sebastienrousseau/pacs008" target="_blank" rel="noreferrer">{{ t.github }}</a>
-          <a href="https://pypi.org/project/pacs008/" target="_blank" rel="noreferrer">{{ t.pypi }}</a>
         </div>
+        <div class="dot-footer-column">
+          <p class="dot-footer-title">Resources</p>
+          <ul>
+            <li>
+              <a href="https://github.com/sebastienrousseau/pacs008" target="_blank" rel="noopener noreferrer">{{ t.github }}<span class="visually-hidden"> (opens in new tab)</span></a>
+            </li>
+            <li>
+              <a href="https://pypi.org/project/pacs008/" target="_blank" rel="noopener noreferrer">{{ t.pypi }}<span class="visually-hidden"> (opens in new tab)</span></a>
+            </li>
+            <li>
+              <a href="https://github.com/sebastienrousseau/pacs008/releases" target="_blank" rel="noopener noreferrer">Releases<span class="visually-hidden"> (opens in new tab)</span></a>
+            </li>
+          </ul>
+        </div>
+        <div class="dot-footer-column">
+          <p class="dot-footer-title">Legal</p>
+          <ul>
+            <li><a :href="localLink('/privacy/')">{{ t.privacy }}</a></li>
+            <li><a :href="localLink('/terms/')">{{ t.terms }}</a></li>
+            <li><a :href="localLink('/contact/')">{{ t.contact }}</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="dot-footer-divider" aria-hidden="true"></div>
+      <div class="dot-footer-bottom">
+        <p class="dot-footer-copyright">
+          {{ t.copyright }} &copy; Pacs008 2023&ndash;{{ currentYear }}.
+        </p>
+        <ul class="dot-footer-legal" aria-label="Legal links">
+          <li><a :href="localLink('/privacy/')">Privacy Policy</a></li>
+          <li><a :href="localLink('/terms/')">Terms of Use</a></li>
+        </ul>
       </div>
-      <p class="pacs-footer-meta">{{ t.copyright }} © Sebastien Rousseau 2023-{{ year }}</p>
     </div>
   </footer>
 </template>
 
 <style scoped>
-.pacs-footer {
-  background: #10211d;
-  color: #d9e3db;
-  margin-top: 3rem;
+.dot-footer {
+  background: var(--apple-footer-bg);
+  color: var(--apple-footer-text);
+  font-size: 13px;
+  line-height: 1.47;
+  padding: 1.5rem 0 1rem;
 }
 
-.pacs-footer-inner {
-  max-width: 1120px;
+.dot-footer-inner {
+  max-width: 980px;
   margin: 0 auto;
-  padding: 2.2rem 1.5rem 1.4rem;
+  padding: 0 22px;
 }
 
-.pacs-footer-grid {
+.dot-footer-nav {
   display: grid;
-  grid-template-columns: 1.6fr 1fr 0.7fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+  padding-bottom: 1rem;
 }
 
-.pacs-footer-title {
-  font-family: var(--pacs-display);
-  font-size: 1.3rem;
-  margin: 0 0 0.5rem;
-}
-
-.pacs-footer-copy,
-.pacs-footer-meta {
-  margin: 0;
-  color: #a9b8ad;
-}
-
-.pacs-footer-links {
+.dot-footer-column ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  gap: 0.55rem;
 }
 
-.pacs-footer a {
-  color: #f5ead9;
+.dot-footer-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--apple-footer-title);
+  margin: 0 0 0.5rem;
+  letter-spacing: 0;
 }
 
-.pacs-footer-external {
-  display: grid;
-  gap: 0.55rem;
-  align-content: start;
+.dot-footer-column li {
+  margin: 0;
 }
 
-.pacs-footer-meta {
-  border-top: 1px solid rgba(245, 234, 217, 0.14);
-  margin-top: 1.4rem;
-  padding-top: 1rem;
-  font-size: 0.92rem;
+.dot-footer-column a {
+  color: var(--apple-footer-link);
+  text-decoration: none;
+  display: inline-block;
+  line-height: 2.75;
+  min-height: 44px;
+}
+
+.dot-footer-column a:hover {
+  color: var(--apple-text-primary);
+  text-decoration: underline;
+}
+
+.dot-footer-divider {
+  height: 1px;
+  background: var(--apple-divider);
+  margin: 0.5rem 0 1rem;
+}
+
+.dot-footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+}
+
+.dot-footer-copyright {
+  margin: 0;
+  color: var(--apple-footer-text);
+}
+
+.dot-footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dot-footer-legal a {
+  color: var(--apple-footer-link);
+  text-decoration: none;
+}
+
+.dot-footer-legal a:hover {
+  color: var(--apple-text-primary);
+  text-decoration: underline;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 1068px) {
+  .dot-footer-inner {
+    max-width: 692px;
+  }
 }
 
 @media (max-width: 768px) {
-  .pacs-footer-grid {
-    grid-template-columns: 1fr;
+  .dot-footer-nav {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .dot-footer-inner {
+    width: 87.5%;
+    padding: 0;
+  }
+
+  .dot-footer-bottom {
+    flex-direction: column;
   }
 }
 </style>

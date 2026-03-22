@@ -1,4 +1,4 @@
-export const SITE_URL = "https://pacs008.github.io";
+export const SITE_URL = "https://pacs008.com";
 export const SITE_NAME = "Pacs008";
 export const DEFAULT_AUTHOR = "Sebastien Rousseau";
 export const DEFAULT_OG_IMAGE = "/logo.svg";
@@ -29,6 +29,9 @@ export const LOCALE_META: Record<string, { lang: string; home: string }> = {
 };
 
 export const LOCALE_KEYS = new Set(Object.keys(LOCALE_META));
+export const LOCALE_HOME_LABELS = Object.fromEntries(
+  Object.entries(LOCALE_META).map(([key, value]) => [key, value.home])
+) as Record<string, string>;
 
 export function slugToTitle(value: string): string {
   const map: Record<string, string> = {

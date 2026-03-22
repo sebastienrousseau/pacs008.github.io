@@ -1,33 +1,25 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useData, useRoute } from "vitepress";
-import { LOCALE_META, LOCALE_KEYS } from "../../config/seo";
+import { LOCALE_HOME_LABELS, LOCALE_KEYS, slugToTitle } from "../../config/seo";
 
 const route = useRoute();
 const { frontmatter } = useData();
 
-function toLabel(segment: string): string {
-  const map: Record<string, string> = {
-    about: "About",
-    "message-types": "Message Types",
-    api: "API",
-    contact: "Contact",
-    privacy: "Privacy",
-    terms: "Terms"
-  };
-  return map[segment] || segment;
-}
-
 const items = computed(() => {
-  const segments = route.path.replace(/index\.html$/, "").split("/").filter(Boolean);
+  const path = route.path.replace(/index\.html$/, "").replace(/\/+$/, "/");
+  const segments = path.split("/").filter(Boolean);
   if (segments.length <= 1) return [];
-  return segments.map((segment, index) => ({
-    text: index === segments.length - 1 && typeof frontmatter.value.breadcrumbTitle === "string"
-      ? frontmatter.value.breadcrumbTitle
-      : toLabel(segment),
-    link: `/${segments.slice(0, index + 1).join("/")}/`,
-    isLast: index === segments.length - 1
-  }));
+  return segments.map((segment, index) => {
+    const link = `/${segments.slice(0, index + 1).join("/")}/`;
+    const isLast = index === segments.length - 1;
+    const lastText = typeof frontmatter.value.breadcrumbTitle === "string" ? frontmatter.value.breadcrumbTitle : null;
+    return {
+      text: isLast && lastText ? lastText : slugToTitle(segment),
+      link,
+      isLast
+    };
+  });
 });
 
 const localePrefix = computed(() => {
@@ -40,7 +32,7 @@ const localePrefix = computed(() => {
 <template>
   <nav v-if="items.length" class="vp-breadcrumb" aria-label="Breadcrumb">
     <ol>
-      <li><a :href="`${localePrefix}/`">{{ LOCALE_META[localePrefix.slice(1)]?.home ?? "Home" }}</a></li>
+      <li><a :href="`${localePrefix}/`">{{ LOCALE_HOME_LABELS[localePrefix.slice(1)] ?? "Home" }}</a></li>
       <li v-for="item in items" :key="item.link">
         <span class="sep" aria-hidden="true">›</span>
         <a v-if="!item.isLast" :href="item.link">{{ item.text }}</a>
@@ -59,17 +51,28 @@ const localePrefix = computed(() => {
 .vp-breadcrumb ol {
   display: flex;
   flex-wrap: wrap;
+  gap: 0.2rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
+.vp-breadcrumb a {
+  color: var(--apple-link);
+  text-decoration: none;
+}
+
+.vp-breadcrumb a:hover {
+  color: var(--apple-link-hover);
+  text-decoration: underline;
+}
+
 .sep {
-  margin: 0 0.45rem;
-  color: var(--pacs-ink-muted);
+  margin: 0 0.35rem;
+  color: var(--apple-text-secondary);
 }
 
 .current {
-  color: var(--pacs-ink-muted);
+  color: var(--apple-text-secondary);
 }
 </style>

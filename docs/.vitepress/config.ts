@@ -82,19 +82,52 @@ export default defineConfig({
   head: sharedHead,
   srcExclude: ["public/**"],
   sitemap: {
-    hostname: "https://pacs008.github.io"
+    hostname: "https://pacs008.com"
   },
   locales,
   transformPageData(pageData) {
     const meta = resolvePageMeta(pageData);
     pageData.title = meta.title;
     pageData.titleTemplate = ":title";
+
+    const fm = pageData.frontmatter;
+    if (typeof fm.metaTitle === "string" && !fm.title) {
+      fm.title = fm.metaTitle;
+    }
+
+    if (fm.home === true && !fm.layout) {
+      fm.layout = "home";
+    }
+
+    if (fm.layout === "home" && !fm.hero) {
+      const actionText = typeof fm.actionText === "string" ? fm.actionText : "Read more";
+      const actionLink = typeof fm.actionLink === "string" ? fm.actionLink : "/en/about/";
+      fm.hero = {
+        name: typeof fm.heroText === "string" ? fm.heroText : fm.title || SITE_NAME,
+        text: "",
+        tagline: typeof fm.tagline === "string" ? fm.tagline : fm.subtitle || fm.description || "",
+        actions: [
+          {
+            theme: "brand",
+            text: actionText,
+            link: actionLink
+          }
+        ]
+      };
+
+      if (Array.isArray(fm.features)) {
+        fm.features = fm.features.map((feature: Record<string, unknown>) => ({
+          title: feature.title || "",
+          details: feature.details || ""
+        }));
+      }
+    }
   },
   transformHead({ pageData }) {
     if (pageData.relativePath === "index.md") {
       return [
         ["meta", { "http-equiv": "refresh", content: "0;url=/en/" }],
-        ["link", { rel: "canonical", href: "https://pacs008.github.io/en/" }]
+        ["link", { rel: "canonical", href: "https://pacs008.com/en/" }]
       ];
     }
 
