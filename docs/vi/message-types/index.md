@@ -12,26 +12,28 @@ Pacs008 bao gồm định nghĩa thông điệp pacs.008 cốt lõi và các th�
 
 ## Hỗ trợ bao gồm
 
-- [`pacs.002.001.12`](/vi/pacs.002.001.12/) — FI to FI Payment Status Report
-- [`pacs.003.001.09`](/vi/pacs.003.001.09/) — FI to FI Customer Direct Debit
-- [`pacs.004.001.11`](/vi/pacs.004.001.11/) — Payment Return
-- [`pacs.007.001.11`](/vi/pacs.007.001.11/) — FI to FI Payment Reversal
-- [`pacs.008.001.01`](/vi/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.02`](/vi/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.03`](/vi/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.04`](/vi/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.05`](/vi/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.06`](/vi/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.07`](/vi/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.08`](/vi/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.09`](/vi/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.10`](/vi/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.11`](/vi/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.12`](/vi/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.13`](/vi/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.009.001.10`](/vi/pacs.009.001.10/) — Financial Institution Credit Transfer
-- [`pacs.010.001.05`](/vi/pacs.010.001.05/) — Financial Institution Direct Debit
-- [`pacs.028.001.05`](/vi/pacs.028.001.05/) — FI to FI Payment Status Request
+| Loại thông điệp | Mô tả |
+|---|---|
+| [`pacs.002.001.12`](/vi/pacs.002.001.12/) | FI to FI Payment Status Report |
+| [`pacs.003.001.09`](/vi/pacs.003.001.09/) | FI to FI Customer Direct Debit |
+| [`pacs.004.001.11`](/vi/pacs.004.001.11/) | Payment Return |
+| [`pacs.007.001.11`](/vi/pacs.007.001.11/) | FI to FI Payment Reversal |
+| [`pacs.008.001.01`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.02`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.03`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.04`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.05`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.06`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.07`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.08`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.09`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.10`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.11`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.12`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.13`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.009.001.10`](/vi/pacs.009.001.10/) | Financial Institution Credit Transfer |
+| [`pacs.010.001.05`](/vi/pacs.010.001.05/) | Financial Institution Direct Debit |
+| [`pacs.028.001.05`](/vi/pacs.028.001.05/) | FI to FI Payment Status Request |
 
 ## Mô hình phân phối
 

@@ -12,26 +12,28 @@ Pacs008 涵蓋核心 pacs.008 訊息定義和編排及對帳流程中使用的�
 
 ## 包含的支援
 
-- [`pacs.002.001.12`](/zh-tw/pacs.002.001.12/) — FI to FI Payment Status Report
-- [`pacs.003.001.09`](/zh-tw/pacs.003.001.09/) — FI to FI Customer Direct Debit
-- [`pacs.004.001.11`](/zh-tw/pacs.004.001.11/) — Payment Return
-- [`pacs.007.001.11`](/zh-tw/pacs.007.001.11/) — FI to FI Payment Reversal
-- [`pacs.008.001.01`](/zh-tw/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.02`](/zh-tw/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.03`](/zh-tw/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.04`](/zh-tw/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.05`](/zh-tw/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.06`](/zh-tw/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.07`](/zh-tw/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.08`](/zh-tw/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.09`](/zh-tw/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.10`](/zh-tw/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.11`](/zh-tw/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.12`](/zh-tw/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.13`](/zh-tw/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.009.001.10`](/zh-tw/pacs.009.001.10/) — Financial Institution Credit Transfer
-- [`pacs.010.001.05`](/zh-tw/pacs.010.001.05/) — Financial Institution Direct Debit
-- [`pacs.028.001.05`](/zh-tw/pacs.028.001.05/) — FI to FI Payment Status Request
+| 訊息類型 | 說明 |
+|---|---|
+| [`pacs.002.001.12`](/zh-tw/pacs.002.001.12/) | FI to FI Payment Status Report |
+| [`pacs.003.001.09`](/zh-tw/pacs.003.001.09/) | FI to FI Customer Direct Debit |
+| [`pacs.004.001.11`](/zh-tw/pacs.004.001.11/) | Payment Return |
+| [`pacs.007.001.11`](/zh-tw/pacs.007.001.11/) | FI to FI Payment Reversal |
+| [`pacs.008.001.01`](/zh-tw/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.02`](/zh-tw/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.03`](/zh-tw/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.04`](/zh-tw/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.05`](/zh-tw/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.06`](/zh-tw/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.07`](/zh-tw/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.08`](/zh-tw/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.09`](/zh-tw/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.10`](/zh-tw/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.11`](/zh-tw/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.12`](/zh-tw/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.13`](/zh-tw/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.009.001.10`](/zh-tw/pacs.009.001.10/) | Financial Institution Credit Transfer |
+| [`pacs.010.001.05`](/zh-tw/pacs.010.001.05/) | Financial Institution Direct Debit |
+| [`pacs.028.001.05`](/zh-tw/pacs.028.001.05/) | FI to FI Payment Status Request |
 
 ## 交付模型
 

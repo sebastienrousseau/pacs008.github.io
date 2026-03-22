@@ -266,6 +266,8 @@ const pageCopy = {
     msgDetailFlow: "Message flow",
     msgDetailVersions: "Supported versions",
     msgDetailRelated: "Related messages",
+    msgTypeColId: "Message type",
+    msgTypeColDesc: "Description",
     pacs002Overview: "The pacs.002 message is sent by a financial institution to report the status of a previously sent payment instruction. It provides confirmation, rejection, or pending status information for individual transactions within a payment message.",
     pacs002Element1: "**GrpHdr** — Group Header with message identification and creation timestamp",
     pacs002Element2: "**OrgnlGrpInfAndSts** — Original Group Information and Status for bulk-level reporting",
@@ -604,7 +606,9 @@ const pageCopy = {
     pacs028Cbpr2: "CBPR+ prend en charge les demandes de statut structurées liées aux identifiants de message d'origine",
     pacs028Cbpr3: "Le suivi basé sur l'UETR via gpi réduit le besoin d'interrogations manuelles",
     pacs028Cbpr4: "De plus en plus intégré dans les tableaux de bord automatisés d'opérations de paiement",
-    pacs028Flow: "L'agent instructeur envoie pacs.028 à l'agent instruit pour demander le statut d'un paiement spécifique. L'agent instruit répond avec un pacs.002 contenant le statut de traitement actuel."
+    pacs028Flow: "L'agent instructeur envoie pacs.028 à l'agent instruit pour demander le statut d'un paiement spécifique. L'agent instruit répond avec un pacs.002 contenant le statut de traitement actuel.",
+    msgTypeColId: "Type de message",
+    msgTypeColDesc: "Description"
   },
   ar: {
     aboutTitle: "حول Pacs008",
@@ -823,7 +827,9 @@ const pageCopy = {
     pacs028Cbpr2: "يدعم CBPR+ طلبات الحالة المنظمة المرتبطة بمعرفات الرسالة الأصلية",
     pacs028Cbpr3: "يقلل التتبع المستند إلى UETR عبر gpi من الحاجة إلى الاستفسارات اليدوية",
     pacs028Cbpr4: "يتم دمجه بشكل متزايد في لوحات معلومات عمليات الدفع الآلية",
-    pacs028Flow: "يرسل الوكيل المُرسل pacs.028 إلى الوكيل المُستلم لطلب حالة دفعة محددة. يستجيب الوكيل المُستلم برسالة pacs.002 تحتوي على حالة المعالجة الحالية."
+    pacs028Flow: "يرسل الوكيل المُرسل pacs.028 إلى الوكيل المُستلم لطلب حالة دفعة محددة. يستجيب الوكيل المُستلم برسالة pacs.002 تحتوي على حالة المعالجة الحالية.",
+    msgTypeColId: "نوع الرسالة",
+    msgTypeColDesc: "الوصف"
   },
   de: {
     aboutTitle: "Über Pacs008",
@@ -1042,7 +1048,9 @@ const pageCopy = {
     pacs028Cbpr2: "CBPR+ unterstützt strukturierte Statusanfragen, die mit Originalnachrichtenkennungen verknüpft sind",
     pacs028Cbpr3: "UETR-basiertes Tracking über gpi reduziert die Notwendigkeit manueller Abfragen",
     pacs028Cbpr4: "Zunehmend in automatisierte Zahlungsoperations-Dashboards integriert",
-    pacs028Flow: "Der beauftragende Agent sendet pacs.028 an den beauftragten Agent, um den Status einer bestimmten Zahlung abzufragen. Der beauftragte Agent antwortet mit einem pacs.002 mit dem aktuellen Verarbeitungsstatus."
+    pacs028Flow: "Der beauftragende Agent sendet pacs.028 an den beauftragten Agent, um den Status einer bestimmten Zahlung abzufragen. Der beauftragte Agent antwortet mit einem pacs.002 mit dem aktuellen Verarbeitungsstatus.",
+    msgTypeColId: "Nachrichtentyp",
+    msgTypeColDesc: "Beschreibung"
   },
   es: {
     aboutTitle: "Acerca de Pacs008",
@@ -1261,7 +1269,9 @@ const pageCopy = {
     pacs028Cbpr2: "CBPR+ soporta solicitudes de estado estructuradas vinculadas a identificadores del mensaje original",
     pacs028Cbpr3: "El seguimiento basado en UETR a través de gpi reduce la necesidad de consultas manuales",
     pacs028Cbpr4: "Se integra cada vez más en paneles de operaciones de pago automatizados",
-    pacs028Flow: "El agente ordenante envía pacs.028 al agente instruido para solicitar el estado de un pago específico. El agente instruido responde con un pacs.002 que contiene el estado de procesamiento actual."
+    pacs028Flow: "El agente ordenante envía pacs.028 al agente instruido para solicitar el estado de un pago específico. El agente instruido responde con un pacs.002 que contiene el estado de procesamiento actual.",
+    msgTypeColId: "Tipo de mensaje",
+    msgTypeColDesc: "Descripción"
   },
   he: {
     aboutTitle: "אודות Pacs008",
@@ -1480,7 +1490,9 @@ const pageCopy = {
     pacs028Cbpr2: "CBPR+ תומך בבקשות סטטוס מובנות המקושרות למזהי הודעה מקוריים",
     pacs028Cbpr3: "מעקב מבוסס UETR דרך gpi מפחית את הצורך בבירורים ידניים",
     pacs028Cbpr4: "משולבת בהדרגה בלוחות בקרת פעולות תשלום אוטומטיים",
-    pacs028Flow: "הסוכן המורה שולח pacs.028 לסוכן מקבל ההוראות לבקשת סטטוס של תשלום ספציפי. הסוכן מקבל ההוראות משיב עם pacs.002 המכילה את סטטוס העיבוד הנוכחי."
+    pacs028Flow: "הסוכן המורה שולח pacs.028 לסוכן מקבל ההוראות לבקשת סטטוס של תשלום ספציפי. הסוכן מקבל ההוראות משיב עם pacs.002 המכילה את סטטוס העיבוד הנוכחי.",
+    msgTypeColId: "סוג הודעה",
+    msgTypeColDesc: "תיאור"
   },
   hi: {
     aboutTitle: "Pacs008 के बारे में",
@@ -1699,7 +1711,9 @@ const pageCopy = {
     pacs028Cbpr2: "CBPR+ मूल संदेश पहचानकर्ताओं से जुड़े संरचित स्थिति अनुरोधों का समर्थन करता है",
     pacs028Cbpr3: "gpi के माध्यम से UETR-आधारित ट्रैकिंग मैनुअल पूछताछ की आवश्यकता को कम करती है",
     pacs028Cbpr4: "स्वचालित भुगतान संचालन डैशबोर्ड में तेजी से एकीकृत किया जा रहा है",
-    pacs028Flow: "निर्देश देने वाला एजेंट किसी विशिष्ट भुगतान की स्थिति का अनुरोध करने के लिए निर्देशित एजेंट को pacs.028 भेजता है। निर्देशित एजेंट वर्तमान प्रसंस्करण स्थिति वाले pacs.002 के साथ प्रतिक्रिया देता है।"
+    pacs028Flow: "निर्देश देने वाला एजेंट किसी विशिष्ट भुगतान की स्थिति का अनुरोध करने के लिए निर्देशित एजेंट को pacs.028 भेजता है। निर्देशित एजेंट वर्तमान प्रसंस्करण स्थिति वाले pacs.002 के साथ प्रतिक्रिया देता है।",
+    msgTypeColId: "संदेश प्रकार",
+    msgTypeColDesc: "विवरण"
   },
   id: {
     aboutTitle: "Tentang Pacs008",
@@ -1918,7 +1932,9 @@ const pageCopy = {
     pacs028Cbpr2: "CBPR+ mendukung permintaan status terstruktur yang ditautkan ke pengidentifikasi pesan asli",
     pacs028Cbpr3: "Pelacakan berbasis UETR melalui gpi mengurangi kebutuhan pertanyaan manual",
     pacs028Cbpr4: "Semakin terintegrasi ke dalam dasbor operasi pembayaran otomatis",
-    pacs028Flow: "Agen yang memberi instruksi mengirim pacs.028 ke agen yang diinstruksikan untuk meminta status pembayaran tertentu. Agen yang diinstruksikan merespons dengan pacs.002 yang berisi status pemrosesan terkini."
+    pacs028Flow: "Agen yang memberi instruksi mengirim pacs.028 ke agen yang diinstruksikan untuk meminta status pembayaran tertentu. Agen yang diinstruksikan merespons dengan pacs.002 yang berisi status pemrosesan terkini.",
+    msgTypeColId: "Jenis pesan",
+    msgTypeColDesc: "Deskripsi"
   },
   it: {
     aboutTitle: "Informazioni su Pacs008",
@@ -2137,7 +2153,9 @@ const pageCopy = {
     pacs028Cbpr2: "CBPR+ supporta richieste di stato strutturate collegate agli identificativi del messaggio originale",
     pacs028Cbpr3: "Il tracciamento basato su UETR tramite gpi riduce la necessità di indagini manuali",
     pacs028Cbpr4: "Sempre più integrato nei cruscotti automatizzati per le operazioni di pagamento",
-    pacs028Flow: "L'agente ordinante invia pacs.028 all'agente incaricato per richiedere lo stato di un pagamento specifico. L'agente incaricato risponde con un pacs.002 contenente lo stato di elaborazione attuale."
+    pacs028Flow: "L'agente ordinante invia pacs.028 all'agente incaricato per richiedere lo stato di un pagamento specifico. L'agente incaricato risponde con un pacs.002 contenente lo stato di elaborazione attuale.",
+    msgTypeColId: "Tipo di messaggio",
+    msgTypeColDesc: "Descrizione"
   },
   ja: {
     aboutTitle: "Pacs008 について",
@@ -2356,7 +2374,9 @@ const pageCopy = {
     pacs028Cbpr2: "CBPR+ は元メッセージ識別子に紐づく構造化されたステータスリクエストに対応",
     pacs028Cbpr3: "UETR ベースの gpi トラッキングにより手動照会の必要性が軽減",
     pacs028Cbpr4: "自動化された支払オペレーションダッシュボードへの統合が進む",
-    pacs028Flow: "指図元エージェントは特定の支払のステータスを要求するため、被指図エージェントに pacs.028 を送信します。被指図エージェントは現在の処理ステータスを含む pacs.002 で応答します。"
+    pacs028Flow: "指図元エージェントは特定の支払のステータスを要求するため、被指図エージェントに pacs.028 を送信します。被指図エージェントは現在の処理ステータスを含む pacs.002 で応答します。",
+    msgTypeColId: "メッセージ種別",
+    msgTypeColDesc: "説明"
   },
   ko: {
     aboutTitle: "Pacs008 소개",
@@ -2575,7 +2595,9 @@ const pageCopy = {
     pacs028Cbpr2: "CBPR+는 원본 메시지 식별자에 연결된 구조화된 상태 요청 지원",
     pacs028Cbpr3: "UETR 기반 gpi 추적으로 수동 조회 필요성 감소",
     pacs028Cbpr4: "자동화된 결제 운영 대시보드에 점점 통합됨",
-    pacs028Flow: "지시 에이전트는 특정 결제의 상태를 요청하기 위해 피지시 에이전트에게 pacs.028을 전송합니다. 피지시 에이전트는 현재 처리 상태가 포함된 pacs.002로 응답합니다."
+    pacs028Flow: "지시 에이전트는 특정 결제의 상태를 요청하기 위해 피지시 에이전트에게 pacs.028을 전송합니다. 피지시 에이전트는 현재 처리 상태가 포함된 pacs.002로 응답합니다.",
+    msgTypeColId: "메시지 유형",
+    msgTypeColDesc: "설명"
   },
   nl: {
     aboutTitle: "Over Pacs008",
@@ -2794,7 +2816,9 @@ const pageCopy = {
     pacs028Cbpr2: "CBPR+ ondersteunt gestructureerde statusverzoeken gekoppeld aan oorspronkelijke berichtidentificatoren",
     pacs028Cbpr3: "UETR-gebaseerde tracking via gpi vermindert de noodzaak van handmatige opvragingen",
     pacs028Cbpr4: "Wordt steeds vaker geïntegreerd in geautomatiseerde dashboards voor betalingsoperaties",
-    pacs028Flow: "De opdrachtgevende agent stuurt pacs.028 naar de opdrachthebbende agent om de status van een specifieke betaling op te vragen. De opdrachthebbende agent antwoordt met een pacs.002 met de huidige verwerkingsstatus."
+    pacs028Flow: "De opdrachtgevende agent stuurt pacs.028 naar de opdrachthebbende agent om de status van een specifieke betaling op te vragen. De opdrachthebbende agent antwoordt met een pacs.002 met de huidige verwerkingsstatus.",
+    msgTypeColId: "Berichttype",
+    msgTypeColDesc: "Beschrijving"
   },
   pl: {
     aboutTitle: "O Pacs008",
@@ -3013,7 +3037,9 @@ const pageCopy = {
     pacs028Cbpr2: "CBPR+ obsługuje strukturyzowane zapytania statusowe powiązane z identyfikatorami oryginalnego komunikatu",
     pacs028Cbpr3: "Śledzenie oparte na UETR za pośrednictwem gpi zmniejsza potrzebę ręcznych zapytań",
     pacs028Cbpr4: "Coraz częściej integrowany z automatycznymi pulpitami nawigacyjnymi operacji płatniczych",
-    pacs028Flow: "Agent zlecający wysyła pacs.028 do agenta zleconego w celu zapytania o status konkretnej płatności. Agent zlecony odpowiada komunikatem pacs.002 zawierającym aktualny status przetwarzania."
+    pacs028Flow: "Agent zlecający wysyła pacs.028 do agenta zleconego w celu zapytania o status konkretnej płatności. Agent zlecony odpowiada komunikatem pacs.002 zawierającym aktualny status przetwarzania.",
+    msgTypeColId: "Typ wiadomości",
+    msgTypeColDesc: "Opis"
   },
   pt: {
     aboutTitle: "Sobre o Pacs008",
@@ -3232,7 +3258,9 @@ const pageCopy = {
     pacs028Cbpr2: "CBPR+ suporta solicitações de status estruturadas vinculadas a identificadores da mensagem original",
     pacs028Cbpr3: "O rastreamento baseado em UETR via gpi reduz a necessidade de consultas manuais",
     pacs028Cbpr4: "Cada vez mais integrado em painéis automatizados de operações de pagamento",
-    pacs028Flow: "O agente instruente envia pacs.028 ao agente instruído para solicitar o status de um pagamento específico. O agente instruído responde com um pacs.002 contendo o status de processamento atual."
+    pacs028Flow: "O agente instruente envia pacs.028 ao agente instruído para solicitar o status de um pagamento específico. O agente instruído responde com um pacs.002 contendo o status de processamento atual.",
+    msgTypeColId: "Tipo de mensagem",
+    msgTypeColDesc: "Descrição"
   },
   ro: {
     aboutTitle: "Despre Pacs008",
@@ -3451,7 +3479,9 @@ const pageCopy = {
     pacs028Cbpr2: "CBPR+ suportă cereri de status structurate legate de identificatorii mesajului original",
     pacs028Cbpr3: "Urmărirea bazată pe UETR prin gpi reduce necesitatea interogărilor manuale",
     pacs028Cbpr4: "Din ce în ce mai integrat în tablourile de bord automatizate pentru operațiunile de plăți",
-    pacs028Flow: "Agentul ordonator trimite pacs.028 agentului instruit pentru a solicita statusul unei plăți specifice. Agentul instruit răspunde cu un pacs.002 care conține statusul curent de procesare."
+    pacs028Flow: "Agentul ordonator trimite pacs.028 agentului instruit pentru a solicita statusul unei plăți specifice. Agentul instruit răspunde cu un pacs.002 care conține statusul curent de procesare.",
+    msgTypeColId: "Tip de mesaj",
+    msgTypeColDesc: "Descriere"
   },
   ru: {
     aboutTitle: "О Pacs008",
@@ -3670,7 +3700,9 @@ const pageCopy = {
     pacs028Cbpr2: "CBPR+ поддерживает структурированные запросы статуса, связанные с идентификаторами исходных сообщений",
     pacs028Cbpr3: "Отслеживание на основе UETR через gpi снижает необходимость в ручных запросах",
     pacs028Cbpr4: "Всё активнее интегрируется в автоматизированные панели управления платёжными операциями",
-    pacs028Flow: "Инструктирующий агент отправляет pacs.028 инструктируемому агенту для запроса статуса конкретного платежа. Инструктируемый агент отвечает сообщением pacs.002 с текущим статусом обработки."
+    pacs028Flow: "Инструктирующий агент отправляет pacs.028 инструктируемому агенту для запроса статуса конкретного платежа. Инструктируемый агент отвечает сообщением pacs.002 с текущим статусом обработки.",
+    msgTypeColId: "Тип сообщения",
+    msgTypeColDesc: "Описание"
   },
   th: {
     aboutTitle: "เกี่ยวกับ Pacs008",
@@ -3889,7 +3921,9 @@ const pageCopy = {
     pacs028Cbpr2: "CBPR+ รองรับคำขอสถานะแบบมีโครงสร้างที่เชื่อมโยงกับรหัสระบุข้อความต้นฉบับ",
     pacs028Cbpr3: "การติดตามด้วย UETR ผ่าน gpi ลดความจำเป็นในการสอบถามด้วยตนเอง",
     pacs028Cbpr4: "ถูกผนวกรวมเข้ากับแดชบอร์ดการดำเนินงานชำระเงินอัตโนมัติมากขึ้น",
-    pacs028Flow: "ตัวแทนผู้สั่งส่ง pacs.028 ไปยังตัวแทนผู้รับคำสั่งเพื่อร้องขอสถานะของการชำระเงินเฉพาะรายการ ตัวแทนผู้รับคำสั่งตอบกลับด้วย pacs.002 ที่มีสถานะการประมวลผลปัจจุบัน"
+    pacs028Flow: "ตัวแทนผู้สั่งส่ง pacs.028 ไปยังตัวแทนผู้รับคำสั่งเพื่อร้องขอสถานะของการชำระเงินเฉพาะรายการ ตัวแทนผู้รับคำสั่งตอบกลับด้วย pacs.002 ที่มีสถานะการประมวลผลปัจจุบัน",
+    msgTypeColId: "ประเภทข้อความ",
+    msgTypeColDesc: "คำอธิบาย"
   },
   tr: {
     aboutTitle: "Pacs008 Hakkında",
@@ -4108,7 +4142,9 @@ const pageCopy = {
     pacs028Cbpr2: "CBPR+, orijinal mesaj tanımlayıcılarına bağlı yapılandırılmış durum taleplerini destekler",
     pacs028Cbpr3: "gpi üzerinden UETR tabanlı takip, manuel sorgu ihtiyacını azaltır",
     pacs028Cbpr4: "Otomatik ödeme operasyonları panolarına giderek daha fazla entegre edilmektedir",
-    pacs028Flow: "Talimat veren aracı, belirli bir ödemenin durumunu talep etmek üzere talimat alan aracıya pacs.028 gönderir. Talimat alan aracı, mevcut işleme durumunu içeren bir pacs.002 ile yanıt verir."
+    pacs028Flow: "Talimat veren aracı, belirli bir ödemenin durumunu talep etmek üzere talimat alan aracıya pacs.028 gönderir. Talimat alan aracı, mevcut işleme durumunu içeren bir pacs.002 ile yanıt verir.",
+    msgTypeColId: "Mesaj türü",
+    msgTypeColDesc: "Açıklama"
   },
   uk: {
     aboutTitle: "Про Pacs008",
@@ -4327,7 +4363,9 @@ const pageCopy = {
     pacs028Cbpr2: "CBPR+ підтримує структуровані запити статусу, пов'язані з ідентифікаторами вихідних повідомлень",
     pacs028Cbpr3: "Відстеження на основі UETR через gpi зменшує потребу в ручних запитах",
     pacs028Cbpr4: "Дедалі активніше інтегрується в автоматизовані панелі управління платіжними операціями",
-    pacs028Flow: "Інструктуючий агент надсилає pacs.028 інструктованому агенту для запиту статусу конкретного платежу. Інструктований агент відповідає повідомленням pacs.002 з поточним статусом обробки."
+    pacs028Flow: "Інструктуючий агент надсилає pacs.028 інструктованому агенту для запиту статусу конкретного платежу. Інструктований агент відповідає повідомленням pacs.002 з поточним статусом обробки.",
+    msgTypeColId: "Тип повідомлення",
+    msgTypeColDesc: "Опис"
   },
   vi: {
     aboutTitle: "Giới thiệu Pacs008",
@@ -4546,7 +4584,9 @@ const pageCopy = {
     pacs028Cbpr2: "CBPR+ hỗ trợ yêu cầu trạng thái có cấu trúc liên kết với mã nhận dạng thông điệp gốc",
     pacs028Cbpr3: "Theo dõi dựa trên UETR qua gpi giảm nhu cầu tra cứu thủ công",
     pacs028Cbpr4: "Ngày càng được tích hợp vào bảng điều khiển vận hành thanh toán tự động",
-    pacs028Flow: "Đại lý ra lệnh gửi pacs.028 đến đại lý nhận lệnh để yêu cầu trạng thái của một khoản thanh toán cụ thể. Đại lý nhận lệnh phản hồi bằng pacs.002 chứa trạng thái xử lý hiện tại."
+    pacs028Flow: "Đại lý ra lệnh gửi pacs.028 đến đại lý nhận lệnh để yêu cầu trạng thái của một khoản thanh toán cụ thể. Đại lý nhận lệnh phản hồi bằng pacs.002 chứa trạng thái xử lý hiện tại.",
+    msgTypeColId: "Loại thông điệp",
+    msgTypeColDesc: "Mô tả"
   },
   zh: {
     aboutTitle: "关于 Pacs008",
@@ -4765,7 +4805,9 @@ const pageCopy = {
     pacs028Cbpr2: "CBPR+ 支持与原始消息标识符关联的结构化状态请求",
     pacs028Cbpr3: "基于 UETR 的 gpi 追踪减少了手动查询的需求",
     pacs028Cbpr4: "日益集成到自动化支付运营仪表板中",
-    pacs028Flow: "指示代理向被指示代理发送 pacs.028 以请求特定支付的状态。被指示代理以包含当前处理状态的 pacs.002 进行响应。"
+    pacs028Flow: "指示代理向被指示代理发送 pacs.028 以请求特定支付的状态。被指示代理以包含当前处理状态的 pacs.002 进行响应。",
+    msgTypeColId: "报文类型",
+    msgTypeColDesc: "描述"
   },
   "zh-tw": {
     aboutTitle: "關於 Pacs008",
@@ -4984,7 +5026,9 @@ const pageCopy = {
     pacs028Cbpr2: "CBPR+ 支援與原始訊息識別碼關聯的結構化狀態請求",
     pacs028Cbpr3: "基於 UETR 的 gpi 追蹤減少了手動查詢的需求",
     pacs028Cbpr4: "日益整合到自動化付款營運儀表板中",
-    pacs028Flow: "指示代理人向被指示代理人發送 pacs.028 以請求特定付款的狀態。被指示代理人以包含目前處理狀態的 pacs.002 進行回應。"
+    pacs028Flow: "指示代理人向被指示代理人發送 pacs.028 以請求特定付款的狀態。被指示代理人以包含目前處理狀態的 pacs.002 進行回應。",
+    msgTypeColId: "訊息類型",
+    msgTypeColDesc: "說明"
   }
 };
 
@@ -5066,16 +5110,19 @@ ${t.differenceIntro}
 
 function messageTypesBody(localeKey) {
   const t = copyFor(localeKey);
+  const rows = versions.map((version) => {
+    const mt = versionToMsgType[version];
+    return `| [\`${version}\`](/${localeKey}/${mt.slug}/) | ${mt.isoFullName} |`;
+  }).join("\n");
   return `# ${t.messageTitle}
 
 ${t.messageIntro}
 
 ## ${t.includedSupport}
 
-${versions.map((version) => {
-  const mt = versionToMsgType[version];
-  return `- [\`${version}\`](/${localeKey}/${mt.slug}/) — ${mt.isoFullName}`;
-}).join("\n")}
+| ${t.msgTypeColId} | ${t.msgTypeColDesc} |
+|---|---|
+${rows}
 
 ## ${t.deliveryModel}
 

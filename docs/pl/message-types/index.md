@@ -12,26 +12,28 @@ Pacs008 obejmuje główną definicję wiadomości pacs.008 i powiązane wiadomo�
 
 ## Uwzględnione wsparcie
 
-- [`pacs.002.001.12`](/pl/pacs.002.001.12/) — FI to FI Payment Status Report
-- [`pacs.003.001.09`](/pl/pacs.003.001.09/) — FI to FI Customer Direct Debit
-- [`pacs.004.001.11`](/pl/pacs.004.001.11/) — Payment Return
-- [`pacs.007.001.11`](/pl/pacs.007.001.11/) — FI to FI Payment Reversal
-- [`pacs.008.001.01`](/pl/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.02`](/pl/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.03`](/pl/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.04`](/pl/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.05`](/pl/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.06`](/pl/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.07`](/pl/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.08`](/pl/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.09`](/pl/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.10`](/pl/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.11`](/pl/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.12`](/pl/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.13`](/pl/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.009.001.10`](/pl/pacs.009.001.10/) — Financial Institution Credit Transfer
-- [`pacs.010.001.05`](/pl/pacs.010.001.05/) — Financial Institution Direct Debit
-- [`pacs.028.001.05`](/pl/pacs.028.001.05/) — FI to FI Payment Status Request
+| Typ wiadomości | Opis |
+|---|---|
+| [`pacs.002.001.12`](/pl/pacs.002.001.12/) | FI to FI Payment Status Report |
+| [`pacs.003.001.09`](/pl/pacs.003.001.09/) | FI to FI Customer Direct Debit |
+| [`pacs.004.001.11`](/pl/pacs.004.001.11/) | Payment Return |
+| [`pacs.007.001.11`](/pl/pacs.007.001.11/) | FI to FI Payment Reversal |
+| [`pacs.008.001.01`](/pl/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.02`](/pl/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.03`](/pl/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.04`](/pl/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.05`](/pl/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.06`](/pl/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.07`](/pl/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.08`](/pl/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.09`](/pl/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.10`](/pl/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.11`](/pl/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.12`](/pl/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.13`](/pl/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.009.001.10`](/pl/pacs.009.001.10/) | Financial Institution Credit Transfer |
+| [`pacs.010.001.05`](/pl/pacs.010.001.05/) | Financial Institution Direct Debit |
+| [`pacs.028.001.05`](/pl/pacs.028.001.05/) | FI to FI Payment Status Request |
 
 ## Model dostarczania
 

@@ -12,26 +12,28 @@ Pacs008 מכסה את הגדרת ההודעה המרכזית pacs.008 והודע
 
 ## תמיכה כלולה
 
-- [`pacs.002.001.12`](/he/pacs.002.001.12/) — FI to FI Payment Status Report
-- [`pacs.003.001.09`](/he/pacs.003.001.09/) — FI to FI Customer Direct Debit
-- [`pacs.004.001.11`](/he/pacs.004.001.11/) — Payment Return
-- [`pacs.007.001.11`](/he/pacs.007.001.11/) — FI to FI Payment Reversal
-- [`pacs.008.001.01`](/he/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.02`](/he/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.03`](/he/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.04`](/he/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.05`](/he/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.06`](/he/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.07`](/he/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.08`](/he/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.09`](/he/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.10`](/he/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.11`](/he/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.12`](/he/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.13`](/he/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.009.001.10`](/he/pacs.009.001.10/) — Financial Institution Credit Transfer
-- [`pacs.010.001.05`](/he/pacs.010.001.05/) — Financial Institution Direct Debit
-- [`pacs.028.001.05`](/he/pacs.028.001.05/) — FI to FI Payment Status Request
+| סוג הודעה | תיאור |
+|---|---|
+| [`pacs.002.001.12`](/he/pacs.002.001.12/) | FI to FI Payment Status Report |
+| [`pacs.003.001.09`](/he/pacs.003.001.09/) | FI to FI Customer Direct Debit |
+| [`pacs.004.001.11`](/he/pacs.004.001.11/) | Payment Return |
+| [`pacs.007.001.11`](/he/pacs.007.001.11/) | FI to FI Payment Reversal |
+| [`pacs.008.001.01`](/he/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.02`](/he/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.03`](/he/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.04`](/he/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.05`](/he/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.06`](/he/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.07`](/he/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.08`](/he/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.09`](/he/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.10`](/he/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.11`](/he/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.12`](/he/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.13`](/he/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.009.001.10`](/he/pacs.009.001.10/) | Financial Institution Credit Transfer |
+| [`pacs.010.001.05`](/he/pacs.010.001.05/) | Financial Institution Direct Debit |
+| [`pacs.028.001.05`](/he/pacs.028.001.05/) | FI to FI Payment Status Request |
 
 ## מודל אספקה
 

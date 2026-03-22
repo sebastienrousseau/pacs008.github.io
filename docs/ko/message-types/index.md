@@ -12,26 +12,28 @@ Pacs008은 핵심 pacs.008 메시지 정의와 오케스트레이션 및 조정 
 
 ## 포함된 지원
 
-- [`pacs.002.001.12`](/ko/pacs.002.001.12/) — FI to FI Payment Status Report
-- [`pacs.003.001.09`](/ko/pacs.003.001.09/) — FI to FI Customer Direct Debit
-- [`pacs.004.001.11`](/ko/pacs.004.001.11/) — Payment Return
-- [`pacs.007.001.11`](/ko/pacs.007.001.11/) — FI to FI Payment Reversal
-- [`pacs.008.001.01`](/ko/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.02`](/ko/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.03`](/ko/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.04`](/ko/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.05`](/ko/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.06`](/ko/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.07`](/ko/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.08`](/ko/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.09`](/ko/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.10`](/ko/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.11`](/ko/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.12`](/ko/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.008.001.13`](/ko/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.009.001.10`](/ko/pacs.009.001.10/) — Financial Institution Credit Transfer
-- [`pacs.010.001.05`](/ko/pacs.010.001.05/) — Financial Institution Direct Debit
-- [`pacs.028.001.05`](/ko/pacs.028.001.05/) — FI to FI Payment Status Request
+| 메시지 유형 | 설명 |
+|---|---|
+| [`pacs.002.001.12`](/ko/pacs.002.001.12/) | FI to FI Payment Status Report |
+| [`pacs.003.001.09`](/ko/pacs.003.001.09/) | FI to FI Customer Direct Debit |
+| [`pacs.004.001.11`](/ko/pacs.004.001.11/) | Payment Return |
+| [`pacs.007.001.11`](/ko/pacs.007.001.11/) | FI to FI Payment Reversal |
+| [`pacs.008.001.01`](/ko/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.02`](/ko/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.03`](/ko/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.04`](/ko/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.05`](/ko/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.06`](/ko/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.07`](/ko/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.08`](/ko/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.09`](/ko/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.10`](/ko/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.11`](/ko/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.12`](/ko/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.008.001.13`](/ko/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
+| [`pacs.009.001.10`](/ko/pacs.009.001.10/) | Financial Institution Credit Transfer |
+| [`pacs.010.001.05`](/ko/pacs.010.001.05/) | Financial Institution Direct Debit |
+| [`pacs.028.001.05`](/ko/pacs.028.001.05/) | FI to FI Payment Status Request |
 
 ## 제공 모델
 
