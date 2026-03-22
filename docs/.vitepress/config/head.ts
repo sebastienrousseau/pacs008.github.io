@@ -11,5 +11,6 @@ export const sharedHead: HeadConfig[] = [
   ["meta", { name: "format-detection", content: "telephone=no" }],
   ["link", { rel: "icon", href: "/logo.svg", type: "image/svg+xml" }],
   ["link", { rel: "manifest", href: "/manifest.json" }],
+  ["link", { rel: "preconnect", href: "https://cloudcdn.pro", crossorigin: "" }],
   ["link", { rel: "preload", href: "https://cloudcdn.pro/stock/images/banners/meiying-ng-OrwkD-iWgqg.webp", as: "image", type: "image/webp", fetchpriority: "high" }]
 ];
