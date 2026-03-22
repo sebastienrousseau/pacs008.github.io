@@ -174,6 +174,13 @@ function localLink(path: string): string {
   border: 0;
 }
 
+/* Account for fixed sidebar on doc pages */
+@media (min-width: 960px) {
+  .dot-footer {
+    padding-left: 272px;
+  }
+}
+
 @media (max-width: 1068px) {
   .dot-footer-inner {
     max-width: 692px;
