@@ -60,7 +60,7 @@ function localLink(path: string): string {
       <div class="dot-footer-divider" aria-hidden="true"></div>
       <div class="dot-footer-bottom">
         <p class="dot-footer-copyright">
-          {{ t.copyright }} &copy; Pacs008 2023&ndash;{{ currentYear }}.
+          {{ t.copyright }} &copy; pacs008 2023&ndash;{{ currentYear }}.
         </p>
         <ul class="dot-footer-legal" aria-label="Legal links">
           <li><a :href="localLink('/privacy/')">Privacy Policy</a></li>

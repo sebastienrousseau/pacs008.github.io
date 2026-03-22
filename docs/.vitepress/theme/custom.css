@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Pacs008 — Matching pain001.com visual style exactly
+   pacs008 — Custom theme
    Theme color: rgba(0, 153, 172, .618033988749894) (golden-ratio teal)
    ========================================================================== */
 
@@ -10,7 +10,7 @@
   font-display: swap;
 }
 
-/* ---------- Animations (pain001.com) ---------- */
+/* ---------- Animations ---------- */
 @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
 @keyframes dropDown { from { transform: translateY(-0.618rem) } to { transform: translateY(0) } }
 @keyframes slideUp { from { opacity: 0; transform: translateY(1.618rem) } to { opacity: 1; transform: translateY(0) } }
@@ -19,10 +19,10 @@
 :root {
   color-scheme: light;
 
-  /* pain001.com single theme color */
+  /* Single theme color */
   --pacs-theme: rgba(0, 153, 172, .618033988749894);
 
-  /* Typography — pain001 uses system default sans-serif */
+  /* Typography — system default sans-serif */
   --pacs-font:
     system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Helvetica, Arial,
@@ -36,14 +36,14 @@
   --pacs-text-primary: #1d1d1f;
   --pacs-text-secondary: #494950;
 
-  /* Links = theme color (pain001: same color for links, headings, accents) */
+  /* Links = theme color */
   --pacs-link: var(--pacs-theme);
   --pacs-link-hover: var(--pacs-theme);
 
   /* Focus */
   --pacs-focus: var(--pacs-theme);
 
-  /* Surfaces (pain001: #f9f9f9 secondary, #ddd borders) */
+  /* Surfaces */
   --pacs-bg: #ffffff;
   --pacs-bg-secondary: #f9f9f9;
   --pacs-bg-elevated: #ffffff;
@@ -150,7 +150,7 @@
   transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
 }
 
-/* ---------- Base (pain001: * { font-weight: 300 }, line-height: 1.618) ---------- */
+/* ---------- Base ---------- */
 * {
   font-weight: 300;
 }
@@ -169,8 +169,7 @@ html {
   scroll-padding-top: calc(var(--vp-nav-height, 52px) + 1rem);
 }
 
-/* pain001: a { color: var(--theme-color); text-decoration: none }
-   a:hover { text-decoration: underline } */
+/* Links */
 a {
   color: var(--pacs-link);
   text-decoration: none;
@@ -181,8 +180,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* pain001: .active, h1-h6, strong { font-weight: 400 }
-   h1-h6 { color: var(--theme-color) } */
+/* Headings and strong */
 h1, h2, h3, h4, h5, h6 {
   color: var(--pacs-theme);
   font-weight: 400;
@@ -259,10 +257,10 @@ strong {
   margin: 0 auto;
 }
 
-/* pain001: nav title uses Bootstrap fs-4 = 1.5rem */
+/* Nav title: 1.5rem (fs-4), !important to override VitePress scoped styles */
 .VPNavBarTitle .title {
-  font-weight: 400;
-  font-size: 1.5rem;
+  font-weight: 400 !important;
+  font-size: 1.5rem !important;
   color: var(--pacs-text-primary);
 }
 
@@ -270,10 +268,11 @@ strong {
   display: none !important;
 }
 
+/* Nav links: 1rem (fs-6), !important to override VitePress scoped styles */
 .VPNavBarMenuLink,
 .VPNavBarMenuGroup .button {
-  font-size: 1rem;
-  font-weight: 300;
+  font-size: 1rem !important;
+  font-weight: 300 !important;
   color: var(--pacs-text-primary);
   min-height: 44px;
   display: inline-flex;
@@ -287,7 +286,7 @@ strong {
 }
 
 /* ---------- Documentation Pages ---------- */
-/* pain001: <main class="fs-5 p-5"> = 1.25rem (20px) for all body text */
+/* Body text: 1.25rem (fs-5) */
 .VPDoc .container {
   max-width: 1100px;
 }
@@ -307,8 +306,7 @@ strong {
   line-height: 1.618;
 }
 
-/* pain001: h1 uses browser default (~2em = 32px at 16px base, but fs-5
-   context makes it relative). We use Bootstrap display sizes. */
+/* Heading sizes */
 .vp-doc h1 {
   font-size: 2.5rem;
   font-weight: 400;
@@ -351,10 +349,7 @@ strong {
   text-decoration: underline;
 }
 
-/* pain001: pre { background: #f9f9f9; border: 1px solid #ddd;
-   border-left: 3px solid var(--theme-color); color: #666;
-   font-family: monospace; font-size: 15px; line-height: 1.618;
-   padding: 1em 1.618em } */
+/* Code blocks */
 .vp-doc code {
   background: #f9f9f9;
   border: none;
@@ -418,7 +413,7 @@ strong {
   flex-direction: column;
 }
 
-/* pain001: .fade-in { animation: fadeIn 3s ease } */
+/* Hero fade-in */
 .VPHomeHero {
   background: url('https://cloudcdn.pro/stock/images/banners/meiying-ng-OrwkD-iWgqg.webp') center/cover no-repeat;
   position: relative;
@@ -429,7 +424,7 @@ strong {
   justify-content: center;
 }
 
-/* pain001 hero overlay: rgba(0,153,172,.618) */
+/* Hero overlay */
 .VPHomeHero::before {
   content: '';
   position: absolute;
@@ -442,11 +437,12 @@ strong {
   background: rgba(0, 80, 90, 0.82);
 }
 
-/* pain001: .drop-down { animation: dropDown 1.618s ease } */
+/* Hero drop-down animation */
 .VPHomeHero .container {
-  max-width: 980px;
+  width: 97vw;
+  max-width: none;
   margin: 0 auto;
-  padding: 2rem 24px;
+  padding: 2rem 1.5vw;
   display: block;
   text-align: center;
   position: relative;
@@ -455,12 +451,11 @@ strong {
 }
 
 .VPHomeHero .main {
-  max-width: 980px;
+  max-width: none;
   margin: 0 auto;
 }
 
-/* pain001: hero heading uses Bootstrap display-3 =
-   calc(1.525rem + 3.3vw), capped at 4.5rem on >=1200px */
+/* Hero heading: display-3 sizing */
 .VPHomeHero .heading .name {
   font-size: calc(1.525rem + 3.3vw);
   font-weight: 300;
@@ -480,7 +475,7 @@ strong {
   background: none;
 }
 
-/* pain001: hero subtitle uses Bootstrap fs-3 = 1.75rem */
+/* Hero tagline: fs-3 = 1.75rem */
 .VPHomeHero .tagline {
   font-size: 1.75rem;
   line-height: 1.618;
@@ -494,7 +489,7 @@ strong {
   margin-top: 1.618rem;
 }
 
-/* ---------- Buttons (pain001: .btn-dark .fs-5) ---------- */
+/* ---------- Buttons ---------- */
 .VPHome .VPButton.brand,
 .VPButton.brand {
   background: #1d1d1f !important;
@@ -527,7 +522,6 @@ strong {
   color: #1d1d1f !important;
 }
 
-/* pain001: .zoom-in:hover { transform: scale(1.0618) } */
 .VPHome .VPButton.brand:hover,
 .VPButton.brand:hover {
   background: #1d1d1f !important;
@@ -613,7 +607,7 @@ strong {
   padding: 0 !important;
 }
 
-/* pain001: .zoom-in transition */
+/* Feature card hover */
 .VPHomeFeatures .item .box {
   border: 1px solid var(--pacs-border);
   background: var(--pacs-bg-elevated);
@@ -653,7 +647,8 @@ strong {
   }
 
   .VPHomeHero .container {
-    max-width: 692px;
+    width: 97vw;
+    max-width: none;
   }
 
   .VPHomeFeatures .container {
@@ -703,7 +698,7 @@ strong {
 
   .VPHomeHero .container {
     padding-top: 2rem;
-    width: 87.5%;
+    width: 97vw;
     margin: 0 auto;
   }
 

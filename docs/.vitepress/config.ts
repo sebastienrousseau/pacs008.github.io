@@ -52,7 +52,7 @@ const locales = Object.fromEntries(
   ])
 );
 
-const SITE_NAME = "Pacs008";
+const SITE_NAME = "pacs008";
 
 export default defineConfig({
   title: SITE_NAME,
@@ -131,7 +131,7 @@ export default defineConfig({
   },
   themeConfig: {
     outline: { level: [2, 3] },
-    siteTitle: "Pacs008",
+    siteTitle: "pacs008",
     logo: "/logo.svg",
     langMenuLabel: "Languages",
     search: {
