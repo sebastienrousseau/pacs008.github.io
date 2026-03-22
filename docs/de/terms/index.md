@@ -8,8 +8,6 @@ image: /logo.svg
 
 # Bedingungen
 
-Diese Seite ist Teil der öffentlichen Pacs008-Website. Ersetzen Sie diesen Platzhalter vor dem Produktivstart durch Ihren finalen Rechtstext, falls Sie länderspezifische Formulierungen benötigen.
-
 ## Aktueller Umfang
 
 - Informationen der Projektwebsite

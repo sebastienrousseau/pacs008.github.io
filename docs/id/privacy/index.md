@@ -8,8 +8,6 @@ image: /logo.svg
 
 # Privasi
 
-Halaman ini adalah bagian dari situs publik Pacs008. Ganti teks ini dengan salinan hukum final Anda sebelum peluncuran jika Anda memerlukan kata-kata khusus yurisdiksi.
-
 ## Cakupan saat ini
 
 - informasi situs web proyek

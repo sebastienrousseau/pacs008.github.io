@@ -8,8 +8,6 @@ image: /logo.svg
 
 # Termini
 
-Questa pagina fa parte del sito pubblico di Pacs008. Sostituire questo testo con la versione legale finale prima del lancio se è necessaria una formulazione specifica per la giurisdizione.
-
 ## Ambito attuale
 
 - informazioni del sito web del progetto

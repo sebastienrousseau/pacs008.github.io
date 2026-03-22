@@ -8,8 +8,6 @@ image: /logo.svg
 
 # Termos
 
-Esta página faz parte do site público do Pacs008. Substitua este texto pela versão jurídica final antes do lançamento se precisar de uma redação específica para sua jurisdição.
-
 ## Escopo atual
 
 - informações do site do projeto

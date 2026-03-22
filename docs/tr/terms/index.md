@@ -8,8 +8,6 @@ image: /logo.svg
 
 # Koşullar
 
-Bu sayfa, Pacs008 kamu web sitesinin bir parçasıdır. Yetki alanına özgü ifadelere ihtiyacınız varsa, lansmandan önce bu yer tutucu metni son yasal metninizle değiştirin.
-
 ## Mevcut kapsam
 
 - proje web sitesi bilgileri

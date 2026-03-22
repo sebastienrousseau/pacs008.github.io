@@ -13,5 +13,3 @@ Depo sorunları, özellik talepleri ve uygulama soruları için aşağıdaki pro
 - Repository: <https://github.com/sebastienrousseau/pacs008>
 - Releases: <https://github.com/sebastienrousseau/pacs008/releases>
 - Package: <https://pypi.org/project/pacs008/>
-
-Özel bir operasyonel tartışmaya ihtiyacınız varsa, lansmandan önce tercih ettiğiniz iletişim yolunu buraya ekleyin.

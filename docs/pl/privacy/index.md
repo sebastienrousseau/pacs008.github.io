@@ -8,8 +8,6 @@ image: /logo.svg
 
 # Prywatność
 
-Ta strona jest częścią publicznej witryny Pacs008. Przed uruchomieniem zastąp ten tekst ostateczną wersją prawną, jeśli potrzebujesz sformułowań specyficznych dla danej jurysdykcji.
-
 ## Obecny zakres
 
 - informacje o stronie internetowej projektu

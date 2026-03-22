@@ -13,5 +13,3 @@ Pour les problèmes de dépôt, les demandes de fonctionnalités et les question
 - Repository: <https://github.com/sebastienrousseau/pacs008>
 - Releases: <https://github.com/sebastienrousseau/pacs008/releases>
 - Package: <https://pypi.org/project/pacs008/>
-
-Si vous avez besoin d'une discussion opérationnelle privée, ajoutez votre moyen de contact préféré ici avant le lancement.

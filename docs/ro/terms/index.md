@@ -8,8 +8,6 @@ image: /logo.svg
 
 # Termeni
 
-Această pagină face parte din site-ul public Pacs008. Înlocuiți acest text cu versiunea juridică finală înainte de lansare dacă aveți nevoie de formulare specifice jurisdicției.
-
 ## Domeniu actual
 
 - informații despre site-ul proiectului

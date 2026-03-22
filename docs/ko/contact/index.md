@@ -13,5 +13,3 @@ image: /logo.svg
 - Repository: <https://github.com/sebastienrousseau/pacs008>
 - Releases: <https://github.com/sebastienrousseau/pacs008/releases>
 - Package: <https://pypi.org/project/pacs008/>
-
-비공개 운영 논의가 필요한 경우, 출시 전에 여기에 선호하는 연락 방법을 추가하세요.

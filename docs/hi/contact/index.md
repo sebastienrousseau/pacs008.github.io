@@ -13,5 +13,3 @@ image: /logo.svg
 - Repository: <https://github.com/sebastienrousseau/pacs008>
 - Releases: <https://github.com/sebastienrousseau/pacs008/releases>
 - Package: <https://pypi.org/project/pacs008/>
-
-यदि आपको निजी परिचालन चर्चा की आवश्यकता है, तो लॉन्च से पहले यहाँ अपना पसंदीदा संपर्क मार्ग जोड़ें।

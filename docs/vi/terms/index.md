@@ -8,8 +8,6 @@ image: /logo.svg
 
 # Điều khoản
 
-Trang này là một phần của trang web công khai Pacs008. Hãy thay thế văn bản này bằng bản sao pháp lý cuối cùng trước khi ra mắt nếu bạn cần từ ngữ cụ thể theo quyền tài phán.
-
 ## Phạm vi hiện tại
 
 - thông tin trang web dự án

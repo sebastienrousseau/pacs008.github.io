@@ -8,8 +8,6 @@ image: /logo.svg
 
 # Confidentialité
 
-Cette page fait partie de l'enveloppe publique du site Pacs008. Remplacez ce texte par votre version juridique finale avant la mise en production si vous avez besoin d'un libellé spécifique.
-
 ## Portée actuelle
 
 - informations du site web du projet

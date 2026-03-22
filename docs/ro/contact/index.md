@@ -13,5 +13,3 @@ Pentru probleme de depozit, cereri de funcționalități și întrebări de impl
 - Repository: <https://github.com/sebastienrousseau/pacs008>
 - Releases: <https://github.com/sebastienrousseau/pacs008/releases>
 - Package: <https://pypi.org/project/pacs008/>
-
-Dacă aveți nevoie de o discuție operațională privată, adăugați ruta de contact preferată aici înainte de lansare.

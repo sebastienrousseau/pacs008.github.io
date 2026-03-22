@@ -8,8 +8,6 @@ image: /logo.svg
 
 # Voorwaarden
 
-Deze pagina maakt deel uit van de publieke website van Pacs008. Vervang deze tijdelijke tekst door uw definitieve juridische tekst voor de lancering als u jurisdictiespecifieke bewoordingen nodig heeft.
-
 ## Huidige reikwijdte
 
 - projectwebsite-informatie

@@ -8,8 +8,6 @@ image: /logo.svg
 
 # Términos
 
-Esta página forma parte del sitio público de Pacs008. Reemplace este texto con su versión legal final antes del lanzamiento si necesita una redacción específica para su jurisdicción.
-
 ## Alcance actual
 
 - información del sitio web del proyecto

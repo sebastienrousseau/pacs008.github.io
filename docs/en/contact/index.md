@@ -13,5 +13,3 @@ For repository issues, feature requests, and implementation questions, use the p
 - Repository: <https://github.com/sebastienrousseau/pacs008>
 - Releases: <https://github.com/sebastienrousseau/pacs008/releases>
 - Package: <https://pypi.org/project/pacs008/>
-
-If you need a private operational discussion, add your preferred contact route here before launch.

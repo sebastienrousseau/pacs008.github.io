@@ -13,5 +13,3 @@ W sprawie problemów z repozytorium, próśb o funkcje i pytań dotyczących imp
 - Repository: <https://github.com/sebastienrousseau/pacs008>
 - Releases: <https://github.com/sebastienrousseau/pacs008/releases>
 - Package: <https://pypi.org/project/pacs008/>
-
-Jeśli potrzebujesz prywatnej dyskusji operacyjnej, dodaj tutaj preferowaną drogę kontaktu przed uruchomieniem.

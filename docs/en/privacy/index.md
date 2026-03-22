@@ -8,8 +8,6 @@ image: /logo.svg
 
 # Privacy
 
-This page is part of the public website shell for Pacs008. Replace this placeholder with your final legal copy before production launch if you need jurisdiction-specific wording.
-
 ## Current scope
 
 - project website information
