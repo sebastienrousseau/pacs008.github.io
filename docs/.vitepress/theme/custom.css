@@ -439,10 +439,10 @@ strong {
 
 /* Hero drop-down animation */
 .VPHomeHero .container {
-  width: 97vw;
-  max-width: none;
+  width: 97vw !important;
+  max-width: none !important;
   margin: 0 auto;
-  padding: 2rem 1.5vw;
+  padding: 2rem 1.5vw !important;
   display: block;
   text-align: center;
   position: relative;
@@ -451,7 +451,7 @@ strong {
 }
 
 .VPHomeHero .main {
-  max-width: none;
+  max-width: none !important;
   margin: 0 auto;
 }
 
@@ -647,8 +647,8 @@ strong {
   }
 
   .VPHomeHero .container {
-    width: 97vw;
-    max-width: none;
+    width: 97vw !important;
+    max-width: none !important;
   }
 
   .VPHomeFeatures .container {
@@ -698,7 +698,8 @@ strong {
 
   .VPHomeHero .container {
     padding-top: 2rem;
-    width: 97vw;
+    width: 97vw !important;
+    max-width: none !important;
     margin: 0 auto;
   }
 
