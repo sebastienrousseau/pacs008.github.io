@@ -10,38 +10,227 @@ image: /logo.svg
 
 Das Projekt bietet sowohl eine REST-API als auch eine CLI für operative Zahlungsnachrichten-Workflows.
 
-## API-Fähigkeiten
+## Installation
 
-- Gesundheits- und Bereitschaftsendpunkte
-- Datenvalidierung vor der XML-Generierung
-- Synchrone Generierung für direkte Abläufe
-- Asynchrone Auftragsausführung für längere Pipelines
-- Herunterladbare generierte Dateien über Auftragsabschlussflows
+Installieren Sie das Paket von PyPI. Python 3.9.2 oder höher ist erforderlich.
 
-## CLI-Fähigkeiten
+```bash
+python -m pip install pacs008
+```
 
-- Auf eine Quelldatei und Nachrichtenversion verweisen
-- Gegen XSD validieren vor der Zustellung
-- XML in pipeline-freundliche Ausgabeverzeichnisse generieren
-- In CI-Aufträge, Batch-Zeitpläne und lokale Operator-Tools einpassen
+---
 
-## Implementierungsfokus
+## REST API
 
-Pacs008 ist für den operativen Einsatz in Zahlungsverarbeitungsteams konzipiert:
+Starten Sie den integrierten FastAPI-Server, um HTTP-Endpunkte für Validierung und Generierung bereitzustellen.
 
-- Vorab-Validierung vor der Nachrichtenerstellung
-- Schema- und Versionsauswahl zur Laufzeit
-- Asynchrone Generierungsabläufe für interne Dienste
-- Deterministische Ausgaben für Tests und Audit-Trails
+### Server starten
 
-## Datenqualitätsanforderungen für 2026
+```bash
+uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
+```
 
-Die Anforderungen an die Nachrichtenqualität verschärfen sich branchenweit, insbesondere bei:
+### Endpunkte
 
-- Identifizierung von Parteien und Agenten
-- Bereitschaft strukturierter oder hybrider Adressen
-- Reichhaltigere Überweisungs- und Referenzverarbeitung
-- Transparenz über serielle Zahlungsketten hinweg
+| Endpoint | Beschreibung |
+|---|---|
+| `GET /health` | Integritätsprüfung — gibt den Dienststatus zurück |
+| `POST /validate` | Zahlungsdaten gegen das Schema validieren, ohne XML zu generieren |
+| `POST /generate` | XML synchron generieren und die Datei zurückgeben |
+| `POST /generate/async` | Einen asynchronen Generierungsauftrag einreichen |
+| `GET /status/{job_id}` | Auftragsstatus anhand der ID abfragen |
+| `GET /download/{job_id}` | Das generierte XML herunterladen, sobald der Auftrag abgeschlossen ist |
+| `GET /docs` | Interaktive Swagger UI zum Erkunden und Testen aller Endpunkte |
 
-API und CLI sind so konzipiert, dass diese Prüfungen Teil des Arbeitsablaufs werden, anstatt ein manueller Überprüfungsschritt zu sein.
+### Validierungsbeispiel
+
+Zahlungsdaten zur Validierung einreichen, bevor XML generiert wird.
+
+```bash
+curl -X POST http://localhost:8000/validate \
+  -H "Content-Type: application/json" \
+  -d '{
+    "message_type": "pacs.008.001.13",
+    "data": [{
+      "msg_id": "MSG-2026-001",
+      "creation_date_time": "2026-01-15T10:30:00",
+      "nb_of_txs": "1",
+      "settlement_method": "CLRG",
+      "interbank_settlement_date": "2026-01-15",
+      "end_to_end_id": "E2E-INV-2026-001",
+      "interbank_settlement_amount": "25000.00",
+      "interbank_settlement_currency": "EUR",
+      "charge_bearer": "SHAR",
+      "debtor_name": "Acme Corp GmbH",
+      "debtor_agent_bic": "DEUTDEFF",
+      "creditor_agent_bic": "COBADEFF",
+      "creditor_name": "Widget Industries SA"
+    }]
+  }'
+```
+
+### Beispiel für synchrone Generierung
+
+Eine XML-Datei vom Typ pacs.008.001.13 aus einer JSON-Nutzlast generieren.
+
+```bash
+curl -X POST http://localhost:8000/generate \
+  -H "Content-Type: application/json" \
+  -d '{
+    "message_type": "pacs.008.001.13",
+    "template": "pacs008/templates/pacs.008.001.13/template.xml",
+    "schema": "pacs008/templates/pacs.008.001.13/pacs.008.001.13.xsd",
+    "data": [{
+      "msg_id": "MSG-2026-001",
+      "creation_date_time": "2026-01-15T10:30:00",
+      "nb_of_txs": "1",
+      "settlement_method": "CLRG",
+      "interbank_settlement_date": "2026-01-15",
+      "end_to_end_id": "E2E-INV-2026-001",
+      "tx_id": "TX-001",
+      "interbank_settlement_amount": "25000.00",
+      "interbank_settlement_currency": "EUR",
+      "charge_bearer": "SHAR",
+      "debtor_name": "Acme Corp GmbH",
+      "debtor_agent_bic": "DEUTDEFF",
+      "creditor_agent_bic": "COBADEFF",
+      "creditor_name": "Widget Industries SA"
+    }]
+  }' --output pacs008_output.xml
+```
+
+### Asynchrone Generierung
+
+Für größere Dateien oder Pipeline-Nutzung einen asynchronen Auftrag einreichen und auf Abschluss abfragen.
+
+```bash
+# Submit the job
+JOB=$(curl -s -X POST http://localhost:8000/generate/async \
+  -H "Content-Type: application/json" \
+  -d '{"message_type":"pacs.008.001.13","data":[...]}')
+
+JOB_ID=$(echo $JOB | jq -r '.job_id')
+
+# Poll for completion
+curl http://localhost:8000/status/$JOB_ID
+
+# Download the result
+curl http://localhost:8000/download/$JOB_ID --output result.xml
+```
+
+---
+
+## CLI
+
+Die Befehlszeilenschnittstelle akzeptiert eine Datendatei, eine Nachrichtenversion, eine Vorlage und ein Schema. Sie validiert die Eingabe und schreibt das generierte XML in das Ausgabeverzeichnis.
+
+### Grundlegende Verwendung
+
+```bash
+pacs008 -t <message_type> \
+  -m <template_file> \
+  -s <schema_file> \
+  -d <data_file>
+```
+
+### Beispiel
+
+```bash
+pacs008 -t pacs.008.001.13 \
+  -m pacs008/templates/pacs.008.001.13/template.xml \
+  -s pacs008/templates/pacs.008.001.13/pacs.008.001.13.xsd \
+  -d payments.csv
+```
+
+### Probelaufmodus
+
+Verwenden Sie `--dry-run`, um Eingabedaten zu validieren, ohne XML zu generieren. Der Exit-Code gibt an, ob die Validierung erfolgreich war (`0`) oder fehlgeschlagen ist (`1`).
+
+```bash
+pacs008 -t pacs.008.001.13 \
+  -m pacs008/templates/pacs.008.001.13/template.xml \
+  -s pacs008/templates/pacs.008.001.13/pacs.008.001.13.xsd \
+  -d payments.csv \
+  --dry-run
+```
+
+Fügen Sie `--verbose` für eine detaillierte Ausgabe während der Generierung hinzu.
+
+---
+
+## Python API
+
+Verwenden Sie die Bibliothek direkt in Python-Skripten oder -Diensten.
+
+### XML aus einer Liste von Zahlungsdatensätzen generieren
+
+```python
+from pacs008 import generate_xml_string
+
+payments = [{
+    "msg_id": "MSG-2026-001",
+    "creation_date_time": "2026-01-15T10:30:00",
+    "nb_of_txs": "1",
+    "settlement_method": "CLRG",
+    "interbank_settlement_date": "2026-01-15",
+    "end_to_end_id": "E2E-INV-2026-001",
+    "tx_id": "TX-001",
+    "interbank_settlement_amount": "25000.00",
+    "interbank_settlement_currency": "EUR",
+    "charge_bearer": "SHAR",
+    "debtor_name": "Acme Corp GmbH",
+    "debtor_agent_bic": "DEUTDEFF",
+    "creditor_agent_bic": "COBADEFF",
+    "creditor_name": "Widget Industries SA",
+}]
+
+xml = generate_xml_string(
+    payments,
+    "pacs.008.001.13",
+    "pacs008/templates/pacs.008.001.13/template.xml",
+    "pacs008/templates/pacs.008.001.13/pacs.008.001.13.xsd",
+)
+print(xml)
+```
+
+### SWIFT-Konformitätsprüfung
+
+Daten vor der Generierung anhand der SWIFT-Zeichensatz- und Feldlängenregeln validieren und bereinigen.
+
+```python
+from pacs008.compliance import cleanse_data_with_report
+
+raw = [{"debtor_name": "Müller & Söhne™", "msg_id": "X" * 50}]
+clean, report = cleanse_data_with_report(raw)
+print(report.summary())
+```
+
+---
+
+## Erforderliche Datenfelder
+
+Jeder Zahlungsdatensatz muss die folgenden Felder enthalten. Versionsspezifische Felder sind entsprechend gekennzeichnet.
+
+| Feld | Beschreibung | Einschränkung |
+|---|---|---|
+| `msg_id` | Nachrichtenkennung | Maximal 35 Zeichen |
+| `creation_date_time` | Erstellungszeitstempel | ISO 8601-Format |
+| `nb_of_txs` | Anzahl der Transaktionen | Positive ganze Zahl |
+| `settlement_method` | Abrechnungsmethode | CLRG, INDA, COVE oder INGA |
+| `end_to_end_id` | End-to-End-Kennung | Maximal 35 Zeichen |
+| `interbank_settlement_amount` | Interbanken-Abrechnungsbetrag | Dezimalzahl, z.B. `25000.00` |
+| `interbank_settlement_currency` | Abrechnungswährung | ISO 4217-Code |
+| `charge_bearer` | Kostenträger | DEBT, CRED, SHAR oder SLEV |
+| `debtor_name` | Name des Schuldners | Maximal 140 Zeichen |
+| `debtor_agent_bic` | BIC des Schuldner-Agenten | 8 oder 11 Zeichen |
+| `creditor_agent_bic` | BIC des Gläubiger-Agenten | 8 oder 11 Zeichen |
+| `creditor_name` | Name des Gläubigers | Maximal 140 Zeichen |
+
+### Versionsspezifische Felder
+
+| Feld | Beschreibung | Einschränkung |
+|---|---|---|
+| `uetr` | Eindeutige End-to-End-Transaktionsreferenz | UUID-Format — verfügbar ab v08 |
+| `mandate_id` | Mandatskennung | Verfügbar ab v10 |
+| `expiry_date_time` | Ablaufzeitstempel der Nachricht | Verfügbar in v13 |
 

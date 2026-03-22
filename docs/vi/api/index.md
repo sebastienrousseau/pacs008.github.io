@@ -10,38 +10,227 @@ image: /logo.svg
 
 Dự án cung cấp cả REST API và CLI cho quy trình xử lý thông điệp thanh toán vận hành.
 
-## Khả năng API
+## Cài đặt
 
-- điểm cuối sức khỏe và sẵn sàng
-- xác thực dữ liệu trước khi tạo XML
-- tạo đồng bộ cho quy trình trực tiếp
-- thực thi công việc bất đồng bộ cho pipeline dài hơn
-- tệp được tạo có thể tải xuống thông qua luồng hoàn thành công việc
+Cài đặt gói từ PyPI. Yêu cầu Python 3.9.2 trở lên.
 
-## Khả năng CLI
+```bash
+python -m pip install pacs008
+```
 
-- trỏ đến tệp nguồn và phiên bản thông điệp
-- xác thực theo XSD trước khi giao
-- tạo XML vào thư mục đầu ra thân thiện với pipeline
-- phù hợp với công việc CI, lịch trình theo lô và công cụ vận hành cục bộ
+---
 
-## Trọng tâm triển khai
+## REST API
 
-Pacs008 được thiết kế cho sử dụng vận hành bởi các đội xử lý thanh toán:
+Khởi động máy chủ FastAPI tích hợp để cung cấp các HTTP endpoint cho việc xác thực và tạo tệp.
 
-- xác thực trước chuyến bay trước khi tạo thông điệp
-- chọn lược đồ và phiên bản tại thời gian chạy
-- luồng tạo bất đồng bộ cho dịch vụ nội bộ
-- đầu ra xác định cho kiểm tra và đường kiểm toán
+### Khởi động máy chủ
 
-## Yêu cầu chất lượng dữ liệu cho năm 2026
+```bash
+uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
+```
 
-Yêu cầu chất lượng thông điệp đang thắt chặt trên toàn ngành, đặc biệt xung quanh:
+### Các endpoint
 
-- nhận dạng bên và đại lý
-- sẵn sàng địa chỉ có cấu trúc hoặc kết hợp
-- xử lý chuyển tiền và tham chiếu phong phú hơn
-- minh bạch qua chuỗi thanh toán nối tiếp
+| Endpoint | Mô tả |
+|---|---|
+| `GET /health` | Kiểm tra trạng thái — trả về trạng thái dịch vụ |
+| `POST /validate` | Xác thực dữ liệu thanh toán theo lược đồ mà không tạo XML |
+| `POST /generate` | Tạo XML đồng bộ và trả về tệp |
+| `POST /generate/async` | Gửi tác vụ tạo tệp bất đồng bộ |
+| `GET /status/{job_id}` | Truy vấn trạng thái tác vụ theo ID |
+| `GET /download/{job_id}` | Tải xuống XML đã tạo khi tác vụ hoàn tất |
+| `GET /docs` | Swagger UI tương tác để khám phá và kiểm tra tất cả các endpoint |
 
-API và CLI được thiết kế để biến các kiểm tra này thành một phần của quy trình làm việc thay vì bước xem xét thủ công.
+### Ví dụ xác thực
+
+Gửi dữ liệu thanh toán để xác thực trước khi tạo XML.
+
+```bash
+curl -X POST http://localhost:8000/validate \
+  -H "Content-Type: application/json" \
+  -d '{
+    "message_type": "pacs.008.001.13",
+    "data": [{
+      "msg_id": "MSG-2026-001",
+      "creation_date_time": "2026-01-15T10:30:00",
+      "nb_of_txs": "1",
+      "settlement_method": "CLRG",
+      "interbank_settlement_date": "2026-01-15",
+      "end_to_end_id": "E2E-INV-2026-001",
+      "interbank_settlement_amount": "25000.00",
+      "interbank_settlement_currency": "EUR",
+      "charge_bearer": "SHAR",
+      "debtor_name": "Acme Corp GmbH",
+      "debtor_agent_bic": "DEUTDEFF",
+      "creditor_agent_bic": "COBADEFF",
+      "creditor_name": "Widget Industries SA"
+    }]
+  }'
+```
+
+### Ví dụ tạo tệp đồng bộ
+
+Tạo tệp XML pacs.008.001.13 từ JSON payload.
+
+```bash
+curl -X POST http://localhost:8000/generate \
+  -H "Content-Type: application/json" \
+  -d '{
+    "message_type": "pacs.008.001.13",
+    "template": "pacs008/templates/pacs.008.001.13/template.xml",
+    "schema": "pacs008/templates/pacs.008.001.13/pacs.008.001.13.xsd",
+    "data": [{
+      "msg_id": "MSG-2026-001",
+      "creation_date_time": "2026-01-15T10:30:00",
+      "nb_of_txs": "1",
+      "settlement_method": "CLRG",
+      "interbank_settlement_date": "2026-01-15",
+      "end_to_end_id": "E2E-INV-2026-001",
+      "tx_id": "TX-001",
+      "interbank_settlement_amount": "25000.00",
+      "interbank_settlement_currency": "EUR",
+      "charge_bearer": "SHAR",
+      "debtor_name": "Acme Corp GmbH",
+      "debtor_agent_bic": "DEUTDEFF",
+      "creditor_agent_bic": "COBADEFF",
+      "creditor_name": "Widget Industries SA"
+    }]
+  }' --output pacs008_output.xml
+```
+
+### Tạo tệp bất đồng bộ
+
+Đối với các tệp lớn hơn hoặc sử dụng trong pipeline, hãy gửi tác vụ bất đồng bộ và truy vấn đến khi hoàn tất.
+
+```bash
+# Submit the job
+JOB=$(curl -s -X POST http://localhost:8000/generate/async \
+  -H "Content-Type: application/json" \
+  -d '{"message_type":"pacs.008.001.13","data":[...]}')
+
+JOB_ID=$(echo $JOB | jq -r '.job_id')
+
+# Poll for completion
+curl http://localhost:8000/status/$JOB_ID
+
+# Download the result
+curl http://localhost:8000/download/$JOB_ID --output result.xml
+```
+
+---
+
+## CLI
+
+Giao diện dòng lệnh nhận một tệp dữ liệu, phiên bản thông điệp, mẫu và lược đồ. Nó xác thực đầu vào và ghi XML đã tạo vào thư mục đầu ra.
+
+### Sử dụng cơ bản
+
+```bash
+pacs008 -t <message_type> \
+  -m <template_file> \
+  -s <schema_file> \
+  -d <data_file>
+```
+
+### Ví dụ
+
+```bash
+pacs008 -t pacs.008.001.13 \
+  -m pacs008/templates/pacs.008.001.13/template.xml \
+  -s pacs008/templates/pacs.008.001.13/pacs.008.001.13.xsd \
+  -d payments.csv
+```
+
+### Chế độ chạy thử
+
+Dùng `--dry-run` để xác thực dữ liệu đầu vào mà không tạo XML. Mã thoát cho biết xác thực đã thành công (`0`) hay thất bại (`1`).
+
+```bash
+pacs008 -t pacs.008.001.13 \
+  -m pacs008/templates/pacs.008.001.13/template.xml \
+  -s pacs008/templates/pacs.008.001.13/pacs.008.001.13.xsd \
+  -d payments.csv \
+  --dry-run
+```
+
+Thêm `--verbose` để xem đầu ra chi tiết trong quá trình tạo tệp.
+
+---
+
+## Python API
+
+Sử dụng thư viện trực tiếp trong các script hoặc dịch vụ Python.
+
+### Tạo XML từ danh sách bản ghi thanh toán
+
+```python
+from pacs008 import generate_xml_string
+
+payments = [{
+    "msg_id": "MSG-2026-001",
+    "creation_date_time": "2026-01-15T10:30:00",
+    "nb_of_txs": "1",
+    "settlement_method": "CLRG",
+    "interbank_settlement_date": "2026-01-15",
+    "end_to_end_id": "E2E-INV-2026-001",
+    "tx_id": "TX-001",
+    "interbank_settlement_amount": "25000.00",
+    "interbank_settlement_currency": "EUR",
+    "charge_bearer": "SHAR",
+    "debtor_name": "Acme Corp GmbH",
+    "debtor_agent_bic": "DEUTDEFF",
+    "creditor_agent_bic": "COBADEFF",
+    "creditor_name": "Widget Industries SA",
+}]
+
+xml = generate_xml_string(
+    payments,
+    "pacs.008.001.13",
+    "pacs008/templates/pacs.008.001.13/template.xml",
+    "pacs008/templates/pacs.008.001.13/pacs.008.001.13.xsd",
+)
+print(xml)
+```
+
+### Kiểm tra tuân thủ SWIFT
+
+Xác thực và làm sạch dữ liệu theo các quy tắc bộ ký tự và độ dài trường của SWIFT trước khi tạo tệp.
+
+```python
+from pacs008.compliance import cleanse_data_with_report
+
+raw = [{"debtor_name": "Müller & Söhne™", "msg_id": "X" * 50}]
+clean, report = cleanse_data_with_report(raw)
+print(report.summary())
+```
+
+---
+
+## Các trường dữ liệu bắt buộc
+
+Mỗi bản ghi thanh toán phải bao gồm các trường sau. Các trường theo phiên bản cụ thể được ghi chú khi áp dụng.
+
+| Trường | Mô tả | Ràng buộc |
+|---|---|---|
+| `msg_id` | Mã định danh thông điệp | Tối đa 35 ký tự |
+| `creation_date_time` | Dấu thời gian tạo | Định dạng ISO 8601 |
+| `nb_of_txs` | Số lượng giao dịch | Số nguyên dương |
+| `settlement_method` | Phương thức thanh toán bù trừ | CLRG, INDA, COVE hoặc INGA |
+| `end_to_end_id` | Mã định danh đầu-cuối | Tối đa 35 ký tự |
+| `interbank_settlement_amount` | Số tiền thanh toán liên ngân hàng | Số thập phân, ví dụ `25000.00` |
+| `interbank_settlement_currency` | Tiền tệ thanh toán bù trừ | Mã ISO 4217 |
+| `charge_bearer` | Bên chịu phí | DEBT, CRED, SHAR hoặc SLEV |
+| `debtor_name` | Tên con nợ | Tối đa 140 ký tự |
+| `debtor_agent_bic` | BIC đại lý con nợ | 8 hoặc 11 ký tự |
+| `creditor_agent_bic` | BIC đại lý chủ nợ | 8 hoặc 11 ký tự |
+| `creditor_name` | Tên chủ nợ | Tối đa 140 ký tự |
+
+### Các trường theo phiên bản cụ thể
+
+| Trường | Mô tả | Ràng buộc |
+|---|---|---|
+| `uetr` | Tham chiếu giao dịch đầu-cuối duy nhất | Định dạng UUID — có từ v08 |
+| `mandate_id` | Mã định danh ủy quyền | Có từ v10 |
+| `expiry_date_time` | Dấu thời gian hết hạn thông điệp | Có trong v13 |
 
