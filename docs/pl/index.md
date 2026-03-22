@@ -2,74 +2,32 @@
 title: Pacs008 | Polski
 description: Generowanie, walidacja, API i zgodność dla przepływów FI-to-FI.
 lang: pl-PL
+author: Sebastien Rousseau
 lastUpdated: true
 image: /logo.svg
+imageAlt: Pacs008
+canonical: /pl/
+robots: index, follow
+draft: false
+noindex: false
+sitemap: true
+breadcrumbTitle: Pacs008
+pageType: home
+schemaType: WebSite
+heroText: Automatyzuj pacs.008 bez zgadywania.
+home: true
+metaTitle: Pacs008
+subtitle: Generowanie, walidacja, API i zgodność dla przepływów FI-to-FI.
+tagline: Generowanie, walidacja, API i zgodność dla przepływów FI-to-FI.
+actionText: Explore Pacs008
+actionLink: /pl/about/
+features:
+  - title: Version-aware generation
+    details: Covers the pacs.008 family and adjacent payment messages with template-driven XML output.
+  - title: Operational delivery
+    details: REST API and CLI workflows fit batch processing, CI validation, and internal payment rails.
+  - title: Compliance controls
+    details: XSD validation, SWIFT-safe sanitisation, IBAN and BIC checks, and secure path handling.
+  - title: Structured inputs
+    details: Works with JSON, JSONL, CSV, SQLite, and Parquet sources for back-office integration.
 ---
-
-# Automatyzuj pacs.008 bez zgadywania.
-
-Generowanie, walidacja, API i zgodność dla przepływów FI-to-FI.
-
-<div class="hero-panel">
-
-Built for teams that need deterministic ISO 20022 file generation, version-aware templates, schema validation, and delivery tooling without building the whole stack from scratch.
-
-- Python package for XML generation and validation
-- REST API for orchestrated message workflows
-- CLI for local pipelines and batch jobs
-- Coverage across pacs.008 versions and adjacent message families
-
-[Get started on GitHub](https://github.com/sebastienrousseau/pacs008){.vp-button .brand}
-[Install from PyPI](https://pypi.org/project/pacs008/){.vp-button .alt}
-
-</div>
-
-<div class="signal-strip">
-  <div><strong>20</strong><span>supported ISO 20022 message families and versions</span></div>
-  <div><strong>13</strong><span>pacs.008 templates covering early and current revisions</span></div>
-  <div><strong>API</strong><span>async job management and validation endpoints</span></div>
-  <div><strong>CLI</strong><span>pipeline-friendly execution for local and CI workflows</span></div>
-</div>
-
-## Why Pacs008
-
-<div class="showcase-grid">
-  <article>
-    <h3>Version-aware delivery</h3>
-    <p>Generate and validate the exact XML flavor your bank, network, or migration programme expects.</p>
-  </article>
-  <article>
-    <h3>Operations-first tooling</h3>
-    <p>Use JSON, JSONL, CSV, SQLite, or Parquet as sources and keep message production inside existing back-office flows.</p>
-  </article>
-  <article>
-    <h3>Compliance pressure reduced</h3>
-    <p>Schema validation, SWIFT-safe sanitisation, BIC and IBAN checks, and path hardening are already built in.</p>
-  </article>
-</div>
-
-## Supported message types
-
-<ul class="type-list">
-  <li><strong>pacs.002.001.12</strong><br/>Template and validation support for production and migration work.</li>
-  <li><strong>pacs.003.001.09</strong><br/>Template and validation support for production and migration work.</li>
-  <li><strong>pacs.004.001.11</strong><br/>Template and validation support for production and migration work.</li>
-  <li><strong>pacs.007.001.11</strong><br/>Template and validation support for production and migration work.</li>
-  <li><strong>pacs.008.001.01</strong><br/>Template and validation support for production and migration work.</li>
-  <li><strong>pacs.008.001.02</strong><br/>Template and validation support for production and migration work.</li>
-  <li><strong>pacs.008.001.03</strong><br/>Template and validation support for production and migration work.</li>
-  <li><strong>pacs.008.001.04</strong><br/>Template and validation support for production and migration work.</li>
-  <li><strong>pacs.008.001.05</strong><br/>Template and validation support for production and migration work.</li>
-  <li><strong>pacs.008.001.06</strong><br/>Template and validation support for production and migration work.</li>
-  <li><strong>pacs.008.001.07</strong><br/>Template and validation support for production and migration work.</li>
-  <li><strong>pacs.008.001.08</strong><br/>Template and validation support for production and migration work.</li>
-  <li><strong>pacs.008.001.09</strong><br/>Template and validation support for production and migration work.</li>
-  <li><strong>pacs.008.001.10</strong><br/>Template and validation support for production and migration work.</li>
-  <li><strong>pacs.008.001.11</strong><br/>Template and validation support for production and migration work.</li>
-  <li><strong>pacs.008.001.12</strong><br/>Template and validation support for production and migration work.</li>
-  <li><strong>pacs.008.001.13</strong><br/>Template and validation support for production and migration work.</li>
-  <li><strong>pacs.009.001.10</strong><br/>Template and validation support for production and migration work.</li>
-  <li><strong>pacs.010.001.05</strong><br/>Template and validation support for production and migration work.</li>
-  <li><strong>pacs.028.001.05</strong><br/>Template and validation support for production and migration work.</li>
-</ul>
-
