@@ -1,6 +1,6 @@
 ---
 title: Giới thiệu pacs008 | pacs008
-description: pacs008 làm gì và dành cho ai. Tạo, xác thực, điều phối API và hỗ trợ tuân thủ cho quy trình chuyển khoản tín dụng khách hàng FI-to-FI.
+description: pacs008 làm gì và dành cho ai. Tạo, xác thực, điều phối API và hỗ trợ tuân thủ cho quy trình chuyển khoản tín dụng khách hàng giữa các tổ chức tài chính.
 lang: vi-VN
 lastUpdated: true
 image: /logo.svg
@@ -66,5 +66,12 @@ pacs008 vượt ra ngoài tham chiếu định nghĩa thông điệp để hỗ 
 - xác thực trước khi giao
 - mô hình hóa chuỗi thanh toán và định dạng hạ nguồn
 - làm cho các thay đổi cụ thể theo lược đồ có thể kiểm tra được trong mã
+
+## Danh sách kiểm tra triển khai
+
+- Chọn đúng họ thông điệp cho sự kiện nghiệp vụ trước khi viết template.
+- Xác thực dữ liệu nghiệp vụ trước khi tạo XML để lỗi schema không trở thành tín hiệu đầu tiên.
+- Coi chất lượng BIC, IBAN, remittance và địa chỉ bưu chính là tiêu chí phát hành chứ không phải việc dọn dẹp về sau.
+- Chạy kiểm thử hồi quy cho mỗi thay đổi quy tắc của scheme hoặc ngân hàng với dữ liệu thanh toán đại diện.
 
 

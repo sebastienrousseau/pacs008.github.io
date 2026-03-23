@@ -19,7 +19,7 @@ image: /logo.svg
 
 The pacs.007 message is used to reverse a previously sent payment instruction that has not yet been settled or to request reversal of a settled payment. Unlike pacs.004 (return), it is initiated by the original instructing agent.
 
-> Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 27 February 2025; source links are listed below.
+> Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
 
 ## Key data elements
 
@@ -57,7 +57,7 @@ The instructing agent (original sender) sends pacs.007 forward through the payme
 
 ## Version commentary
 
-The ISO 20022 catalogue entry for this business area was last updated on 27 February 2025. The pacs008 site currently documents `pacs.007.001.11`, while the ISO 20022 catalogue lists `pacs.007.001.13` as the latest published version.
+The ISO 20022 catalogue entry for this business area was last updated on 2025-02-27. The pacs008 site currently documents `pacs.007.001.11`, while the ISO 20022 catalogue lists `pacs.007.001.13` as the latest published version.
 
 That means this page is useful for understanding the currently implemented version in pacs008, but roadmap and interoperability planning should account for the later catalogue revision as well.
 

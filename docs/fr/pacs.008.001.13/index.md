@@ -1,12 +1,12 @@
 ---
-title: pacs.008.001.13 | FI to FI Customer Credit Transfer | pacs008
+title: pacs.008.001.13 | Virement client FI à FI | pacs008
 description: Le message pacs.008 est l'instruction de paiement centrale échangée entre institutions financières pour transférer des fonds au nom d'un client. Il porte...
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.008.001.13 — FI to FI Customer Credit Transfer
+# pacs.008.001.13 — Virement client FI à FI
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Le message pacs.008 est l'instruction de paiement centrale échangée entre institutions financières pour transférer des fonds au nom d'un client. Il porte les informations de débiteur, créancier, montant et remise pour une ou plusieurs transactions de virement.
 
-> Dernière vérification par rapport aux sources primaires le 23 mars 2026. Date de référence du catalogue ISO 20022 : 27 February 2025 ; les liens vers les sources figurent ci-dessous.
+> Dernière vérification par rapport aux sources primaires le 23 mars 2026. Date de référence du catalogue ISO 20022 : 2025-02-27 ; les liens vers les sources figurent ci-dessous.
 
 ## Éléments de données clés
 
@@ -85,11 +85,11 @@ L'agent du débiteur crée un pacs.008 et l'envoie à l'agent du créancier (dir
 
 ### Commentaires sur les champs
 
-- `MsgId`: This should identify the message envelope, not the end-customer payment reference.
-- `EndToEndId`: Keep customer-facing traceability stable across downstream systems where possible.
-- `UETR`: Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.
-- `IntrBkSttlmAmt`: Validate amount and currency using business rules before schema validation.
-- `Dbtr` / `Cdtr`: Party quality, address structure, and identifiers are usually the main determinants of repair rates.
+- `MsgId`: Ce champ doit identifier l'enveloppe du message, et non la référence de paiement du client final.
+- `EndToEndId`: Conservez une traçabilité orientée client stable dans les systèmes en aval lorsque c'est possible.
+- `UETR`: Utilisez ce champ de façon cohérente dans les environnements transfrontaliers à fort besoin de suivi ; ne le générez pas de façon ad hoc dans des étapes ultérieures du traitement.
+- `IntrBkSttlmAmt`: Validez le montant et la devise avec des règles métier avant la validation du schéma.
+- `Dbtr` / `Cdtr`: La qualité des données de parties, la structure des adresses et les identifiants sont généralement les principaux facteurs du volume de correction.
 
 ## Comparer pacs.008 vs pacs.009
 
@@ -134,7 +134,7 @@ L'agent du débiteur crée un pacs.008 et l'envoie à l'agent du créancier (dir
 ## Messages associés
 | Type de message | Description | Présentation |
 |---|---|---|
-| [`pacs.002.001.12`](/fr/pacs.002.001.12/) | FI to FI Payment Status Report | Le message pacs.002 est envoyé par une institution financière pour rapporter le statut d'une instruction de paiement précédemment envoyée. Il fournit une confirmation, un rejet ou un statut en attente pour les transactions individuelles au sein d'un message de paiement. |
-| [`pacs.004.001.11`](/fr/pacs.004.001.11/) | Payment Return | Le message pacs.004 est utilisé pour retourner une transaction de paiement précédemment réglée. Il inverse le flux de fonds lorsqu'un paiement ne peut être appliqué, a été envoyé par erreur ou fait l'objet d'un rappel par l'institution d'origine. |
-| [`pacs.009.001.10`](/fr/pacs.009.001.10/) | Financial Institution Credit Transfer | Le message pacs.009 est utilisé pour les virements entre institutions financières lorsque le transfert est pour le compte propre de l'institution plutôt que pour un client. Il prend en charge le financement interbancaire, les paiements de couverture et la gestion de liquidité. |
+| [`pacs.002.001.12`](/fr/pacs.002.001.12/) | Rapport de statut de paiement FI à FI | Le message pacs.002 est envoyé par une institution financière pour rapporter le statut d'une instruction de paiement précédemment envoyée. Il fournit une confirmation, un rejet ou un statut en attente pour les transactions individuelles au sein d'un message de paiement. |
+| [`pacs.004.001.11`](/fr/pacs.004.001.11/) | Retour de paiement | Le message pacs.004 est utilisé pour retourner une transaction de paiement précédemment réglée. Il inverse le flux de fonds lorsqu'un paiement ne peut être appliqué, a été envoyé par erreur ou fait l'objet d'un rappel par l'institution d'origine. |
+| [`pacs.009.001.10`](/fr/pacs.009.001.10/) | Virement entre institutions financières | Le message pacs.009 est utilisé pour les virements entre institutions financières lorsque le transfert est pour le compte propre de l'institution plutôt que pour un client. Il prend en charge le financement interbancaire, les paiements de couverture et la gestion de liquidité. |
 

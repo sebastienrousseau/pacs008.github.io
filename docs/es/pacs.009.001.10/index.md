@@ -1,12 +1,12 @@
 ---
-title: pacs.009.001.10 | Financial Institution Credit Transfer | pacs008
+title: pacs.009.001.10 | Transferencia de crédito entre instituciones financieras | pacs008
 description: El mensaje pacs.009 se utiliza para transferencias entre instituciones financieras cuando la transferencia es por cuenta propia de la institución. Soporta...
 lang: es-ES
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.009.001.10 — Financial Institution Credit Transfer
+# pacs.009.001.10 — Transferencia de crédito entre instituciones financieras
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 El mensaje pacs.009 se utiliza para transferencias entre instituciones financieras cuando la transferencia es por cuenta propia de la institución. Soporta financiación interbancaria, pagos de cobertura y gestión de liquidez.
 
-> Revisado por última vez frente a fuentes primarias el 23 de marzo de 2026. Fecha de referencia del catálogo ISO 20022: 27 February 2025; los enlaces a las fuentes se muestran a continuación.
+> Revisado por última vez frente a fuentes primarias el 23 de marzo de 2026. Fecha de referencia del catálogo ISO 20022: 2025-02-27; los enlaces a las fuentes se muestran a continuación.
 
 ## Elementos de datos clave
 
@@ -60,7 +60,7 @@ La institución deudora envía pacs.009 a la institución acreedora para transfe
 | Rango de versiones | Por qué importa | Conclusión de implementación |
 |---|---|---|
 | pacs.009.001.10 | Implementación actual en pacs008 | Coincide con el soporte actual del proyecto para flujos de transferencia de crédito FI. |
-| pacs.009.001.11-12 | Revisiones posteriores del catálogo | Important for roadmap planning in correspondent and cover-payment environments. |
+| pacs.009.001.11-12 | Revisiones posteriores del catálogo | Importante para planificar la hoja de ruta en entornos de banca corresponsal y pagos de cobertura. |
 
 ## Fragmento XML comentado
 
@@ -105,7 +105,7 @@ La institución deudora envía pacs.009 a la institución acreedora para transfe
 ## Mensajes relacionados
 | Tipo de mensaje | Descripción | Descripción general |
 |---|---|---|
-| [`pacs.008.001.13`](/es/pacs.008.001.13/) | FI to FI Customer Credit Transfer | El mensaje pacs.008 es la instrucción de pago central intercambiada entre instituciones financieras para transferir fondos en nombre de un cliente. Contiene información de deudor, acreedor, importe y remesa para una o más transacciones de transferencia. |
-| [`pacs.002.001.12`](/es/pacs.002.001.12/) | FI to FI Payment Status Report | El mensaje pacs.002 es enviado por una institución financiera para informar del estado de una instrucción de pago enviada previamente. Proporciona información de confirmación, rechazo o estado pendiente para transacciones individuales dentro de un mensaje de pago. |
-| [`pacs.010.001.05`](/es/pacs.010.001.05/) | Financial Institution Direct Debit | El mensaje pacs.010 se utiliza entre instituciones financieras para transacciones de adeudo directo por cuenta propia de la institución. Permite a una institución cobrar fondos directamente de la cuenta de otra institución. |
+| [`pacs.008.001.13`](/es/pacs.008.001.13/) | Transferencia de crédito de cliente FI a FI | El mensaje pacs.008 es la instrucción de pago central intercambiada entre instituciones financieras para transferir fondos en nombre de un cliente. Contiene información de deudor, acreedor, importe y remesa para una o más transacciones de transferencia. |
+| [`pacs.002.001.12`](/es/pacs.002.001.12/) | Informe de estado de pagos FI a FI | El mensaje pacs.002 es enviado por una institución financiera para informar del estado de una instrucción de pago enviada previamente. Proporciona información de confirmación, rechazo o estado pendiente para transacciones individuales dentro de un mensaje de pago. |
+| [`pacs.010.001.05`](/es/pacs.010.001.05/) | Débito directo entre instituciones financieras | El mensaje pacs.010 se utiliza entre instituciones financieras para transacciones de adeudo directo por cuenta propia de la institución. Permite a una institución cobrar fondos directamente de la cuenta de otra institución. |
 

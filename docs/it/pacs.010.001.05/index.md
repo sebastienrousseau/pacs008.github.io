@@ -1,12 +1,12 @@
 ---
-title: pacs.010.001.05 | Financial Institution Direct Debit | pacs008
+title: pacs.010.001.05 | Addebito diretto tra istituzioni finanziarie | pacs008
 description: Il messaggio pacs.010 viene utilizzato tra istituti finanziari per transazioni di addebito diretto sul conto proprio dell'istituto. Consente a un istituto...
 lang: it-IT
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.010.001.05 — Financial Institution Direct Debit
+# pacs.010.001.05 — Addebito diretto tra istituzioni finanziarie
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Il messaggio pacs.010 viene utilizzato tra istituti finanziari per transazioni di addebito diretto sul conto proprio dell'istituto. Consente a un istituto di raccogliere fondi direttamente dal conto di un altro istituto.
 
-> Ultima revisione rispetto a fonti primarie il 23 marzo 2026. Data di riferimento del catalogo ISO 20022: 27 February 2025; i collegamenti alle fonti sono riportati di seguito.
+> Ultima revisione rispetto a fonti primarie il 23 marzo 2026. Data di riferimento del catalogo ISO 20022: 2025-02-27; i collegamenti alle fonti sono riportati di seguito.
 
 ## Elementi di dati chiave
 
@@ -59,7 +59,7 @@ L'istituto creditore invia pacs.010 all'istituto debitore per raccogliere fondi 
 
 | Intervallo di versione | Perché conta | Implicazione implementativa |
 |---|---|---|
-| pacs.010.001.05 | Implementazione attuale in pacs008 | Punto di riferimento per il supporto agli addebiti diretti tra istituti nel progetto attuale. |
+| pacs.010.001.05 | Implementazione attuale in pacs008 | Menjadi titik acuan untuk dukungan debit langsung antar lembaga dalam proyek saat ini. |
 | pacs.010.001.06 | Revisione successiva del catalogo | Review before adopting newer infrastructure requirements. |
 
 ## Esempio XML commentato
@@ -81,8 +81,8 @@ L'istituto creditore invia pacs.010 all'istituto debitore per raccogliere fondi 
 ### Commenti sui campi
 
 - `InstrId`: Use an identifier that can be traced back to the bilateral collection arrangement.
-- `IntrBkSttlmAmt`: Institution direct-debit amounts often need explicit bilateral tolerance controls.
-- `Cdtr` / `Dbtr`: Capture institutional roles clearly; this is not a retail-customer debit model.
+- `IntrBkSttlmAmt`: Gli importi degli addebiti diretti tra istituzioni richiedono spesso controlli bilaterali espliciti di tolleranza.
+- `Cdtr` / `Dbtr`: Definisci chiaramente i ruoli istituzionali; questo non e un modello di addebito per clienti retail.
 
 ## Riferimenti primari
 
@@ -94,7 +94,7 @@ L'istituto creditore invia pacs.010 all'istituto debitore per raccogliere fondi 
 ## Messaggi correlati
 | Tipo di messaggio | Descrizione | Panoramica |
 |---|---|---|
-| [`pacs.009.001.10`](/it/pacs.009.001.10/) | Financial Institution Credit Transfer | Il messaggio pacs.009 viene utilizzato per bonifici tra istituti finanziari in cui il trasferimento avviene per conto proprio dell'istituto anziché per conto di un cliente. Supporta il finanziamento interbancario, i pagamenti di copertura e la gestione della liquidità. |
-| [`pacs.002.001.12`](/it/pacs.002.001.12/) | FI to FI Payment Status Report | Il messaggio pacs.002 viene inviato da un istituto finanziario per comunicare lo stato di un'istruzione di pagamento precedentemente inviata. Fornisce informazioni di conferma, rifiuto o stato in sospeso per le singole transazioni all'interno di un messaggio di pagamento. |
-| [`pacs.003.001.09`](/it/pacs.003.001.09/) | FI to FI Customer Direct Debit | Il messaggio pacs.003 viene scambiato tra istituti finanziari per eseguire un'istruzione di addebito diretto del cliente. Consente alla banca del creditore di raccogliere fondi dalla banca del debitore per conto del creditore. |
+| [`pacs.009.001.10`](/it/pacs.009.001.10/) | Bonifico tra istituzioni finanziarie | Il messaggio pacs.009 viene utilizzato per bonifici tra istituti finanziari in cui il trasferimento avviene per conto proprio dell'istituto anziché per conto di un cliente. Supporta il finanziamento interbancario, i pagamenti di copertura e la gestione della liquidità. |
+| [`pacs.002.001.12`](/it/pacs.002.001.12/) | Rapporto di stato del pagamento tra istituzioni finanziarie | Il messaggio pacs.002 viene inviato da un istituto finanziario per comunicare lo stato di un'istruzione di pagamento precedentemente inviata. Fornisce informazioni di conferma, rifiuto o stato in sospeso per le singole transazioni all'interno di un messaggio di pagamento. |
+| [`pacs.003.001.09`](/it/pacs.003.001.09/) | Addebito diretto cliente tra istituzioni finanziarie | Il messaggio pacs.003 viene scambiato tra istituti finanziari per eseguire un'istruzione di addebito diretto del cliente. Consente alla banca del creditore di raccogliere fondi dalla banca del debitore per conto del creditore. |
 

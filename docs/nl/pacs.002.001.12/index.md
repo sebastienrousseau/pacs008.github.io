@@ -1,12 +1,12 @@
 ---
-title: pacs.002.001.12 | FI to FI Payment Status Report | pacs008
+title: pacs.002.001.12 | FI-naar-FI-betalingsstatusrapport | pacs008
 description: Het pacs.002-bericht wordt door een financiële instelling verzonden om de status te rapporteren van een eerder verzonden betalingsinstructie. Het biedt...
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.002.001.12 — FI to FI Payment Status Report
+# pacs.002.001.12 — FI-naar-FI-betalingsstatusrapport
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Het pacs.002-bericht wordt door een financiële instelling verzonden om de status te rapporteren van een eerder verzonden betalingsinstructie. Het biedt bevestigings-, afwijzings- of hangende statusinformatie voor individuele transacties binnen een betalingsbericht.
 
-> Laatst gecontroleerd aan de hand van primaire bronnen op 23 maart 2026. Referentiedatum ISO 20022-catalogus: 27 February 2025; bronlinks staan hieronder.
+> Laatst gecontroleerd aan de hand van primaire bronnen op 23 maart 2026. Referentiedatum ISO 20022-catalogus: 2025-02-27; bronlinks staan hieronder.
 
 ## Belangrijke gegevenselementen
 
@@ -60,7 +60,7 @@ De opdrachthebbende agent (ontvanger) stuurt pacs.002 terug naar de opdrachtgeve
 | Versiebereik | Waarom dit telt | Implementatieconclusie |
 |---|---|---|
 | pacs.002.001.12 | Huidige implementatie in pacs008 | Gebruik dit wanneer u werkt met de momenteel ondersteunde projectsjablonen en validatie-artefacten. |
-| pacs.002.001.13-15 | Latere catalogusrevisies | Review later ISO revisions before starting new interoperability work or onboarding new infrastructures. |
+| pacs.002.001.13-15 | Latere catalogusrevisies | Bekijk latere ISO-revisies voordat u nieuw interoperabiliteitswerk start of nieuwe infrastructuren aansluit. |
 
 ## Uitgewerkt XML-voorbeeld
 
@@ -82,19 +82,19 @@ De opdrachthebbende agent (ontvanger) stuurt pacs.002 terug naar de opdrachtgeve
 
 ### Veldtoelichting
 
-- `MsgId`: Use a new identifier for the status report itself, not the original payment instruction.
-- `OrgnlInstrId`: Keep the original instruction identifier intact so status can be matched automatically.
-- `TxSts`: This is the operational state; map it carefully to internal workflow states rather than assuming a one-to-one match.
-- `StsRsnInf`: Structured reason codes are far more useful than free text for repair and analytics.
+- `MsgId`: Gebruik een nieuwe identificatie voor het statusrapport zelf, niet voor de oorspronkelijke betalingsinstructie.
+- `OrgnlInstrId`: Laat de oorspronkelijke instructie-identificatie ongewijzigd zodat de status automatisch kan worden gematcht.
+- `TxSts`: Dit is de operationele status; koppel die zorgvuldig aan interne workflowstatussen in plaats van een directe een-op-eenrelatie aan te nemen.
+- `StsRsnInf`: Gestructureerde redencodes zijn veel nuttiger dan vrije tekst voor herstel en analyse.
 
 ## Vergelijk pacs.002 vs pacs.028
 
 | Dimensie | pacs.002.001.12 | Vergelijkingsbericht |
 |---|---|---|
 | Primair doel | Report status | Request status |
-| Who starts the interaction | The institution sending the status | The institution asking for status |
+| Wie de interactie start | De instelling die de status verzendt | De instelling die om status vraagt |
 | Operational posture | Event-driven reporting | Exception-driven enquiry |
-| Te vermijden misvatting | That status reporting replaces investigation workflows | That every payment needs an explicit status request |
+| Te vermijden misvatting | Dat statusrapportage onderzoekswerkstromen vervangt | Dat elke betaling een expliciet statusverzoek nodig heeft |
 
 ## Primaire referenties
 
@@ -108,7 +108,7 @@ De opdrachthebbende agent (ontvanger) stuurt pacs.002 terug naar de opdrachtgeve
 ## Gerelateerde berichten
 | Berichttype | Beschrijving | Overzicht |
 |---|---|---|
-| [`pacs.008.001.13`](/nl/pacs.008.001.13/) | FI to FI Customer Credit Transfer | Het pacs.008-bericht is de kernbetalingsinstructie die wordt uitgewisseld tussen financiële instellingen om namens een klant gelden over te maken. Het bevat informatie over debiteur, crediteur, bedrag en betalingskenmerken voor een of meer overboekingstransacties. |
-| [`pacs.009.001.10`](/nl/pacs.009.001.10/) | Financial Institution Credit Transfer | Het pacs.009-bericht wordt gebruikt voor overboekingen tussen financiële instellingen waarbij de overboeking voor eigen rekening van de instelling plaatsvindt en niet namens een klant. Het ondersteunt interbancaire financiering, dekkingsbetalingen en liquiditeitsbeheer. |
-| [`pacs.028.001.05`](/nl/pacs.028.001.05/) | FI to FI Payment Status Request | Het pacs.028-bericht wordt door een financiële instelling verzonden om de status op te vragen van een eerder verzonden betalingsinstructie. Het maakt proactieve tracking van betalingsverwerking mogelijk zonder te wachten op een ongevraagd statusrapport. |
+| [`pacs.008.001.13`](/nl/pacs.008.001.13/) | FI-naar-FI-klantkredietoverboeking | Het pacs.008-bericht is de kernbetalingsinstructie die wordt uitgewisseld tussen financiële instellingen om namens een klant gelden over te maken. Het bevat informatie over debiteur, crediteur, bedrag en betalingskenmerken voor een of meer overboekingstransacties. |
+| [`pacs.009.001.10`](/nl/pacs.009.001.10/) | Kredietoverboeking tussen financiële instellingen | Het pacs.009-bericht wordt gebruikt voor overboekingen tussen financiële instellingen waarbij de overboeking voor eigen rekening van de instelling plaatsvindt en niet namens een klant. Het ondersteunt interbancaire financiering, dekkingsbetalingen en liquiditeitsbeheer. |
+| [`pacs.028.001.05`](/nl/pacs.028.001.05/) | FI-naar-FI-aanvraag betalingsstatus | Het pacs.028-bericht wordt door een financiële instelling verzonden om de status op te vragen van een eerder verzonden betalingsinstructie. Het maakt proactieve tracking van betalingsverwerking mogelijk zonder te wachten op een ongevraagd statusrapport. |
 

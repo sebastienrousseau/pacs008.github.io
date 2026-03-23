@@ -1,12 +1,12 @@
 ---
-title: pacs.009.001.10 | Financial Institution Credit Transfer | pacs008
+title: pacs.009.001.10 | Virement entre institutions financières | pacs008
 description: Le message pacs.009 est utilisé pour les virements entre institutions financières lorsque le transfert est pour le compte propre de l'institution plutôt...
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.009.001.10 — Financial Institution Credit Transfer
+# pacs.009.001.10 — Virement entre institutions financières
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Le message pacs.009 est utilisé pour les virements entre institutions financières lorsque le transfert est pour le compte propre de l'institution plutôt que pour un client. Il prend en charge le financement interbancaire, les paiements de couverture et la gestion de liquidité.
 
-> Dernière vérification par rapport aux sources primaires le 23 mars 2026. Date de référence du catalogue ISO 20022 : 27 February 2025 ; les liens vers les sources figurent ci-dessous.
+> Dernière vérification par rapport aux sources primaires le 23 mars 2026. Date de référence du catalogue ISO 20022 : 2025-02-27 ; les liens vers les sources figurent ci-dessous.
 
 ## Éléments de données clés
 
@@ -60,7 +60,7 @@ L'institution débitrice envoie pacs.009 à l'institution créancière pour tran
 | Plage de versions | Pourquoi c'est important | Conséquence pratique |
 |---|---|---|
 | pacs.009.001.10 | Implémentation actuelle dans pacs008 | Correspond au niveau actuel de prise en charge du projet pour les flux de virements FI. |
-| pacs.009.001.11-12 | Révisions ultérieures du catalogue | Important pour la planification de la feuille de route dans les environnements de correspondance et de paiements cover. |
+| pacs.009.001.11-12 | Révisions ultérieures du catalogue | Important pour la planification de la feuille de route dans les environnements de correspondance et de paiements de couverture. |
 
 ## Exemple XML commenté
 
@@ -105,7 +105,7 @@ L'institution débitrice envoie pacs.009 à l'institution créancière pour tran
 ## Messages associés
 | Type de message | Description | Présentation |
 |---|---|---|
-| [`pacs.008.001.13`](/fr/pacs.008.001.13/) | FI to FI Customer Credit Transfer | Le message pacs.008 est l'instruction de paiement centrale échangée entre institutions financières pour transférer des fonds au nom d'un client. Il porte les informations de débiteur, créancier, montant et remise pour une ou plusieurs transactions de virement. |
-| [`pacs.002.001.12`](/fr/pacs.002.001.12/) | FI to FI Payment Status Report | Le message pacs.002 est envoyé par une institution financière pour rapporter le statut d'une instruction de paiement précédemment envoyée. Il fournit une confirmation, un rejet ou un statut en attente pour les transactions individuelles au sein d'un message de paiement. |
-| [`pacs.010.001.05`](/fr/pacs.010.001.05/) | Financial Institution Direct Debit | Le message pacs.010 est utilisé entre institutions financières pour les transactions de prélèvement sur le compte propre de l'institution. Il permet à une institution de collecter des fonds directement depuis le compte d'une autre institution. |
+| [`pacs.008.001.13`](/fr/pacs.008.001.13/) | Virement client FI à FI | Le message pacs.008 est l'instruction de paiement centrale échangée entre institutions financières pour transférer des fonds au nom d'un client. Il porte les informations de débiteur, créancier, montant et remise pour une ou plusieurs transactions de virement. |
+| [`pacs.002.001.12`](/fr/pacs.002.001.12/) | Rapport de statut de paiement FI à FI | Le message pacs.002 est envoyé par une institution financière pour rapporter le statut d'une instruction de paiement précédemment envoyée. Il fournit une confirmation, un rejet ou un statut en attente pour les transactions individuelles au sein d'un message de paiement. |
+| [`pacs.010.001.05`](/fr/pacs.010.001.05/) | Prélèvement entre institutions financières | Le message pacs.010 est utilisé entre institutions financières pour les transactions de prélèvement sur le compte propre de l'institution. Il permet à une institution de collecter des fonds directement depuis le compte d'une autre institution. |
 

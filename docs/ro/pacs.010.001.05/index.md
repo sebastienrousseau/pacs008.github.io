@@ -1,12 +1,12 @@
 ---
-title: pacs.010.001.05 | Financial Institution Direct Debit | pacs008
+title: pacs.010.001.05 | Debit direct între instituții financiare | pacs008
 description: Mesajul pacs.010 este utilizat între instituții financiare pentru tranzacții de debitare directă pe contul propriu al instituției. Permite unei instituții...
 lang: ro-RO
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.010.001.05 — Financial Institution Direct Debit
+# pacs.010.001.05 — Debit direct între instituții financiare
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Mesajul pacs.010 este utilizat între instituții financiare pentru tranzacții de debitare directă pe contul propriu al instituției. Permite unei instituții să colecteze fonduri direct din contul altei instituții.
 
-> Ultima verificare față de surse primare a fost efectuată la 23 martie 2026. Data de referință a catalogului ISO 20022: 27 February 2025; linkurile către surse sunt mai jos.
+> Ultima verificare față de surse primare a fost efectuată la 23 martie 2026. Data de referință a catalogului ISO 20022: 2025-02-27; linkurile către surse sunt mai jos.
 
 ## Elemente de date cheie
 
@@ -55,6 +55,35 @@ Mesajul pacs.010 este utilizat între instituții financiare pentru tranzacții 
 
 Instituția creditoare trimite pacs.010 instituției debitoare pentru a colecta fonduri în baza unui acord prestabilit. Instituția debitoare validează cererea și decontează sau respinge debitarea directă.
 
+## Tabelul diferențelor de versiune
+
+| Interval de versiuni | De ce contează | Concluzie de implementare |
+|---|---|---|
+| pacs.010.001.05 | Implementarea curentă în pacs008 | Punct de referință pentru suportul debitării directe între instituții în proiectul actual. |
+| pacs.010.001.06 | Revizie ulterioară a catalogului | Revizuiește înainte de a adopta cerințe mai noi de infrastructură. |
+
+## Exemplu XML comentat
+
+```xml
+<FIDrctDbt>
+  <GrpHdr>
+    <MsgId>FIDD-2026-0012</MsgId>
+  </GrpHdr>
+  <DrctDbtTxInf>
+    <PmtId><InstrId>COLL-4500</InstrId></PmtId>
+    <IntrBkSttlmAmt Ccy="EUR">1250.00</IntrBkSttlmAmt>
+    <Cdtr><Nm>Collecting Institution</Nm></Cdtr>
+    <Dbtr><Nm>Debited Institution</Nm></Dbtr>
+  </DrctDbtTxInf>
+</FIDrctDbt>
+```
+
+### Comentarii pe câmpuri
+
+- `InstrId`: Use an identifier that can be traced back to the bilateral collection arrangement.
+- `IntrBkSttlmAmt`: Sumele de debit direct între instituții necesită adesea controale bilaterale explicite de toleranță.
+- `Cdtr` / `Dbtr`: Descrie clar rolurile instituționale; acesta nu este un model de debit pentru clienți retail.
+
 ## Referințe primare
 
 - [ISO 20022 message definitions catalogue for `pacs.010.001.05`](https://www.iso20022.org/iso-20022-message-definitions?search=Pacs.010.001.05)
@@ -65,7 +94,7 @@ Instituția creditoare trimite pacs.010 instituției debitoare pentru a colecta 
 ## Mesaje conexe
 | Tip de mesaj | Descriere | Prezentare generală |
 |---|---|---|
-| [`pacs.009.001.10`](/ro/pacs.009.001.10/) | Financial Institution Credit Transfer | Mesajul pacs.009 este utilizat pentru transferuri de credit între instituții financiare în care transferul se face în cont propriu al instituției și nu în numele unui client. Suportă finanțarea interbancară, plățile de acoperire și gestionarea lichidității. |
-| [`pacs.002.001.12`](/ro/pacs.002.001.12/) | FI to FI Payment Status Report | Mesajul pacs.002 este trimis de o instituție financiară pentru a raporta statusul unei instrucțiuni de plată trimise anterior. Furnizează informații de confirmare, respingere sau status în așteptare pentru tranzacțiile individuale din cadrul unui mesaj de plată. |
-| [`pacs.003.001.09`](/ro/pacs.003.001.09/) | FI to FI Customer Direct Debit | Mesajul pacs.003 este schimbat între instituții financiare pentru a executa o instrucțiune de debitare directă a clientului. Permite băncii creditorului să colecteze fonduri de la banca debitorului în numele creditorului. |
+| [`pacs.009.001.10`](/ro/pacs.009.001.10/) | Transfer de credit între instituții financiare | Mesajul pacs.009 este utilizat pentru transferuri de credit între instituții financiare în care transferul se face în cont propriu al instituției și nu în numele unui client. Suportă finanțarea interbancară, plățile de acoperire și gestionarea lichidității. |
+| [`pacs.002.001.12`](/ro/pacs.002.001.12/) | Raport de stare a plății FI-la-FI | Mesajul pacs.002 este trimis de o instituție financiară pentru a raporta statusul unei instrucțiuni de plată trimise anterior. Furnizează informații de confirmare, respingere sau status în așteptare pentru tranzacțiile individuale din cadrul unui mesaj de plată. |
+| [`pacs.003.001.09`](/ro/pacs.003.001.09/) | Debit direct de client FI-la-FI | Mesajul pacs.003 este schimbat între instituții financiare pentru a executa o instrucțiune de debitare directă a clientului. Permite băncii creditorului să colecteze fonduri de la banca debitorului în numele creditorului. |
 

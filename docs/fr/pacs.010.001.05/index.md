@@ -1,12 +1,12 @@
 ---
-title: pacs.010.001.05 | Financial Institution Direct Debit | pacs008
+title: pacs.010.001.05 | Prélèvement entre institutions financières | pacs008
 description: Le message pacs.010 est utilisé entre institutions financières pour les transactions de prélèvement sur le compte propre de l'institution. Il permet à une...
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.010.001.05 — Financial Institution Direct Debit
+# pacs.010.001.05 — Prélèvement entre institutions financières
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Le message pacs.010 est utilisé entre institutions financières pour les transactions de prélèvement sur le compte propre de l'institution. Il permet à une institution de collecter des fonds directement depuis le compte d'une autre institution.
 
-> Dernière vérification par rapport aux sources primaires le 23 mars 2026. Date de référence du catalogue ISO 20022 : 27 February 2025 ; les liens vers les sources figurent ci-dessous.
+> Dernière vérification par rapport aux sources primaires le 23 mars 2026. Date de référence du catalogue ISO 20022 : 2025-02-27 ; les liens vers les sources figurent ci-dessous.
 
 ## Éléments de données clés
 
@@ -81,8 +81,8 @@ L'institution créancière envoie pacs.010 à l'institution débitrice pour coll
 ### Commentaires sur les champs
 
 - `InstrId`: Use an identifier that can be traced back to the bilateral collection arrangement.
-- `IntrBkSttlmAmt`: Institution direct-debit amounts often need explicit bilateral tolerance controls.
-- `Cdtr` / `Dbtr`: Capture institutional roles clearly; this is not a retail-customer debit model.
+- `IntrBkSttlmAmt`: Les montants de prélèvement interbancaire nécessitent souvent des contrôles bilatéraux explicites de tolérance.
+- `Cdtr` / `Dbtr`: Définissez clairement les rôles des établissements ; il ne s'agit pas d'un modèle de débit pour clientèle de détail.
 
 ## Références primaires
 
@@ -94,7 +94,7 @@ L'institution créancière envoie pacs.010 à l'institution débitrice pour coll
 ## Messages associés
 | Type de message | Description | Présentation |
 |---|---|---|
-| [`pacs.009.001.10`](/fr/pacs.009.001.10/) | Financial Institution Credit Transfer | Le message pacs.009 est utilisé pour les virements entre institutions financières lorsque le transfert est pour le compte propre de l'institution plutôt que pour un client. Il prend en charge le financement interbancaire, les paiements de couverture et la gestion de liquidité. |
-| [`pacs.002.001.12`](/fr/pacs.002.001.12/) | FI to FI Payment Status Report | Le message pacs.002 est envoyé par une institution financière pour rapporter le statut d'une instruction de paiement précédemment envoyée. Il fournit une confirmation, un rejet ou un statut en attente pour les transactions individuelles au sein d'un message de paiement. |
-| [`pacs.003.001.09`](/fr/pacs.003.001.09/) | FI to FI Customer Direct Debit | Le message pacs.003 est échangé entre institutions financières pour exécuter une instruction de prélèvement client. Il permet à la banque du créancier de collecter des fonds auprès de la banque du débiteur au nom du créancier. |
+| [`pacs.009.001.10`](/fr/pacs.009.001.10/) | Virement entre institutions financières | Le message pacs.009 est utilisé pour les virements entre institutions financières lorsque le transfert est pour le compte propre de l'institution plutôt que pour un client. Il prend en charge le financement interbancaire, les paiements de couverture et la gestion de liquidité. |
+| [`pacs.002.001.12`](/fr/pacs.002.001.12/) | Rapport de statut de paiement FI à FI | Le message pacs.002 est envoyé par une institution financière pour rapporter le statut d'une instruction de paiement précédemment envoyée. Il fournit une confirmation, un rejet ou un statut en attente pour les transactions individuelles au sein d'un message de paiement. |
+| [`pacs.003.001.09`](/fr/pacs.003.001.09/) | Prélèvement client FI à FI | Le message pacs.003 est échangé entre institutions financières pour exécuter une instruction de prélèvement client. Il permet à la banque du créancier de collecter des fonds auprès de la banque du débiteur au nom du créancier. |
 

@@ -1,6 +1,6 @@
 ---
 title: API | pacs008
-description: pacs008의 REST 및 CLI 워크플로 지원. FI-to-FI 고객 신용 이체 워크플로를 위한 생성, 검증, API 오케스트레이션, 규정 준수 지원.
+description: pacs008의 REST 및 CLI 워크플로 지원. 금융기관 간 고객 신용 이체 워크플로를 위한 생성, 검증, API 오케스트레이션, 규정 준수 지원.
 lang: ko-KR
 lastUpdated: true
 image: /logo.svg
@@ -11,6 +11,13 @@ image: /logo.svg
 이 프로젝트는 운영 결제 메시지 워크플로를 위한 REST API와 CLI를 모두 제공합니다.
 
 > 이 페이지에 연결된 ISO 20022, EPC 및 Swift 공개 자료를 기준으로 2026년 3월 23일에 1차 출처 검토를 완료했습니다.
+
+## 구현 메모
+
+- 호출자가 즉시 XML 을 기대하는 운영 점검과 소규모 배치에는 동기 생성을 사용합니다.
+- 입력 파일이 크거나, 재시도가 필요하거나, 더 큰 오케스트레이션 엔진의 일부인 경우 비동기 생성을 사용합니다.
+- 장애 시 XML 출력을 재현할 수 있도록 원본 페이로드와 검증 보고서를 모두 보관합니다.
+- 무음 업그레이드를 막기 위해 템플릿과 XSD 경로를 배포 설정에서 고정합니다.
 
 ## 설치
 
@@ -45,14 +52,14 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 | `DELETE /jobs/{job_id}` | 대기 중이거나 실행 중인 작업 취소 |
 | `GET /docs` | 모든 엔드포인트를 탐색하고 테스트하기 위한 인터랙티브 Swagger UI |
 
-- [`pacs.002.001.12`](/ko/pacs.002.001.12/) — FI to FI Payment Status Report
-- [`pacs.003.001.09`](/ko/pacs.003.001.09/) — FI to FI Customer Direct Debit
-- [`pacs.004.001.11`](/ko/pacs.004.001.11/) — Payment Return
-- [`pacs.007.001.11`](/ko/pacs.007.001.11/) — FI to FI Payment Reversal
-- [`pacs.008.001.13`](/ko/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.009.001.10`](/ko/pacs.009.001.10/) — Financial Institution Credit Transfer
-- [`pacs.010.001.05`](/ko/pacs.010.001.05/) — Financial Institution Direct Debit
-- [`pacs.028.001.05`](/ko/pacs.028.001.05/) — FI to FI Payment Status Request
+- [`pacs.002.001.12`](/ko/pacs.002.001.12/) — 금융기관 간 지급 상태 보고
+- [`pacs.003.001.09`](/ko/pacs.003.001.09/) — 금융기관 간 고객 직접출금
+- [`pacs.004.001.11`](/ko/pacs.004.001.11/) — 지급 반환
+- [`pacs.007.001.11`](/ko/pacs.007.001.11/) — 금융기관 간 지급 취소
+- [`pacs.008.001.13`](/ko/pacs.008.001.13/) — 금융기관 간 고객 신용이체
+- [`pacs.009.001.10`](/ko/pacs.009.001.10/) — 금융기관 간 신용이체
+- [`pacs.010.001.05`](/ko/pacs.010.001.05/) — 금융기관 간 직접출금
+- [`pacs.028.001.05`](/ko/pacs.028.001.05/) — 금융기관 간 지급 상태 요청
 
 ### 유효성 검사 예제
 

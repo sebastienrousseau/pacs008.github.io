@@ -1,6 +1,6 @@
 ---
 title: Contact | pacs008
-description: Hoe u het pacs008-project kunt bereiken. Generatie, validatie, API-orchestratie en compliance-ondersteuning voor FI-to-FI-klantoverdrachtworkflows.
+description: Hoe u het pacs008-project kunt bereiken. Generatie, validatie, API-orchestratie en compliance-ondersteuning voor klantkredietoverboekingsworkflows tussen...
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg

@@ -1,12 +1,12 @@
 ---
-title: pacs.003.001.09 | FI to FI Customer Direct Debit | pacs008
+title: pacs.003.001.09 | FI-zu-FI-Kundenlastschrift | pacs008
 description: Die Nachricht pacs.003 wird zwischen Finanzinstituten ausgetauscht, um eine Kundenlastschrift auszuführen. Sie ermöglicht es der Bank des Gläubigers...
 lang: de-DE
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.003.001.09 — FI to FI Customer Direct Debit
+# pacs.003.001.09 — FI-zu-FI-Kundenlastschrift
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Die Nachricht pacs.003 wird zwischen Finanzinstituten ausgetauscht, um eine Kundenlastschrift auszuführen. Sie ermöglicht es der Bank des Gläubigers, Gelder von der Bank des Schuldners im Auftrag des Gläubigers einzuziehen.
 
-> Zuletzt anhand von Primärquellen am 23. März 2026 geprüft. Referenzdatum des ISO-20022-Katalogs: 27 February 2025; Quellenlinks sind unten aufgeführt.
+> Zuletzt anhand von Primärquellen am 23. März 2026 geprüft. Referenzdatum des ISO-20022-Katalogs: 2025-02-27; Quellenlinks sind unten aufgeführt.
 
 ## Wichtige Datenelemente
 
@@ -59,7 +59,7 @@ Der Gläubigeragent initiiert pacs.003 gegenüber dem Schuldneragent zum Einzug 
 
 | Versionsbereich | Warum es wichtig ist | Praktische Konsequenz |
 |---|---|---|
-| pacs.003.001.09 | Aktuelle Implementierung in pacs008 | Nützlich für die Modellierung von Lastschriftreferenzen im aktuellen Projekt. |
+| pacs.003.001.09 | Aktuelle Implementierung in pacs008 | Nützlich für die Referenzmodellierung von Lastschriften im aktuellen Projekt. |
 | pacs.003.001.10-11 | Spätere Katalogversionen | Vor einem Greenfield-Einsatz spätere Versionen auf Mandats-, Status- und Interoperabilitätsänderungen prüfen. |
 
 ## Kommentiertes XML-Beispiel
@@ -72,17 +72,17 @@ Der Gläubigeragent initiiert pacs.003 gegenüber dem Schuldneragent zum Einzug 
   <DrctDbtTxInf>
     <PmtId><EndToEndId>MANDATE-7741</EndToEndId></PmtId>
     <IntrBkSttlmAmt Ccy="EUR">250.00</IntrBkSttlmAmt>
-    <Dbtr><Nm>Example Debtor</Nm></Dbtr>
-    <Cdtr><Nm>Example Creditor</Nm></Cdtr>
+    <Dbtr><Nm>DBTR PARTY 01</Nm></Dbtr>
+    <Cdtr><Nm>CDTR PARTY 01</Nm></Cdtr>
   </DrctDbtTxInf>
 </FIToFICstmrDrctDbt>
 ```
 
 ### Hinweise zu den Feldern
 
-- `EndToEndId`: Keep mandate and collection identifiers separate from business invoice references.
-- `IntrBkSttlmAmt`: Validate debit amount precision and currency rules before rendering XML.
-- `Dbtr` / `Cdtr`: Direct-debit success often depends more on account and mandate quality than on XML structure.
+- `EndToEndId`: Halten Sie Mandats- und Einzugskennungen getrennt von geschäftlichen Rechnungsreferenzen.
+- `IntrBkSttlmAmt`: Prüfen Sie Präzision des Lastschriftbetrags und Währungsregeln, bevor XML erzeugt wird.
+- `Dbtr` / `Cdtr`: Der Erfolg einer Lastschrift hängt oft stärker von Konto- und Mandatsqualität als von der XML-Struktur ab.
 
 ## Primärquellen
 
@@ -94,7 +94,7 @@ Der Gläubigeragent initiiert pacs.003 gegenüber dem Schuldneragent zum Einzug 
 ## Verwandte Nachrichten
 | Nachrichtentyp | Beschreibung | Überblick |
 |---|---|---|
-| [`pacs.004.001.11`](/de/pacs.004.001.11/) | Payment Return | Die Nachricht pacs.004 wird verwendet, um eine zuvor abgewickelte Zahlungstransaktion zurückzugeben. Sie kehrt den Geldfluss um, wenn eine Zahlung nicht angewendet werden kann, irrtümlich gesendet wurde oder vom Ursprungsinstitut zurückgerufen wird. |
-| [`pacs.007.001.11`](/de/pacs.007.001.11/) | FI to FI Payment Reversal | Die Nachricht pacs.007 wird verwendet, um eine zuvor gesendete Zahlungsanweisung umzukehren, die noch nicht abgewickelt wurde, oder um die Umkehrung einer abgewickelten Zahlung zu beantragen. Im Gegensatz zu pacs.004 (Rückgabe) wird sie vom ursprünglichen beauftragenden Agenten initiiert. |
-| [`pacs.002.001.12`](/de/pacs.002.001.12/) | FI to FI Payment Status Report | Die Nachricht pacs.002 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung zu melden. Sie liefert Bestätigungs-, Ablehnungs- oder Statusinformationen für einzelne Transaktionen innerhalb einer Zahlungsnachricht. |
+| [`pacs.004.001.11`](/de/pacs.004.001.11/) | Zahlungsrückgabe | Die Nachricht pacs.004 wird verwendet, um eine zuvor abgewickelte Zahlungstransaktion zurückzugeben. Sie kehrt den Geldfluss um, wenn eine Zahlung nicht angewendet werden kann, irrtümlich gesendet wurde oder vom Ursprungsinstitut zurückgerufen wird. |
+| [`pacs.007.001.11`](/de/pacs.007.001.11/) | FI-zu-FI-Zahlungsstornierung | Die Nachricht pacs.007 wird verwendet, um eine zuvor gesendete Zahlungsanweisung umzukehren, die noch nicht abgewickelt wurde, oder um die Umkehrung einer abgewickelten Zahlung zu beantragen. Im Gegensatz zu pacs.004 (Rückgabe) wird sie vom ursprünglichen beauftragenden Agenten initiiert. |
+| [`pacs.002.001.12`](/de/pacs.002.001.12/) | FI-zu-FI-Zahlungsstatusbericht | Die Nachricht pacs.002 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung zu melden. Sie liefert Bestätigungs-, Ablehnungs- oder Statusinformationen für einzelne Transaktionen innerhalb einer Zahlungsnachricht. |
 

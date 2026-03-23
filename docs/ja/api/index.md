@@ -1,6 +1,6 @@
 ---
 title: API | pacs008
-description: pacs008 の REST および CLI ワークフローサポート。 FI-to-FI 顧客クレジット移転ワークフローの生成、検証、API オーケストレーション、コンプライアンス対応。
+description: pacs008 の REST および CLI ワークフローサポート。 金融機関間の顧客クレジット移転ワークフロー向けの生成、検証、API オーケストレーション、コンプライアンス対応。
 lang: ja-JP
 lastUpdated: true
 image: /logo.svg
@@ -11,6 +11,13 @@ image: /logo.svg
 本プロジェクトは運用決済メッセージワークフロー向けに REST API と CLI の両方を提供します。
 
 > このページで参照している ISO 20022、EPC、Swift の公開資料に基づき、2026年3月23日に一次情報との照合を行いました。
+
+## 実装メモ
+
+- 呼び出し元が即座に XML を必要とする場合の運用確認や小規模バッチでは同期生成を使います。
+- 入力ファイルが大きい場合、再試行が必要な場合、または大きなオーケストレーションの一部である場合は非同期生成を使います。
+- 障害時に XML 出力を再現できるよう、入力ペイロードと検証レポートの両方を保存します。
+- サイレントアップグレードを防ぐため、テンプレートと XSD のパスはデプロイ設定で固定します。
 
 ## インストール
 
@@ -45,14 +52,14 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 | `DELETE /jobs/{job_id}` | 保留中または実行中のジョブをキャンセル |
 | `GET /docs` | すべてのエンドポイントを探索・テストするためのインタラクティブな Swagger UI |
 
-- [`pacs.002.001.12`](/ja/pacs.002.001.12/) — FI to FI Payment Status Report
-- [`pacs.003.001.09`](/ja/pacs.003.001.09/) — FI to FI Customer Direct Debit
-- [`pacs.004.001.11`](/ja/pacs.004.001.11/) — Payment Return
-- [`pacs.007.001.11`](/ja/pacs.007.001.11/) — FI to FI Payment Reversal
-- [`pacs.008.001.13`](/ja/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.009.001.10`](/ja/pacs.009.001.10/) — Financial Institution Credit Transfer
-- [`pacs.010.001.05`](/ja/pacs.010.001.05/) — Financial Institution Direct Debit
-- [`pacs.028.001.05`](/ja/pacs.028.001.05/) — FI to FI Payment Status Request
+- [`pacs.002.001.12`](/ja/pacs.002.001.12/) — 金融機関間支払ステータス報告
+- [`pacs.003.001.09`](/ja/pacs.003.001.09/) — 金融機関間顧客口座振替
+- [`pacs.004.001.11`](/ja/pacs.004.001.11/) — 支払返却
+- [`pacs.007.001.11`](/ja/pacs.007.001.11/) — 金融機関間支払取消
+- [`pacs.008.001.13`](/ja/pacs.008.001.13/) — 金融機関間顧客信用振替
+- [`pacs.009.001.10`](/ja/pacs.009.001.10/) — 金融機関間信用振替
+- [`pacs.010.001.05`](/ja/pacs.010.001.05/) — 金融機関間口座振替
+- [`pacs.028.001.05`](/ja/pacs.028.001.05/) — 金融機関間支払ステータス照会
 
 ### 検証の例
 

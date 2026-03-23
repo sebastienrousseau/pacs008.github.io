@@ -1,12 +1,12 @@
 ---
-title: pacs.010.001.05 | Financial Institution Direct Debit | pacs008
+title: pacs.010.001.05 | Débito direto entre instituições financeiras | pacs008
 description: A mensagem pacs.010 é utilizada entre instituições financeiras para transações de débito direto na conta própria da instituição. Permite que uma...
 lang: pt-BR
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.010.001.05 — Financial Institution Direct Debit
+# pacs.010.001.05 — Débito direto entre instituições financeiras
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 A mensagem pacs.010 é utilizada entre instituições financeiras para transações de débito direto na conta própria da instituição. Permite que uma instituição colete fundos diretamente da conta de outra instituição.
 
-> Última revisão com base em fontes primárias em 23 de março de 2026. Data de referência do catálogo ISO 20022: 27 February 2025; os links das fontes estão abaixo.
+> Última revisão com base em fontes primárias em 23 de março de 2026. Data de referência do catálogo ISO 20022: 2025-02-27; os links das fontes estão abaixo.
 
 ## Elementos de dados principais
 
@@ -81,8 +81,8 @@ A instituição credora envia pacs.010 à instituição devedora para coletar fu
 ### Comentários de campo
 
 - `InstrId`: Use an identifier that can be traced back to the bilateral collection arrangement.
-- `IntrBkSttlmAmt`: Institution direct-debit amounts often need explicit bilateral tolerance controls.
-- `Cdtr` / `Dbtr`: Capture institutional roles clearly; this is not a retail-customer debit model.
+- `IntrBkSttlmAmt`: Valores de débito direto entre instituições frequentemente exigem controles bilaterais explícitos de tolerância.
+- `Cdtr` / `Dbtr`: Defina claramente os papéis institucionais; este não é um modelo de débito para cliente de varejo.
 
 ## Referências primárias
 
@@ -94,7 +94,7 @@ A instituição credora envia pacs.010 à instituição devedora para coletar fu
 ## Mensagens relacionadas
 | Tipo de mensagem | Descrição | Visão geral |
 |---|---|---|
-| [`pacs.009.001.10`](/pt/pacs.009.001.10/) | Financial Institution Credit Transfer | A mensagem pacs.009 é utilizada para transferências de crédito entre instituições financeiras onde a transferência ocorre por conta própria da instituição e não em nome de um cliente. Suporta financiamento interbancário, pagamentos de cobertura e gestão de liquidez. |
-| [`pacs.002.001.12`](/pt/pacs.002.001.12/) | FI to FI Payment Status Report | A mensagem pacs.002 é enviada por uma instituição financeira para reportar o status de uma instrução de pagamento enviada anteriormente. Fornece informações de confirmação, rejeição ou status pendente para transações individuais dentro de uma mensagem de pagamento. |
-| [`pacs.003.001.09`](/pt/pacs.003.001.09/) | FI to FI Customer Direct Debit | A mensagem pacs.003 é trocada entre instituições financeiras para executar uma instrução de débito direto do cliente. Permite que o banco do credor colete fundos do banco do devedor em nome do credor. |
+| [`pacs.009.001.10`](/pt/pacs.009.001.10/) | Transferência de crédito entre instituições financeiras | A mensagem pacs.009 é utilizada para transferências de crédito entre instituições financeiras onde a transferência ocorre por conta própria da instituição e não em nome de um cliente. Suporta financiamento interbancário, pagamentos de cobertura e gestão de liquidez. |
+| [`pacs.002.001.12`](/pt/pacs.002.001.12/) | Relatório de status de pagamento FI a FI | A mensagem pacs.002 é enviada por uma instituição financeira para reportar o status de uma instrução de pagamento enviada anteriormente. Fornece informações de confirmação, rejeição ou status pendente para transações individuais dentro de uma mensagem de pagamento. |
+| [`pacs.003.001.09`](/pt/pacs.003.001.09/) | Débito direto de cliente FI a FI | A mensagem pacs.003 é trocada entre instituições financeiras para executar uma instrução de débito direto do cliente. Permite que o banco do credor colete fundos do banco do devedor em nome do credor. |
 

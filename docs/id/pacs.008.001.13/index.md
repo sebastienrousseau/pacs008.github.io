@@ -1,12 +1,12 @@
 ---
-title: pacs.008.001.13 | FI to FI Customer Credit Transfer | pacs008
+title: pacs.008.001.13 | Transfer Kredit Pelanggan FI ke FI | pacs008
 description: Pesan pacs.008 adalah instruksi pembayaran inti yang dipertukarkan antara lembaga keuangan untuk mentransfer dana atas nama pelanggan. Pesan ini membawa...
 lang: id-ID
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.008.001.13 — FI to FI Customer Credit Transfer
+# pacs.008.001.13 — Transfer Kredit Pelanggan FI ke FI
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Pesan pacs.008 adalah instruksi pembayaran inti yang dipertukarkan antara lembaga keuangan untuk mentransfer dana atas nama pelanggan. Pesan ini membawa informasi debitur, kreditur, jumlah, dan remitansi untuk satu atau lebih transaksi transfer kredit.
 
-> Terakhir ditinjau terhadap sumber primer pada 23 Maret 2026. Tanggal referensi katalog ISO 20022: 27 February 2025; tautan sumber tercantum di bawah.
+> Terakhir ditinjau terhadap sumber primer pada 23 Maret 2026. Tanggal referensi katalog ISO 20022: 2025-02-27; tautan sumber tercantum di bawah.
 
 ## Elemen data utama
 
@@ -55,6 +55,51 @@ Pesan pacs.008 adalah instruksi pembayaran inti yang dipertukarkan antara lembag
 
 Agen debitur membuat pacs.008 dan mengirimkannya ke agen kreditur (langsung atau melalui perantara). Setiap agen dalam rantai memvalidasi, memperkaya, dan meneruskan instruksi hingga agen kreditur mengkreditkan rekening penerima manfaat.
 
+## Tabel perbedaan versi
+
+| Rentang versi | Mengapa ini penting | Kesimpulan implementasi |
+|---|---|---|
+| pacs.008.001.01-07 | Revisi awal | Terutama berguna untuk analisis migrasi dari sistem lama dan konteks riwayat versi. |
+| pacs.008.001.08-12 | Revisi modern sebelum versi saat ini | Inilah revisi yang paling mungkin muncul dalam proyek migrasi atau koeksistensi terbaru. |
+| pacs.008.001.13 | Revisi katalog saat ini | Gunakan ini untuk perencanaan versi saat ini, sambil tetap memvalidasi pedoman penggunaan skema dan kesiapan pihak lawan. |
+
+## Contoh XML beranotasi
+
+```xml
+<FIToFICstmrCdtTrf>
+  <GrpHdr>
+    <MsgId>MSG-2026-001</MsgId>
+    <CreDtTm>2026-01-15T10:30:00Z</CreDtTm>
+  </GrpHdr>
+  <CdtTrfTxInf>
+    <PmtId>
+      <EndToEndId>E2E-INV-2026-001</EndToEndId>
+      <UETR>123e4567-e89b-12d3-a456-426614174000</UETR>
+    </PmtId>
+    <IntrBkSttlmAmt Ccy="EUR">25000.00</IntrBkSttlmAmt>
+    <Dbtr><Nm>Acme Corp GmbH</Nm></Dbtr>
+    <Cdtr><Nm>Widget Industries SA</Nm></Cdtr>
+  </CdtTrfTxInf>
+</FIToFICstmrCdtTrf>
+```
+
+### Komentar bidang
+
+- `MsgId`: Ini harus mengidentifikasi envelope pesan, bukan referensi pembayaran pelanggan akhir.
+- `EndToEndId`: Jaga keterlacakan yang terlihat oleh pelanggan tetap stabil di seluruh sistem lanjutan bila memungkinkan.
+- `UETR`: Gunakan ini secara konsisten dalam lingkungan lintas batas dan yang menuntut pelacakan tinggi; jangan hasilkan secara ad hoc pada tahap proses berikutnya.
+- `IntrBkSttlmAmt`: Validasi jumlah dan mata uang menggunakan aturan bisnis sebelum validasi skema.
+- `Dbtr` / `Cdtr`: Kualitas pihak, struktur alamat, dan pengenal biasanya menjadi penentu utama tingkat perbaikan.
+
+## Bandingkan pacs.008 vs pacs.009
+
+| Dimensi | pacs.008.001.13 | Pesan pembanding |
+|---|---|---|
+| Tujuan utama | Transfer kredit nasabah | Transfer kredit rekening milik institusi sendiri atau tahap penutup pendanaan |
+| Pemilik bisnis | Operasi pembayaran nasabah | Operasi tresuri / perbankan koresponden / pendanaan |
+| Pasangan umum | pacs.002, pacs.004, pacs.007, pacs.028 | aliran pacs.002, pacs.004, dan kadang-kadang aliran pacs.008 yang terkait |
+| Asumsi keliru yang harus dihindari | Bahwa semua transfer antarbank termasuk di sini | Bahwa ini dapat menggantikan instruksi transfer kredit nasabah |
+
 ## Referensi primer
 
 - [ISO 20022 message definitions catalogue for `pacs.008.001.13`](https://www.iso20022.org/iso-20022-message-definitions?search=Pacs.008.001.13)
@@ -70,7 +115,7 @@ Agen debitur membuat pacs.008 dan mengirimkannya ke agen kreditur (langsung atau
 
 ## Versi yang didukung
 
-| Version | |
+| Versi | |
 |---|---|
 | `pacs.008.001.01` |  |
 | `pacs.008.001.02` |  |
@@ -84,12 +129,12 @@ Agen debitur membuat pacs.008 dan mengirimkannya ke agen kreditur (langsung atau
 | `pacs.008.001.10` |  |
 | `pacs.008.001.11` |  |
 | `pacs.008.001.12` |  |
-| `pacs.008.001.13` | **Current** |
+| `pacs.008.001.13` | **Saat ini** |
 
 ## Pesan terkait
 | Jenis pesan | Deskripsi | Ikhtisar |
 |---|---|---|
-| [`pacs.002.001.12`](/id/pacs.002.001.12/) | FI to FI Payment Status Report | Pesan pacs.002 dikirim oleh lembaga keuangan untuk melaporkan status instruksi pembayaran yang sebelumnya dikirim. Pesan ini memberikan informasi konfirmasi, penolakan, atau status tertunda untuk transaksi individual dalam pesan pembayaran. |
-| [`pacs.004.001.11`](/id/pacs.004.001.11/) | Payment Return | Pesan pacs.004 digunakan untuk mengembalikan transaksi pembayaran yang sebelumnya telah diselesaikan. Pesan ini membalikkan aliran dana ketika pembayaran tidak dapat diterapkan, dikirim secara keliru, atau sedang ditarik kembali oleh lembaga asal. |
-| [`pacs.009.001.10`](/id/pacs.009.001.10/) | Financial Institution Credit Transfer | Pesan pacs.009 digunakan untuk transfer kredit antara lembaga keuangan di mana transfer dilakukan atas nama lembaga itu sendiri bukan atas nama pelanggan. Pesan ini mendukung pendanaan antarbank, pembayaran cover, dan manajemen likuiditas. |
+| [`pacs.002.001.12`](/id/pacs.002.001.12/) | Laporan Status Pembayaran FI ke FI | Pesan pacs.002 dikirim oleh lembaga keuangan untuk melaporkan status instruksi pembayaran yang sebelumnya dikirim. Pesan ini memberikan informasi konfirmasi, penolakan, atau status tertunda untuk transaksi individual dalam pesan pembayaran. |
+| [`pacs.004.001.11`](/id/pacs.004.001.11/) | Retur Pembayaran | Pesan pacs.004 digunakan untuk mengembalikan transaksi pembayaran yang sebelumnya telah diselesaikan. Pesan ini membalikkan aliran dana ketika pembayaran tidak dapat diterapkan, dikirim secara keliru, atau sedang ditarik kembali oleh lembaga asal. |
+| [`pacs.009.001.10`](/id/pacs.009.001.10/) | Transfer Kredit Antar Lembaga Keuangan | Pesan pacs.009 digunakan untuk transfer kredit antara lembaga keuangan di mana transfer dilakukan atas nama lembaga itu sendiri bukan atas nama pelanggan. Pesan ini mendukung pendanaan antarbank, pembayaran cover, dan manajemen likuiditas. |
 

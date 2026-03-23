@@ -1,12 +1,12 @@
 ---
-title: pacs.004.001.11 | Payment Return | pacs008
+title: pacs.004.001.11 | Retorno de pagamento | pacs008
 description: A mensagem pacs.004 é utilizada para devolver uma transação de pagamento previamente liquidada. Reverte o fluxo de fundos quando um pagamento não pode ser...
 lang: pt-BR
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.004.001.11 — Payment Return
+# pacs.004.001.11 — Retorno de pagamento
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 A mensagem pacs.004 é utilizada para devolver uma transação de pagamento previamente liquidada. Reverte o fluxo de fundos quando um pagamento não pode ser aplicado, foi enviado por engano ou está sendo rechamado pela instituição originadora.
 
-> Última revisão com base em fontes primárias em 23 de março de 2026. Data de referência do catálogo ISO 20022: 27 February 2025; os links das fontes estão abaixo.
+> Última revisão com base em fontes primárias em 23 de março de 2026. Data de referência do catálogo ISO 20022: 2025-02-27; os links das fontes estão abaixo.
 
 ## Elementos de dados principais
 
@@ -60,7 +60,7 @@ O agente instruído envia pacs.004 de volta pela cadeia de pagamento para devolv
 | Faixa de versão | Por que importa | Implicação de implementação |
 |---|---|---|
 | pacs.004.001.11 | Implementação atual no pacs008 | Alinha-se aos templates atuais para retornos de pagamento. |
-| pacs.004.001.12-14 | Revisões posteriores do catálogo | Review later return-message revisions when scheme upgrades or new counterparties are in scope. |
+| pacs.004.001.12-14 | Revisões posteriores do catálogo | Revise versões posteriores das mensagens de retorno quando atualizações de esquema ou novas contrapartes estiverem no escopo. |
 
 ## Exemplo XML comentado
 
@@ -92,7 +92,7 @@ O agente instruído envia pacs.004 de volta pela cadeia de pagamento para devolv
 | Objetivo principal | Return settled funds | Reverse a previously instructed payment |
 | Initiated by | Receiving / beneficiary side | Original instructing side |
 | Direction of flow | Back through the chain | Forward through the chain |
-| Best fit | Post-settlement return handling | Recall, error, or fraud-driven reversal handling |
+| Mais adequado para | Tratamento de devoluções após a liquidação | Tratamento de reversões por recall, erro ou fraude |
 
 ## Referências primárias
 
@@ -106,7 +106,7 @@ O agente instruído envia pacs.004 de volta pela cadeia de pagamento para devolv
 ## Mensagens relacionadas
 | Tipo de mensagem | Descrição | Visão geral |
 |---|---|---|
-| [`pacs.008.001.13`](/pt/pacs.008.001.13/) | FI to FI Customer Credit Transfer | A mensagem pacs.008 é a instrução de pagamento principal trocada entre instituições financeiras para transferir fundos em nome de um cliente. Contém informações sobre devedor, credor, valor e dados de remessa para uma ou mais transações de transferência de crédito. |
-| [`pacs.003.001.09`](/pt/pacs.003.001.09/) | FI to FI Customer Direct Debit | A mensagem pacs.003 é trocada entre instituições financeiras para executar uma instrução de débito direto do cliente. Permite que o banco do credor colete fundos do banco do devedor em nome do credor. |
-| [`pacs.002.001.12`](/pt/pacs.002.001.12/) | FI to FI Payment Status Report | A mensagem pacs.002 é enviada por uma instituição financeira para reportar o status de uma instrução de pagamento enviada anteriormente. Fornece informações de confirmação, rejeição ou status pendente para transações individuais dentro de uma mensagem de pagamento. |
+| [`pacs.008.001.13`](/pt/pacs.008.001.13/) | Transferência de crédito de cliente FI a FI | A mensagem pacs.008 é a instrução de pagamento principal trocada entre instituições financeiras para transferir fundos em nome de um cliente. Contém informações sobre devedor, credor, valor e dados de remessa para uma ou mais transações de transferência de crédito. |
+| [`pacs.003.001.09`](/pt/pacs.003.001.09/) | Débito direto de cliente FI a FI | A mensagem pacs.003 é trocada entre instituições financeiras para executar uma instrução de débito direto do cliente. Permite que o banco do credor colete fundos do banco do devedor em nome do credor. |
+| [`pacs.002.001.12`](/pt/pacs.002.001.12/) | Relatório de status de pagamento FI a FI | A mensagem pacs.002 é enviada por uma instituição financeira para reportar o status de uma instrução de pagamento enviada anteriormente. Fornece informações de confirmação, rejeição ou status pendente para transações individuais dentro de uma mensagem de pagamento. |
 

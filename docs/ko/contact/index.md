@@ -1,6 +1,6 @@
 ---
 title: 문의 | pacs008
-description: pacs008 프로젝트에 연락하는 방법. FI-to-FI 고객 신용 이체 워크플로를 위한 생성, 검증, API 오케스트레이션, 규정 준수 지원.
+description: pacs008 프로젝트에 연락하는 방법. 금융기관 간 고객 신용 이체 워크플로를 위한 생성, 검증, API 오케스트레이션, 규정 준수 지원.
 lang: ko-KR
 lastUpdated: true
 image: /logo.svg

@@ -1,12 +1,12 @@
 ---
-title: pacs.010.001.05 | Financial Institution Direct Debit | pacs008
+title: pacs.010.001.05 | Incasso tussen financiële instellingen | pacs008
 description: Het pacs.010-bericht wordt tussen financiële instellingen gebruikt voor incassotransacties op eigen rekening van de instelling. Het stelt de ene...
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.010.001.05 — Financial Institution Direct Debit
+# pacs.010.001.05 — Incasso tussen financiële instellingen
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Het pacs.010-bericht wordt tussen financiële instellingen gebruikt voor incassotransacties op eigen rekening van de instelling. Het stelt de ene instelling in staat om gelden rechtstreeks van de rekening van een andere instelling te innen.
 
-> Laatst gecontroleerd aan de hand van primaire bronnen op 23 maart 2026. Referentiedatum ISO 20022-catalogus: 27 February 2025; bronlinks staan hieronder.
+> Laatst gecontroleerd aan de hand van primaire bronnen op 23 maart 2026. Referentiedatum ISO 20022-catalogus: 2025-02-27; bronlinks staan hieronder.
 
 ## Belangrijke gegevenselementen
 
@@ -81,8 +81,8 @@ De crediteurinstelling stuurt pacs.010 naar de debiteurinstelling om gelden te i
 ### Veldtoelichting
 
 - `InstrId`: Use an identifier that can be traced back to the bilateral collection arrangement.
-- `IntrBkSttlmAmt`: Institution direct-debit amounts often need explicit bilateral tolerance controls.
-- `Cdtr` / `Dbtr`: Capture institutional roles clearly; this is not a retail-customer debit model.
+- `IntrBkSttlmAmt`: Bedragen bij institutionele incasso's vereisen vaak expliciete bilaterale tolerantielimieten.
+- `Cdtr` / `Dbtr`: Leg institutionele rollen duidelijk vast; dit is geen debetmodel voor retailklanten.
 
 ## Primaire referenties
 
@@ -94,7 +94,7 @@ De crediteurinstelling stuurt pacs.010 naar de debiteurinstelling om gelden te i
 ## Gerelateerde berichten
 | Berichttype | Beschrijving | Overzicht |
 |---|---|---|
-| [`pacs.009.001.10`](/nl/pacs.009.001.10/) | Financial Institution Credit Transfer | Het pacs.009-bericht wordt gebruikt voor overboekingen tussen financiële instellingen waarbij de overboeking voor eigen rekening van de instelling plaatsvindt en niet namens een klant. Het ondersteunt interbancaire financiering, dekkingsbetalingen en liquiditeitsbeheer. |
-| [`pacs.002.001.12`](/nl/pacs.002.001.12/) | FI to FI Payment Status Report | Het pacs.002-bericht wordt door een financiële instelling verzonden om de status te rapporteren van een eerder verzonden betalingsinstructie. Het biedt bevestigings-, afwijzings- of hangende statusinformatie voor individuele transacties binnen een betalingsbericht. |
-| [`pacs.003.001.09`](/nl/pacs.003.001.09/) | FI to FI Customer Direct Debit | Het pacs.003-bericht wordt uitgewisseld tussen financiële instellingen om een incasso-instructie van de klant uit te voeren. Het stelt de bank van de crediteur in staat om namens de crediteur gelden te innen bij de bank van de debiteur. |
+| [`pacs.009.001.10`](/nl/pacs.009.001.10/) | Kredietoverboeking tussen financiële instellingen | Het pacs.009-bericht wordt gebruikt voor overboekingen tussen financiële instellingen waarbij de overboeking voor eigen rekening van de instelling plaatsvindt en niet namens een klant. Het ondersteunt interbancaire financiering, dekkingsbetalingen en liquiditeitsbeheer. |
+| [`pacs.002.001.12`](/nl/pacs.002.001.12/) | FI-naar-FI-betalingsstatusrapport | Het pacs.002-bericht wordt door een financiële instelling verzonden om de status te rapporteren van een eerder verzonden betalingsinstructie. Het biedt bevestigings-, afwijzings- of hangende statusinformatie voor individuele transacties binnen een betalingsbericht. |
+| [`pacs.003.001.09`](/nl/pacs.003.001.09/) | FI-naar-FI-klantincasso | Het pacs.003-bericht wordt uitgewisseld tussen financiële instellingen om een incasso-instructie van de klant uit te voeren. Het stelt de bank van de crediteur in staat om namens de crediteur gelden te innen bij de bank van de debiteur. |
 

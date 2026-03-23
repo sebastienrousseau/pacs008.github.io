@@ -1,12 +1,12 @@
 ---
-title: pacs.003.001.09 | FI to FI Customer Direct Debit | pacs008
+title: pacs.003.001.09 | Débito directo de cliente FI a FI | pacs008
 description: El mensaje pacs.003 se intercambia entre instituciones financieras para ejecutar una instrucción de adeudo directo de cliente. Permite al banco del...
 lang: es-ES
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.003.001.09 — FI to FI Customer Direct Debit
+# pacs.003.001.09 — Débito directo de cliente FI a FI
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 El mensaje pacs.003 se intercambia entre instituciones financieras para ejecutar una instrucción de adeudo directo de cliente. Permite al banco del acreedor cobrar fondos del banco del deudor en nombre del acreedor.
 
-> Revisado por última vez frente a fuentes primarias el 23 de marzo de 2026. Fecha de referencia del catálogo ISO 20022: 27 February 2025; los enlaces a las fuentes se muestran a continuación.
+> Revisado por última vez frente a fuentes primarias el 23 de marzo de 2026. Fecha de referencia del catálogo ISO 20022: 2025-02-27; los enlaces a las fuentes se muestran a continuación.
 
 ## Elementos de datos clave
 
@@ -59,8 +59,8 @@ El agente del acreedor inicia pacs.003 hacia el agente del deudor para cobrar fo
 
 | Rango de versiones | Por qué importa | Conclusión de implementación |
 |---|---|---|
-| pacs.003.001.09 | Implementación actual en pacs008 | Útil para modelar referencias de adeudo directo en el proyecto actual. |
-| pacs.003.001.10-11 | Revisiones posteriores del catálogo | Check later revisions for mandate, status, and interoperability updates before greenfield use. |
+| pacs.003.001.09 | Implementación actual en pacs008 | Útil para la modelización de referencias de adeudo directo en el proyecto actual. |
+| pacs.003.001.10-11 | Revisiones posteriores del catálogo | Revise versiones posteriores para cambios de mandato, estado e interoperabilidad antes de un uso greenfield. |
 
 ## Fragmento XML comentado
 
@@ -72,17 +72,17 @@ El agente del acreedor inicia pacs.003 hacia el agente del deudor para cobrar fo
   <DrctDbtTxInf>
     <PmtId><EndToEndId>MANDATE-7741</EndToEndId></PmtId>
     <IntrBkSttlmAmt Ccy="EUR">250.00</IntrBkSttlmAmt>
-    <Dbtr><Nm>Example Debtor</Nm></Dbtr>
-    <Cdtr><Nm>Example Creditor</Nm></Cdtr>
+    <Dbtr><Nm>DBTR PARTY 01</Nm></Dbtr>
+    <Cdtr><Nm>CDTR PARTY 01</Nm></Cdtr>
   </DrctDbtTxInf>
 </FIToFICstmrDrctDbt>
 ```
 
 ### Comentarios de campos
 
-- `EndToEndId`: Keep mandate and collection identifiers separate from business invoice references.
-- `IntrBkSttlmAmt`: Validate debit amount precision and currency rules before rendering XML.
-- `Dbtr` / `Cdtr`: Direct-debit success often depends more on account and mandate quality than on XML structure.
+- `EndToEndId`: Mantenga separados los identificadores de mandato y cobro de las referencias de facturas comerciales.
+- `IntrBkSttlmAmt`: Valide la precisión del importe del adeudo y las reglas de divisa antes de generar el XML.
+- `Dbtr` / `Cdtr`: El éxito del adeudo directo suele depender más de la calidad de la cuenta y del mandato que de la estructura XML.
 
 ## Referencias primarias
 
@@ -94,7 +94,7 @@ El agente del acreedor inicia pacs.003 hacia el agente del deudor para cobrar fo
 ## Mensajes relacionados
 | Tipo de mensaje | Descripción | Descripción general |
 |---|---|---|
-| [`pacs.004.001.11`](/es/pacs.004.001.11/) | Payment Return | El mensaje pacs.004 se utiliza para devolver una transacción de pago liquidada previamente. Invierte el flujo de fondos cuando un pago no puede aplicarse, se envió por error o está siendo reclamado por la institución originadora. |
-| [`pacs.007.001.11`](/es/pacs.007.001.11/) | FI to FI Payment Reversal | El mensaje pacs.007 se utiliza para revertir una instrucción de pago enviada previamente que aún no ha sido liquidada o para solicitar la reversión de un pago liquidado. A diferencia de pacs.004 (devolución), es iniciado por el agente ordenante original. |
-| [`pacs.002.001.12`](/es/pacs.002.001.12/) | FI to FI Payment Status Report | El mensaje pacs.002 es enviado por una institución financiera para informar del estado de una instrucción de pago enviada previamente. Proporciona información de confirmación, rechazo o estado pendiente para transacciones individuales dentro de un mensaje de pago. |
+| [`pacs.004.001.11`](/es/pacs.004.001.11/) | Devolución de pago | El mensaje pacs.004 se utiliza para devolver una transacción de pago liquidada previamente. Invierte el flujo de fondos cuando un pago no puede aplicarse, se envió por error o está siendo reclamado por la institución originadora. |
+| [`pacs.007.001.11`](/es/pacs.007.001.11/) | Reverso de pago FI a FI | El mensaje pacs.007 se utiliza para revertir una instrucción de pago enviada previamente que aún no ha sido liquidada o para solicitar la reversión de un pago liquidado. A diferencia de pacs.004 (devolución), es iniciado por el agente ordenante original. |
+| [`pacs.002.001.12`](/es/pacs.002.001.12/) | Informe de estado de pagos FI a FI | El mensaje pacs.002 es enviado por una institución financiera para informar del estado de una instrucción de pago enviada previamente. Proporciona información de confirmación, rechazo o estado pendiente para transacciones individuales dentro de un mensaje de pago. |
 

@@ -1,6 +1,6 @@
 ---
 title: pacs008 | Bahasa Indonesia | ISO 20022 Toolkit
-description: Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan FI-to-FI.
+description: Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan antar lembaga keuangan.
 lang: id-ID
 author: Sebastien Rousseau
 lastUpdated: true
@@ -17,8 +17,8 @@ schemaType: WebSite
 heroText: Otomatisasi pemrosesan pesan pacs.008 ISO 20022.
 home: true
 metaTitle: pacs008
-subtitle: Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan FI-to-FI.
-tagline: Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan FI-to-FI.
+subtitle: Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan antar lembaga keuangan.
+tagline: Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan antar lembaga keuangan.
 actionText: Pelajari pacs008
 actionLink: /id/about/
 features:

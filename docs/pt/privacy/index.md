@@ -1,6 +1,6 @@
 ---
 title: Privacidade | pacs008
-description: Informações de privacidade do site pacs008. Geração, validação, orquestração de API e suporte de conformidade para fluxos de transferência de crédito...
+description: Informações de privacidade do site pacs008. Geração, validação, orquestração de API e suporte de conformidade para fluxos de transferência de crédito de...
 lang: pt-BR
 lastUpdated: true
 image: /logo.svg

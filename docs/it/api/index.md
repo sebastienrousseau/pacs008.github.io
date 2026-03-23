@@ -1,6 +1,6 @@
 ---
 title: API | pacs008
-description: Supporto flussi REST e CLI in pacs008. Generazione, validazione, orchestrazione API e conformità per i flussi di bonifico cliente FI-to-FI.
+description: Supporto flussi REST e CLI in pacs008. Generazione, validazione, orchestrazione API e conformità per i flussi di bonifico cliente tra istituzioni finanziarie.
 lang: it-IT
 lastUpdated: true
 image: /logo.svg
@@ -52,14 +52,14 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 | `DELETE /jobs/{job_id}` | Annullare un job in attesa o in esecuzione |
 | `GET /docs` | Swagger UI interattiva per esplorare e testare tutti gli endpoint |
 
-- [`pacs.002.001.12`](/it/pacs.002.001.12/) — FI to FI Payment Status Report
-- [`pacs.003.001.09`](/it/pacs.003.001.09/) — FI to FI Customer Direct Debit
-- [`pacs.004.001.11`](/it/pacs.004.001.11/) — Payment Return
-- [`pacs.007.001.11`](/it/pacs.007.001.11/) — FI to FI Payment Reversal
-- [`pacs.008.001.13`](/it/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.009.001.10`](/it/pacs.009.001.10/) — Financial Institution Credit Transfer
-- [`pacs.010.001.05`](/it/pacs.010.001.05/) — Financial Institution Direct Debit
-- [`pacs.028.001.05`](/it/pacs.028.001.05/) — FI to FI Payment Status Request
+- [`pacs.002.001.12`](/it/pacs.002.001.12/) — Rapporto di stato del pagamento tra istituzioni finanziarie
+- [`pacs.003.001.09`](/it/pacs.003.001.09/) — Addebito diretto cliente tra istituzioni finanziarie
+- [`pacs.004.001.11`](/it/pacs.004.001.11/) — Reso di pagamento
+- [`pacs.007.001.11`](/it/pacs.007.001.11/) — Storno di pagamento tra istituzioni finanziarie
+- [`pacs.008.001.13`](/it/pacs.008.001.13/) — Bonifico cliente tra istituzioni finanziarie
+- [`pacs.009.001.10`](/it/pacs.009.001.10/) — Bonifico tra istituzioni finanziarie
+- [`pacs.010.001.05`](/it/pacs.010.001.05/) — Addebito diretto tra istituzioni finanziarie
+- [`pacs.028.001.05`](/it/pacs.028.001.05/) — Richiesta di stato del pagamento tra istituzioni finanziarie
 
 ### Esempio di validazione
 

@@ -1,12 +1,12 @@
 ---
-title: pacs.003.001.09 | FI to FI Customer Direct Debit | pacs008
+title: pacs.003.001.09 | FI'dan FI'ya müşteri doğrudan borçlandırması | pacs008
 description: pacs.003 mesajı, bir müşteri doğrudan borçlandırma talimatını yürütmek üzere finans kuruluşları arasında iletilir. Alacaklının bankasının, alacaklı adına...
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.003.001.09 — FI to FI Customer Direct Debit
+# pacs.003.001.09 — FI'dan FI'ya müşteri doğrudan borçlandırması
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 pacs.003 mesajı, bir müşteri doğrudan borçlandırma talimatını yürütmek üzere finans kuruluşları arasında iletilir. Alacaklının bankasının, alacaklı adına borçlunun bankasından fon tahsil etmesini sağlar.
 
-> Birincil kaynaklara göre en son 23 Mart 2026 tarihinde gözden geçirildi. ISO 20022 katalog referans tarihi: 27 February 2025; kaynak bağlantıları aşağıda listelenmiştir.
+> Birincil kaynaklara göre en son 23 Mart 2026 tarihinde gözden geçirildi. ISO 20022 katalog referans tarihi: 2025-02-27; kaynak bağlantıları aşağıda listelenmiştir.
 
 ## Temel veri öğeleri
 
@@ -55,6 +55,35 @@ pacs.003 mesajı, bir müşteri doğrudan borçlandırma talimatını yürütmek
 
 Alacaklı aracı, fon tahsil etmek üzere borçlu aracıya pacs.003 başlatır. Borçlu aracı yetkiyi doğrular, hesap bakiyesini kontrol eder ve işlemi takas eder veya iade eder.
 
+## Sürüm fark tablosu
+
+| Sürüm aralığı | Neden önemli | Uygulama çıkarımı |
+|---|---|---|
+| pacs.003.001.09 | pacs008 içindeki mevcut uygulama | Mevcut projede doğrudan borçlandırma referanslarının modellenmesi için faydalıdır. |
+| pacs.003.001.10-11 | Daha sonraki katalog sürümleri | Yeni bir uygulamaya başlamadan önce yetki, durum ve birlikte çalışabilirlik güncellemeleri için sonraki sürümleri inceleyin. |
+
+## Açıklamalı XML örneği
+
+```xml
+<FIToFICstmrDrctDbt>
+  <GrpHdr>
+    <MsgId>DD-2026-1001</MsgId>
+  </GrpHdr>
+  <DrctDbtTxInf>
+    <PmtId><EndToEndId>MANDATE-7741</EndToEndId></PmtId>
+    <IntrBkSttlmAmt Ccy="EUR">250.00</IntrBkSttlmAmt>
+    <Dbtr><Nm>DBTR PARTY 01</Nm></Dbtr>
+    <Cdtr><Nm>CDTR PARTY 01</Nm></Cdtr>
+  </DrctDbtTxInf>
+</FIToFICstmrDrctDbt>
+```
+
+### Alan açıklamaları
+
+- `EndToEndId`: Talimat ve tahsilat tanımlayıcılarını ticari fatura referanslarından ayrı tutun.
+- `IntrBkSttlmAmt`: XML oluşturmadan önce borç tutarı hassasiyetini ve para birimi kurallarını doğrulayın.
+- `Dbtr` / `Cdtr`: Doğrudan borçlandırmanın başarısı çoğu zaman XML yapısından çok hesap ve talimat kalitesine bağlıdır.
+
 ## Birincil referanslar
 
 - [ISO 20022 message definitions catalogue for `pacs.003.001.09`](https://www.iso20022.org/iso-20022-message-definitions?search=Pacs.003.001.09)
@@ -65,7 +94,7 @@ Alacaklı aracı, fon tahsil etmek üzere borçlu aracıya pacs.003 başlatır. 
 ## İlgili mesajlar
 | Mesaj türü | Açıklama | Genel bakış |
 |---|---|---|
-| [`pacs.004.001.11`](/tr/pacs.004.001.11/) | Payment Return | pacs.004 mesajı, daha önce takas edilmiş bir ödeme işlemini iade etmek için kullanılır. Bir ödeme uygulanamadığında, hatalı gönderildiğinde veya kaynak kuruluş tarafından geri çağrıldığında fon akışını tersine çevirir. |
-| [`pacs.007.001.11`](/tr/pacs.007.001.11/) | FI to FI Payment Reversal | pacs.007 mesajı, henüz takas edilmemiş daha önce gönderilmiş bir ödeme talimatını tersine çevirmek veya takas edilmiş bir ödemenin tersine çevrilmesini talep etmek için kullanılır. pacs.004'ten (iade) farklı olarak, orijinal talimat veren aracı tarafından başlatılır. |
-| [`pacs.002.001.12`](/tr/pacs.002.001.12/) | FI to FI Payment Status Report | pacs.002 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu bildirmek üzere bir finans kuruluşu tarafından gönderilir. Bir ödeme mesajı içindeki bireysel işlemler için onay, ret veya bekleyen durum bilgisi sağlar. |
+| [`pacs.004.001.11`](/tr/pacs.004.001.11/) | Ödeme iadesi | pacs.004 mesajı, daha önce takas edilmiş bir ödeme işlemini iade etmek için kullanılır. Bir ödeme uygulanamadığında, hatalı gönderildiğinde veya kaynak kuruluş tarafından geri çağrıldığında fon akışını tersine çevirir. |
+| [`pacs.007.001.11`](/tr/pacs.007.001.11/) | FI'dan FI'ya ödeme geri alma mesajı | pacs.007 mesajı, henüz takas edilmemiş daha önce gönderilmiş bir ödeme talimatını tersine çevirmek veya takas edilmiş bir ödemenin tersine çevrilmesini talep etmek için kullanılır. pacs.004'ten (iade) farklı olarak, orijinal talimat veren aracı tarafından başlatılır. |
+| [`pacs.002.001.12`](/tr/pacs.002.001.12/) | FI'dan FI'ya ödeme durumu raporu | pacs.002 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu bildirmek üzere bir finans kuruluşu tarafından gönderilir. Bir ödeme mesajı içindeki bireysel işlemler için onay, ret veya bekleyen durum bilgisi sağlar. |
 

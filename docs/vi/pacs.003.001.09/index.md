@@ -1,12 +1,12 @@
 ---
-title: pacs.003.001.09 | FI to FI Customer Direct Debit | pacs008
+title: pacs.003.001.09 | Ghi nợ trực tiếp khách hàng giữa các tổ chức tài chính | pacs008
 description: Thông điệp pacs.003 được trao đổi giữa các tổ chức tài chính để thực hiện lệnh ghi nợ trực tiếp của khách hàng. Thông điệp này cho phép ngân hàng của chủ...
 lang: vi-VN
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.003.001.09 — FI to FI Customer Direct Debit
+# pacs.003.001.09 — Ghi nợ trực tiếp khách hàng giữa các tổ chức tài chính
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Thông điệp pacs.003 được trao đổi giữa các tổ chức tài chính để thực hiện lệnh ghi nợ trực tiếp của khách hàng. Thông điệp này cho phép ngân hàng của chủ nợ thu tiền từ ngân hàng của con nợ thay mặt cho chủ nợ.
 
-> Được rà soát lần cuối đối chiếu với nguồn gốc chính vào ngày 23 tháng 3 năm 2026. Ngày tham chiếu của danh mục ISO 20022: 27 February 2025; các liên kết nguồn được liệt kê bên dưới.
+> Được rà soát lần cuối đối chiếu với nguồn gốc chính vào ngày 23 tháng 3 năm 2026. Ngày tham chiếu của danh mục ISO 20022: 2025-02-27; các liên kết nguồn được liệt kê bên dưới.
 
 ## Yếu tố dữ liệu chính
 
@@ -55,6 +55,35 @@ Thông điệp pacs.003 được trao đổi giữa các tổ chức tài chính
 
 Đại lý chủ nợ khởi tạo pacs.003 hướng tới đại lý con nợ để thu tiền. Đại lý con nợ xác thực ủy quyền, kiểm tra số dư tài khoản, và quyết toán hoặc trả lại giao dịch.
 
+## Bảng khác biệt phiên bản
+
+| Phạm vi phiên bản | Vì sao điều này quan trọng | Kết luận triển khai |
+|---|---|---|
+| pacs.003.001.09 | Triển khai hiện tại trong pacs008 | Hữu ích cho việc mô hình hóa tham chiếu ghi nợ trực tiếp trong dự án hiện tại. |
+| pacs.003.001.10-11 | Các bản sửa đổi danh mục về sau | Kiểm tra các bản sửa đổi về sau cho các cập nhật về ủy quyền, trạng thái và khả năng tương tác trước khi dùng cho triển khai mới. |
+
+## Ví dụ XML có chú thích
+
+```xml
+<FIToFICstmrDrctDbt>
+  <GrpHdr>
+    <MsgId>DD-2026-1001</MsgId>
+  </GrpHdr>
+  <DrctDbtTxInf>
+    <PmtId><EndToEndId>MANDATE-7741</EndToEndId></PmtId>
+    <IntrBkSttlmAmt Ccy="EUR">250.00</IntrBkSttlmAmt>
+    <Dbtr><Nm>DBTR PARTY 01</Nm></Dbtr>
+    <Cdtr><Nm>CDTR PARTY 01</Nm></Cdtr>
+  </DrctDbtTxInf>
+</FIToFICstmrDrctDbt>
+```
+
+### Chú thích trường
+
+- `EndToEndId`: Hãy giữ tách biệt các mã định danh ủy quyền và thu hộ khỏi các tham chiếu hóa đơn nghiệp vụ.
+- `IntrBkSttlmAmt`: Hãy xác thực độ chính xác của số tiền ghi nợ và các quy tắc tiền tệ trước khi tạo XML.
+- `Dbtr` / `Cdtr`: Thành công của ghi nợ trực tiếp thường phụ thuộc nhiều hơn vào chất lượng tài khoản và ủy quyền so với cấu trúc XML.
+
 ## Tài liệu tham chiếu gốc
 
 - [ISO 20022 message definitions catalogue for `pacs.003.001.09`](https://www.iso20022.org/iso-20022-message-definitions?search=Pacs.003.001.09)
@@ -65,7 +94,7 @@ Thông điệp pacs.003 được trao đổi giữa các tổ chức tài chính
 ## Thông điệp liên quan
 | Loại thông điệp | Mô tả | Tổng quan |
 |---|---|---|
-| [`pacs.004.001.11`](/vi/pacs.004.001.11/) | Payment Return | Thông điệp pacs.004 được sử dụng để hoàn trả giao dịch thanh toán đã quyết toán trước đó. Thông điệp này đảo ngược dòng tiền khi khoản thanh toán không thể áp dụng, được gửi nhầm, hoặc đang bị thu hồi bởi tổ chức gốc. |
-| [`pacs.007.001.11`](/vi/pacs.007.001.11/) | FI to FI Payment Reversal | Thông điệp pacs.007 được sử dụng để đảo ngược lệnh thanh toán đã gửi trước đó chưa được quyết toán hoặc để yêu cầu đảo ngược khoản thanh toán đã quyết toán. Khác với pacs.004 (hoàn trả), thông điệp này được khởi tạo bởi đại lý ra lệnh gốc. |
-| [`pacs.002.001.12`](/vi/pacs.002.001.12/) | FI to FI Payment Status Report | Thông điệp pacs.002 được gửi bởi tổ chức tài chính để báo cáo trạng thái của lệnh thanh toán đã gửi trước đó. Thông điệp này cung cấp thông tin xác nhận, từ chối hoặc trạng thái đang chờ xử lý cho các giao dịch riêng lẻ trong thông điệp thanh toán. |
+| [`pacs.004.001.11`](/vi/pacs.004.001.11/) | Hoàn trả thanh toán | Thông điệp pacs.004 được sử dụng để hoàn trả giao dịch thanh toán đã quyết toán trước đó. Thông điệp này đảo ngược dòng tiền khi khoản thanh toán không thể áp dụng, được gửi nhầm, hoặc đang bị thu hồi bởi tổ chức gốc. |
+| [`pacs.007.001.11`](/vi/pacs.007.001.11/) | Đảo ngược thanh toán giữa các tổ chức tài chính | Thông điệp pacs.007 được sử dụng để đảo ngược lệnh thanh toán đã gửi trước đó chưa được quyết toán hoặc để yêu cầu đảo ngược khoản thanh toán đã quyết toán. Khác với pacs.004 (hoàn trả), thông điệp này được khởi tạo bởi đại lý ra lệnh gốc. |
+| [`pacs.002.001.12`](/vi/pacs.002.001.12/) | Báo cáo trạng thái thanh toán giữa các tổ chức tài chính | Thông điệp pacs.002 được gửi bởi tổ chức tài chính để báo cáo trạng thái của lệnh thanh toán đã gửi trước đó. Thông điệp này cung cấp thông tin xác nhận, từ chối hoặc trạng thái đang chờ xử lý cho các giao dịch riêng lẻ trong thông điệp thanh toán. |
 

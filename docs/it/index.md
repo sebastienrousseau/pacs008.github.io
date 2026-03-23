@@ -1,6 +1,6 @@
 ---
 title: pacs008 | Italiano | ISO 20022 Toolkit
-description: Generazione, validazione, orchestrazione API e conformità per i flussi di bonifico cliente FI-to-FI.
+description: Generazione, validazione, orchestrazione API e conformità per i flussi di bonifico cliente tra istituzioni finanziarie.
 lang: it-IT
 author: Sebastien Rousseau
 lastUpdated: true
@@ -17,8 +17,8 @@ schemaType: WebSite
 heroText: Automatizza l'elaborazione dei messaggi pacs.008 ISO 20022.
 home: true
 metaTitle: pacs008
-subtitle: Generazione, validazione, orchestrazione API e conformità per i flussi di bonifico cliente FI-to-FI.
-tagline: Generazione, validazione, orchestrazione API e conformità per i flussi di bonifico cliente FI-to-FI.
+subtitle: Generazione, validazione, orchestrazione API e conformità per i flussi di bonifico cliente tra istituzioni finanziarie.
+tagline: Generazione, validazione, orchestrazione API e conformità per i flussi di bonifico cliente tra istituzioni finanziarie.
 actionText: Scopri pacs008
 actionLink: /it/about/
 features:

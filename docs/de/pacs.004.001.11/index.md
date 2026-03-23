@@ -1,12 +1,12 @@
 ---
-title: pacs.004.001.11 | Payment Return | pacs008
+title: pacs.004.001.11 | Zahlungsrückgabe | pacs008
 description: Die Nachricht pacs.004 wird verwendet, um eine zuvor abgewickelte Zahlungstransaktion zurückzugeben. Sie kehrt den Geldfluss um, wenn eine Zahlung nicht...
 lang: de-DE
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.004.001.11 — Payment Return
+# pacs.004.001.11 — Zahlungsrückgabe
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Die Nachricht pacs.004 wird verwendet, um eine zuvor abgewickelte Zahlungstransaktion zurückzugeben. Sie kehrt den Geldfluss um, wenn eine Zahlung nicht angewendet werden kann, irrtümlich gesendet wurde oder vom Ursprungsinstitut zurückgerufen wird.
 
-> Zuletzt anhand von Primärquellen am 23. März 2026 geprüft. Referenzdatum des ISO-20022-Katalogs: 27 February 2025; Quellenlinks sind unten aufgeführt.
+> Zuletzt anhand von Primärquellen am 23. März 2026 geprüft. Referenzdatum des ISO-20022-Katalogs: 2025-02-27; Quellenlinks sind unten aufgeführt.
 
 ## Wichtige Datenelemente
 
@@ -92,7 +92,7 @@ Der beauftragte Agent sendet pacs.004 durch die Zahlungskette zurück, um zuvor 
 | Hauptzweck | Return settled funds | Reverse a previously instructed payment |
 | Initiated by | Receiving / beneficiary side | Original instructing side |
 | Direction of flow | Back through the chain | Forward through the chain |
-| Best fit | Post-settlement return handling | Recall, error, or fraud-driven reversal handling |
+| Am besten geeignet für | Abwicklung von Rückgaben nach dem Settlement | Abwicklung von Rückabwicklungen wegen Recall, Fehler oder Betrug |
 
 ## Primärquellen
 
@@ -106,7 +106,7 @@ Der beauftragte Agent sendet pacs.004 durch die Zahlungskette zurück, um zuvor 
 ## Verwandte Nachrichten
 | Nachrichtentyp | Beschreibung | Überblick |
 |---|---|---|
-| [`pacs.008.001.13`](/de/pacs.008.001.13/) | FI to FI Customer Credit Transfer | Die Nachricht pacs.008 ist die zentrale Zahlungsanweisung, die zwischen Finanzinstituten ausgetauscht wird, um Gelder im Auftrag eines Kunden zu überweisen. Sie enthält Informationen zu Schuldner, Gläubiger, Betrag und Überweisungszweck für eine oder mehrere Überweisungen. |
-| [`pacs.003.001.09`](/de/pacs.003.001.09/) | FI to FI Customer Direct Debit | Die Nachricht pacs.003 wird zwischen Finanzinstituten ausgetauscht, um eine Kundenlastschrift auszuführen. Sie ermöglicht es der Bank des Gläubigers, Gelder von der Bank des Schuldners im Auftrag des Gläubigers einzuziehen. |
-| [`pacs.002.001.12`](/de/pacs.002.001.12/) | FI to FI Payment Status Report | Die Nachricht pacs.002 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung zu melden. Sie liefert Bestätigungs-, Ablehnungs- oder Statusinformationen für einzelne Transaktionen innerhalb einer Zahlungsnachricht. |
+| [`pacs.008.001.13`](/de/pacs.008.001.13/) | FI-zu-FI-Kundenkredittransfer | Die Nachricht pacs.008 ist die zentrale Zahlungsanweisung, die zwischen Finanzinstituten ausgetauscht wird, um Gelder im Auftrag eines Kunden zu überweisen. Sie enthält Informationen zu Schuldner, Gläubiger, Betrag und Überweisungszweck für eine oder mehrere Überweisungen. |
+| [`pacs.003.001.09`](/de/pacs.003.001.09/) | FI-zu-FI-Kundenlastschrift | Die Nachricht pacs.003 wird zwischen Finanzinstituten ausgetauscht, um eine Kundenlastschrift auszuführen. Sie ermöglicht es der Bank des Gläubigers, Gelder von der Bank des Schuldners im Auftrag des Gläubigers einzuziehen. |
+| [`pacs.002.001.12`](/de/pacs.002.001.12/) | FI-zu-FI-Zahlungsstatusbericht | Die Nachricht pacs.002 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung zu melden. Sie liefert Bestätigungs-, Ablehnungs- oder Statusinformationen für einzelne Transaktionen innerhalb einer Zahlungsnachricht. |
 

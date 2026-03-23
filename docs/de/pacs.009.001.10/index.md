@@ -1,12 +1,12 @@
 ---
-title: pacs.009.001.10 | Financial Institution Credit Transfer | pacs008
+title: pacs.009.001.10 | Kredittransfer zwischen Finanzinstituten | pacs008
 description: Die Nachricht pacs.009 wird für Überweisungen zwischen Finanzinstituten verwendet, bei denen die Überweisung auf eigene Rechnung des Instituts erfolgt...
 lang: de-DE
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.009.001.10 — Financial Institution Credit Transfer
+# pacs.009.001.10 — Kredittransfer zwischen Finanzinstituten
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Die Nachricht pacs.009 wird für Überweisungen zwischen Finanzinstituten verwendet, bei denen die Überweisung auf eigene Rechnung des Instituts erfolgt. Sie unterstützt Interbankenfinanzierung, Deckungszahlungen und Liquiditätsmanagement.
 
-> Zuletzt anhand von Primärquellen am 23. März 2026 geprüft. Referenzdatum des ISO-20022-Katalogs: 27 February 2025; Quellenlinks sind unten aufgeführt.
+> Zuletzt anhand von Primärquellen am 23. März 2026 geprüft. Referenzdatum des ISO-20022-Katalogs: 2025-02-27; Quellenlinks sind unten aufgeführt.
 
 ## Wichtige Datenelemente
 
@@ -60,7 +60,7 @@ Das Schuldnerinstitut sendet pacs.009 an das Gläubigerinstitut, um eigene Mitte
 | Versionsbereich | Warum es wichtig ist | Praktische Konsequenz |
 |---|---|---|
 | pacs.009.001.10 | Aktuelle Implementierung in pacs008 | Entspricht der aktuellen Projektunterstützung für FI-Kredittransferflüsse. |
-| pacs.009.001.11-12 | Spätere Katalogversionen | Wichtig für die Roadmap-Planung in Korrespondenz- und Cover-Payment-Umgebungen. |
+| pacs.009.001.11-12 | Spätere Katalogversionen | Wichtig für die Planung der Roadmap in Korrespondenzbank- und Deckungszahlungsumgebungen. |
 
 ## Kommentiertes XML-Beispiel
 
@@ -105,7 +105,7 @@ Das Schuldnerinstitut sendet pacs.009 an das Gläubigerinstitut, um eigene Mitte
 ## Verwandte Nachrichten
 | Nachrichtentyp | Beschreibung | Überblick |
 |---|---|---|
-| [`pacs.008.001.13`](/de/pacs.008.001.13/) | FI to FI Customer Credit Transfer | Die Nachricht pacs.008 ist die zentrale Zahlungsanweisung, die zwischen Finanzinstituten ausgetauscht wird, um Gelder im Auftrag eines Kunden zu überweisen. Sie enthält Informationen zu Schuldner, Gläubiger, Betrag und Überweisungszweck für eine oder mehrere Überweisungen. |
-| [`pacs.002.001.12`](/de/pacs.002.001.12/) | FI to FI Payment Status Report | Die Nachricht pacs.002 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung zu melden. Sie liefert Bestätigungs-, Ablehnungs- oder Statusinformationen für einzelne Transaktionen innerhalb einer Zahlungsnachricht. |
-| [`pacs.010.001.05`](/de/pacs.010.001.05/) | Financial Institution Direct Debit | Die Nachricht pacs.010 wird zwischen Finanzinstituten für Lastschrifttransaktionen auf eigene Rechnung verwendet. Sie ermöglicht es einem Institut, Gelder direkt vom Konto eines anderen Instituts einzuziehen. |
+| [`pacs.008.001.13`](/de/pacs.008.001.13/) | FI-zu-FI-Kundenkredittransfer | Die Nachricht pacs.008 ist die zentrale Zahlungsanweisung, die zwischen Finanzinstituten ausgetauscht wird, um Gelder im Auftrag eines Kunden zu überweisen. Sie enthält Informationen zu Schuldner, Gläubiger, Betrag und Überweisungszweck für eine oder mehrere Überweisungen. |
+| [`pacs.002.001.12`](/de/pacs.002.001.12/) | FI-zu-FI-Zahlungsstatusbericht | Die Nachricht pacs.002 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung zu melden. Sie liefert Bestätigungs-, Ablehnungs- oder Statusinformationen für einzelne Transaktionen innerhalb einer Zahlungsnachricht. |
+| [`pacs.010.001.05`](/de/pacs.010.001.05/) | Lastschrift zwischen Finanzinstituten | Die Nachricht pacs.010 wird zwischen Finanzinstituten für Lastschrifttransaktionen auf eigene Rechnung verwendet. Sie ermöglicht es einem Institut, Gelder direkt vom Konto eines anderen Instituts einzuziehen. |
 

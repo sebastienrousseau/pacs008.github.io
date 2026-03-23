@@ -1,6 +1,6 @@
 ---
 title: pacs008 | Français | ISO 20022 Toolkit
-description: Génération, validation, orchestration d'API et conformité pour les flux de virement client FI-to-FI.
+description: Génération, validation, orchestration d'API et conformité pour les flux de virement client entre institutions financières.
 lang: fr-FR
 author: Sebastien Rousseau
 lastUpdated: true
@@ -17,8 +17,8 @@ schemaType: WebSite
 heroText: Automatisez le traitement des messages pacs.008 ISO 20022.
 home: true
 metaTitle: pacs008
-subtitle: Génération, validation, orchestration d'API et conformité pour les flux de virement client FI-to-FI.
-tagline: Génération, validation, orchestration d'API et conformité pour les flux de virement client FI-to-FI.
+subtitle: Génération, validation, orchestration d'API et conformité pour les flux de virement client entre institutions financières.
+tagline: Génération, validation, orchestration d'API et conformité pour les flux de virement client entre institutions financières.
 actionText: Découvrir pacs008
 actionLink: /fr/about/
 features:

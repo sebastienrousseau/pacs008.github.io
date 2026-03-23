@@ -1,12 +1,12 @@
 ---
-title: pacs.008.001.13 | FI to FI Customer Credit Transfer | pacs008
+title: pacs.008.001.13 | FI-naar-FI-klantkredietoverboeking | pacs008
 description: Het pacs.008-bericht is de kernbetalingsinstructie die wordt uitgewisseld tussen financiële instellingen om namens een klant gelden over te maken. Het...
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.008.001.13 — FI to FI Customer Credit Transfer
+# pacs.008.001.13 — FI-naar-FI-klantkredietoverboeking
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Het pacs.008-bericht is de kernbetalingsinstructie die wordt uitgewisseld tussen financiële instellingen om namens een klant gelden over te maken. Het bevat informatie over debiteur, crediteur, bedrag en betalingskenmerken voor een of meer overboekingstransacties.
 
-> Laatst gecontroleerd aan de hand van primaire bronnen op 23 maart 2026. Referentiedatum ISO 20022-catalogus: 27 February 2025; bronlinks staan hieronder.
+> Laatst gecontroleerd aan de hand van primaire bronnen op 23 maart 2026. Referentiedatum ISO 20022-catalogus: 2025-02-27; bronlinks staan hieronder.
 
 ## Belangrijke gegevenselementen
 
@@ -85,18 +85,18 @@ De debiteuragent maakt een pacs.008 aan en stuurt dit naar de crediteuragent (re
 
 ### Veldtoelichting
 
-- `MsgId`: This should identify the message envelope, not the end-customer payment reference.
+- `MsgId`: Dit veld moet de berichtenenvelop identificeren, niet de betalingsreferentie van de eindklant.
 - `EndToEndId`: Keep customer-facing traceability stable across downstream systems where possible.
-- `UETR`: Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.
-- `IntrBkSttlmAmt`: Validate amount and currency using business rules before schema validation.
-- `Dbtr` / `Cdtr`: Party quality, address structure, and identifiers are usually the main determinants of repair rates.
+- `UETR`: Gebruik dit consequent in grensoverschrijdende omgevingen met hoge traceerbaarheidseisen; genereer het niet ad hoc in latere verwerkingsstappen.
+- `IntrBkSttlmAmt`: Valideer bedrag en valuta met bedrijfsregels voordat de schemavalidatie plaatsvindt.
+- `Dbtr` / `Cdtr`: De kwaliteit van partijgegevens, adresstructuur en identificatoren bepaalt meestal in hoge mate het aantal herstelacties.
 
 ## Vergelijk pacs.008 vs pacs.009
 
 | Dimensie | pacs.008.001.13 | Vergelijkingsbericht |
 |---|---|---|
-| Primair doel | Klantcredittransfer | Credittransfer op eigen rekening van de instelling of cover-leg |
-| Zakelijke eigenaar | Klantbetalingsoperaties | Treasury-, correspondent- en fundingoperaties |
+| Primair doel | Klantcredittransfer | Credittransfer op eigen rekening van de instelling of dekkingsstap |
+| Zakelijke eigenaar | Klantbetalingsoperaties | Treasury-, correspondent- en financieringsoperaties |
 | Typische combinaties | pacs.002, pacs.004, pacs.007, pacs.028 | pacs.002, pacs.004, and sometimes linked pacs.008 flows |
 | Te vermijden misvatting | That all bank-to-bank transfers belong here | That it can replace customer credit-transfer instructions |
 
@@ -115,7 +115,7 @@ De debiteuragent maakt een pacs.008 aan en stuurt dit naar de crediteuragent (re
 
 ## Ondersteunde versies
 
-| Version | |
+| Versie | |
 |---|---|
 | `pacs.008.001.01` |  |
 | `pacs.008.001.02` |  |
@@ -134,7 +134,7 @@ De debiteuragent maakt een pacs.008 aan en stuurt dit naar de crediteuragent (re
 ## Gerelateerde berichten
 | Berichttype | Beschrijving | Overzicht |
 |---|---|---|
-| [`pacs.002.001.12`](/nl/pacs.002.001.12/) | FI to FI Payment Status Report | Het pacs.002-bericht wordt door een financiële instelling verzonden om de status te rapporteren van een eerder verzonden betalingsinstructie. Het biedt bevestigings-, afwijzings- of hangende statusinformatie voor individuele transacties binnen een betalingsbericht. |
-| [`pacs.004.001.11`](/nl/pacs.004.001.11/) | Payment Return | Het pacs.004-bericht wordt gebruikt om een eerder afgewikkelde betalingstransactie te retourneren. Het keert de geldstroom om wanneer een betaling niet kan worden toegepast, per abuis is verzonden of door de opdrachtgevende instelling wordt teruggevorderd. |
-| [`pacs.009.001.10`](/nl/pacs.009.001.10/) | Financial Institution Credit Transfer | Het pacs.009-bericht wordt gebruikt voor overboekingen tussen financiële instellingen waarbij de overboeking voor eigen rekening van de instelling plaatsvindt en niet namens een klant. Het ondersteunt interbancaire financiering, dekkingsbetalingen en liquiditeitsbeheer. |
+| [`pacs.002.001.12`](/nl/pacs.002.001.12/) | FI-naar-FI-betalingsstatusrapport | Het pacs.002-bericht wordt door een financiële instelling verzonden om de status te rapporteren van een eerder verzonden betalingsinstructie. Het biedt bevestigings-, afwijzings- of hangende statusinformatie voor individuele transacties binnen een betalingsbericht. |
+| [`pacs.004.001.11`](/nl/pacs.004.001.11/) | Betalingsretour | Het pacs.004-bericht wordt gebruikt om een eerder afgewikkelde betalingstransactie te retourneren. Het keert de geldstroom om wanneer een betaling niet kan worden toegepast, per abuis is verzonden of door de opdrachtgevende instelling wordt teruggevorderd. |
+| [`pacs.009.001.10`](/nl/pacs.009.001.10/) | Kredietoverboeking tussen financiële instellingen | Het pacs.009-bericht wordt gebruikt voor overboekingen tussen financiële instellingen waarbij de overboeking voor eigen rekening van de instelling plaatsvindt en niet namens een klant. Het ondersteunt interbancaire financiering, dekkingsbetalingen en liquiditeitsbeheer. |
 

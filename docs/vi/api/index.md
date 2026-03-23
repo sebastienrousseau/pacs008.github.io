@@ -1,6 +1,6 @@
 ---
 title: API | pacs008
-description: Hỗ trợ quy trình REST và CLI trong pacs008. Tạo, xác thực, điều phối API và hỗ trợ tuân thủ cho quy trình chuyển khoản tín dụng khách hàng FI-to-FI.
+description: Hỗ trợ quy trình REST và CLI trong pacs008. Tạo, xác thực, điều phối API và hỗ trợ tuân thủ cho quy trình chuyển khoản tín dụng khách hàng giữa các tổ...
 lang: vi-VN
 lastUpdated: true
 image: /logo.svg
@@ -11,6 +11,13 @@ image: /logo.svg
 Dự án cung cấp cả REST API và CLI cho quy trình xử lý thông điệp thanh toán vận hành.
 
 > Được rà soát lần cuối đối chiếu với nguồn gốc chính vào ngày 23 tháng 3 năm 2026 bằng các tài liệu công khai của ISO 20022, EPC và Swift được dẫn trên trang này.
+
+## Ghi chú triển khai
+
+- Dùng tạo sinh đồng bộ cho các kiểm tra vận hành và lô nhỏ khi bên gọi cần XML ngay lập tức.
+- Dùng tạo sinh bất đồng bộ khi tệp đầu vào lớn, tác vụ cần thử lại hoặc việc tạo sinh là một phần của bộ điều phối lớn hơn.
+- Lưu cả dữ liệu đầu vào nguồn và báo cáo xác thực để đội hỗ trợ có thể tái tạo đầu ra XML khi có sự cố.
+- Cố định các đường dẫn mẫu và XSD trong cấu hình triển khai để tránh nâng cấp âm thầm.
 
 ## Cài đặt
 
@@ -45,14 +52,14 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 | `DELETE /jobs/{job_id}` | Hủy tác vụ đang chờ hoặc đang chạy |
 | `GET /docs` | Swagger UI tương tác để khám phá và kiểm tra tất cả các endpoint |
 
-- [`pacs.002.001.12`](/vi/pacs.002.001.12/) — FI to FI Payment Status Report
-- [`pacs.003.001.09`](/vi/pacs.003.001.09/) — FI to FI Customer Direct Debit
-- [`pacs.004.001.11`](/vi/pacs.004.001.11/) — Payment Return
-- [`pacs.007.001.11`](/vi/pacs.007.001.11/) — FI to FI Payment Reversal
-- [`pacs.008.001.13`](/vi/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.009.001.10`](/vi/pacs.009.001.10/) — Financial Institution Credit Transfer
-- [`pacs.010.001.05`](/vi/pacs.010.001.05/) — Financial Institution Direct Debit
-- [`pacs.028.001.05`](/vi/pacs.028.001.05/) — FI to FI Payment Status Request
+- [`pacs.002.001.12`](/vi/pacs.002.001.12/) — Báo cáo trạng thái thanh toán giữa các tổ chức tài chính
+- [`pacs.003.001.09`](/vi/pacs.003.001.09/) — Ghi nợ trực tiếp khách hàng giữa các tổ chức tài chính
+- [`pacs.004.001.11`](/vi/pacs.004.001.11/) — Hoàn trả thanh toán
+- [`pacs.007.001.11`](/vi/pacs.007.001.11/) — Đảo ngược thanh toán giữa các tổ chức tài chính
+- [`pacs.008.001.13`](/vi/pacs.008.001.13/) — Chuyển khoản tín dụng khách hàng giữa các tổ chức tài chính
+- [`pacs.009.001.10`](/vi/pacs.009.001.10/) — Chuyển khoản tín dụng giữa các tổ chức tài chính
+- [`pacs.010.001.05`](/vi/pacs.010.001.05/) — Ghi nợ trực tiếp giữa các tổ chức tài chính
+- [`pacs.028.001.05`](/vi/pacs.028.001.05/) — Yêu cầu trạng thái thanh toán giữa các tổ chức tài chính
 
 ### Ví dụ xác thực
 
@@ -92,7 +99,7 @@ curl -X POST http://localhost:8000/api/validate \
 
 ### Ví dụ tạo tệp đồng bộ
 
-Tạo tệp XML pacs.008.001.13 từ JSON payload.
+Tạo tệp XML pacs.008.001.13 từ dữ liệu JSON.
 
 ```bash
 curl -X POST http://localhost:8000/api/generate \

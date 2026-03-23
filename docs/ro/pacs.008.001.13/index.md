@@ -1,12 +1,12 @@
 ---
-title: pacs.008.001.13 | FI to FI Customer Credit Transfer | pacs008
+title: pacs.008.001.13 | Transfer de credit client FI-la-FI | pacs008
 description: Mesajul pacs.008 este instrucțiunea de plată principală schimbată între instituții financiare pentru a transfera fonduri în numele unui client. Conține...
 lang: ro-RO
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.008.001.13 — FI to FI Customer Credit Transfer
+# pacs.008.001.13 — Transfer de credit client FI-la-FI
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Mesajul pacs.008 este instrucțiunea de plată principală schimbată între instituții financiare pentru a transfera fonduri în numele unui client. Conține informații despre debitor, creditor, sumă și detalii de remitere pentru una sau mai multe tranzacții de transfer de credit.
 
-> Ultima verificare față de surse primare a fost efectuată la 23 martie 2026. Data de referință a catalogului ISO 20022: 27 February 2025; linkurile către surse sunt mai jos.
+> Ultima verificare față de surse primare a fost efectuată la 23 martie 2026. Data de referință a catalogului ISO 20022: 2025-02-27; linkurile către surse sunt mai jos.
 
 ## Elemente de date cheie
 
@@ -55,6 +55,51 @@ Mesajul pacs.008 este instrucțiunea de plată principală schimbată între ins
 
 Agentul debitorului creează un pacs.008 și îl trimite agentului creditorului (direct sau prin intermediari). Fiecare agent din lanț validează, îmbogățește și transmite instrucțiunea până când agentul creditorului creditează contul beneficiarului.
 
+## Tabelul diferențelor de versiune
+
+| Interval de versiuni | De ce contează | Concluzie de implementare |
+|---|---|---|
+| pacs.008.001.01-07 | Revizii timpurii | Util mai ales pentru analiza migrării din sisteme vechi și pentru contextul istoric al versiunilor. |
+| pacs.008.001.08-12 | Revizii moderne anterioare celei curente | Acestea sunt reviziile care apar cel mai probabil în proiecte recente de migrare sau coexistență. |
+| pacs.008.001.13 | Revizia curentă a catalogului | Folosește asta pentru planificarea versiunii curente, validând în continuare regulile schemei și pregătirea contrapărților. |
+
+## Exemplu XML comentat
+
+```xml
+<FIToFICstmrCdtTrf>
+  <GrpHdr>
+    <MsgId>MSG-2026-001</MsgId>
+    <CreDtTm>2026-01-15T10:30:00Z</CreDtTm>
+  </GrpHdr>
+  <CdtTrfTxInf>
+    <PmtId>
+      <EndToEndId>E2E-INV-2026-001</EndToEndId>
+      <UETR>123e4567-e89b-12d3-a456-426614174000</UETR>
+    </PmtId>
+    <IntrBkSttlmAmt Ccy="EUR">25000.00</IntrBkSttlmAmt>
+    <Dbtr><Nm>Acme Corp GmbH</Nm></Dbtr>
+    <Cdtr><Nm>Widget Industries SA</Nm></Cdtr>
+  </CdtTrfTxInf>
+</FIToFICstmrCdtTrf>
+```
+
+### Comentarii pe câmpuri
+
+- `MsgId`: Acesta ar trebui să identifice plicul mesajului, nu referința de plată a clientului final.
+- `EndToEndId`: Păstrează stabilă trasabilitatea orientată spre client în sistemele ulterioare ori de câte ori este posibil.
+- `UETR`: Folosește acest câmp în mod consecvent în medii transfrontaliere și cu urmărire intensă; nu îl genera ad hoc în etapele ulterioare ale procesului.
+- `IntrBkSttlmAmt`: Validează suma și moneda prin reguli de business înainte de validarea schemei.
+- `Dbtr` / `Cdtr`: Calitatea datelor despre părți, structura adresei și identificatorii sunt de obicei principalii factori ai volumului de corecții.
+
+## Compară pacs.008 vs pacs.009
+
+| Dimensiune | pacs.008.001.13 | Mesaj de comparație |
+|---|---|---|
+| Scop principal | Transfer de credit al clientului | Transfer de credit în cont propriu al instituției sau etapă de acoperire |
+| Responsabil de business | Operațiuni de plăți ale clienților | Operațiuni de trezorerie / corespondent / finanțare |
+| Asocieri tipice | pacs.002, pacs.004, pacs.007, pacs.028 | pacs.002, pacs.004 și uneori fluxuri pacs.008 asociate |
+| Presupunere greșită de evitat | Că toate transferurile bancă-la-bancă aparțin aici | Că poate înlocui instrucțiunile de transfer de credit ale clientului |
+
 ## Referințe primare
 
 - [ISO 20022 message definitions catalogue for `pacs.008.001.13`](https://www.iso20022.org/iso-20022-message-definitions?search=Pacs.008.001.13)
@@ -70,7 +115,7 @@ Agentul debitorului creează un pacs.008 și îl trimite agentului creditorului 
 
 ## Versiuni acceptate
 
-| Version | |
+| Versiune | |
 |---|---|
 | `pacs.008.001.01` |  |
 | `pacs.008.001.02` |  |
@@ -84,12 +129,12 @@ Agentul debitorului creează un pacs.008 și îl trimite agentului creditorului 
 | `pacs.008.001.10` |  |
 | `pacs.008.001.11` |  |
 | `pacs.008.001.12` |  |
-| `pacs.008.001.13` | **Current** |
+| `pacs.008.001.13` | **Curentă** |
 
 ## Mesaje conexe
 | Tip de mesaj | Descriere | Prezentare generală |
 |---|---|---|
-| [`pacs.002.001.12`](/ro/pacs.002.001.12/) | FI to FI Payment Status Report | Mesajul pacs.002 este trimis de o instituție financiară pentru a raporta statusul unei instrucțiuni de plată trimise anterior. Furnizează informații de confirmare, respingere sau status în așteptare pentru tranzacțiile individuale din cadrul unui mesaj de plată. |
-| [`pacs.004.001.11`](/ro/pacs.004.001.11/) | Payment Return | Mesajul pacs.004 este utilizat pentru returnarea unei tranzacții de plată decontate anterior. Inversează fluxul de fonduri atunci când o plată nu poate fi aplicată, a fost trimisă din eroare sau este reclamată de instituția inițiatoare. |
-| [`pacs.009.001.10`](/ro/pacs.009.001.10/) | Financial Institution Credit Transfer | Mesajul pacs.009 este utilizat pentru transferuri de credit între instituții financiare în care transferul se face în cont propriu al instituției și nu în numele unui client. Suportă finanțarea interbancară, plățile de acoperire și gestionarea lichidității. |
+| [`pacs.002.001.12`](/ro/pacs.002.001.12/) | Raport de stare a plății FI-la-FI | Mesajul pacs.002 este trimis de o instituție financiară pentru a raporta statusul unei instrucțiuni de plată trimise anterior. Furnizează informații de confirmare, respingere sau status în așteptare pentru tranzacțiile individuale din cadrul unui mesaj de plată. |
+| [`pacs.004.001.11`](/ro/pacs.004.001.11/) | Retur de plată | Mesajul pacs.004 este utilizat pentru returnarea unei tranzacții de plată decontate anterior. Inversează fluxul de fonduri atunci când o plată nu poate fi aplicată, a fost trimisă din eroare sau este reclamată de instituția inițiatoare. |
+| [`pacs.009.001.10`](/ro/pacs.009.001.10/) | Transfer de credit între instituții financiare | Mesajul pacs.009 este utilizat pentru transferuri de credit între instituții financiare în care transferul se face în cont propriu al instituției și nu în numele unui client. Suportă finanțarea interbancară, plățile de acoperire și gestionarea lichidității. |
 

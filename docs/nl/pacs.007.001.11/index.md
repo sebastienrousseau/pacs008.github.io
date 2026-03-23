@@ -1,12 +1,12 @@
 ---
-title: pacs.007.001.11 | FI to FI Payment Reversal | pacs008
+title: pacs.007.001.11 | FI-naar-FI-betalingsstornering | pacs008
 description: Het pacs.007-bericht wordt gebruikt om een eerder verzonden betalingsinstructie die nog niet is afgewikkeld te storneren of om stornering van een...
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.007.001.11 — FI to FI Payment Reversal
+# pacs.007.001.11 — FI-naar-FI-betalingsstornering
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Het pacs.007-bericht wordt gebruikt om een eerder verzonden betalingsinstructie die nog niet is afgewikkeld te storneren of om stornering van een afgewikkelde betaling te verzoeken. In tegenstelling tot pacs.004 (retourzending) wordt het geïnitieerd door de oorspronkelijke opdrachtgevende agent.
 
-> Laatst gecontroleerd aan de hand van primaire bronnen op 23 maart 2026. Referentiedatum ISO 20022-catalogus: 27 February 2025; bronlinks staan hieronder.
+> Laatst gecontroleerd aan de hand van primaire bronnen op 23 maart 2026. Referentiedatum ISO 20022-catalogus: 2025-02-27; bronlinks staan hieronder.
 
 ## Belangrijke gegevenselementen
 
@@ -49,7 +49,7 @@ Het pacs.007-bericht wordt gebruikt om een eerder verzonden betalingsinstructie 
 - Onderscheidt zich van pacs.004 door de richting — stornering gaat voorwaarts vanuit de opdrachtgever, retourzending gaat achterwaarts vanuit de begunstigde
 - CBPR+ vereist koppeling met oorspronkelijke berichtidentificatoren voor geautomatiseerde matching
 - Gestructureerde redencodes vervangen vrije-tekstverhalen uit verouderde MT-berichten
-- Wordt steeds vaker gebruikt in workflows voor terugvordering van instantbetalingen en fraudepreventie
+- Wordt steeds vaker gebruikt in processen voor terugvordering van instantbetalingen en fraudepreventie
 
 ## Berichtstroom
 
@@ -59,7 +59,7 @@ De opdrachtgevende agent (oorspronkelijke verzender) stuurt pacs.007 voorwaarts 
 
 | Versiebereik | Waarom dit telt | Implementatieconclusie |
 |---|---|---|
-| pacs.007.001.11 | Huidige implementatie in pacs008 | Goede basis voor het modelleren van reversal-workflows. |
+| pacs.007.001.11 | Huidige implementatie in pacs008 | Goede basis voor het modelleren van terugboekingsprocessen. |
 | pacs.007.001.12-13 | Latere catalogusrevisies | Check later revisions for current market-infrastructure alignment. |
 
 ## Uitgewerkt XML-voorbeeld
@@ -80,9 +80,9 @@ De opdrachtgevende agent (oorspronkelijke verzender) stuurt pacs.007 voorwaarts 
 
 ### Veldtoelichting
 
-- `MsgId`: The reversal itself needs its own audit-safe identifier.
-- `OrgnlInstrId`: Preserve the original payment reference to avoid reconciliation breaks.
-- `RvslRsnInf`: Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently.
+- `MsgId`: De terugboeking zelf heeft een eigen auditbestendige identificatie nodig.
+- `OrgnlInstrId`: Behoud de oorspronkelijke betalingsreferentie om onderbrekingen in de reconciliatie te voorkomen.
+- `RvslRsnInf`: Gebruik gestructureerde redenen voor terugboeking zodat fraude-, fout- en dubbelbetalingsgevallen verschillend kunnen worden afgehandeld.
 
 ## Vergelijk pacs.007 vs pacs.004
 
@@ -91,7 +91,7 @@ De opdrachtgevende agent (oorspronkelijke verzender) stuurt pacs.007 voorwaarts 
 | Primair doel | Reverse a previously instructed payment | Return settled funds |
 | Initiated by | Original instructing side | Receiving / beneficiary side |
 | Direction of flow | Forward through the chain | Back through the chain |
-| Best fit | Recall, error, or fraud-driven reversal handling | Post-settlement return handling |
+| Het meest geschikt voor | Afhandeling van terugboekingen door recall, fout of fraude | Afhandeling van retouren na afwikkeling |
 
 ## Primaire referenties
 
@@ -103,7 +103,7 @@ De opdrachtgevende agent (oorspronkelijke verzender) stuurt pacs.007 voorwaarts 
 ## Gerelateerde berichten
 | Berichttype | Beschrijving | Overzicht |
 |---|---|---|
-| [`pacs.008.001.13`](/nl/pacs.008.001.13/) | FI to FI Customer Credit Transfer | Het pacs.008-bericht is de kernbetalingsinstructie die wordt uitgewisseld tussen financiële instellingen om namens een klant gelden over te maken. Het bevat informatie over debiteur, crediteur, bedrag en betalingskenmerken voor een of meer overboekingstransacties. |
-| [`pacs.004.001.11`](/nl/pacs.004.001.11/) | Payment Return | Het pacs.004-bericht wordt gebruikt om een eerder afgewikkelde betalingstransactie te retourneren. Het keert de geldstroom om wanneer een betaling niet kan worden toegepast, per abuis is verzonden of door de opdrachtgevende instelling wordt teruggevorderd. |
-| [`pacs.002.001.12`](/nl/pacs.002.001.12/) | FI to FI Payment Status Report | Het pacs.002-bericht wordt door een financiële instelling verzonden om de status te rapporteren van een eerder verzonden betalingsinstructie. Het biedt bevestigings-, afwijzings- of hangende statusinformatie voor individuele transacties binnen een betalingsbericht. |
+| [`pacs.008.001.13`](/nl/pacs.008.001.13/) | FI-naar-FI-klantkredietoverboeking | Het pacs.008-bericht is de kernbetalingsinstructie die wordt uitgewisseld tussen financiële instellingen om namens een klant gelden over te maken. Het bevat informatie over debiteur, crediteur, bedrag en betalingskenmerken voor een of meer overboekingstransacties. |
+| [`pacs.004.001.11`](/nl/pacs.004.001.11/) | Betalingsretour | Het pacs.004-bericht wordt gebruikt om een eerder afgewikkelde betalingstransactie te retourneren. Het keert de geldstroom om wanneer een betaling niet kan worden toegepast, per abuis is verzonden of door de opdrachtgevende instelling wordt teruggevorderd. |
+| [`pacs.002.001.12`](/nl/pacs.002.001.12/) | FI-naar-FI-betalingsstatusrapport | Het pacs.002-bericht wordt door een financiële instelling verzonden om de status te rapporteren van een eerder verzonden betalingsinstructie. Het biedt bevestigings-, afwijzings- of hangende statusinformatie voor individuele transacties binnen een betalingsbericht. |
 

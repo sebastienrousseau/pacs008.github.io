@@ -1,6 +1,6 @@
 ---
 title: API | pacs008
-description: Suport pentru fluxuri REST și CLI în pacs008. Generare, validare, orchestrare API și suport de conformitate pentru fluxuri de transfer de credit FI-to-FI.
+description: Suport pentru fluxuri REST și CLI în pacs008. Generare, validare, orchestrare API și suport de conformitate pentru fluxuri de transfer de credit ale...
 lang: ro-RO
 lastUpdated: true
 image: /logo.svg
@@ -11,6 +11,13 @@ image: /logo.svg
 Proiectul oferă atât un REST API, cât și un CLI pentru fluxurile operaționale de mesaje de plăți.
 
 > Ultima verificare față de surse primare a fost efectuată la 23 martie 2026 folosind materiale publice ISO 20022, EPC și Swift menționate pe această pagină.
+
+## Note de implementare
+
+- Folosește generarea sincronă pentru verificări operaționale și loturi mici când apelantul așteaptă XML imediat.
+- Folosește generarea asincronă când fișierele de intrare sunt mari, joburile trebuie reluate sau generarea face parte dintr-un motor de orchestrare mai amplu.
+- Păstrează atât datele sursă de intrare, cât și raportul de validare, astfel încât echipele de suport să poată reproduce ieșirea XML în timpul incidentelor.
+- Fixează căile către șabloane și XSD în configurația de implementare pentru a evita upgrade-urile silențioase.
 
 ## Instalare
 
@@ -45,14 +52,14 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 | `DELETE /jobs/{job_id}` | Anularea unei sarcini în așteptare sau în curs de execuție |
 | `GET /docs` | Swagger UI interactiv pentru explorarea și testarea tuturor endpoint-urilor |
 
-- [`pacs.002.001.12`](/ro/pacs.002.001.12/) — FI to FI Payment Status Report
-- [`pacs.003.001.09`](/ro/pacs.003.001.09/) — FI to FI Customer Direct Debit
-- [`pacs.004.001.11`](/ro/pacs.004.001.11/) — Payment Return
-- [`pacs.007.001.11`](/ro/pacs.007.001.11/) — FI to FI Payment Reversal
-- [`pacs.008.001.13`](/ro/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.009.001.10`](/ro/pacs.009.001.10/) — Financial Institution Credit Transfer
-- [`pacs.010.001.05`](/ro/pacs.010.001.05/) — Financial Institution Direct Debit
-- [`pacs.028.001.05`](/ro/pacs.028.001.05/) — FI to FI Payment Status Request
+- [`pacs.002.001.12`](/ro/pacs.002.001.12/) — Raport de stare a plății FI-la-FI
+- [`pacs.003.001.09`](/ro/pacs.003.001.09/) — Debit direct de client FI-la-FI
+- [`pacs.004.001.11`](/ro/pacs.004.001.11/) — Retur de plată
+- [`pacs.007.001.11`](/ro/pacs.007.001.11/) — Reversare de plată FI-la-FI
+- [`pacs.008.001.13`](/ro/pacs.008.001.13/) — Transfer de credit client FI-la-FI
+- [`pacs.009.001.10`](/ro/pacs.009.001.10/) — Transfer de credit între instituții financiare
+- [`pacs.010.001.05`](/ro/pacs.010.001.05/) — Debit direct între instituții financiare
+- [`pacs.028.001.05`](/ro/pacs.028.001.05/) — Cerere de stare a plății FI-la-FI
 
 ### Exemplu de validare
 
@@ -92,7 +99,7 @@ curl -X POST http://localhost:8000/api/validate \
 
 ### Exemplu de generare sincronă
 
-Generați un fișier XML pacs.008.001.13 dintr-un payload JSON.
+Generați un fișier XML pacs.008.001.13 din date JSON.
 
 ```bash
 curl -X POST http://localhost:8000/api/generate \

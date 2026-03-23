@@ -1,6 +1,6 @@
 ---
 title: 條款 | pacs008
-description: pacs008 網站的條款資訊。 面向 FI-to-FI 客戶信貸轉帳工作流程的產生、驗證、API 編排與合規支援。
+description: pacs008 網站的條款資訊。 面向金融機構間客戶信貸轉帳工作流程的產生、驗證、API 編排與合規支援。
 lang: zh-TW
 lastUpdated: true
 image: /logo.svg

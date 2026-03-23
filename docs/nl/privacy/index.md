@@ -1,6 +1,6 @@
 ---
 title: Privacy | pacs008
-description: Privacy-informatie voor de pacs008-website. Generatie, validatie, API-orchestratie en compliance-ondersteuning voor FI-to-FI-klantoverdrachtworkflows.
+description: Privacy-informatie voor de pacs008-website. Generatie, validatie, API-orchestratie en compliance-ondersteuning voor klantkredietoverboekingsworkflows...
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg

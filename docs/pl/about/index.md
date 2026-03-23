@@ -1,6 +1,6 @@
 ---
 title: O pacs008 | pacs008
-description: Co robi pacs008 i dla kogo jest przeznaczony. Generowanie, walidacja, orkiestracja API i wsparcie zgodności dla przepływów przelewów kredytowych FI-to-FI.
+description: Co robi pacs008 i dla kogo jest przeznaczony. Generowanie, walidacja, orkiestracja API i wsparcie zgodności dla przepływów przelewów kredytowych klientów...
 lang: pl-PL
 lastUpdated: true
 image: /logo.svg
@@ -66,5 +66,12 @@ pacs008 wykracza poza referencje definicji wiadomości, wspierając implementacj
 - walidacja przed dostarczeniem
 - modelowanie łańcuchów płatności i formatów dalszego przetwarzania
 - umożliwienie testowania zmian specyficznych dla schematu w kodzie
+
+## Lista kontrolna wdrożenia
+
+- Wybierz właściwą rodzinę komunikatów dla zdarzenia biznesowego, zanim zaczniesz pisać szablony.
+- Waliduj dane biznesowe przed generowaniem XML, aby błędy schematu nie były pierwszym sygnałem problemu.
+- Traktuj jakość BIC, IBAN, remittance i adresów pocztowych jako kryterium wydania, a nie późniejsze czyszczenie.
+- Uruchamiaj testy regresyjne dla każdej zmiany reguł schematu lub banku na reprezentatywnych danych płatniczych.
 
 

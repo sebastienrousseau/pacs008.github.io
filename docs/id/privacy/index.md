@@ -1,6 +1,6 @@
 ---
 title: Privasi | pacs008
-description: Informasi privasi untuk situs web pacs008. Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan FI-to-FI.
+description: Informasi privasi untuk situs web pacs008. Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan antar lembaga...
 lang: id-ID
 lastUpdated: true
 image: /logo.svg

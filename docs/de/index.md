@@ -1,6 +1,6 @@
 ---
 title: pacs008 | Deutsch | ISO 20022 Toolkit
-description: Generierung, Validierung, API-Orchestrierung und Compliance-Unterstützung für FI-to-FI-Kundenkredittransfer-Workflows.
+description: Generierung, Validierung, API-Orchestrierung und Compliance-Unterstützung für Kundenkredittransfer-Workflows zwischen Finanzinstituten.
 lang: de-DE
 author: Sebastien Rousseau
 lastUpdated: true
@@ -17,8 +17,8 @@ schemaType: WebSite
 heroText: ISO 20022 pacs.008 Nachrichtenverarbeitung automatisieren.
 home: true
 metaTitle: pacs008
-subtitle: Generierung, Validierung, API-Orchestrierung und Compliance-Unterstützung für FI-to-FI-Kundenkredittransfer-Workflows.
-tagline: Generierung, Validierung, API-Orchestrierung und Compliance-Unterstützung für FI-to-FI-Kundenkredittransfer-Workflows.
+subtitle: Generierung, Validierung, API-Orchestrierung und Compliance-Unterstützung für Kundenkredittransfer-Workflows zwischen Finanzinstituten.
+tagline: Generierung, Validierung, API-Orchestrierung und Compliance-Unterstützung für Kundenkredittransfer-Workflows zwischen Finanzinstituten.
 actionText: Mehr über pacs008 erfahren
 actionLink: /de/about/
 features:

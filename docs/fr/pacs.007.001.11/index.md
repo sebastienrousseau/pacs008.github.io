@@ -1,12 +1,12 @@
 ---
-title: pacs.007.001.11 | FI to FI Payment Reversal | pacs008
+title: pacs.007.001.11 | Annulation de paiement FI à FI | pacs008
 description: Le message pacs.007 est utilisé pour annuler une instruction de paiement précédemment envoyée qui n'a pas encore été réglée ou pour demander l'annulation...
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.007.001.11 — FI to FI Payment Reversal
+# pacs.007.001.11 — Annulation de paiement FI à FI
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Le message pacs.007 est utilisé pour annuler une instruction de paiement précédemment envoyée qui n'a pas encore été réglée ou pour demander l'annulation d'un paiement réglé. Contrairement au pacs.004 (retour), il est initié par l'agent instructeur d'origine.
 
-> Dernière vérification par rapport aux sources primaires le 23 mars 2026. Date de référence du catalogue ISO 20022 : 27 February 2025 ; les liens vers les sources figurent ci-dessous.
+> Dernière vérification par rapport aux sources primaires le 23 mars 2026. Date de référence du catalogue ISO 20022 : 2025-02-27 ; les liens vers les sources figurent ci-dessous.
 
 ## Éléments de données clés
 
@@ -59,7 +59,7 @@ L'agent instructeur (expéditeur d'origine) envoie pacs.007 à travers la chaîn
 
 | Plage de versions | Pourquoi c'est important | Conséquence pratique |
 |---|---|---|
-| pacs.007.001.11 | Implémentation actuelle dans pacs008 | Bonne base pour modéliser les workflows de reversal. |
+| pacs.007.001.11 | Implémentation actuelle dans pacs008 | Bonne base pour modéliser les processus d'annulation. |
 | pacs.007.001.12-13 | Révisions ultérieures du catalogue | Check later revisions for current market-infrastructure alignment. |
 
 ## Exemple XML commenté
@@ -80,9 +80,9 @@ L'agent instructeur (expéditeur d'origine) envoie pacs.007 à travers la chaîn
 
 ### Commentaires sur les champs
 
-- `MsgId`: The reversal itself needs its own audit-safe identifier.
-- `OrgnlInstrId`: Preserve the original payment reference to avoid reconciliation breaks.
-- `RvslRsnInf`: Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently.
+- `MsgId`: L'annulation elle-même doit disposer de son propre identifiant sûr pour l'audit.
+- `OrgnlInstrId`: Conservez la référence de paiement d'origine pour éviter les ruptures de rapprochement.
+- `RvslRsnInf`: Utilisez des motifs d'annulation structurés afin d'orienter différemment les cas de fraude, d'erreur et de doublon de paiement.
 
 ## Comparer pacs.007 vs pacs.004
 
@@ -91,7 +91,7 @@ L'agent instructeur (expéditeur d'origine) envoie pacs.007 à travers la chaîn
 | Objectif principal | Reverse a previously instructed payment | Return settled funds |
 | Initiated by | Original instructing side | Receiving / beneficiary side |
 | Direction of flow | Forward through the chain | Back through the chain |
-| Best fit | Recall, error, or fraud-driven reversal handling | Post-settlement return handling |
+| Le plus adapté à | Gestion des annulations liées à un recall, à une erreur ou à une fraude | Gestion des retours après règlement |
 
 ## Références primaires
 
@@ -103,7 +103,7 @@ L'agent instructeur (expéditeur d'origine) envoie pacs.007 à travers la chaîn
 ## Messages associés
 | Type de message | Description | Présentation |
 |---|---|---|
-| [`pacs.008.001.13`](/fr/pacs.008.001.13/) | FI to FI Customer Credit Transfer | Le message pacs.008 est l'instruction de paiement centrale échangée entre institutions financières pour transférer des fonds au nom d'un client. Il porte les informations de débiteur, créancier, montant et remise pour une ou plusieurs transactions de virement. |
-| [`pacs.004.001.11`](/fr/pacs.004.001.11/) | Payment Return | Le message pacs.004 est utilisé pour retourner une transaction de paiement précédemment réglée. Il inverse le flux de fonds lorsqu'un paiement ne peut être appliqué, a été envoyé par erreur ou fait l'objet d'un rappel par l'institution d'origine. |
-| [`pacs.002.001.12`](/fr/pacs.002.001.12/) | FI to FI Payment Status Report | Le message pacs.002 est envoyé par une institution financière pour rapporter le statut d'une instruction de paiement précédemment envoyée. Il fournit une confirmation, un rejet ou un statut en attente pour les transactions individuelles au sein d'un message de paiement. |
+| [`pacs.008.001.13`](/fr/pacs.008.001.13/) | Virement client FI à FI | Le message pacs.008 est l'instruction de paiement centrale échangée entre institutions financières pour transférer des fonds au nom d'un client. Il porte les informations de débiteur, créancier, montant et remise pour une ou plusieurs transactions de virement. |
+| [`pacs.004.001.11`](/fr/pacs.004.001.11/) | Retour de paiement | Le message pacs.004 est utilisé pour retourner une transaction de paiement précédemment réglée. Il inverse le flux de fonds lorsqu'un paiement ne peut être appliqué, a été envoyé par erreur ou fait l'objet d'un rappel par l'institution d'origine. |
+| [`pacs.002.001.12`](/fr/pacs.002.001.12/) | Rapport de statut de paiement FI à FI | Le message pacs.002 est envoyé par une institution financière pour rapporter le statut d'une instruction de paiement précédemment envoyée. Il fournit une confirmation, un rejet ou un statut en attente pour les transactions individuelles au sein d'un message de paiement. |
 

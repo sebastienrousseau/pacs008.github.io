@@ -1,12 +1,12 @@
 ---
-title: pacs.008.001.13 | FI to FI Customer Credit Transfer | pacs008
+title: pacs.008.001.13 | FI'dan FI'ya müşteri kredi transferi | pacs008
 description: pacs.008 mesajı, bir müşteri adına fon transfer etmek üzere finans kuruluşları arasında iletilen temel ödeme talimatıdır. Bir veya daha fazla kredi...
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.008.001.13 — FI to FI Customer Credit Transfer
+# pacs.008.001.13 — FI'dan FI'ya müşteri kredi transferi
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 pacs.008 mesajı, bir müşteri adına fon transfer etmek üzere finans kuruluşları arasında iletilen temel ödeme talimatıdır. Bir veya daha fazla kredi transferi işlemi için borçlu, alacaklı, tutar ve havale bilgilerini taşır.
 
-> Birincil kaynaklara göre en son 23 Mart 2026 tarihinde gözden geçirildi. ISO 20022 katalog referans tarihi: 27 February 2025; kaynak bağlantıları aşağıda listelenmiştir.
+> Birincil kaynaklara göre en son 23 Mart 2026 tarihinde gözden geçirildi. ISO 20022 katalog referans tarihi: 2025-02-27; kaynak bağlantıları aşağıda listelenmiştir.
 
 ## Temel veri öğeleri
 
@@ -55,6 +55,51 @@ pacs.008 mesajı, bir müşteri adına fon transfer etmek üzere finans kuruluş
 
 Borçlu aracı bir pacs.008 oluşturur ve alacaklı aracıya gönderir (doğrudan veya aracılar üzerinden). Zincirdeki her aracı talimatı doğrular, zenginleştirir ve iletir; alacaklı aracı lehdarın hesabına alacak kaydedene kadar süreç devam eder.
 
+## Sürüm fark tablosu
+
+| Sürüm aralığı | Neden önemli | Uygulama çıkarımı |
+|---|---|---|
+| pacs.008.001.01-07 | Erken sürümler | Esas olarak eski sistemlerden geçiş analizi ve sürüm geçmişi bağlamı için yararlıdır. |
+| pacs.008.001.08-12 | Mevcut sürümden önceki modern sürümler | Son dönem geçiş veya birlikte çalışma projelerinde en çok karşılaşılması muhtemel sürümler bunlardır. |
+| pacs.008.001.13 | Geçerli katalog sürümü | Bunu mevcut sürüm planlaması için kullanın; ancak şema kullanım kuralları ve karşı taraf hazırlığı yine de doğrulanmalıdır. |
+
+## Açıklamalı XML örneği
+
+```xml
+<FIToFICstmrCdtTrf>
+  <GrpHdr>
+    <MsgId>MSG-2026-001</MsgId>
+    <CreDtTm>2026-01-15T10:30:00Z</CreDtTm>
+  </GrpHdr>
+  <CdtTrfTxInf>
+    <PmtId>
+      <EndToEndId>E2E-INV-2026-001</EndToEndId>
+      <UETR>123e4567-e89b-12d3-a456-426614174000</UETR>
+    </PmtId>
+    <IntrBkSttlmAmt Ccy="EUR">25000.00</IntrBkSttlmAmt>
+    <Dbtr><Nm>Acme Corp GmbH</Nm></Dbtr>
+    <Cdtr><Nm>Widget Industries SA</Nm></Cdtr>
+  </CdtTrfTxInf>
+</FIToFICstmrCdtTrf>
+```
+
+### Alan açıklamaları
+
+- `MsgId`: Bu alan son müşteri ödeme referansını değil, mesaj zarfının kendisini tanımlamalıdır.
+- `EndToEndId`: Mümkün olduğunda müşteri tarafındaki izlenebilirliği sonraki sistemler boyunca istikrarlı tutun.
+- `UETR`: Bunu sınır ötesi ve yoğun izleme gerektiren ortamlarda tutarlı şekilde kullanın; sonraki işlem aşamalarında ad hoc üretmeyin.
+- `IntrBkSttlmAmt`: Şema doğrulamasından önce tutar ve para birimini iş kurallarıyla doğrulayın.
+- `Dbtr` / `Cdtr`: Taraf verisi kalitesi, adres yapısı ve tanımlayıcılar genellikle düzeltme oranlarının ana belirleyicileridir.
+
+## Karşılaştır pacs.008 vs pacs.009
+
+| Boyut | pacs.008.001.13 | Karşılaştırma mesajı |
+|---|---|---|
+| Temel amaç | Müşteri kredi transferi | Kurumun kendi hesabına kredi transferi veya karşılama ayağı |
+| İş sahibi | Müşteri ödeme operasyonları | Hazine / muhabirlik / fonlama operasyonları |
+| Tipik eşleşmeler | pacs.002, pacs.004, pacs.007, pacs.028 | pacs.002, pacs.004 ve bazen ilişkili pacs.008 akışları |
+| Kaçınılması gereken yanlış varsayım | Tüm bankadan bankaya transferlerin burada yer aldığı | Müşteri kredi transferi talimatlarının yerini alabileceği |
+
 ## Birincil referanslar
 
 - [ISO 20022 message definitions catalogue for `pacs.008.001.13`](https://www.iso20022.org/iso-20022-message-definitions?search=Pacs.008.001.13)
@@ -70,7 +115,7 @@ Borçlu aracı bir pacs.008 oluşturur ve alacaklı aracıya gönderir (doğruda
 
 ## Desteklenen sürümler
 
-| Version | |
+| Sürüm | |
 |---|---|
 | `pacs.008.001.01` |  |
 | `pacs.008.001.02` |  |
@@ -84,12 +129,12 @@ Borçlu aracı bir pacs.008 oluşturur ve alacaklı aracıya gönderir (doğruda
 | `pacs.008.001.10` |  |
 | `pacs.008.001.11` |  |
 | `pacs.008.001.12` |  |
-| `pacs.008.001.13` | **Current** |
+| `pacs.008.001.13` | **Güncel** |
 
 ## İlgili mesajlar
 | Mesaj türü | Açıklama | Genel bakış |
 |---|---|---|
-| [`pacs.002.001.12`](/tr/pacs.002.001.12/) | FI to FI Payment Status Report | pacs.002 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu bildirmek üzere bir finans kuruluşu tarafından gönderilir. Bir ödeme mesajı içindeki bireysel işlemler için onay, ret veya bekleyen durum bilgisi sağlar. |
-| [`pacs.004.001.11`](/tr/pacs.004.001.11/) | Payment Return | pacs.004 mesajı, daha önce takas edilmiş bir ödeme işlemini iade etmek için kullanılır. Bir ödeme uygulanamadığında, hatalı gönderildiğinde veya kaynak kuruluş tarafından geri çağrıldığında fon akışını tersine çevirir. |
-| [`pacs.009.001.10`](/tr/pacs.009.001.10/) | Financial Institution Credit Transfer | pacs.009 mesajı, transferin bir müşteri adına değil kurumun kendi adına gerçekleştirildiği durumlarda finans kuruluşları arasında kredi transferleri için kullanılır. Bankalar arası fonlama, teminat ödemeleri ve likidite yönetimini destekler. |
+| [`pacs.002.001.12`](/tr/pacs.002.001.12/) | FI'dan FI'ya ödeme durumu raporu | pacs.002 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu bildirmek üzere bir finans kuruluşu tarafından gönderilir. Bir ödeme mesajı içindeki bireysel işlemler için onay, ret veya bekleyen durum bilgisi sağlar. |
+| [`pacs.004.001.11`](/tr/pacs.004.001.11/) | Ödeme iadesi | pacs.004 mesajı, daha önce takas edilmiş bir ödeme işlemini iade etmek için kullanılır. Bir ödeme uygulanamadığında, hatalı gönderildiğinde veya kaynak kuruluş tarafından geri çağrıldığında fon akışını tersine çevirir. |
+| [`pacs.009.001.10`](/tr/pacs.009.001.10/) | Finansal kuruluşlar arası kredi transferi | pacs.009 mesajı, transferin bir müşteri adına değil kurumun kendi adına gerçekleştirildiği durumlarda finans kuruluşları arasında kredi transferleri için kullanılır. Bankalar arası fonlama, teminat ödemeleri ve likidite yönetimini destekler. |
 

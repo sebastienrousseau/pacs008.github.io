@@ -1,12 +1,12 @@
 ---
-title: pacs.009.001.10 | Financial Institution Credit Transfer | pacs008
+title: pacs.009.001.10 | Transferência de crédito entre instituições financeiras | pacs008
 description: A mensagem pacs.009 é utilizada para transferências de crédito entre instituições financeiras onde a transferência ocorre por conta própria da instituição...
 lang: pt-BR
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.009.001.10 — Financial Institution Credit Transfer
+# pacs.009.001.10 — Transferência de crédito entre instituições financeiras
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 A mensagem pacs.009 é utilizada para transferências de crédito entre instituições financeiras onde a transferência ocorre por conta própria da instituição e não em nome de um cliente. Suporta financiamento interbancário, pagamentos de cobertura e gestão de liquidez.
 
-> Última revisão com base em fontes primárias em 23 de março de 2026. Data de referência do catálogo ISO 20022: 27 February 2025; os links das fontes estão abaixo.
+> Última revisão com base em fontes primárias em 23 de março de 2026. Data de referência do catálogo ISO 20022: 2025-02-27; os links das fontes estão abaixo.
 
 ## Elementos de dados principais
 
@@ -60,7 +60,7 @@ A instituição devedora envia pacs.009 à instituição credora para transferir
 | Faixa de versão | Por que importa | Implicação de implementação |
 |---|---|---|
 | pacs.009.001.10 | Implementação atual no pacs008 | Corresponde ao suporte atual do projeto para fluxos de transferência de crédito FI. |
-| pacs.009.001.11-12 | Revisões posteriores do catálogo | Important for roadmap planning in correspondent and cover-payment environments. |
+| pacs.009.001.11-12 | Revisões posteriores do catálogo | Importante para o planejamento do roteiro em ambientes de banco correspondente e pagamentos de cobertura. |
 
 ## Exemplo XML comentado
 
@@ -80,7 +80,7 @@ A instituição devedora envia pacs.009 à instituição credora para transferir
 
 ### Comentários de campo
 
-- `InstrId`: Use um identificador da perna de funding que ainda possa ser associado ao fluxo de cliente subjacente.
+- `InstrId`: Use um identificador da etapa de financiamento que ainda possa ser associado ao fluxo de cliente subjacente.
 - `IntrBkSttlmAmt`: Fluxos de conta própria e de cobertura frequentemente exigem controles de tesouraria mais rígidos sobre valores e datas de liquidação.
 - `Dbtr` / `Cdtr`: Estas são partes institucionais, não papéis de cliente de varejo; modele-as de acordo.
 
@@ -89,9 +89,9 @@ A instituição devedora envia pacs.009 à instituição credora para transferir
 | Dimensão | pacs.009.001.10 | Mensagem de comparação |
 |---|---|---|
 | Objetivo principal | Transferência de crédito de conta própria da instituição ou perna de cobertura | Transferência de crédito de cliente |
-| Responsável de negócio | Operações de tesouraria, correspondência e funding | Operações de pagamentos de clientes |
+| Responsável de negócio | Operações de tesouraria, banco correspondente e financiamento | Operações de pagamentos de clientes |
 | Combinações típicas | pacs.002, pacs.004 e fluxos pacs.008 vinculados | pacs.002, pacs.004, pacs.007, pacs.028 |
-| Suposição errada a evitar | Que é apenas uma pacs.008 mais técnica | Que pode transportar com facilidade fluxos de funding institucional |
+| Suposição errada a evitar | Que é apenas uma pacs.008 mais técnica | Que pode transportar com facilidade fluxos de financiamento institucional |
 
 ## Referências primárias
 
@@ -105,7 +105,7 @@ A instituição devedora envia pacs.009 à instituição credora para transferir
 ## Mensagens relacionadas
 | Tipo de mensagem | Descrição | Visão geral |
 |---|---|---|
-| [`pacs.008.001.13`](/pt/pacs.008.001.13/) | FI to FI Customer Credit Transfer | A mensagem pacs.008 é a instrução de pagamento principal trocada entre instituições financeiras para transferir fundos em nome de um cliente. Contém informações sobre devedor, credor, valor e dados de remessa para uma ou mais transações de transferência de crédito. |
-| [`pacs.002.001.12`](/pt/pacs.002.001.12/) | FI to FI Payment Status Report | A mensagem pacs.002 é enviada por uma instituição financeira para reportar o status de uma instrução de pagamento enviada anteriormente. Fornece informações de confirmação, rejeição ou status pendente para transações individuais dentro de uma mensagem de pagamento. |
-| [`pacs.010.001.05`](/pt/pacs.010.001.05/) | Financial Institution Direct Debit | A mensagem pacs.010 é utilizada entre instituições financeiras para transações de débito direto na conta própria da instituição. Permite que uma instituição colete fundos diretamente da conta de outra instituição. |
+| [`pacs.008.001.13`](/pt/pacs.008.001.13/) | Transferência de crédito de cliente FI a FI | A mensagem pacs.008 é a instrução de pagamento principal trocada entre instituições financeiras para transferir fundos em nome de um cliente. Contém informações sobre devedor, credor, valor e dados de remessa para uma ou mais transações de transferência de crédito. |
+| [`pacs.002.001.12`](/pt/pacs.002.001.12/) | Relatório de status de pagamento FI a FI | A mensagem pacs.002 é enviada por uma instituição financeira para reportar o status de uma instrução de pagamento enviada anteriormente. Fornece informações de confirmação, rejeição ou status pendente para transações individuais dentro de uma mensagem de pagamento. |
+| [`pacs.010.001.05`](/pt/pacs.010.001.05/) | Débito direto entre instituições financeiras | A mensagem pacs.010 é utilizada entre instituições financeiras para transações de débito direto na conta própria da instituição. Permite que uma instituição colete fundos diretamente da conta de outra instituição. |
 

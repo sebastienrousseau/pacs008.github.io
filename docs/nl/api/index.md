@@ -1,6 +1,6 @@
 ---
 title: API | pacs008
-description: REST- en CLI-workflowondersteuning in pacs008. Generatie, validatie, API-orchestratie en compliance-ondersteuning voor FI-to-FI-klantoverdrachtworkflows.
+description: REST- en CLI-workflowondersteuning in pacs008. Generatie, validatie, API-orchestratie en compliance-ondersteuning voor klantkredietoverboekingsworkflows...
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg
@@ -52,14 +52,14 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 | `DELETE /jobs/{job_id}` | Een wachtende of lopende taak annuleren |
 | `GET /docs` | Interactieve Swagger UI voor het verkennen en testen van alle eindpunten |
 
-- [`pacs.002.001.12`](/nl/pacs.002.001.12/) — FI to FI Payment Status Report
-- [`pacs.003.001.09`](/nl/pacs.003.001.09/) — FI to FI Customer Direct Debit
-- [`pacs.004.001.11`](/nl/pacs.004.001.11/) — Payment Return
-- [`pacs.007.001.11`](/nl/pacs.007.001.11/) — FI to FI Payment Reversal
-- [`pacs.008.001.13`](/nl/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.009.001.10`](/nl/pacs.009.001.10/) — Financial Institution Credit Transfer
-- [`pacs.010.001.05`](/nl/pacs.010.001.05/) — Financial Institution Direct Debit
-- [`pacs.028.001.05`](/nl/pacs.028.001.05/) — FI to FI Payment Status Request
+- [`pacs.002.001.12`](/nl/pacs.002.001.12/) — FI-naar-FI-betalingsstatusrapport
+- [`pacs.003.001.09`](/nl/pacs.003.001.09/) — FI-naar-FI-klantincasso
+- [`pacs.004.001.11`](/nl/pacs.004.001.11/) — Betalingsretour
+- [`pacs.007.001.11`](/nl/pacs.007.001.11/) — FI-naar-FI-betalingsstornering
+- [`pacs.008.001.13`](/nl/pacs.008.001.13/) — FI-naar-FI-klantkredietoverboeking
+- [`pacs.009.001.10`](/nl/pacs.009.001.10/) — Kredietoverboeking tussen financiële instellingen
+- [`pacs.010.001.05`](/nl/pacs.010.001.05/) — Incasso tussen financiële instellingen
+- [`pacs.028.001.05`](/nl/pacs.028.001.05/) — FI-naar-FI-aanvraag betalingsstatus
 
 ### Validatievoorbeeld
 

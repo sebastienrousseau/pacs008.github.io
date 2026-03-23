@@ -1,12 +1,12 @@
 ---
-title: pacs.002.001.12 | FI to FI Payment Status Report | pacs008
+title: pacs.002.001.12 | FI-zu-FI-Zahlungsstatusbericht | pacs008
 description: Die Nachricht pacs.002 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung zu melden. Sie liefert...
 lang: de-DE
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.002.001.12 — FI to FI Payment Status Report
+# pacs.002.001.12 — FI-zu-FI-Zahlungsstatusbericht
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Die Nachricht pacs.002 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung zu melden. Sie liefert Bestätigungs-, Ablehnungs- oder Statusinformationen für einzelne Transaktionen innerhalb einer Zahlungsnachricht.
 
-> Zuletzt anhand von Primärquellen am 23. März 2026 geprüft. Referenzdatum des ISO-20022-Katalogs: 27 February 2025; Quellenlinks sind unten aufgeführt.
+> Zuletzt anhand von Primärquellen am 23. März 2026 geprüft. Referenzdatum des ISO-20022-Katalogs: 2025-02-27; Quellenlinks sind unten aufgeführt.
 
 ## Wichtige Datenelemente
 
@@ -82,10 +82,10 @@ Der beauftragte Agent (Empfänger) sendet pacs.002 an den beauftragenden Agent (
 
 ### Hinweise zu den Feldern
 
-- `MsgId`: Use a new identifier for the status report itself, not the original payment instruction.
-- `OrgnlInstrId`: Keep the original instruction identifier intact so status can be matched automatically.
-- `TxSts`: This is the operational state; map it carefully to internal workflow states rather than assuming a one-to-one match.
-- `StsRsnInf`: Structured reason codes are far more useful than free text for repair and analytics.
+- `MsgId`: Verwenden Sie eine neue Kennung für den Statusbericht selbst, nicht für die ursprüngliche Zahlungsanweisung.
+- `OrgnlInstrId`: Belassen Sie die ursprüngliche Anweisungskennung unverändert, damit der Status automatisch zugeordnet werden kann.
+- `TxSts`: Dies ist der operative Status; ordnen Sie ihn sorgfältig internen Workflow-Status zu, statt von einer Eins-zu-eins-Entsprechung auszugehen.
+- `StsRsnInf`: Strukturierte Grundcodes sind für Repair-Prozesse und Analysen deutlich nützlicher als Freitext.
 
 ## Vergleich pacs.002 vs pacs.028
 
@@ -108,7 +108,7 @@ Der beauftragte Agent (Empfänger) sendet pacs.002 an den beauftragenden Agent (
 ## Verwandte Nachrichten
 | Nachrichtentyp | Beschreibung | Überblick |
 |---|---|---|
-| [`pacs.008.001.13`](/de/pacs.008.001.13/) | FI to FI Customer Credit Transfer | Die Nachricht pacs.008 ist die zentrale Zahlungsanweisung, die zwischen Finanzinstituten ausgetauscht wird, um Gelder im Auftrag eines Kunden zu überweisen. Sie enthält Informationen zu Schuldner, Gläubiger, Betrag und Überweisungszweck für eine oder mehrere Überweisungen. |
-| [`pacs.009.001.10`](/de/pacs.009.001.10/) | Financial Institution Credit Transfer | Die Nachricht pacs.009 wird für Überweisungen zwischen Finanzinstituten verwendet, bei denen die Überweisung auf eigene Rechnung des Instituts erfolgt. Sie unterstützt Interbankenfinanzierung, Deckungszahlungen und Liquiditätsmanagement. |
-| [`pacs.028.001.05`](/de/pacs.028.001.05/) | FI to FI Payment Status Request | Die Nachricht pacs.028 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung anzufragen. Sie ermöglicht die proaktive Verfolgung der Zahlungsverarbeitung, ohne auf einen unaufgeforderten Statusbericht zu warten. |
+| [`pacs.008.001.13`](/de/pacs.008.001.13/) | FI-zu-FI-Kundenkredittransfer | Die Nachricht pacs.008 ist die zentrale Zahlungsanweisung, die zwischen Finanzinstituten ausgetauscht wird, um Gelder im Auftrag eines Kunden zu überweisen. Sie enthält Informationen zu Schuldner, Gläubiger, Betrag und Überweisungszweck für eine oder mehrere Überweisungen. |
+| [`pacs.009.001.10`](/de/pacs.009.001.10/) | Kredittransfer zwischen Finanzinstituten | Die Nachricht pacs.009 wird für Überweisungen zwischen Finanzinstituten verwendet, bei denen die Überweisung auf eigene Rechnung des Instituts erfolgt. Sie unterstützt Interbankenfinanzierung, Deckungszahlungen und Liquiditätsmanagement. |
+| [`pacs.028.001.05`](/de/pacs.028.001.05/) | FI-zu-FI-Anfrage zum Zahlungsstatus | Die Nachricht pacs.028 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung anzufragen. Sie ermöglicht die proaktive Verfolgung der Zahlungsverarbeitung, ohne auf einen unaufgeforderten Statusbericht zu warten. |
 

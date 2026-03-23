@@ -1,6 +1,6 @@
 ---
 title: pacs008 | עברית | ISO 20022 Toolkit
-description: יצירה, אימות, תיאום API ותמיכת ציות לתהליכי העברת אשראי FI-to-FI.
+description: יצירה, אימות, תיאום API ותמיכת ציות לתהליכי העברת אשראי ללקוחות בין מוסדות פיננסיים.
 lang: he-IL
 author: Sebastien Rousseau
 lastUpdated: true
@@ -17,8 +17,8 @@ schemaType: WebSite
 heroText: אוטומציה של עיבוד הודעות pacs.008 בתקן ISO 20022.
 home: true
 metaTitle: pacs008
-subtitle: יצירה, אימות, תיאום API ותמיכת ציות לתהליכי העברת אשראי FI-to-FI.
-tagline: יצירה, אימות, תיאום API ותמיכת ציות לתהליכי העברת אשראי FI-to-FI.
+subtitle: יצירה, אימות, תיאום API ותמיכת ציות לתהליכי העברת אשראי ללקוחות בין מוסדות פיננסיים.
+tagline: יצירה, אימות, תיאום API ותמיכת ציות לתהליכי העברת אשראי ללקוחות בין מוסדות פיננסיים.
 actionText: למידע על pacs008
 actionLink: /he/about/
 features:

@@ -1,12 +1,12 @@
 ---
-title: pacs.002.001.12 | FI to FI Payment Status Report | pacs008
+title: pacs.002.001.12 | FI'dan FI'ya ödeme durumu raporu | pacs008
 description: pacs.002 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu bildirmek üzere bir finans kuruluşu tarafından gönderilir. Bir ödeme mesajı içindeki...
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.002.001.12 — FI to FI Payment Status Report
+# pacs.002.001.12 — FI'dan FI'ya ödeme durumu raporu
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 pacs.002 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu bildirmek üzere bir finans kuruluşu tarafından gönderilir. Bir ödeme mesajı içindeki bireysel işlemler için onay, ret veya bekleyen durum bilgisi sağlar.
 
-> Birincil kaynaklara göre en son 23 Mart 2026 tarihinde gözden geçirildi. ISO 20022 katalog referans tarihi: 27 February 2025; kaynak bağlantıları aşağıda listelenmiştir.
+> Birincil kaynaklara göre en son 23 Mart 2026 tarihinde gözden geçirildi. ISO 20022 katalog referans tarihi: 2025-02-27; kaynak bağlantıları aşağıda listelenmiştir.
 
 ## Temel veri öğeleri
 
@@ -55,6 +55,47 @@ pacs.002 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu bil
 
 Talimat alan aracı (alıcı), pacs.008 veya pacs.009 gibi alınan bir ödeme talimatının kabulünü, takasını veya reddini onaylamak üzere talimat veren aracıya (gönderici) pacs.002 gönderir.
 
+## Sürüm fark tablosu
+
+| Sürüm aralığı | Neden önemli | Uygulama çıkarımı |
+|---|---|---|
+| pacs.002.001.12 | pacs008 içindeki mevcut uygulama | Bunu mevcut proje şablonları ve doğrulama varlıklarıyla eşleşirken kullanın. |
+| pacs.002.001.13-15 | Daha sonraki katalog sürümleri | Yeni birlikte çalışabilirlik çalışmaları başlamadan veya yeni altyapılar eklenmeden önce sonraki ISO sürümlerini gözden geçirin. |
+
+## Açıklamalı XML örneği
+
+```xml
+<FIToFIPmtStsRpt>
+  <GrpHdr>
+    <MsgId>STS-2026-0001</MsgId>
+    <CreDtTm>2026-03-01T09:15:00Z</CreDtTm>
+  </GrpHdr>
+  <TxInfAndSts>
+    <OrgnlInstrId>PAY-2026-8841</OrgnlInstrId>
+    <TxSts>RJCT</TxSts>
+    <StsRsnInf>
+      <Rsn><Cd>AC01</Cd></Rsn>
+    </StsRsnInf>
+  </TxInfAndSts>
+</FIToFIPmtStsRpt>
+```
+
+### Alan açıklamaları
+
+- `MsgId`: Orijinal ödeme talimatı için değil, durum raporunun kendisi için yeni bir tanımlayıcı kullanın.
+- `OrgnlInstrId`: Durumun otomatik eşleştirilebilmesi için orijinal talimat tanımlayıcısını değiştirmeden koruyun.
+- `TxSts`: Bu operasyonel durumdur; bire bir eşleşme varsaymak yerine dahili süreç durumlarına dikkatle eşleyin.
+- `StsRsnInf`: Yapılandırılmış neden kodları, düzeltme işlemleri ve analitik için serbest metinden çok daha kullanışlıdır.
+
+## Karşılaştır pacs.002 vs pacs.028
+
+| Boyut | pacs.002.001.12 | Karşılaştırma mesajı |
+|---|---|---|
+| Temel amaç | Durum bildir | Durum iste |
+| Etkileşimi kim başlatır | Durumu gönderen kurum | Durumu soran kurum |
+| Operasyonel duruş | Olay güdümlü raporlama | İstisna güdümlü sorgu |
+| Kaçınılması gereken yanlış varsayım | Durum raporlamasının inceleme ve araştırma iş akışlarının yerini aldığı | Her ödemenin açık bir durum isteğine ihtiyaç duyduğu |
+
 ## Birincil referanslar
 
 - [ISO 20022 message definitions catalogue for `pacs.002.001.12`](https://www.iso20022.org/iso-20022-message-definitions?search=Pacs.002.001.12)
@@ -67,7 +108,7 @@ Talimat alan aracı (alıcı), pacs.008 veya pacs.009 gibi alınan bir ödeme ta
 ## İlgili mesajlar
 | Mesaj türü | Açıklama | Genel bakış |
 |---|---|---|
-| [`pacs.008.001.13`](/tr/pacs.008.001.13/) | FI to FI Customer Credit Transfer | pacs.008 mesajı, bir müşteri adına fon transfer etmek üzere finans kuruluşları arasında iletilen temel ödeme talimatıdır. Bir veya daha fazla kredi transferi işlemi için borçlu, alacaklı, tutar ve havale bilgilerini taşır. |
-| [`pacs.009.001.10`](/tr/pacs.009.001.10/) | Financial Institution Credit Transfer | pacs.009 mesajı, transferin bir müşteri adına değil kurumun kendi adına gerçekleştirildiği durumlarda finans kuruluşları arasında kredi transferleri için kullanılır. Bankalar arası fonlama, teminat ödemeleri ve likidite yönetimini destekler. |
-| [`pacs.028.001.05`](/tr/pacs.028.001.05/) | FI to FI Payment Status Request | pacs.028 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu talep etmek üzere bir finans kuruluşu tarafından gönderilir. İstenmeyen bir durum raporu beklemeden ödeme işleme sürecinin proaktif takibini sağlar. |
+| [`pacs.008.001.13`](/tr/pacs.008.001.13/) | FI'dan FI'ya müşteri kredi transferi | pacs.008 mesajı, bir müşteri adına fon transfer etmek üzere finans kuruluşları arasında iletilen temel ödeme talimatıdır. Bir veya daha fazla kredi transferi işlemi için borçlu, alacaklı, tutar ve havale bilgilerini taşır. |
+| [`pacs.009.001.10`](/tr/pacs.009.001.10/) | Finansal kuruluşlar arası kredi transferi | pacs.009 mesajı, transferin bir müşteri adına değil kurumun kendi adına gerçekleştirildiği durumlarda finans kuruluşları arasında kredi transferleri için kullanılır. Bankalar arası fonlama, teminat ödemeleri ve likidite yönetimini destekler. |
+| [`pacs.028.001.05`](/tr/pacs.028.001.05/) | FI'dan FI'ya ödeme durumu talebi | pacs.028 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu talep etmek üzere bir finans kuruluşu tarafından gönderilir. İstenmeyen bir durum raporu beklemeden ödeme işleme sürecinin proaktif takibini sağlar. |
 

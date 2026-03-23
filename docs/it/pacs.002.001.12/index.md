@@ -1,12 +1,12 @@
 ---
-title: pacs.002.001.12 | FI to FI Payment Status Report | pacs008
+title: pacs.002.001.12 | Rapporto di stato del pagamento tra istituzioni finanziarie | pacs008
 description: Il messaggio pacs.002 viene inviato da un istituto finanziario per comunicare lo stato di un'istruzione di pagamento precedentemente inviata. Fornisce...
 lang: it-IT
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.002.001.12 — FI to FI Payment Status Report
+# pacs.002.001.12 — Rapporto di stato del pagamento tra istituzioni finanziarie
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Il messaggio pacs.002 viene inviato da un istituto finanziario per comunicare lo stato di un'istruzione di pagamento precedentemente inviata. Fornisce informazioni di conferma, rifiuto o stato in sospeso per le singole transazioni all'interno di un messaggio di pagamento.
 
-> Ultima revisione rispetto a fonti primarie il 23 marzo 2026. Data di riferimento del catalogo ISO 20022: 27 February 2025; i collegamenti alle fonti sono riportati di seguito.
+> Ultima revisione rispetto a fonti primarie il 23 marzo 2026. Data di riferimento del catalogo ISO 20022: 2025-02-27; i collegamenti alle fonti sono riportati di seguito.
 
 ## Elementi di dati chiave
 
@@ -59,8 +59,8 @@ L'agente incaricato (destinatario) invia pacs.002 all'agente ordinante (mittente
 
 | Intervallo di versione | Perché conta | Implicazione implementativa |
 |---|---|---|
-| pacs.002.001.12 | Implementazione attuale in pacs008 | Da usare quando si lavora con i template e gli artefatti di validazione attualmente supportati dal progetto. |
-| pacs.002.001.13-15 | Revisioni successive del catalogo | Review later ISO revisions before starting new interoperability work or onboarding new infrastructures. |
+| pacs.002.001.12 | Implementazione attuale in pacs008 | Gunakan ini saat mencocokkan templat proyek saat ini dan aset validasi. |
+| pacs.002.001.13-15 | Revisioni successive del catalogo | Esamina le revisioni ISO successive prima di avviare nuovi lavori di interoperabilita o di integrare nuove infrastrutture. |
 
 ## Esempio XML commentato
 
@@ -82,19 +82,19 @@ L'agente incaricato (destinatario) invia pacs.002 all'agente ordinante (mittente
 
 ### Commenti sui campi
 
-- `MsgId`: Use a new identifier for the status report itself, not the original payment instruction.
-- `OrgnlInstrId`: Keep the original instruction identifier intact so status can be matched automatically.
-- `TxSts`: This is the operational state; map it carefully to internal workflow states rather than assuming a one-to-one match.
-- `StsRsnInf`: Structured reason codes are far more useful than free text for repair and analytics.
+- `MsgId`: Usa un nuovo identificatore per il rapporto di stato stesso, non per l'istruzione di pagamento originale.
+- `OrgnlInstrId`: Mantieni intatto l'identificatore dell'istruzione originale in modo che lo stato possa essere riconciliato automaticamente.
+- `TxSts`: Questo e lo stato operativo; mappalo con attenzione sugli stati interni del workflow invece di presumere una corrispondenza diretta.
+- `StsRsnInf`: I codici motivo strutturati sono molto piu utili del testo libero per le riparazioni e l'analitica.
 
 ## Confrontare pacs.002 vs pacs.028
 
 | Dimensione | pacs.002.001.12 | Messaggio di confronto |
 |---|---|---|
 | Scopo principale | Report status | Request status |
-| Who starts the interaction | The institution sending the status | The institution asking for status |
+| Chi avvia l'interazione | L'istituzione che invia lo stato | L'istituzione che richiede lo stato |
 | Operational posture | Event-driven reporting | Exception-driven enquiry |
-| Assunzione errata da evitare | That status reporting replaces investigation workflows | That every payment needs an explicit status request |
+| Asumsi keliru yang perlu dihindari | Che la reportistica di stato sostituisca i flussi di indagine | Che ogni pagamento richieda una richiesta di stato esplicita |
 
 ## Riferimenti primari
 
@@ -108,7 +108,7 @@ L'agente incaricato (destinatario) invia pacs.002 all'agente ordinante (mittente
 ## Messaggi correlati
 | Tipo di messaggio | Descrizione | Panoramica |
 |---|---|---|
-| [`pacs.008.001.13`](/it/pacs.008.001.13/) | FI to FI Customer Credit Transfer | Il messaggio pacs.008 è l'istruzione di pagamento principale scambiata tra istituti finanziari per trasferire fondi per conto di un cliente. Contiene informazioni su debitore, creditore, importo e dettagli di rimessa per una o più transazioni di bonifico. |
-| [`pacs.009.001.10`](/it/pacs.009.001.10/) | Financial Institution Credit Transfer | Il messaggio pacs.009 viene utilizzato per bonifici tra istituti finanziari in cui il trasferimento avviene per conto proprio dell'istituto anziché per conto di un cliente. Supporta il finanziamento interbancario, i pagamenti di copertura e la gestione della liquidità. |
-| [`pacs.028.001.05`](/it/pacs.028.001.05/) | FI to FI Payment Status Request | Il messaggio pacs.028 viene inviato da un istituto finanziario per richiedere lo stato di un'istruzione di pagamento precedentemente inviata. Consente il tracciamento proattivo dell'elaborazione dei pagamenti senza attendere un rapporto di stato non richiesto. |
+| [`pacs.008.001.13`](/it/pacs.008.001.13/) | Bonifico cliente tra istituzioni finanziarie | Il messaggio pacs.008 è l'istruzione di pagamento principale scambiata tra istituti finanziari per trasferire fondi per conto di un cliente. Contiene informazioni su debitore, creditore, importo e dettagli di rimessa per una o più transazioni di bonifico. |
+| [`pacs.009.001.10`](/it/pacs.009.001.10/) | Bonifico tra istituzioni finanziarie | Il messaggio pacs.009 viene utilizzato per bonifici tra istituti finanziari in cui il trasferimento avviene per conto proprio dell'istituto anziché per conto di un cliente. Supporta il finanziamento interbancario, i pagamenti di copertura e la gestione della liquidità. |
+| [`pacs.028.001.05`](/it/pacs.028.001.05/) | Richiesta di stato del pagamento tra istituzioni finanziarie | Il messaggio pacs.028 viene inviato da un istituto finanziario per richiedere lo stato di un'istruzione di pagamento precedentemente inviata. Consente il tracciamento proattivo dell'elaborazione dei pagamenti senza attendere un rapporto di stato non richiesto. |
 

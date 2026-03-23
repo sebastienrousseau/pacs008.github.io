@@ -1,6 +1,6 @@
 ---
 title: Gizlilik | pacs008
-description: pacs008 web sitesi gizlilik bilgileri. FI-to-FI müşteri kredi transferi iş akışları için oluşturma, doğrulama, API orkestrasyonu ve uyumluluk desteği.
+description: pacs008 web sitesi gizlilik bilgileri. Finansal kuruluşlar arasındaki müşteri kredi transferi iş akışları için oluşturma, doğrulama, API orkestrasyonu ve...
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg

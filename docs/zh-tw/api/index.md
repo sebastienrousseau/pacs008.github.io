@@ -1,6 +1,6 @@
 ---
 title: API | pacs008
-description: pacs008 中的 REST 和 CLI 工作流程支援。 面向 FI-to-FI 客戶信貸轉帳工作流程的產生、驗證、API 編排與合規支援。
+description: pacs008 中的 REST 和 CLI 工作流程支援。 面向金融機構間客戶信貸轉帳工作流程的產生、驗證、API 編排與合規支援。
 lang: zh-TW
 lastUpdated: true
 image: /logo.svg
@@ -11,6 +11,13 @@ image: /logo.svg
 該專案同時提供 REST API 和 CLI，用於營運支付訊息處理工作流程。
 
 > 已於 2026 年 3 月 23 日依據本頁引用的 ISO 20022、EPC 與 Swift 公開資料完成主要來源複核。
+
+## 實作說明
+
+- 使用同步生成來處理操作人員檢查與小批次工作，當呼叫端需要立即取得 XML 時尤其適合。
+- 當輸入檔案較大、工作需要重試，或生成流程屬於更大型的協調引擎時，請使用非同步生成。
+- 保留原始輸入資料與驗證報告，讓支援團隊在事故期間能重現 XML 輸出。
+- 在部署設定中固定範本與 XSD 路徑，以避免發行時發生靜默升級。
 
 ## 安裝
 
@@ -45,14 +52,14 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 | `DELETE /jobs/{job_id}` | 取消待處理或正在執行的工作 |
 | `GET /docs` | 用於探索和測試所有端點的互動式 Swagger UI |
 
-- [`pacs.002.001.12`](/zh-tw/pacs.002.001.12/) — FI to FI Payment Status Report
-- [`pacs.003.001.09`](/zh-tw/pacs.003.001.09/) — FI to FI Customer Direct Debit
-- [`pacs.004.001.11`](/zh-tw/pacs.004.001.11/) — Payment Return
-- [`pacs.007.001.11`](/zh-tw/pacs.007.001.11/) — FI to FI Payment Reversal
-- [`pacs.008.001.13`](/zh-tw/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.009.001.10`](/zh-tw/pacs.009.001.10/) — Financial Institution Credit Transfer
-- [`pacs.010.001.05`](/zh-tw/pacs.010.001.05/) — Financial Institution Direct Debit
-- [`pacs.028.001.05`](/zh-tw/pacs.028.001.05/) — FI to FI Payment Status Request
+- [`pacs.002.001.12`](/zh-tw/pacs.002.001.12/) — 金融機構間付款狀態報告
+- [`pacs.003.001.09`](/zh-tw/pacs.003.001.09/) — 金融機構間客戶直接扣款
+- [`pacs.004.001.11`](/zh-tw/pacs.004.001.11/) — 付款退回
+- [`pacs.007.001.11`](/zh-tw/pacs.007.001.11/) — 金融機構間付款撤銷
+- [`pacs.008.001.13`](/zh-tw/pacs.008.001.13/) — 金融機構間客戶信用轉帳
+- [`pacs.009.001.10`](/zh-tw/pacs.009.001.10/) — 金融機構信用轉帳
+- [`pacs.010.001.05`](/zh-tw/pacs.010.001.05/) — 金融機構直接扣款
+- [`pacs.028.001.05`](/zh-tw/pacs.028.001.05/) — 金融機構間付款狀態請求
 
 ### 驗證範例
 

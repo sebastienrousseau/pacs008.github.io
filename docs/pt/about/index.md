@@ -1,6 +1,6 @@
 ---
 title: Sobre o pacs008 | pacs008
-description: O que o pacs008 faz e para quem é destinado. Geração, validação, orquestração de API e suporte de conformidade para fluxos de transferência de crédito...
+description: O que o pacs008 faz e para quem é destinado. Geração, validação, orquestração de API e suporte de conformidade para fluxos de transferência de crédito de...
 lang: pt-BR
 lastUpdated: true
 image: /logo.svg

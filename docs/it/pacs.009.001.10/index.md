@@ -1,12 +1,12 @@
 ---
-title: pacs.009.001.10 | Financial Institution Credit Transfer | pacs008
+title: pacs.009.001.10 | Bonifico tra istituzioni finanziarie | pacs008
 description: Il messaggio pacs.009 viene utilizzato per bonifici tra istituti finanziari in cui il trasferimento avviene per conto proprio dell'istituto anziché per...
 lang: it-IT
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.009.001.10 — Financial Institution Credit Transfer
+# pacs.009.001.10 — Bonifico tra istituzioni finanziarie
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Il messaggio pacs.009 viene utilizzato per bonifici tra istituti finanziari in cui il trasferimento avviene per conto proprio dell'istituto anziché per conto di un cliente. Supporta il finanziamento interbancario, i pagamenti di copertura e la gestione della liquidità.
 
-> Ultima revisione rispetto a fonti primarie il 23 marzo 2026. Data di riferimento del catalogo ISO 20022: 27 February 2025; i collegamenti alle fonti sono riportati di seguito.
+> Ultima revisione rispetto a fonti primarie il 23 marzo 2026. Data di riferimento del catalogo ISO 20022: 2025-02-27; i collegamenti alle fonti sono riportati di seguito.
 
 ## Elementi di dati chiave
 
@@ -59,8 +59,8 @@ L'istituto debitore invia pacs.009 all'istituto creditore per trasferire i propr
 
 | Intervallo di versione | Perché conta | Implicazione implementativa |
 |---|---|---|
-| pacs.009.001.10 | Implementazione attuale in pacs008 | Corrisponde al supporto attuale del progetto per i flussi di trasferimento di credito FI. |
-| pacs.009.001.11-12 | Revisioni successive del catalogo | Importante per la pianificazione della roadmap in ambienti di correspondent banking e pagamenti cover. |
+| pacs.009.001.10 | Implementazione attuale in pacs008 | Sesuai dengan dukungan proyek saat ini untuk alur transfer kredit FI. |
+| pacs.009.001.11-12 | Revisioni successive del catalogo | Penting untuk perencanaan peta jalan dalam lingkungan perbankan koresponden dan pembayaran penutup. |
 
 ## Esempio XML commentato
 
@@ -80,18 +80,18 @@ L'istituto debitore invia pacs.009 all'istituto creditore per trasferire i propr
 
 ### Commenti sui campi
 
-- `InstrId`: Usare un identificatore della gamba di funding che possa restare collegato al flusso cliente sottostante.
-- `IntrBkSttlmAmt`: I flussi su conto proprio e di copertura richiedono spesso controlli di tesoreria più rigorosi su importi e date di regolamento.
-- `Dbtr` / `Cdtr`: Si tratta di parti istituzionali, non di ruoli cliente retail; vanno modellate di conseguenza.
+- `InstrId`: Gunakan pengenal tahap pendanaan yang tetap dapat dihubungkan ke alur pelanggan dasar apa pun.
+- `IntrBkSttlmAmt`: Alur rekening sendiri dan alur penutup sering memerlukan kontrol tresuri yang lebih ketat atas jumlah dan tanggal penyelesaian.
+- `Dbtr` / `Cdtr`: Ini adalah pihak institusional, bukan peran nasabah ritel; modelkan sesuai itu.
 
 ## Confrontare pacs.009 vs pacs.008
 
 | Dimensione | pacs.009.001.10 | Messaggio di confronto |
 |---|---|---|
-| Scopo principale | Trasferimento di credito su conto proprio dell'istituto o gamba di copertura | Trasferimento di credito cliente |
-| Responsabile di business | Operazioni di tesoreria, correspondent banking e funding | Operazioni di pagamenti clienti |
-| Abbinamenti tipici | pacs.002, pacs.004 e flussi pacs.008 collegati | pacs.002, pacs.004, pacs.007, pacs.028 |
-| Assunzione errata da evitare | Che sia semplicemente una pacs.008 più tecnica | Che possa gestire senza problemi flussi di funding tra istituti |
+| Scopo principale | Transfer kredit rekening milik institusi sendiri atau tahap penutup pendanaan | Transfer kredit nasabah |
+| Pemilik proses bisnis | Operasi tresuri / korespondensi / pendanaan | Operasi pembayaran nasabah |
+| Kombinasi yang umum | aliran pacs.002, pacs.004, dan pacs.008 yang terkait | pacs.002, pacs.004, pacs.007, pacs.028 |
+| Asumsi keliru yang perlu dihindari | Bahwa ini hanyalah pacs.008 yang lebih teknis | Bahwa ini dapat membawa aliran pendanaan institusi dengan rapi |
 
 ## Riferimenti primari
 
@@ -105,7 +105,7 @@ L'istituto debitore invia pacs.009 all'istituto creditore per trasferire i propr
 ## Messaggi correlati
 | Tipo di messaggio | Descrizione | Panoramica |
 |---|---|---|
-| [`pacs.008.001.13`](/it/pacs.008.001.13/) | FI to FI Customer Credit Transfer | Il messaggio pacs.008 è l'istruzione di pagamento principale scambiata tra istituti finanziari per trasferire fondi per conto di un cliente. Contiene informazioni su debitore, creditore, importo e dettagli di rimessa per una o più transazioni di bonifico. |
-| [`pacs.002.001.12`](/it/pacs.002.001.12/) | FI to FI Payment Status Report | Il messaggio pacs.002 viene inviato da un istituto finanziario per comunicare lo stato di un'istruzione di pagamento precedentemente inviata. Fornisce informazioni di conferma, rifiuto o stato in sospeso per le singole transazioni all'interno di un messaggio di pagamento. |
-| [`pacs.010.001.05`](/it/pacs.010.001.05/) | Financial Institution Direct Debit | Il messaggio pacs.010 viene utilizzato tra istituti finanziari per transazioni di addebito diretto sul conto proprio dell'istituto. Consente a un istituto di raccogliere fondi direttamente dal conto di un altro istituto. |
+| [`pacs.008.001.13`](/it/pacs.008.001.13/) | Bonifico cliente tra istituzioni finanziarie | Il messaggio pacs.008 è l'istruzione di pagamento principale scambiata tra istituti finanziari per trasferire fondi per conto di un cliente. Contiene informazioni su debitore, creditore, importo e dettagli di rimessa per una o più transazioni di bonifico. |
+| [`pacs.002.001.12`](/it/pacs.002.001.12/) | Rapporto di stato del pagamento tra istituzioni finanziarie | Il messaggio pacs.002 viene inviato da un istituto finanziario per comunicare lo stato di un'istruzione di pagamento precedentemente inviata. Fornisce informazioni di conferma, rifiuto o stato in sospeso per le singole transazioni all'interno di un messaggio di pagamento. |
+| [`pacs.010.001.05`](/it/pacs.010.001.05/) | Addebito diretto tra istituzioni finanziarie | Il messaggio pacs.010 viene utilizzato tra istituti finanziari per transazioni di addebito diretto sul conto proprio dell'istituto. Consente a un istituto di raccogliere fondi direttamente dal conto di un altro istituto. |
 

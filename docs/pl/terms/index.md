@@ -1,6 +1,6 @@
 ---
 title: Warunki | pacs008
-description: Informacje o warunkach strony pacs008. Generowanie, walidacja, orkiestracja API i wsparcie zgodności dla przepływów przelewów kredytowych FI-to-FI.
+description: Informacje o warunkach strony pacs008. Generowanie, walidacja, orkiestracja API i wsparcie zgodności dla przepływów przelewów kredytowych klientów między...
 lang: pl-PL
 lastUpdated: true
 image: /logo.svg

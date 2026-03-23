@@ -19,7 +19,7 @@ image: /logo.svg
 
 The pacs.009 message is used for credit transfers between financial institutions where the transfer is on the institution's own behalf rather than on behalf of a customer. It supports interbank funding, cover payments, and liquidity management.
 
-> Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 27 February 2025; source links are listed below.
+> Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
 
 ## Key data elements
 
@@ -57,7 +57,7 @@ The debtor institution sends pacs.009 to the creditor institution to transfer it
 
 ## Version commentary
 
-The ISO 20022 catalogue entry for this business area was last updated on 27 February 2025. The pacs008 site currently documents `pacs.009.001.10`, while the ISO 20022 catalogue lists `pacs.009.001.12` as the latest published version.
+The ISO 20022 catalogue entry for this business area was last updated on 2025-02-27. The pacs008 site currently documents `pacs.009.001.10`, while the ISO 20022 catalogue lists `pacs.009.001.12` as the latest published version.
 
 That means this page is useful for understanding the currently implemented version in pacs008, but roadmap and interoperability planning should account for the later catalogue revision as well.
 

@@ -19,7 +19,7 @@ image: /logo.svg
 
 The pacs.008 message is the core payment instruction exchanged between financial institutions to transfer funds on behalf of a customer. It carries debtor, creditor, amount, and remittance information for one or more credit transfer transactions.
 
-> Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 27 February 2025; source links are listed below.
+> Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
 
 ## Key data elements
 
@@ -57,7 +57,7 @@ The debtor agent creates a pacs.008 and sends it to the creditor agent (directly
 
 ## Version commentary
 
-The ISO 20022 catalogue entry for this business area was last updated on 27 February 2025. The pacs008 site currently documents `pacs.008.001.13`, which matches the latest catalogue version listed by ISO 20022.
+The ISO 20022 catalogue entry for this business area was last updated on 2025-02-27. The pacs008 site currently documents `pacs.008.001.13`, which matches the latest catalogue version listed by ISO 20022.
 
 That makes this page suitable for current-version implementation planning, but scheme usage guidelines and market practice should still be checked before production rollout.
 

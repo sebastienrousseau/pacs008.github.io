@@ -1,6 +1,6 @@
 ---
 title: API | pacs008
-description: REST- und CLI-Unterstützung in pacs008. Generierung, Validierung, API-Orchestrierung und Compliance-Unterstützung für FI-to-FI-Kundenkredittransfer-Workflows.
+description: REST- und CLI-Unterstützung in pacs008. Generierung, Validierung, API-Orchestrierung und Compliance-Unterstützung für Kundenkredittransfer-Workflows...
 lang: de-DE
 lastUpdated: true
 image: /logo.svg
@@ -52,14 +52,14 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 | `DELETE /jobs/{job_id}` | Einen ausstehenden oder laufenden Job abbrechen |
 | `GET /docs` | Interaktive Swagger UI zum Erkunden und Testen aller Endpunkte |
 
-- [`pacs.002.001.12`](/de/pacs.002.001.12/) — FI to FI Payment Status Report
-- [`pacs.003.001.09`](/de/pacs.003.001.09/) — FI to FI Customer Direct Debit
-- [`pacs.004.001.11`](/de/pacs.004.001.11/) — Payment Return
-- [`pacs.007.001.11`](/de/pacs.007.001.11/) — FI to FI Payment Reversal
-- [`pacs.008.001.13`](/de/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.009.001.10`](/de/pacs.009.001.10/) — Financial Institution Credit Transfer
-- [`pacs.010.001.05`](/de/pacs.010.001.05/) — Financial Institution Direct Debit
-- [`pacs.028.001.05`](/de/pacs.028.001.05/) — FI to FI Payment Status Request
+- [`pacs.002.001.12`](/de/pacs.002.001.12/) — FI-zu-FI-Zahlungsstatusbericht
+- [`pacs.003.001.09`](/de/pacs.003.001.09/) — FI-zu-FI-Kundenlastschrift
+- [`pacs.004.001.11`](/de/pacs.004.001.11/) — Zahlungsrückgabe
+- [`pacs.007.001.11`](/de/pacs.007.001.11/) — FI-zu-FI-Zahlungsstornierung
+- [`pacs.008.001.13`](/de/pacs.008.001.13/) — FI-zu-FI-Kundenkredittransfer
+- [`pacs.009.001.10`](/de/pacs.009.001.10/) — Kredittransfer zwischen Finanzinstituten
+- [`pacs.010.001.05`](/de/pacs.010.001.05/) — Lastschrift zwischen Finanzinstituten
+- [`pacs.028.001.05`](/de/pacs.028.001.05/) — FI-zu-FI-Anfrage zum Zahlungsstatus
 
 ### Validierungsbeispiel
 

@@ -1,12 +1,12 @@
 ---
-title: pacs.003.001.09 | FI to FI Customer Direct Debit | pacs008
+title: pacs.003.001.09 | Prélèvement client FI à FI | pacs008
 description: Le message pacs.003 est échangé entre institutions financières pour exécuter une instruction de prélèvement client. Il permet à la banque du créancier de...
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.003.001.09 — FI to FI Customer Direct Debit
+# pacs.003.001.09 — Prélèvement client FI à FI
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Le message pacs.003 est échangé entre institutions financières pour exécuter une instruction de prélèvement client. Il permet à la banque du créancier de collecter des fonds auprès de la banque du débiteur au nom du créancier.
 
-> Dernière vérification par rapport aux sources primaires le 23 mars 2026. Date de référence du catalogue ISO 20022 : 27 February 2025 ; les liens vers les sources figurent ci-dessous.
+> Dernière vérification par rapport aux sources primaires le 23 mars 2026. Date de référence du catalogue ISO 20022 : 2025-02-27 ; les liens vers les sources figurent ci-dessous.
 
 ## Éléments de données clés
 
@@ -59,8 +59,8 @@ L'agent du créancier initie pacs.003 vers l'agent du débiteur pour collecter d
 
 | Plage de versions | Pourquoi c'est important | Conséquence pratique |
 |---|---|---|
-| pacs.003.001.09 | Implémentation actuelle dans pacs008 | Utile pour modéliser les références de prélèvement dans le projet actuel. |
-| pacs.003.001.10-11 | Révisions ultérieures du catalogue | Check later revisions for mandate, status, and interoperability updates before greenfield use. |
+| pacs.003.001.09 | Implémentation actuelle dans pacs008 | Utile pour la modélisation de références de prélèvement dans le projet actuel. |
+| pacs.003.001.10-11 | Révisions ultérieures du catalogue | Examinez les révisions ultérieures pour les évolutions de mandat, de statut et d'interopérabilité avant tout usage greenfield. |
 
 ## Exemple XML commenté
 
@@ -72,17 +72,17 @@ L'agent du créancier initie pacs.003 vers l'agent du débiteur pour collecter d
   <DrctDbtTxInf>
     <PmtId><EndToEndId>MANDATE-7741</EndToEndId></PmtId>
     <IntrBkSttlmAmt Ccy="EUR">250.00</IntrBkSttlmAmt>
-    <Dbtr><Nm>Example Debtor</Nm></Dbtr>
-    <Cdtr><Nm>Example Creditor</Nm></Cdtr>
+    <Dbtr><Nm>DBTR PARTY 01</Nm></Dbtr>
+    <Cdtr><Nm>CDTR PARTY 01</Nm></Cdtr>
   </DrctDbtTxInf>
 </FIToFICstmrDrctDbt>
 ```
 
 ### Commentaires sur les champs
 
-- `EndToEndId`: Keep mandate and collection identifiers separate from business invoice references.
-- `IntrBkSttlmAmt`: Validate debit amount precision and currency rules before rendering XML.
-- `Dbtr` / `Cdtr`: Direct-debit success often depends more on account and mandate quality than on XML structure.
+- `EndToEndId`: Gardez les identifiants de mandat et de recouvrement distincts des références de facture métier.
+- `IntrBkSttlmAmt`: Validez la précision du montant débité et les règles de devise avant de générer le XML.
+- `Dbtr` / `Cdtr`: La réussite d'un prélèvement dépend souvent davantage de la qualité du compte et du mandat que de la structure XML.
 
 ## Références primaires
 
@@ -94,7 +94,7 @@ L'agent du créancier initie pacs.003 vers l'agent du débiteur pour collecter d
 ## Messages associés
 | Type de message | Description | Présentation |
 |---|---|---|
-| [`pacs.004.001.11`](/fr/pacs.004.001.11/) | Payment Return | Le message pacs.004 est utilisé pour retourner une transaction de paiement précédemment réglée. Il inverse le flux de fonds lorsqu'un paiement ne peut être appliqué, a été envoyé par erreur ou fait l'objet d'un rappel par l'institution d'origine. |
-| [`pacs.007.001.11`](/fr/pacs.007.001.11/) | FI to FI Payment Reversal | Le message pacs.007 est utilisé pour annuler une instruction de paiement précédemment envoyée qui n'a pas encore été réglée ou pour demander l'annulation d'un paiement réglé. Contrairement au pacs.004 (retour), il est initié par l'agent instructeur d'origine. |
-| [`pacs.002.001.12`](/fr/pacs.002.001.12/) | FI to FI Payment Status Report | Le message pacs.002 est envoyé par une institution financière pour rapporter le statut d'une instruction de paiement précédemment envoyée. Il fournit une confirmation, un rejet ou un statut en attente pour les transactions individuelles au sein d'un message de paiement. |
+| [`pacs.004.001.11`](/fr/pacs.004.001.11/) | Retour de paiement | Le message pacs.004 est utilisé pour retourner une transaction de paiement précédemment réglée. Il inverse le flux de fonds lorsqu'un paiement ne peut être appliqué, a été envoyé par erreur ou fait l'objet d'un rappel par l'institution d'origine. |
+| [`pacs.007.001.11`](/fr/pacs.007.001.11/) | Annulation de paiement FI à FI | Le message pacs.007 est utilisé pour annuler une instruction de paiement précédemment envoyée qui n'a pas encore été réglée ou pour demander l'annulation d'un paiement réglé. Contrairement au pacs.004 (retour), il est initié par l'agent instructeur d'origine. |
+| [`pacs.002.001.12`](/fr/pacs.002.001.12/) | Rapport de statut de paiement FI à FI | Le message pacs.002 est envoyé par une institution financière pour rapporter le statut d'une instruction de paiement précédemment envoyée. Il fournit une confirmation, un rejet ou un statut en attente pour les transactions individuelles au sein d'un message de paiement. |
 

@@ -1,12 +1,12 @@
 ---
-title: pacs.004.001.11 | Payment Return | pacs008
+title: pacs.004.001.11 | Reso di pagamento | pacs008
 description: Il messaggio pacs.004 viene utilizzato per restituire una transazione di pagamento precedentemente regolata. Inverte il flusso di fondi quando un...
 lang: it-IT
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.004.001.11 — Payment Return
+# pacs.004.001.11 — Reso di pagamento
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Il messaggio pacs.004 viene utilizzato per restituire una transazione di pagamento precedentemente regolata. Inverte il flusso di fondi quando un pagamento non può essere applicato, è stato inviato per errore o viene richiamato dall'istituto di origine.
 
-> Ultima revisione rispetto a fonti primarie il 23 marzo 2026. Data di riferimento del catalogo ISO 20022: 27 February 2025; i collegamenti alle fonti sono riportati di seguito.
+> Ultima revisione rispetto a fonti primarie il 23 marzo 2026. Data di riferimento del catalogo ISO 20022: 2025-02-27; i collegamenti alle fonti sono riportati di seguito.
 
 ## Elementi di dati chiave
 
@@ -59,8 +59,8 @@ L'agente incaricato invia pacs.004 attraverso la catena di pagamento per restitu
 
 | Intervallo di versione | Perché conta | Implicazione implementativa |
 |---|---|---|
-| pacs.004.001.11 | Implementazione attuale in pacs008 | Si allinea ai template attuali per i ritorni di pagamento. |
-| pacs.004.001.12-14 | Revisioni successive del catalogo | Review later return-message revisions when scheme upgrades or new counterparties are in scope. |
+| pacs.004.001.11 | Implementazione attuale in pacs008 | Si allinea ai modelli attuali per i messaggi di ritorno del pagamento. |
+| pacs.004.001.12-14 | Revisioni successive del catalogo | Rivedi le revisioni successive dei messaggi di ritorno quando aggiornamenti di schema o nuove controparti rientrano nell'ambito. |
 
 ## Esempio XML commentato
 
@@ -92,7 +92,7 @@ L'agente incaricato invia pacs.004 attraverso la catena di pagamento per restitu
 | Scopo principale | Return settled funds | Reverse a previously instructed payment |
 | Initiated by | Receiving / beneficiary side | Original instructing side |
 | Direction of flow | Back through the chain | Forward through the chain |
-| Best fit | Post-settlement return handling | Recall, error, or fraud-driven reversal handling |
+| Più adatto a | Gestione dei resi dopo il regolamento | Gestione delle inversioni dovute a recall, errore o frode |
 
 ## Riferimenti primari
 
@@ -106,7 +106,7 @@ L'agente incaricato invia pacs.004 attraverso la catena di pagamento per restitu
 ## Messaggi correlati
 | Tipo di messaggio | Descrizione | Panoramica |
 |---|---|---|
-| [`pacs.008.001.13`](/it/pacs.008.001.13/) | FI to FI Customer Credit Transfer | Il messaggio pacs.008 è l'istruzione di pagamento principale scambiata tra istituti finanziari per trasferire fondi per conto di un cliente. Contiene informazioni su debitore, creditore, importo e dettagli di rimessa per una o più transazioni di bonifico. |
-| [`pacs.003.001.09`](/it/pacs.003.001.09/) | FI to FI Customer Direct Debit | Il messaggio pacs.003 viene scambiato tra istituti finanziari per eseguire un'istruzione di addebito diretto del cliente. Consente alla banca del creditore di raccogliere fondi dalla banca del debitore per conto del creditore. |
-| [`pacs.002.001.12`](/it/pacs.002.001.12/) | FI to FI Payment Status Report | Il messaggio pacs.002 viene inviato da un istituto finanziario per comunicare lo stato di un'istruzione di pagamento precedentemente inviata. Fornisce informazioni di conferma, rifiuto o stato in sospeso per le singole transazioni all'interno di un messaggio di pagamento. |
+| [`pacs.008.001.13`](/it/pacs.008.001.13/) | Bonifico cliente tra istituzioni finanziarie | Il messaggio pacs.008 è l'istruzione di pagamento principale scambiata tra istituti finanziari per trasferire fondi per conto di un cliente. Contiene informazioni su debitore, creditore, importo e dettagli di rimessa per una o più transazioni di bonifico. |
+| [`pacs.003.001.09`](/it/pacs.003.001.09/) | Addebito diretto cliente tra istituzioni finanziarie | Il messaggio pacs.003 viene scambiato tra istituti finanziari per eseguire un'istruzione di addebito diretto del cliente. Consente alla banca del creditore di raccogliere fondi dalla banca del debitore per conto del creditore. |
+| [`pacs.002.001.12`](/it/pacs.002.001.12/) | Rapporto di stato del pagamento tra istituzioni finanziarie | Il messaggio pacs.002 viene inviato da un istituto finanziario per comunicare lo stato di un'istruzione di pagamento precedentemente inviata. Fornisce informazioni di conferma, rifiuto o stato in sospeso per le singole transazioni all'interno di un messaggio di pagamento. |
 

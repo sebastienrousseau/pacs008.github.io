@@ -1,6 +1,6 @@
 ---
 title: プライバシー | pacs008
-description: pacs008 ウェブサイトのプライバシー情報。 FI-to-FI 顧客クレジット移転ワークフローの生成、検証、API オーケストレーション、コンプライアンス対応。
+description: pacs008 ウェブサイトのプライバシー情報。 金融機関間の顧客クレジット移転ワークフロー向けの生成、検証、API オーケストレーション、コンプライアンス対応。
 lang: ja-JP
 lastUpdated: true
 image: /logo.svg

@@ -1,12 +1,12 @@
 ---
-title: pacs.003.001.09 | FI to FI Customer Direct Debit | pacs008
+title: pacs.003.001.09 | FI-naar-FI-klantincasso | pacs008
 description: Het pacs.003-bericht wordt uitgewisseld tussen financiële instellingen om een incasso-instructie van de klant uit te voeren. Het stelt de bank van de...
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.003.001.09 — FI to FI Customer Direct Debit
+# pacs.003.001.09 — FI-naar-FI-klantincasso
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Het pacs.003-bericht wordt uitgewisseld tussen financiële instellingen om een incasso-instructie van de klant uit te voeren. Het stelt de bank van de crediteur in staat om namens de crediteur gelden te innen bij de bank van de debiteur.
 
-> Laatst gecontroleerd aan de hand van primaire bronnen op 23 maart 2026. Referentiedatum ISO 20022-catalogus: 27 February 2025; bronlinks staan hieronder.
+> Laatst gecontroleerd aan de hand van primaire bronnen op 23 maart 2026. Referentiedatum ISO 20022-catalogus: 2025-02-27; bronlinks staan hieronder.
 
 ## Belangrijke gegevenselementen
 
@@ -59,7 +59,7 @@ De crediteuragent initieert pacs.003 richting de debiteuragent om gelden te inne
 
 | Versiebereik | Waarom dit telt | Implementatieconclusie |
 |---|---|---|
-| pacs.003.001.09 | Huidige implementatie in pacs008 | Nuttig voor het modelleren van incassoreferenties in het huidige project. |
+| pacs.003.001.09 | Huidige implementatie in pacs008 | Nuttig voor de referentiemodellering van incasso's in het huidige project. |
 | pacs.003.001.10-11 | Latere catalogusrevisies | Check later revisions for mandate, status, and interoperability updates before greenfield use. |
 
 ## Uitgewerkt XML-voorbeeld
@@ -72,17 +72,17 @@ De crediteuragent initieert pacs.003 richting de debiteuragent om gelden te inne
   <DrctDbtTxInf>
     <PmtId><EndToEndId>MANDATE-7741</EndToEndId></PmtId>
     <IntrBkSttlmAmt Ccy="EUR">250.00</IntrBkSttlmAmt>
-    <Dbtr><Nm>Example Debtor</Nm></Dbtr>
-    <Cdtr><Nm>Example Creditor</Nm></Cdtr>
+    <Dbtr><Nm>DBTR PARTY 01</Nm></Dbtr>
+    <Cdtr><Nm>CDTR PARTY 01</Nm></Cdtr>
   </DrctDbtTxInf>
 </FIToFICstmrDrctDbt>
 ```
 
 ### Veldtoelichting
 
-- `EndToEndId`: Keep mandate and collection identifiers separate from business invoice references.
-- `IntrBkSttlmAmt`: Validate debit amount precision and currency rules before rendering XML.
-- `Dbtr` / `Cdtr`: Direct-debit success often depends more on account and mandate quality than on XML structure.
+- `EndToEndId`: Houd mandaat- en incasso-identificaties gescheiden van zakelijke factuurreferenties.
+- `IntrBkSttlmAmt`: Valideer de precisie van het incassobedrag en de valutaregels voordat XML wordt gegenereerd.
+- `Dbtr` / `Cdtr`: Het succes van een incasso hangt vaak meer af van de kwaliteit van rekening en mandaat dan van de XML-structuur.
 
 ## Primaire referenties
 
@@ -94,7 +94,7 @@ De crediteuragent initieert pacs.003 richting de debiteuragent om gelden te inne
 ## Gerelateerde berichten
 | Berichttype | Beschrijving | Overzicht |
 |---|---|---|
-| [`pacs.004.001.11`](/nl/pacs.004.001.11/) | Payment Return | Het pacs.004-bericht wordt gebruikt om een eerder afgewikkelde betalingstransactie te retourneren. Het keert de geldstroom om wanneer een betaling niet kan worden toegepast, per abuis is verzonden of door de opdrachtgevende instelling wordt teruggevorderd. |
-| [`pacs.007.001.11`](/nl/pacs.007.001.11/) | FI to FI Payment Reversal | Het pacs.007-bericht wordt gebruikt om een eerder verzonden betalingsinstructie die nog niet is afgewikkeld te storneren of om stornering van een afgewikkelde betaling te verzoeken. In tegenstelling tot pacs.004 (retourzending) wordt het geïnitieerd door de oorspronkelijke opdrachtgevende agent. |
-| [`pacs.002.001.12`](/nl/pacs.002.001.12/) | FI to FI Payment Status Report | Het pacs.002-bericht wordt door een financiële instelling verzonden om de status te rapporteren van een eerder verzonden betalingsinstructie. Het biedt bevestigings-, afwijzings- of hangende statusinformatie voor individuele transacties binnen een betalingsbericht. |
+| [`pacs.004.001.11`](/nl/pacs.004.001.11/) | Betalingsretour | Het pacs.004-bericht wordt gebruikt om een eerder afgewikkelde betalingstransactie te retourneren. Het keert de geldstroom om wanneer een betaling niet kan worden toegepast, per abuis is verzonden of door de opdrachtgevende instelling wordt teruggevorderd. |
+| [`pacs.007.001.11`](/nl/pacs.007.001.11/) | FI-naar-FI-betalingsstornering | Het pacs.007-bericht wordt gebruikt om een eerder verzonden betalingsinstructie die nog niet is afgewikkeld te storneren of om stornering van een afgewikkelde betaling te verzoeken. In tegenstelling tot pacs.004 (retourzending) wordt het geïnitieerd door de oorspronkelijke opdrachtgevende agent. |
+| [`pacs.002.001.12`](/nl/pacs.002.001.12/) | FI-naar-FI-betalingsstatusrapport | Het pacs.002-bericht wordt door een financiële instelling verzonden om de status te rapporteren van een eerder verzonden betalingsinstructie. Het biedt bevestigings-, afwijzings- of hangende statusinformatie voor individuele transacties binnen een betalingsbericht. |
 

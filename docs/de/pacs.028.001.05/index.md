@@ -1,12 +1,12 @@
 ---
-title: pacs.028.001.05 | FI to FI Payment Status Request | pacs008
+title: pacs.028.001.05 | FI-zu-FI-Anfrage zum Zahlungsstatus | pacs008
 description: Die Nachricht pacs.028 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung anzufragen. Sie ermöglicht die...
 lang: de-DE
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.028.001.05 — FI to FI Payment Status Request
+# pacs.028.001.05 — FI-zu-FI-Anfrage zum Zahlungsstatus
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Die Nachricht pacs.028 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung anzufragen. Sie ermöglicht die proaktive Verfolgung der Zahlungsverarbeitung, ohne auf einen unaufgeforderten Statusbericht zu warten.
 
-> Zuletzt anhand von Primärquellen am 23. März 2026 geprüft. Referenzdatum des ISO-20022-Katalogs: 27 February 2025; Quellenlinks sind unten aufgeführt.
+> Zuletzt anhand von Primärquellen am 23. März 2026 geprüft. Referenzdatum des ISO-20022-Katalogs: 2025-02-27; Quellenlinks sind unten aufgeführt.
 
 ## Wichtige Datenelemente
 
@@ -78,9 +78,9 @@ Der beauftragende Agent sendet pacs.028 an den beauftragten Agent, um den Status
 
 ### Hinweise zu den Feldern
 
-- `MsgId`: The request itself needs an auditable identifier distinct from the underlying payment.
-- `OrgnlInstrId`: Use the exact source identifier from the original instruction to maximize matching accuracy.
-- `OrgnlEndToEndId`: Including customer traceability helps operations teams reconcile the enquiry faster.
+- `MsgId`: Die Anfrage selbst benötigt eine prüfbare Kennung, die sich von der zugrunde liegenden Zahlung unterscheidet.
+- `OrgnlInstrId`: Verwenden Sie die exakte Quellkennung aus der ursprünglichen Anweisung, um die Zuordnungsgenauigkeit zu maximieren.
+- `OrgnlEndToEndId`: Die Einbeziehung kundenbezogener Nachverfolgbarkeit hilft den Betriebsteams, die Anfrage schneller abzustimmen.
 
 ## Vergleich pacs.028 vs pacs.002
 
@@ -101,7 +101,7 @@ Der beauftragende Agent sendet pacs.028 an den beauftragten Agent, um den Status
 ## Verwandte Nachrichten
 | Nachrichtentyp | Beschreibung | Überblick |
 |---|---|---|
-| [`pacs.002.001.12`](/de/pacs.002.001.12/) | FI to FI Payment Status Report | Die Nachricht pacs.002 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung zu melden. Sie liefert Bestätigungs-, Ablehnungs- oder Statusinformationen für einzelne Transaktionen innerhalb einer Zahlungsnachricht. |
-| [`pacs.008.001.13`](/de/pacs.008.001.13/) | FI to FI Customer Credit Transfer | Die Nachricht pacs.008 ist die zentrale Zahlungsanweisung, die zwischen Finanzinstituten ausgetauscht wird, um Gelder im Auftrag eines Kunden zu überweisen. Sie enthält Informationen zu Schuldner, Gläubiger, Betrag und Überweisungszweck für eine oder mehrere Überweisungen. |
-| [`pacs.009.001.10`](/de/pacs.009.001.10/) | Financial Institution Credit Transfer | Die Nachricht pacs.009 wird für Überweisungen zwischen Finanzinstituten verwendet, bei denen die Überweisung auf eigene Rechnung des Instituts erfolgt. Sie unterstützt Interbankenfinanzierung, Deckungszahlungen und Liquiditätsmanagement. |
+| [`pacs.002.001.12`](/de/pacs.002.001.12/) | FI-zu-FI-Zahlungsstatusbericht | Die Nachricht pacs.002 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung zu melden. Sie liefert Bestätigungs-, Ablehnungs- oder Statusinformationen für einzelne Transaktionen innerhalb einer Zahlungsnachricht. |
+| [`pacs.008.001.13`](/de/pacs.008.001.13/) | FI-zu-FI-Kundenkredittransfer | Die Nachricht pacs.008 ist die zentrale Zahlungsanweisung, die zwischen Finanzinstituten ausgetauscht wird, um Gelder im Auftrag eines Kunden zu überweisen. Sie enthält Informationen zu Schuldner, Gläubiger, Betrag und Überweisungszweck für eine oder mehrere Überweisungen. |
+| [`pacs.009.001.10`](/de/pacs.009.001.10/) | Kredittransfer zwischen Finanzinstituten | Die Nachricht pacs.009 wird für Überweisungen zwischen Finanzinstituten verwendet, bei denen die Überweisung auf eigene Rechnung des Instituts erfolgt. Sie unterstützt Interbankenfinanzierung, Deckungszahlungen und Liquiditätsmanagement. |
 

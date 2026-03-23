@@ -1,6 +1,6 @@
 ---
 title: Privacy | pacs008
-description: Informazioni sulla privacy del sito web pacs008. Generazione, validazione, orchestrazione API e conformità per i flussi di bonifico cliente FI-to-FI.
+description: Informazioni sulla privacy del sito web pacs008. Generazione, validazione, orchestrazione API e conformità per i flussi di bonifico cliente tra...
 lang: it-IT
 lastUpdated: true
 image: /logo.svg

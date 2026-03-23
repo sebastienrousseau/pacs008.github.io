@@ -1,12 +1,12 @@
 ---
-title: pacs.002.001.12 | FI to FI Payment Status Report | pacs008
+title: pacs.002.001.12 | Báo cáo trạng thái thanh toán giữa các tổ chức tài chính | pacs008
 description: Thông điệp pacs.002 được gửi bởi tổ chức tài chính để báo cáo trạng thái của lệnh thanh toán đã gửi trước đó. Thông điệp này cung cấp thông tin xác nhận...
 lang: vi-VN
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.002.001.12 — FI to FI Payment Status Report
+# pacs.002.001.12 — Báo cáo trạng thái thanh toán giữa các tổ chức tài chính
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Thông điệp pacs.002 được gửi bởi tổ chức tài chính để báo cáo trạng thái của lệnh thanh toán đã gửi trước đó. Thông điệp này cung cấp thông tin xác nhận, từ chối hoặc trạng thái đang chờ xử lý cho các giao dịch riêng lẻ trong thông điệp thanh toán.
 
-> Được rà soát lần cuối đối chiếu với nguồn gốc chính vào ngày 23 tháng 3 năm 2026. Ngày tham chiếu của danh mục ISO 20022: 27 February 2025; các liên kết nguồn được liệt kê bên dưới.
+> Được rà soát lần cuối đối chiếu với nguồn gốc chính vào ngày 23 tháng 3 năm 2026. Ngày tham chiếu của danh mục ISO 20022: 2025-02-27; các liên kết nguồn được liệt kê bên dưới.
 
 ## Yếu tố dữ liệu chính
 
@@ -55,6 +55,47 @@ Thông điệp pacs.002 được gửi bởi tổ chức tài chính để báo 
 
 Đại lý nhận lệnh (bên nhận) gửi pacs.002 trở lại đại lý ra lệnh (bên gửi) để xác nhận việc chấp nhận, quyết toán hoặc từ chối lệnh thanh toán đã nhận như pacs.008 hoặc pacs.009.
 
+## Bảng khác biệt phiên bản
+
+| Phạm vi phiên bản | Vì sao điều này quan trọng | Kết luận triển khai |
+|---|---|---|
+| pacs.002.001.12 | Triển khai hiện tại trong pacs008 | Dùng điều này khi cần khớp với các mẫu và tài sản xác thực hiện tại của dự án. |
+| pacs.002.001.13-15 | Các bản sửa đổi danh mục về sau | Hãy xem các bản sửa đổi ISO mới hơn trước khi bắt đầu công việc tương tác mới hoặc tiếp nhận hạ tầng mới. |
+
+## Ví dụ XML có chú thích
+
+```xml
+<FIToFIPmtStsRpt>
+  <GrpHdr>
+    <MsgId>STS-2026-0001</MsgId>
+    <CreDtTm>2026-03-01T09:15:00Z</CreDtTm>
+  </GrpHdr>
+  <TxInfAndSts>
+    <OrgnlInstrId>PAY-2026-8841</OrgnlInstrId>
+    <TxSts>RJCT</TxSts>
+    <StsRsnInf>
+      <Rsn><Cd>AC01</Cd></Rsn>
+    </StsRsnInf>
+  </TxInfAndSts>
+</FIToFIPmtStsRpt>
+```
+
+### Chú thích trường
+
+- `MsgId`: Hãy dùng một mã định danh mới cho chính báo cáo trạng thái, không phải cho chỉ thị thanh toán gốc.
+- `OrgnlInstrId`: Giữ nguyên mã định danh của chỉ thị gốc để trạng thái có thể được đối chiếu tự động.
+- `TxSts`: Đây là trạng thái vận hành; hãy ánh xạ cẩn thận sang các trạng thái xử lý nội bộ thay vì giả định đối chiếu một-một.
+- `StsRsnInf`: Mã lý do có cấu trúc hữu ích hơn rất nhiều so với văn bản tự do cho xử lý sai sót và phân tích.
+
+## So sánh pacs.002 vs pacs.028
+
+| Khía cạnh | pacs.002.001.12 | Thông điệp so sánh |
+|---|---|---|
+| Mục đích chính | Báo trạng thái | Yêu cầu trạng thái |
+| Ai khởi tạo tương tác | Tổ chức gửi trạng thái | Tổ chức yêu cầu trạng thái |
+| Tư thế vận hành | Báo cáo theo sự kiện | Tra hỏi theo ngoại lệ |
+| Giả định sai cần tránh | Rằng báo trạng thái có thể thay thế các quy trình tra soát và điều tra | Rằng mọi khoản thanh toán đều cần một yêu cầu trạng thái rõ ràng |
+
 ## Tài liệu tham chiếu gốc
 
 - [ISO 20022 message definitions catalogue for `pacs.002.001.12`](https://www.iso20022.org/iso-20022-message-definitions?search=Pacs.002.001.12)
@@ -67,7 +108,7 @@ Thông điệp pacs.002 được gửi bởi tổ chức tài chính để báo 
 ## Thông điệp liên quan
 | Loại thông điệp | Mô tả | Tổng quan |
 |---|---|---|
-| [`pacs.008.001.13`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer | Thông điệp pacs.008 là lệnh thanh toán cốt lõi được trao đổi giữa các tổ chức tài chính để chuyển tiền thay mặt khách hàng. Thông điệp này mang thông tin con nợ, chủ nợ, số tiền và thông tin chuyển tiền cho một hoặc nhiều giao dịch chuyển khoản tín dụng. |
-| [`pacs.009.001.10`](/vi/pacs.009.001.10/) | Financial Institution Credit Transfer | Thông điệp pacs.009 được sử dụng cho chuyển khoản tín dụng giữa các tổ chức tài chính khi việc chuyển khoản là thay mặt tổ chức chứ không phải thay mặt khách hàng. Thông điệp này hỗ trợ cấp vốn liên ngân hàng, thanh toán cover và quản lý thanh khoản. |
-| [`pacs.028.001.05`](/vi/pacs.028.001.05/) | FI to FI Payment Status Request | Thông điệp pacs.028 được gửi bởi tổ chức tài chính để yêu cầu trạng thái của lệnh thanh toán đã gửi trước đó. Thông điệp này cho phép theo dõi chủ động việc xử lý thanh toán mà không cần chờ báo cáo trạng thái không được yêu cầu. |
+| [`pacs.008.001.13`](/vi/pacs.008.001.13/) | Chuyển khoản tín dụng khách hàng giữa các tổ chức tài chính | Thông điệp pacs.008 là lệnh thanh toán cốt lõi được trao đổi giữa các tổ chức tài chính để chuyển tiền thay mặt khách hàng. Thông điệp này mang thông tin con nợ, chủ nợ, số tiền và thông tin chuyển tiền cho một hoặc nhiều giao dịch chuyển khoản tín dụng. |
+| [`pacs.009.001.10`](/vi/pacs.009.001.10/) | Chuyển khoản tín dụng giữa các tổ chức tài chính | Thông điệp pacs.009 được sử dụng cho chuyển khoản tín dụng giữa các tổ chức tài chính khi việc chuyển khoản là thay mặt tổ chức chứ không phải thay mặt khách hàng. Thông điệp này hỗ trợ cấp vốn liên ngân hàng, thanh toán bù đắp và quản lý thanh khoản. |
+| [`pacs.028.001.05`](/vi/pacs.028.001.05/) | Yêu cầu trạng thái thanh toán giữa các tổ chức tài chính | Thông điệp pacs.028 được gửi bởi tổ chức tài chính để yêu cầu trạng thái của lệnh thanh toán đã gửi trước đó. Thông điệp này cho phép theo dõi chủ động việc xử lý thanh toán mà không cần chờ báo cáo trạng thái không được yêu cầu. |
 

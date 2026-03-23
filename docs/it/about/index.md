@@ -1,6 +1,6 @@
 ---
 title: Informazioni su pacs008 | pacs008
-description: Cosa fa pacs008 e a chi è destinato. Generazione, validazione, orchestrazione API e conformità per i flussi di bonifico cliente FI-to-FI.
+description: Cosa fa pacs008 e a chi è destinato. Generazione, validazione, orchestrazione API e conformità per i flussi di bonifico cliente tra istituzioni finanziarie.
 lang: it-IT
 lastUpdated: true
 image: /logo.svg

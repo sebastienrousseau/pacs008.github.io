@@ -1,6 +1,6 @@
 ---
 title: pacs008 | Español | ISO 20022 Toolkit
-description: Generación, validación, orquestación de API y soporte de cumplimiento para flujos de transferencia de crédito FI-to-FI.
+description: Generación, validación, orquestación de API y soporte de cumplimiento para flujos de transferencia de crédito de clientes entre instituciones financieras.
 lang: es-ES
 author: Sebastien Rousseau
 lastUpdated: true
@@ -17,8 +17,8 @@ schemaType: WebSite
 heroText: Automatice el procesamiento de mensajes pacs.008 ISO 20022.
 home: true
 metaTitle: pacs008
-subtitle: Generación, validación, orquestación de API y soporte de cumplimiento para flujos de transferencia de crédito FI-to-FI.
-tagline: Generación, validación, orquestación de API y soporte de cumplimiento para flujos de transferencia de crédito FI-to-FI.
+subtitle: Generación, validación, orquestación de API y soporte de cumplimiento para flujos de transferencia de crédito de clientes entre instituciones financieras.
+tagline: Generación, validación, orquestación de API y soporte de cumplimiento para flujos de transferencia de crédito de clientes entre instituciones financieras.
 actionText: Conozca pacs008
 actionLink: /es/about/
 features:

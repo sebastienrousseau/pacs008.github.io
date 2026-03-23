@@ -1,6 +1,6 @@
 ---
 title: pacs008 | Nederlands | ISO 20022 Toolkit
-description: Generatie, validatie, API-orchestratie en compliance-ondersteuning voor FI-to-FI-klantoverdrachtworkflows.
+description: Generatie, validatie, API-orchestratie en compliance-ondersteuning voor klantkredietoverboekingsworkflows tussen financiële instellingen.
 lang: nl-NL
 author: Sebastien Rousseau
 lastUpdated: true
@@ -17,8 +17,8 @@ schemaType: WebSite
 heroText: Automatiseer ISO 20022 pacs.008 berichtverwerking.
 home: true
 metaTitle: pacs008
-subtitle: Generatie, validatie, API-orchestratie en compliance-ondersteuning voor FI-to-FI-klantoverdrachtworkflows.
-tagline: Generatie, validatie, API-orchestratie en compliance-ondersteuning voor FI-to-FI-klantoverdrachtworkflows.
+subtitle: Generatie, validatie, API-orchestratie en compliance-ondersteuning voor klantkredietoverboekingsworkflows tussen financiële instellingen.
+tagline: Generatie, validatie, API-orchestratie en compliance-ondersteuning voor klantkredietoverboekingsworkflows tussen financiële instellingen.
 actionText: Meer over pacs008
 actionLink: /nl/about/
 features:

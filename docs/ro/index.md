@@ -1,6 +1,6 @@
 ---
 title: pacs008 | Română | ISO 20022 Toolkit
-description: Generare, validare, orchestrare API și suport de conformitate pentru fluxuri de transfer de credit FI-to-FI.
+description: Generare, validare, orchestrare API și suport de conformitate pentru fluxuri de transfer de credit ale clienților între instituții financiare.
 lang: ro-RO
 author: Sebastien Rousseau
 lastUpdated: true
@@ -17,8 +17,8 @@ schemaType: WebSite
 heroText: Automatizați procesarea mesajelor pacs.008 ISO 20022.
 home: true
 metaTitle: pacs008
-subtitle: Generare, validare, orchestrare API și suport de conformitate pentru fluxuri de transfer de credit FI-to-FI.
-tagline: Generare, validare, orchestrare API și suport de conformitate pentru fluxuri de transfer de credit FI-to-FI.
+subtitle: Generare, validare, orchestrare API și suport de conformitate pentru fluxuri de transfer de credit ale clienților între instituții financiare.
+tagline: Generare, validare, orchestrare API și suport de conformitate pentru fluxuri de transfer de credit ale clienților între instituții financiare.
 actionText: Aflați despre pacs008
 actionLink: /ro/about/
 features:

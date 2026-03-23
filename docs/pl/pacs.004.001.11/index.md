@@ -1,12 +1,12 @@
 ---
-title: pacs.004.001.11 | Payment Return | pacs008
+title: pacs.004.001.11 | Zwrot płatności | pacs008
 description: Komunikat pacs.004 jest używany do zwrotu wcześniej rozliczonej transakcji płatniczej. Odwraca przepływ środków, gdy płatność nie może zostać zastosowana...
 lang: pl-PL
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.004.001.11 — Payment Return
+# pacs.004.001.11 — Zwrot płatności
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Komunikat pacs.004 jest używany do zwrotu wcześniej rozliczonej transakcji płatniczej. Odwraca przepływ środków, gdy płatność nie może zostać zastosowana, została wysłana omyłkowo lub jest przywoływana przez instytucję inicjującą.
 
-> Ostatnio zweryfikowano względem źródeł pierwotnych 23 marca 2026 r. Data referencyjna katalogu ISO 20022: 27 February 2025; linki do źródeł podano poniżej.
+> Ostatnio zweryfikowano względem źródeł pierwotnych 23 marca 2026 r. Data referencyjna katalogu ISO 20022: 2025-02-27; linki do źródeł podano poniżej.
 
 ## Kluczowe elementy danych
 
@@ -55,6 +55,45 @@ Komunikat pacs.004 jest używany do zwrotu wcześniej rozliczonej transakcji pł
 
 Agent zlecony wysyła pacs.004 wstecz przez łańcuch płatniczy w celu zwrotu wcześniej rozliczonych środków. Każdy agent w łańcuchu przetwarza zwrot i ponownie uznaje odpowiednie rachunki.
 
+## Tabela różnic wersji
+
+| Zakres wersji | Dlaczego to ważne | Wniosek wdrożeniowy |
+|---|---|---|
+| pacs.004.001.11 | Bieżąca implementacja w pacs008 | Jest zgodne z bieżącymi szablonami zwrotów płatności. |
+| pacs.004.001.12-14 | Późniejsze rewizje katalogu | Sprawdź późniejsze rewizje komunikatów zwrotnych, gdy w zakresie są aktualizacje schematu lub nowi kontrahenci. |
+
+## Przykład XML z komentarzami
+
+```xml
+<PmtRtr>
+  <GrpHdr>
+    <MsgId>RTRN-2026-0003</MsgId>
+  </GrpHdr>
+  <TxInf>
+    <OrgnlInstrId>PAY-2026-8841</OrgnlInstrId>
+    <RtrdIntrBkSttlmAmt Ccy="EUR">25000.00</RtrdIntrBkSttlmAmt>
+    <RtrRsnInf>
+      <Rsn><Cd>AC04</Cd></Rsn>
+    </RtrRsnInf>
+  </TxInf>
+</PmtRtr>
+```
+
+### Komentarze do pól
+
+- `OrgnlInstrId`: This must point back to the settled transaction being returned.
+- `RtrdIntrBkSttlmAmt`: Return amount should reflect the actual returned value, not a reconstructed business amount.
+- `RtrRsnInf`: Jakość kodów przyczyn ma kluczowe znaczenie dla komunikacji z klientem w systemach dalszego przetwarzania i dla kierowania operacyjnego.
+
+## Porównanie pacs.004 vs pacs.007
+
+| Wymiar | pacs.004.001.11 | Wiadomość porównawcza |
+|---|---|---|
+| Główny cel | Return settled funds | Reverse a previously instructed payment |
+| Initiated by | Receiving / beneficiary side | Original instructing side |
+| Direction of flow | Back through the chain | Forward through the chain |
+| Najlepiej nadaje się do | Obsługa zwrotu po rozrachunku | Obsługa odwrócenia z powodu recall, błędu lub oszustwa |
+
 ## Źródła podstawowe
 
 - [ISO 20022 message definitions catalogue for `pacs.004.001.11`](https://www.iso20022.org/iso-20022-message-definitions?search=Pacs.004.001.11)
@@ -67,7 +106,7 @@ Agent zlecony wysyła pacs.004 wstecz przez łańcuch płatniczy w celu zwrotu w
 ## Powiązane wiadomości
 | Typ wiadomości | Opis | Przegląd |
 |---|---|---|
-| [`pacs.008.001.13`](/pl/pacs.008.001.13/) | FI to FI Customer Credit Transfer | Komunikat pacs.008 jest podstawową instrukcją płatniczą wymienianą między instytucjami finansowymi w celu przekazania środków w imieniu klienta. Zawiera informacje o dłużniku, wierzycielu, kwocie i danych przekazu dla jednej lub więcej transakcji polecenia przelewu. |
-| [`pacs.003.001.09`](/pl/pacs.003.001.09/) | FI to FI Customer Direct Debit | Komunikat pacs.003 jest wymieniany między instytucjami finansowymi w celu realizacji instrukcji polecenia zapłaty klienta. Umożliwia bankowi wierzyciela pobranie środków z banku dłużnika w imieniu wierzyciela. |
-| [`pacs.002.001.12`](/pl/pacs.002.001.12/) | FI to FI Payment Status Report | Komunikat pacs.002 jest wysyłany przez instytucję finansową w celu raportowania statusu wcześniej wysłanej instrukcji płatniczej. Dostarcza informacje o potwierdzeniu, odrzuceniu lub statusie oczekującym dla poszczególnych transakcji w ramach komunikatu płatniczego. |
+| [`pacs.008.001.13`](/pl/pacs.008.001.13/) | Przelew kredytowy klienta FI-do-FI | Komunikat pacs.008 jest podstawową instrukcją płatniczą wymienianą między instytucjami finansowymi w celu przekazania środków w imieniu klienta. Zawiera informacje o dłużniku, wierzycielu, kwocie i danych przekazu dla jednej lub więcej transakcji polecenia przelewu. |
+| [`pacs.003.001.09`](/pl/pacs.003.001.09/) | Polecenie zapłaty klienta FI-do-FI | Komunikat pacs.003 jest wymieniany między instytucjami finansowymi w celu realizacji instrukcji polecenia zapłaty klienta. Umożliwia bankowi wierzyciela pobranie środków z banku dłużnika w imieniu wierzyciela. |
+| [`pacs.002.001.12`](/pl/pacs.002.001.12/) | Raport statusu płatności FI-do-FI | Komunikat pacs.002 jest wysyłany przez instytucję finansową w celu raportowania statusu wcześniej wysłanej instrukcji płatniczej. Dostarcza informacje o potwierdzeniu, odrzuceniu lub statusie oczekującym dla poszczególnych transakcji w ramach komunikatu płatniczego. |
 

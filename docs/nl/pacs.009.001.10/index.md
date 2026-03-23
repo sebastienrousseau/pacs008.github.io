@@ -1,12 +1,12 @@
 ---
-title: pacs.009.001.10 | Financial Institution Credit Transfer | pacs008
+title: pacs.009.001.10 | Kredietoverboeking tussen financiële instellingen | pacs008
 description: Het pacs.009-bericht wordt gebruikt voor overboekingen tussen financiële instellingen waarbij de overboeking voor eigen rekening van de instelling...
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.009.001.10 — Financial Institution Credit Transfer
+# pacs.009.001.10 — Kredietoverboeking tussen financiële instellingen
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Het pacs.009-bericht wordt gebruikt voor overboekingen tussen financiële instellingen waarbij de overboeking voor eigen rekening van de instelling plaatsvindt en niet namens een klant. Het ondersteunt interbancaire financiering, dekkingsbetalingen en liquiditeitsbeheer.
 
-> Laatst gecontroleerd aan de hand van primaire bronnen op 23 maart 2026. Referentiedatum ISO 20022-catalogus: 27 February 2025; bronlinks staan hieronder.
+> Laatst gecontroleerd aan de hand van primaire bronnen op 23 maart 2026. Referentiedatum ISO 20022-catalogus: 2025-02-27; bronlinks staan hieronder.
 
 ## Belangrijke gegevenselementen
 
@@ -60,7 +60,7 @@ De debiteurinstelling stuurt pacs.009 naar de crediteurinstelling om eigen gelde
 | Versiebereik | Waarom dit telt | Implementatieconclusie |
 |---|---|---|
 | pacs.009.001.10 | Huidige implementatie in pacs008 | Komt overeen met de huidige projectondersteuning voor FI-credittransferstromen. |
-| pacs.009.001.11-12 | Latere catalogusrevisies | Important for roadmap planning in correspondent and cover-payment environments. |
+| pacs.009.001.11-12 | Latere catalogusrevisies | Belangrijk voor roadmapplanning in omgevingen voor correspondentbankieren en dekkingsbetalingen. |
 
 ## Uitgewerkt XML-voorbeeld
 
@@ -80,7 +80,7 @@ De debiteurinstelling stuurt pacs.009 naar de crediteurinstelling om eigen gelde
 
 ### Veldtoelichting
 
-- `InstrId`: Gebruik een identifier voor de funding-leg die nog steeds aan de onderliggende klantstroom kan worden gekoppeld.
+- `InstrId`: Gebruik een identifier voor de financieringsstap die nog steeds aan de onderliggende klantstroom kan worden gekoppeld.
 - `IntrBkSttlmAmt`: Eigen-rekening- en coverstromen vereisen vaak strengere treasurycontroles op bedragen en afwikkelingsdata.
 - `Dbtr` / `Cdtr`: Dit zijn institutionele partijen en geen retailklantrollen; modelleer ze overeenkomstig.
 
@@ -88,10 +88,10 @@ De debiteurinstelling stuurt pacs.009 naar de crediteurinstelling om eigen gelde
 
 | Dimensie | pacs.009.001.10 | Vergelijkingsbericht |
 |---|---|---|
-| Primair doel | Credittransfer op eigen rekening van de instelling of cover-leg | Klantcredittransfer |
-| Zakelijke eigenaar | Treasury-, correspondent- en fundingoperaties | Klantbetalingsoperaties |
+| Primair doel | Credittransfer op eigen rekening van de instelling of dekkingsstap | Klantcredittransfer |
+| Zakelijke eigenaar | Treasury-, correspondent- en financieringsoperaties | Klantbetalingsoperaties |
 | Typische combinaties | pacs.002, pacs.004 en gekoppelde pacs.008-stromen | pacs.002, pacs.004, pacs.007, pacs.028 |
-| Te vermijden misvatting | Dat het slechts een technischere pacs.008 is | Dat het institutionele fundingstromen zonder meer kan dragen |
+| Te vermijden misvatting | Dat het slechts een technischere pacs.008 is | Dat het institutionele financieringsstromen zonder meer kan dragen |
 
 ## Primaire referenties
 
@@ -105,7 +105,7 @@ De debiteurinstelling stuurt pacs.009 naar de crediteurinstelling om eigen gelde
 ## Gerelateerde berichten
 | Berichttype | Beschrijving | Overzicht |
 |---|---|---|
-| [`pacs.008.001.13`](/nl/pacs.008.001.13/) | FI to FI Customer Credit Transfer | Het pacs.008-bericht is de kernbetalingsinstructie die wordt uitgewisseld tussen financiële instellingen om namens een klant gelden over te maken. Het bevat informatie over debiteur, crediteur, bedrag en betalingskenmerken voor een of meer overboekingstransacties. |
-| [`pacs.002.001.12`](/nl/pacs.002.001.12/) | FI to FI Payment Status Report | Het pacs.002-bericht wordt door een financiële instelling verzonden om de status te rapporteren van een eerder verzonden betalingsinstructie. Het biedt bevestigings-, afwijzings- of hangende statusinformatie voor individuele transacties binnen een betalingsbericht. |
-| [`pacs.010.001.05`](/nl/pacs.010.001.05/) | Financial Institution Direct Debit | Het pacs.010-bericht wordt tussen financiële instellingen gebruikt voor incassotransacties op eigen rekening van de instelling. Het stelt de ene instelling in staat om gelden rechtstreeks van de rekening van een andere instelling te innen. |
+| [`pacs.008.001.13`](/nl/pacs.008.001.13/) | FI-naar-FI-klantkredietoverboeking | Het pacs.008-bericht is de kernbetalingsinstructie die wordt uitgewisseld tussen financiële instellingen om namens een klant gelden over te maken. Het bevat informatie over debiteur, crediteur, bedrag en betalingskenmerken voor een of meer overboekingstransacties. |
+| [`pacs.002.001.12`](/nl/pacs.002.001.12/) | FI-naar-FI-betalingsstatusrapport | Het pacs.002-bericht wordt door een financiële instelling verzonden om de status te rapporteren van een eerder verzonden betalingsinstructie. Het biedt bevestigings-, afwijzings- of hangende statusinformatie voor individuele transacties binnen een betalingsbericht. |
+| [`pacs.010.001.05`](/nl/pacs.010.001.05/) | Incasso tussen financiële instellingen | Het pacs.010-bericht wordt tussen financiële instellingen gebruikt voor incassotransacties op eigen rekening van de instelling. Het stelt de ene instelling in staat om gelden rechtstreeks van de rekening van een andere instelling te innen. |
 

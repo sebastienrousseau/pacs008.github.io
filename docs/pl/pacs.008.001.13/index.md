@@ -1,12 +1,12 @@
 ---
-title: pacs.008.001.13 | FI to FI Customer Credit Transfer | pacs008
+title: pacs.008.001.13 | Przelew kredytowy klienta FI-do-FI | pacs008
 description: Komunikat pacs.008 jest podstawową instrukcją płatniczą wymienianą między instytucjami finansowymi w celu przekazania środków w imieniu klienta. Zawiera...
 lang: pl-PL
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.008.001.13 — FI to FI Customer Credit Transfer
+# pacs.008.001.13 — Przelew kredytowy klienta FI-do-FI
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Komunikat pacs.008 jest podstawową instrukcją płatniczą wymienianą między instytucjami finansowymi w celu przekazania środków w imieniu klienta. Zawiera informacje o dłużniku, wierzycielu, kwocie i danych przekazu dla jednej lub więcej transakcji polecenia przelewu.
 
-> Ostatnio zweryfikowano względem źródeł pierwotnych 23 marca 2026 r. Data referencyjna katalogu ISO 20022: 27 February 2025; linki do źródeł podano poniżej.
+> Ostatnio zweryfikowano względem źródeł pierwotnych 23 marca 2026 r. Data referencyjna katalogu ISO 20022: 2025-02-27; linki do źródeł podano poniżej.
 
 ## Kluczowe elementy danych
 
@@ -55,6 +55,51 @@ Komunikat pacs.008 jest podstawową instrukcją płatniczą wymienianą między 
 
 Agent dłużnika tworzy pacs.008 i wysyła go do agenta wierzyciela (bezpośrednio lub przez pośredników). Każdy agent w łańcuchu waliduje, wzbogaca i przekazuje instrukcję, aż agent wierzyciela uzna rachunek beneficjenta.
 
+## Tabela różnic wersji
+
+| Zakres wersji | Dlaczego to ważne | Wniosek wdrożeniowy |
+|---|---|---|
+| pacs.008.001.01-07 | Wczesne rewizje | Przydatne głównie do analizy migracji ze starszych systemów i kontekstu historii wersji. |
+| pacs.008.001.08-12 | Nowoczesne rewizje sprzed bieżącej wersji | To rewizje, które najczęściej pojawiają się w ostatnich projektach migracyjnych lub koegzystencji. |
+| pacs.008.001.13 | Bieżąca rewizja katalogu | Używaj tego do planowania wokół bieżącej wersji, nadal sprawdzając zasady użycia schematu i gotowość kontrahentów. |
+
+## Przykład XML z komentarzami
+
+```xml
+<FIToFICstmrCdtTrf>
+  <GrpHdr>
+    <MsgId>MSG-2026-001</MsgId>
+    <CreDtTm>2026-01-15T10:30:00Z</CreDtTm>
+  </GrpHdr>
+  <CdtTrfTxInf>
+    <PmtId>
+      <EndToEndId>E2E-INV-2026-001</EndToEndId>
+      <UETR>123e4567-e89b-12d3-a456-426614174000</UETR>
+    </PmtId>
+    <IntrBkSttlmAmt Ccy="EUR">25000.00</IntrBkSttlmAmt>
+    <Dbtr><Nm>Acme Corp GmbH</Nm></Dbtr>
+    <Cdtr><Nm>Widget Industries SA</Nm></Cdtr>
+  </CdtTrfTxInf>
+</FIToFICstmrCdtTrf>
+```
+
+### Komentarze do pól
+
+- `MsgId`: To powinno identyfikować kopertę komunikatu, a nie referencję płatności klienta końcowego.
+- `EndToEndId`: W miarę możliwości utrzymuj stabilną śledzalność po stronie klienta w kolejnych systemach.
+- `UETR`: Używaj tego konsekwentnie w środowiskach transgranicznych i wymagających intensywnego śledzenia; nie generuj tego doraźnie na późniejszych etapach procesu.
+- `IntrBkSttlmAmt`: Weryfikuj kwotę i walutę regułami biznesowymi przed walidacją schematu.
+- `Dbtr` / `Cdtr`: Jakość danych stron, struktura adresu i identyfikatory są zwykle głównymi czynnikami wpływającymi na poziom napraw.
+
+## Porównanie pacs.008 vs pacs.009
+
+| Wymiar | pacs.008.001.13 | Wiadomość porównawcza |
+|---|---|---|
+| Główny cel | Kliencki przelew kredytowy | Przelew kredytowy na rachunek własny instytucji lub etap pokrycia |
+| Właściciel biznesowy | Operacje płatności klientów | Operacje skarbowe / korespondencyjne / finansowania |
+| Typowe powiązania | pacs.002, pacs.004, pacs.007, pacs.028 | pacs.002, pacs.004 i czasem powiązane przepływy pacs.008 |
+| Błędne założenie, którego należy unikać | Że wszystkie przelewy między bankami należą tutaj | Że może zastąpić instrukcje przelewu kredytowego klienta |
+
 ## Źródła podstawowe
 
 - [ISO 20022 message definitions catalogue for `pacs.008.001.13`](https://www.iso20022.org/iso-20022-message-definitions?search=Pacs.008.001.13)
@@ -70,7 +115,7 @@ Agent dłużnika tworzy pacs.008 i wysyła go do agenta wierzyciela (bezpośredn
 
 ## Obsługiwane wersje
 
-| Version | |
+| Wersja | |
 |---|---|
 | `pacs.008.001.01` |  |
 | `pacs.008.001.02` |  |
@@ -84,12 +129,12 @@ Agent dłużnika tworzy pacs.008 i wysyła go do agenta wierzyciela (bezpośredn
 | `pacs.008.001.10` |  |
 | `pacs.008.001.11` |  |
 | `pacs.008.001.12` |  |
-| `pacs.008.001.13` | **Current** |
+| `pacs.008.001.13` | **Bieżąca** |
 
 ## Powiązane wiadomości
 | Typ wiadomości | Opis | Przegląd |
 |---|---|---|
-| [`pacs.002.001.12`](/pl/pacs.002.001.12/) | FI to FI Payment Status Report | Komunikat pacs.002 jest wysyłany przez instytucję finansową w celu raportowania statusu wcześniej wysłanej instrukcji płatniczej. Dostarcza informacje o potwierdzeniu, odrzuceniu lub statusie oczekującym dla poszczególnych transakcji w ramach komunikatu płatniczego. |
-| [`pacs.004.001.11`](/pl/pacs.004.001.11/) | Payment Return | Komunikat pacs.004 jest używany do zwrotu wcześniej rozliczonej transakcji płatniczej. Odwraca przepływ środków, gdy płatność nie może zostać zastosowana, została wysłana omyłkowo lub jest przywoływana przez instytucję inicjującą. |
-| [`pacs.009.001.10`](/pl/pacs.009.001.10/) | Financial Institution Credit Transfer | Komunikat pacs.009 jest używany do poleceń przelewu między instytucjami finansowymi, w których transfer odbywa się na rachunek własny instytucji, a nie w imieniu klienta. Obsługuje finansowanie międzybankowe, płatności pokrycia i zarządzanie płynnością. |
+| [`pacs.002.001.12`](/pl/pacs.002.001.12/) | Raport statusu płatności FI-do-FI | Komunikat pacs.002 jest wysyłany przez instytucję finansową w celu raportowania statusu wcześniej wysłanej instrukcji płatniczej. Dostarcza informacje o potwierdzeniu, odrzuceniu lub statusie oczekującym dla poszczególnych transakcji w ramach komunikatu płatniczego. |
+| [`pacs.004.001.11`](/pl/pacs.004.001.11/) | Zwrot płatności | Komunikat pacs.004 jest używany do zwrotu wcześniej rozliczonej transakcji płatniczej. Odwraca przepływ środków, gdy płatność nie może zostać zastosowana, została wysłana omyłkowo lub jest przywoływana przez instytucję inicjującą. |
+| [`pacs.009.001.10`](/pl/pacs.009.001.10/) | Przelew kredytowy między instytucjami finansowymi | Komunikat pacs.009 jest używany do poleceń przelewu między instytucjami finansowymi, w których transfer odbywa się na rachunek własny instytucji, a nie w imieniu klienta. Obsługuje finansowanie międzybankowe, płatności pokrycia i zarządzanie płynnością. |
 

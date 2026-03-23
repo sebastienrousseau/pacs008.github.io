@@ -1,6 +1,6 @@
 ---
 title: Acerca de pacs008 | pacs008
-description: Qué hace pacs008 y a quién va dirigido. Generación, validación, orquestación de API y soporte de cumplimiento para flujos de transferencia de crédito...
+description: Qué hace pacs008 y a quién va dirigido. Generación, validación, orquestación de API y soporte de cumplimiento para flujos de transferencia de crédito de...
 lang: es-ES
 lastUpdated: true
 image: /logo.svg

@@ -1,6 +1,6 @@
 ---
 title: API | pacs008
-description: Prise en charge REST et CLI dans pacs008. Génération, validation, orchestration d'API et conformité pour les flux de virement client FI-to-FI.
+description: Prise en charge REST et CLI dans pacs008. Génération, validation, orchestration d'API et conformité pour les flux de virement client entre institutions...
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg
@@ -52,14 +52,14 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 | `DELETE /jobs/{job_id}` | Annuler une tâche en attente ou en cours d'exécution |
 | `GET /docs` | Interface Swagger UI interactive pour explorer et tester tous les points de terminaison |
 
-- [`pacs.002.001.12`](/fr/pacs.002.001.12/) — FI to FI Payment Status Report
-- [`pacs.003.001.09`](/fr/pacs.003.001.09/) — FI to FI Customer Direct Debit
-- [`pacs.004.001.11`](/fr/pacs.004.001.11/) — Payment Return
-- [`pacs.007.001.11`](/fr/pacs.007.001.11/) — FI to FI Payment Reversal
-- [`pacs.008.001.13`](/fr/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.009.001.10`](/fr/pacs.009.001.10/) — Financial Institution Credit Transfer
-- [`pacs.010.001.05`](/fr/pacs.010.001.05/) — Financial Institution Direct Debit
-- [`pacs.028.001.05`](/fr/pacs.028.001.05/) — FI to FI Payment Status Request
+- [`pacs.002.001.12`](/fr/pacs.002.001.12/) — Rapport de statut de paiement FI à FI
+- [`pacs.003.001.09`](/fr/pacs.003.001.09/) — Prélèvement client FI à FI
+- [`pacs.004.001.11`](/fr/pacs.004.001.11/) — Retour de paiement
+- [`pacs.007.001.11`](/fr/pacs.007.001.11/) — Annulation de paiement FI à FI
+- [`pacs.008.001.13`](/fr/pacs.008.001.13/) — Virement client FI à FI
+- [`pacs.009.001.10`](/fr/pacs.009.001.10/) — Virement entre institutions financières
+- [`pacs.010.001.05`](/fr/pacs.010.001.05/) — Prélèvement entre institutions financières
+- [`pacs.028.001.05`](/fr/pacs.028.001.05/) — Demande de statut de paiement FI à FI
 
 ### Exemple de validation
 

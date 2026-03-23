@@ -1,6 +1,6 @@
 ---
 title: API | pacs008
-description: Obsługa przepływów REST i CLI w pacs008. Generowanie, walidacja, orkiestracja API i wsparcie zgodności dla przepływów przelewów kredytowych FI-to-FI.
+description: Obsługa przepływów REST i CLI w pacs008. Generowanie, walidacja, orkiestracja API i wsparcie zgodności dla przepływów przelewów kredytowych klientów...
 lang: pl-PL
 lastUpdated: true
 image: /logo.svg
@@ -11,6 +11,13 @@ image: /logo.svg
 Projekt zapewnia zarówno REST API, jak i CLI do operacyjnych przepływów wiadomości płatniczych.
 
 > Ostatnio zweryfikowano względem źródeł pierwotnych 23 marca 2026 r. z użyciem publicznych materiałów ISO 20022, EPC i Swift wskazanych na tej stronie.
+
+## Uwagi wdrożeniowe
+
+- Używaj generowania synchronicznego do kontroli operacyjnych i małych wsadów, gdy wywołujący oczekuje XML natychmiast.
+- Używaj generowania asynchronicznego, gdy pliki wejściowe są duże, zadania wymagają ponowień lub generowanie jest częścią większego silnika orkiestracji.
+- Przechowuj zarówno źródłowe dane wejściowe, jak i raport walidacji, aby zespoły wsparcia mogły odtworzyć wynik XML podczas incydentu.
+- Zablokuj ścieżki szablonów i XSD w konfiguracji wdrożenia, aby uniknąć cichych aktualizacji.
 
 ## Instalacja
 
@@ -45,14 +52,14 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 | `DELETE /jobs/{job_id}` | Anulowanie oczekującego lub trwającego zadania |
 | `GET /docs` | Interaktywny Swagger UI do eksploracji i testowania wszystkich endpointów |
 
-- [`pacs.002.001.12`](/pl/pacs.002.001.12/) — FI to FI Payment Status Report
-- [`pacs.003.001.09`](/pl/pacs.003.001.09/) — FI to FI Customer Direct Debit
-- [`pacs.004.001.11`](/pl/pacs.004.001.11/) — Payment Return
-- [`pacs.007.001.11`](/pl/pacs.007.001.11/) — FI to FI Payment Reversal
-- [`pacs.008.001.13`](/pl/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.009.001.10`](/pl/pacs.009.001.10/) — Financial Institution Credit Transfer
-- [`pacs.010.001.05`](/pl/pacs.010.001.05/) — Financial Institution Direct Debit
-- [`pacs.028.001.05`](/pl/pacs.028.001.05/) — FI to FI Payment Status Request
+- [`pacs.002.001.12`](/pl/pacs.002.001.12/) — Raport statusu płatności FI-do-FI
+- [`pacs.003.001.09`](/pl/pacs.003.001.09/) — Polecenie zapłaty klienta FI-do-FI
+- [`pacs.004.001.11`](/pl/pacs.004.001.11/) — Zwrot płatności
+- [`pacs.007.001.11`](/pl/pacs.007.001.11/) — Odwrócenie płatności FI-do-FI
+- [`pacs.008.001.13`](/pl/pacs.008.001.13/) — Przelew kredytowy klienta FI-do-FI
+- [`pacs.009.001.10`](/pl/pacs.009.001.10/) — Przelew kredytowy między instytucjami finansowymi
+- [`pacs.010.001.05`](/pl/pacs.010.001.05/) — Polecenie zapłaty między instytucjami finansowymi
+- [`pacs.028.001.05`](/pl/pacs.028.001.05/) — Zapytanie o status płatności FI-do-FI
 
 ### Przykład walidacji
 

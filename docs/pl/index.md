@@ -1,6 +1,6 @@
 ---
 title: pacs008 | Polski | ISO 20022 Toolkit
-description: Generowanie, walidacja, orkiestracja API i wsparcie zgodności dla przepływów przelewów kredytowych FI-to-FI.
+description: Generowanie, walidacja, orkiestracja API i wsparcie zgodności dla przepływów przelewów kredytowych klientów między instytucjami finansowymi.
 lang: pl-PL
 author: Sebastien Rousseau
 lastUpdated: true
@@ -17,8 +17,8 @@ schemaType: WebSite
 heroText: Automatyzacja przetwarzania komunikatów pacs.008 ISO 20022.
 home: true
 metaTitle: pacs008
-subtitle: Generowanie, walidacja, orkiestracja API i wsparcie zgodności dla przepływów przelewów kredytowych FI-to-FI.
-tagline: Generowanie, walidacja, orkiestracja API i wsparcie zgodności dla przepływów przelewów kredytowych FI-to-FI.
+subtitle: Generowanie, walidacja, orkiestracja API i wsparcie zgodności dla przepływów przelewów kredytowych klientów między instytucjami finansowymi.
+tagline: Generowanie, walidacja, orkiestracja API i wsparcie zgodności dla przepływów przelewów kredytowych klientów między instytucjami finansowymi.
 actionText: Poznaj pacs008
 actionLink: /pl/about/
 features:

@@ -1,12 +1,12 @@
 ---
-title: pacs.007.001.11 | FI to FI Payment Reversal | pacs008
+title: pacs.007.001.11 | FI'dan FI'ya ödeme geri alma mesajı | pacs008
 description: pacs.007 mesajı, henüz takas edilmemiş daha önce gönderilmiş bir ödeme talimatını tersine çevirmek veya takas edilmiş bir ödemenin tersine çevrilmesini...
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.007.001.11 — FI to FI Payment Reversal
+# pacs.007.001.11 — FI'dan FI'ya ödeme geri alma mesajı
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 pacs.007 mesajı, henüz takas edilmemiş daha önce gönderilmiş bir ödeme talimatını tersine çevirmek veya takas edilmiş bir ödemenin tersine çevrilmesini talep etmek için kullanılır. pacs.004'ten (iade) farklı olarak, orijinal talimat veren aracı tarafından başlatılır.
 
-> Birincil kaynaklara göre en son 23 Mart 2026 tarihinde gözden geçirildi. ISO 20022 katalog referans tarihi: 27 February 2025; kaynak bağlantıları aşağıda listelenmiştir.
+> Birincil kaynaklara göre en son 23 Mart 2026 tarihinde gözden geçirildi. ISO 20022 katalog referans tarihi: 2025-02-27; kaynak bağlantıları aşağıda listelenmiştir.
 
 ## Temel veri öğeleri
 
@@ -55,6 +55,44 @@ pacs.007 mesajı, henüz takas edilmemiş daha önce gönderilmiş bir ödeme ta
 
 Talimat veren aracı (orijinal gönderici), daha önce talimat verilmiş bir ödemeyi tersine çevirmek üzere ödeme zinciri boyunca ileriye pacs.007 gönderir. Her aracı tersine çevirme talimatını işler ve takası buna göre ayarlar.
 
+## Sürüm fark tablosu
+
+| Sürüm aralığı | Neden önemli | Uygulama çıkarımı |
+|---|---|---|
+| pacs.007.001.11 | pacs008 içindeki mevcut uygulama | Reversal iş akışı modellemesi için iyi bir başlangıç noktasıdır. |
+| pacs.007.001.12-13 | Daha sonraki katalog sürümleri | Mevcut piyasa altyapısına uyum için sonraki sürümleri inceleyin. |
+
+## Açıklamalı XML örneği
+
+```xml
+<FIToFIPmtRvsl>
+  <GrpHdr>
+    <MsgId>RVSL-2026-0007</MsgId>
+  </GrpHdr>
+  <TxInf>
+    <OrgnlInstrId>PAY-2026-8841</OrgnlInstrId>
+    <RvslRsnInf>
+      <Rsn><Cd>DUPL</Cd></Rsn>
+    </RvslRsnInf>
+  </TxInf>
+</FIToFIPmtRvsl>
+```
+
+### Alan açıklamaları
+
+- `MsgId`: Geri çevirme mesajının kendisinin denetime uygun ayrı bir tanımlayıcıya ihtiyacı vardır.
+- `OrgnlInstrId`: Mutabakat kırılmalarını önlemek için orijinal ödeme referansını koruyun.
+- `RvslRsnInf`: Dolandırıcılık, hata ve mükerrer ödeme vakalarının farklı yönlendirilebilmesi için yapılandırılmış geri çevirme nedenleri kullanın.
+
+## Karşılaştır pacs.007 vs pacs.004
+
+| Boyut | pacs.007.001.11 | Karşılaştırma mesajı |
+|---|---|---|
+| Temel amaç | Reverse a previously instructed payment | Return settled funds |
+| Initiated by | Original instructing side | Receiving / beneficiary side |
+| Direction of flow | Forward through the chain | Back through the chain |
+| En uygun olduğu durum | Geri çağırma, hata veya dolandırıcılık kaynaklı geri çevirme işleme | Mutabakattan sonra iade işleme |
+
 ## Birincil referanslar
 
 - [ISO 20022 message definitions catalogue for `pacs.007.001.11`](https://www.iso20022.org/iso-20022-message-definitions?search=Pacs.007.001.11)
@@ -65,7 +103,7 @@ Talimat veren aracı (orijinal gönderici), daha önce talimat verilmiş bir öd
 ## İlgili mesajlar
 | Mesaj türü | Açıklama | Genel bakış |
 |---|---|---|
-| [`pacs.008.001.13`](/tr/pacs.008.001.13/) | FI to FI Customer Credit Transfer | pacs.008 mesajı, bir müşteri adına fon transfer etmek üzere finans kuruluşları arasında iletilen temel ödeme talimatıdır. Bir veya daha fazla kredi transferi işlemi için borçlu, alacaklı, tutar ve havale bilgilerini taşır. |
-| [`pacs.004.001.11`](/tr/pacs.004.001.11/) | Payment Return | pacs.004 mesajı, daha önce takas edilmiş bir ödeme işlemini iade etmek için kullanılır. Bir ödeme uygulanamadığında, hatalı gönderildiğinde veya kaynak kuruluş tarafından geri çağrıldığında fon akışını tersine çevirir. |
-| [`pacs.002.001.12`](/tr/pacs.002.001.12/) | FI to FI Payment Status Report | pacs.002 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu bildirmek üzere bir finans kuruluşu tarafından gönderilir. Bir ödeme mesajı içindeki bireysel işlemler için onay, ret veya bekleyen durum bilgisi sağlar. |
+| [`pacs.008.001.13`](/tr/pacs.008.001.13/) | FI'dan FI'ya müşteri kredi transferi | pacs.008 mesajı, bir müşteri adına fon transfer etmek üzere finans kuruluşları arasında iletilen temel ödeme talimatıdır. Bir veya daha fazla kredi transferi işlemi için borçlu, alacaklı, tutar ve havale bilgilerini taşır. |
+| [`pacs.004.001.11`](/tr/pacs.004.001.11/) | Ödeme iadesi | pacs.004 mesajı, daha önce takas edilmiş bir ödeme işlemini iade etmek için kullanılır. Bir ödeme uygulanamadığında, hatalı gönderildiğinde veya kaynak kuruluş tarafından geri çağrıldığında fon akışını tersine çevirir. |
+| [`pacs.002.001.12`](/tr/pacs.002.001.12/) | FI'dan FI'ya ödeme durumu raporu | pacs.002 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu bildirmek üzere bir finans kuruluşu tarafından gönderilir. Bir ödeme mesajı içindeki bireysel işlemler için onay, ret veya bekleyen durum bilgisi sağlar. |
 

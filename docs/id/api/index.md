@@ -1,6 +1,6 @@
 ---
 title: API | pacs008
-description: Dukungan alur kerja REST dan CLI di pacs008. Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan FI-to-FI.
+description: Dukungan alur kerja REST dan CLI di pacs008. Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan antar...
 lang: id-ID
 lastUpdated: true
 image: /logo.svg
@@ -11,6 +11,13 @@ image: /logo.svg
 Proyek ini menyediakan REST API dan CLI untuk alur kerja pemrosesan pesan pembayaran operasional.
 
 > Terakhir ditinjau terhadap sumber primer pada 23 Maret 2026 menggunakan materi publik ISO 20022, EPC, dan Swift yang dirujuk pada halaman ini.
+
+## Catatan implementasi
+
+- Gunakan pembuatan sinkron untuk pemeriksaan operasional dan batch kecil saat pemanggil membutuhkan XML segera.
+- Gunakan pembuatan asinkron saat file input besar, pekerjaan perlu percobaan ulang, atau proses pembuatan menjadi bagian dari mesin orkestrasi yang lebih luas.
+- Simpan data masukan sumber dan laporan validasi agar tim dukungan dapat mereproduksi keluaran XML saat insiden.
+- Kunci jalur template dan XSD di konfigurasi penerapan untuk mencegah pembaruan diam-diam.
 
 ## Instalasi
 
@@ -45,14 +52,14 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 | `DELETE /jobs/{job_id}` | Membatalkan tugas yang tertunda atau sedang berjalan |
 | `GET /docs` | Antarmuka Swagger UI interaktif untuk menjelajahi dan menguji semua endpoint |
 
-- [`pacs.002.001.12`](/id/pacs.002.001.12/) — FI to FI Payment Status Report
-- [`pacs.003.001.09`](/id/pacs.003.001.09/) — FI to FI Customer Direct Debit
-- [`pacs.004.001.11`](/id/pacs.004.001.11/) — Payment Return
-- [`pacs.007.001.11`](/id/pacs.007.001.11/) — FI to FI Payment Reversal
-- [`pacs.008.001.13`](/id/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.009.001.10`](/id/pacs.009.001.10/) — Financial Institution Credit Transfer
-- [`pacs.010.001.05`](/id/pacs.010.001.05/) — Financial Institution Direct Debit
-- [`pacs.028.001.05`](/id/pacs.028.001.05/) — FI to FI Payment Status Request
+- [`pacs.002.001.12`](/id/pacs.002.001.12/) — Laporan Status Pembayaran FI ke FI
+- [`pacs.003.001.09`](/id/pacs.003.001.09/) — Direct Debit Pelanggan FI ke FI
+- [`pacs.004.001.11`](/id/pacs.004.001.11/) — Retur Pembayaran
+- [`pacs.007.001.11`](/id/pacs.007.001.11/) — Pembalikan Pembayaran FI ke FI
+- [`pacs.008.001.13`](/id/pacs.008.001.13/) — Transfer Kredit Pelanggan FI ke FI
+- [`pacs.009.001.10`](/id/pacs.009.001.10/) — Transfer Kredit Antar Lembaga Keuangan
+- [`pacs.010.001.05`](/id/pacs.010.001.05/) — Direct Debit Antar Lembaga Keuangan
+- [`pacs.028.001.05`](/id/pacs.028.001.05/) — Permintaan Status Pembayaran FI ke FI
 
 ### Contoh validasi
 
@@ -92,7 +99,7 @@ curl -X POST http://localhost:8000/api/validate \
 
 ### Contoh pembuatan sinkron
 
-Buat file XML pacs.008.001.13 dari payload JSON.
+Buat file XML pacs.008.001.13 dari data JSON.
 
 ```bash
 curl -X POST http://localhost:8000/api/generate \

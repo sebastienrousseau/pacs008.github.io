@@ -19,7 +19,7 @@ image: /logo.svg
 
 The pacs.010 message is used between financial institutions for direct debit transactions on the institution's own account. It enables one institution to collect funds directly from another institution's account.
 
-> Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 27 February 2025; source links are listed below.
+> Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
 
 ## Key data elements
 
@@ -57,7 +57,7 @@ The creditor institution sends pacs.010 to the debtor institution to collect fun
 
 ## Version commentary
 
-The ISO 20022 catalogue entry for this business area was last updated on 27 February 2025. The pacs008 site currently documents `pacs.010.001.05`, while the ISO 20022 catalogue lists `pacs.010.001.06` as the latest published version.
+The ISO 20022 catalogue entry for this business area was last updated on 2025-02-27. The pacs008 site currently documents `pacs.010.001.05`, while the ISO 20022 catalogue lists `pacs.010.001.06` as the latest published version.
 
 That means this page is useful for understanding the currently implemented version in pacs008, but roadmap and interoperability planning should account for the later catalogue revision as well.
 

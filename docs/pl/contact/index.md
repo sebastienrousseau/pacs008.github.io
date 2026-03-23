@@ -1,6 +1,6 @@
 ---
 title: Kontakt | pacs008
-description: Jak skontaktować się z projektem pacs008. Generowanie, walidacja, orkiestracja API i wsparcie zgodności dla przepływów przelewów kredytowych FI-to-FI.
+description: Jak skontaktować się z projektem pacs008. Generowanie, walidacja, orkiestracja API i wsparcie zgodności dla przepływów przelewów kredytowych klientów...
 lang: pl-PL
 lastUpdated: true
 image: /logo.svg

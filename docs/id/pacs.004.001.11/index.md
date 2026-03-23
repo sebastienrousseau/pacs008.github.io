@@ -1,12 +1,12 @@
 ---
-title: pacs.004.001.11 | Payment Return | pacs008
+title: pacs.004.001.11 | Retur Pembayaran | pacs008
 description: Pesan pacs.004 digunakan untuk mengembalikan transaksi pembayaran yang sebelumnya telah diselesaikan. Pesan ini membalikkan aliran dana ketika pembayaran...
 lang: id-ID
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.004.001.11 — Payment Return
+# pacs.004.001.11 — Retur Pembayaran
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Pesan pacs.004 digunakan untuk mengembalikan transaksi pembayaran yang sebelumnya telah diselesaikan. Pesan ini membalikkan aliran dana ketika pembayaran tidak dapat diterapkan, dikirim secara keliru, atau sedang ditarik kembali oleh lembaga asal.
 
-> Terakhir ditinjau terhadap sumber primer pada 23 Maret 2026. Tanggal referensi katalog ISO 20022: 27 February 2025; tautan sumber tercantum di bawah.
+> Terakhir ditinjau terhadap sumber primer pada 23 Maret 2026. Tanggal referensi katalog ISO 20022: 2025-02-27; tautan sumber tercantum di bawah.
 
 ## Elemen data utama
 
@@ -55,6 +55,45 @@ Pesan pacs.004 digunakan untuk mengembalikan transaksi pembayaran yang sebelumny
 
 Agen yang diinstruksikan mengirim pacs.004 kembali melalui rantai pembayaran untuk mengembalikan dana yang sebelumnya telah diselesaikan. Setiap agen dalam rantai memproses pengembalian dan mengkreditkan kembali rekening yang relevan.
 
+## Tabel perbedaan versi
+
+| Rentang versi | Mengapa ini penting | Kesimpulan implementasi |
+|---|---|---|
+| pacs.004.001.11 | Implementasi saat ini di pacs008 | Selaras dengan template saat ini untuk retur pembayaran. |
+| pacs.004.001.12-14 | Revisi katalog berikutnya | Tinjau revisi pesan retur yang lebih baru saat peningkatan skema atau pihak lawan baru masuk dalam cakupan. |
+
+## Contoh XML beranotasi
+
+```xml
+<PmtRtr>
+  <GrpHdr>
+    <MsgId>RTRN-2026-0003</MsgId>
+  </GrpHdr>
+  <TxInf>
+    <OrgnlInstrId>PAY-2026-8841</OrgnlInstrId>
+    <RtrdIntrBkSttlmAmt Ccy="EUR">25000.00</RtrdIntrBkSttlmAmt>
+    <RtrRsnInf>
+      <Rsn><Cd>AC04</Cd></Rsn>
+    </RtrRsnInf>
+  </TxInf>
+</PmtRtr>
+```
+
+### Komentar bidang
+
+- `OrgnlInstrId`: This must point back to the settled transaction being returned.
+- `RtrdIntrBkSttlmAmt`: Return amount should reflect the actual returned value, not a reconstructed business amount.
+- `RtrRsnInf`: Kualitas kode alasan sangat penting untuk komunikasi pelanggan di sistem lanjutan dan perutean operasional.
+
+## Bandingkan pacs.004 vs pacs.007
+
+| Dimensi | pacs.004.001.11 | Pesan pembanding |
+|---|---|---|
+| Tujuan utama | Mengembalikan dana yang sudah diselesaikan | Membalik pembayaran yang sebelumnya telah diinstruksikan |
+| Diinisiasi oleh | Pihak penerima / penerima manfaat | Pihak pemberi instruksi asal |
+| Arah alur | Kembali melalui rantai | Maju melalui rantai |
+| Paling cocok untuk | Penanganan pengembalian pasca-penyelesaian | Penanganan pembalikan karena recall, kesalahan, atau penipuan |
+
 ## Referensi primer
 
 - [ISO 20022 message definitions catalogue for `pacs.004.001.11`](https://www.iso20022.org/iso-20022-message-definitions?search=Pacs.004.001.11)
@@ -67,7 +106,7 @@ Agen yang diinstruksikan mengirim pacs.004 kembali melalui rantai pembayaran unt
 ## Pesan terkait
 | Jenis pesan | Deskripsi | Ikhtisar |
 |---|---|---|
-| [`pacs.008.001.13`](/id/pacs.008.001.13/) | FI to FI Customer Credit Transfer | Pesan pacs.008 adalah instruksi pembayaran inti yang dipertukarkan antara lembaga keuangan untuk mentransfer dana atas nama pelanggan. Pesan ini membawa informasi debitur, kreditur, jumlah, dan remitansi untuk satu atau lebih transaksi transfer kredit. |
-| [`pacs.003.001.09`](/id/pacs.003.001.09/) | FI to FI Customer Direct Debit | Pesan pacs.003 dipertukarkan antara lembaga keuangan untuk mengeksekusi instruksi debit langsung pelanggan. Pesan ini memungkinkan bank kreditur untuk menagih dana dari bank debitur atas nama kreditur. |
-| [`pacs.002.001.12`](/id/pacs.002.001.12/) | FI to FI Payment Status Report | Pesan pacs.002 dikirim oleh lembaga keuangan untuk melaporkan status instruksi pembayaran yang sebelumnya dikirim. Pesan ini memberikan informasi konfirmasi, penolakan, atau status tertunda untuk transaksi individual dalam pesan pembayaran. |
+| [`pacs.008.001.13`](/id/pacs.008.001.13/) | Transfer Kredit Pelanggan FI ke FI | Pesan pacs.008 adalah instruksi pembayaran inti yang dipertukarkan antara lembaga keuangan untuk mentransfer dana atas nama pelanggan. Pesan ini membawa informasi debitur, kreditur, jumlah, dan remitansi untuk satu atau lebih transaksi transfer kredit. |
+| [`pacs.003.001.09`](/id/pacs.003.001.09/) | Direct Debit Pelanggan FI ke FI | Pesan pacs.003 dipertukarkan antara lembaga keuangan untuk mengeksekusi instruksi debit langsung pelanggan. Pesan ini memungkinkan bank kreditur untuk menagih dana dari bank debitur atas nama kreditur. |
+| [`pacs.002.001.12`](/id/pacs.002.001.12/) | Laporan Status Pembayaran FI ke FI | Pesan pacs.002 dikirim oleh lembaga keuangan untuk melaporkan status instruksi pembayaran yang sebelumnya dikirim. Pesan ini memberikan informasi konfirmasi, penolakan, atau status tertunda untuk transaksi individual dalam pesan pembayaran. |
 

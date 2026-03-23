@@ -10,26 +10,26 @@ const docsDir = path.join(root, "docs");
 const locales = [
   { key: "en", lang: "en-GB", label: "English", hero: "Automate ISO 20022 pacs.008 message processing.", tagline: "Generation, validation, API orchestration, and compliance support for FI-to-FI customer credit transfer workflows.", cta: "Learn about pacs008" },
   { key: "ar", lang: "ar-SA", label: "العربية", hero: "أتمتة معالجة رسائل pacs.008 وفق ISO 20022.", tagline: "التوليد والتحقق وتنسيق واجهات البرمجة ودعم الامتثال لتدفقات تحويل الائتمان بين المؤسسات المالية.", cta: "تعرّف على pacs008" },
-  { key: "de", lang: "de-DE", label: "Deutsch", hero: "ISO 20022 pacs.008 Nachrichtenverarbeitung automatisieren.", tagline: "Generierung, Validierung, API-Orchestrierung und Compliance-Unterstützung für FI-to-FI-Kundenkredittransfer-Workflows.", cta: "Mehr über pacs008 erfahren" },
-  { key: "es", lang: "es-ES", label: "Español", hero: "Automatice el procesamiento de mensajes pacs.008 ISO 20022.", tagline: "Generación, validación, orquestación de API y soporte de cumplimiento para flujos de transferencia de crédito FI-to-FI.", cta: "Conozca pacs008" },
-  { key: "fr", lang: "fr-FR", label: "Français", hero: "Automatisez le traitement des messages pacs.008 ISO 20022.", tagline: "Génération, validation, orchestration d'API et conformité pour les flux de virement client FI-to-FI.", cta: "Découvrir pacs008" },
-  { key: "he", lang: "he-IL", label: "עברית", hero: "אוטומציה של עיבוד הודעות pacs.008 בתקן ISO 20022.", tagline: "יצירה, אימות, תיאום API ותמיכת ציות לתהליכי העברת אשראי FI-to-FI.", cta: "למידע על pacs008" },
-  { key: "hi", lang: "hi-IN", label: "हिन्दी", hero: "ISO 20022 pacs.008 संदेश प्रसंस्करण को स्वचालित करें।", tagline: "FI-to-FI ग्राहक क्रेडिट ट्रांसफर वर्कफ़्लो के लिए जनरेशन, वैलिडेशन, API ऑर्केस्ट्रेशन और अनुपालन समर्थन।", cta: "pacs008 के बारे में जानें" },
-  { key: "id", lang: "id-ID", label: "Bahasa Indonesia", hero: "Otomatisasi pemrosesan pesan pacs.008 ISO 20022.", tagline: "Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan FI-to-FI.", cta: "Pelajari pacs008" },
-  { key: "it", lang: "it-IT", label: "Italiano", hero: "Automatizza l'elaborazione dei messaggi pacs.008 ISO 20022.", tagline: "Generazione, validazione, orchestrazione API e conformità per i flussi di bonifico cliente FI-to-FI.", cta: "Scopri pacs008" },
-  { key: "ja", lang: "ja-JP", label: "日本語", hero: "ISO 20022 pacs.008 メッセージ処理を自動化。", tagline: "FI-to-FI 顧客クレジット移転ワークフローの生成、検証、API オーケストレーション、コンプライアンス対応。", cta: "pacs008 について" },
-  { key: "ko", lang: "ko-KR", label: "한국어", hero: "ISO 20022 pacs.008 메시지 처리 자동화.", tagline: "FI-to-FI 고객 신용 이체 워크플로를 위한 생성, 검증, API 오케스트레이션, 규정 준수 지원.", cta: "pacs008 알아보기" },
-  { key: "nl", lang: "nl-NL", label: "Nederlands", hero: "Automatiseer ISO 20022 pacs.008 berichtverwerking.", tagline: "Generatie, validatie, API-orchestratie en compliance-ondersteuning voor FI-to-FI-klantoverdrachtworkflows.", cta: "Meer over pacs008" },
-  { key: "pl", lang: "pl-PL", label: "Polski", hero: "Automatyzacja przetwarzania komunikatów pacs.008 ISO 20022.", tagline: "Generowanie, walidacja, orkiestracja API i wsparcie zgodności dla przepływów przelewów kredytowych FI-to-FI.", cta: "Poznaj pacs008" },
-  { key: "pt", lang: "pt-BR", label: "Português", hero: "Automatize o processamento de mensagens pacs.008 ISO 20022.", tagline: "Geração, validação, orquestração de API e suporte de conformidade para fluxos de transferência de crédito FI-to-FI.", cta: "Saiba mais sobre o pacs008" },
-  { key: "ro", lang: "ro-RO", label: "Română", hero: "Automatizați procesarea mesajelor pacs.008 ISO 20022.", tagline: "Generare, validare, orchestrare API și suport de conformitate pentru fluxuri de transfer de credit FI-to-FI.", cta: "Aflați despre pacs008" },
-  { key: "ru", lang: "ru-RU", label: "Русский", hero: "Автоматизация обработки сообщений pacs.008 ISO 20022.", tagline: "Генерация, валидация, оркестрация API и поддержка комплаенса для потоков кредитовых переводов FI-to-FI.", cta: "Узнать о pacs008" },
-  { key: "th", lang: "th-TH", label: "ไทย", hero: "อัตโนมัติการประมวลผลข้อความ pacs.008 ตามมาตรฐาน ISO 20022", tagline: "การสร้าง ตรวจสอบ จัดเรียง API และสนับสนุนการปฏิบัติตามกฎระเบียบสำหรับเวิร์กโฟลว์โอนเครดิตลูกค้า FI-to-FI", cta: "เรียนรู้เกี่ยวกับ pacs008" },
-  { key: "tr", lang: "tr-TR", label: "Türkçe", hero: "ISO 20022 pacs.008 mesaj işlemeyi otomatikleştirin.", tagline: "FI-to-FI müşteri kredi transferi iş akışları için oluşturma, doğrulama, API orkestrasyonu ve uyumluluk desteği.", cta: "pacs008 hakkında bilgi alın" },
-  { key: "uk", lang: "uk-UA", label: "Українська", hero: "Автоматизація обробки повідомлень pacs.008 ISO 20022.", tagline: "Генерація, валідація, оркестрація API та підтримка комплаєнсу для потоків кредитових переказів FI-to-FI.", cta: "Дізнатися про pacs008" },
-  { key: "vi", lang: "vi-VN", label: "Tiếng Việt", hero: "Tự động hóa xử lý thông điệp pacs.008 theo ISO 20022.", tagline: "Tạo, xác thực, điều phối API và hỗ trợ tuân thủ cho quy trình chuyển khoản tín dụng khách hàng FI-to-FI.", cta: "Tìm hiểu về pacs008" },
-  { key: "zh", lang: "zh-CN", label: "简体中文", hero: "自动化 ISO 20022 pacs.008 报文处理。", tagline: "面向 FI-to-FI 客户信贷转账工作流的生成、校验、API 编排与合规支持。", cta: "了解 pacs008" },
-  { key: "zh-tw", lang: "zh-TW", label: "繁體中文", hero: "自動化 ISO 20022 pacs.008 訊息處理。", tagline: "面向 FI-to-FI 客戶信貸轉帳工作流程的產生、驗證、API 編排與合規支援。", cta: "了解 pacs008" }
+  { key: "de", lang: "de-DE", label: "Deutsch", hero: "ISO 20022 pacs.008 Nachrichtenverarbeitung automatisieren.", tagline: "Generierung, Validierung, API-Orchestrierung und Compliance-Unterstützung für Kundenkredittransfer-Workflows zwischen Finanzinstituten.", cta: "Mehr über pacs008 erfahren" },
+  { key: "es", lang: "es-ES", label: "Español", hero: "Automatice el procesamiento de mensajes pacs.008 ISO 20022.", tagline: "Generación, validación, orquestación de API y soporte de cumplimiento para flujos de transferencia de crédito de clientes entre instituciones financieras.", cta: "Conozca pacs008" },
+  { key: "fr", lang: "fr-FR", label: "Français", hero: "Automatisez le traitement des messages pacs.008 ISO 20022.", tagline: "Génération, validation, orchestration d'API et conformité pour les flux de virement client entre institutions financières.", cta: "Découvrir pacs008" },
+  { key: "he", lang: "he-IL", label: "עברית", hero: "אוטומציה של עיבוד הודעות pacs.008 בתקן ISO 20022.", tagline: "יצירה, אימות, תיאום API ותמיכת ציות לתהליכי העברת אשראי ללקוחות בין מוסדות פיננסיים.", cta: "למידע על pacs008" },
+  { key: "hi", lang: "hi-IN", label: "हिन्दी", hero: "ISO 20022 pacs.008 संदेश प्रसंस्करण को स्वचालित करें।", tagline: "वित्तीय संस्थानों के बीच ग्राहक क्रेडिट ट्रांसफर वर्कफ़्लो के लिए जनरेशन, वैलिडेशन, API ऑर्केस्ट्रेशन और अनुपालन समर्थन।", cta: "pacs008 के बारे में जानें" },
+  { key: "id", lang: "id-ID", label: "Bahasa Indonesia", hero: "Otomatisasi pemrosesan pesan pacs.008 ISO 20022.", tagline: "Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan antar lembaga keuangan.", cta: "Pelajari pacs008" },
+  { key: "it", lang: "it-IT", label: "Italiano", hero: "Automatizza l'elaborazione dei messaggi pacs.008 ISO 20022.", tagline: "Generazione, validazione, orchestrazione API e conformità per i flussi di bonifico cliente tra istituzioni finanziarie.", cta: "Scopri pacs008" },
+  { key: "ja", lang: "ja-JP", label: "日本語", hero: "ISO 20022 pacs.008 メッセージ処理を自動化。", tagline: "金融機関間の顧客クレジット移転ワークフロー向けの生成、検証、API オーケストレーション、コンプライアンス対応。", cta: "pacs008 について" },
+  { key: "ko", lang: "ko-KR", label: "한국어", hero: "ISO 20022 pacs.008 메시지 처리 자동화.", tagline: "금융기관 간 고객 신용 이체 워크플로를 위한 생성, 검증, API 오케스트레이션, 규정 준수 지원.", cta: "pacs008 알아보기" },
+  { key: "nl", lang: "nl-NL", label: "Nederlands", hero: "Automatiseer ISO 20022 pacs.008 berichtverwerking.", tagline: "Generatie, validatie, API-orchestratie en compliance-ondersteuning voor klantkredietoverboekingsworkflows tussen financiële instellingen.", cta: "Meer over pacs008" },
+  { key: "pl", lang: "pl-PL", label: "Polski", hero: "Automatyzacja przetwarzania komunikatów pacs.008 ISO 20022.", tagline: "Generowanie, walidacja, orkiestracja API i wsparcie zgodności dla przepływów przelewów kredytowych klientów między instytucjami finansowymi.", cta: "Poznaj pacs008" },
+  { key: "pt", lang: "pt-BR", label: "Português", hero: "Automatize o processamento de mensagens pacs.008 ISO 20022.", tagline: "Geração, validação, orquestração de API e suporte de conformidade para fluxos de transferência de crédito de clientes entre instituições financeiras.", cta: "Saiba mais sobre o pacs008" },
+  { key: "ro", lang: "ro-RO", label: "Română", hero: "Automatizați procesarea mesajelor pacs.008 ISO 20022.", tagline: "Generare, validare, orchestrare API și suport de conformitate pentru fluxuri de transfer de credit ale clienților între instituții financiare.", cta: "Aflați despre pacs008" },
+  { key: "ru", lang: "ru-RU", label: "Русский", hero: "Автоматизация обработки сообщений pacs.008 ISO 20022.", tagline: "Генерация, валидация, оркестрация API и поддержка комплаенса для потоков клиентских кредитовых переводов между финансовыми учреждениями.", cta: "Узнать о pacs008" },
+  { key: "th", lang: "th-TH", label: "ไทย", hero: "อัตโนมัติการประมวลผลข้อความ pacs.008 ตามมาตรฐาน ISO 20022", tagline: "การสร้าง ตรวจสอบ จัดเรียง API และสนับสนุนการปฏิบัติตามกฎระเบียบสำหรับเวิร์กโฟลว์โอนเครดิตลูกค้าระหว่างสถาบันการเงิน", cta: "เรียนรู้เกี่ยวกับ pacs008" },
+  { key: "tr", lang: "tr-TR", label: "Türkçe", hero: "ISO 20022 pacs.008 mesaj işlemeyi otomatikleştirin.", tagline: "Finansal kuruluşlar arasındaki müşteri kredi transferi iş akışları için oluşturma, doğrulama, API orkestrasyonu ve uyumluluk desteği.", cta: "pacs008 hakkında bilgi alın" },
+  { key: "uk", lang: "uk-UA", label: "Українська", hero: "Автоматизація обробки повідомлень pacs.008 ISO 20022.", tagline: "Генерація, валідація, оркестрація API та підтримка комплаєнсу для потоків клієнтських кредитових переказів між фінансовими установами.", cta: "Дізнатися про pacs008" },
+  { key: "vi", lang: "vi-VN", label: "Tiếng Việt", hero: "Tự động hóa xử lý thông điệp pacs.008 theo ISO 20022.", tagline: "Tạo, xác thực, điều phối API và hỗ trợ tuân thủ cho quy trình chuyển khoản tín dụng khách hàng giữa các tổ chức tài chính.", cta: "Tìm hiểu về pacs008" },
+  { key: "zh", lang: "zh-CN", label: "简体中文", hero: "自动化 ISO 20022 pacs.008 报文处理。", tagline: "面向金融机构间客户信贷转账工作流的生成、校验、API 编排与合规支持。", cta: "了解 pacs008" },
+  { key: "zh-tw", lang: "zh-TW", label: "繁體中文", hero: "自動化 ISO 20022 pacs.008 訊息處理。", tagline: "面向金融機構間客戶信貸轉帳工作流程的產生、驗證、API 編排與合規支援。", cta: "了解 pacs008" }
 ];
 
 const versions = [
@@ -159,6 +159,220 @@ const messageTypes = [
     copyPrefix: "pacs028"
   }
 ];
+
+const MESSAGE_NAME_MAP = {
+  en: {},
+  ar: {
+    "pacs.002.001.12": "تقرير حالة الدفع من مؤسسة مالية إلى مؤسسة مالية",
+    "pacs.003.001.09": "خصم مباشر للعميل من مؤسسة مالية إلى مؤسسة مالية",
+    "pacs.004.001.11": "إرجاع المدفوعات",
+    "pacs.007.001.11": "عكس الدفعة من مؤسسة مالية إلى مؤسسة مالية",
+    "pacs.008.001.13": "تحويل ائتماني للعميل من مؤسسة مالية إلى مؤسسة مالية",
+    "pacs.009.001.10": "تحويل ائتماني بين المؤسسات المالية",
+    "pacs.010.001.05": "خصم مباشر بين المؤسسات المالية",
+    "pacs.028.001.05": "طلب حالة الدفع من مؤسسة مالية إلى مؤسسة مالية"
+  },
+  de: {
+    "pacs.002.001.12": "FI-zu-FI-Zahlungsstatusbericht",
+    "pacs.003.001.09": "FI-zu-FI-Kundenlastschrift",
+    "pacs.004.001.11": "Zahlungsrückgabe",
+    "pacs.007.001.11": "FI-zu-FI-Zahlungsstornierung",
+    "pacs.008.001.13": "FI-zu-FI-Kundenkredittransfer",
+    "pacs.009.001.10": "Kredittransfer zwischen Finanzinstituten",
+    "pacs.010.001.05": "Lastschrift zwischen Finanzinstituten",
+    "pacs.028.001.05": "FI-zu-FI-Anfrage zum Zahlungsstatus"
+  },
+  es: {
+    "pacs.002.001.12": "Informe de estado de pagos FI a FI",
+    "pacs.003.001.09": "Débito directo de cliente FI a FI",
+    "pacs.004.001.11": "Devolución de pago",
+    "pacs.007.001.11": "Reverso de pago FI a FI",
+    "pacs.008.001.13": "Transferencia de crédito de cliente FI a FI",
+    "pacs.009.001.10": "Transferencia de crédito entre instituciones financieras",
+    "pacs.010.001.05": "Débito directo entre instituciones financieras",
+    "pacs.028.001.05": "Solicitud de estado de pago FI a FI"
+  },
+  fr: {
+    "pacs.002.001.12": "Rapport de statut de paiement FI à FI",
+    "pacs.003.001.09": "Prélèvement client FI à FI",
+    "pacs.004.001.11": "Retour de paiement",
+    "pacs.007.001.11": "Annulation de paiement FI à FI",
+    "pacs.008.001.13": "Virement client FI à FI",
+    "pacs.009.001.10": "Virement entre institutions financières",
+    "pacs.010.001.05": "Prélèvement entre institutions financières",
+    "pacs.028.001.05": "Demande de statut de paiement FI à FI"
+  },
+  he: {
+    "pacs.002.001.12": "דוח סטטוס תשלום בין מוסדות פיננסיים",
+    "pacs.003.001.09": "חיוב ישיר ללקוח בין מוסדות פיננסיים",
+    "pacs.004.001.11": "החזר תשלום",
+    "pacs.007.001.11": "היפוך תשלום בין מוסדות פיננסיים",
+    "pacs.008.001.13": "העברת אשראי ללקוח בין מוסדות פיננסיים",
+    "pacs.009.001.10": "העברת אשראי בין מוסדות פיננסיים",
+    "pacs.010.001.05": "חיוב ישיר בין מוסדות פיננסיים",
+    "pacs.028.001.05": "בקשת סטטוס תשלום בין מוסדות פיננסיים"
+  },
+  hi: {
+    "pacs.002.001.12": "FI-से-FI भुगतान स्थिति रिपोर्ट",
+    "pacs.003.001.09": "FI-से-FI ग्राहक प्रत्यक्ष डेबिट",
+    "pacs.004.001.11": "भुगतान वापसी",
+    "pacs.007.001.11": "FI-से-FI भुगतान रिवर्सल",
+    "pacs.008.001.13": "FI-से-FI ग्राहक क्रेडिट ट्रांसफर",
+    "pacs.009.001.10": "वित्तीय संस्थानों के बीच क्रेडिट ट्रांसफर",
+    "pacs.010.001.05": "वित्तीय संस्थानों के बीच प्रत्यक्ष डेबिट",
+    "pacs.028.001.05": "FI-से-FI भुगतान स्थिति अनुरोध"
+  },
+  id: {
+    "pacs.002.001.12": "Laporan Status Pembayaran FI ke FI",
+    "pacs.003.001.09": "Direct Debit Pelanggan FI ke FI",
+    "pacs.004.001.11": "Retur Pembayaran",
+    "pacs.007.001.11": "Pembalikan Pembayaran FI ke FI",
+    "pacs.008.001.13": "Transfer Kredit Pelanggan FI ke FI",
+    "pacs.009.001.10": "Transfer Kredit Antar Lembaga Keuangan",
+    "pacs.010.001.05": "Direct Debit Antar Lembaga Keuangan",
+    "pacs.028.001.05": "Permintaan Status Pembayaran FI ke FI"
+  },
+  it: {
+    "pacs.002.001.12": "Rapporto di stato del pagamento tra istituzioni finanziarie",
+    "pacs.003.001.09": "Addebito diretto cliente tra istituzioni finanziarie",
+    "pacs.004.001.11": "Reso di pagamento",
+    "pacs.007.001.11": "Storno di pagamento tra istituzioni finanziarie",
+    "pacs.008.001.13": "Bonifico cliente tra istituzioni finanziarie",
+    "pacs.009.001.10": "Bonifico tra istituzioni finanziarie",
+    "pacs.010.001.05": "Addebito diretto tra istituzioni finanziarie",
+    "pacs.028.001.05": "Richiesta di stato del pagamento tra istituzioni finanziarie"
+  },
+  ja: {
+    "pacs.002.001.12": "金融機関間支払ステータス報告",
+    "pacs.003.001.09": "金融機関間顧客口座振替",
+    "pacs.004.001.11": "支払返却",
+    "pacs.007.001.11": "金融機関間支払取消",
+    "pacs.008.001.13": "金融機関間顧客信用振替",
+    "pacs.009.001.10": "金融機関間信用振替",
+    "pacs.010.001.05": "金融機関間口座振替",
+    "pacs.028.001.05": "金融機関間支払ステータス照会"
+  },
+  ko: {
+    "pacs.002.001.12": "금융기관 간 지급 상태 보고",
+    "pacs.003.001.09": "금융기관 간 고객 직접출금",
+    "pacs.004.001.11": "지급 반환",
+    "pacs.007.001.11": "금융기관 간 지급 취소",
+    "pacs.008.001.13": "금융기관 간 고객 신용이체",
+    "pacs.009.001.10": "금융기관 간 신용이체",
+    "pacs.010.001.05": "금융기관 간 직접출금",
+    "pacs.028.001.05": "금융기관 간 지급 상태 요청"
+  },
+  nl: {
+    "pacs.002.001.12": "FI-naar-FI-betalingsstatusrapport",
+    "pacs.003.001.09": "FI-naar-FI-klantincasso",
+    "pacs.004.001.11": "Betalingsretour",
+    "pacs.007.001.11": "FI-naar-FI-betalingsstornering",
+    "pacs.008.001.13": "FI-naar-FI-klantkredietoverboeking",
+    "pacs.009.001.10": "Kredietoverboeking tussen financiële instellingen",
+    "pacs.010.001.05": "Incasso tussen financiële instellingen",
+    "pacs.028.001.05": "FI-naar-FI-aanvraag betalingsstatus"
+  },
+  pl: {
+    "pacs.002.001.12": "Raport statusu płatności FI-do-FI",
+    "pacs.003.001.09": "Polecenie zapłaty klienta FI-do-FI",
+    "pacs.004.001.11": "Zwrot płatności",
+    "pacs.007.001.11": "Odwrócenie płatności FI-do-FI",
+    "pacs.008.001.13": "Przelew kredytowy klienta FI-do-FI",
+    "pacs.009.001.10": "Przelew kredytowy między instytucjami finansowymi",
+    "pacs.010.001.05": "Polecenie zapłaty między instytucjami finansowymi",
+    "pacs.028.001.05": "Zapytanie o status płatności FI-do-FI"
+  },
+  pt: {
+    "pacs.002.001.12": "Relatório de status de pagamento FI a FI",
+    "pacs.003.001.09": "Débito direto de cliente FI a FI",
+    "pacs.004.001.11": "Retorno de pagamento",
+    "pacs.007.001.11": "Reversão de pagamento FI a FI",
+    "pacs.008.001.13": "Transferência de crédito de cliente FI a FI",
+    "pacs.009.001.10": "Transferência de crédito entre instituições financeiras",
+    "pacs.010.001.05": "Débito direto entre instituições financeiras",
+    "pacs.028.001.05": "Solicitação de status de pagamento FI a FI"
+  },
+  ro: {
+    "pacs.002.001.12": "Raport de stare a plății FI-la-FI",
+    "pacs.003.001.09": "Debit direct de client FI-la-FI",
+    "pacs.004.001.11": "Retur de plată",
+    "pacs.007.001.11": "Reversare de plată FI-la-FI",
+    "pacs.008.001.13": "Transfer de credit client FI-la-FI",
+    "pacs.009.001.10": "Transfer de credit între instituții financiare",
+    "pacs.010.001.05": "Debit direct între instituții financiare",
+    "pacs.028.001.05": "Cerere de stare a plății FI-la-FI"
+  },
+  ru: {
+    "pacs.002.001.12": "Отчёт о статусе платежа между финансовыми учреждениями",
+    "pacs.003.001.09": "Клиентское прямое дебетование между финансовыми учреждениями",
+    "pacs.004.001.11": "Возврат платежа",
+    "pacs.007.001.11": "Сторнирование платежа между финансовыми учреждениями",
+    "pacs.008.001.13": "Клиентский кредитовый перевод между финансовыми учреждениями",
+    "pacs.009.001.10": "Кредитовый перевод между финансовыми учреждениями",
+    "pacs.010.001.05": "Прямое дебетование между финансовыми учреждениями",
+    "pacs.028.001.05": "Запрос статуса платежа между финансовыми учреждениями"
+  },
+  th: {
+    "pacs.002.001.12": "รายงานสถานะการชำระเงินระหว่างสถาบันการเงิน",
+    "pacs.003.001.09": "การหักบัญชีลูกค้าระหว่างสถาบันการเงิน",
+    "pacs.004.001.11": "การคืนเงินชำระ",
+    "pacs.007.001.11": "การกลับรายการชำระเงินระหว่างสถาบันการเงิน",
+    "pacs.008.001.13": "การโอนเครดิตลูกค้าระหว่างสถาบันการเงิน",
+    "pacs.009.001.10": "การโอนเครดิตระหว่างสถาบันการเงิน",
+    "pacs.010.001.05": "การหักบัญชีระหว่างสถาบันการเงิน",
+    "pacs.028.001.05": "คำขอสถานะการชำระเงินระหว่างสถาบันการเงิน"
+  },
+  tr: {
+    "pacs.002.001.12": "FI'dan FI'ya ödeme durumu raporu",
+    "pacs.003.001.09": "FI'dan FI'ya müşteri doğrudan borçlandırması",
+    "pacs.004.001.11": "Ödeme iadesi",
+    "pacs.007.001.11": "FI'dan FI'ya ödeme geri alma mesajı",
+    "pacs.008.001.13": "FI'dan FI'ya müşteri kredi transferi",
+    "pacs.009.001.10": "Finansal kuruluşlar arası kredi transferi",
+    "pacs.010.001.05": "Finansal kuruluşlar arası doğrudan borçlandırma",
+    "pacs.028.001.05": "FI'dan FI'ya ödeme durumu talebi"
+  },
+  uk: {
+    "pacs.002.001.12": "Звіт про статус платежу між фінансовими установами",
+    "pacs.003.001.09": "Клієнтське пряме дебетування між фінансовими установами",
+    "pacs.004.001.11": "Повернення платежу",
+    "pacs.007.001.11": "Сторнування платежу між фінансовими установами",
+    "pacs.008.001.13": "Клієнтський кредитовий переказ між фінансовими установами",
+    "pacs.009.001.10": "Кредитовий переказ між фінансовими установами",
+    "pacs.010.001.05": "Пряме дебетування між фінансовими установами",
+    "pacs.028.001.05": "Запит статусу платежу між фінансовими установами"
+  },
+  vi: {
+    "pacs.002.001.12": "Báo cáo trạng thái thanh toán giữa các tổ chức tài chính",
+    "pacs.003.001.09": "Ghi nợ trực tiếp khách hàng giữa các tổ chức tài chính",
+    "pacs.004.001.11": "Hoàn trả thanh toán",
+    "pacs.007.001.11": "Đảo ngược thanh toán giữa các tổ chức tài chính",
+    "pacs.008.001.13": "Chuyển khoản tín dụng khách hàng giữa các tổ chức tài chính",
+    "pacs.009.001.10": "Chuyển khoản tín dụng giữa các tổ chức tài chính",
+    "pacs.010.001.05": "Ghi nợ trực tiếp giữa các tổ chức tài chính",
+    "pacs.028.001.05": "Yêu cầu trạng thái thanh toán giữa các tổ chức tài chính"
+  },
+  zh: {
+    "pacs.002.001.12": "金融机构间支付状态报告",
+    "pacs.003.001.09": "金融机构间客户直接借记",
+    "pacs.004.001.11": "支付退回",
+    "pacs.007.001.11": "金融机构间支付撤销",
+    "pacs.008.001.13": "金融机构间客户信用转账",
+    "pacs.009.001.10": "金融机构信用转账",
+    "pacs.010.001.05": "金融机构直接借记",
+    "pacs.028.001.05": "金融机构间支付状态请求"
+  },
+  "zh-tw": {
+    "pacs.002.001.12": "金融機構間付款狀態報告",
+    "pacs.003.001.09": "金融機構間客戶直接扣款",
+    "pacs.004.001.11": "付款退回",
+    "pacs.007.001.11": "金融機構間付款撤銷",
+    "pacs.008.001.13": "金融機構間客戶信用轉帳",
+    "pacs.009.001.10": "金融機構信用轉帳",
+    "pacs.010.001.05": "金融機構直接扣款",
+    "pacs.028.001.05": "金融機構間付款狀態請求"
+  }
+};
 
 const versionToMsgType = {};
 for (const mt of messageTypes) {
@@ -478,7 +692,7 @@ const pageCopy = {
   fr: {
     aboutTitle: "À propos de pacs008",
     aboutDescription: "Ce que fait pacs008 et à qui il s'adresse.",
-    aboutIntro: "pacs008 est une boîte à outils Python pour automatiser les flux ISO 20022 de virement client FI-to-FI.",
+    aboutIntro: "pacs008 est une boîte à outils Python pour automatiser les flux ISO 20022 de virement client entre institutions financières.",
     whatItDoes: "Ce qu'il fait",
     whoItIsFor: "Pour qui",
     messageTitle: "Types de messages",
@@ -1092,7 +1306,7 @@ const pageCopy = {
   de: {
     aboutTitle: "Über pacs008",
     aboutDescription: "Was pacs008 leistet und für wen es gedacht ist.",
-    aboutIntro: "pacs008 ist ein Python-Toolkit zur Automatisierung von ISO 20022 FI-to-FI-Kundenzahlungsabläufen.",
+    aboutIntro: "pacs008 ist ein Python-Toolkit zur Automatisierung von ISO 20022-Kundenzahlungsabläufen zwischen Finanzinstituten.",
     whatItDoes: "Funktionen",
     whoItIsFor: "Zielgruppen",
     messageTitle: "Nachrichtentypen",
@@ -2013,7 +2227,7 @@ const pageCopy = {
   hi: {
     aboutTitle: "pacs008 के बारे में",
     aboutDescription: "pacs008 क्या करता है और यह किसके लिए है।",
-    aboutIntro: "pacs008 ISO 20022 FI-to-FI ग्राहक क्रेडिट ट्रांसफर वर्कफ़्लो को स्वचालित करने के लिए एक Python टूलकिट है।",
+    aboutIntro: "pacs008 वित्तीय संस्थानों के बीच ISO 20022 ग्राहक क्रेडिट ट्रांसफर वर्कफ़्लो को स्वचालित करने के लिए एक Python टूलकिट है।",
     whatItDoes: "यह क्या करता है",
     whoItIsFor: "यह किसके लिए है",
     messageTitle: "संदेश प्रकार",
@@ -2934,7 +3148,7 @@ const pageCopy = {
   ja: {
     aboutTitle: "pacs008 について",
     aboutDescription: "pacs008 の機能と対象ユーザー。",
-    aboutIntro: "pacs008 は、ISO 20022 FI-to-FI 顧客クレジット移転ワークフローを自動化するための Python ツールキットです。",
+    aboutIntro: "pacs008 は、金融機関間の ISO 20022 顧客クレジット移転ワークフローを自動化するための Python ツールキットです。",
     whatItDoes: "機能",
     whoItIsFor: "対象ユーザー",
     messageTitle: "メッセージ種別",
@@ -3241,7 +3455,7 @@ const pageCopy = {
   ko: {
     aboutTitle: "pacs008 소개",
     aboutDescription: "pacs008이 하는 일과 대상 사용자.",
-    aboutIntro: "pacs008은 ISO 20022 FI-to-FI 고객 신용 이체 워크플로를 자동화하기 위한 Python 툴킷입니다.",
+    aboutIntro: "pacs008은 금융기관 간 ISO 20022 고객 신용 이체 워크플로를 자동화하기 위한 Python 툴킷입니다.",
     whatItDoes: "기능",
     whoItIsFor: "대상 사용자",
     messageTitle: "메시지 유형",
@@ -3548,7 +3762,7 @@ const pageCopy = {
   nl: {
     aboutTitle: "Over pacs008",
     aboutDescription: "Wat pacs008 doet en voor wie het bedoeld is.",
-    aboutIntro: "pacs008 is een Python-toolkit voor het automatiseren van ISO 20022 FI-to-FI kredietoverdrachtworkflows.",
+    aboutIntro: "pacs008 is een Python-toolkit voor het automatiseren van ISO 20022-kredietoverdrachtworkflows tussen financiële instellingen.",
     whatItDoes: "Wat het doet",
     whoItIsFor: "Voor wie het is",
     messageTitle: "Berichttypen",
@@ -3695,7 +3909,7 @@ const pageCopy = {
     pacs007Cbpr1: "Onderscheidt zich van pacs.004 door de richting — stornering gaat voorwaarts vanuit de opdrachtgever, retourzending gaat achterwaarts vanuit de begunstigde",
     pacs007Cbpr2: "CBPR+ vereist koppeling met oorspronkelijke berichtidentificatoren voor geautomatiseerde matching",
     pacs007Cbpr3: "Gestructureerde redencodes vervangen vrije-tekstverhalen uit verouderde MT-berichten",
-    pacs007Cbpr4: "Wordt steeds vaker gebruikt in workflows voor terugvordering van instantbetalingen en fraudepreventie",
+    pacs007Cbpr4: "Wordt steeds vaker gebruikt in processen voor terugvordering van instantbetalingen en fraudepreventie",
     pacs007Flow: "De opdrachtgevende agent (oorspronkelijke verzender) stuurt pacs.007 voorwaarts door de betalingsketen om een eerder gegeven betalingsinstructie te storneren. Elke agent verwerkt de storneringsinstructie en past de afwikkeling dienovereenkomstig aan.",
     pacs008dOverview: "Het pacs.008-bericht is de kernbetalingsinstructie die wordt uitgewisseld tussen financiële instellingen om namens een klant gelden over te maken. Het bevat informatie over debiteur, crediteur, bedrag en betalingskenmerken voor een of meer overboekingstransacties.",
     pacs008dElement1: "**GrpHdr** — Groepskoptekst met bericht-ID, aanmaakdatum, aantal transacties en afwikkelingsinformatie",
@@ -5390,7 +5604,7 @@ const pageCopy = {
   tr: {
     aboutTitle: "pacs008 Hakkında",
     aboutDescription: "pacs008 ne yapar ve kimler için tasarlanmıştır.",
-    aboutIntro: "pacs008, ISO 20022 FI-to-FI müşteri kredi transferi iş akışlarını otomatikleştirmek için bir Python araç setidir.",
+    aboutIntro: "pacs008, finansal kuruluşlar arasındaki ISO 20022 müşteri kredi transferi iş akışlarını otomatikleştirmek için bir Python araç setidir.",
     whatItDoes: "Ne yapar",
     whoItIsFor: "Kimler için",
     messageTitle: "Mesaj Türleri",
@@ -6162,27 +6376,27 @@ const pageCopy = {
     pacs008dBusiness1: "Thông điệp chính cho chuyển khoản tín dụng xuyên biên giới và nội địa do khách hàng khởi tạo",
     pacs008dBusiness2: "Được sử dụng trên toàn bộ SEPA SCT, SEPA Instant, CBPR+ và các hệ thống thanh toán bù trừ quốc gia",
     pacs008dBusiness3: "Mang thông tin chuyển tiền có cấu trúc để hỗ trợ đối chiếu tự động",
-    pacs008dBusiness4: "Hỗ trợ phương thức quyết toán nối tiếp, cover và trực tiếp cho chuỗi thanh toán nhiều chặng",
+    pacs008dBusiness4: "Hỗ trợ phương thức quyết toán nối tiếp, bù đắp và trực tiếp cho chuỗi thanh toán nhiều chặng",
     pacs008dCbpr1: "Thay thế MT103 và MT103+ cho chuyển khoản tín dụng khách hàng xuyên biên giới",
     pacs008dCbpr2: "Hạn chót địa chỉ có cấu trúc tháng 11 năm 2026 áp dụng cho tất cả địa chỉ bưu điện của các bên",
     pacs008dCbpr3: "SWIFT gpi yêu cầu pacs.008 cho theo dõi từ đầu đến cuối dựa trên UETR",
     pacs008dCbpr4: "13 phiên bản sửa đổi phản ánh sự phát triển liên tục của lược đồ trên các hạ tầng thị trường",
     pacs008dFlow: "Đại lý con nợ tạo pacs.008 và gửi đến đại lý chủ nợ (trực tiếp hoặc qua trung gian). Mỗi đại lý trong chuỗi xác thực, bổ sung và chuyển tiếp lệnh cho đến khi đại lý chủ nợ ghi có vào tài khoản người thụ hưởng.",
-    pacs009Overview: "Thông điệp pacs.009 được sử dụng cho chuyển khoản tín dụng giữa các tổ chức tài chính khi việc chuyển khoản là thay mặt tổ chức chứ không phải thay mặt khách hàng. Thông điệp này hỗ trợ cấp vốn liên ngân hàng, thanh toán cover và quản lý thanh khoản.",
+    pacs009Overview: "Thông điệp pacs.009 được sử dụng cho chuyển khoản tín dụng giữa các tổ chức tài chính khi việc chuyển khoản là thay mặt tổ chức chứ không phải thay mặt khách hàng. Thông điệp này hỗ trợ cấp vốn liên ngân hàng, thanh toán bù đắp và quản lý thanh khoản.",
     pacs009Element1: "**GrpHdr** — Tiêu đề nhóm với mã nhận dạng thông điệp và thông tin quyết toán",
     pacs009Element2: "**CdtTrfTxInf** — Thông tin giao dịch chuyển khoản tín dụng với số tiền quyết toán liên ngân hàng",
     pacs009Element3: "**Dbtr / DbtrAgt** — Nhận dạng tổ chức con nợ và đại lý",
     pacs009Element4: "**Cdtr / CdtrAgt** — Nhận dạng tổ chức chủ nợ và đại lý",
     pacs009Element5: "**IntrBkSttlmAmt** — Số tiền quyết toán liên ngân hàng bằng đồng tiền quyết toán",
-    pacs009Business1: "Được sử dụng cho chuyển khoản tài khoản tự thân giữa ngân hàng và thanh toán cover",
+    pacs009Business1: "Được sử dụng cho chuyển khoản tài khoản tự thân giữa ngân hàng và thanh toán bù đắp",
     pacs009Business2: "Hỗ trợ quản lý thanh khoản giữa các đối tác ngân hàng đại lý",
-    pacs009Business3: "Mang chặng cover của chuyển khoản tín dụng khách hàng được quyết toán qua phương thức cover",
+    pacs009Business3: "Mang chặng bù đắp của chuyển khoản tín dụng khách hàng được quyết toán theo phương thức bù đắp",
     pacs009Business4: "Cho phép các hoạt động ngân quỹ và cấp vốn giữa các tổ chức tài chính",
     pacs009Cbpr1: "Thay thế MT202 và MT202COV cho chuyển khoản giữa các tổ chức",
-    pacs009Cbpr2: "Quy trình phương thức cover ghép cặp pacs.009 với lệnh khách hàng pacs.008 nền tảng",
+    pacs009Cbpr2: "Quy trình theo phương thức bù đắp ghép cặp pacs.009 với lệnh khách hàng pacs.008 nền tảng",
     pacs009Cbpr3: "Dữ liệu các bên có cấu trúc và nhận dạng LEI ngày càng được yêu cầu",
     pacs009Cbpr4: "SWIFT gpi bao phủ pacs.009 để đảm bảo minh bạch ngân hàng đại lý",
-    pacs009Flow: "Tổ chức con nợ gửi pacs.009 đến tổ chức chủ nợ để chuyển tiền của chính mình. Đối với thanh toán theo phương thức cover, pacs.009 cung cấp chặng cấp vốn trong khi pacs.008 mang lệnh khách hàng qua đường dẫn riêng biệt.",
+    pacs009Flow: "Tổ chức con nợ gửi pacs.009 đến tổ chức chủ nợ để chuyển tiền của chính mình. Đối với thanh toán theo phương thức bù đắp, pacs.009 cung cấp chặng cấp vốn trong khi pacs.008 mang lệnh khách hàng qua đường dẫn riêng biệt.",
     pacs010Overview: "Thông điệp pacs.010 được sử dụng giữa các tổ chức tài chính cho giao dịch ghi nợ trực tiếp trên tài khoản của chính tổ chức. Thông điệp này cho phép một tổ chức thu tiền trực tiếp từ tài khoản của tổ chức khác.",
     pacs010Element1: "**GrpHdr** — Tiêu đề nhóm với mã nhận dạng thông điệp và thông tin quyết toán",
     pacs010Element2: "**DrctDbtTxInf** — Thông tin giao dịch ghi nợ trực tiếp với số tiền thu",
@@ -7193,7 +7407,7 @@ const LOCALE_SEO_COPY = {
   },
   id: {
     selectionGuideTitle: "Panduan pemilihan pesan",
-    selectionGuideDescription: "Pilih pesan pacs ISO 20022 yang tepat untuk pembuatan, pelaporan status, retur, reversal, dan permintaan status.",
+    selectionGuideDescription: "Pilih pesan pacs ISO 20022 yang tepat untuk pembuatan, pelaporan status, retur, pembalikan, dan permintaan status.",
     selectionGuideIntro: "Pilih keluarga pacs berdasarkan peristiwa bisnis terlebih dahulu, lalu berdasarkan skema dan model operasional.",
     quickDecisionMatrix: "Matriks keputusan cepat",
     commonComparisonPoints: "Titik perbandingan umum",
@@ -7203,8 +7417,8 @@ const LOCALE_SEO_COPY = {
     sourceReviewGeneric: "Terakhir ditinjau terhadap sumber primer pada 23 Maret 2026 menggunakan materi publik ISO 20022, EPC, dan Swift yang dirujuk pada halaman ini.",
     sourceReviewMessage: "Terakhir ditinjau terhadap sumber primer pada 23 Maret 2026. Tanggal referensi katalog ISO 20022: {date}; tautan sumber tercantum di bawah.",
     primaryReferences: "Referensi primer",
-    customerVsInstitution: "Pembayaran nasabah versus perpindahan institusi atau cover",
-    returnVsReversal: "Retur dari pihak penerima versus reversal dari pihak pengirim",
+    customerVsInstitution: "Pembayaran nasabah versus perpindahan dana institusional atau pembayaran penutup",
+    returnVsReversal: "Retur dari pihak penerima versus pembalikan dari pihak pengirim",
     statusVsRequest: "Laporan status versus permintaan status"
   },
   it: {
@@ -7267,7 +7481,7 @@ const LOCALE_SEO_COPY = {
     sourceReviewGeneric: "Laatst gecontroleerd aan de hand van primaire bronnen op 23 maart 2026 met openbare ISO 20022-, EPC- en Swift-materialen waarnaar op deze pagina wordt verwezen.",
     sourceReviewMessage: "Laatst gecontroleerd aan de hand van primaire bronnen op 23 maart 2026. Referentiedatum ISO 20022-catalogus: {date}; bronlinks staan hieronder.",
     primaryReferences: "Primaire referenties",
-    customerVsInstitution: "Klantbetaling versus institutionele of cover-beweging",
+    customerVsInstitution: "Klantbetaling versus institutionele of dekkingsbeweging",
     returnVsReversal: "Retour vanaf ontvangende zijde versus reversal vanaf verzendende zijde",
     statusVsRequest: "Statusrapport versus statusverzoek"
   },
@@ -7283,7 +7497,7 @@ const LOCALE_SEO_COPY = {
     sourceReviewGeneric: "Ostatnio zweryfikowano względem źródeł pierwotnych 23 marca 2026 r. z użyciem publicznych materiałów ISO 20022, EPC i Swift wskazanych na tej stronie.",
     sourceReviewMessage: "Ostatnio zweryfikowano względem źródeł pierwotnych 23 marca 2026 r. Data referencyjna katalogu ISO 20022: {date}; linki do źródeł podano poniżej.",
     primaryReferences: "Źródła podstawowe",
-    customerVsInstitution: "Płatność klienta versus ruch instytucjonalny lub cover",
+    customerVsInstitution: "Płatność klienta versus ruch instytucjonalny lub pokryciowy",
     returnVsReversal: "Zwrot po stronie odbiorcy versus odwrócenie po stronie zlecającej",
     statusVsRequest: "Raport statusu versus żądanie statusu"
   },
@@ -7315,7 +7529,7 @@ const LOCALE_SEO_COPY = {
     sourceReviewGeneric: "Ultima verificare față de surse primare a fost efectuată la 23 martie 2026 folosind materiale publice ISO 20022, EPC și Swift menționate pe această pagină.",
     sourceReviewMessage: "Ultima verificare față de surse primare a fost efectuată la 23 martie 2026. Data de referință a catalogului ISO 20022: {date}; linkurile către surse sunt mai jos.",
     primaryReferences: "Referințe primare",
-    customerVsInstitution: "Plată de client versus mișcare instituțională sau cover",
+    customerVsInstitution: "Plată de client versus mișcare instituțională sau de acoperire",
     returnVsReversal: "Retur din partea destinatarului versus reversare din partea inițiatorului",
     statusVsRequest: "Raport de status versus solicitare de status"
   },
@@ -7331,7 +7545,7 @@ const LOCALE_SEO_COPY = {
     sourceReviewGeneric: "Последняя сверка с первичными источниками выполнена 23 марта 2026 года с использованием публичных материалов ISO 20022, EPC и Swift, указанных на этой странице.",
     sourceReviewMessage: "Последняя сверка с первичными источниками выполнена 23 марта 2026 года. Дата справки по каталогу ISO 20022: {date}; ссылки на источники приведены ниже.",
     primaryReferences: "Первичные источники",
-    customerVsInstitution: "Клиентский платеж против институционального или cover-перевода",
+    customerVsInstitution: "Клиентский платёж против институционального или покрывающего перевода",
     returnVsReversal: "Возврат со стороны получателя против сторно со стороны отправителя",
     statusVsRequest: "Отчет о статусе против запроса статуса"
   },
@@ -7347,7 +7561,7 @@ const LOCALE_SEO_COPY = {
     sourceReviewGeneric: "ตรวจทานล่าสุดเทียบกับแหล่งข้อมูลหลักเมื่อวันที่ 23 มีนาคม 2026 โดยใช้เอกสารสาธารณะของ ISO 20022, EPC และ Swift ที่อ้างอิงในหน้านี้",
     sourceReviewMessage: "ตรวจทานล่าสุดเทียบกับแหล่งข้อมูลหลักเมื่อวันที่ 23 มีนาคม 2026 วันที่อ้างอิงแคตตาล็อก ISO 20022: {date}; ลิงก์แหล่งข้อมูลแสดงอยู่ด้านล่าง",
     primaryReferences: "เอกสารอ้างอิงหลัก",
-    customerVsInstitution: "การชำระเงินของลูกค้าเทียบกับการโอนของสถาบันหรือ cover",
+    customerVsInstitution: "การชำระเงินของลูกค้าเทียบกับการโอนของสถาบันหรือการชำระเงินเพื่อคุ้มกัน",
     returnVsReversal: "การคืนจากฝั่งผู้รับเทียบกับการย้อนจากฝั่งผู้สั่ง",
     statusVsRequest: "รายงานสถานะเทียบกับคำขอสถานะ"
   },
@@ -7363,8 +7577,8 @@ const LOCALE_SEO_COPY = {
     sourceReviewGeneric: "Bu sayfada referans verilen ISO 20022, EPC ve Swift herkese açık materyalleri kullanılarak birincil kaynaklara göre en son 23 Mart 2026 tarihinde gözden geçirildi.",
     sourceReviewMessage: "Birincil kaynaklara göre en son 23 Mart 2026 tarihinde gözden geçirildi. ISO 20022 katalog referans tarihi: {date}; kaynak bağlantıları aşağıda listelenmiştir.",
     primaryReferences: "Birincil referanslar",
-    customerVsInstitution: "Müşteri ödemesi ile kurum/cover hareketi arasındaki fark",
-    returnVsReversal: "Alıcı taraftan iade ile gönderen taraftan reversal arasındaki fark",
+    customerVsInstitution: "Müşteri ödemesi ile kurumsal ya da karşılama hareketi arasındaki fark",
+    returnVsReversal: "Alıcı taraftan iade ile gönderen taraftan geri çevirme arasındaki fark",
     statusVsRequest: "Durum raporu ile durum isteği arasındaki fark"
   },
   uk: {
@@ -7379,7 +7593,7 @@ const LOCALE_SEO_COPY = {
     sourceReviewGeneric: "Останню перевірку за первинними джерелами виконано 23 березня 2026 року з використанням публічних матеріалів ISO 20022, EPC і Swift, наведених на цій сторінці.",
     sourceReviewMessage: "Останню перевірку за первинними джерелами виконано 23 березня 2026 року. Дата довідки каталогу ISO 20022: {date}; посилання на джерела наведено нижче.",
     primaryReferences: "Первинні джерела",
-    customerVsInstitution: "Клієнтський платіж проти інституційного або cover-переказу",
+    customerVsInstitution: "Клієнтський платіж проти інституційного або покривного переказу",
     returnVsReversal: "Повернення з боку отримувача проти сторнування з боку відправника",
     statusVsRequest: "Звіт про статус проти запиту статусу"
   },
@@ -7395,7 +7609,7 @@ const LOCALE_SEO_COPY = {
     sourceReviewGeneric: "Được rà soát lần cuối đối chiếu với nguồn gốc chính vào ngày 23 tháng 3 năm 2026 bằng các tài liệu công khai của ISO 20022, EPC và Swift được dẫn trên trang này.",
     sourceReviewMessage: "Được rà soát lần cuối đối chiếu với nguồn gốc chính vào ngày 23 tháng 3 năm 2026. Ngày tham chiếu của danh mục ISO 20022: {date}; các liên kết nguồn được liệt kê bên dưới.",
     primaryReferences: "Tài liệu tham chiếu gốc",
-    customerVsInstitution: "Thanh toán khách hàng so với chuyển động của tổ chức hoặc cover",
+    customerVsInstitution: "Thanh toán khách hàng so với chuyển động vốn của tổ chức hoặc thanh toán bù đắp",
     returnVsReversal: "Hoàn trả từ phía nhận so với đảo giao dịch từ phía gửi",
     statusVsRequest: "Báo cáo trạng thái so với yêu cầu trạng thái"
   },
@@ -7411,7 +7625,7 @@ const LOCALE_SEO_COPY = {
     sourceReviewGeneric: "已于 2026 年 3 月 23 日依据本页引用的 ISO 20022、EPC 和 Swift 公共资料完成主要来源复核。",
     sourceReviewMessage: "已于 2026 年 3 月 23 日依据主要来源完成复核。ISO 20022 目录参考日期：{date}；来源链接如下。",
     primaryReferences: "主要参考来源",
-    customerVsInstitution: "客户支付与机构/cover 资金划转的区别",
+    customerVsInstitution: "客户支付与机构资金或补偿清算划转的区别",
     returnVsReversal: "接收方退回与发起方撤销的区别",
     statusVsRequest: "状态报告与状态查询的区别"
   },
@@ -7427,7 +7641,7 @@ const LOCALE_SEO_COPY = {
     sourceReviewGeneric: "已於 2026 年 3 月 23 日依據本頁引用的 ISO 20022、EPC 與 Swift 公開資料完成主要來源複核。",
     sourceReviewMessage: "已於 2026 年 3 月 23 日依據主要來源完成複核。ISO 20022 目錄參考日期：{date}；來源連結如下。",
     primaryReferences: "主要參考來源",
-    customerVsInstitution: "客戶付款與機構/cover 資金移轉的差異",
+    customerVsInstitution: "客戶付款與機構資金或補償清算移轉的差異",
     returnVsReversal: "接收方退回與發起方撤銷的差異",
     statusVsRequest: "狀態回報與狀態查詢的差異"
   }
@@ -7650,9 +7864,1197 @@ const ADVANCED_TRANSLATION_BATCH_1 = {
   }
 };
 
-function batch1(localeKey) {
-  return ADVANCED_TRANSLATION_BATCH_1[localeKey] ?? null;
+const ADVANCED_TRANSLATION_BATCH_2 = {
+  ja: {
+    aboutChecklistTitle: "実装チェックリスト",
+    choosingTitle: "適切なメッセージの選び方",
+    implementationNotesTitle: "実装メモ",
+    whenToUseTitle: "このメッセージを使う場面",
+    whenNotToUseTitle: "このメッセージを使わない場面",
+    commonFailureModesTitle: "よくある失敗パターン",
+    versionCommentaryTitle: "バージョン解説",
+    versionDiffTableTitle: "バージョン差分表",
+    schemeNotesTitle: "スキーム別の注意点",
+    implementationFaqTitle: "実装 FAQ",
+    workedXmlTitle: "注釈付き XML サンプル",
+    fieldCommentaryTitle: "フィールド解説",
+    decisionFlowTitle: "判断フロー",
+    compareTitlePrefix: "比較",
+    versionRange: "バージョン範囲",
+    whyItMatters: "重要な理由",
+    implementationTakeaway: "実装上の要点",
+    dimension: "観点",
+    comparisonMessage: "比較対象メッセージ",
+    implementationChecklist: [
+      "テンプレート作成に入る前に、業務イベントに合うメッセージファミリーを先に確定すること。",
+      "スキーマエラーを最初の検知点にしないため、XML 生成前に業務データを検証すること。",
+      "BIC、IBAN、送金情報、住所品質を後工程の補正ではなくリリース条件として扱うこと。",
+      "スキーム固有または銀行固有のルール変更ごとに、代表的な支払データで回帰検証すること."
+    ],
+    messageTypesPerspectiveIntro: "メッセージカタログは、どのメッセージが処理を開始し、どれがステータスを返し、どれがフローを訂正または取り消すのかをチームが判断する際に特に重要です。",
+    messageSelectionGuideLine: "対応している pacs フローを 1 ページで比較するには、専用の[メッセージ選択ガイド](/ja/message-selection/)を参照してください。",
+    apiImplementationNotes: [
+      "呼び出し元が即座に XML を必要とする場合の運用確認や小規模バッチでは同期生成を使います。",
+      "入力ファイルが大きい場合、再試行が必要な場合、または大きなオーケストレーションの一部である場合は非同期生成を使います。",
+      "障害時に XML 出力を再現できるよう、入力ペイロードと検証レポートの両方を保存します。",
+      "サイレントアップグレードを防ぐため、テンプレートと XSD のパスはデプロイ設定で固定します。"
+    ]
+  },
+  ko: {
+    aboutChecklistTitle: "구현 체크리스트",
+    choosingTitle: "올바른 메시지 선택",
+    implementationNotesTitle: "구현 메모",
+    whenToUseTitle: "이 메시지를 사용할 때",
+    whenNotToUseTitle: "이 메시지를 사용하지 말아야 할 때",
+    commonFailureModesTitle: "자주 발생하는 실패 패턴",
+    versionCommentaryTitle: "버전 해설",
+    versionDiffTableTitle: "버전 차이 표",
+    schemeNotesTitle: "스킴별 참고 사항",
+    implementationFaqTitle: "구현 FAQ",
+    workedXmlTitle: "주석이 달린 XML 예제",
+    fieldCommentaryTitle: "필드 해설",
+    decisionFlowTitle: "판단 흐름",
+    compareTitlePrefix: "비교",
+    versionRange: "버전 범위",
+    whyItMatters: "중요한 이유",
+    implementationTakeaway: "구현 시 핵심 사항",
+    dimension: "비교 기준",
+    comparisonMessage: "비교 메시지",
+    implementationChecklist: [
+      "템플릿을 작성하기 전에 업무 이벤트에 맞는 메시지 패밀리를 먼저 결정합니다.",
+      "스키마 오류가 첫 경고가 되지 않도록 XML 생성 전에 업무 데이터를 검증합니다.",
+      "BIC, IBAN, 송금 정보, 주소 품질을 사후 정제가 아니라 릴리스 기준으로 다룹니다.",
+      "스킴 또는 은행별 규칙이 바뀔 때마다 대표 결제 데이터로 회귀 테스트를 수행합니다."
+    ],
+    messageTypesPerspectiveIntro: "메시지 카탈로그는 어떤 메시지가 처리를 시작하고, 어떤 메시지가 상태를 알리며, 어떤 메시지가 흐름을 수정하거나 되돌리는지 팀이 판단해야 할 때 특히 중요합니다.",
+    messageSelectionGuideLine: "지원되는 pacs 흐름을 한눈에 비교하려면 전용 [메시지 선택 가이드](/ko/message-selection/)를 참고하세요.",
+    apiImplementationNotes: [
+      "호출자가 즉시 XML 을 기대하는 운영 점검과 소규모 배치에는 동기 생성을 사용합니다.",
+      "입력 파일이 크거나, 재시도가 필요하거나, 더 큰 오케스트레이션 엔진의 일부인 경우 비동기 생성을 사용합니다.",
+      "장애 시 XML 출력을 재현할 수 있도록 원본 페이로드와 검증 보고서를 모두 보관합니다.",
+      "무음 업그레이드를 막기 위해 템플릿과 XSD 경로를 배포 설정에서 고정합니다."
+    ]
+  },
+  ru: {
+    aboutChecklistTitle: "Чек-лист внедрения",
+    choosingTitle: "Как выбрать правильное сообщение",
+    implementationNotesTitle: "Заметки по внедрению",
+    whenToUseTitle: "Когда использовать это сообщение",
+    whenNotToUseTitle: "Когда не использовать это сообщение",
+    commonFailureModesTitle: "Типовые ошибки",
+    versionCommentaryTitle: "Комментарий по версии",
+    versionDiffTableTitle: "Таблица отличий версий",
+    schemeNotesTitle: "Примечания по платёжным схемам",
+    implementationFaqTitle: "FAQ по внедрению",
+    workedXmlTitle: "Прокомментированный XML-пример",
+    fieldCommentaryTitle: "Комментарии к полям",
+    decisionFlowTitle: "Логика выбора",
+    compareTitlePrefix: "Сравнение",
+    versionRange: "Диапазон версий",
+    whyItMatters: "Почему это важно",
+    implementationTakeaway: "Практический вывод",
+    dimension: "Измерение",
+    comparisonMessage: "Сообщение для сравнения",
+    implementationChecklist: [
+      "До написания шаблонов сначала выберите семейство сообщений, которое соответствует бизнес-событию.",
+      "Проверяйте бизнес-данные до генерации XML, чтобы ошибки схемы не становились первым сигналом проблемы.",
+      "Качество BIC, IBAN, remittance и почтовых адресов должно быть критерием релиза, а не задачей на последующую очистку.",
+      "Каждое изменение схемы или банковских правил проверяйте регрессионно на репрезентативных платёжных данных."
+    ],
+    messageTypesPerspectiveIntro: "Каталог сообщений особенно полезен, когда команде нужно понять, какое сообщение запускает поток, какое сообщает статус, а какое исправляет или отменяет процесс.",
+    messageSelectionGuideLine: "См. отдельное [руководство по выбору сообщений](/ru/message-selection/) для краткой схемы принятия решения по поддерживаемым pacs-потокам.",
+    apiImplementationNotes: [
+      "Используйте синхронную генерацию для операторских проверок и небольших пакетов, когда вызывающая сторона ждёт XML сразу.",
+      "Используйте асинхронную генерацию, когда входные файлы велики, нужны повторы выполнения или генерация встроена в более широкий оркестрационный процесс.",
+      "Храните и исходный payload, и отчёт о валидации, чтобы служба поддержки могла воспроизвести XML при инциденте.",
+      "Фиксируйте пути к шаблонам и XSD в конфигурации развёртывания, чтобы избежать тихих обновлений."
+    ]
+  },
+  uk: {
+    aboutChecklistTitle: "Чекліст впровадження",
+    choosingTitle: "Як вибрати правильне повідомлення",
+    implementationNotesTitle: "Нотатки з впровадження",
+    whenToUseTitle: "Коли використовувати це повідомлення",
+    whenNotToUseTitle: "Коли не використовувати це повідомлення",
+    commonFailureModesTitle: "Типові помилки",
+    versionCommentaryTitle: "Коментар до версії",
+    versionDiffTableTitle: "Таблиця відмінностей версій",
+    schemeNotesTitle: "Нотатки щодо платіжних схем",
+    implementationFaqTitle: "FAQ з впровадження",
+    workedXmlTitle: "Прокоментований XML-приклад",
+    fieldCommentaryTitle: "Коментарі до полів",
+    decisionFlowTitle: "Логіка вибору",
+    compareTitlePrefix: "Порівняння",
+    versionRange: "Діапазон версій",
+    whyItMatters: "Чому це важливо",
+    implementationTakeaway: "Практичний висновок",
+    dimension: "Вимір",
+    comparisonMessage: "Повідомлення для порівняння",
+    implementationChecklist: [
+      "Перш ніж писати шаблони, спочатку оберіть сімейство повідомлень, яке відповідає бізнес-події.",
+      "Перевіряйте бізнес-дані до генерації XML, щоб помилки схеми не були першим сигналом проблеми.",
+      "Якість BIC, IBAN, remittance і поштових адрес слід вважати критерієм релізу, а не подальшим очищенням.",
+      "Кожну зміну правил схеми або банку перевіряйте регресійно на репрезентативних платіжних даних."
+    ],
+    messageTypesPerspectiveIntro: "Каталог повідомлень особливо корисний, коли команді потрібно визначити, яке повідомлення запускає процес, яке повідомляє статус, а яке виправляє або скасовує потік.",
+    messageSelectionGuideLine: "Див. окремий [посібник з вибору повідомлень](/uk/message-selection/) для стислого огляду підтримуваних pacs-потоків.",
+    apiImplementationNotes: [
+      "Використовуйте синхронну генерацію для операторських перевірок і невеликих пакетів, коли викликач очікує XML одразу.",
+      "Використовуйте асинхронну генерацію, коли вхідні файли великі, потрібні повторні спроби або генерація є частиною ширшого оркестраційного процесу.",
+      "Зберігайте і вихідний payload, і звіт валідації, щоб служба підтримки могла відтворити XML під час інциденту.",
+      "Фіксуйте шляхи до шаблонів і XSD у конфігурації розгортання, щоб уникнути непомітних оновлень."
+    ]
+  },
+  zh: {
+    aboutChecklistTitle: "实施检查清单",
+    choosingTitle: "如何选择合适的报文",
+    implementationNotesTitle: "实施说明",
+    whenToUseTitle: "何时使用此报文",
+    whenNotToUseTitle: "何时不应使用此报文",
+    commonFailureModesTitle: "常见失败模式",
+    versionCommentaryTitle: "版本说明",
+    versionDiffTableTitle: "版本差异表",
+    schemeNotesTitle: "方案相关说明",
+    implementationFaqTitle: "实施常见问题",
+    workedXmlTitle: "带注释的 XML 示例",
+    fieldCommentaryTitle: "字段说明",
+    decisionFlowTitle: "决策流程",
+    compareTitlePrefix: "比较",
+    versionRange: "版本范围",
+    whyItMatters: "重要原因",
+    implementationTakeaway: "实施要点",
+    dimension: "比较维度",
+    comparisonMessage: "对比报文",
+    implementationChecklist: [
+      "在编写模板之前，先为业务事件选定正确的报文族。",
+      "在生成 XML 之前校验业务数据，避免把模式错误当作首个告警信号。",
+      "将 BIC、IBAN、汇款信息和地址质量视为发布标准，而不是事后清洗事项。",
+      "每次方案规则或银行规则变更后，都要用具有代表性的付款数据执行回归测试。"
+    ],
+    messageTypesPerspectiveIntro: "当团队需要判断哪个报文启动流程、哪个报文反馈状态、以及哪个报文用于纠正或回退流程时，报文目录尤其重要。",
+    messageSelectionGuideLine: "如需一页式查看支持的 pacs 流程决策，请参阅专门的[报文选择指南](/zh/message-selection/)。",
+    apiImplementationNotes: [
+      "当调用方需要立即获得 XML，用于操作检查或小批量处理时，使用同步生成。",
+      "当输入文件较大、任务需要重试或生成过程属于更大编排流程的一部分时，使用异步生成。",
+      "保留原始负载和校验报告，以便支持团队在事故期间重现 XML 输出。",
+      "在部署配置中固定模板和 XSD 路径，避免静默升级。"
+    ]
+  },
+  "zh-tw": {
+    aboutChecklistTitle: "實作檢查清單",
+    choosingTitle: "如何選擇合適的訊息",
+    implementationNotesTitle: "實作說明",
+    whenToUseTitle: "何時使用此訊息",
+    whenNotToUseTitle: "何時不應使用此訊息",
+    commonFailureModesTitle: "常見失敗模式",
+    versionCommentaryTitle: "版本說明",
+    versionDiffTableTitle: "版本差異表",
+    schemeNotesTitle: "方案相關說明",
+    implementationFaqTitle: "實作常見問題",
+    workedXmlTitle: "附註解的 XML 範例",
+    fieldCommentaryTitle: "欄位說明",
+    decisionFlowTitle: "決策流程",
+    compareTitlePrefix: "比較",
+    versionRange: "版本範圍",
+    whyItMatters: "重要原因",
+    implementationTakeaway: "實作重點",
+    dimension: "比較維度",
+    comparisonMessage: "對照訊息",
+    implementationChecklist: [
+      "在撰寫範本之前，先為業務事件選定正確的訊息家族。",
+      "在產生 XML 前先驗證業務資料，避免把結構錯誤當成第一個告警訊號。",
+      "將 BIC、IBAN、匯款資訊與地址品質視為發佈標準，而不是事後清理工作。",
+      "每次方案規則或銀行規則變更後，都要以具代表性的付款資料執行回歸測試。"
+    ],
+    messageTypesPerspectiveIntro: "當團隊需要判斷哪一種訊息啟動流程、哪一種回報狀態，以及哪一種用來修正或回退流程時，訊息目錄特別重要。",
+    messageSelectionGuideLine: "若要以單頁方式查看支援的 pacs 流程決策，請參閱專門的[訊息選擇指南](/zh-tw/message-selection/)。",
+    apiImplementationNotes: [
+      "當呼叫端需要立即取得 XML 以進行操作檢查或小批次處理時，使用同步產生。",
+      "當輸入檔案較大、作業需要重試，或產生流程屬於更大編排的一部分時，使用非同步產生。",
+      "保留原始 payload 與驗證報告，讓支援團隊在事故期間能重現 XML 輸出。",
+      "在部署設定中固定範本與 XSD 路徑，避免靜默升級。"
+    ]
+  }
+};
+
+const ADVANCED_TRANSLATION_BATCH_3 = {
+  ar: {
+    aboutChecklistTitle: "قائمة التحقق من التنفيذ",
+    choosingTitle: "اختيار الرسالة الصحيحة",
+    implementationNotesTitle: "ملاحظات التنفيذ",
+    whenToUseTitle: "متى تستخدم هذه الرسالة",
+    whenNotToUseTitle: "متى لا تستخدم هذه الرسالة",
+    commonFailureModesTitle: "أنماط الإخفاق الشائعة",
+    versionCommentaryTitle: "تعليق الإصدار",
+    versionDiffTableTitle: "جدول فروق الإصدارات",
+    schemeNotesTitle: "ملاحظات خاصة بالمخططات",
+    implementationFaqTitle: "الأسئلة الشائعة للتنفيذ",
+    workedXmlTitle: "مثال XML مشروح",
+    fieldCommentaryTitle: "تعليقات الحقول",
+    decisionFlowTitle: "منطق القرار",
+    compareTitlePrefix: "مقارنة",
+    versionRange: "نطاق الإصدار",
+    whyItMatters: "لماذا يهم",
+    implementationTakeaway: "الخلاصة التنفيذية",
+    dimension: "البعد",
+    comparisonMessage: "رسالة المقارنة",
+    implementationChecklist: [
+      "اختر عائلة الرسائل المناسبة للحدث التجاري قبل كتابة القوالب.",
+      "تحقق من بيانات الأعمال قبل إنشاء XML حتى لا تكون أخطاء المخطط أول إشارة للمشكلة.",
+      "اعتبر جودة BIC وIBAN وبيانات remittance والعناوين البريدية معياراً للإصدار وليس عملاً لاحقاً للتنظيف.",
+      "نفّذ اختبارات تراجعية لكل تغيير في قواعد المخطط أو البنك باستخدام بيانات دفع ممثلة."
+    ],
+    messageTypesPerspectiveIntro: "يصبح كتالوج الرسائل مهماً بشكل خاص عندما تحتاج الفرق إلى تحديد أي رسالة تبدأ التدفق، وأيها تبلغ الحالة، وأيها تصحح العملية أو تعكسها.",
+    messageSelectionGuideLine: "راجع [دليل اختيار الرسائل](/ar/message-selection/) للحصول على عرض قرار مختصر عبر تدفقات pacs المدعومة.",
+    apiImplementationNotes: [
+      "استخدم الإنشاء المتزامن لعمليات التحقق التشغيلية والدفعات الصغيرة عندما يتوقع المستدعي XML فوراً.",
+      "استخدم الإنشاء غير المتزامن عندما تكون ملفات الإدخال كبيرة، أو تحتاج الوظائف إلى إعادة المحاولة، أو يكون الإنشاء جزءاً من محرك تنسيق أوسع.",
+      "احتفظ بكل من الحمولة المصدرية وتقرير التحقق حتى تتمكن فرق الدعم من إعادة إنتاج مخرجات XML أثناء الحوادث.",
+      "ثبّت مسارات القوالب وملفات XSD في إعدادات النشر لتجنب الترقيات الصامتة."
+    ]
+  },
+  he: {
+    aboutChecklistTitle: "רשימת בדיקה ליישום",
+    choosingTitle: "בחירת ההודעה הנכונה",
+    implementationNotesTitle: "הערות יישום",
+    whenToUseTitle: "מתי להשתמש בהודעה זו",
+    whenNotToUseTitle: "מתי לא להשתמש בהודעה זו",
+    commonFailureModesTitle: "דפוסי כשל נפוצים",
+    versionCommentaryTitle: "הערת גרסה",
+    versionDiffTableTitle: "טבלת הבדלי גרסאות",
+    schemeNotesTitle: "הערות ייעודיות לסכמה",
+    implementationFaqTitle: "שאלות נפוצות ליישום",
+    workedXmlTitle: "דוגמת XML עם הערות",
+    fieldCommentaryTitle: "הערות לשדות",
+    decisionFlowTitle: "לוגיקת החלטה",
+    compareTitlePrefix: "השוואה",
+    versionRange: "טווח גרסאות",
+    whyItMatters: "למה זה חשוב",
+    implementationTakeaway: "לקח יישומי",
+    dimension: "ממד",
+    comparisonMessage: "הודעת השוואה",
+    implementationChecklist: [
+      "בחרו את משפחת ההודעות המתאימה לאירוע העסקי לפני כתיבת תבניות.",
+      "אמתו את נתוני העסק לפני יצירת XML כדי ששגיאות סכימה לא יהיו הסימן הראשון לבעיה.",
+      "התייחסו לאיכות BIC, IBAN, נתוני remittance וכתובות דואר כקריטריון לשחרור ולא כשלב ניקוי מאוחר יותר.",
+      "בצעו בדיקות רגרסיה לכל שינוי בכלל סכימה או בנק באמצעות נתוני תשלום מייצגים."
+    ],
+    messageTypesPerspectiveIntro: "קטלוג ההודעות חשוב במיוחד כאשר צוותים צריכים לקבוע איזו הודעה מתחילה את הזרימה, איזו מדווחת על סטטוס ואיזו מתקנת או מבטלת את התהליך.",
+    messageSelectionGuideLine: "ראו את [מדריך בחירת ההודעות](/he/message-selection/) לקבלת מבט החלטה מרוכז על זרימות pacs הנתמכות.",
+    apiImplementationNotes: [
+      "השתמשו ביצירה סינכרונית לבדיקות תפעוליות ואצוות קטנות כאשר הקורא מצפה ל-XML מיידית.",
+      "השתמשו ביצירה אסינכרונית כאשר קבצי הקלט גדולים, כאשר יש צורך בניסיונות חוזרים, או כאשר היצירה היא חלק ממנוע תזמור רחב יותר.",
+      "שמרו גם את נתוני הקלט המקוריים וגם את דוח האימות כדי שצוותי התמיכה יוכלו לשחזר את פלט ה-XML בזמן תקלה.",
+      "קבעו את נתיבי התבניות ו-XSD בתצורת הפריסה כדי להימנע משדרוגים שקטים."
+    ]
+  },
+  hi: {
+    aboutChecklistTitle: "कार्यान्वयन चेकलिस्ट",
+    choosingTitle: "सही संदेश चुनना",
+    implementationNotesTitle: "कार्यान्वयन टिप्पणियाँ",
+    whenToUseTitle: "इस संदेश का उपयोग कब करें",
+    whenNotToUseTitle: "इस संदेश का उपयोग कब न करें",
+    commonFailureModesTitle: "सामान्य विफलता पैटर्न",
+    versionCommentaryTitle: "संस्करण टिप्पणी",
+    versionDiffTableTitle: "संस्करण अंतर तालिका",
+    schemeNotesTitle: "स्कीम-विशिष्ट नोट्स",
+    implementationFaqTitle: "कार्यान्वयन FAQ",
+    workedXmlTitle: "टिप्पणीयुक्त XML उदाहरण",
+    fieldCommentaryTitle: "फ़ील्ड टिप्पणियाँ",
+    decisionFlowTitle: "निर्णय प्रवाह",
+    compareTitlePrefix: "तुलना",
+    versionRange: "संस्करण सीमा",
+    whyItMatters: "यह क्यों महत्वपूर्ण है",
+    implementationTakeaway: "कार्यान्वयन निष्कर्ष",
+    dimension: "आयाम",
+    comparisonMessage: "तुलनात्मक संदेश",
+    implementationChecklist: [
+      "टेम्पलेट लिखने से पहले व्यापारिक घटना के लिए सही संदेश परिवार चुनें।",
+      "XML निर्माण से पहले व्यापारिक डेटा का सत्यापन करें ताकि स्कीमा त्रुटियाँ पहली चेतावनी न बनें।",
+      "BIC, IBAN, remittance और डाक पते की गुणवत्ता को रिलीज़ मानदंड मानें, बाद की सफ़ाई का काम नहीं।",
+      "हर स्कीम या बैंक नियम परिवर्तन के लिए प्रतिनिधि भुगतान डेटा पर रिग्रेशन परीक्षण चलाएँ।"
+    ],
+    messageTypesPerspectiveIntro: "संदेश कैटलॉग विशेष रूप से तब महत्वपूर्ण होता है जब टीमों को तय करना हो कि कौन-सा संदेश प्रक्रिया शुरू करता है, कौन-सा स्थिति बताता है, और कौन-सा प्रवाह को सुधारता या उलटता है।",
+    messageSelectionGuideLine: "समर्थित pacs प्रवाहों का संक्षिप्त निर्णय दृश्य पाने के लिए [संदेश चयन मार्गदर्शिका](/hi/message-selection/) देखें।",
+    apiImplementationNotes: [
+      "जब कॉलर को तुरंत XML चाहिए, तब परिचालन जाँच और छोटे बैचों के लिए synchronous generation का उपयोग करें।",
+      "जब इनपुट फ़ाइलें बड़ी हों, कार्यों को पुनः प्रयास की ज़रूरत हो, या निर्माण किसी बड़े समन्वय इंजन का हिस्सा हो, तब असमकालिक निर्माण का उपयोग करें।",
+      "स्रोत इनपुट डेटा और सत्यापन रिपोर्ट दोनों को सुरक्षित रखें ताकि सहायता टीमें घटना के समय XML आउटपुट को दोहरा सकें।",
+      "मौन उन्नयन से बचने के लिए परिनियोजन विन्यास में टेम्पलेट और XSD पथों को स्थिर रखें।"
+    ]
+  },
+  id: {
+    aboutChecklistTitle: "Daftar periksa implementasi",
+    choosingTitle: "Memilih pesan yang tepat",
+    implementationNotesTitle: "Catatan implementasi",
+    whenToUseTitle: "Kapan menggunakan pesan ini",
+    whenNotToUseTitle: "Kapan tidak menggunakan pesan ini",
+    commonFailureModesTitle: "Pola kegagalan umum",
+    versionCommentaryTitle: "Komentar versi",
+    versionDiffTableTitle: "Tabel perbedaan versi",
+    schemeNotesTitle: "Catatan khusus skema",
+    implementationFaqTitle: "FAQ implementasi",
+    workedXmlTitle: "Contoh XML beranotasi",
+    fieldCommentaryTitle: "Komentar bidang",
+    decisionFlowTitle: "Alur keputusan",
+    compareTitlePrefix: "Bandingkan",
+    versionRange: "Rentang versi",
+    whyItMatters: "Mengapa ini penting",
+    implementationTakeaway: "Kesimpulan implementasi",
+    dimension: "Dimensi",
+    comparisonMessage: "Pesan pembanding",
+    implementationChecklist: [
+      "Pilih keluarga pesan yang tepat untuk peristiwa bisnis sebelum menulis template.",
+      "Validasi data bisnis sebelum menghasilkan XML agar kesalahan skema bukan menjadi sinyal pertama.",
+      "Perlakukan kualitas BIC, IBAN, remittance, dan alamat pos sebagai kriteria rilis, bukan pekerjaan pembersihan belakangan.",
+      "Jalankan uji regresi untuk setiap perubahan aturan skema atau bank dengan data pembayaran yang representatif."
+    ],
+    messageTypesPerspectiveIntro: "Katalog pesan paling penting ketika tim harus memutuskan pesan mana yang memulai alur, mana yang melaporkan status, dan mana yang memperbaiki atau membalikkan proses.",
+    messageSelectionGuideLine: "Lihat [panduan pemilihan pesan](/id/message-selection/) untuk ringkasan keputusan lintas alur pacs yang didukung.",
+    apiImplementationNotes: [
+      "Gunakan pembuatan sinkron untuk pemeriksaan operasional dan batch kecil saat pemanggil membutuhkan XML segera.",
+      "Gunakan pembuatan asinkron saat file input besar, pekerjaan perlu percobaan ulang, atau proses pembuatan menjadi bagian dari mesin orkestrasi yang lebih luas.",
+      "Simpan data masukan sumber dan laporan validasi agar tim dukungan dapat mereproduksi keluaran XML saat insiden.",
+      "Kunci jalur template dan XSD di konfigurasi penerapan untuk mencegah pembaruan diam-diam."
+    ]
+  },
+  pl: {
+    aboutChecklistTitle: "Lista kontrolna wdrożenia",
+    choosingTitle: "Wybór właściwej wiadomości",
+    implementationNotesTitle: "Uwagi wdrożeniowe",
+    whenToUseTitle: "Kiedy używać tej wiadomości",
+    whenNotToUseTitle: "Kiedy nie używać tej wiadomości",
+    commonFailureModesTitle: "Typowe wzorce błędów",
+    versionCommentaryTitle: "Komentarz do wersji",
+    versionDiffTableTitle: "Tabela różnic wersji",
+    schemeNotesTitle: "Uwagi specyficzne dla schematu",
+    implementationFaqTitle: "FAQ wdrożeniowe",
+    workedXmlTitle: "Przykład XML z komentarzami",
+    fieldCommentaryTitle: "Komentarze do pól",
+    decisionFlowTitle: "Logika wyboru",
+    compareTitlePrefix: "Porównanie",
+    versionRange: "Zakres wersji",
+    whyItMatters: "Dlaczego to ważne",
+    implementationTakeaway: "Wniosek wdrożeniowy",
+    dimension: "Wymiar",
+    comparisonMessage: "Wiadomość porównawcza",
+    implementationChecklist: [
+      "Wybierz właściwą rodzinę komunikatów dla zdarzenia biznesowego, zanim zaczniesz pisać szablony.",
+      "Waliduj dane biznesowe przed generowaniem XML, aby błędy schematu nie były pierwszym sygnałem problemu.",
+      "Traktuj jakość BIC, IBAN, remittance i adresów pocztowych jako kryterium wydania, a nie późniejsze czyszczenie.",
+      "Uruchamiaj testy regresyjne dla każdej zmiany reguł schematu lub banku na reprezentatywnych danych płatniczych."
+    ],
+    messageTypesPerspectiveIntro: "Katalog komunikatów jest szczególnie ważny wtedy, gdy zespoły muszą ustalić, który komunikat rozpoczyna przepływ, który raportuje status, a który koryguje lub odwraca proces.",
+    messageSelectionGuideLine: "Zobacz [przewodnik wyboru wiadomości](/pl/message-selection/), aby uzyskać skrócony widok decyzji dla obsługiwanych przepływów pacs.",
+    apiImplementationNotes: [
+      "Używaj generowania synchronicznego do kontroli operacyjnych i małych wsadów, gdy wywołujący oczekuje XML natychmiast.",
+      "Używaj generowania asynchronicznego, gdy pliki wejściowe są duże, zadania wymagają ponowień lub generowanie jest częścią większego silnika orkiestracji.",
+      "Przechowuj zarówno źródłowe dane wejściowe, jak i raport walidacji, aby zespoły wsparcia mogły odtworzyć wynik XML podczas incydentu.",
+      "Zablokuj ścieżki szablonów i XSD w konfiguracji wdrożenia, aby uniknąć cichych aktualizacji."
+    ]
+  },
+  ro: {
+    aboutChecklistTitle: "Listă de verificare pentru implementare",
+    choosingTitle: "Alegerea mesajului potrivit",
+    implementationNotesTitle: "Note de implementare",
+    whenToUseTitle: "Când să folosești acest mesaj",
+    whenNotToUseTitle: "Când să nu folosești acest mesaj",
+    commonFailureModesTitle: "Modele frecvente de eroare",
+    versionCommentaryTitle: "Comentariu de versiune",
+    versionDiffTableTitle: "Tabelul diferențelor de versiune",
+    schemeNotesTitle: "Note specifice schemei",
+    implementationFaqTitle: "Întrebări frecvente de implementare",
+    workedXmlTitle: "Exemplu XML comentat",
+    fieldCommentaryTitle: "Comentarii pe câmpuri",
+    decisionFlowTitle: "Logica deciziei",
+    compareTitlePrefix: "Compară",
+    versionRange: "Interval de versiuni",
+    whyItMatters: "De ce contează",
+    implementationTakeaway: "Concluzie de implementare",
+    dimension: "Dimensiune",
+    comparisonMessage: "Mesaj de comparație",
+    implementationChecklist: [
+      "Alege familia corectă de mesaje pentru evenimentul de business înainte de a scrie șabloanele.",
+      "Validează datele de business înainte de generarea XML pentru ca erorile de schemă să nu fie primul semnal.",
+      "Tratează calitatea BIC, IBAN, remittance și a adreselor poștale ca pe un criteriu de release, nu ca pe o curățare ulterioară.",
+      "Rulează teste de regresie pentru fiecare schimbare de regulă de schemă sau bancă folosind date de plată reprezentative."
+    ],
+    messageTypesPerspectiveIntro: "Catalogul de mesaje este deosebit de important atunci când echipele trebuie să decidă ce mesaj pornește fluxul, care raportează statusul și care corectează sau inversează procesul.",
+    messageSelectionGuideLine: "Vezi [ghidul de selecție a mesajelor](/ro/message-selection/) pentru o vedere scurtă asupra deciziei în fluxurile pacs suportate.",
+    apiImplementationNotes: [
+      "Folosește generarea sincronă pentru verificări operaționale și loturi mici când apelantul așteaptă XML imediat.",
+      "Folosește generarea asincronă când fișierele de intrare sunt mari, joburile trebuie reluate sau generarea face parte dintr-un motor de orchestrare mai amplu.",
+      "Păstrează atât datele sursă de intrare, cât și raportul de validare, astfel încât echipele de suport să poată reproduce ieșirea XML în timpul incidentelor.",
+      "Fixează căile către șabloane și XSD în configurația de implementare pentru a evita upgrade-urile silențioase."
+    ]
+  },
+  tr: {
+    aboutChecklistTitle: "Uygulama kontrol listesi",
+    choosingTitle: "Doğru mesajı seçmek",
+    implementationNotesTitle: "Uygulama notları",
+    whenToUseTitle: "Bu mesaj ne zaman kullanılmalı",
+    whenNotToUseTitle: "Bu mesaj ne zaman kullanılmamalı",
+    commonFailureModesTitle: "Yaygın hata kalıpları",
+    versionCommentaryTitle: "Sürüm yorumu",
+    versionDiffTableTitle: "Sürüm fark tablosu",
+    schemeNotesTitle: "Şemaya özgü notlar",
+    implementationFaqTitle: "Uygulama SSS",
+    workedXmlTitle: "Açıklamalı XML örneği",
+    fieldCommentaryTitle: "Alan açıklamaları",
+    decisionFlowTitle: "Karar akışı",
+    compareTitlePrefix: "Karşılaştır",
+    versionRange: "Sürüm aralığı",
+    whyItMatters: "Neden önemli",
+    implementationTakeaway: "Uygulama çıkarımı",
+    dimension: "Boyut",
+    comparisonMessage: "Karşılaştırma mesajı",
+    implementationChecklist: [
+      "Şablon yazmaya başlamadan önce iş olayı için doğru mesaj ailesini seçin.",
+      "Şema hatalarının ilk sinyal olmaması için XML üretiminden önce iş verilerini doğrulayın.",
+      "BIC, IBAN, remittance ve posta adresi kalitesini sonradan temizlenecek bir konu değil, yayınlama kriteri olarak ele alın.",
+      "Her şema veya banka kuralı değişikliğinde temsilî ödeme verileriyle regresyon testleri çalıştırın."
+    ],
+    messageTypesPerspectiveIntro: "Mesaj kataloğu, ekiplerin hangi mesajın akışı başlattığını, hangisinin durum bildirdiğini ve hangisinin süreci düzelttiğini veya geri çevirdiğini belirlemesi gerektiğinde özellikle önemlidir.",
+    messageSelectionGuideLine: "Desteklenen pacs akışları için kısa karar görünümü almak üzere [mesaj seçim rehberine](/tr/message-selection/) bakın.",
+    apiImplementationNotes: [
+      "Çağıranın XML'i hemen beklediği operasyonel kontroller ve küçük batch işlemler için senkron üretim kullanın.",
+      "Girdi dosyaları büyük olduğunda, işler yeniden deneme gerektirdiğinde veya üretim daha geniş bir orkestrasyon motorunun parçası olduğunda asenkron üretim kullanın.",
+      "Destek ekiplerinin olay sırasında XML çıktısını yeniden üretebilmesi için hem kaynak girdi verisini hem de doğrulama raporunu saklayın.",
+      "Sessiz yükseltmeleri önlemek için şablon ve XSD yollarını dağıtım yapılandırmasında sabitleyin."
+    ]
+  },
+  th: {
+    aboutChecklistTitle: "เช็กลิสต์การติดตั้งใช้งาน",
+    choosingTitle: "การเลือกข้อความที่เหมาะสม",
+    implementationNotesTitle: "บันทึกการติดตั้งใช้งาน",
+    whenToUseTitle: "ควรใช้ข้อความนี้เมื่อใด",
+    whenNotToUseTitle: "ไม่ควรใช้ข้อความนี้เมื่อใด",
+    commonFailureModesTitle: "รูปแบบความล้มเหลวที่พบบ่อย",
+    versionCommentaryTitle: "คำอธิบายเวอร์ชัน",
+    versionDiffTableTitle: "ตารางความแตกต่างของเวอร์ชัน",
+    schemeNotesTitle: "หมายเหตุเฉพาะของ scheme",
+    implementationFaqTitle: "คำถามที่พบบ่อยในการติดตั้งใช้งาน",
+    workedXmlTitle: "ตัวอย่าง XML พร้อมคำอธิบาย",
+    fieldCommentaryTitle: "คำอธิบายฟิลด์",
+    decisionFlowTitle: "ลำดับการตัดสินใจ",
+    compareTitlePrefix: "เปรียบเทียบ",
+    versionRange: "ช่วงเวอร์ชัน",
+    whyItMatters: "เหตุใดจึงสำคัญ",
+    implementationTakeaway: "ข้อสรุปเชิงปฏิบัติ",
+    dimension: "มิติ",
+    comparisonMessage: "ข้อความเปรียบเทียบ",
+    implementationChecklist: [
+      "เลือกตระกูลข้อความที่ถูกต้องสำหรับเหตุการณ์ทางธุรกิจก่อนเริ่มเขียนเทมเพลต",
+      "ตรวจสอบข้อมูลธุรกิจก่อนสร้าง XML เพื่อไม่ให้ข้อผิดพลาดของ schema เป็นสัญญาณแรกของปัญหา",
+      "ให้ถือว่าคุณภาพของ BIC, IBAN, remittance และที่อยู่ไปรษณีย์เป็นเกณฑ์การปล่อยใช้งาน ไม่ใช่งานทำความสะอาดภายหลัง",
+      "ทดสอบ regression ทุกครั้งที่มีการเปลี่ยนแปลงกฎของ scheme หรือธนาคาร โดยใช้ข้อมูลการชำระเงินที่เป็นตัวแทน"
+    ],
+    messageTypesPerspectiveIntro: "แค็ตตาล็อกข้อความมีความสำคัญเป็นพิเศษเมื่อทีมต้องตัดสินใจว่าข้อความใดเริ่มกระบวนการ ข้อความใดรายงานสถานะ และข้อความใดใช้แก้ไขหรือย้อนกระบวนการ",
+    messageSelectionGuideLine: "ดู [คู่มือการเลือกข้อความ](/th/message-selection/) เพื่อมุมมองการตัดสินใจแบบย่อสำหรับกระบวนการ pacs ที่รองรับ",
+    apiImplementationNotes: [
+      "ใช้การสร้างแบบ synchronous สำหรับการตรวจสอบเชิงปฏิบัติการและ batch ขนาดเล็กเมื่อผู้เรียกต้องการ XML ทันที",
+      "ใช้การสร้างแบบอะซิงโครนัสเมื่อไฟล์อินพุตมีขนาดใหญ่ งานต้องลองใหม่ หรือการสร้างเป็นส่วนหนึ่งของระบบประสานงานที่กว้างกว่า",
+      "เก็บทั้งข้อมูลนำเข้าต้นทางและรายงานการตรวจสอบไว้ เพื่อให้ทีมสนับสนุนสามารถสร้างผลลัพธ์ XML ซ้ำได้ระหว่างเกิดเหตุการณ์",
+      "ตรึงเส้นทางของแม่แบบและ XSD ไว้ในค่ากำหนดการปรับใช้ เพื่อหลีกเลี่ยงการอัปเกรดแบบเงียบ"
+    ]
+  },
+  vi: {
+    aboutChecklistTitle: "Danh sách kiểm tra triển khai",
+    choosingTitle: "Chọn đúng thông điệp",
+    implementationNotesTitle: "Ghi chú triển khai",
+    whenToUseTitle: "Khi nào nên dùng thông điệp này",
+    whenNotToUseTitle: "Khi nào không nên dùng thông điệp này",
+    commonFailureModesTitle: "Mẫu lỗi thường gặp",
+    versionCommentaryTitle: "Bình luận phiên bản",
+    versionDiffTableTitle: "Bảng khác biệt phiên bản",
+    schemeNotesTitle: "Ghi chú theo scheme",
+    implementationFaqTitle: "FAQ triển khai",
+    workedXmlTitle: "Ví dụ XML có chú thích",
+    fieldCommentaryTitle: "Chú thích trường",
+    decisionFlowTitle: "Luồng quyết định",
+    compareTitlePrefix: "So sánh",
+    versionRange: "Phạm vi phiên bản",
+    whyItMatters: "Vì sao điều này quan trọng",
+    implementationTakeaway: "Kết luận triển khai",
+    dimension: "Khía cạnh",
+    comparisonMessage: "Thông điệp so sánh",
+    implementationChecklist: [
+      "Chọn đúng họ thông điệp cho sự kiện nghiệp vụ trước khi viết template.",
+      "Xác thực dữ liệu nghiệp vụ trước khi tạo XML để lỗi schema không trở thành tín hiệu đầu tiên.",
+      "Coi chất lượng BIC, IBAN, remittance và địa chỉ bưu chính là tiêu chí phát hành chứ không phải việc dọn dẹp về sau.",
+      "Chạy kiểm thử hồi quy cho mỗi thay đổi quy tắc của scheme hoặc ngân hàng với dữ liệu thanh toán đại diện."
+    ],
+    messageTypesPerspectiveIntro: "Danh mục thông điệp đặc biệt quan trọng khi các nhóm cần quyết định thông điệp nào khởi tạo luồng, thông điệp nào báo trạng thái, và thông điệp nào sửa hoặc đảo ngược quy trình.",
+    messageSelectionGuideLine: "Xem [hướng dẫn lựa chọn thông điệp](/vi/message-selection/) để có góc nhìn quyết định ngắn gọn về các luồng pacs được hỗ trợ.",
+    apiImplementationNotes: [
+      "Dùng tạo sinh đồng bộ cho các kiểm tra vận hành và batch nhỏ khi bên gọi cần XML ngay lập tức.",
+      "Dùng tạo sinh bất đồng bộ khi tệp đầu vào lớn, tác vụ cần thử lại hoặc việc tạo sinh là một phần của bộ điều phối lớn hơn.",
+      "Lưu cả dữ liệu đầu vào nguồn và báo cáo xác thực để đội hỗ trợ có thể tái tạo đầu ra XML khi có sự cố.",
+      "Cố định các đường dẫn mẫu và XSD trong cấu hình triển khai để tránh nâng cấp âm thầm."
+    ]
+  }
+};
+
+const ADVANCED_TRANSLATION_PATCH = {
+  ar: {
+    apiImplementationNotes: [
+      "استخدم الإنشاء المتزامن لعمليات الفحص التشغيلية والدفعات الصغيرة عندما يتوقع المستدعي ملف XML فوراً.",
+      "استخدم الإنشاء غير المتزامن عندما تكون ملفات الإدخال كبيرة، أو تحتاج الوظائف إلى إعادة المحاولة، أو يكون الإنشاء جزءاً من محرك تنسيق أوسع.",
+      "احتفظ ببيانات الإدخال الأصلية وتقرير التحقق حتى تتمكن فرق الدعم من إعادة إنتاج مخرجات XML أثناء الحوادث.",
+      "ثبّت مسارات القوالب وملفات XSD في إعدادات النشر لتجنب الترقيات الصامتة."
+    ]
+  },
+  he: {
+    apiImplementationNotes: [
+      "השתמשו ביצירה סינכרונית לבדיקות תפעוליות ואצוות קטנות כאשר הקורא מצפה ל-XML מיידית.",
+      "השתמשו ביצירה אסינכרונית כאשר קבצי הקלט גדולים, כאשר יש צורך בניסיונות חוזרים, או כאשר היצירה היא חלק ממנוע תיאום רחב יותר.",
+      "שמרו גם את נתוני הקלט המקוריים וגם את דוח האימות כדי שצוותי התמיכה יוכלו לשחזר את פלט ה-XML בזמן תקלה.",
+      "קבעו את נתיבי התבניות ו-XSD בתצורת הפריסה כדי להימנע משדרוגים שקטים."
+    ]
+  },
+  hi: {
+    apiImplementationNotes: [
+      "जब कॉलर को तुरंत XML चाहिए, तब परिचालन जाँच और छोटे बैचों के लिए समकालिक निर्माण का उपयोग करें।",
+      "जब इनपुट फ़ाइलें बड़ी हों, कार्यों को पुनः प्रयास की ज़रूरत हो, या निर्माण किसी बड़े समन्वय इंजन का हिस्सा हो, तब असमकालिक निर्माण का उपयोग करें।",
+      "स्रोत इनपुट डेटा और सत्यापन रिपोर्ट दोनों को सुरक्षित रखें ताकि सहायता टीमें घटना के समय XML आउटपुट को दोहरा सकें।",
+      "मौन उन्नयन से बचने के लिए परिनियोजन विन्यास में टेम्पलेट और XSD पथों को स्थिर रखें।"
+    ]
+  },
+  id: {
+    apiImplementationNotes: [
+      "Gunakan pembuatan sinkron untuk pemeriksaan operasional dan batch kecil saat pemanggil membutuhkan XML segera.",
+      "Gunakan pembuatan asinkron saat file input besar, pekerjaan perlu percobaan ulang, atau proses pembuatan menjadi bagian dari mesin orkestrasi yang lebih luas.",
+      "Simpan data masukan sumber dan laporan validasi agar tim dukungan dapat mereproduksi keluaran XML saat insiden.",
+      "Kunci jalur template dan XSD di konfigurasi penerapan untuk mencegah pembaruan diam-diam."
+    ]
+  },
+  pl: {
+    apiImplementationNotes: [
+      "Używaj generowania synchronicznego do kontroli operacyjnych i małych wsadów, gdy wywołujący oczekuje XML natychmiast.",
+      "Używaj generowania asynchronicznego, gdy pliki wejściowe są duże, zadania wymagają ponowień lub generowanie jest częścią większego silnika orkiestracji.",
+      "Przechowuj zarówno źródłowe dane wejściowe, jak i raport walidacji, aby zespoły wsparcia mogły odtworzyć wynik XML podczas incydentu.",
+      "Zablokuj ścieżki szablonów i XSD w konfiguracji wdrożenia, aby uniknąć cichych aktualizacji."
+    ]
+  },
+  ro: {
+    apiImplementationNotes: [
+      "Folosește generarea sincronă pentru verificări operaționale și loturi mici când apelantul așteaptă XML imediat.",
+      "Folosește generarea asincronă când fișierele de intrare sunt mari, joburile trebuie reluate sau generarea face parte dintr-un motor de orchestrare mai amplu.",
+      "Păstrează atât datele sursă de intrare, cât și raportul de validare, astfel încât echipele de suport să poată reproduce ieșirea XML în timpul incidentelor.",
+      "Fixează căile către șabloane și XSD în configurația de implementare pentru a evita upgrade-urile silențioase."
+    ]
+  },
+  ru: {
+    apiImplementationNotes: [
+      "Используйте синхронную генерацию для операторских проверок и небольших пакетов, когда вызывающая сторона ждёт XML сразу.",
+      "Используйте асинхронную генерацию, когда входные файлы велики, нужны повторные попытки или генерация встроена в более широкий оркестрационный процесс.",
+      "Храните и исходные входные данные, и отчёт о валидации, чтобы служба поддержки могла воспроизвести XML при инциденте.",
+      "Фиксируйте пути к шаблонам и XSD в конфигурации развёртывания, чтобы избежать тихих обновлений."
+    ]
+  },
+  tr: {
+    apiImplementationNotes: [
+      "Çağıranın XML'i hemen beklediği operasyonel kontroller ve küçük batch işlemler için senkron üretim kullanın.",
+      "Girdi dosyaları büyük olduğunda, işler yeniden deneme gerektirdiğinde veya üretim daha geniş bir orkestrasyon motorunun parçası olduğunda asenkron üretim kullanın.",
+      "Destek ekiplerinin olay sırasında XML çıktısını yeniden üretebilmesi için hem kaynak girdi verisini hem de doğrulama raporunu saklayın.",
+      "Sessiz yükseltmeleri önlemek için şablon ve XSD yollarını dağıtım yapılandırmasında sabitleyin."
+    ]
+  },
+  th: {
+    apiImplementationNotes: [
+      "ใช้การสร้างแบบซิงโครนัสสำหรับการตรวจสอบเชิงปฏิบัติการและงานเป็นชุดขนาดเล็กเมื่อผู้เรียกต้องการ XML ทันที",
+      "ใช้การสร้างแบบอะซิงโครนัสเมื่อไฟล์อินพุตมีขนาดใหญ่ งานต้องลองใหม่ หรือการสร้างเป็นส่วนหนึ่งของระบบประสานงานที่กว้างกว่า",
+      "เก็บทั้งข้อมูลนำเข้าต้นทางและรายงานการตรวจสอบไว้ เพื่อให้ทีมสนับสนุนสามารถสร้างผลลัพธ์ XML ซ้ำได้ระหว่างเกิดเหตุการณ์",
+      "ตรึงเส้นทางของแม่แบบและ XSD ไว้ในค่ากำหนดการปรับใช้ เพื่อหลีกเลี่ยงการอัปเกรดแบบเงียบ"
+    ]
+  },
+  vi: {
+    apiImplementationNotes: [
+      "Dùng tạo sinh đồng bộ cho các kiểm tra vận hành và lô nhỏ khi bên gọi cần XML ngay lập tức.",
+      "Dùng tạo sinh bất đồng bộ khi tệp đầu vào lớn, tác vụ cần thử lại hoặc việc tạo sinh là một phần của bộ điều phối lớn hơn.",
+      "Lưu cả dữ liệu đầu vào nguồn và báo cáo xác thực để đội hỗ trợ có thể tái tạo đầu ra XML khi có sự cố.",
+      "Cố định các đường dẫn mẫu và XSD trong cấu hình triển khai để tránh nâng cấp âm thầm."
+    ]
+  },
+  "zh-tw": {
+    apiImplementationNotes: [
+      "使用同步生成來處理操作人員檢查與小批次工作，當呼叫端需要立即取得 XML 時尤其適合。",
+      "當輸入檔案較大、工作需要重試，或生成流程屬於更大型的協調引擎時，請使用非同步生成。",
+      "保留原始輸入資料與驗證報告，讓支援團隊在事故期間能重現 XML 輸出。",
+      "在部署設定中固定範本與 XSD 路徑，以避免發行時發生靜默升級。"
+    ]
+  },
+  uk: {
+    apiImplementationNotes: [
+      "Використовуйте синхронне генерування для операторських перевірок і невеликих пакетів, коли викликач очікує негайний XML-файл.",
+      "Використовуйте асинхронне генерування, коли вхідні файли великі, потрібні повторні спроби або генерування є частиною ширшого оркестраційного процесу.",
+      "Зберігайте і вихідні вхідні дані, і звіт валідації, щоб служба підтримки могла відтворити XML під час інциденту.",
+      "Фіксуйте шляхи до шаблонів і XSD у конфігурації розгортання, щоб уникнути непомітних оновлень."
+    ]
+  }
+};
+
+function advancedTranslation(localeKey) {
+  const base = ADVANCED_TRANSLATION_BATCH_1[localeKey] ?? ADVANCED_TRANSLATION_BATCH_2[localeKey] ?? ADVANCED_TRANSLATION_BATCH_3[localeKey] ?? null;
+  const patch = ADVANCED_TRANSLATION_PATCH[localeKey] ?? null;
+  if (!base) return patch;
+  if (!patch) return base;
+  return { ...base, ...patch };
 }
+
+const PATCH_PHRASE_MAP = {
+  ja: {
+    "Reason-code quality is critical for downstream customer communication and operational routing.": "理由コードの品質は、その後の顧客対応と運用上の振り分けにとって極めて重要です。",
+    "Check later revisions for mandate, status, and interoperability updates before greenfield use.": "新規導入に使う前に、後続版で委任、ステータス、相互運用性に関する更新を確認してください。",
+    "Institution direct-debit amounts often need explicit bilateral tolerance controls.": "金融機関間の口座振替金額には、明示的な二者間許容範囲管理が必要になることがよくあります。",
+    "The reversal itself needs its own audit-safe identifier.": "リバーサル自体に、監査に耐える独自の識別子が必要です。",
+    "Preserve the original payment reference to avoid reconciliation breaks.": "照合の断絶を避けるため、元の支払参照を保持してください。",
+    "Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently.": "不正、誤り、重複支払の各ケースを別々に振り分けられるよう、構造化されたリバーサル理由を使用してください。",
+    "Capture institutional roles clearly; this is not a retail-customer debit model.": "金融機関の役割を明確に記述してください。これは個人顧客向けの引落モデルではありません。",
+    "The request itself needs an auditable identifier distinct from the underlying payment.": "照会そのものにも、元の支払とは別の監査可能な識別子が必要です。",
+    "Use the exact source identifier from the original instruction to maximize matching accuracy.": "照合精度を最大化するため、元の指図に含まれる正確な元識別子を使用してください。",
+    "Keep mandate and collection identifiers separate from business invoice references.": "マンデート識別子と取立識別子は、業務上の請求書参照とは分けて管理してください。",
+    "Validate debit amount precision and currency rules before rendering XML.": "XML を生成する前に、引落金額の精度と通貨ルールを検証してください。",
+    "Direct-debit success often depends more on account and mandate quality than on XML structure.": "口座振替の成否は、XML 構造よりも口座情報とマンデートの品質に左右されることが少なくありません。"
+  },
+  ko: {
+    "Reason-code quality is critical for downstream customer communication and operational routing.": "사유 코드의 품질은 후속 고객 커뮤니케이션과 운영 경로 지정에 매우 중요합니다.",
+    "Check later revisions for mandate, status, and interoperability updates before greenfield use.": "신규 구축에 사용하기 전에 이후 개정판에서 위임, 상태, 상호운용성 관련 업데이트를 확인하세요.",
+    "Institution direct-debit amounts often need explicit bilateral tolerance controls.": "기관 간 자동이체 금액에는 명시적인 양자 허용 한도 통제가 필요한 경우가 많습니다.",
+    "The reversal itself needs its own audit-safe identifier.": "리버설 메시지 자체에 감사 추적이 가능한 별도의 식별자가 필요합니다.",
+    "Preserve the original payment reference to avoid reconciliation breaks.": "대사 단절을 방지하려면 원래 지급 참조를 유지하세요.",
+    "Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently.": "사기, 오류, 중복 지급 사례를 서로 다르게 라우팅할 수 있도록 구조화된 리버설 사유를 사용하세요.",
+    "Capture institutional roles clearly; this is not a retail-customer debit model.": "기관 역할을 명확히 기록하세요. 이것은 소매 고객 대상 차변 모델이 아닙니다.",
+    "The request itself needs an auditable identifier distinct from the underlying payment.": "조회 요청 자체에도 원지급과 구분되는 감사 가능한 식별자가 필요합니다.",
+    "Use the exact source identifier from the original instruction to maximize matching accuracy.": "매칭 정확도를 높이려면 원래 지시에 있는 정확한 원본 식별자를 사용하세요.",
+    "Keep mandate and collection identifiers separate from business invoice references.": "위임 식별자와 수금 식별자는 업무용 송장 참조와 분리해서 관리하세요.",
+    "Validate debit amount precision and currency rules before rendering XML.": "XML 생성 전에 출금 금액 정밀도와 통화 규칙을 검증하세요.",
+    "Direct-debit success often depends more on account and mandate quality than on XML structure.": "자동이체의 성공 여부는 XML 구조보다 계좌와 위임 정보의 품질에 더 크게 좌우되는 경우가 많습니다."
+  },
+  ru: {
+    "Useful mainly for legacy migration analysis and version-history context.": "Полезно главным образом для анализа миграции с устаревших систем и понимания истории версий.",
+    "Check later revisions for mandate, status, and interoperability updates before greenfield use.": "Перед использованием в новом внедрении проверьте более поздние ревизии на предмет обновлений по мандатам, статусам и взаимодействию.",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "Используйте идентификатор этапа финансирования, который по-прежнему можно связать с исходным клиентским потоком.",
+    "Reason-code quality is critical for downstream customer communication and operational routing.": "Качество кодов причин критично для дальнейшего общения с клиентом и операционной маршрутизации.",
+    "Used in exception-handling and SLA-monitoring workflows": "Используется в процессах обработки исключений и мониторинга SLA",
+    "Original Instruction Identification from the source payment": "Идентификатор исходной инструкции из исходного платежа",
+    "Carries structured reversal reason codes for downstream processing": "Содержит структурированные коды причин сторнирования для последующей обработки",
+    "Reversal Reason Information with structured reason codes": "Информация о причине сторнирования со структурированными кодами причин",
+    "Structured reason codes replace free-text narratives from legacy MT messages": "Структурированные коды причин заменяют свободные текстовые описания из устаревших MT-сообщений",
+    "Increasingly used in instant payment recall and fraud prevention workflows": "Всё чаще используется в процессах отзыва мгновенных платежей и предотвращения мошенничества",
+    "Replaces legacy MT104-style direct debit formats in cross-border flows": "Заменяет устаревшие форматы прямого дебетования в стиле MT104 в трансграничных потоках",
+    "Useful for direct-debit reference modelling in the current project.": "Полезно для моделирования ссылок на прямое дебетование в текущем проекте.",
+    "Reference point for institution direct-debit support in the current project.": "Служит ориентиром для поддержки прямого дебетования между учреждениями в текущем проекте.",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "Потоки по собственному счёту и покрывающие потоки часто требуют более строгого казначейского контроля сумм и дат расчётов."
+    ,"The reversal itself needs its own audit-safe identifier.": "Само сообщение сторнирования должно иметь собственный безопасный для аудита идентификатор.",
+    "Preserve the original payment reference to avoid reconciliation breaks.": "Сохраняйте исходную ссылку на платёж, чтобы избежать разрывов при сверке.",
+    "Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently.": "Используйте структурированные причины сторнирования, чтобы случаи мошенничества, ошибок и дублирующихся платежей направлялись по-разному.",
+    "Capture institutional roles clearly; this is not a retail-customer debit model.": "Чётко фиксируйте роли учреждений; это не модель списания для розничного клиента.",
+    "The request itself needs an auditable identifier distinct from the underlying payment.": "Сам запрос должен иметь проверяемый идентификатор, отличный от базового платежа.",
+    "Use the exact source identifier from the original instruction to maximize matching accuracy.": "Используйте точный исходный идентификатор из первоначальной инструкции, чтобы максимально повысить точность сопоставления.",
+    "Keep mandate and collection identifiers separate from business invoice references.": "Держите идентификаторы мандата и инкассо отдельно от бизнес-ссылок на счета-фактуры.",
+    "Validate debit amount precision and currency rules before rendering XML.": "Проверьте точность суммы списания и валютные правила до формирования XML.",
+    "Direct-debit success often depends more on account and mandate quality than on XML structure.": "Успех прямого дебетования часто больше зависит от качества счёта и мандата, чем от структуры XML."
+  },
+  uk: {
+    "Useful mainly for legacy migration analysis and version-history context.": "Корисно насамперед для аналізу переходу зі застарілих систем і розуміння історії версій.",
+    "Check later revisions for mandate, status, and interoperability updates before greenfield use.": "Перед використанням у новому впровадженні перевірте пізніші редакції щодо оновлень мандатів, статусів і взаємосумісності.",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "Використовуйте ідентифікатор етапу фінансування, який і далі можна пов’язати з початковим клієнтським потоком.",
+    "Reason-code quality is critical for downstream customer communication and operational routing.": "Якість кодів причин критично важлива для подальшого спілкування з клієнтом і операційної маршрутизації.",
+    "Useful for direct-debit reference modelling in the current project.": "Корисно для моделювання посилань на пряме дебетування в поточному проєкті.",
+    "Reference point for institution direct-debit support in the current project.": "Служить орієнтиром для підтримки прямого дебетування між установами в поточному проєкті.",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "Потоки за власним рахунком і покривні потоки часто потребують суворішого казначейського контролю сум і дат розрахунків.",
+    "pacs.008 vs pacs.009": "pacs.008 проти pacs.009",
+    "The reversal itself needs its own audit-safe identifier.": "Саме повідомлення сторнування повинно мати власний безпечний для аудиту ідентифікатор.",
+    "Preserve the original payment reference to avoid reconciliation breaks.": "Зберігайте початкове посилання на платіж, щоб уникнути розривів під час звіряння.",
+    "Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently.": "Використовуйте структуровані причини сторнування, щоб випадки шахрайства, помилки та дубльованого платежу маршрутизувалися по-різному.",
+    "Capture institutional roles clearly; this is not a retail-customer debit model.": "Чітко фіксуйте ролі установ; це не модель списання для роздрібного клієнта.",
+    "The request itself needs an auditable identifier distinct from the underlying payment.": "Сам запит повинен мати аудитований ідентифікатор, відмінний від базового платежу.",
+    "Use the exact source identifier from the original instruction to maximize matching accuracy.": "Використовуйте точний вихідний ідентифікатор з початкової інструкції, щоб максимізувати точність зіставлення.",
+    "Keep mandate and collection identifiers separate from business invoice references.": "Тримайте ідентифікатори мандата та інкасації окремо від бізнес-посилань на рахунки-фактури.",
+    "Validate debit amount precision and currency rules before rendering XML.": "Перевіряйте точність суми списання та валютні правила до формування XML.",
+    "Direct-debit success often depends more on account and mandate quality than on XML structure.": "Успішність прямого дебетування часто більше залежить від якості рахунку та мандата, ніж від структури XML."
+  },
+  zh: {
+    "Reason-code quality is critical for downstream customer communication and operational routing.": "原因代码的质量对于后续客户沟通和运营路由至关重要。",
+    "Check later revisions for mandate, status, and interoperability updates before greenfield use.": "在用于全新建设前，请检查后续版本中关于授权、状态和互操作性的更新。",
+    "Review later ISO revisions before starting new interoperability work or onboarding new infrastructures.": "在开始新的互操作工作或接入新基础设施之前，请审查后续 ISO 版本。",
+    "Check the newer catalogue revision for future interoperability planning.": "请检查更新的目录版本，以支持未来的互操作规划。",
+    "The reversal itself needs its own audit-safe identifier.": "撤销报文本身需要独立且可审计的安全标识符。",
+    "Preserve the original payment reference to avoid reconciliation breaks.": "请保留原始付款参考，以避免对账链路中断。",
+    "Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently.": "请使用结构化撤销原因，以便对欺诈、错误和重复付款场景采用不同路由。",
+    "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.": "在跨境和高跟踪要求环境中应始终如一地使用该字段，不要在后续流程阶段临时生成。",
+    "Validate amount and currency using business rules before schema validation.": "在进行模式校验之前，应先按业务规则校验金额和币种。",
+    "Capture institutional roles clearly; this is not a retail-customer debit model.": "应明确标识机构角色；这不是零售客户借记模型。",
+    "Review later return-message revisions when scheme upgrades or new counterparties are in scope.": "当范围包含方案升级或新增交易对手时，请审查后续的退回报文版本。",
+    "That status reporting replaces investigation workflows": "认为状态报告可以取代调查处理流程",
+    "That every payment needs an explicit status request": "认为每笔付款都需要显式状态请求",
+    "The request itself needs an auditable identifier distinct from the underlying payment.": "查询请求本身需要一个与底层付款区分开的、可审计的标识。",
+    "Use the exact source identifier from the original instruction to maximize matching accuracy.": "请使用原始指令中的精确源标识，以最大化匹配准确性。",
+    "Keep mandate and collection identifiers separate from business invoice references.": "请将授权标识和托收标识与业务发票参考分开管理。",
+    "Validate debit amount precision and currency rules before rendering XML.": "在生成 XML 之前，请先验证借记金额精度和币种规则。",
+    "Direct-debit success often depends more on account and mandate quality than on XML structure.": "直接借记能否顺利处理，往往更取决于账户和授权质量，而不是 XML 结构。"
+  },
+  "zh-tw": {
+    "Useful mainly for legacy migration analysis and version-history context.": "主要適用於舊系統遷移分析與版本歷史背景說明。",
+    "Reason-code quality is critical for downstream customer communication and operational routing.": "原因代碼的品質對於後續客戶溝通與營運路由至關重要。",
+    "Check later revisions for mandate, status, and interoperability updates before greenfield use.": "在用於全新建置前，請檢查後續版本中關於授權、狀態與互通性的更新。",
+    "Review later ISO revisions before starting new interoperability work or onboarding new infrastructures.": "在開始新的互通作業或接入新基礎設施之前，請檢視後續的 ISO 版本。",
+    "Check the newer catalogue revision for future interoperability planning.": "請檢查較新的目錄版本，以支援未來的互通規劃。",
+    "The reversal itself needs its own audit-safe identifier.": "撤銷報文本身需要獨立且可稽核的安全識別碼。",
+    "Preserve the original payment reference to avoid reconciliation breaks.": "請保留原始付款參考，以避免對帳鏈中斷。",
+    "Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently.": "請使用結構化撤銷原因，以便對詐欺、錯誤和重複付款情境採用不同路由。",
+    "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.": "在跨境與高追蹤需求環境中應一致使用此欄位，不要在後續流程階段臨時產生。",
+    "Validate amount and currency using business rules before schema validation.": "在進行綱要驗證前，應先依業務規則驗證金額與幣別。",
+    "Capture institutional roles clearly; this is not a retail-customer debit model.": "應清楚標示機構角色；這不是零售客戶借記模型。",
+    "Review later return-message revisions when scheme upgrades or new counterparties are in scope.": "當範圍包含方案升級或新增交易對手時，請檢視後續的退回訊息版本。",
+    "That status reporting replaces investigation workflows": "認為狀態回報可以取代調查處理流程",
+    "That every payment needs an explicit status request": "認為每筆付款都需要明確的狀態請求",
+    "The request itself needs an auditable identifier distinct from the underlying payment.": "查詢請求本身需要一個可稽核且與底層付款分離的識別碼。",
+    "Use the exact source identifier from the original instruction to maximize matching accuracy.": "請使用原始指令中的精確來源識別碼，以最大化配對準確度。",
+    "Keep mandate and collection identifiers separate from business invoice references.": "請將授權識別碼與收款識別碼和業務發票參考分開管理。",
+    "Validate debit amount precision and currency rules before rendering XML.": "在產生 XML 之前，請先驗證扣帳金額精度與幣別規則。",
+    "Direct-debit success often depends more on account and mandate quality than on XML structure.": "直接扣款能否順利處理，往往更取決於帳戶與授權品質，而不是 XML 結構。"
+  },
+  ar: {
+    "Reason-code quality is critical for downstream customer communication and operational routing.": "تُعد جودة رموز الأسباب عاملاً حاسماً في تواصل العملاء اللاحق وتوجيه العمليات.",
+    "Check later revisions for mandate, status, and interoperability updates before greenfield use.": "تحقق من الإصدارات اللاحقة لمعرفة تحديثات التفويض والحالة وقابلية التشغيل البيني قبل استخدام الرسالة في تنفيذ جديد.",
+    "Useful for direct-debit reference modelling in the current project.": "مفيد لنمذجة مراجع الخصم المباشر في المشروع الحالي.",
+    "Institution direct-debit amounts often need explicit bilateral tolerance controls.": "تحتاج مبالغ الخصم المباشر بين المؤسسات غالباً إلى ضوابط سماح ثنائية صريحة.",
+    "The reversal itself needs its own audit-safe identifier.": "تحتاج رسالة العكس نفسها إلى معرّف مستقل وآمن لأغراض التدقيق.",
+    "Preserve the original payment reference to avoid reconciliation breaks.": "حافظ على مرجع الدفعة الأصلي لتجنب انقطاع المطابقة.",
+    "Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently.": "استخدم أسباب عكس مهيكلة بحيث يمكن توجيه حالات الاحتيال والخطأ وتكرار الدفعات بشكل مختلف.",
+    "Review later ISO revisions before starting new interoperability work or onboarding new infrastructures.": "راجع إصدارات ISO اللاحقة قبل بدء أعمال توافق جديدة أو ضم بنى تحتية جديدة.",
+    "Check the newer catalogue revision for future interoperability planning.": "تحقق من الإصدار الأحدث من الكتالوج للتخطيط المستقبلي للتشغيل البيني.",
+    "Capture institutional roles clearly; this is not a retail-customer debit model.": "حدّد أدوار المؤسسات بوضوح؛ فهذا ليس نموذج خصم لعميل تجزئة.",
+    "That status reporting replaces investigation workflows": "أن تقارير الحالة تُغني عن مسارات التحقيق والمتابعة",
+    "That every payment needs an explicit status request": "أن كل دفعة تحتاج إلى طلب حالة صريح",
+    "Keep mandate and collection identifiers separate from business invoice references.": "افصل بين معرّفات التفويض والتحصيل وبين مراجع الفواتير التجارية.",
+    "Validate debit amount precision and currency rules before rendering XML.": "تحقق من دقة مبلغ الخصم وقواعد العملة قبل إنشاء XML.",
+    "Direct-debit success often depends more on account and mandate quality than on XML structure.": "نجاح الخصم المباشر يعتمد غالباً على جودة الحساب والتفويض أكثر من اعتماده على بنية XML."
+  },
+  de: {
+    "Best fit": "Am besten geeignet für",
+    "Post-settlement return handling": "Abwicklung von Rückgaben nach dem Settlement",
+    "Recall, error, or fraud-driven reversal handling": "Abwicklung von Rückabwicklungen wegen Recall, Fehler oder Betrug",
+    "Useful for direct-debit reference modelling in the current project.": "Nützlich für die Referenzmodellierung von Lastschriften im aktuellen Projekt.",
+    "Institution direct-debit amounts often need explicit bilateral tolerance controls.": "Beträge bei institutionellen Lastschriften benötigen oft explizite bilaterale Toleranzgrenzen.",
+    "Capture institutional roles clearly; this is not a retail-customer debit model.": "Erfassen Sie institutionelle Rollen klar; dies ist kein Lastschriftmodell für Privatkunden.",
+    "The reversal itself needs its own audit-safe identifier.": "Die Rückabwicklung selbst benötigt eine eigene revisionssichere Kennung.",
+    "Preserve the original payment reference to avoid reconciliation breaks.": "Bewahren Sie die ursprüngliche Zahlungsreferenz auf, um Brüche bei der Abstimmung zu vermeiden.",
+    "Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently.": "Verwenden Sie strukturierte Rückabwicklungsgründe, damit Betrugs-, Fehler- und Doppelzahlungsfälle unterschiedlich geroutet werden können.",
+    "This is the operational state; map it carefully to internal workflow states rather than assuming a one-to-one match.": "Dies ist der operative Status; ordnen Sie ihn sorgfältig internen Workflow-Status zu, statt von einer Eins-zu-eins-Entsprechung auszugehen.",
+    "Including customer traceability helps operations teams reconcile the enquiry faster.": "Die Einbeziehung kundenbezogener Nachverfolgbarkeit hilft den Betriebsteams, die Anfrage schneller abzustimmen.",
+    "Operational posture": "Operative Einordnung",
+    "Event-driven reporting": "Ereignisgesteuerte Statusmeldung",
+    "Exception-driven enquiry": "Ausnahmegetriebene Anfrage",
+    "Use a new identifier for the status report itself, not the original payment instruction.": "Verwenden Sie eine neue Kennung für den Statusbericht selbst, nicht für die ursprüngliche Zahlungsanweisung.",
+    "Keep the original instruction identifier intact so status can be matched automatically.": "Belassen Sie die ursprüngliche Anweisungskennung unverändert, damit der Status automatisch zugeordnet werden kann.",
+    "Structured reason codes are far more useful than free text for repair and analytics.": "Strukturierte Grundcodes sind für Repair-Prozesse und Analysen deutlich nützlicher als Freitext.",
+    "The request itself needs an auditable identifier distinct from the underlying payment.": "Die Anfrage selbst benötigt eine prüfbare Kennung, die sich von der zugrunde liegenden Zahlung unterscheidet.",
+    "Use the exact source identifier from the original instruction to maximize matching accuracy.": "Verwenden Sie die exakte Quellkennung aus der ursprünglichen Anweisung, um die Zuordnungsgenauigkeit zu maximieren.",
+    "Who starts the interaction": "Wer die Interaktion startet",
+    "The institution sending the status": "Das Institut, das den Status sendet",
+    "The institution asking for status": "Das Institut, das den Status anfragt",
+    "That it should be sent routinely for every payment": "Dass sie routinemäßig für jede Zahlung gesendet werden sollte",
+    "That it eliminates the need for proactive case management": "Dass dadurch proaktives Fallmanagement überflüssig wird",
+    "Keep mandate and collection identifiers separate from business invoice references.": "Halten Sie Mandats- und Einzugskennungen getrennt von geschäftlichen Rechnungsreferenzen.",
+    "Validate debit amount precision and currency rules before rendering XML.": "Prüfen Sie Präzision des Lastschriftbetrags und Währungsregeln, bevor XML erzeugt wird.",
+    "Direct-debit success often depends more on account and mandate quality than on XML structure.": "Der Erfolg einer Lastschrift hängt oft stärker von Konto- und Mandatsqualität als von der XML-Struktur ab."
+  },
+  es: {
+    "Best fit": "Más adecuado para",
+    "Post-settlement return handling": "Gestión de devoluciones tras la liquidación",
+    "Recall, error, or fraud-driven reversal handling": "Gestión de reversiones por recall, error o fraude",
+    "Useful for direct-debit reference modelling in the current project.": "Útil para la modelización de referencias de adeudo directo en el proyecto actual.",
+    "Institution direct-debit amounts often need explicit bilateral tolerance controls.": "Los importes de adeudo directo entre instituciones suelen requerir controles bilaterales explícitos de tolerancia.",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "Importante para planificar la hoja de ruta en entornos de banca corresponsal y pagos de cobertura.",
+    "Review later ISO revisions before starting new interoperability work or onboarding new infrastructures.": "Revise versiones posteriores de ISO antes de iniciar nuevos trabajos de interoperabilidad o incorporar nuevas infraestructuras.",
+    "Check the newer catalogue revision for future interoperability planning.": "Revise la versión más reciente del catálogo para la planificación futura de interoperabilidad.",
+    "The reversal itself needs its own audit-safe identifier.": "La propia reversión necesita su propio identificador seguro para auditoría.",
+    "Preserve the original payment reference to avoid reconciliation breaks.": "Conserve la referencia original del pago para evitar rupturas en la conciliación.",
+    "Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently.": "Use motivos de reversión estructurados para que los casos de fraude, error y pago duplicado puedan encaminarse de forma distinta.",
+    "Review later return-message revisions when scheme upgrades or new counterparties are in scope.": "Revise versiones posteriores de los mensajes de devolución cuando haya actualizaciones del esquema o nuevas contrapartes en alcance.",
+    "Capture institutional roles clearly; this is not a retail-customer debit model.": "Defina con claridad los roles institucionales; este no es un modelo de adeudo para clientes minoristas.",
+    "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.": "Úselo de forma coherente en entornos transfronterizos y de seguimiento intensivo; no lo genere de forma improvisada en etapas posteriores del flujo.",
+    "Keep customer-facing traceability stable across downstream systems where possible.": "Mantenga estable la trazabilidad de cara al cliente a través de los sistemas posteriores siempre que sea posible.",
+    "Validate amount and currency using business rules before schema validation.": "Valide importe y divisa con reglas de negocio antes de la validación del esquema.",
+    "This is the operational state; map it carefully to internal workflow states rather than assuming a one-to-one match.": "Este es el estado operativo; asígnelo con cuidado a los estados internos del flujo en lugar de asumir una correspondencia directa.",
+    "Including customer traceability helps operations teams reconcile the enquiry faster.": "Incluir trazabilidad de cara al cliente ayuda a los equipos operativos a conciliar la consulta con mayor rapidez.",
+    "Operational posture": "Postura operativa",
+    "Event-driven reporting": "Reporte basado en eventos",
+    "Exception-driven enquiry": "Consulta impulsada por excepciones",
+    "Check later revisions for mandate, status, and interoperability updates before greenfield use.": "Revise versiones posteriores para cambios de mandato, estado e interoperabilidad antes de un uso greenfield.",
+    "Use a new identifier for the status report itself, not the original payment instruction.": "Use un identificador nuevo para el propio informe de estado, no para la instrucción de pago original.",
+    "Keep the original instruction identifier intact so status can be matched automatically.": "Mantenga intacto el identificador original de la instrucción para que el estado pueda conciliarse automáticamente.",
+    "Structured reason codes are far more useful than free text for repair and analytics.": "Los códigos de motivo estructurados son mucho más útiles que el texto libre para reparaciones y analítica.",
+    "The request itself needs an auditable identifier distinct from the underlying payment.": "La propia solicitud necesita un identificador auditable distinto del pago subyacente.",
+    "Use the exact source identifier from the original instruction to maximize matching accuracy.": "Use el identificador fuente exacto de la instrucción original para maximizar la precisión de conciliación.",
+    "Who starts the interaction": "Quién inicia la interacción",
+    "The institution sending the status": "La institución que envía el estado",
+    "The institution asking for status": "La institución que solicita el estado",
+    "That it should be sent routinely for every payment": "Que debería enviarse de forma rutinaria para cada pago",
+    "That it eliminates the need for proactive case management": "Que elimina la necesidad de una gestión proactiva de casos",
+    "Keep mandate and collection identifiers separate from business invoice references.": "Mantenga separados los identificadores de mandato y cobro de las referencias de facturas comerciales.",
+    "Validate debit amount precision and currency rules before rendering XML.": "Valide la precisión del importe del adeudo y las reglas de divisa antes de generar el XML.",
+    "Direct-debit success often depends more on account and mandate quality than on XML structure.": "El éxito del adeudo directo suele depender más de la calidad de la cuenta y del mandato que de la estructura XML.",
+    "That status reporting replaces investigation workflows": "Que la información de estado sustituye los flujos de investigación",
+    "That every payment needs an explicit status request": "Que cada pago necesita una solicitud explícita de estado"
+  },
+  fr: {
+    "Best fit": "Le plus adapté à",
+    "Post-settlement return handling": "Gestion des retours après règlement",
+    "Recall, error, or fraud-driven reversal handling": "Gestion des annulations liées à un recall, à une erreur ou à une fraude",
+    "Useful for direct-debit reference modelling in the current project.": "Utile pour la modélisation de références de prélèvement dans le projet actuel.",
+    "Institution direct-debit amounts often need explicit bilateral tolerance controls.": "Les montants de prélèvement interbancaire nécessitent souvent des contrôles bilatéraux explicites de tolérance.",
+    "Review later ISO revisions before starting new interoperability work or onboarding new infrastructures.": "Examinez les versions ISO ultérieures avant de lancer de nouveaux travaux d'interopérabilité ou d'intégrer de nouvelles infrastructures.",
+    "Check the newer catalogue revision for future interoperability planning.": "Consultez la version plus récente du catalogue pour la planification future de l'interopérabilité.",
+    "The reversal itself needs its own audit-safe identifier.": "L'annulation elle-même doit disposer de son propre identifiant sûr pour l'audit.",
+    "Preserve the original payment reference to avoid reconciliation breaks.": "Conservez la référence de paiement d'origine pour éviter les ruptures de rapprochement.",
+    "Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently.": "Utilisez des motifs d'annulation structurés afin d'orienter différemment les cas de fraude, d'erreur et de doublon de paiement.",
+    "Review later return-message revisions when scheme upgrades or new counterparties are in scope.": "Examinez les révisions ultérieures des messages de retour lorsque des mises à jour de schéma ou de nouvelles contreparties entrent dans le périmètre.",
+    "Capture institutional roles clearly; this is not a retail-customer debit model.": "Définissez clairement les rôles des établissements ; il ne s'agit pas d'un modèle de débit pour clientèle de détail.",
+    "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.": "Utilisez ce champ de façon cohérente dans les environnements transfrontaliers à fort besoin de suivi ; ne le générez pas de façon ad hoc dans des étapes ultérieures du traitement.",
+    "Keep customer-facing traceability stable across downstream systems where possible.": "Conservez une traçabilité orientée client stable dans les systèmes en aval lorsque c'est possible.",
+    "Validate amount and currency using business rules before schema validation.": "Validez le montant et la devise avec des règles métier avant la validation du schéma.",
+    "This is the operational state; map it carefully to internal workflow states rather than assuming a one-to-one match.": "Il s'agit de l'état opérationnel ; rattachez-le soigneusement aux états internes du workflow au lieu de supposer une correspondance directe.",
+    "Including customer traceability helps operations teams reconcile the enquiry faster.": "Inclure une traçabilité côté client aide les équipes opérations à rapprocher la demande plus rapidement.",
+    "Operational posture": "Posture opérationnelle",
+    "Event-driven reporting": "Reporting déclenché par événement",
+    "Exception-driven enquiry": "Demande pilotée par exception",
+    "Check later revisions for mandate, status, and interoperability updates before greenfield use.": "Examinez les révisions ultérieures pour les évolutions de mandat, de statut et d'interopérabilité avant tout usage greenfield.",
+    "Use a new identifier for the status report itself, not the original payment instruction.": "Utilisez un nouvel identifiant pour le rapport de statut lui-même, et non pour l'instruction de paiement d'origine.",
+    "Keep the original instruction identifier intact so status can be matched automatically.": "Conservez l'identifiant de l'instruction d'origine afin que le statut puisse être rapproché automatiquement.",
+    "Structured reason codes are far more useful than free text for repair and analytics.": "Les codes de motif structurés sont bien plus utiles que le texte libre pour les réparations et l'analytique.",
+    "The request itself needs an auditable identifier distinct from the underlying payment.": "La demande elle-même a besoin d'un identifiant traçable distinct du paiement sous-jacent.",
+    "Use the exact source identifier from the original instruction to maximize matching accuracy.": "Utilisez l'identifiant source exact de l'instruction d'origine afin de maximiser la précision du rapprochement.",
+    "Who starts the interaction": "Qui initie l'interaction",
+    "The institution sending the status": "L'établissement qui envoie le statut",
+    "The institution asking for status": "L'établissement qui demande le statut",
+    "That it should be sent routinely for every payment": "Qu'il devrait être envoyé de façon routinière pour chaque paiement",
+    "That it eliminates the need for proactive case management": "Qu'il supprime le besoin d'une gestion proactive des cas",
+    "Keep mandate and collection identifiers separate from business invoice references.": "Gardez les identifiants de mandat et de recouvrement distincts des références de facture métier.",
+    "Validate debit amount precision and currency rules before rendering XML.": "Validez la précision du montant débité et les règles de devise avant de générer le XML.",
+    "Direct-debit success often depends more on account and mandate quality than on XML structure.": "La réussite d'un prélèvement dépend souvent davantage de la qualité du compte et du mandat que de la structure XML.",
+    "That status reporting replaces investigation workflows": "Que le reporting de statut remplace les workflows d'investigation",
+    "That every payment needs an explicit status request": "Que chaque paiement nécessite une demande de statut explicite"
+  },
+  it: {
+    "Best fit": "Più adatto a",
+    "Post-settlement return handling": "Gestione dei resi dopo il regolamento",
+    "Recall, error, or fraud-driven reversal handling": "Gestione delle inversioni dovute a recall, errore o frode",
+    "Useful for direct-debit reference modelling in the current project.": "Utile per la modellazione dei riferimenti di addebito diretto nel progetto corrente.",
+    "Institution direct-debit amounts often need explicit bilateral tolerance controls.": "Gli importi degli addebiti diretti tra istituzioni richiedono spesso controlli bilaterali espliciti di tolleranza.",
+    "Capture institutional roles clearly; this is not a retail-customer debit model.": "Definisci chiaramente i ruoli istituzionali; questo non e un modello di addebito per clienti retail.",
+    "Check the newer catalogue revision for future interoperability planning.": "Controlla la revisione di catalogo piu recente per la pianificazione futura dell'interoperabilita.",
+    "Review later ISO revisions before starting new interoperability work or onboarding new infrastructures.": "Esamina le revisioni ISO successive prima di avviare nuovi lavori di interoperabilita o di integrare nuove infrastrutture.",
+    "The reversal itself needs its own audit-safe identifier.": "La reversa stessa ha bisogno di un proprio identificatore sicuro per l'audit.",
+    "Preserve the original payment reference to avoid reconciliation breaks.": "Conserva il riferimento di pagamento originale per evitare rotture nella riconciliazione.",
+    "Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently.": "Usa motivi di reversa strutturati in modo che i casi di frode, errore e pagamento duplicato possano essere instradati in modo diverso.",
+    "This is the operational state; map it carefully to internal workflow states rather than assuming a one-to-one match.": "Questo e lo stato operativo; mappalo con attenzione sugli stati interni del workflow invece di presumere una corrispondenza diretta.",
+    "Use a new identifier for the status report itself, not the original payment instruction.": "Usa un nuovo identificatore per il rapporto di stato stesso, non per l'istruzione di pagamento originale.",
+    "Keep the original instruction identifier intact so status can be matched automatically.": "Mantieni intatto l'identificatore dell'istruzione originale in modo che lo stato possa essere riconciliato automaticamente.",
+    "Structured reason codes are far more useful than free text for repair and analytics.": "I codici motivo strutturati sono molto piu utili del testo libero per le riparazioni e l'analitica.",
+    "The request itself needs an auditable identifier distinct from the underlying payment.": "La richiesta stessa ha bisogno di un identificatore verificabile distinto dal pagamento sottostante.",
+    "Use the exact source identifier from the original instruction to maximize matching accuracy.": "Usa l'identificatore sorgente esatto dell'istruzione originale per massimizzare la precisione dell'abbinamento.",
+    "Who starts the interaction": "Chi avvia l'interazione",
+    "The institution sending the status": "L'istituzione che invia lo stato",
+    "The institution asking for status": "L'istituzione che richiede lo stato",
+    "That it should be sent routinely for every payment": "Che dovrebbe essere inviato di routine per ogni pagamento",
+    "That it eliminates the need for proactive case management": "Che elimina la necessita di una gestione proattiva dei casi",
+    "Keep mandate and collection identifiers separate from business invoice references.": "Mantieni separati gli identificatori di mandato e di incasso dai riferimenti delle fatture aziendali.",
+    "Validate debit amount precision and currency rules before rendering XML.": "Valida la precisione dell'importo di addebito e le regole di valuta prima di generare l'XML.",
+    "Direct-debit success often depends more on account and mandate quality than on XML structure.": "Il buon esito di un addebito diretto dipende spesso piu dalla qualita del conto e del mandato che dalla struttura XML.",
+    "That status reporting replaces investigation workflows": "Che la reportistica di stato sostituisca i flussi di indagine",
+    "That every payment needs an explicit status request": "Che ogni pagamento richieda una richiesta di stato esplicita"
+  },
+  nl: {
+    "Best fit": "Het meest geschikt voor",
+    "Post-settlement return handling": "Afhandeling van retouren na afwikkeling",
+    "Recall, error, or fraud-driven reversal handling": "Afhandeling van terugboekingen door recall, fout of fraude",
+    "Useful for direct-debit reference modelling in the current project.": "Nuttig voor de referentiemodellering van incasso's in het huidige project.",
+    "Institution direct-debit amounts often need explicit bilateral tolerance controls.": "Bedragen bij institutionele incasso's vereisen vaak expliciete bilaterale tolerantielimieten.",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "Belangrijk voor roadmapplanning in omgevingen voor correspondentbankieren en dekkingsbetalingen.",
+    "Use a new identifier for the status report itself, not the original payment instruction.": "Gebruik een nieuwe identificatie voor het statusrapport zelf, niet voor de oorspronkelijke betalingsinstructie.",
+    "Keep the original instruction identifier intact so status can be matched automatically.": "Laat de oorspronkelijke instructie-identificatie ongewijzigd zodat de status automatisch kan worden gematcht.",
+    "Structured reason codes are far more useful than free text for repair and analytics.": "Gestructureerde redencodes zijn veel nuttiger dan vrije tekst voor herstel en analyse.",
+    "The request itself needs an auditable identifier distinct from the underlying payment.": "Het verzoek zelf heeft een controleerbare identificatie nodig die losstaat van de onderliggende betaling.",
+    "Use the exact source identifier from the original instruction to maximize matching accuracy.": "Gebruik de exacte bronidentificatie uit de oorspronkelijke instructie om de matchingnauwkeurigheid te maximaliseren.",
+    "Who starts the interaction": "Wie de interactie start",
+    "The institution sending the status": "De instelling die de status verzendt",
+    "The institution asking for status": "De instelling die om status vraagt",
+    "That it should be sent routinely for every payment": "Dat het routinematig voor elke betaling zou moeten worden verzonden",
+    "That it eliminates the need for proactive case management": "Dat het de noodzaak van proactief casemanagement wegneemt",
+    "Keep mandate and collection identifiers separate from business invoice references.": "Houd mandaat- en incasso-identificaties gescheiden van zakelijke factuurreferenties.",
+    "Validate debit amount precision and currency rules before rendering XML.": "Valideer de precisie van het incassobedrag en de valutaregels voordat XML wordt gegenereerd.",
+    "Direct-debit success often depends more on account and mandate quality than on XML structure.": "Het succes van een incasso hangt vaak meer af van de kwaliteit van rekening en mandaat dan van de XML-structuur."
+  },
+  pt: {
+    "Best fit": "Mais adequado para",
+    "Post-settlement return handling": "Tratamento de devoluções após a liquidação",
+    "Recall, error, or fraud-driven reversal handling": "Tratamento de reversões por recall, erro ou fraude",
+    "Useful for direct-debit reference modelling in the current project.": "Útil para a modelagem de referências de débito direto no projeto atual.",
+    "Institution direct-debit amounts often need explicit bilateral tolerance controls.": "Valores de débito direto entre instituições frequentemente exigem controles bilaterais explícitos de tolerância.",
+    "Use a new identifier for the status report itself, not the original payment instruction.": "Use um novo identificador para o próprio relatório de status, não para a instrução de pagamento original.",
+    "Keep the original instruction identifier intact so status can be matched automatically.": "Mantenha intacto o identificador original da instrução para que o status possa ser conciliado automaticamente.",
+    "Structured reason codes are far more useful than free text for repair and analytics.": "Códigos de motivo estruturados são muito mais úteis do que texto livre para correção e análise.",
+    "The request itself needs an auditable identifier distinct from the underlying payment.": "A própria solicitação precisa de um identificador auditável distinto do pagamento subjacente.",
+    "Use the exact source identifier from the original instruction to maximize matching accuracy.": "Use o identificador de origem exato da instrução original para maximizar a precisão da conciliação.",
+    "Who starts the interaction": "Quem inicia a interação",
+    "The institution sending the status": "A instituição que envia o status",
+    "The institution asking for status": "A instituição que solicita o status",
+    "That it should be sent routinely for every payment": "Que ele deveria ser enviado rotineiramente para cada pagamento",
+    "That it eliminates the need for proactive case management": "Que ele elimina a necessidade de gerenciamento proativo de casos",
+    "Keep mandate and collection identifiers separate from business invoice references.": "Mantenha identificadores de mandato e de cobrança separados das referências de faturas comerciais.",
+    "Validate debit amount precision and currency rules before rendering XML.": "Valide a precisão do valor do débito e as regras de moeda antes de gerar o XML.",
+    "Direct-debit success often depends more on account and mandate quality than on XML structure.": "O sucesso do débito direto costuma depender mais da qualidade da conta e do mandato do que da estrutura do XML."
+  },
+  he: {
+    "Aligns with current templates for payment returns.": "תואם לתבניות הנוכחיות עבור הודעות החזרת תשלום.",
+    "Reason-code quality is critical for downstream customer communication and operational routing.": "איכות קודי הסיבה חיונית לתקשורת עם לקוחות בהמשך הדרך ולניתוב תפעולי.",
+    "Good baseline for reversal workflow modelling.": "בסיס טוב למידול תהליכי היפוך.",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "השתמשו במזהה של שלב המימון שאפשר עדיין לקשר לכל זרם לקוח בסיסי.",
+    "This must point back to the settled transaction being returned.": "שדה זה חייב להצביע בחזרה אל העסקה שסולקה וכעת מוחזרת.",
+    "Return amount should reflect the actual returned value, not a reconstructed business amount.": "סכום ההחזרה צריך לשקף את הערך שהוחזר בפועל, ולא סכום עסקי ששוחזר בדיעבד.",
+    "Return settled funds": "החזרת כספים שסולקו",
+    "Reverse a previously instructed payment": "היפוך של תשלום שנשלח קודם לכן",
+    "Initiated by": "מופעל על ידי",
+    "Receiving / beneficiary side": "צד המקבל / המוטב",
+    "Original instructing side": "הצד המקורי שנתן את ההוראה",
+    "Direction of flow": "כיוון הזרימה",
+    "Back through the chain": "בחזרה לאורך השרשרת",
+    "Forward through the chain": "קדימה לאורך השרשרת",
+    "Best fit": "המתאים ביותר",
+    "Post-settlement return handling": "טיפול בהחזרה לאחר הסליקה",
+    "Recall, error, or fraud-driven reversal handling": "טיפול בהיפוך הנובע מהחזרה, מטעות או מהונאה",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "חשוב לתכנון מפת הדרכים בסביבות בנקאות מתכתבת ותשלומי כיסוי.",
+    "Reference point for institution direct-debit support in the current project.": "מהווה נקודת ייחוס לתמיכה בחיוב ישיר בין מוסדות בפרויקט הנוכחי.",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "תזרימי חשבון עצמי ותזרימי כיסוי דורשים לעיתים קרובות בקרות אוצר מחמירות יותר על סכומי ותאריכי הסליקה.",
+    "Useful for direct-debit reference modelling in the current project.": "מועיל למידול הפניות של חיוב ישיר בפרויקט הנוכחי.",
+    "Institution direct-debit amounts often need explicit bilateral tolerance controls.": "סכומי חיוב ישיר בין מוסדות דורשים לעיתים קרובות בקרות סבילות דו-צדדיות מפורשות.",
+    "Review later ISO revisions before starting new interoperability work or onboarding new infrastructures.": "בדקו גרסאות ISO מאוחרות יותר לפני התחלת עבודת אינטראופרביליות חדשה או חיבור תשתיות חדשות.",
+    "The reversal itself needs its own audit-safe identifier.": "להודעת ההיפוך עצמה נדרש מזהה נפרד ובטוח לביקורת.",
+    "Preserve the original payment reference to avoid reconciliation breaks.": "שמרו על אסמכתת התשלום המקורית כדי למנוע שברים בתהליכי התאמה.",
+    "Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently.": "השתמשו בסיבות היפוך מובנות כדי שמקרי הונאה, טעות ותשלום כפול ינותבו באופן שונה.",
+    "Capture institutional roles clearly; this is not a retail-customer debit model.": "תעדו בבירור את תפקידי המוסדות; זה אינו מודל חיוב ללקוח קמעונאי.",
+    "Keep mandate and collection identifiers separate from business invoice references.": "שמרו על הפרדה בין מזהי הרשאה וגבייה לבין אסמכתאות חשבונית עסקיות.",
+    "Validate debit amount precision and currency rules before rendering XML.": "אמתו את דיוק סכום החיוב ואת כללי המטבע לפני יצירת XML.",
+    "Direct-debit success often depends more on account and mandate quality than on XML structure.": "הצלחת חיוב ישיר תלויה לעיתים קרובות יותר באיכות החשבון וההרשאה מאשר במבנה ה-XML."
+  },
+  hi: {
+    "Aligns with current templates for payment returns.": "यह वर्तमान भुगतान-वापसी टेम्पलेटों के अनुरूप है।",
+    "Reason-code quality is critical for downstream customer communication and operational routing.": "कारण-कोड की गुणवत्ता बाद की ग्राहक-सम्प्रेषण प्रक्रिया और परिचालन रूटिंग के लिए अत्यंत महत्वपूर्ण है।",
+    "Good baseline for reversal workflow modelling.": "यह प्रत्यावर्तन प्रक्रिया मॉडलिंग के लिए एक अच्छा आधार है।",
+    "Useful mainly for legacy migration analysis and version-history context.": "मुख्य रूप से पुरानी प्रणालियों के माइग्रेशन विश्लेषण और संस्करण इतिहास की पृष्ठभूमि के लिए उपयोगी।",
+    "These are the revisions most likely to appear in recent migration or coexistence projects.": "हाल के माइग्रेशन या सह-अस्तित्व परियोजनाओं में सबसे अधिक यही संशोधन दिखाई देंगे।",
+    "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "वर्तमान संस्करण की योजना के लिए इसका उपयोग करें, लेकिन स्कीम उपयोग दिशानिर्देश और प्रतिपक्ष की तैयारी की जाँच जारी रखें।",
+    "Keep customer-facing traceability stable across downstream systems where possible.": "जहाँ संभव हो, आगे की प्रणालियों में ग्राहक-उन्मुख अनुरेखण को स्थिर रखें।",
+    "Institution-own-account credit transfer or cover leg": "संस्था के अपने खाते का क्रेडिट ट्रांसफर या कवर चरण",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "ऐसा वित्तपोषण-चरण पहचानकर्ता उपयोग करें जिसे अब भी मूल ग्राहक प्रवाह से जोड़ा जा सके।",
+    "Matches the current project support for FI credit transfer flows.": "यह FI क्रेडिट ट्रांसफर प्रवाहों के लिए परियोजना के वर्तमान समर्थन से मेल खाता है।",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "यह करेस्पॉन्डेंट और कवर-भुगतान परिवेशों में रोडमैप योजना के लिए महत्वपूर्ण है।",
+    "Reference point for institution direct-debit support in the current project.": "यह वर्तमान परियोजना में संस्थागत प्रत्यक्ष डेबिट समर्थन के लिए एक संदर्भ बिंदु है।",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "स्व-खाता और कवर प्रवाहों में निपटान राशि और तिथियों पर अक्सर अधिक कठोर कोषागार नियंत्रण की आवश्यकता होती है।",
+    "Review before adopting newer infrastructure requirements.": "नई अवसंरचना आवश्यकताओं को अपनाने से पहले इसकी समीक्षा करें।",
+    "Initiated by": "आरंभकर्ता",
+    "Original instructing side": "मूल निर्देश देने वाला पक्ष",
+    "Receiving / beneficiary side": "प्राप्तकर्ता / लाभार्थी पक्ष",
+    "Direction of flow": "प्रवाह की दिशा",
+    "Forward through the chain": "श्रृंखला में आगे की ओर",
+    "Back through the chain": "श्रृंखला में पीछे की ओर",
+    "Reverse a previously instructed payment": "पहले से निर्देशित भुगतान को उलटना",
+    "Return settled funds": "निपटाए गए धन को लौटाना",
+    "Best fit": "सबसे उपयुक्त उपयोग",
+    "Recall, error, or fraud-driven reversal handling": "रीकॉल, त्रुटि या धोखाधड़ी-प्रेरित प्रत्यावर्तन प्रबंधन",
+    "Post-settlement return handling": "निपटान के बाद वापसी प्रबंधन",
+    "These are institution parties, not retail customer roles; model them accordingly.": "ये संस्थागत पक्ष हैं, खुदरा ग्राहक भूमिकाएँ नहीं; तदनुसार इनका मॉडल तैयार करें।",
+    "Treasury / correspondent / funding operations": "कोषागार / करेस्पॉन्डेंट / वित्तपोषण संचालन",
+    "pacs.002, pacs.004, and linked pacs.008 flows": "pacs.002, pacs.004 और संबंधित pacs.008 प्रवाह",
+    "That it is just a more technical pacs.008": "कि यह केवल pacs.008 का अधिक तकनीकी रूप है",
+    "That it can carry institution funding flows cleanly": "कि यह संस्थागत वित्तपोषण प्रवाहों को बिना अतिरिक्त जटिलता के संभाल सकता है",
+    "Review later return-message revisions when scheme upgrades or new counterparties are in scope.": "जब दायरे में योजना उन्नयन या नए प्रतिपक्ष शामिल हों, तब वापसी-संदेश के बाद के संशोधनों की समीक्षा करें।",
+    "Useful for direct-debit reference modelling in the current project.": "यह वर्तमान परियोजना में प्रत्यक्ष डेबिट संदर्भ मॉडलिंग के लिए उपयोगी है।",
+    "Institution direct-debit amounts often need explicit bilateral tolerance controls.": "संस्थागत प्रत्यक्ष डेबिट राशियों के लिए अक्सर स्पष्ट द्विपक्षीय सहनशीलता नियंत्रणों की आवश्यकता होती है।",
+    "Review later ISO revisions before starting new interoperability work or onboarding new infrastructures.": "नई अंतर-संचालनीयता पहल शुरू करने या नई अवसंरचनाओं को शामिल करने से पहले ISO के बाद के संशोधनों की समीक्षा करें।",
+    "The reversal itself needs its own audit-safe identifier.": "प्रत्यावर्तन संदेश को स्वयं एक अलग, लेखापरीक्षण-सुरक्षित पहचानकर्ता चाहिए।",
+    "Preserve the original payment reference to avoid reconciliation breaks.": "मिलान प्रक्रिया में टूटन से बचने के लिए मूल भुगतान संदर्भ को सुरक्षित रखें।",
+    "Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently.": "संरचित प्रत्यावर्तन कारणों का उपयोग करें ताकि धोखाधड़ी, त्रुटि और दोहराए गए भुगतान के मामलों को अलग-अलग मार्गित किया जा सके।",
+    "Capture institutional roles clearly; this is not a retail-customer debit model.": "संस्थागत भूमिकाओं को स्पष्ट रूप से दर्ज करें; यह खुदरा-ग्राहक डेबिट मॉडल नहीं है।",
+    "Keep mandate and collection identifiers separate from business invoice references.": "मैंडेट और संग्रह पहचानकर्ताओं को व्यावसायिक चालान संदर्भों से अलग रखें।",
+    "Use this when matching the current project templates and validation assets.": "जब वर्तमान परियोजना के टेम्पलेट और सत्यापन संसाधनों से मेल बैठाना हो, तब इसका उपयोग करें।",
+    "Use a new identifier for the status report itself, not the original payment instruction.": "मूल भुगतान निर्देश के लिए नहीं, बल्कि स्वयं स्थिति रिपोर्ट के लिए नया पहचानकर्ता उपयोग करें।",
+    "That status reporting replaces investigation workflows": "कि स्थिति-रिपोर्टिंग, जाँच और अनुवर्ती कार्यप्रवाहों की जगह ले लेती है",
+    "That every payment needs an explicit status request": "कि हर भुगतान के लिए स्पष्ट स्थिति-अनुरोध चाहिए",
+    "This should identify the message envelope, not the end-customer payment reference.": "यह संदेश-लिफ़ाफ़े की पहचान करे, न कि अंतिम ग्राहक के भुगतान संदर्भ की।",
+    "Keep customer-facing traceability stable across downstream systems where possible.": "जहाँ संभव हो, आगे की प्रणालियों में ग्राहक-उन्मुख अनुरेखण को स्थिर रखें।",
+    "Validate debit amount precision and currency rules before rendering XML.": "XML बनाने से पहले डेबिट राशि की सटीकता और मुद्रा नियमों की जाँच करें।",
+    "Direct-debit success often depends more on account and mandate quality than on XML structure.": "प्रत्यक्ष डेबिट की सफलता अक्सर XML संरचना की तुलना में खाते और प्राधिकरण की गुणवत्ता पर अधिक निर्भर करती है।"
+  },
+  id: {
+    "Early revisions": "Revisi awal",
+    "Pre-current modern revisions": "Revisi modern sebelum versi saat ini",
+    "Current catalogue revision": "Revisi katalog saat ini",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "Gunakan pengenal tahap pendanaan yang tetap dapat dihubungkan ke alur pelanggan dasar apa pun.",
+    "Useful mainly for legacy migration analysis and version-history context.": "Terutama berguna untuk analisis migrasi dari sistem lama dan konteks riwayat versi.",
+    "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "Gunakan ini untuk perencanaan versi saat ini, sambil tetap memvalidasi pedoman penggunaan skema dan kesiapan pihak lawan.",
+    "Keep customer-facing traceability stable across downstream systems where possible.": "Jaga keterlacakan yang terlihat oleh pelanggan tetap stabil di seluruh sistem lanjutan bila memungkinkan.",
+    "Review later return-message revisions when scheme upgrades or new counterparties are in scope.": "Tinjau revisi pesan retur yang lebih baru saat peningkatan skema atau pihak lawan baru masuk dalam cakupan.",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "Penting untuk perencanaan peta jalan dalam lingkungan perbankan koresponden dan pembayaran penutup.",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "Alur rekening sendiri dan alur penutup sering memerlukan kontrol tresuri yang lebih ketat atas jumlah dan tanggal penyelesaian.",
+    "Useful for direct-debit reference modelling in the current project.": "Berguna untuk pemodelan referensi debit langsung dalam proyek saat ini.",
+    "Institution direct-debit amounts often need explicit bilateral tolerance controls.": "Jumlah debit langsung antar lembaga sering memerlukan kontrol toleransi bilateral yang eksplisit.",
+    "The reversal itself needs its own audit-safe identifier.": "Pesan pembalikan itu sendiri memerlukan pengenal tersendiri yang aman untuk keperluan audit.",
+    "Preserve the original payment reference to avoid reconciliation breaks.": "Pertahankan referensi pembayaran asli agar rekonsiliasi tidak terputus.",
+    "Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently.": "Gunakan alasan pembalikan terstruktur agar kasus penipuan, kesalahan, dan pembayaran duplikat dapat dirutekan secara berbeda.",
+    "Capture institutional roles clearly; this is not a retail-customer debit model.": "Catat peran institusi dengan jelas; ini bukan model debit untuk nasabah ritel.",
+    "Keep mandate and collection identifiers separate from business invoice references.": "Pisahkan pengenal mandat dan penagihan dari referensi faktur bisnis.",
+    "Validate debit amount precision and currency rules before rendering XML.": "Validasi ketepatan jumlah debit dan aturan mata uang sebelum menghasilkan XML.",
+    "Direct-debit success often depends more on account and mandate quality than on XML structure.": "Keberhasilan debit langsung sering lebih bergantung pada kualitas rekening dan mandat daripada pada struktur XML."
+  },
+  pl: {
+    "Early revisions": "Wczesne rewizje",
+    "Pre-current modern revisions": "Nowoczesne rewizje sprzed bieżącej wersji",
+    "Current catalogue revision": "Bieżąca rewizja katalogu",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "Używaj identyfikatora etapu finansowania, który nadal można powiązać z bazowym przepływem klienta.",
+    "Useful mainly for legacy migration analysis and version-history context.": "Przydatne głównie do analizy migracji ze starszych systemów i kontekstu historii wersji.",
+    "Keep customer-facing traceability stable across downstream systems where possible.": "W miarę możliwości utrzymuj stabilną śledzalność po stronie klienta w kolejnych systemach.",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "Ważne dla planowania mapy drogowej w środowiskach bankowości korespondencyjnej i płatności pokryciowych.",
+    "Reference point for institution direct-debit support in the current project.": "Punkt odniesienia dla obsługi polecenia zapłaty między instytucjami w bieżącym projekcie.",
+    "Best fit": "Najlepiej nadaje się do",
+    "Post-settlement return handling": "Obsługa zwrotu po rozrachunku",
+    "Recall, error, or fraud-driven reversal handling": "Obsługa odwrócenia z powodu recall, błędu lub oszustwa",
+    "Useful for direct-debit reference modelling in the current project.": "Przydatne do modelowania odniesień polecenia zapłaty w bieżącym projekcie.",
+    "Institution direct-debit amounts often need explicit bilateral tolerance controls.": "Kwoty polecenia zapłaty między instytucjami często wymagają wyraźnych dwustronnych progów tolerancji.",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "Przepływy na rachunek własny i przepływy pokryciowe często wymagają bardziej rygorystycznej kontroli skarbowej kwot i dat rozrachunku.",
+    "The reversal itself needs its own audit-safe identifier.": "Sam komunikat odwołania płatności musi mieć własny identyfikator bezpieczny z punktu widzenia audytu.",
+    "Preserve the original payment reference to avoid reconciliation breaks.": "Zachowaj oryginalne odniesienie płatności, aby uniknąć przerw w uzgadnianiu.",
+    "Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently.": "Używaj ustrukturyzowanych powodów odwołania płatności, aby przypadki oszustwa, błędu i duplikatu płatności można było kierować inaczej.",
+    "Capture institutional roles clearly; this is not a retail-customer debit model.": "Wyraźnie opisz role instytucji; to nie jest model obciążenia dla klienta detalicznego.",
+    "Keep mandate and collection identifiers separate from business invoice references.": "Oddziel identyfikatory mandatu i inkasa od biznesowych odniesień do faktur.",
+    "Validate debit amount precision and currency rules before rendering XML.": "Zweryfikuj precyzję kwoty obciążenia i reguły walutowe przed wygenerowaniem XML.",
+    "Direct-debit success often depends more on account and mandate quality than on XML structure.": "Powodzenie polecenia zapłaty częściej zależy od jakości rachunku i mandatu niż od struktury XML."
+  },
+  ro: {
+    "Early revisions": "Revizii timpurii",
+    "Pre-current modern revisions": "Revizii moderne anterioare celei curente",
+    "Current catalogue revision": "Revizia curentă a catalogului",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "Folosește un identificator al etapei de finanțare care poate fi încă asociat cu fluxul de client de bază.",
+    "Useful mainly for legacy migration analysis and version-history context.": "Util mai ales pentru analiza migrării din sisteme vechi și pentru contextul istoric al versiunilor.",
+    "Keep customer-facing traceability stable across downstream systems where possible.": "Păstrează stabilă trasabilitatea orientată spre client în sistemele ulterioare ori de câte ori este posibil.",
+    "Useful for direct-debit reference modelling in the current project.": "Util pentru modelarea referințelor de debit direct în proiectul curent.",
+    "Institution direct-debit amounts often need explicit bilateral tolerance controls.": "Sumele de debit direct între instituții necesită adesea controale bilaterale explicite de toleranță.",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "Fluxurile pe cont propriu și fluxurile de acoperire necesită adesea controale de trezorerie mai stricte asupra sumelor și datelor de decontare.",
+    "Review later ISO revisions before starting new interoperability work or onboarding new infrastructures.": "Revizuiește versiunile ISO ulterioare înainte de a începe lucrări noi de interoperabilitate sau de a integra infrastructuri noi.",
+    "The reversal itself needs its own audit-safe identifier.": "Mesajul de reversare în sine are nevoie de propriul identificator sigur pentru audit.",
+    "Preserve the original payment reference to avoid reconciliation breaks.": "Păstrează referința originală a plății pentru a evita rupturile în reconciliere.",
+    "Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently.": "Folosește motive de reversare structurate astfel încât cazurile de fraudă, eroare și plată duplicată să poată fi rutate diferit.",
+    "Capture institutional roles clearly; this is not a retail-customer debit model.": "Descrie clar rolurile instituționale; acesta nu este un model de debit pentru clienți retail.",
+    "Keep mandate and collection identifiers separate from business invoice references.": "Păstrează separate identificatoarele de mandat și colectare față de referințele comerciale ale facturilor.",
+    "Validate debit amount precision and currency rules before rendering XML.": "Validează precizia sumei debitate și regulile valutare înainte de a genera XML-ul.",
+    "Direct-debit success often depends more on account and mandate quality than on XML structure.": "Succesul debitării directe depinde adesea mai mult de calitatea contului și a mandatului decât de structura XML."
+  },
+  tr: {
+    "Early revisions": "Erken sürümler",
+    "Pre-current modern revisions": "Mevcut sürümden önceki modern sürümler",
+    "Current catalogue revision": "Geçerli katalog sürümü",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "Alttaki müşteri akışıyla hâlâ ilişkilendirilebilen bir finansman aşaması tanımlayıcısı kullanın.",
+    "Useful mainly for legacy migration analysis and version-history context.": "Esas olarak eski sistemlerden geçiş analizi ve sürüm geçmişi bağlamı için yararlıdır.",
+    "These are the revisions most likely to appear in recent migration or coexistence projects.": "Son dönem geçiş veya birlikte çalışma projelerinde en çok karşılaşılması muhtemel sürümler bunlardır.",
+    "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "Bunu mevcut sürüm planlaması için kullanın; ancak şema kullanım kuralları ve karşı taraf hazırlığı yine de doğrulanmalıdır.",
+    "Keep customer-facing traceability stable across downstream systems where possible.": "Mümkün olduğunda müşteri tarafındaki izlenebilirliği sonraki sistemler boyunca istikrarlı tutun.",
+    "Best fit": "En uygun olduğu durum",
+    "Post-settlement return handling": "Mutabakattan sonra iade işleme",
+    "Recall, error, or fraud-driven reversal handling": "Geri çağırma, hata veya dolandırıcılık kaynaklı geri çevirme işleme",
+    "The reversal itself needs its own audit-safe identifier.": "Geri çevirme mesajının kendisinin denetime uygun ayrı bir tanımlayıcıya ihtiyacı vardır.",
+    "Preserve the original payment reference to avoid reconciliation breaks.": "Mutabakat kırılmalarını önlemek için orijinal ödeme referansını koruyun.",
+    "Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently.": "Dolandırıcılık, hata ve mükerrer ödeme vakalarının farklı yönlendirilebilmesi için yapılandırılmış geri çevirme nedenleri kullanın.",
+    "Capture institutional roles clearly; this is not a retail-customer debit model.": "Kurumsal rolleri açıkça belirtin; bu, perakende müşteri borçlandırma modeli değildir.",
+    "Keep mandate and collection identifiers separate from business invoice references.": "Talimat ve tahsilat tanımlayıcılarını ticari fatura referanslarından ayrı tutun.",
+    "Validate debit amount precision and currency rules before rendering XML.": "XML oluşturmadan önce borç tutarı hassasiyetini ve para birimi kurallarını doğrulayın.",
+    "Direct-debit success often depends more on account and mandate quality than on XML structure.": "Doğrudan borçlandırmanın başarısı çoğu zaman XML yapısından çok hesap ve talimat kalitesine bağlıdır."
+  },
+  th: {
+    "Good baseline for reversal workflow modelling.": "เป็นพื้นฐานที่ดีสำหรับการออกแบบกระบวนการกลับรายการ",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "ใช้ตัวระบุของช่วงการจัดหาเงินทุนที่ยังคงเชื่อมโยงกับกระบวนการลูกค้าต้นทางได้",
+    "Useful mainly for legacy migration analysis and version-history context.": "มีประโยชน์หลักสำหรับการวิเคราะห์การย้ายระบบเดิมและบริบทของประวัติเวอร์ชัน",
+    "These are the revisions most likely to appear in recent migration or coexistence projects.": "นี่คือรุ่นแก้ไขที่มีแนวโน้มจะพบมากที่สุดในโครงการย้ายระบบหรือการอยู่ร่วมกันล่าสุด",
+    "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "ใช้สิ่งนี้สำหรับการวางแผนเวอร์ชันปัจจุบัน โดยยังต้องตรวจสอบแนวทางการใช้งานของสคีมและความพร้อมของคู่สัญญาต่อไป",
+    "Keep customer-facing traceability stable across downstream systems where possible.": "รักษาความสามารถในการติดตามที่มองเห็นได้จากฝั่งลูกค้าให้คงที่ตลอดระบบลำดับถัดไปเท่าที่ทำได้",
+    "Use this when matching the current project templates and validation assets.": "ใช้สิ่งนี้เมื่อจำเป็นต้องสอดคล้องกับแม่แบบและทรัพยากรการตรวจสอบปัจจุบันของโครงการ",
+    "Review later ISO revisions before starting new interoperability work or onboarding new infrastructures.": "ตรวจสอบรุ่นแก้ไข ISO ที่ใหม่กว่าก่อนเริ่มงานด้าน interoperability ใหม่หรือเชื่อมต่อโครงสร้างพื้นฐานใหม่",
+    "The reversal itself needs its own audit-safe identifier.": "ข้อความการกลับรายการเองต้องมีตัวระบุเฉพาะที่ปลอดภัยต่อการตรวจสอบย้อนหลัง",
+    "Preserve the original payment reference to avoid reconciliation breaks.": "เก็บอ้างอิงการชำระเงินต้นฉบับไว้เพื่อหลีกเลี่ยงความขาดตอนในการกระทบยอด",
+    "Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently.": "ใช้เหตุผลการกลับรายการแบบมีโครงสร้างเพื่อให้กรณีทุจริต ข้อผิดพลาด และการชำระเงินซ้ำสามารถกำหนดเส้นทางต่างกันได้",
+    "Capture institutional roles clearly; this is not a retail-customer debit model.": "ระบุบทบาทของสถาบันให้ชัดเจน นี่ไม่ใช่โมเดลการหักบัญชีของลูกค้ารายย่อย",
+    "Keep mandate and collection identifiers separate from business invoice references.": "แยกตัวระบุคำสั่งมอบหมายและการเรียกเก็บออกจากข้อมูลอ้างอิงใบแจ้งหนี้ทางธุรกิจ",
+    "Validate debit amount precision and currency rules before rendering XML.": "ตรวจสอบความแม่นยำของจำนวนเงินหักบัญชีและกฎของสกุลเงินก่อนสร้าง XML",
+    "Direct-debit success often depends more on account and mandate quality than on XML structure.": "ความสำเร็จของการหักบัญชีโดยตรงมักขึ้นอยู่กับคุณภาพของบัญชีและคำสั่งมอบหมายมากกว่าโครงสร้าง XML"
+  },
+  vi: {
+    "Early revisions": "Các phiên bản sửa đổi ban đầu",
+    "Pre-current modern revisions": "Các phiên bản hiện đại trước bản hiện tại",
+    "Current catalogue revision": "Bản sửa đổi danh mục hiện tại",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "Hãy dùng mã định danh cho chặng tài trợ vốn mà vẫn có thể liên kết với luồng khách hàng gốc.",
+    "Aligns with current templates for payment returns.": "Phù hợp với các mẫu hiện tại cho thông điệp hoàn trả thanh toán.",
+    "Use this when matching the current project templates and validation assets.": "Dùng điều này khi cần khớp với các mẫu và tài sản xác thực hiện tại của dự án.",
+    "Useful mainly for legacy migration analysis and version-history context.": "Chủ yếu hữu ích cho phân tích chuyển đổi từ hệ thống cũ và bối cảnh lịch sử phiên bản.",
+    "These are the revisions most likely to appear in recent migration or coexistence projects.": "Đây là các phiên bản sửa đổi có khả năng xuất hiện nhiều nhất trong các dự án chuyển đổi hoặc cùng tồn tại gần đây.",
+    "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "Dùng điều này cho việc lập kế hoạch theo phiên bản hiện tại, đồng thời vẫn xác thực hướng dẫn sử dụng của lược đồ và mức độ sẵn sàng của đối tác.",
+    "Keep customer-facing traceability stable across downstream systems where possible.": "Hãy giữ tính truy vết hướng tới khách hàng ổn định trên các hệ thống kế tiếp khi có thể.",
+    "Good baseline for reversal workflow modelling.": "Là nền tảng tốt cho việc mô hình hóa quy trình hoàn tác thanh toán.",
+    "Review later return-message revisions when scheme upgrades or new counterparties are in scope.": "Hãy xem các bản sửa đổi thông điệp hoàn trả về sau khi phạm vi bao gồm nâng cấp lược đồ hoặc đối tác mới.",
+    "Capture institutional roles clearly; this is not a retail-customer debit model.": "Hãy mô tả rõ vai trò của các tổ chức; đây không phải là mô hình ghi nợ cho khách hàng bán lẻ.",
+    "Keep mandate and collection identifiers separate from business invoice references.": "Hãy giữ tách biệt các mã định danh ủy quyền và thu hộ khỏi các tham chiếu hóa đơn nghiệp vụ.",
+    "Validate debit amount precision and currency rules before rendering XML.": "Hãy xác thực độ chính xác của số tiền ghi nợ và các quy tắc tiền tệ trước khi tạo XML.",
+    "Direct-debit success often depends more on account and mandate quality than on XML structure.": "Thành công của ghi nợ trực tiếp thường phụ thuộc nhiều hơn vào chất lượng tài khoản và ủy quyền so với cấu trúc XML."
+  }
+};
+
+const PAGE_COPY_PATCH = {
+  he: { apiGenerateDesc: "יצירת קובץ XML מסוג pacs.008.001.13 מנתוני JSON." },
+  hi: {
+    apiGenerateDesc: "JSON डेटा से pacs.008.001.13 XML फ़ाइल जनरेट करें।"
+  },
+  id: { apiGenerateDesc: "Buat file XML pacs.008.001.13 dari data JSON." },
+  ro: { apiGenerateDesc: "Generați un fișier XML pacs.008.001.13 din date JSON." },
+  th: { apiGenerateDesc: "สร้างไฟล์ XML pacs.008.001.13 จากข้อมูล JSON" },
+  ru: {
+    messageTitle: "Типы сообщений",
+    messageDescription: "Поддерживаемые определения и версии сообщений ISO 20022 pacs.",
+    apiDescription: "Поддержка REST и CLI в pacs008 для генерации, валидации, оркестрации API и контроля соответствия в потоках кредитовых переводов FI-to-FI.",
+    apiIntro: "Проект предоставляет REST API и CLI для операционных сценариев обработки платёжных сообщений.",
+    apiInstallTitle: "Установка",
+    apiInstallText: "Установите пакет из PyPI. Требуется Python 3.9.2 или выше.",
+    apiEndpointGenerate: "Синхронно сгенерировать XML и вернуть файл",
+    apiValidateExample: "Пример валидации",
+    apiGenerateDesc: "Сгенерировать XML-файл pacs.008.001.13 из данных JSON.",
+    apiCliExample: "Пример",
+    apiPythonGenerate: "Сгенерировать XML из списка платёжных записей",
+    messageIntro: "pacs008 охватывает основное определение сообщения pacs.008 и связанные сообщения, используемые в потоках оркестрации и сверки.",
+    deliveryText: "Каждый поддерживаемый тип сообщения снабжён шаблонами и логикой валидации, чтобы команды могли стандартизировать генерацию и регрессионное тестирование в нескольких последующих каналах.",
+    market2: "**CBPR+**: pacs.008 продолжает заменять трансграничные сообщения формата MT103 более богатыми структурированными данными.",
+    aboutIntro: "pacs008 — это Python-инструментарий для автоматизации потоков клиентских кредитовых переводов ISO 20022 между финансовыми учреждениями.",
+    aboutBullet3: "Предоставляет сервис FastAPI для автоматизированных процессов",
+    aboutBullet8: "Обрабатывает большие наборы данных настраиваемыми пакетами для экономии памяти",
+    difference3: "моделирует платёжные цепочки и последующие форматы",
+    readiness3: "учитывает версии при генерации как для ранних, так и для текущих редакций pacs.008",
+    msgDetailOverview: "Обзор",
+    msgDetailVersions: "Поддерживаемые версии",
+    msgTypeColId: "Тип сообщения",
+    msgTypeColDesc: "Описание",
+    pacs028Business4: "Используется в процессах обработки исключений и мониторинга SLA",
+    pacs028Element4: "**OrgnlInstrId** — Идентификатор исходной инструкции из исходного платежа",
+    pacs007Business4: "Содержит структурированные коды причин сторнирования для последующей обработки",
+    pacs007Element4: "**RvslRsnInf** — Информация о причине сторнирования со структурированными кодами причин",
+    pacs007Cbpr3: "Структурированные коды причин заменяют свободные текстовые описания из устаревших MT-сообщений",
+    pacs007Cbpr4: "Всё чаще используется в процессах отзыва мгновенных платежей и предотвращения мошенничества",
+    pacs003Cbpr3: "Заменяет устаревшие форматы прямого дебетования в стиле MT104 в трансграничных потоках"
+  },
+  uk: {
+    apiGenerateDesc: "Згенерувати XML-файл pacs.008.001.13 із даних JSON."
+  },
+  vi: { apiGenerateDesc: "Tạo tệp XML pacs.008.001.13 từ dữ liệu JSON." }
+};
 
 const BATCH1_PHRASE_MAP = {
   de: {
@@ -7666,14 +9068,14 @@ const BATCH1_PHRASE_MAP = {
     "These are the revisions most likely to appear in recent migration or coexistence projects.": "Diese Versionen treten am ehesten in jüngeren Migrations- oder Koexistenzprojekten auf.",
     "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "Für die Planung mit der aktuellen Version geeignet, wobei Schema-Vorgaben und Gegenparteibereitschaft weiterhin geprüft werden sollten.",
     "Matches the current project support for FI credit transfer flows.": "Entspricht der aktuellen Projektunterstützung für FI-Kredittransferflüsse.",
-    "Important for roadmap planning in correspondent and cover-payment environments.": "Wichtig für die Roadmap-Planung in Korrespondenz- und Cover-Payment-Umgebungen.",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "Wichtig für die Planung der Roadmap in Korrespondenzbank- und Deckungszahlungsumgebungen.",
     "Use this when matching the current project templates and validation assets.": "Verwenden Sie dies, wenn Sie mit den aktuellen Projekt-Templates und Validierungsartefakten arbeiten.",
     "Review later ISO revisions before starting new interoperability work or onboarding new infrastructures.": "Spätere ISO-Versionen sollten vor neuer Interoperabilitätsarbeit oder der Anbindung neuer Infrastrukturen geprüft werden.",
     "Useful for direct-debit reference modelling in the current project.": "Nützlich für die Modellierung von Lastschriftreferenzen im aktuellen Projekt.",
     "Check later revisions for mandate, status, and interoperability updates before greenfield use.": "Vor einem Greenfield-Einsatz spätere Versionen auf Mandats-, Status- und Interoperabilitätsänderungen prüfen.",
     "Aligns with current templates for payment returns.": "Passt zu den aktuellen Templates für Zahlungsrückgaben.",
     "Review later return-message revisions when scheme upgrades or new counterparties are in scope.": "Spätere Rückgabenachrichten prüfen, wenn Schema-Upgrades oder neue Gegenparteien relevant werden.",
-    "Good baseline for reversal workflow modelling.": "Gute Ausgangsbasis für die Modellierung von Reversal-Workflows.",
+    "Good baseline for reversal workflow modelling.": "Gute Ausgangsbasis für die Modellierung von Stornoabläufen.",
     "Check later revisions for current market-infrastructure alignment.": "Spätere Versionen auf aktuelle Marktinfrastruktur-Anforderungen prüfen.",
     "Reference point for institution direct-debit support in the current project.": "Referenzpunkt für die Unterstützung institutsbezogener Lastschriften im aktuellen Projekt.",
     "Review before adopting newer infrastructure requirements.": "Vor der Übernahme neuer Infrastrukturanforderungen prüfen.",
@@ -7710,9 +9112,9 @@ const BATCH1_PHRASE_MAP = {
     "These are institution parties, not retail customer roles; model them accordingly.": "Dies sind Institutsparteien und keine Retail-Kundenrollen; modellieren Sie sie entsprechend.",
     "This should identify the message envelope, not the end-customer payment reference.": "Dies sollte den Nachrichtenumschlag identifizieren, nicht die Referenz des Endkunden.",
     "Keep customer-facing traceability stable across downstream systems where possible.": "Halten Sie die kundenseitige Nachverfolgbarkeit möglichst stabil über nachgelagerte Systeme hinweg.",
-    "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.": "Verwenden Sie dies konsistent in grenzüberschreitenden und tracking-intensiven Umgebungen; erzeugen Sie es nicht ad hoc in späteren Workflow-Schritten.",
+    "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.": "Verwenden Sie dies konsistent in grenzüberschreitenden und stark nachverfolgten Umgebungen; erzeugen Sie es nicht ad hoc in späteren Verarbeitungsschritten.",
     "Validate amount and currency using business rules before schema validation.": "Prüfen Sie Betrag und Währung anhand von Geschäftsregeln vor der Schemaprüfung.",
-    "Party quality, address structure, and identifiers are usually the main determinants of repair rates.": "Parteienqualität, Adressstruktur und Identifikatoren sind meist die Haupttreiber für Repair-Raten."
+    "Party quality, address structure, and identifiers are usually the main determinants of repair rates.": "Datenqualität der Parteien, Adressstruktur und Identifikatoren sind meist die wichtigsten Treiber für Nachbearbeitungsquoten."
   },
   fr: {
     "Current implementation in pacs008": "Implémentation actuelle dans pacs008",
@@ -7725,7 +9127,7 @@ const BATCH1_PHRASE_MAP = {
     "These are the revisions most likely to appear in recent migration or coexistence projects.": "Ce sont les révisions les plus susceptibles d'apparaître dans les projets récents de migration ou de coexistence.",
     "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "À utiliser pour planifier autour de la version actuelle, tout en vérifiant les règles de schéma et la préparation des contreparties.",
     "Matches the current project support for FI credit transfer flows.": "Correspond au niveau actuel de prise en charge du projet pour les flux de virements FI.",
-    "Important for roadmap planning in correspondent and cover-payment environments.": "Important pour la feuille de route dans les environnements de correspondance bancaire et de paiement cover.",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "Important pour la planification de la feuille de route dans les environnements de banque correspondante et de paiements de couverture.",
     "Primary purpose": "Objectif principal",
     "Business owner": "Responsable métier",
     "Typical pairings": "Associations typiques",
@@ -7733,10 +9135,10 @@ const BATCH1_PHRASE_MAP = {
     "Use this when matching the current project templates and validation assets.": "À utiliser lorsque vous travaillez avec les modèles et artefacts de validation actuellement pris en charge par le projet.",
     "Useful for direct-debit reference modelling in the current project.": "Utile pour modéliser les références de prélèvement dans le projet actuel.",
     "Aligns with current templates for payment returns.": "S'aligne sur les modèles actuels pour les retours de paiement.",
-    "Good baseline for reversal workflow modelling.": "Bonne base pour modéliser les workflows de reversal.",
+    "Good baseline for reversal workflow modelling.": "Bonne base pour modéliser les processus d'annulation.",
     "Reference point for institution direct-debit support in the current project.": "Point de référence pour la prise en charge des prélèvements d'institution dans le projet actuel.",
     "Suitable for current status-request modelling.": "Adapté à la modélisation actuelle des demandes de statut.",
-    "Important for roadmap planning in correspondent and cover-payment environments.": "Important pour la planification de la feuille de route dans les environnements de correspondance et de paiements cover.",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "Important pour la planification de la feuille de route dans les environnements de correspondance et de paiements de couverture.",
     "Institution-own-account credit transfer or cover leg": "Virement sur compte propre d'institution ou jambe de couverture",
     "Customer credit transfer": "Virement client",
     "Customer-payment operations": "Opérations de paiements clients",
@@ -7750,7 +9152,10 @@ const BATCH1_PHRASE_MAP = {
     "These are institution parties, not retail customer roles; model them accordingly.": "Il s'agit de parties institutionnelles, et non de rôles client retail ; modélisez-les comme tels.",
     "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "Utilisez un identifiant de jambe de financement qui puisse rester rattaché au flux client sous-jacent.",
     "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "Les flux sur compte propre et de couverture exigent souvent des contrôles de trésorerie plus stricts sur les montants et les dates de règlement.",
-    "These are institution parties, not retail customer roles; model them accordingly.": "Il s'agit de parties institutionnelles, et non de rôles client retail ; modélisez-les comme tels."
+    "These are institution parties, not retail customer roles; model them accordingly.": "Il s'agit de parties institutionnelles, et non de rôles client retail ; modélisez-les comme tels.",
+    "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.": "Utilisez ce champ de façon cohérente dans les environnements transfrontaliers à fort besoin de suivi ; ne le générez pas de façon ad hoc dans les étapes ultérieures du traitement.",
+    "Validate amount and currency using business rules before schema validation.": "Validez le montant et la devise avec des règles métier avant la validation du schéma.",
+    "Party quality, address structure, and identifiers are usually the main determinants of repair rates.": "La qualité des données de parties, la structure des adresses et les identifiants sont généralement les principaux facteurs du volume de correction."
   },
   es: {
     "Current implementation in pacs008": "Implementación actual en pacs008",
@@ -7769,8 +9174,9 @@ const BATCH1_PHRASE_MAP = {
     "Use this when matching the current project templates and validation assets.": "Úselo cuando trabaje con las plantillas y artefactos de validación actualmente soportados por el proyecto.",
     "Useful for direct-debit reference modelling in the current project.": "Útil para modelar referencias de adeudo directo en el proyecto actual.",
     "Aligns with current templates for payment returns.": "Se alinea con las plantillas actuales para devoluciones de pagos.",
-    "Good baseline for reversal workflow modelling.": "Buena base para modelar flujos de reversal.",
+    "Good baseline for reversal workflow modelling.": "Buena base para modelar flujos de reversión.",
     "Matches the current project support for FI credit transfer flows.": "Coincide con el soporte actual del proyecto para flujos de transferencia de crédito FI.",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "Importante para planificar la hoja de ruta en entornos de banca corresponsal y pagos de cobertura.",
     "Reference point for institution direct-debit support in the current project.": "Punto de referencia para el soporte de adeudos directos entre instituciones en el proyecto actual.",
     "Suitable for current status-request modelling.": "Adecuado para el modelado actual de solicitudes de estado.",
     "Institution-own-account credit transfer or cover leg": "Transferencia de crédito por cuenta propia de la institución o tramo de cobertura",
@@ -7783,7 +9189,10 @@ const BATCH1_PHRASE_MAP = {
     "That it can carry institution funding flows cleanly": "Que puede transportar sin problemas flujos de financiación entre instituciones",
     "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "Utilice un identificador del tramo de financiación que pueda seguir vinculándose al flujo de cliente subyacente.",
     "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "Los flujos por cuenta propia y de cobertura suelen requerir controles de tesorería más estrictos sobre importes y fechas de liquidación.",
-    "These are institution parties, not retail customer roles; model them accordingly.": "Se trata de partes institucionales, no de roles de cliente minorista; modélelas en consecuencia."
+    "These are institution parties, not retail customer roles; model them accordingly.": "Se trata de partes institucionales, no de roles de cliente minorista; modélelas en consecuencia.",
+    "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.": "Úselo de forma coherente en entornos transfronterizos con alta exigencia de trazabilidad; no lo genere de forma improvisada en etapas posteriores del proceso.",
+    "Validate amount and currency using business rules before schema validation.": "Valide importe y divisa con reglas de negocio antes de la validación del esquema.",
+    "Party quality, address structure, and identifiers are usually the main determinants of repair rates.": "La calidad de los datos de las partes, la estructura de las direcciones y los identificadores suelen ser los principales factores del volumen de reparaciones."
   },
   pt: {
     "Current implementation in pacs008": "Implementação atual no pacs008",
@@ -7802,21 +9211,34 @@ const BATCH1_PHRASE_MAP = {
     "Use this when matching the current project templates and validation assets.": "Use isto ao trabalhar com os templates e artefatos de validação atualmente suportados pelo projeto.",
     "Useful for direct-debit reference modelling in the current project.": "Útil para modelagem de referências de débito direto no projeto atual.",
     "Aligns with current templates for payment returns.": "Alinha-se aos templates atuais para retornos de pagamento.",
-    "Good baseline for reversal workflow modelling.": "Boa base para modelagem de fluxos de reversal.",
+    "Good baseline for reversal workflow modelling.": "Boa base para modelagem de fluxos de reversão.",
     "Matches the current project support for FI credit transfer flows.": "Corresponde ao suporte atual do projeto para fluxos de transferência de crédito FI.",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "Importante para o planejamento do roteiro em ambientes de banco correspondente e pagamentos de cobertura.",
     "Reference point for institution direct-debit support in the current project.": "Ponto de referência para o suporte a débitos diretos entre instituições no projeto atual.",
     "Suitable for current status-request modelling.": "Adequado para a modelagem atual de solicitações de status.",
     "Institution-own-account credit transfer or cover leg": "Transferência de crédito de conta própria da instituição ou perna de cobertura",
     "Customer credit transfer": "Transferência de crédito de cliente",
     "Customer-payment operations": "Operações de pagamentos de clientes",
-    "Treasury / correspondent / funding operations": "Operações de tesouraria, correspondência e funding",
+    "Treasury / correspondent / funding operations": "Operações de tesouraria, banco correspondente e financiamento",
     "pacs.002, pacs.004, and linked pacs.008 flows": "pacs.002, pacs.004 e fluxos pacs.008 vinculados",
     "pacs.002, pacs.004, pacs.007, pacs.028": "pacs.002, pacs.004, pacs.007, pacs.028",
     "That it is just a more technical pacs.008": "Que é apenas uma pacs.008 mais técnica",
-    "That it can carry institution funding flows cleanly": "Que pode transportar com facilidade fluxos de funding institucional",
-    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "Use um identificador da perna de funding que ainda possa ser associado ao fluxo de cliente subjacente.",
+    "That it can carry institution funding flows cleanly": "Que pode transportar com facilidade fluxos de financiamento institucional",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "Use um identificador da etapa de financiamento que ainda possa ser associado ao fluxo de cliente subjacente.",
     "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "Fluxos de conta própria e de cobertura frequentemente exigem controles de tesouraria mais rígidos sobre valores e datas de liquidação.",
-    "These are institution parties, not retail customer roles; model them accordingly.": "Estas são partes institucionais, não papéis de cliente de varejo; modele-as de acordo."
+    "These are institution parties, not retail customer roles; model them accordingly.": "Estas são partes institucionais, não papéis de cliente de varejo; modele-as de acordo.",
+    "Review later ISO revisions before starting new interoperability work or onboarding new infrastructures.": "Revise versões ISO posteriores antes de iniciar novos trabalhos de interoperabilidade ou integrar novas infraestruturas.",
+    "Check the newer catalogue revision for future interoperability planning.": "Consulte a revisão mais recente do catálogo para o planejamento futuro de interoperabilidade.",
+    "The reversal itself needs its own audit-safe identifier.": "A própria reversão precisa do seu próprio identificador seguro para auditoria.",
+    "Preserve the original payment reference to avoid reconciliation breaks.": "Preserve a referência original do pagamento para evitar rupturas na reconciliação.",
+    "Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently.": "Use motivos de reversão estruturados para que casos de fraude, erro e pagamento em duplicidade possam ser encaminhados de forma distinta.",
+    "That status reporting replaces investigation workflows": "Que o reporte de status substitui os fluxos de investigação",
+    "That every payment needs an explicit status request": "Que todo pagamento precisa de uma solicitação explícita de status",
+    "This is the operational state; map it carefully to internal workflow states rather than assuming a one-to-one match.": "Este é o estado operacional; mapeie-o com cuidado para os estados internos do fluxo em vez de supor correspondência direta.",
+    "Capture institutional roles clearly; this is not a retail-customer debit model.": "Defina claramente os papéis institucionais; este não é um modelo de débito para cliente de varejo.",
+    "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.": "Use isto de forma consistente em ambientes transfronteiriços com forte exigência de rastreabilidade; não o gere de forma ad hoc em etapas posteriores do processamento.",
+    "Validate amount and currency using business rules before schema validation.": "Valide valor e moeda com regras de negócio antes da validação do esquema.",
+    "Party quality, address structure, and identifiers are usually the main determinants of repair rates.": "A qualidade dos dados das partes, a estrutura do endereço e os identificadores costumam ser os principais fatores do volume de reparos."
   },
   it: {
     "Current implementation in pacs008": "Implementazione attuale in pacs008",
@@ -7829,28 +9251,31 @@ const BATCH1_PHRASE_MAP = {
     "These are the revisions most likely to appear in recent migration or coexistence projects.": "Sono le revisioni che più probabilmente compariranno nei recenti progetti di migrazione o coesistenza.",
     "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "Da usare per pianificare sulla versione corrente, continuando però a verificare regole di schema e prontezza delle controparti.",
     "Primary purpose": "Scopo principale",
-    "Business owner": "Responsabile di business",
-    "Typical pairings": "Abbinamenti tipici",
-    "Wrong assumption to avoid": "Assunzione errata da evitare",
-    "Matches the current project support for FI credit transfer flows.": "Corrisponde al supporto attuale del progetto per i flussi di trasferimento di credito FI.",
-    "Important for roadmap planning in correspondent and cover-payment environments.": "Importante per la pianificazione della roadmap in ambienti di correspondent banking e pagamenti cover.",
-    "Use this when matching the current project templates and validation assets.": "Da usare quando si lavora con i template e gli artefatti di validazione attualmente supportati dal progetto.",
-    "Useful for direct-debit reference modelling in the current project.": "Utile per la modellazione dei riferimenti di addebito diretto nel progetto attuale.",
-    "Aligns with current templates for payment returns.": "Si allinea ai template attuali per i ritorni di pagamento.",
-    "Good baseline for reversal workflow modelling.": "Buona base per modellare i workflow di reversal.",
-    "Reference point for institution direct-debit support in the current project.": "Punto di riferimento per il supporto agli addebiti diretti tra istituti nel progetto attuale.",
-    "Suitable for current status-request modelling.": "Adatto alla modellazione attuale delle richieste di stato.",
-    "Institution-own-account credit transfer or cover leg": "Trasferimento di credito su conto proprio dell'istituto o gamba di copertura",
-    "Customer credit transfer": "Trasferimento di credito cliente",
-    "Customer-payment operations": "Operazioni di pagamenti clienti",
-    "Treasury / correspondent / funding operations": "Operazioni di tesoreria, correspondent banking e funding",
-    "pacs.002, pacs.004, and linked pacs.008 flows": "pacs.002, pacs.004 e flussi pacs.008 collegati",
+    "Business owner": "Pemilik proses bisnis",
+    "Typical pairings": "Kombinasi yang umum",
+    "Wrong assumption to avoid": "Asumsi keliru yang perlu dihindari",
+    "Matches the current project support for FI credit transfer flows.": "Sesuai dengan dukungan proyek saat ini untuk alur transfer kredit FI.",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "Penting untuk perencanaan peta jalan dalam lingkungan perbankan koresponden dan pembayaran penutup.",
+    "Use this when matching the current project templates and validation assets.": "Gunakan ini saat mencocokkan templat proyek saat ini dan aset validasi.",
+    "Useful for direct-debit reference modelling in the current project.": "Berguna untuk pemodelan referensi debit langsung dalam proyek saat ini.",
+    "Aligns with current templates for payment returns.": "Selaras dengan templat saat ini untuk pesan pengembalian pembayaran.",
+    "Good baseline for reversal workflow modelling.": "Landasan yang baik untuk pemodelan alur pembalikan.",
+    "Reference point for institution direct-debit support in the current project.": "Menjadi titik acuan untuk dukungan debit langsung antar lembaga dalam proyek saat ini.",
+    "Suitable for current status-request modelling.": "Sesuai untuk pemodelan permintaan status saat ini.",
+    "Institution-own-account credit transfer or cover leg": "Transfer kredit rekening milik institusi sendiri atau tahap penutup pendanaan",
+    "Customer credit transfer": "Transfer kredit nasabah",
+    "Customer-payment operations": "Operasi pembayaran nasabah",
+    "Treasury / correspondent / funding operations": "Operasi tresuri / korespondensi / pendanaan",
+    "pacs.002, pacs.004, and linked pacs.008 flows": "aliran pacs.002, pacs.004, dan pacs.008 yang terkait",
     "pacs.002, pacs.004, pacs.007, pacs.028": "pacs.002, pacs.004, pacs.007, pacs.028",
-    "That it is just a more technical pacs.008": "Che sia semplicemente una pacs.008 più tecnica",
-    "That it can carry institution funding flows cleanly": "Che possa gestire senza problemi flussi di funding tra istituti",
-    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "Usare un identificatore della gamba di funding che possa restare collegato al flusso cliente sottostante.",
-    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "I flussi su conto proprio e di copertura richiedono spesso controlli di tesoreria più rigorosi su importi e date di regolamento.",
-    "These are institution parties, not retail customer roles; model them accordingly.": "Si tratta di parti istituzionali, non di ruoli cliente retail; vanno modellate di conseguenza."
+    "That it is just a more technical pacs.008": "Bahwa ini hanyalah pacs.008 yang lebih teknis",
+    "That it can carry institution funding flows cleanly": "Bahwa ini dapat membawa aliran pendanaan institusi dengan rapi",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "Gunakan pengenal tahap pendanaan yang tetap dapat dihubungkan ke alur pelanggan dasar apa pun.",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "Alur rekening sendiri dan alur penutup sering memerlukan kontrol tresuri yang lebih ketat atas jumlah dan tanggal penyelesaian.",
+    "These are institution parties, not retail customer roles; model them accordingly.": "Ini adalah pihak institusional, bukan peran nasabah ritel; modelkan sesuai itu.",
+    "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.": "Gunakan ini secara konsisten dalam lingkungan lintas batas dan yang menuntut pelacakan tinggi; jangan hasilkan secara ad hoc pada tahap proses berikutnya.",
+    "Validate amount and currency using business rules before schema validation.": "Validasi jumlah dan mata uang menggunakan aturan bisnis sebelum validasi skema.",
+    "Party quality, address structure, and identifiers are usually the main determinants of repair rates.": "Kualitas data pihak, struktur alamat, dan pengenal biasanya menjadi penentu utama tingkat perbaikan."
   },
   nl: {
     "Current implementation in pacs008": "Huidige implementatie in pacs008",
@@ -7869,36 +9294,1133 @@ const BATCH1_PHRASE_MAP = {
     "Use this when matching the current project templates and validation assets.": "Gebruik dit wanneer u werkt met de momenteel ondersteunde projectsjablonen en validatie-artefacten.",
     "Useful for direct-debit reference modelling in the current project.": "Nuttig voor het modelleren van incassoreferenties in het huidige project.",
     "Aligns with current templates for payment returns.": "Sluit aan op de huidige sjablonen voor retourbetalingen.",
-    "Good baseline for reversal workflow modelling.": "Goede basis voor het modelleren van reversal-workflows.",
+    "Good baseline for reversal workflow modelling.": "Goede basis voor het modelleren van terugboekingsprocessen.",
     "Matches the current project support for FI credit transfer flows.": "Komt overeen met de huidige projectondersteuning voor FI-credittransferstromen.",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "Belangrijk voor roadmapplanning in omgevingen voor correspondentbankieren en dekkingsbetalingen.",
     "Reference point for institution direct-debit support in the current project.": "Referentiepunt voor ondersteuning van institutionele incasso's in het huidige project.",
     "Suitable for current status-request modelling.": "Geschikt voor de huidige modellering van statusverzoeken.",
-    "Institution-own-account credit transfer or cover leg": "Credittransfer op eigen rekening van de instelling of cover-leg",
+    "Institution-own-account credit transfer or cover leg": "Credittransfer op eigen rekening van de instelling of dekkingsstap",
     "Customer credit transfer": "Klantcredittransfer",
     "Customer-payment operations": "Klantbetalingsoperaties",
-    "Treasury / correspondent / funding operations": "Treasury-, correspondent- en fundingoperaties",
+    "Treasury / correspondent / funding operations": "Treasury-, correspondent- en financieringsoperaties",
     "pacs.002, pacs.004, and linked pacs.008 flows": "pacs.002, pacs.004 en gekoppelde pacs.008-stromen",
     "That it is just a more technical pacs.008": "Dat het slechts een technischere pacs.008 is",
-    "That it can carry institution funding flows cleanly": "Dat het institutionele fundingstromen zonder meer kan dragen",
-    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "Gebruik een identifier voor de funding-leg die nog steeds aan de onderliggende klantstroom kan worden gekoppeld.",
+    "That it can carry institution funding flows cleanly": "Dat het institutionele financieringsstromen zonder meer kan dragen",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "Gebruik een identifier voor de financieringsstap die nog steeds aan de onderliggende klantstroom kan worden gekoppeld.",
     "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "Eigen-rekening- en coverstromen vereisen vaak strengere treasurycontroles op bedragen en afwikkelingsdata.",
-    "These are institution parties, not retail customer roles; model them accordingly.": "Dit zijn institutionele partijen en geen retailklantrollen; modelleer ze overeenkomstig."
+    "These are institution parties, not retail customer roles; model them accordingly.": "Dit zijn institutionele partijen en geen retailklantrollen; modelleer ze overeenkomstig.",
+    "Review later ISO revisions before starting new interoperability work or onboarding new infrastructures.": "Bekijk latere ISO-revisies voordat u nieuw interoperabiliteitswerk start of nieuwe infrastructuren aansluit.",
+    "Check the newer catalogue revision for future interoperability planning.": "Controleer de nieuwere catalogusrevisie voor toekomstige interoperabiliteitsplanning.",
+    "The reversal itself needs its own audit-safe identifier.": "De terugboeking zelf heeft een eigen auditbestendige identificatie nodig.",
+    "Preserve the original payment reference to avoid reconciliation breaks.": "Behoud de oorspronkelijke betalingsreferentie om onderbrekingen in de reconciliatie te voorkomen.",
+    "Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently.": "Gebruik gestructureerde redenen voor terugboeking zodat fraude-, fout- en dubbelbetalingsgevallen verschillend kunnen worden afgehandeld.",
+    "That status reporting replaces investigation workflows": "Dat statusrapportage onderzoekswerkstromen vervangt",
+    "That every payment needs an explicit status request": "Dat elke betaling een expliciet statusverzoek nodig heeft",
+    "This is the operational state; map it carefully to internal workflow states rather than assuming a one-to-one match.": "Dit is de operationele status; koppel die zorgvuldig aan interne workflowstatussen in plaats van een directe een-op-eenrelatie aan te nemen.",
+    "Capture institutional roles clearly; this is not a retail-customer debit model.": "Leg institutionele rollen duidelijk vast; dit is geen debetmodel voor retailklanten.",
+    "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.": "Gebruik dit consequent in grensoverschrijdende omgevingen met hoge traceerbaarheidseisen; genereer het niet ad hoc in latere verwerkingsstappen.",
+    "Validate amount and currency using business rules before schema validation.": "Valideer bedrag en valuta met bedrijfsregels voordat de schemavalidatie plaatsvindt.",
+    "Party quality, address structure, and identifiers are usually the main determinants of repair rates.": "De kwaliteit van partijgegevens, adresstructuur en identificatoren bepaalt meestal in hoge mate het aantal herstelacties."
   }
 };
 
-function batch1Translate(localeKey, text) {
-  return BATCH1_PHRASE_MAP[localeKey]?.[text] ?? text;
+const BATCH2_PHRASE_MAP = {
+  ja: {
+    "Current": "現行",
+    "Current implementation in pacs008": "pacs008 における現在の実装",
+    "Later catalogue revisions": "より新しいカタログ改訂版",
+    "Early revisions": "初期の改訂版",
+    "Pre-current modern revisions": "現行版以前の近代的改訂版",
+    "Current catalogue revision": "現在のカタログ改訂版",
+    "Later catalogue revision": "後続のカタログ改訂版",
+    "Useful mainly for legacy migration analysis and version-history context.": "主にレガシー移行分析やバージョン履歴の把握に役立ちます。",
+    "These are the revisions most likely to appear in recent migration or coexistence projects.": "最近の移行や共存プロジェクトで最も遭遇しやすい改訂版です。",
+    "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "現行バージョン計画に使えますが、スキーム利用ルールと相手先の準備状況は引き続き確認してください。",
+    "Matches the current project support for FI credit transfer flows.": "FI クレジット転送フローに対する現在のプロジェクト対応内容と一致します。",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "コルレス環境やカバー決済環境でのロードマップ計画に重要です。",
+    "Use this when matching the current project templates and validation assets.": "現在のプロジェクトテンプレートと検証資産に合わせる場合に使用します。",
+    "Useful for direct-debit reference modelling in the current project.": "現在のプロジェクトで口座振替参照をモデル化する際に有用です。",
+    "Aligns with current templates for payment returns.": "現在の支払返却テンプレートと整合します。",
+    "Good baseline for reversal workflow modelling.": "リバーサルワークフロー設計の良い基準になります。",
+    "Reference point for institution direct-debit support in the current project.": "現在のプロジェクトにおける金融機関向け口座振替対応の基準点です。",
+    "Institution direct-debit amounts often need explicit bilateral tolerance controls.": "金融機関間の口座振替金額には、明示的な二者間許容範囲管理が必要になることがよくあります。",
+    "Suitable for current status-request modelling.": "現在のステータス照会モデリングに適しています。",
+    "Primary purpose": "主目的",
+    "Business owner": "業務責任者",
+    "Typical pairings": "典型的な組み合わせ",
+    "Wrong assumption to avoid": "避けるべき誤解",
+    "Institution-own-account credit transfer or cover leg": "金融機関自己勘定送金またはカバーレッグ",
+    "Customer credit transfer": "顧客クレジット転送",
+    "Customer-payment operations": "顧客支払業務",
+    "Treasury / correspondent / funding operations": "トレジャリー / コルレス / 資金業務",
+    "pacs.002, pacs.004, and linked pacs.008 flows": "pacs.002、pacs.004、および関連する pacs.008 フロー",
+    "That it is just a more technical pacs.008": "単により技術的な pacs.008 だという考え",
+    "That it can carry institution funding flows cleanly": "金融機関の資金フローをそのまま無理なく表現できるという考え",
+    "That all bank-to-bank transfers belong here": "すべての銀行間送金がここに該当するという考え",
+    "That it can replace customer credit-transfer instructions": "顧客向けクレジット転送指図を置き換えられるという考え",
+    "pacs.002, pacs.004, and sometimes linked pacs.008 flows": "pacs.002、pacs.004、および場合によっては関連する pacs.008 フロー",
+    "Review later ISO revisions before starting new interoperability work or onboarding new infrastructures.": "新たな相互運用作業や新しいインフラ導入を始める前に、後続の ISO 改訂版を確認してください。",
+    "Review later return-message revisions when scheme upgrades or new counterparties are in scope.": "スキームのアップグレードや新しい相手先が対象になる場合は、後続の返却メッセージ改訂版を確認してください。",
+    "Check later revisions for current market-infrastructure alignment.": "現行の市場インフラ要件との整合性について、後続改訂版を確認してください。",
+    "Check the newer catalogue revision for future interoperability planning.": "将来の相互運用計画のため、より新しいカタログ改訂版を確認してください。",
+    "Use a new identifier for the status report itself, not the original payment instruction.": "元の支払指図ではなく、ステータス報告そのものに対する新しい識別子を使用してください。",
+    "Keep the original instruction identifier intact so status can be matched automatically.": "ステータスを自動的に照合できるよう、元の指図識別子は変更せず保持してください。",
+    "This is the operational state; map it carefully to internal workflow states rather than assuming a one-to-one match.": "これは運用上の状態です。単純な 1 対 1 対応を前提にせず、内部ワークフロー状態へ慎重に対応付けてください。",
+    "Structured reason codes are far more useful than free text for repair and analytics.": "修復対応や分析には、自由記述テキストより構造化された理由コードの方がはるかに有用です。",
+    "Report status": "ステータスを報告する",
+    "Request status": "ステータスを照会する",
+    "Who starts the interaction": "やり取りを開始する主体",
+    "The institution sending the status": "ステータスを送る金融機関",
+    "The institution asking for status": "ステータスを照会する金融機関",
+    "Operational posture": "運用上の位置付け",
+    "Event-driven reporting": "イベント駆動の報告",
+    "Exception-driven enquiry": "例外対応型の照会",
+    "That status reporting replaces investigation workflows": "ステータス報告で調査ワークフローを置き換えられるという考え",
+    "That every payment needs an explicit status request": "すべての支払に明示的なステータス照会が必要だという考え",
+    "That it should be sent routinely for every payment": "すべての支払について定常的に送るべきだという考え",
+    "That it eliminates the need for proactive case management": "これにより能動的なケース管理が不要になるという考え",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "資金レッグには、元の顧客フローと結び付け続けられる識別子を使ってください。",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "自己勘定フローやカバーフローでは、決済金額や日付に対するより厳格なトレジャリー管理が必要になることが多いです。",
+    "These are institution parties, not retail customer roles; model them accordingly.": "これは個人顧客の役割ではなく金融機関当事者なので、その前提でモデル化してください。",
+    "This should identify the message envelope, not the end-customer payment reference.": "これはエンド顧客の支払参照ではなく、メッセージエンベロープ自体を識別するものにしてください。",
+    "Keep customer-facing traceability stable across downstream systems where possible.": "可能な限り、下流システム全体で顧客向けのトレーサビリティを安定して維持してください。",
+    "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.": "クロスボーダーかつ追跡重視の環境では一貫して使用し、後続ワークフロー段階で場当たり的に生成しないでください。",
+    "Validate amount and currency using business rules before schema validation.": "スキーマ検証の前に、業務ルールで金額と通貨を検証してください。",
+    "Party quality, address structure, and identifiers are usually the main determinants of repair rates.": "当事者データの品質、住所構造、識別子は通常、修復率を左右する主要因です。",
+    "Review before adopting newer infrastructure requirements.": "より新しいインフラ要件を採用する前に確認してください。",
+    "Best fit": "最も適した用途",
+    "Recall, error, or fraud-driven reversal handling": "リコール、誤り、または不正に起因するリバーサル対応",
+    "Post-settlement return handling": "決済後の返却対応"
+  },
+  ko: {
+    "Current": "현재",
+    "Current implementation in pacs008": "pacs008의 현재 구현",
+    "Later catalogue revisions": "이후 카탈로그 개정판",
+    "Early revisions": "초기 개정판",
+    "Pre-current modern revisions": "현재판 이전의 최신 개정판",
+    "Current catalogue revision": "현재 카탈로그 개정판",
+    "Later catalogue revision": "후속 카탈로그 개정판",
+    "Useful mainly for legacy migration analysis and version-history context.": "주로 레거시 마이그레이션 분석과 버전 이력 파악에 유용합니다.",
+    "These are the revisions most likely to appear in recent migration or coexistence projects.": "최근 마이그레이션 또는 공존 프로젝트에서 가장 자주 보게 될 개정판입니다.",
+    "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "현재 버전 기준 계획에 사용할 수 있지만, 스킴 사용 지침과 상대 기관 준비 상태는 계속 확인해야 합니다.",
+    "Matches the current project support for FI credit transfer flows.": "FI 신용 이체 흐름에 대한 현재 프로젝트 지원 범위와 일치합니다.",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "코레스폰던트 및 커버 결제 환경의 로드맵 계획에 중요합니다.",
+    "Use this when matching the current project templates and validation assets.": "현재 프로젝트 템플릿과 검증 자산에 맞출 때 사용합니다.",
+    "Useful for direct-debit reference modelling in the current project.": "현재 프로젝트에서 자동이체 참조를 모델링할 때 유용합니다.",
+    "Aligns with current templates for payment returns.": "현재 지급 반환 템플릿과 정렬됩니다.",
+    "Good baseline for reversal workflow modelling.": "리버설 워크플로 모델링의 좋은 기준점입니다.",
+    "Reference point for institution direct-debit support in the current project.": "현재 프로젝트에서 기관 간 자동이체 지원을 위한 기준점입니다.",
+    "Institution direct-debit amounts often need explicit bilateral tolerance controls.": "기관 간 자동이체 금액에는 명시적인 양자 허용 한도 통제가 필요한 경우가 많습니다.",
+    "Suitable for current status-request modelling.": "현재 상태 요청 모델링에 적합합니다.",
+    "Primary purpose": "주요 목적",
+    "Business owner": "업무 책임 주체",
+    "Typical pairings": "일반적인 조합",
+    "Wrong assumption to avoid": "피해야 할 잘못된 가정",
+    "Institution-own-account credit transfer or cover leg": "기관 자기계정 신용 이체 또는 커버 레그",
+    "Customer credit transfer": "고객 신용 이체",
+    "Customer-payment operations": "고객 결제 운영",
+    "Treasury / correspondent / funding operations": "자금부 / 코레스폰던트 / 펀딩 운영",
+    "pacs.002, pacs.004, and linked pacs.008 flows": "pacs.002, pacs.004 및 연결된 pacs.008 흐름",
+    "That it is just a more technical pacs.008": "그저 더 기술적인 pacs.008일 뿐이라는 가정",
+    "That it can carry institution funding flows cleanly": "기관 펀딩 흐름을 그대로 무리 없이 담을 수 있다는 가정",
+    "That all bank-to-bank transfers belong here": "모든 은행 간 이체가 여기에 속한다는 가정",
+    "That it can replace customer credit-transfer instructions": "고객 신용이체 지시를 대체할 수 있다는 가정",
+    "pacs.002, pacs.004, and sometimes linked pacs.008 flows": "pacs.002, pacs.004 및 경우에 따라 연결된 pacs.008 흐름",
+    "Review later ISO revisions before starting new interoperability work or onboarding new infrastructures.": "새로운 상호운용 작업이나 신규 인프라 도입을 시작하기 전에 이후 ISO 개정판을 검토하세요.",
+    "Review later return-message revisions when scheme upgrades or new counterparties are in scope.": "스킴 업그레이드나 신규 상대 기관이 범위에 포함된다면 이후 반환 메시지 개정판을 검토하세요.",
+    "Check later revisions for current market-infrastructure alignment.": "현재 시장 인프라 요구사항과의 정합성을 위해 이후 개정판을 확인하세요.",
+    "Check the newer catalogue revision for future interoperability planning.": "향후 상호운용 계획을 위해 더 새로운 카탈로그 개정판을 확인하세요.",
+    "Use a new identifier for the status report itself, not the original payment instruction.": "원래 지급 지시가 아니라 상태 보고 자체를 위한 새 식별자를 사용하세요.",
+    "Keep the original instruction identifier intact so status can be matched automatically.": "상태를 자동으로 매칭할 수 있도록 원래 지시 식별자는 그대로 유지하세요.",
+    "This is the operational state; map it carefully to internal workflow states rather than assuming a one-to-one match.": "이는 운영 상태이므로 일대일 대응을 가정하지 말고 내부 워크플로 상태에 신중하게 매핑해야 합니다.",
+    "Structured reason codes are far more useful than free text for repair and analytics.": "구조화된 사유 코드는 수리 처리와 분석 측면에서 자유 텍스트보다 훨씬 유용합니다.",
+    "Report status": "상태 보고",
+    "Request status": "상태 요청",
+    "Who starts the interaction": "상호작용을 시작하는 주체",
+    "The institution sending the status": "상태를 보내는 기관",
+    "The institution asking for status": "상태를 요청하는 기관",
+    "Operational posture": "운영 관점",
+    "Event-driven reporting": "이벤트 기반 보고",
+    "Exception-driven enquiry": "예외 중심 조회",
+    "That status reporting replaces investigation workflows": "상태 보고가 조사 워크플로를 대체한다는 가정",
+    "That every payment needs an explicit status request": "모든 결제에 명시적 상태 요청이 필요하다는 가정",
+    "That it should be sent routinely for every payment": "모든 결제마다 정기적으로 보내야 한다는 가정",
+    "That it eliminates the need for proactive case management": "이것만으로 선제적 케이스 관리가 불필요해진다는 가정",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "기초 고객 흐름과 계속 연결할 수 있는 펀딩 레그 식별자를 사용하세요.",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "자기계정 및 커버 흐름은 결제 금액과 일자에 대해 더 엄격한 자금관리 통제가 필요한 경우가 많습니다.",
+    "These are institution parties, not retail customer roles; model them accordingly.": "이는 소매 고객 역할이 아니라 기관 당사자이므로 그에 맞게 모델링해야 합니다.",
+    "This should identify the message envelope, not the end-customer payment reference.": "이는 최종 고객 결제 참조가 아니라 메시지 엔벌로프 자체를 식별해야 합니다.",
+    "Keep customer-facing traceability stable across downstream systems where possible.": "가능한 경우 다운스트림 시스템 전반에서 고객 기준 추적 가능성을 안정적으로 유지하세요.",
+    "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.": "국경 간 및 추적이 중요한 환경에서는 이를 일관되게 사용하고, 이후 워크플로 단계에서 임의로 생성하지 마세요.",
+    "Validate amount and currency using business rules before schema validation.": "스키마 검증 전에 업무 규칙으로 금액과 통화를 검증하세요.",
+    "Party quality, address structure, and identifiers are usually the main determinants of repair rates.": "당사자 정보 품질, 주소 구조, 식별자는 일반적으로 보정률을 좌우하는 핵심 요소입니다.",
+    "Review before adopting newer infrastructure requirements.": "더 새로운 인프라 요구사항을 채택하기 전에 검토하세요.",
+    "Best fit": "가장 적합한 용도",
+    "Recall, error, or fraud-driven reversal handling": "리콜, 오류 또는 사기 유발 리버설 처리",
+    "Post-settlement return handling": "결제 후 반환 처리"
+  },
+  ru: {
+    "Current": "Текущая",
+    "Current implementation in pacs008": "Текущая реализация в pacs008",
+    "Later catalogue revisions": "Более поздние ревизии каталога",
+    "Early revisions": "Ранние ревизии",
+    "Pre-current modern revisions": "Современные ревизии до текущей",
+    "Current catalogue revision": "Текущая ревизия каталога",
+    "Later catalogue revision": "Более поздняя ревизия каталога",
+    "Useful mainly for legacy migration analysis and version-history context.": "Полезно главным образом для анализа legacy-миграций и понимания истории версий.",
+    "These are the revisions most likely to appear in recent migration or coexistence projects.": "Именно эти ревизии чаще всего встречаются в недавних проектах миграции и сосуществования.",
+    "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "Используйте это для планирования по текущей версии, продолжая при этом проверять правила схемы и готовность контрагентов.",
+    "Matches the current project support for FI credit transfer flows.": "Соответствует текущей поддержке проекта для потоков кредитовых переводов FI.",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "Важно для планирования дорожной карты в средах корреспондентских и покрывающих платежей.",
+    "Use this when matching the current project templates and validation assets.": "Используйте это, когда нужно соответствовать текущим шаблонам и артефактам валидации проекта.",
+    "Useful for direct-debit reference modelling in the current project.": "Полезно для моделирования ссылок на прямое дебетование в текущем проекте.",
+    "Aligns with current templates for payment returns.": "Соответствует текущим шаблонам для возвратов платежей.",
+    "Good baseline for reversal workflow modelling.": "Хорошая основа для моделирования процессов сторнирования.",
+    "Reference point for institution direct-debit support in the current project.": "Точка отсчёта для поддержки межбанковского прямого дебетования в текущем проекте.",
+    "Institution direct-debit amounts often need explicit bilateral tolerance controls.": "Суммы межбанковского прямого дебетования часто требуют явных двусторонних допусков.",
+    "Suitable for current status-request modelling.": "Подходит для текущего моделирования запросов статуса.",
+    "Primary purpose": "Основное назначение",
+    "Business owner": "Бизнес-владелец",
+    "Typical pairings": "Типовые сочетания",
+    "Wrong assumption to avoid": "Какого неверного предположения избегать",
+    "Institution-own-account credit transfer or cover leg": "Кредитовый перевод по собственному счёту учреждения или покрывающий расчётный этап",
+    "Customer credit transfer": "Клиентский кредитовый перевод",
+    "Customer-payment operations": "Операции клиентских платежей",
+    "Treasury / correspondent / funding operations": "Казначейские / корреспондентские / операции фондирования",
+    "pacs.002, pacs.004, and linked pacs.008 flows": "pacs.002, pacs.004 и связанные потоки pacs.008",
+    "That it is just a more technical pacs.008": "Что это просто более технический pacs.008",
+    "That it can carry institution funding flows cleanly": "Что он без проблем покрывает потоки институционального фондирования",
+    "That all bank-to-bank transfers belong here": "Что сюда относится любой межбанковский перевод",
+    "That it can replace customer credit-transfer instructions": "Что он может заменить клиентские инструкции кредитового перевода",
+    "pacs.002, pacs.004, and sometimes linked pacs.008 flows": "pacs.002, pacs.004 и иногда связанные потоки pacs.008",
+    "Review later ISO revisions before starting new interoperability work or onboarding new infrastructures.": "Изучите более поздние ревизии ISO перед началом новой интеграционной работы или подключением новых инфраструктур.",
+    "Review later return-message revisions when scheme upgrades or new counterparties are in scope.": "Проверьте более поздние ревизии сообщений возврата, если в объём работ входят обновления схемы или новые контрагенты.",
+    "Check later revisions for current market-infrastructure alignment.": "Проверьте более поздние ревизии на соответствие текущим требованиям рыночной инфраструктуры.",
+    "Check the newer catalogue revision for future interoperability planning.": "Для будущего планирования взаимодействия проверьте более новую ревизию каталога.",
+    "Use a new identifier for the status report itself, not the original payment instruction.": "Используйте новый идентификатор именно для отчёта о статусе, а не исходной платёжной инструкции.",
+    "Keep the original instruction identifier intact so status can be matched automatically.": "Сохраняйте исходный идентификатор инструкции без изменений, чтобы статус можно было сопоставить автоматически.",
+    "This is the operational state; map it carefully to internal workflow states rather than assuming a one-to-one match.": "Это операционное состояние; аккуратно сопоставляйте его с внутренними статусами обработки и не предполагаете простое соответствие один к одному.",
+    "Structured reason codes are far more useful than free text for repair and analytics.": "Структурированные коды причин гораздо полезнее свободного текста для исправления проблем и аналитики.",
+    "Report status": "Сообщить статус",
+    "Request status": "Запросить статус",
+    "Who starts the interaction": "Кто инициирует взаимодействие",
+    "The institution sending the status": "Учреждение, отправляющее статус",
+    "The institution asking for status": "Учреждение, запрашивающее статус",
+    "Operational posture": "Операционная модель",
+    "Event-driven reporting": "Отчётность по событию",
+    "Exception-driven enquiry": "Запрос по исключению",
+    "That status reporting replaces investigation workflows": "Что отчётность по статусу заменяет процессы разбора запросов и расследований",
+    "That every payment needs an explicit status request": "Что для каждого платежа нужен явный запрос статуса",
+    "That it should be sent routinely for every payment": "Что его следует отправлять регулярно по каждому платежу",
+    "That it eliminates the need for proactive case management": "Что он устраняет необходимость в проактивном управлении кейсами",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "Используйте идентификатор этапа финансирования, который по-прежнему можно связать с исходным клиентским потоком.",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "Потоки по собственному счёту и покрывающие потоки часто требуют более строгого казначейского контроля сумм и дат расчётов.",
+    "These are institution parties, not retail customer roles; model them accordingly.": "Это стороны-учреждения, а не роли розничных клиентов; моделируйте их соответственно.",
+    "This should identify the message envelope, not the end-customer payment reference.": "Это поле должно идентифицировать сам конверт сообщения, а не ссылку на платёж конечного клиента.",
+    "Keep customer-facing traceability stable across downstream systems where possible.": "По возможности сохраняйте стабильную клиентскую трассируемость во всех последующих системах.",
+    "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.": "Используйте это последовательно в трансграничных и сильно отслеживаемых сценариях; не создавайте значение ситуативно на более поздних этапах обработки.",
+    "Validate amount and currency using business rules before schema validation.": "Проверяйте сумму и валюту по бизнес-правилам до валидации схемы.",
+    "Party quality, address structure, and identifiers are usually the main determinants of repair rates.": "Качество данных о сторонах, структура адресов и идентификаторы обычно сильнее всего влияют на объём исправлений.",
+    "Review before adopting newer infrastructure requirements.": "Проверьте это перед внедрением более новых требований инфраструктуры.",
+    "Best fit": "Лучше всего подходит для",
+    "Recall, error, or fraud-driven reversal handling": "Обработка сторнирований по отзыву, ошибке или мошенничеству",
+    "Post-settlement return handling": "Обработка возвратов после расчёта"
+  },
+  uk: {
+    "Current": "Поточна",
+    "Current implementation in pacs008": "Поточна реалізація в pacs008",
+    "Later catalogue revisions": "Пізніші редакції каталогу",
+    "Early revisions": "Ранні редакції",
+    "Pre-current modern revisions": "Сучасні редакції до поточної",
+    "Current catalogue revision": "Поточна редакція каталогу",
+    "Later catalogue revision": "Пізніша редакція каталогу",
+    "Useful mainly for legacy migration analysis and version-history context.": "Корисно насамперед для аналізу legacy-міграцій та розуміння історії версій.",
+    "These are the revisions most likely to appear in recent migration or coexistence projects.": "Саме ці редакції найчастіше трапляються в нещодавніх проєктах міграції або співіснування.",
+    "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "Використовуйте це для планування за поточною версією, продовжуючи перевіряти правила схеми та готовність контрагентів.",
+    "Matches the current project support for FI credit transfer flows.": "Відповідає поточній підтримці проєкту для потоків кредитових переказів FI.",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "Важливо для планування дорожньої карти в середовищах кореспондентських і покривних платежів.",
+    "Use this when matching the current project templates and validation assets.": "Використовуйте це, коли потрібно узгодити поточні шаблони й артефакти валідації проєкту.",
+    "Useful for direct-debit reference modelling in the current project.": "Корисно для моделювання посилань на пряме дебетування у поточному проєкті.",
+    "Aligns with current templates for payment returns.": "Узгоджується з поточними шаблонами для повернень платежів.",
+    "Good baseline for reversal workflow modelling.": "Добра основа для моделювання процесів сторнування.",
+    "Reference point for institution direct-debit support in the current project.": "Точка відліку для підтримки міжбанківського прямого дебетування у поточному проєкті.",
+    "Institution direct-debit amounts often need explicit bilateral tolerance controls.": "Суми міжбанківського прямого дебетування часто потребують явних двосторонніх меж допуску.",
+    "Suitable for current status-request modelling.": "Підходить для поточного моделювання запитів статусу.",
+    "Primary purpose": "Основне призначення",
+    "Business owner": "Власник бізнес-процесу",
+    "Typical pairings": "Типові поєднання",
+    "Wrong assumption to avoid": "Хибне припущення, якого слід уникати",
+    "Institution-own-account credit transfer or cover leg": "Кредитовий переказ за власним рахунком установи або покривний розрахунковий етап",
+    "Customer credit transfer": "Клієнтський кредитовий переказ",
+    "Customer-payment operations": "Операції клієнтських платежів",
+    "Treasury / correspondent / funding operations": "Казначейські / кореспондентські / операції фінансування",
+    "pacs.002, pacs.004, and linked pacs.008 flows": "pacs.002, pacs.004 та пов’язані потоки pacs.008",
+    "That it is just a more technical pacs.008": "Що це просто більш технічний pacs.008",
+    "That it can carry institution funding flows cleanly": "Що він без проблем покриває потоки інституційного фінансування",
+    "That all bank-to-bank transfers belong here": "Що сюди належать усі міжбанківські перекази",
+    "That it can replace customer credit-transfer instructions": "Що він може замінити клієнтські інструкції кредитового переказу",
+    "pacs.002, pacs.004, and sometimes linked pacs.008 flows": "pacs.002, pacs.004 та інколи пов’язані потоки pacs.008",
+    "Review later ISO revisions before starting new interoperability work or onboarding new infrastructures.": "Перегляньте пізніші редакції ISO перед початком нової роботи з взаємосумісності або підключенням нових інфраструктур.",
+    "Review later return-message revisions when scheme upgrades or new counterparties are in scope.": "Перегляньте пізніші редакції повідомлень повернення, якщо в обсязі робіт є оновлення схеми або нові контрагенти.",
+    "Check later revisions for current market-infrastructure alignment.": "Перевірте пізніші редакції на відповідність поточним вимогам ринкової інфраструктури.",
+    "Check the newer catalogue revision for future interoperability planning.": "Для майбутнього планування взаємосумісності перевірте новішу редакцію каталогу.",
+    "Review before adopting newer infrastructure requirements.": "Перегляньте це перед впровадженням новіших вимог інфраструктури.",
+    "Use a new identifier for the status report itself, not the original payment instruction.": "Використовуйте новий ідентифікатор саме для звіту про статус, а не для початкової платіжної інструкції.",
+    "Keep the original instruction identifier intact so status can be matched automatically.": "Зберігайте початковий ідентифікатор інструкції без змін, щоб статус можна було зіставити автоматично.",
+    "This is the operational state; map it carefully to internal workflow states rather than assuming a one-to-one match.": "Це операційний стан; обережно зіставляйте його з внутрішніми станами обробки, а не припускайте просту відповідність один до одного.",
+    "Structured reason codes are far more useful than free text for repair and analytics.": "Структуровані коди причин значно корисніші за вільний текст для усунення проблем і аналітики.",
+    "Report status": "Повідомити статус",
+    "Request status": "Запросити статус",
+    "Who starts the interaction": "Хто ініціює взаємодію",
+    "The institution sending the status": "Установа, що надсилає статус",
+    "The institution asking for status": "Установа, що запитує статус",
+    "Operational posture": "Операційна модель",
+    "Event-driven reporting": "Звітність за подією",
+    "Exception-driven enquiry": "Запит за винятком",
+    "That status reporting replaces investigation workflows": "Що звітність про статус замінює процеси розслідування та опрацювання запитів",
+    "That every payment needs an explicit status request": "Що кожен платіж потребує явного запиту статусу",
+    "That it should be sent routinely for every payment": "Що його слід надсилати регулярно для кожного платежу",
+    "That it eliminates the need for proactive case management": "Що він усуває потребу в проактивному управлінні кейсами",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "Використовуйте ідентифікатор етапу фінансування, який і далі можна пов’язати з початковим клієнтським потоком.",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "Потоки за власним рахунком і покривні потоки часто потребують суворішого казначейського контролю сум і дат розрахунків.",
+    "These are institution parties, not retail customer roles; model them accordingly.": "Це сторони-установи, а не ролі роздрібних клієнтів; моделюйте їх відповідно.",
+    "This should identify the message envelope, not the end-customer payment reference.": "Це поле має ідентифікувати сам конверт повідомлення, а не посилання на платіж кінцевого клієнта.",
+    "Keep customer-facing traceability stable across downstream systems where possible.": "За можливості зберігайте стабільну клієнтську трасованість у всіх наступних системах.",
+    "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.": "Використовуйте це послідовно в транскордонних і вимогливих до відстеження сценаріях; не створюйте значення ситуативно на пізніших етапах обробки.",
+    "Validate amount and currency using business rules before schema validation.": "Перевіряйте суму й валюту за бізнес-правилами до валідації схеми.",
+    "Party quality, address structure, and identifiers are usually the main determinants of repair rates.": "Якість даних про сторони, структура адрес і ідентифікатори зазвичай найбільше впливають на обсяг виправлень.",
+    "Initiated by": "Ініціюється стороною",
+    "Original instructing side": "Сторона початкового інструктора",
+    "Receiving / beneficiary side": "Сторона отримувача / бенефіціара",
+    "Direction of flow": "Напрямок потоку",
+    "Forward through the chain": "Уперед через ланцюг",
+    "Back through the chain": "Назад через ланцюг",
+    "Reverse a previously instructed payment": "Сторнувати раніше інструктований платіж",
+    "Return settled funds": "Повернути вже розраховані кошти",
+    "Best fit": "Найкраще підходить для",
+    "Recall, error, or fraud-driven reversal handling": "Опрацювання сторнування через відкликання, помилку або шахрайство",
+    "Post-settlement return handling": "Опрацювання повернення після розрахунку"
+  },
+  zh: {
+    "Current": "当前",
+    "Current implementation in pacs008": "pacs008 中的当前实现",
+    "Later catalogue revisions": "后续目录版本",
+    "Early revisions": "早期版本",
+    "Pre-current modern revisions": "当前版本之前的较新版本",
+    "Current catalogue revision": "当前目录版本",
+    "Later catalogue revision": "后续目录版本",
+    "Useful mainly for legacy migration analysis and version-history context.": "主要适用于遗留迁移分析和版本历史背景说明。",
+    "These are the revisions most likely to appear in recent migration or coexistence projects.": "这些版本最有可能出现在近期迁移或共存项目中。",
+    "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "可用于当前版本规划，但仍需验证方案使用规则和交易对手准备情况。",
+    "Matches the current project support for FI credit transfer flows.": "与当前项目对 FI 信用转账流程的支持范围一致。",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "对于代理行和补偿支付环境中的路线图规划很重要。",
+    "Use this when matching the current project templates and validation assets.": "当需要匹配当前项目模板和校验资产时使用此版本。",
+    "Useful for direct-debit reference modelling in the current project.": "适用于当前项目中的直接借记参考建模。",
+    "Aligns with current templates for payment returns.": "与当前的支付退回模板保持一致。",
+    "Good baseline for reversal workflow modelling.": "是构建撤销处理流程模型的良好基线。",
+    "Reference point for institution direct-debit support in the current project.": "是当前项目中机构直接借记支持的参考基点。",
+    "Suitable for current status-request modelling.": "适用于当前的状态查询建模。",
+    "Primary purpose": "主要用途",
+    "Business owner": "业务负责人",
+    "Typical pairings": "典型搭配",
+    "Wrong assumption to avoid": "应避免的错误假设",
+    "Institution-own-account credit transfer or cover leg": "机构自有账户信用转账或覆盖清算环节",
+    "Customer credit transfer": "客户信用转账",
+    "Customer-payment operations": "客户支付运营",
+    "Treasury / correspondent / funding operations": "资金 / 代理行 / 融资运营",
+    "pacs.002, pacs.004, and linked pacs.008 flows": "pacs.002、pacs.004 以及相关的 pacs.008 流程",
+    "That it is just a more technical pacs.008": "认为它只是更技术化的 pacs.008",
+    "That it can carry institution funding flows cleanly": "认为它可以直接承载机构融资流程而无需额外设计",
+    "That all bank-to-bank transfers belong here": "认为所有银行间转账都应归入这里",
+    "That it can replace customer credit-transfer instructions": "认为它可以替代客户信用转账指令",
+    "pacs.002, pacs.004, and sometimes linked pacs.008 flows": "pacs.002、pacs.004，以及有时相关联的 pacs.008 流程",
+    "Review later ISO revisions before starting new interoperability work or onboarding new infrastructures.": "在开始新的互操作工作或接入新基础设施之前，请先审查后续 ISO 版本。",
+    "Review later return-message revisions when scheme upgrades or new counterparties are in scope.": "如果范围内包含方案升级或新增交易对手，请审查后续的退回报文版本。",
+    "Check later revisions for current market-infrastructure alignment.": "请检查后续版本，以确认是否符合当前市场基础设施要求。",
+    "Check the newer catalogue revision for future interoperability planning.": "为未来的互操作规划，请检查更新的目录版本。",
+    "Use a new identifier for the status report itself, not the original payment instruction.": "请为状态报告本身使用新的标识，而不是沿用原始支付指令标识。",
+    "Keep the original instruction identifier intact so status can be matched automatically.": "请保持原始指令标识不变，以便系统自动匹配状态。",
+    "This is the operational state; map it carefully to internal workflow states rather than assuming a one-to-one match.": "这是业务处理状态；应谨慎映射到内部工作流状态，而不要假定存在一一对应关系。",
+    "Structured reason codes are far more useful than free text for repair and analytics.": "对于修复处理和分析，结构化原因代码远比自由文本更有价值。",
+    "Report status": "报告状态",
+    "Request status": "请求状态",
+    "Who starts the interaction": "由谁发起交互",
+    "The institution sending the status": "发送状态的机构",
+    "The institution asking for status": "请求状态的机构",
+    "Operational posture": "运营姿态",
+    "Event-driven reporting": "事件驱动型报告",
+    "Exception-driven enquiry": "异常驱动型查询",
+    "That status reporting replaces investigation workflows": "认为状态报告可以替代调查流程",
+    "That every payment needs an explicit status request": "认为每笔付款都需要显式状态查询",
+    "That it should be sent routinely for every payment": "认为每笔付款都应例行发送此报文",
+    "That it eliminates the need for proactive case management": "认为它可以免除主动案例管理的需要",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "应使用仍可关联到底层客户流程的资金拨付环节标识。",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "自有账户和补偿清算流程通常需要对清算金额和日期进行更严格的资金控制。",
+    "These are institution parties, not retail customer roles; model them accordingly.": "这些是机构参与方，而不是零售客户角色；建模时应据此处理。",
+    "This should identify the message envelope, not the end-customer payment reference.": "这里应标识消息封装本身，而不是终端客户的付款参考。",
+    "Keep customer-facing traceability stable across downstream systems where possible.": "如有可能，应在下游系统之间保持面向客户的可追踪性稳定一致。",
+    "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.": "在跨境和高追踪要求场景中应持续一致地使用该值，不要在后续工作流阶段临时生成。",
+    "Validate amount and currency using business rules before schema validation.": "应在模式校验之前先依据业务规则校验金额和币种。",
+    "Party quality, address structure, and identifiers are usually the main determinants of repair rates.": "参与方数据质量、地址结构和标识符通常是决定修复率的主要因素。"
+  },
+  "zh-tw": {
+    "Current": "目前",
+    "Current implementation in pacs008": "pacs008 中的目前實作",
+    "Later catalogue revisions": "後續目錄版本",
+    "Early revisions": "早期版本",
+    "Pre-current modern revisions": "現行版本之前的較新版本",
+    "Current catalogue revision": "目前目錄版本",
+    "Later catalogue revision": "後續目錄版本",
+    "Useful mainly for legacy migration analysis and version-history context.": "主要適用於 legacy 遷移分析與版本歷史背景說明。",
+    "These are the revisions most likely to appear in recent migration or coexistence projects.": "這些版本最可能出現在近期遷移或共存專案中。",
+    "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "可用於現行版本規劃，但仍需驗證方案使用規則與交易對手準備情況。",
+    "Matches the current project support for FI credit transfer flows.": "與目前專案對 FI 信用轉帳流程的支援範圍一致。",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "對於代理行與補償支付環境中的路線圖規劃很重要。",
+    "Use this when matching the current project templates and validation assets.": "當需要對齊目前專案範本與驗證資產時，請使用此版本。",
+    "Useful for direct-debit reference modelling in the current project.": "適用於目前專案中的直接扣款參照建模。",
+    "Aligns with current templates for payment returns.": "與目前的付款退回範本保持一致。",
+    "Good baseline for reversal workflow modelling.": "是建立撤銷處理流程模型的良好基線。",
+    "Reference point for institution direct-debit support in the current project.": "是目前專案中機構間直接扣款支援的參考基點。",
+    "Suitable for current status-request modelling.": "適用於目前的狀態查詢建模。",
+    "Primary purpose": "主要用途",
+    "Business owner": "業務負責人",
+    "Typical pairings": "典型搭配",
+    "Wrong assumption to avoid": "應避免的錯誤假設",
+    "Institution-own-account credit transfer or cover leg": "機構自有帳戶信用轉帳或覆蓋清算環節",
+    "Customer credit transfer": "客戶信用轉帳",
+    "Customer-payment operations": "客戶支付作業",
+    "Treasury / correspondent / funding operations": "資金 / 代理行 / 融資作業",
+    "pacs.002, pacs.004, and linked pacs.008 flows": "pacs.002、pacs.004 與相關的 pacs.008 流程",
+    "That it is just a more technical pacs.008": "認為它只是更技術化的 pacs.008",
+    "That it can carry institution funding flows cleanly": "認為它可以直接承載機構融資流程而不需額外設計",
+    "That all bank-to-bank transfers belong here": "認為所有銀行間轉帳都應歸入這裡",
+    "That it can replace customer credit-transfer instructions": "認為它可以取代客戶信用轉帳指令",
+    "pacs.002, pacs.004, and sometimes linked pacs.008 flows": "pacs.002、pacs.004，以及有時相關聯的 pacs.008 流程",
+    "Review later ISO revisions before starting new interoperability work or onboarding new infrastructures.": "在開始新的互通性工作或接入新基礎設施之前，請先檢視後續 ISO 版本。",
+    "Review later return-message revisions when scheme upgrades or new counterparties are in scope.": "若範圍包含方案升級或新增交易對手，請檢視後續的退回訊息版本。",
+    "Check later revisions for current market-infrastructure alignment.": "請檢查後續版本是否符合目前市場基礎設施要求。",
+    "Check the newer catalogue revision for future interoperability planning.": "為未來的互通性規劃，請檢查更新的目錄版本。",
+    "Use a new identifier for the status report itself, not the original payment instruction.": "請為狀態報告本身使用新的識別碼，而不是沿用原始付款指令的識別碼。",
+    "Keep the original instruction identifier intact so status can be matched automatically.": "請保持原始指令識別碼不變，以便系統自動比對狀態。",
+    "This is the operational state; map it carefully to internal workflow states rather than assuming a one-to-one match.": "這是作業狀態；應謹慎映射到內部工作流程狀態，而不要假設存在一對一對應。",
+    "Structured reason codes are far more useful than free text for repair and analytics.": "對於修復處理與分析而言，結構化原因代碼遠比自由文字更有價值。",
+    "Report status": "回報狀態",
+    "Request status": "查詢狀態",
+    "Who starts the interaction": "由誰發起互動",
+    "The institution sending the status": "傳送狀態的機構",
+    "The institution asking for status": "查詢狀態的機構",
+    "Operational posture": "作業姿態",
+    "Event-driven reporting": "事件驅動式回報",
+    "Exception-driven enquiry": "例外驅動式查詢",
+    "That status reporting replaces investigation workflows": "認為狀態回報可以取代調查流程",
+    "That every payment needs an explicit status request": "認為每筆付款都需要明確的狀態查詢",
+    "That it should be sent routinely for every payment": "認為每筆付款都應例行傳送此訊息",
+    "That it eliminates the need for proactive case management": "認為它可以免除主動案例管理的需要",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "應使用仍可連結到底層客戶流程的資金撥付階段識別碼。",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "自有帳戶與補償清算流程通常需要對結算金額與日期施加更嚴格的資金控管。",
+    "These are institution parties, not retail customer roles; model them accordingly.": "這些是機構參與方，而不是零售客戶角色；建模時應據此處理。",
+    "This should identify the message envelope, not the end-customer payment reference.": "這裡應標識訊息封裝本身，而不是終端客戶的付款參照。",
+    "Keep customer-facing traceability stable across downstream systems where possible.": "如有可能，應在下游系統之間維持面向客戶的可追蹤性穩定一致。",
+    "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.": "在跨境與高追蹤需求場景中應持續一致地使用該值，不要在後續工作流程階段臨時產生。",
+    "Validate amount and currency using business rules before schema validation.": "應在結構驗證之前先依業務規則驗證金額與幣別。",
+    "Party quality, address structure, and identifiers are usually the main determinants of repair rates.": "參與方資料品質、地址結構與識別碼通常是決定修復率的主要因素。"
+  }
+};
+
+const BATCH3_PHRASE_MAP = {
+  ar: {
+    "Current": "الحالي",
+    "Current implementation in pacs008": "التنفيذ الحالي في pacs008",
+    "Later catalogue revisions": "إصدارات الكتالوج اللاحقة",
+    "Early revisions": "الإصدارات المبكرة",
+    "Pre-current modern revisions": "الإصدارات الحديثة السابقة للإصدار الحالي",
+    "Current catalogue revision": "إصدار الكتالوج الحالي",
+    "Later catalogue revision": "إصدار الكتالوج اللاحق",
+    "Useful mainly for legacy migration analysis and version-history context.": "مفيد بشكل أساسي لتحليل الترحيل من الأنظمة القديمة وفهم سياق تاريخ الإصدارات.",
+    "These are the revisions most likely to appear in recent migration or coexistence projects.": "هذه هي الإصدارات الأكثر احتمالاً للظهور في مشاريع الترحيل أو التعايش الحديثة.",
+    "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "استخدم ذلك للتخطيط للإصدار الحالي مع الاستمرار في التحقق من إرشادات استخدام المخطط وجاهزية الأطراف المقابلة.",
+    "Use this when matching the current project templates and validation assets.": "استخدم ذلك عند المواءمة مع القوالب وأصول التحقق الحالية في المشروع.",
+    "Review later ISO revisions before starting new interoperability work or onboarding new infrastructures.": "راجع الإصدارات اللاحقة من ISO قبل بدء أعمال توافقية جديدة أو ضم بنى تحتية جديدة.",
+    "Aligns with current templates for payment returns.": "يتوافق مع القوالب الحالية لرسائل إرجاع المدفوعات.",
+    "Review later return-message revisions when scheme upgrades or new counterparties are in scope.": "راجع الإصدارات اللاحقة لرسائل الإرجاع عندما تكون ترقيات المخطط أو الأطراف المقابلة الجديدة ضمن النطاق.",
+    "Good baseline for reversal workflow modelling.": "يمثل أساساً جيداً لنمذجة مسارات عكس العمليات.",
+    "Check later revisions for current market-infrastructure alignment.": "تحقق من الإصدارات اللاحقة للتأكد من التوافق مع متطلبات بنية السوق الحالية.",
+    "Suitable for current status-request modelling.": "مناسب لنمذجة طلبات الحالة الحالية.",
+    "Check the newer catalogue revision for future interoperability planning.": "تحقق من إصدار الكتالوج الأحدث من أجل تخطيط التوافق المستقبلي.",
+    "Review before adopting newer infrastructure requirements.": "راجع ذلك قبل اعتماد متطلبات البنية التحتية الأحدث.",
+    "Primary purpose": "الغرض الأساسي",
+    "Business owner": "المالك التشغيلي",
+    "Typical pairings": "الاقترانات المعتادة",
+    "Wrong assumption to avoid": "افتراض خاطئ يجب تجنبه",
+    "Institution-own-account credit transfer or cover leg": "تحويل ائتماني لحساب المؤسسة نفسها أو مرحلة تغطية",
+    "Customer credit transfer": "تحويل ائتماني للعميل",
+    "Customer-payment operations": "عمليات مدفوعات العملاء",
+    "Treasury / correspondent / funding operations": "عمليات الخزانة / المراسلة / التمويل",
+    "pacs.002, pacs.004, and linked pacs.008 flows": "تدفقات pacs.002 وpacs.004 وتدفقات pacs.008 المرتبطة",
+    "pacs.002, pacs.004, and sometimes linked pacs.008 flows": "تدفقات pacs.002 وpacs.004 وأحياناً تدفقات pacs.008 المرتبطة",
+    "That all bank-to-bank transfers belong here": "أن جميع التحويلات بين البنوك تندرج هنا",
+    "That it can replace customer credit-transfer instructions": "أنه يمكنه أن يحل محل تعليمات التحويل الائتماني الخاصة بالعملاء",
+    "That it is just a more technical pacs.008": "أنه مجرد pacs.008 أكثر تقنية",
+    "That it can carry institution funding flows cleanly": "أنه يمكنه حمل تدفقات تمويل المؤسسات بسلاسة",
+    "Report status": "الإبلاغ عن الحالة",
+    "Request status": "طلب الحالة",
+    "Who starts the interaction": "من يبدأ التفاعل",
+    "The institution sending the status": "المؤسسة التي ترسل الحالة",
+    "The institution asking for status": "المؤسسة التي تطلب الحالة",
+    "Operational posture": "الوضع التشغيلي",
+    "Event-driven reporting": "إبلاغ قائم على الحدث",
+    "Exception-driven enquiry": "استعلام قائم على الاستثناء",
+    "That status reporting replaces investigation workflows": "أن تقارير الحالة تحل محل مسارات التحقيق",
+    "That every payment needs an explicit status request": "أن كل دفعة تحتاج إلى طلب حالة صريح",
+    "That it should be sent routinely for every payment": "أنه يجب إرساله بشكل روتيني لكل دفعة",
+    "That it eliminates the need for proactive case management": "أنه يلغي الحاجة إلى إدارة الحالات بشكل استباقي",
+    "The request itself needs an auditable identifier distinct from the underlying payment.": "يحتاج الطلب نفسه إلى معرّف قابل للتدقيق ومتميز عن الدفعة الأساسية.",
+    "Use the exact source identifier from the original instruction to maximize matching accuracy.": "استخدم معرّف المصدر الدقيق من التعليمات الأصلية لزيادة دقة المطابقة إلى الحد الأقصى.",
+    "Including customer traceability helps operations teams reconcile the enquiry faster.": "يساعد تضمين إمكانية تتبع العميل فرق العمليات على تسوية الاستعلام بشكل أسرع.",
+    "Use a new identifier for the status report itself, not the original payment instruction.": "استخدم معرّفاً جديداً لتقرير الحالة نفسه، وليس لتعليمات الدفع الأصلية.",
+    "Keep the original instruction identifier intact so status can be matched automatically.": "أبقِ معرّف التعليمات الأصلية دون تغيير حتى يمكن مطابقة الحالة تلقائياً.",
+    "This is the operational state; map it carefully to internal workflow states rather than assuming a one-to-one match.": "هذه هي الحالة التشغيلية؛ قم بمواءمتها بعناية مع حالات سير العمل الداخلية بدلاً من افتراض تطابق واحد لواحد.",
+    "Structured reason codes are far more useful than free text for repair and analytics.": "تعد رموز الأسباب المنظمة أكثر فائدة بكثير من النص الحر لأغراض الإصلاح والتحليل.",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "استخدم معرّفاً لمرحلة التمويل يمكن ربطه بأي تدفق عميل أساسي.",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "غالباً ما تحتاج تدفقات الحساب الذاتي والتغطية إلى ضوابط خزينة أكثر صرامة حول مبالغ وتواريخ التسوية.",
+    "These are institution parties, not retail customer roles; model them accordingly.": "هذه أطراف مؤسسية وليست أدوار عملاء تجزئة؛ قم بنمذجتها وفقاً لذلك.",
+    "This should identify the message envelope, not the end-customer payment reference.": "يجب أن يعرّف هذا غلاف الرسالة نفسه، لا مرجع دفعة العميل النهائي.",
+    "Keep customer-facing traceability stable across downstream systems where possible.": "حافظ على إمكانية التتبع الموجهة للعميل مستقرة عبر الأنظمة اللاحقة حيثما أمكن.",
+    "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.": "استخدم هذا بصورة متسقة في البيئات العابرة للحدود والغنية بالتتبع؛ ولا تنشئه بشكل ارتجالي في المراحل اللاحقة من سير العمل.",
+    "Validate amount and currency using business rules before schema validation.": "تحقق من المبلغ والعملة باستخدام قواعد الأعمال قبل التحقق من المخطط.",
+    "Party quality, address structure, and identifiers are usually the main determinants of repair rates.": "تكون جودة بيانات الأطراف وبنية العنوان والمعرّفات عادةً أهم العوامل المؤثرة في معدلات الإصلاح.",
+    "Matches the current project support for FI credit transfer flows.": "يتوافق مع مستوى الدعم الحالي في المشروع لتدفّقات تحويل الائتمان بين المؤسسات المالية.",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "مهم لتخطيط خارطة الطريق في بيئات المراسلة المصرفية ودفعات التغطية.",
+    "Reference point for institution direct-debit support in the current project.": "يمثّل نقطة مرجعية لدعم الخصم المباشر بين المؤسسات في المشروع الحالي.",
+    "Best fit": "الأنسب لـ",
+    "Recall, error, or fraud-driven reversal handling": "معالجة العكس الناتج عن الاستدعاء أو الخطأ أو الاحتيال",
+    "Post-settlement return handling": "معالجة الإرجاع بعد التسوية"
+  },
+  he: {
+    "Current": "נוכחי",
+    "Current implementation in pacs008": "המימוש הנוכחי ב-pacs008",
+    "Later catalogue revisions": "גרסאות קטלוג מאוחרות יותר",
+    "Early revisions": "גרסאות מוקדמות",
+    "Pre-current modern revisions": "גרסאות מודרניות שלפני הגרסה הנוכחית",
+    "Current catalogue revision": "גרסת הקטלוג הנוכחית",
+    "Later catalogue revision": "גרסת קטלוג מאוחרת יותר",
+    "Useful mainly for legacy migration analysis and version-history context.": "שימושי בעיקר לניתוח מיגרציות מורשת ולהבנת היסטוריית גרסאות.",
+    "These are the revisions most likely to appear in recent migration or coexistence projects.": "אלו הגרסאות שסביר ביותר שיופיעו בפרויקטי מיגרציה או קיום-משותף עדכניים.",
+    "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "השתמשו בכך לתכנון סביב הגרסה הנוכחית, תוך המשך בדיקת כללי השימוש והיערכות הצדדים הנגדיים.",
+    "Use this when matching the current project templates and validation assets.": "השתמשו בכך כאשר יש להתאים לתבניות ולאמצעי האימות הנוכחיים של הפרויקט.",
+    "Suitable for current status-request modelling.": "מתאים למידול הנוכחי של בקשות סטטוס.",
+    "Check the newer catalogue revision for future interoperability planning.": "בדקו את גרסת הקטלוג החדשה יותר לצורך תכנון אינטראופרביליות עתידי.",
+    "Review before adopting newer infrastructure requirements.": "בדקו זאת לפני אימוץ דרישות תשתית חדשות יותר.",
+    "Primary purpose": "מטרה עיקרית",
+    "Business owner": "בעלות עסקית",
+    "Typical pairings": "צירופים טיפוסיים",
+    "Wrong assumption to avoid": "הנחה שגויה שיש להימנע ממנה",
+    "Customer credit transfer": "העברת אשראי של לקוח",
+    "Customer-payment operations": "תפעול תשלומי לקוחות",
+    "Report status": "דיווח סטטוס",
+    "Request status": "בקשת סטטוס",
+    "Who starts the interaction": "מי מתחיל את האינטראקציה",
+    "The institution sending the status": "המוסד ששולח את הסטטוס",
+    "The institution asking for status": "המוסד שמבקש סטטוס",
+    "Operational posture": "עמדה תפעולית",
+    "Event-driven reporting": "דיווח מונע אירוע",
+    "Exception-driven enquiry": "בירור מונע חריגה"
+    ,"Use a new identifier for the status report itself, not the original payment instruction.": "השתמשו במזהה חדש לדוח הסטטוס עצמו, ולא למזהה הוראת התשלום המקורית.",
+    "Keep the original instruction identifier intact so status can be matched automatically.": "שמרו את מזהה ההוראה המקורית ללא שינוי כדי שניתן יהיה להתאים את הסטטוס אוטומטית.",
+    "This is the operational state; map it carefully to internal workflow states rather than assuming a one-to-one match.": "זהו המצב התפעולי; יש למפות אותו בזהירות למצבי התהליך הפנימיים ולא להניח התאמה של אחד-לאחד.",
+    "Structured reason codes are far more useful than free text for repair and analytics.": "קודי סיבה מובנים שימושיים הרבה יותר מטקסט חופשי עבור תיקון וניתוח.",
+    "That status reporting replaces investigation workflows": "שדיווח סטטוס מחליף תהליכי בירור וחקירה",
+    "That every payment needs an explicit status request": "שכל תשלום דורש בקשת סטטוס מפורשת",
+    "That it should be sent routinely for every payment": "שיש לשלוח אותו באופן שגרתי עבור כל תשלום",
+    "That it eliminates the need for proactive case management": "שהוא מבטל את הצורך בניהול מקרים פרואקטיבי",
+    "The request itself needs an auditable identifier distinct from the underlying payment.": "הבקשה עצמה צריכה מזהה בר-ביקורת הנבדל מהתשלום הבסיסי.",
+    "Use the exact source identifier from the original instruction to maximize matching accuracy.": "השתמשו במזהה המקור המדויק מההוראה המקורית כדי למקסם את דיוק ההתאמה.",
+    "Including customer traceability helps operations teams reconcile the enquiry faster.": "הכללת עקיבות הלקוח מסייעת לצוותי התפעול ליישב את הבירור מהר יותר.",
+    "This should identify the message envelope, not the end-customer payment reference.": "זה צריך לזהות את מעטפת ההודעה עצמה, ולא את אסמכתת תשלום הלקוח הסופי.",
+    "Keep customer-facing traceability stable across downstream systems where possible.": "שמרו על עקיבות מוכוונת-לקוח יציבה לאורך המערכות במורד הזרם ככל האפשר.",
+    "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.": "השתמשו בכך באופן עקבי בסביבות חוצות-גבולות ועשירות במעקב; אל תייצרו אותו באופן אד-הוק בשלבים מאוחרים יותר של התהליך.",
+    "Validate amount and currency using business rules before schema validation.": "אמתו את הסכום והמטבע באמצעות כללי עסק לפני אימות הסכימה.",
+    "Party quality, address structure, and identifiers are usually the main determinants of repair rates.": "איכות פרטי הצדדים, מבנה הכתובת והמזהים הם בדרך כלל הגורמים המרכזיים להיקף התיקונים.",
+    "pacs.002, pacs.004, and sometimes linked pacs.008 flows": "תזרימי pacs.002, pacs.004 ולעיתים גם תזרימי pacs.008 מקושרים",
+    "That all bank-to-bank transfers belong here": "שכל ההעברות בין בנקים שייכות לכאן",
+    "That it can replace customer credit-transfer instructions": "שהוא יכול להחליף הוראות העברת אשראי של לקוחות",
+    "Institution-own-account credit transfer or cover leg": "העברת אשראי לחשבון עצמי של מוסד או רגל כיסוי",
+    "Treasury / correspondent / funding operations": "פעילות אוצר / בנקאות קורספונדנטית / מימון",
+    "pacs.002, pacs.004, and linked pacs.008 flows": "תזרימי pacs.002, pacs.004 ותזרימי pacs.008 מקושרים",
+    "That it is just a more technical pacs.008": "שזו רק pacs.008 טכנית יותר",
+    "That it can carry institution funding flows cleanly": "שהיא יכולה לשאת בצורה נקייה תזרימי מימון מוסדיים",
+    "Review later return-message revisions when scheme upgrades or new counterparties are in scope.": "בדקו גרסאות מאוחרות יותר של הודעות החזרה כאשר שדרוגי סכימה או צדדים נגדיים חדשים נמצאים בתחום העבודה.",
+    "Check later revisions for current market-infrastructure alignment.": "בדקו גרסאות מאוחרות יותר לצורך התאמה לתשתית השוק הנוכחית.",
+    "Check later revisions for mandate, status, and interoperability updates before greenfield use.": "בדקו גרסאות מאוחרות יותר לגבי עדכוני הרשאה, סטטוס ותאימות הדדית לפני שימוש בפרויקט חדש.",
+    "Matches the current project support for FI credit transfer flows.": "תואם את רמת התמיכה הנוכחית של הפרויקט בזרימות העברת אשראי בין מוסדות פיננסיים.",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "חשוב לתכנון מפת הדרכים בסביבות בנקאות מתכתבת ותשלומי כיסוי.",
+    "Reference point for institution direct-debit support in the current project.": "מהווה נקודת ייחוס לתמיכה בחיוב ישיר בין מוסדות בפרויקט הנוכחי."
+  },
+  hi: {
+    "Current": "वर्तमान",
+    "Current implementation in pacs008": "pacs008 में वर्तमान कार्यान्वयन",
+    "Later catalogue revisions": "बाद के कैटलॉग संस्करण",
+    "Early revisions": "प्रारंभिक संशोधन",
+    "Pre-current modern revisions": "वर्तमान संस्करण से पहले के आधुनिक संशोधन",
+    "Current catalogue revision": "वर्तमान कैटलॉग संशोधन",
+    "Later catalogue revision": "बाद का कैटलॉग संस्करण",
+    "Useful mainly for legacy migration analysis and version-history context.": "मुख्य रूप से पुरानी प्रणालियों के माइग्रेशन विश्लेषण और संस्करण-इतिहास संदर्भ के लिए उपयोगी।",
+    "These are the revisions most likely to appear in recent migration or coexistence projects.": "हाल के माइग्रेशन या सह-अस्तित्व परियोजनाओं में सबसे अधिक यही संशोधन दिखाई देंगे।",
+    "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "वर्तमान संस्करण की योजना के लिए इसका उपयोग करें, लेकिन स्कीम उपयोग दिशानिर्देशों और प्रतिपक्ष की तैयारी की जाँच जारी रखें।",
+    "Use this when matching the current project templates and validation assets.": "जब वर्तमान परियोजना के टेम्पलेट और सत्यापन संसाधनों से मेल बैठाना हो, तब इसका उपयोग करें।",
+    "Suitable for current status-request modelling.": "वर्तमान स्थिति-अनुरोध मॉडलिंग के लिए उपयुक्त।",
+    "Check the newer catalogue revision for future interoperability planning.": "भविष्य की अंतर-संचालनीयता योजना के लिए नए कैटलॉग संशोधन की जाँच करें।",
+    "Review before adopting newer infrastructure requirements.": "नई अवसंरचना आवश्यकताओं को अपनाने से पहले इसकी समीक्षा करें।",
+    "Primary purpose": "मुख्य उद्देश्य",
+    "Business owner": "व्यावसायिक स्वामी",
+    "Typical pairings": "सामान्य संयोजन",
+    "Wrong assumption to avoid": "जिस गलत धारणा से बचना चाहिए",
+    "Customer credit transfer": "ग्राहक क्रेडिट ट्रांसफर",
+    "Customer-payment operations": "ग्राहक भुगतान संचालन",
+    "Report status": "स्थिति बताना",
+    "Request status": "स्थिति पूछना",
+    "Who starts the interaction": "संचार कौन शुरू करता है",
+    "The institution sending the status": "स्थिति भेजने वाला संस्थान",
+    "The institution asking for status": "स्थिति पूछने वाला संस्थान",
+    "Operational posture": "संचालनात्मक स्थिति",
+    "Event-driven reporting": "घटना-आधारित रिपोर्टिंग",
+    "Exception-driven enquiry": "अपवाद-आधारित पूछताछ"
+    ,"Use a new identifier for the status report itself, not the original payment instruction.": "मूल भुगतान निर्देश के लिए नहीं, बल्कि स्वयं स्थिति रिपोर्ट के लिए नया पहचानकर्ता उपयोग करें।",
+    "Keep the original instruction identifier intact so status can be matched automatically.": "मूल निर्देश पहचानकर्ता को यथावत रखें ताकि स्थिति का मिलान स्वतः हो सके।",
+    "This is the operational state; map it carefully to internal workflow states rather than assuming a one-to-one match.": "यह संचालनात्मक स्थिति है; इसे एक-से-एक मिलान मानने के बजाय आंतरिक प्रक्रिया-स्थितियों से सावधानी से जोड़ें।",
+    "Structured reason codes are far more useful than free text for repair and analytics.": "संरचित कारण-कोड, मुक्त-पाठ की तुलना में समस्या-सुधार और विश्लेषण के लिए कहीं अधिक उपयोगी हैं।",
+    "That status reporting replaces investigation workflows": "कि स्थिति-रिपोर्टिंग, जाँच और अनुवर्ती कार्यप्रवाहों की जगह ले लेती है",
+    "That every payment needs an explicit status request": "कि हर भुगतान के लिए स्पष्ट स्थिति-अनुरोध चाहिए",
+    "That it should be sent routinely for every payment": "कि इसे हर payment के लिए नियमित रूप से भेजा जाना चाहिए",
+    "That it eliminates the need for proactive case management": "कि यह proactive case management की आवश्यकता समाप्त कर देता है",
+    "The request itself needs an auditable identifier distinct from the underlying payment.": "अनुरोध को स्वयं एक ऐसा लेखापरीक्षण-योग्य पहचानकर्ता चाहिए जो मूल भुगतान से अलग हो।",
+    "Use the exact source identifier from the original instruction to maximize matching accuracy.": "मिलान की शुद्धता अधिकतम करने के लिए मूल निर्देश का सटीक स्रोत पहचानकर्ता उपयोग करें।",
+    "Including customer traceability helps operations teams reconcile the enquiry faster.": "ग्राहक अनुरेखण शामिल करने से संचालन दल पूछताछ का मिलान तेज़ी से कर पाते हैं।",
+    "This should identify the message envelope, not the end-customer payment reference.": "यह संदेश-लिफ़ाफ़े की पहचान करे, न कि अंतिम ग्राहक के भुगतान संदर्भ की।",
+    "Keep customer-facing traceability stable across downstream systems where possible.": "जहाँ संभव हो, आगे की प्रणालियों में ग्राहक-उन्मुख अनुरेखण को स्थिर रखें।",
+    "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.": "इसे सीमा-पार और उच्च-ट्रैकिंग वाले परिवेश में लगातार उपयोग करें; बाद के चरणों में इसे तदर्थ रूप से उत्पन्न न करें।",
+    "Validate amount and currency using business rules before schema validation.": "संरचना सत्यापन से पहले व्यावसायिक नियमों के आधार पर राशि और मुद्रा की जाँच करें।",
+    "Party quality, address structure, and identifiers are usually the main determinants of repair rates.": "पक्ष-संबंधी डेटा की गुणवत्ता, पता संरचना और पहचानकर्ता आमतौर पर सुधार-कार्य की दरों के मुख्य निर्धारक होते हैं।",
+    "pacs.002, pacs.004, and sometimes linked pacs.008 flows": "pacs.002, pacs.004, और कभी-कभी जुड़े हुए pacs.008 प्रवाह",
+    "That all bank-to-bank transfers belong here": "कि सभी बैंक-से-बैंक अंतरण यहीं आते हैं",
+    "That it can replace customer credit-transfer instructions": "कि यह customer credit-transfer instructions को बदल सकता है",
+    "Review later return-message revisions when scheme upgrades or new counterparties are in scope.": "जब scope में scheme upgrades या नए counterparties हों, तब बाद के return-message revisions की समीक्षा करें।",
+    "Check later revisions for current market-infrastructure alignment.": "वर्तमान बाजार अवसंरचना के साथ मेल के लिए बाद के संशोधन जाँचें।",
+    "Institution-own-account credit transfer or cover leg": "संस्था के अपने खाते का क्रेडिट ट्रांसफर या कवर चरण",
+    "Check later revisions for mandate, status, and interoperability updates before greenfield use.": "नई शुरुआत वाले उपयोग से पहले अधिदेश, स्थिति और पारस्परिक-संगतता से जुड़े अद्यतन देखने हेतु बाद के संशोधन जाँचें।"
+  },
+  id: {
+    "Current": "Saat ini",
+    "Current implementation in pacs008": "Implementasi saat ini di pacs008",
+    "Later catalogue revisions": "Revisi katalog berikutnya",
+    "Later catalogue revision": "Revisi katalog berikutnya",
+    "Review later ISO revisions before starting new interoperability work or onboarding new infrastructures.": "Tinjau revisi ISO yang lebih baru sebelum memulai pekerjaan interoperabilitas baru atau menambahkan infrastruktur baru.",
+    "Use this when matching the current project templates and validation assets.": "Gunakan ini saat mencocokkan template proyek saat ini dan aset validasi.",
+    "Useful mainly for legacy migration analysis and version-history context.": "Terutama berguna untuk analisis migrasi legacy dan konteks riwayat versi.",
+    "These are the revisions most likely to appear in recent migration or coexistence projects.": "Inilah revisi yang paling mungkin muncul dalam proyek migrasi atau koeksistensi terbaru.",
+    "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "Gunakan ini untuk perencanaan versi saat ini, sambil tetap memvalidasi pedoman penggunaan skema dan kesiapan counterparty.",
+    "Suitable for current status-request modelling.": "Cocok untuk pemodelan permintaan status saat ini.",
+    "Check the newer catalogue revision for future interoperability planning.": "Periksa revisi katalog yang lebih baru untuk perencanaan interoperabilitas di masa depan.",
+    "Review before adopting newer infrastructure requirements.": "Tinjau sebelum mengadopsi persyaratan infrastruktur yang lebih baru.",
+    "Primary purpose": "Tujuan utama",
+    "Business owner": "Pemilik bisnis",
+    "Typical pairings": "Pasangan umum",
+    "Wrong assumption to avoid": "Asumsi keliru yang harus dihindari",
+    "Customer credit transfer": "Transfer kredit nasabah",
+    "Customer-payment operations": "Operasi pembayaran nasabah",
+    "Report status": "Laporkan status",
+    "Request status": "Minta status",
+    "Who starts the interaction": "Siapa yang memulai interaksi",
+    "The institution sending the status": "Institusi yang mengirim status",
+    "The institution asking for status": "Institusi yang meminta status",
+    "Operational posture": "Posisi operasional",
+    "Event-driven reporting": "Pelaporan berbasis peristiwa",
+    "Exception-driven enquiry": "Permintaan berbasis pengecualian"
+    ,"Use a new identifier for the status report itself, not the original payment instruction.": "Gunakan pengenal baru untuk laporan status itu sendiri, bukan untuk instruksi pembayaran asli.",
+    "Keep the original instruction identifier intact so status can be matched automatically.": "Pertahankan pengenal instruksi asli agar status dapat dicocokkan secara otomatis.",
+    "This is the operational state; map it carefully to internal workflow states rather than assuming a one-to-one match.": "Ini adalah status operasional; petakan dengan hati-hati ke status proses internal dan jangan mengasumsikan kecocokan satu-ke-satu.",
+    "Structured reason codes are far more useful than free text for repair and analytics.": "Kode alasan terstruktur jauh lebih berguna daripada teks bebas untuk perbaikan dan analitik.",
+    "That status reporting replaces investigation workflows": "Bahwa pelaporan status menggantikan alur penelusuran dan investigasi",
+    "That every payment needs an explicit status request": "Bahwa setiap pembayaran memerlukan permintaan status eksplisit",
+    "That it should be sent routinely for every payment": "Bahwa ini harus dikirim secara rutin untuk setiap pembayaran",
+    "That it eliminates the need for proactive case management": "Bahwa ini menghilangkan kebutuhan akan manajemen kasus proaktif",
+    "The request itself needs an auditable identifier distinct from the underlying payment.": "Permintaan itu sendiri memerlukan pengenal yang dapat diaudit dan berbeda dari pembayaran dasarnya.",
+    "Use the exact source identifier from the original instruction to maximize matching accuracy.": "Gunakan pengenal sumber yang tepat dari instruksi asli untuk memaksimalkan akurasi pencocokan.",
+    "Including customer traceability helps operations teams reconcile the enquiry faster.": "Menyertakan keterlacakan pelanggan membantu tim operasional merekonsiliasi enquiry lebih cepat.",
+    "This should identify the message envelope, not the end-customer payment reference.": "Ini harus mengidentifikasi envelope pesan, bukan referensi pembayaran pelanggan akhir.",
+    "Keep customer-facing traceability stable across downstream systems where possible.": "Jaga keterlacakan yang terlihat oleh pelanggan tetap stabil di seluruh sistem downstream bila memungkinkan.",
+    "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.": "Gunakan ini secara konsisten dalam lingkungan lintas batas dan yang menuntut pelacakan tinggi; jangan hasilkan secara ad hoc pada tahap proses berikutnya.",
+    "Validate amount and currency using business rules before schema validation.": "Validasi jumlah dan mata uang menggunakan aturan bisnis sebelum validasi skema.",
+    "Party quality, address structure, and identifiers are usually the main determinants of repair rates.": "Kualitas pihak, struktur alamat, dan pengenal biasanya menjadi penentu utama tingkat perbaikan.",
+    "pacs.002, pacs.004, and sometimes linked pacs.008 flows": "aliran pacs.002, pacs.004, dan kadang-kadang aliran pacs.008 yang terkait",
+    "That all bank-to-bank transfers belong here": "Bahwa semua transfer antarbank termasuk di sini",
+    "That it can replace customer credit-transfer instructions": "Bahwa ini dapat menggantikan instruksi transfer kredit nasabah",
+    "Review later return-message revisions when scheme upgrades or new counterparties are in scope.": "Tinjau revisi pesan retur yang lebih baru saat upgrade skema atau counterparty baru masuk dalam cakupan.",
+    "Check later revisions for current market-infrastructure alignment.": "Periksa revisi yang lebih baru untuk keselarasan dengan infrastruktur pasar saat ini."
+    ,"Matches the current project support for FI credit transfer flows.": "Sesuai dengan dukungan proyek saat ini untuk alur transfer kredit FI.",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "Penting untuk perencanaan peta jalan dalam lingkungan perbankan koresponden dan pembayaran penutup.",
+    "Institution-own-account credit transfer or cover leg": "Transfer kredit rekening milik institusi sendiri atau tahap penutup pendanaan",
+    "Treasury / correspondent / funding operations": "Operasi tresuri / korespondensi / pendanaan",
+    "pacs.002, pacs.004, and linked pacs.008 flows": "aliran pacs.002, pacs.004, dan pacs.008 terkait",
+    "That it is just a more technical pacs.008": "Bahwa ini hanyalah pacs.008 yang lebih teknis",
+    "That it can carry institution funding flows cleanly": "Bahwa ini dapat membawa aliran pendanaan institusi dengan rapi",
+    "Aligns with current templates for payment returns.": "Selaras dengan template saat ini untuk retur pembayaran.",
+    "Good baseline for reversal workflow modelling.": "Landasan yang baik untuk pemodelan alur pembalikan.",
+    "Reason-code quality is critical for downstream customer communication and operational routing.": "Kualitas kode alasan sangat penting untuk komunikasi pelanggan di sistem lanjutan dan perutean operasional.",
+    "Check later revisions for mandate, status, and interoperability updates before greenfield use.": "Periksa revisi yang lebih baru untuk pembaruan mandat, status, dan interoperabilitas sebelum penggunaan pada implementasi baru.",
+    "Reference point for institution direct-debit support in the current project.": "Menjadi titik acuan untuk dukungan debit langsung antar lembaga dalam proyek saat ini.",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "Alur rekening sendiri dan cover sering memerlukan kontrol treasury yang lebih ketat atas jumlah dan tanggal penyelesaian.",
+    "These are institution parties, not retail customer roles; model them accordingly.": "Ini adalah pihak antar-lembaga, bukan peran nasabah ritel; modelkan sesuai konteks tersebut.",
+    "Initiated by": "Diinisiasi oleh",
+    "Original instructing side": "Pihak pemberi instruksi asal",
+    "Receiving / beneficiary side": "Pihak penerima / penerima manfaat",
+    "Direction of flow": "Arah alur",
+    "Forward through the chain": "Maju melalui rantai",
+    "Back through the chain": "Kembali melalui rantai",
+    "Reverse a previously instructed payment": "Membalik pembayaran yang sebelumnya telah diinstruksikan",
+    "Return settled funds": "Mengembalikan dana yang sudah diselesaikan",
+    "Best fit": "Paling cocok untuk",
+    "Recall, error, or fraud-driven reversal handling": "Penanganan pembalikan karena recall, kesalahan, atau penipuan",
+    "Post-settlement return handling": "Penanganan pengembalian pasca-penyelesaian"
+  },
+  pl: {
+    "Current": "Bieżąca",
+    "Current implementation in pacs008": "Bieżąca implementacja w pacs008",
+    "Later catalogue revisions": "Późniejsze rewizje katalogu",
+    "Later catalogue revision": "Późniejsza rewizja katalogu",
+    "Review later ISO revisions before starting new interoperability work or onboarding new infrastructures.": "Przed rozpoczęciem nowych prac interoperacyjnych lub podłączaniem nowych infrastruktur sprawdź późniejsze rewizje ISO.",
+    "Review later return-message revisions when scheme upgrades or new counterparties are in scope.": "Sprawdź późniejsze rewizje komunikatów zwrotnych, gdy w zakresie są aktualizacje schematu lub nowi kontrahenci.",
+    "Check later revisions for current market-infrastructure alignment.": "Sprawdź późniejsze rewizje pod kątem zgodności z aktualną infrastrukturą rynkową.",
+    "Check the newer catalogue revision for future interoperability planning.": "Sprawdź nowszą rewizję katalogu dla przyszłego planowania interoperacyjności.",
+    "Use this when matching the current project templates and validation assets.": "Używaj tego przy dopasowaniu do bieżących szablonów projektu i zasobów walidacyjnych.",
+    "Useful mainly for legacy migration analysis and version-history context.": "Przydatne głównie do analizy migracji legacy i kontekstu historii wersji.",
+    "These are the revisions most likely to appear in recent migration or coexistence projects.": "To rewizje, które najczęściej pojawiają się w ostatnich projektach migracyjnych lub koegzystencji.",
+    "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "Używaj tego do planowania wokół bieżącej wersji, nadal sprawdzając zasady użycia schematu i gotowość kontrahentów.",
+    "Suitable for current status-request modelling.": "Odpowiednie do bieżącego modelowania zapytań o status.",
+    "Review before adopting newer infrastructure requirements.": "Sprawdź to przed przyjęciem nowszych wymagań infrastrukturalnych.",
+    "Primary purpose": "Główny cel",
+    "Business owner": "Właściciel biznesowy",
+    "Typical pairings": "Typowe powiązania",
+    "Wrong assumption to avoid": "Błędne założenie, którego należy unikać",
+    "Customer credit transfer": "Kliencki przelew kredytowy",
+    "Customer-payment operations": "Operacje płatności klientów",
+    "Report status": "Raportuj status",
+    "Request status": "Żądaj statusu",
+    "Who starts the interaction": "Kto inicjuje interakcję",
+    "The institution sending the status": "Instytucja wysyłająca status",
+    "The institution asking for status": "Instytucja pytająca o status",
+    "Operational posture": "Model operacyjny",
+    "Event-driven reporting": "Raportowanie zdarzeniowe",
+    "Exception-driven enquiry": "Zapytanie oparte na wyjątkach"
+    ,"Use a new identifier for the status report itself, not the original payment instruction.": "Użyj nowego identyfikatora dla samego raportu statusowego, a nie dla oryginalnej instrukcji płatniczej.",
+    "Keep the original instruction identifier intact so status can be matched automatically.": "Zachowaj oryginalny identyfikator instrukcji bez zmian, aby status można było dopasować automatycznie.",
+    "This is the operational state; map it carefully to internal workflow states rather than assuming a one-to-one match.": "To jest stan operacyjny; mapuj go ostrożnie do wewnętrznych stanów procesu, zamiast zakładać dopasowanie jeden do jednego.",
+    "Structured reason codes are far more useful than free text for repair and analytics.": "Ustrukturyzowane kody przyczyn są znacznie bardziej przydatne niż wolny tekst do napraw i analiz.",
+    "That status reporting replaces investigation workflows": "Że raportowanie statusu zastępuje procesy wyjaśniające i dochodzeniowe",
+    "That every payment needs an explicit status request": "Że każda płatność wymaga jawnego zapytania o status",
+    "That it should be sent routinely for every payment": "Że powinno się to wysyłać rutynowo dla każdej płatności",
+    "That it eliminates the need for proactive case management": "Że eliminuje to potrzebę proaktywnego zarządzania sprawami",
+    "The request itself needs an auditable identifier distinct from the underlying payment.": "Samo zapytanie potrzebuje identyfikatora audytowalnego i odrębnego od płatności bazowej.",
+    "Use the exact source identifier from the original instruction to maximize matching accuracy.": "Użyj dokładnego identyfikatora źródłowego z oryginalnej instrukcji, aby zmaksymalizować dokładność dopasowania.",
+    "Including customer traceability helps operations teams reconcile the enquiry faster.": "Uwzględnienie śledzenia klienta pomaga zespołom operacyjnym szybciej uzgodnić zapytanie.",
+    "This should identify the message envelope, not the end-customer payment reference.": "To powinno identyfikować kopertę komunikatu, a nie referencję płatności klienta końcowego.",
+    "Keep customer-facing traceability stable across downstream systems where possible.": "W miarę możliwości utrzymuj stabilną śledzalność po stronie klienta w systemach downstream.",
+    "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.": "Używaj tego konsekwentnie w środowiskach transgranicznych i wymagających intensywnego śledzenia; nie generuj tego doraźnie na późniejszych etapach procesu.",
+    "Validate amount and currency using business rules before schema validation.": "Weryfikuj kwotę i walutę regułami biznesowymi przed walidacją schematu.",
+    "Party quality, address structure, and identifiers are usually the main determinants of repair rates.": "Jakość danych stron, struktura adresu i identyfikatory są zwykle głównymi czynnikami wpływającymi na poziom napraw.",
+    "pacs.002, pacs.004, and sometimes linked pacs.008 flows": "pacs.002, pacs.004 i czasem powiązane przepływy pacs.008",
+    "That all bank-to-bank transfers belong here": "Że wszystkie przelewy między bankami należą tutaj",
+    "That it can replace customer credit-transfer instructions": "Że może zastąpić instrukcje przelewu kredytowego klienta"
+    ,"Matches the current project support for FI credit transfer flows.": "Odpowiada bieżącemu wsparciu projektu dla przepływów przelewów kredytowych FI.",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "Ważne dla planowania mapy drogowej w środowiskach bankowości korespondencyjnej i płatności pokryciowych.",
+    "Institution-own-account credit transfer or cover leg": "Przelew kredytowy na rachunek własny instytucji lub etap pokrycia",
+    "Treasury / correspondent / funding operations": "Operacje skarbowe / korespondencyjne / finansowania",
+    "pacs.002, pacs.004, and linked pacs.008 flows": "pacs.002, pacs.004 i powiązane przepływy pacs.008",
+    "That it is just a more technical pacs.008": "Że to po prostu bardziej techniczny pacs.008",
+    "That it can carry institution funding flows cleanly": "Że może bezproblemowo przenosić przepływy finansowania instytucji",
+    "Aligns with current templates for payment returns.": "Jest zgodne z bieżącymi szablonami zwrotów płatności.",
+    "Good baseline for reversal workflow modelling.": "Dobra podstawa do modelowania przepływów odwołania płatności.",
+    "Reason-code quality is critical for downstream customer communication and operational routing.": "Jakość kodów przyczyn ma kluczowe znaczenie dla komunikacji z klientem w systemach dalszego przetwarzania i dla kierowania operacyjnego.",
+    "Check later revisions for mandate, status, and interoperability updates before greenfield use.": "Sprawdź późniejsze rewizje pod kątem zmian mandatów, statusów i interoperacyjności przed użyciem w nowym wdrożeniu.",
+    "Reference point for institution direct-debit support in the current project.": "Punkt odniesienia dla obsługi polecenia zapłaty między instytucjami w bieżącym projekcie."
+  },
+  ro: {
+    "Current": "Curentă",
+    "Current implementation in pacs008": "Implementarea curentă în pacs008",
+    "Later catalogue revisions": "Revizii ulterioare ale catalogului",
+    "Later catalogue revision": "Revizie ulterioară a catalogului",
+    "Useful mainly for legacy migration analysis and version-history context.": "Util mai ales pentru analiza migrațiilor legacy și pentru contextul istoric al versiunilor.",
+    "These are the revisions most likely to appear in recent migration or coexistence projects.": "Acestea sunt reviziile care apar cel mai probabil în proiecte recente de migrare sau coexistență.",
+    "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "Folosește asta pentru planificarea versiunii curente, validând în continuare regulile schemei și pregătirea contrapărților.",
+    "Use this when matching the current project templates and validation assets.": "Folosește asta când trebuie să te aliniezi la template-urile și artefactele de validare curente ale proiectului.",
+    "Suitable for current status-request modelling.": "Potrivit pentru modelarea curentă a cererilor de status.",
+    "Check the newer catalogue revision for future interoperability planning.": "Verifică revizia mai nouă a catalogului pentru planificarea interoperabilității viitoare.",
+    "Review before adopting newer infrastructure requirements.": "Revizuiește înainte de a adopta cerințe mai noi de infrastructură.",
+    "Primary purpose": "Scop principal",
+    "Business owner": "Responsabil de business",
+    "Typical pairings": "Asocieri tipice",
+    "Wrong assumption to avoid": "Presupunere greșită de evitat",
+    "Customer credit transfer": "Transfer de credit al clientului",
+    "Customer-payment operations": "Operațiuni de plăți ale clienților",
+    "Report status": "Raportează statusul",
+    "Request status": "Solicită statusul",
+    "Who starts the interaction": "Cine începe interacțiunea",
+    "The institution sending the status": "Instituția care trimite statusul",
+    "The institution asking for status": "Instituția care solicită statusul",
+    "Operational posture": "Postură operațională",
+    "Event-driven reporting": "Raportare bazată pe eveniment",
+    "Exception-driven enquiry": "Interogare bazată pe excepție"
+    ,"Use a new identifier for the status report itself, not the original payment instruction.": "Folosește un identificator nou pentru raportul de status în sine, nu pentru instrucțiunea de plată originală.",
+    "Keep the original instruction identifier intact so status can be matched automatically.": "Păstrează nemodificat identificatorul instrucțiunii originale pentru ca statusul să poată fi corelat automat.",
+    "This is the operational state; map it carefully to internal workflow states rather than assuming a one-to-one match.": "Acesta este statusul operațional; mapează-l cu atenție la stările interne ale procesului și nu presupune o corespondență unu-la-unu.",
+    "Structured reason codes are far more useful than free text for repair and analytics.": "Codurile structurate de motiv sunt mult mai utile decât textul liber pentru reparații și analitice.",
+    "That status reporting replaces investigation workflows": "Că raportarea statusului înlocuiește fluxurile de investigare și clarificare",
+    "That every payment needs an explicit status request": "Că fiecare plată are nevoie de o cerere explicită de status",
+    "That it should be sent routinely for every payment": "Că ar trebui trimis în mod obișnuit pentru fiecare plată",
+    "That it eliminates the need for proactive case management": "Că elimină nevoia de management proactiv al cazurilor",
+    "The request itself needs an auditable identifier distinct from the underlying payment.": "Cererea în sine are nevoie de un identificator auditabil distinct de plata de bază.",
+    "Use the exact source identifier from the original instruction to maximize matching accuracy.": "Folosește identificatorul sursă exact din instrucțiunea originală pentru a maximiza acuratețea potrivirii.",
+    "Including customer traceability helps operations teams reconcile the enquiry faster.": "Includerea trasabilității clientului ajută echipele operaționale să reconcilieze mai rapid interogarea.",
+    "This should identify the message envelope, not the end-customer payment reference.": "Acesta ar trebui să identifice plicul mesajului, nu referința de plată a clientului final.",
+    "Keep customer-facing traceability stable across downstream systems where possible.": "Păstrează stabilă trasabilitatea orientată spre client în sistemele downstream ori de câte ori este posibil.",
+    "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.": "Folosește acest câmp în mod consecvent în medii transfrontaliere și cu urmărire intensă; nu îl genera ad hoc în etapele ulterioare ale procesului.",
+    "Validate amount and currency using business rules before schema validation.": "Validează suma și moneda prin reguli de business înainte de validarea schemei.",
+    "Party quality, address structure, and identifiers are usually the main determinants of repair rates.": "Calitatea datelor despre părți, structura adresei și identificatorii sunt de obicei principalii factori ai volumului de corecții.",
+    "pacs.002, pacs.004, and sometimes linked pacs.008 flows": "pacs.002, pacs.004 și uneori fluxuri pacs.008 asociate",
+    "That all bank-to-bank transfers belong here": "Că toate transferurile bancă-la-bancă aparțin aici",
+    "That it can replace customer credit-transfer instructions": "Că poate înlocui instrucțiunile de transfer de credit ale clientului",
+    "Review later return-message revisions when scheme upgrades or new counterparties are in scope.": "Verifică reviziile ulterioare ale mesajelor de retur când upgrade-urile de schemă sau contrapărți noi intră în sferă.",
+    "Check later revisions for current market-infrastructure alignment.": "Verifică reviziile ulterioare pentru alinierea cu infrastructura actuală de piață."
+    ,"Matches the current project support for FI credit transfer flows.": "Se aliniază cu suportul actual al proiectului pentru fluxurile de transfer de credit FI.",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "Important pentru planificarea foii de parcurs în medii de bancă corespondentă și plăți de acoperire.",
+    "Institution-own-account credit transfer or cover leg": "Transfer de credit în cont propriu al instituției sau etapă de acoperire",
+    "Treasury / correspondent / funding operations": "Operațiuni de trezorerie / corespondent / finanțare",
+    "pacs.002, pacs.004, and linked pacs.008 flows": "pacs.002, pacs.004 și fluxuri pacs.008 asociate",
+    "That it is just a more technical pacs.008": "Că este doar un pacs.008 mai tehnic",
+    "That it can carry institution funding flows cleanly": "Că poate transporta fără probleme fluxurile de finanțare ale instituțiilor",
+    "Aligns with current templates for payment returns.": "Se aliniază cu template-urile curente pentru retururile de plată.",
+    "Good baseline for reversal workflow modelling.": "Bază bună pentru modelarea fluxurilor de reversare.",
+    "Reason-code quality is critical for downstream customer communication and operational routing.": "Calitatea codurilor de motiv este critică pentru comunicarea cu clienții în sistemele ulterioare și pentru rutarea operațională.",
+    "Check later revisions for mandate, status, and interoperability updates before greenfield use.": "Verifică reviziile ulterioare pentru actualizări privind mandatele, statusul și interoperabilitatea înainte de utilizarea într-o implementare nouă."
+    ,"This must point back to the settled transaction being returned.": "Acesta trebuie să indice tranzacția decontată care este returnată.",
+    "Return amount should reflect the actual returned value, not a reconstructed business amount.": "Suma returnată trebuie să reflecte valoarea efectiv returnată, nu o sumă de business reconstruită.",
+    "Return settled funds": "Returnarea fondurilor deja decontate",
+    "Reverse a previously instructed payment": "Reversarea unei plăți instruite anterior",
+    "Initiated by": "Inițiat de",
+    "Receiving / beneficiary side": "Partea de primire / beneficiar",
+    "Original instructing side": "Partea care a inițiat instrucțiunea inițială",
+    "Direction of flow": "Direcția fluxului",
+    "Back through the chain": "Înapoi prin lanț",
+    "Forward through the chain": "Înainte prin lanț",
+    "Best fit": "Cel mai potrivit pentru",
+    "Post-settlement return handling": "Gestionarea returului după decontare",
+    "Recall, error, or fraud-driven reversal handling": "Gestionarea reversărilor generate de recall, eroare sau fraudă",
+    "Reference point for institution direct-debit support in the current project.": "Punct de referință pentru suportul debitării directe între instituții în proiectul actual."
+  },
+  tr: {
+    "Current": "Güncel",
+    "Current implementation in pacs008": "pacs008 içindeki mevcut uygulama",
+    "Later catalogue revisions": "Daha sonraki katalog sürümleri",
+    "Later catalogue revision": "Daha sonraki katalog sürümü",
+    "Review later ISO revisions before starting new interoperability work or onboarding new infrastructures.": "Yeni birlikte çalışabilirlik çalışmaları başlamadan veya yeni altyapılar eklenmeden önce sonraki ISO sürümlerini gözden geçirin.",
+    "Use this when matching the current project templates and validation assets.": "Bunu mevcut proje şablonları ve doğrulama varlıklarıyla eşleşirken kullanın.",
+    "Useful mainly for legacy migration analysis and version-history context.": "Esas olarak legacy migration analizi ve sürüm geçmişi bağlamı için yararlıdır.",
+    "These are the revisions most likely to appear in recent migration or coexistence projects.": "Son dönem migration veya coexistence projelerinde en çok karşılaşılması muhtemel sürümler bunlardır.",
+    "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "Bunu mevcut sürüm planlaması için kullanın; ancak scheme kullanım kuralları ve karşı taraf hazırlığı yine de doğrulanmalıdır.",
+    "Suitable for current status-request modelling.": "Mevcut durum-istek modellemesi için uygundur.",
+    "Check the newer catalogue revision for future interoperability planning.": "Gelecekteki birlikte çalışabilirlik planlaması için daha yeni katalog sürümünü inceleyin.",
+    "Review before adopting newer infrastructure requirements.": "Daha yeni altyapı gereksinimlerini benimsemeden önce gözden geçirin.",
+    "Primary purpose": "Temel amaç",
+    "Business owner": "İş sahibi",
+    "Typical pairings": "Tipik eşleşmeler",
+    "Wrong assumption to avoid": "Kaçınılması gereken yanlış varsayım",
+    "Customer credit transfer": "Müşteri kredi transferi",
+    "Customer-payment operations": "Müşteri ödeme operasyonları",
+    "Report status": "Durum bildir",
+    "Request status": "Durum iste",
+    "Who starts the interaction": "Etkileşimi kim başlatır",
+    "The institution sending the status": "Durumu gönderen kurum",
+    "The institution asking for status": "Durumu soran kurum",
+    "Operational posture": "Operasyonel duruş",
+    "Event-driven reporting": "Olay güdümlü raporlama",
+    "Exception-driven enquiry": "İstisna güdümlü sorgu"
+    ,"Use a new identifier for the status report itself, not the original payment instruction.": "Orijinal ödeme talimatı için değil, durum raporunun kendisi için yeni bir tanımlayıcı kullanın.",
+    "Keep the original instruction identifier intact so status can be matched automatically.": "Durumun otomatik eşleştirilebilmesi için orijinal talimat tanımlayıcısını değiştirmeden koruyun.",
+    "This is the operational state; map it carefully to internal workflow states rather than assuming a one-to-one match.": "Bu operasyonel durumdur; bire bir eşleşme varsaymak yerine dahili süreç durumlarına dikkatle eşleyin.",
+    "Structured reason codes are far more useful than free text for repair and analytics.": "Yapılandırılmış neden kodları, düzeltme işlemleri ve analitik için serbest metinden çok daha kullanışlıdır.",
+    "That status reporting replaces investigation workflows": "Durum raporlamasının inceleme ve araştırma iş akışlarının yerini aldığı",
+    "That every payment needs an explicit status request": "Her ödemenin açık bir durum isteğine ihtiyaç duyduğu",
+    "That it should be sent routinely for every payment": "Her ödeme için rutin olarak gönderilmesi gerektiği",
+    "That it eliminates the need for proactive case management": "Proaktif vaka yönetimi ihtiyacını ortadan kaldırdığı",
+    "The request itself needs an auditable identifier distinct from the underlying payment.": "İsteğin kendisi, alttaki ödemeden ayrı ve denetlenebilir bir tanımlayıcı gerektirir.",
+    "Use the exact source identifier from the original instruction to maximize matching accuracy.": "Eşleştirme doğruluğunu en üst düzeye çıkarmak için orijinal talimattaki tam kaynak tanımlayıcıyı kullanın.",
+    "Including customer traceability helps operations teams reconcile the enquiry faster.": "Müşteri izlenebilirliğini dahil etmek, operasyon ekiplerinin sorguyu daha hızlı mutabık kılmasına yardımcı olur.",
+    "This should identify the message envelope, not the end-customer payment reference.": "Bu alan son müşteri ödeme referansını değil, mesaj zarfının kendisini tanımlamalıdır.",
+    "Keep customer-facing traceability stable across downstream systems where possible.": "Mümkün olduğunda müşteri tarafındaki izlenebilirliği downstream sistemler boyunca istikrarlı tutun.",
+    "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.": "Bunu sınır ötesi ve yoğun izleme gerektiren ortamlarda tutarlı şekilde kullanın; sonraki işlem aşamalarında ad hoc üretmeyin.",
+    "Validate amount and currency using business rules before schema validation.": "Şema doğrulamasından önce tutar ve para birimini iş kurallarıyla doğrulayın.",
+    "Party quality, address structure, and identifiers are usually the main determinants of repair rates.": "Taraf verisi kalitesi, adres yapısı ve tanımlayıcılar genellikle düzeltme oranlarının ana belirleyicileridir.",
+    "pacs.002, pacs.004, and sometimes linked pacs.008 flows": "pacs.002, pacs.004 ve bazen ilişkili pacs.008 akışları",
+    "That all bank-to-bank transfers belong here": "Tüm bankadan bankaya transferlerin burada yer aldığı",
+    "That it can replace customer credit-transfer instructions": "Müşteri kredi transferi talimatlarının yerini alabileceği",
+    "Review later return-message revisions when scheme upgrades or new counterparties are in scope.": "Kapsamda şema yükseltmeleri veya yeni karşı taraflar varsa, daha sonraki iade mesajı sürümlerini inceleyin.",
+    "Check later revisions for current market-infrastructure alignment.": "Mevcut piyasa altyapısına uyum için sonraki sürümleri inceleyin."
+    ,"Matches the current project support for FI credit transfer flows.": "FI kredi transfer akışları için mevcut proje desteğiyle uyumludur.",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "Muhabirlik ve karşılama ödemesi ortamlarında yol haritası planlaması için önemlidir.",
+    "Institution-own-account credit transfer or cover leg": "Kurumun kendi hesabına kredi transferi veya karşılama ayağı",
+    "Treasury / correspondent / funding operations": "Hazine / muhabirlik / fonlama operasyonları",
+    "pacs.002, pacs.004, and linked pacs.008 flows": "pacs.002, pacs.004 ve bağlantılı pacs.008 akışları",
+    "That it is just a more technical pacs.008": "Bunun yalnızca daha teknik bir pacs.008 olduğu",
+    "That it can carry institution funding flows cleanly": "Kurum fonlama akışlarını sorunsuz taşıyabildiği",
+    "Aligns with current templates for payment returns.": "Ödeme iade mesajları için mevcut şablonlarla uyumludur.",
+    "Good baseline for reversal workflow modelling.": "Reversal iş akışı modellemesi için iyi bir başlangıç noktasıdır.",
+    "Useful for direct-debit reference modelling in the current project.": "Mevcut projede doğrudan borçlandırma referanslarının modellenmesi için faydalıdır.",
+    "Reason-code quality is critical for downstream customer communication and operational routing.": "Sebep kodlarının kalitesi, sonraki müşteri iletişimi ve operasyonel yönlendirme için kritiktir.",
+    "Check later revisions for mandate, status, and interoperability updates before greenfield use.": "Yeni bir uygulamaya başlamadan önce yetki, durum ve birlikte çalışabilirlik güncellemeleri için sonraki sürümleri inceleyin."
+    ,"Use a funding-leg identifier that can still be joined to any underlying customer flow.": "Alttaki müşteri akışıyla hâlâ ilişkilendirilebilen bir finansman aşaması tanımlayıcısı kullanın.",
+    "Institution direct-debit amounts often need explicit bilateral tolerance controls.": "Kurumlar arası doğrudan borçlandırma tutarları çoğu zaman açık iki taraflı tolerans kontrolleri gerektirir.",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "Kendi hesap ve karşılama akışları çoğu zaman takas tutarları ve tarihleri üzerinde daha sıkı hazine kontrolleri gerektirir.",
+    "These are institution parties, not retail customer roles; model them accordingly.": "Bunlar perakende müşteri rolleri değil, kurum taraflarıdır; buna göre modelleyin.",
+    "Reference point for institution direct-debit support in the current project.": "Mevcut projede kurumlar arası doğrudan borçlandırma desteği için referans noktasıdır."
+  },
+  th: {
+    "Current": "ปัจจุบัน",
+    "Current implementation in pacs008": "การติดตั้งใช้งานปัจจุบันใน pacs008",
+    "Later catalogue revisions": "รุ่นแก้ไขแค็ตตาล็อกที่ใหม่กว่า",
+    "Later catalogue revision": "รุ่นแก้ไขแค็ตตาล็อกที่ใหม่กว่า",
+    "Early revisions": "รุ่นแก้ไขระยะแรก",
+    "Pre-current modern revisions": "รุ่นแก้ไขสมัยใหม่ก่อนรุ่นปัจจุบัน",
+    "Current catalogue revision": "รุ่นแก้ไขแค็ตตาล็อกปัจจุบัน",
+    "Later catalogue revision": "รุ่นแก้ไขแค็ตตาล็อกที่ใหม่กว่า",
+    "Useful mainly for legacy migration analysis and version-history context.": "มีประโยชน์หลักสำหรับการวิเคราะห์การย้ายระบบแบบ legacy และบริบทประวัติของเวอร์ชัน",
+    "These are the revisions most likely to appear in recent migration or coexistence projects.": "นี่คือรุ่นแก้ไขที่มีแนวโน้มจะพบมากที่สุดในโครงการ migration หรือ coexistence ล่าสุด",
+    "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "ใช้สิ่งนี้สำหรับการวางแผนเวอร์ชันปัจจุบัน โดยยังต้องตรวจสอบแนวทางการใช้งาน scheme และความพร้อมของ counterparty ต่อไป",
+    "Use this when matching the current project templates and validation assets.": "ใช้สิ่งนี้เมื่อจำเป็นต้องสอดคล้องกับ template และ validation asset ปัจจุบันของโครงการ",
+    "Suitable for current status-request modelling.": "เหมาะสำหรับการออกแบบคำขอสถานะในเวอร์ชันปัจจุบัน",
+    "Check the newer catalogue revision for future interoperability planning.": "ตรวจสอบรุ่นแก้ไขแค็ตตาล็อกที่ใหม่กว่าสำหรับการวางแผน interoperability ในอนาคต",
+    "Review before adopting newer infrastructure requirements.": "ทบทวนก่อนนำข้อกำหนดโครงสร้างพื้นฐานที่ใหม่กว่ามาใช้",
+    "Primary purpose": "วัตถุประสงค์หลัก",
+    "Business owner": "ผู้รับผิดชอบทางธุรกิจ",
+    "Typical pairings": "การจับคู่ที่พบบ่อย",
+    "Wrong assumption to avoid": "ข้อสมมติที่ควรหลีกเลี่ยง",
+    "Customer credit transfer": "การโอนเครดิตของลูกค้า",
+    "Customer-payment operations": "งานปฏิบัติการชำระเงินของลูกค้า",
+    "Report status": "รายงานสถานะ",
+    "Request status": "ขอสถานะ",
+    "Who starts the interaction": "ใครเป็นผู้เริ่มการโต้ตอบ",
+    "The institution sending the status": "สถาบันที่ส่งสถานะ",
+    "The institution asking for status": "สถาบันที่ร้องขอสถานะ",
+    "Operational posture": "ลักษณะเชิงปฏิบัติการ",
+    "Event-driven reporting": "การรายงานตามเหตุการณ์",
+    "Exception-driven enquiry": "การสอบถามเมื่อเกิดข้อยกเว้น"
+    ,"Use a new identifier for the status report itself, not the original payment instruction.": "ใช้ตัวระบุใหม่สำหรับรายงานสถานะเอง ไม่ใช่สำหรับคำสั่งชำระเงินต้นฉบับ",
+    "Keep the original instruction identifier intact so status can be matched automatically.": "คงตัวระบุของคำสั่งต้นฉบับไว้เพื่อให้ระบบจับคู่สถานะได้โดยอัตโนมัติ",
+    "This is the operational state; map it carefully to internal workflow states rather than assuming a one-to-one match.": "นี่คือสถานะเชิงปฏิบัติการ ควรแมปอย่างระมัดระวังกับสถานะกระบวนการภายในแทนการสมมติว่าเป็นการจับคู่แบบหนึ่งต่อหนึ่ง",
+    "Structured reason codes are far more useful than free text for repair and analytics.": "รหัสเหตุผลแบบมีโครงสร้างมีประโยชน์มากกว่าข้อความอิสระอย่างมากสำหรับการแก้ไขปัญหาและการวิเคราะห์",
+    "That status reporting replaces investigation workflows": "การที่การรายงานสถานะแทนที่กระบวนการสืบค้นและตรวจสอบ",
+    "That every payment needs an explicit status request": "การที่ทุกการชำระเงินต้องมีคำขอสถานะแบบชัดเจน",
+    "That it should be sent routinely for every payment": "การที่ควรส่งสิ่งนี้เป็นประจำสำหรับทุกการชำระเงิน",
+    "That it eliminates the need for proactive case management": "การที่สิ่งนี้ทำให้ไม่จำเป็นต้องมีการจัดการเคสเชิงรุก",
+    "The request itself needs an auditable identifier distinct from the underlying payment.": "คำขอเองต้องมีตัวระบุที่ตรวจสอบย้อนหลังได้และแยกจากการชำระเงินต้นทาง",
+    "Use the exact source identifier from the original instruction to maximize matching accuracy.": "ใช้ตัวระบุต้นทางที่ตรงกันจากคำสั่งต้นฉบับเพื่อเพิ่มความแม่นยำในการจับคู่สูงสุด",
+    "Including customer traceability helps operations teams reconcile the enquiry faster.": "การรวมความสามารถในการติดตามลูกค้าช่วยให้ทีมปฏิบัติการกระทบยอดคำถามได้เร็วขึ้น",
+    "This should identify the message envelope, not the end-customer payment reference.": "สิ่งนี้ควรระบุ message envelope ไม่ใช่อ้างอิงการชำระเงินของลูกค้าปลายทาง",
+    "Keep customer-facing traceability stable across downstream systems where possible.": "รักษาความสามารถในการติดตามที่มองเห็นต่อหน้าลูกค้าให้คงที่ตลอดระบบ downstream เท่าที่ทำได้",
+    "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.": "ใช้ค่านี้อย่างสม่ำเสมอในสภาพแวดล้อมข้ามพรมแดนและที่ต้องการการติดตามสูง อย่าสร้างแบบเฉพาะกิจในขั้นตอนถัดไปของกระบวนการ",
+    "Validate amount and currency using business rules before schema validation.": "ตรวจสอบจำนวนเงินและสกุลเงินด้วยกฎทางธุรกิจก่อนการตรวจสอบโครงสร้างข้อความ",
+    "Party quality, address structure, and identifiers are usually the main determinants of repair rates.": "คุณภาพข้อมูลคู่สัญญา โครงสร้างที่อยู่ และตัวระบุมักเป็นปัจจัยหลักที่กำหนดปริมาณงานแก้ไข",
+    "pacs.002, pacs.004, and sometimes linked pacs.008 flows": "กระบวนการ pacs.002, pacs.004 และบางครั้งรวมถึง pacs.008 ที่เชื่อมโยงกัน",
+    "That all bank-to-bank transfers belong here": "การที่การโอนระหว่างธนาคารทั้งหมดอยู่ในหมวดนี้",
+    "That it can replace customer credit-transfer instructions": "การที่มันสามารถแทนคำสั่งโอนเครดิตของลูกค้าได้",
+    "Review later return-message revisions when scheme upgrades or new counterparties are in scope.": "ทบทวนรุ่นแก้ไขของข้อความคืนเงินที่ใหม่กว่าเมื่อมีการอัปเกรดสคีมหรือมีคู่สัญญาใหม่อยู่ในขอบเขต",
+    "Check later revisions for current market-infrastructure alignment.": "ตรวจสอบรุ่นแก้ไขที่ใหม่กว่าสำหรับความสอดคล้องกับโครงสร้างพื้นฐานตลาดปัจจุบัน",
+    "Aligns with current templates for payment returns.": "สอดคล้องกับแม่แบบปัจจุบันสำหรับข้อความการคืนเงิน",
+    "Reason-code quality is critical for downstream customer communication and operational routing.": "คุณภาพของรหัสเหตุผลมีความสำคัญอย่างยิ่งต่อการสื่อสารกับลูกค้าในขั้นตอนถัดไปและการกำหนดเส้นทางเชิงปฏิบัติการ",
+    "Check later revisions for mandate, status, and interoperability updates before greenfield use.": "ตรวจสอบรุ่นแก้ไขที่ใหม่กว่าสำหรับการเปลี่ยนแปลงด้านคำสั่งมอบหมาย สถานะ และการทำงานร่วมกันก่อนใช้ในระบบใหม่",
+    "Institution-own-account credit transfer or cover leg": "การโอนเครดิตในบัญชีของสถาบันเองหรือช่วงการชำระเงินเพื่อคุ้มกัน",
+    "Matches the current project support for FI credit transfer flows.": "สอดคล้องกับขอบเขตการรองรับปัจจุบันของโครงการสำหรับกระแสการโอนเครดิตระหว่างสถาบันการเงิน",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "สำคัญต่อการวางแผนโรดแมปในสภาพแวดล้อมธนาคารตัวแทนและการชำระเงินแบบชำระครอบคลุม",
+    "Reference point for institution direct-debit support in the current project.": "เป็นจุดอ้างอิงสำหรับการรองรับการหักบัญชีโดยตรงระหว่างสถาบันในโครงการปัจจุบัน",
+    "Treasury / correspondent / funding operations": "งานคลังเงิน / ธนาคารตัวแทน / การจัดหาเงินทุน",
+    "pacs.002, pacs.004, and linked pacs.008 flows": "กระบวนการ pacs.002, pacs.004 และกระแส pacs.008 ที่เชื่อมโยงกัน",
+    "That it is just a more technical pacs.008": "การคิดว่าเป็นเพียง pacs.008 ที่มีรายละเอียดทางเทคนิคมากกว่า",
+    "That it can carry institution funding flows cleanly": "การคิดว่าสามารถรองรับกระแสการจัดหาเงินทุนระหว่างสถาบันได้โดยตรงอย่างครบถ้วน",
+    "These are institution parties, not retail customer roles; model them accordingly.": "สิ่งเหล่านี้คือคู่สัญญาระหว่างสถาบัน ไม่ใช่บทบาทลูกค้ารายย่อย จึงควรจำลองข้อมูลให้สอดคล้องกัน",
+    "Best fit": "เหมาะที่สุดสำหรับ",
+    "Recall, error, or fraud-driven reversal handling": "การจัดการการย้อนกลับจากการเรียกคืน ข้อผิดพลาด หรือการทุจริต",
+    "Post-settlement return handling": "การจัดการการคืนเงินหลังการชำระบัญชี",
+    "Replaces legacy MT104-style direct debit formats in cross-border flows": "แทนที่รูปแบบการหักบัญชีโดยตรงแบบ MT104 เดิมในกระแสข้ามพรมแดน",
+    "Useful for direct-debit reference modelling in the current project.": "มีประโยชน์สำหรับการทำแบบจำลองการอ้างอิงการหักบัญชีโดยตรงในโครงการปัจจุบัน",
+    "Institution direct-debit amounts often need explicit bilateral tolerance controls.": "จำนวนเงินของการหักบัญชีโดยตรงระหว่างสถาบันมักต้องมีการควบคุมค่าความคลาดเคลื่อนแบบทวิภาคีอย่างชัดเจน",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "กระแสเงินของบัญชีตนเองและการชำระเงินเพื่อครอบคลุมมักต้องการการควบคุมด้านการเงินคลังที่เข้มงวดมากขึ้นต่อจำนวนเงินและวันที่ชำระบัญชี"
+  },
+  vi: {
+    "Current": "Hiện tại",
+    "Current implementation in pacs008": "Triển khai hiện tại trong pacs008",
+    "Later catalogue revisions": "Các bản sửa đổi danh mục về sau",
+    "Later catalogue revision": "Bản sửa đổi danh mục về sau",
+    "Review later ISO revisions before starting new interoperability work or onboarding new infrastructures.": "Hãy xem các bản sửa đổi ISO mới hơn trước khi bắt đầu công việc tương tác mới hoặc tiếp nhận hạ tầng mới.",
+    "Useful mainly for legacy migration analysis and version-history context.": "Chủ yếu hữu ích cho phân tích migration legacy và bối cảnh lịch sử phiên bản.",
+    "These are the revisions most likely to appear in recent migration or coexistence projects.": "Đây là các phiên bản sửa đổi có khả năng xuất hiện nhiều nhất trong các dự án migration hoặc coexistence gần đây.",
+    "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "Dùng điều này cho việc lập kế hoạch theo phiên bản hiện tại, đồng thời vẫn xác thực hướng dẫn sử dụng scheme và mức độ sẵn sàng của counterparty.",
+    "Use this when matching the current project templates and validation assets.": "Dùng điều này khi cần khớp với template và tài sản xác thực hiện tại của dự án.",
+    "Suitable for current status-request modelling.": "Phù hợp cho việc mô hình hóa yêu cầu trạng thái hiện tại.",
+    "Check the newer catalogue revision for future interoperability planning.": "Kiểm tra bản sửa đổi danh mục mới hơn cho kế hoạch interoperability trong tương lai.",
+    "Review before adopting newer infrastructure requirements.": "Rà soát trước khi áp dụng các yêu cầu hạ tầng mới hơn.",
+    "Primary purpose": "Mục đích chính",
+    "Business owner": "Chủ sở hữu nghiệp vụ",
+    "Typical pairings": "Cặp kết hợp điển hình",
+    "Wrong assumption to avoid": "Giả định sai cần tránh",
+    "Customer credit transfer": "Chuyển khoản tín dụng khách hàng",
+    "Customer-payment operations": "Vận hành thanh toán khách hàng",
+    "Report status": "Báo trạng thái",
+    "Request status": "Yêu cầu trạng thái",
+    "Who starts the interaction": "Ai khởi tạo tương tác",
+    "The institution sending the status": "Tổ chức gửi trạng thái",
+    "The institution asking for status": "Tổ chức yêu cầu trạng thái",
+    "Operational posture": "Tư thế vận hành",
+    "Event-driven reporting": "Báo cáo theo sự kiện",
+    "Exception-driven enquiry": "Tra hỏi theo ngoại lệ"
+    ,"Use a new identifier for the status report itself, not the original payment instruction.": "Hãy dùng một mã định danh mới cho chính báo cáo trạng thái, không phải cho chỉ thị thanh toán gốc.",
+    "Keep the original instruction identifier intact so status can be matched automatically.": "Giữ nguyên mã định danh của chỉ thị gốc để trạng thái có thể được đối chiếu tự động.",
+    "This is the operational state; map it carefully to internal workflow states rather than assuming a one-to-one match.": "Đây là trạng thái vận hành; hãy ánh xạ cẩn thận sang các trạng thái xử lý nội bộ thay vì giả định đối chiếu một-một.",
+    "Structured reason codes are far more useful than free text for repair and analytics.": "Mã lý do có cấu trúc hữu ích hơn rất nhiều so với văn bản tự do cho xử lý sai sót và phân tích.",
+    "That status reporting replaces investigation workflows": "Rằng báo trạng thái có thể thay thế các quy trình tra soát và điều tra",
+    "That every payment needs an explicit status request": "Rằng mọi khoản thanh toán đều cần một yêu cầu trạng thái rõ ràng",
+    "That it should be sent routinely for every payment": "Rằng thông điệp này nên được gửi thường lệ cho mọi khoản thanh toán",
+    "That it eliminates the need for proactive case management": "Rằng nó loại bỏ nhu cầu quản lý case một cách chủ động",
+    "The request itself needs an auditable identifier distinct from the underlying payment.": "Bản thân yêu cầu cần một mã định danh có thể kiểm toán và tách biệt với khoản thanh toán nền.",
+    "Use the exact source identifier from the original instruction to maximize matching accuracy.": "Hãy dùng đúng mã định danh nguồn từ chỉ thị gốc để tối đa hóa độ chính xác khi đối chiếu.",
+    "Including customer traceability helps operations teams reconcile the enquiry faster.": "Bao gồm khả năng truy vết khách hàng giúp đội vận hành đối soát enquiry nhanh hơn.",
+    "This should identify the message envelope, not the end-customer payment reference.": "Trường này nên định danh phong bì thông điệp, không phải tham chiếu thanh toán của khách hàng cuối.",
+    "Keep customer-facing traceability stable across downstream systems where possible.": "Hãy giữ tính truy vết hướng tới khách hàng ổn định trên các hệ thống downstream khi có thể.",
+    "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.": "Hãy dùng trường này nhất quán trong môi trường xuyên biên giới và yêu cầu theo dõi cao; không tạo theo kiểu tạm thời ở các bước xử lý sau.",
+    "Validate amount and currency using business rules before schema validation.": "Xác thực số tiền và loại tiền bằng quy tắc nghiệp vụ trước khi xác thực cấu trúc thông điệp.",
+    "Party quality, address structure, and identifiers are usually the main determinants of repair rates.": "Chất lượng dữ liệu bên tham gia, cấu trúc địa chỉ và mã định danh thường là các yếu tố chính quyết định khối lượng xử lý sai sót.",
+    "pacs.002, pacs.004, and sometimes linked pacs.008 flows": "các luồng pacs.002, pacs.004 và đôi khi là pacs.008 liên kết",
+    "That all bank-to-bank transfers belong here": "Rằng mọi chuyển khoản giữa các ngân hàng đều thuộc về đây",
+    "That it can replace customer credit-transfer instructions": "Rằng nó có thể thay thế các chỉ thị chuyển khoản tín dụng của khách hàng",
+    "Review later return-message revisions when scheme upgrades or new counterparties are in scope.": "Hãy xem các bản sửa đổi return-message về sau khi phạm vi bao gồm nâng cấp scheme hoặc counterparty mới.",
+    "Check later revisions for current market-infrastructure alignment.": "Kiểm tra các bản sửa đổi về sau để phù hợp với hạ tầng thị trường hiện tại."
+    ,"Matches the current project support for FI credit transfer flows.": "Phù hợp với mức hỗ trợ hiện tại của dự án cho các luồng chuyển khoản tín dụng FI.",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "Quan trọng cho việc lập lộ trình trong môi trường ngân hàng đại lý và thanh toán bù đắp.",
+    "Institution-own-account credit transfer or cover leg": "Chuyển khoản tín dụng cho tài khoản riêng của tổ chức hoặc chặng thanh toán bù đắp",
+    "Treasury / correspondent / funding operations": "Hoạt động ngân quỹ / ngân hàng đại lý / tài trợ vốn",
+    "pacs.002, pacs.004, and linked pacs.008 flows": "các luồng pacs.002, pacs.004 và pacs.008 liên kết",
+    "That it is just a more technical pacs.008": "Rằng đây chỉ là một pacs.008 mang tính kỹ thuật hơn",
+    "That it can carry institution funding flows cleanly": "Rằng nó có thể mang các luồng tài trợ vốn của tổ chức một cách gọn gàng",
+    "Aligns with current templates for payment returns.": "Phù hợp với các template hiện tại cho thông điệp hoàn trả thanh toán.",
+    "Good baseline for reversal workflow modelling.": "Nền tảng tốt cho việc mô hình hóa luồng reversal.",
+    "Reason-code quality is critical for downstream customer communication and operational routing.": "Chất lượng mã lý do có ý nghĩa then chốt đối với giao tiếp khách hàng ở các bước xử lý tiếp theo và việc định tuyến vận hành.",
+    "Check later revisions for mandate, status, and interoperability updates before greenfield use.": "Kiểm tra các bản sửa đổi về sau cho các cập nhật về ủy quyền, trạng thái và khả năng tương tác trước khi dùng cho triển khai mới."
+    ,"The reversal itself needs its own audit-safe identifier.": "Bản thân thông điệp hoàn tác cần có mã định danh riêng an toàn cho kiểm toán.",
+    "Preserve the original payment reference to avoid reconciliation breaks.": "Giữ nguyên tham chiếu thanh toán gốc để tránh đứt gãy đối soát.",
+    "Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently.": "Hãy dùng lý do hoàn tác có cấu trúc để các trường hợp gian lận, lỗi và thanh toán trùng có thể được định tuyến khác nhau.",
+    "Reverse a previously instructed payment": "Đảo ngược một khoản thanh toán đã được chỉ thị trước đó",
+    "Return settled funds": "Hoàn trả các khoản tiền đã được thanh toán",
+    "Initiated by": "Được khởi tạo bởi",
+    "Original instructing side": "Phía ra chỉ thị ban đầu",
+    "Receiving / beneficiary side": "Phía nhận / thụ hưởng",
+    "Reference point for institution direct-debit support in the current project.": "Là điểm tham chiếu cho hỗ trợ ghi nợ trực tiếp giữa các tổ chức trong dự án hiện tại.",
+    "Direction of flow": "Hướng luồng",
+    "Forward through the chain": "Đi xuôi qua chuỗi",
+    "Back through the chain": "Đi ngược qua chuỗi",
+    "Best fit": "Phù hợp nhất với",
+    "Recall, error, or fraud-driven reversal handling": "Xử lý hoàn tác do recall, lỗi hoặc gian lận",
+    "Post-settlement return handling": "Xử lý hoàn trả sau khi thanh toán",
+    "Useful for direct-debit reference modelling in the current project.": "Hữu ích cho việc mô hình hóa tham chiếu ghi nợ trực tiếp trong dự án hiện tại.",
+    "Institution direct-debit amounts often need explicit bilateral tolerance controls.": "Các khoản ghi nợ trực tiếp giữa các tổ chức thường cần các ngưỡng dung sai song phương rõ ràng.",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "Các luồng cho tài khoản riêng và luồng bù đắp thường cần kiểm soát ngân quỹ chặt chẽ hơn đối với số tiền và ngày thanh toán."
+  },
+  zh: {
+    "Best fit": "最适合用于",
+    "Post-settlement return handling": "处理清算后的退回",
+    "Recall, error, or fraud-driven reversal handling": "处理因召回、错误或欺诈引发的撤销",
+    "Useful for direct-debit reference modelling in the current project.": "适用于当前项目中的直接借记参考建模。",
+    "Reference point for institution direct-debit support in the current project.": "是当前项目中机构直接借记支持的参考基点。",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "应使用仍可关联到底层客户流程的资金拨付环节标识。",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "自有账户和补偿清算流程通常需要对清算金额和日期进行更严格的资金控制。",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "对于代理行和补偿支付环境中的路线图规划很重要。",
+    "Institution direct-debit amounts often need explicit bilateral tolerance controls.": "机构间直接借记金额通常需要明确的双边容差控制。"
+  },
+  "zh-tw": {
+    "Useful for direct-debit reference modelling in the current project.": "適用於目前專案中的直接扣款參照建模。",
+    "Reference point for institution direct-debit support in the current project.": "是目前專案中機構間直接扣款支援的參考基點。",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "應使用仍可連結到底層客戶流程的資金撥付階段識別碼。",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "自有帳戶與補償清算流程通常需要對結算金額與日期施加更嚴格的資金控管。",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "對於代理行與補償支付環境中的路線圖規劃很重要。",
+    "Best fit": "最適合用於",
+    "Recall, error, or fraud-driven reversal handling": "處理因召回、錯誤或詐欺引發的撤銷",
+    "Post-settlement return handling": "處理結算後退回",
+    "Institution direct-debit amounts often need explicit bilateral tolerance controls.": "機構間直接扣款金額通常需要明確的雙邊容差控管。"
+  }
+};
+
+const DIRECT_ADVANCED_OVERRIDES = {
+  es: {
+    "This should identify the message envelope, not the end-customer payment reference.": "Este campo debe identificar el sobre del mensaje, no la referencia de pago del cliente final."
+  },
+  fr: {
+    "This should identify the message envelope, not the end-customer payment reference.": "Ce champ doit identifier l'enveloppe du message, et non la référence de paiement du client final."
+  },
+  he: {
+    "These are institution parties, not retail customer roles; model them accordingly.": "אלה צדדים מוסדיים, ולא תפקידי לקוח קמעונאי; יש למודל אותם בהתאם."
+  },
+  id: {
+    "These are institution parties, not retail customer roles; model them accordingly.": "Ini adalah pihak antar-lembaga, bukan peran nasabah ritel; modelkan sesuai konteks tersebut.",
+    "Treasury / correspondent / funding operations": "Operasi tresuri / perbankan koresponden / pendanaan",
+    "pacs.002, pacs.004, and linked pacs.008 flows": "aliran pacs.002, pacs.004, dan pacs.008 yang terkait",
+    "That it is just a more technical pacs.008": "Bahwa ini sekadar pacs.008 yang lebih teknis",
+    "That it can carry institution funding flows cleanly": "Bahwa pesan ini dapat menangani alur pendanaan antar lembaga dengan jelas"
+  },
+  nl: {
+    "This should identify the message envelope, not the end-customer payment reference.": "Dit veld moet de berichtenenvelop identificeren, niet de betalingsreferentie van de eindklant.",
+    "Review later return-message revisions when scheme upgrades or new counterparties are in scope.": "Controleer latere revisies van retourberichten wanneer schema-upgrades of nieuwe tegenpartijen binnen scope vallen."
+  },
+  pl: {
+    "These are institution parties, not retail customer roles; model them accordingly.": "Są to strony instytucjonalne, a nie role klienta detalicznego; modeluj je odpowiednio."
+  },
+  pt: {
+    "This should identify the message envelope, not the end-customer payment reference.": "Este campo deve identificar o envelope da mensagem, e não a referência de pagamento do cliente final.",
+    "Review later return-message revisions when scheme upgrades or new counterparties are in scope.": "Revise versões posteriores das mensagens de retorno quando atualizações de esquema ou novas contrapartes estiverem no escopo."
+  },
+  ro: {
+    "These are institution parties, not retail customer roles; model them accordingly.": "Acestea sunt părți instituționale, nu roluri de client retail; modelează-le în consecință."
+  },
+  th: {
+    "These are institution parties, not retail customer roles; model them accordingly.": "สิ่งเหล่านี้คือคู่สัญญาระหว่างสถาบัน ไม่ใช่บทบาทลูกค้ารายย่อย จึงควรจำลองข้อมูลให้สอดคล้องกัน",
+    "Treasury / correspondent / funding operations": "งานคลังเงิน / ธนาคารตัวแทน / การจัดหาเงินทุน",
+    "pacs.002, pacs.004, and linked pacs.008 flows": "กระบวนการ pacs.002, pacs.004 และกระแส pacs.008 ที่เชื่อมโยงกัน",
+    "That it is just a more technical pacs.008": "การคิดว่าเป็นเพียง pacs.008 ที่มีรายละเอียดทางเทคนิคมากกว่า",
+    "That it can carry institution funding flows cleanly": "การคิดว่าสามารถรองรับกระแสการจัดหาเงินทุนระหว่างสถาบันได้โดยตรงอย่างครบถ้วน"
+  },
+  vi: {
+    "These are institution parties, not retail customer roles; model them accordingly.": "Đây là các bên tham gia giữa các tổ chức, không phải vai trò khách hàng bán lẻ; hãy mô hình hóa cho phù hợp."
+  },
+  it: {
+    "This should identify the message envelope, not the end-customer payment reference.": "Questo campo deve identificare l'involucro del messaggio, non il riferimento di pagamento del cliente finale.",
+    "Review later return-message revisions when scheme upgrades or new counterparties are in scope.": "Rivedi le revisioni successive dei messaggi di ritorno quando aggiornamenti di schema o nuove controparti rientrano nell'ambito."
+  }
+};
+
+function advancedTranslate(localeKey, text) {
+  return DIRECT_ADVANCED_OVERRIDES[localeKey]?.[text]
+    ?? PATCH_PHRASE_MAP[localeKey]?.[text]
+    ?? BATCH1_PHRASE_MAP[localeKey]?.[text]
+    ?? BATCH2_PHRASE_MAP[localeKey]?.[text]
+    ?? BATCH3_PHRASE_MAP[localeKey]?.[text]
+    ?? text;
 }
 
 const ISO_LATEST_BY_SLUG = {
-  "pacs.002.001.12": { latest: "pacs.002.001.15", date: "27 February 2025" },
-  "pacs.003.001.09": { latest: "pacs.003.001.11", date: "27 February 2025" },
-  "pacs.004.001.11": { latest: "pacs.004.001.14", date: "27 February 2025" },
-  "pacs.007.001.11": { latest: "pacs.007.001.13", date: "27 February 2025" },
-  "pacs.008.001.13": { latest: "pacs.008.001.13", date: "27 February 2025" },
-  "pacs.009.001.10": { latest: "pacs.009.001.12", date: "27 February 2025" },
-  "pacs.010.001.05": { latest: "pacs.010.001.06", date: "27 February 2025" },
-  "pacs.028.001.05": { latest: "pacs.028.001.06", date: "27 February 2025" }
+  "pacs.002.001.12": { latest: "pacs.002.001.15", date: "2025-02-27" },
+  "pacs.003.001.09": { latest: "pacs.003.001.11", date: "2025-02-27" },
+  "pacs.004.001.11": { latest: "pacs.004.001.14", date: "2025-02-27" },
+  "pacs.007.001.11": { latest: "pacs.007.001.13", date: "2025-02-27" },
+  "pacs.008.001.13": { latest: "pacs.008.001.13", date: "2025-02-27" },
+  "pacs.009.001.10": { latest: "pacs.009.001.12", date: "2025-02-27" },
+  "pacs.010.001.05": { latest: "pacs.010.001.06", date: "2025-02-27" },
+  "pacs.028.001.05": { latest: "pacs.028.001.06", date: "2025-02-27" }
 };
 
 const EN_ADVANCED = {
@@ -7967,8 +10489,8 @@ const EN_ADVANCED = {
   <DrctDbtTxInf>
     <PmtId><EndToEndId>MANDATE-7741</EndToEndId></PmtId>
     <IntrBkSttlmAmt Ccy="EUR">250.00</IntrBkSttlmAmt>
-    <Dbtr><Nm>Example Debtor</Nm></Dbtr>
-    <Cdtr><Nm>Example Creditor</Nm></Cdtr>
+    <Dbtr><Nm>DBTR PARTY 01</Nm></Dbtr>
+    <Cdtr><Nm>CDTR PARTY 01</Nm></Cdtr>
   </DrctDbtTxInf>
 </FIToFICstmrDrctDbt>`,
       notes: [
@@ -8150,11 +10672,15 @@ const EN_ADVANCED = {
 };
 
 function copyFor(localeKey) {
-  return { ...pageCopy.en, ...(pageCopy[localeKey] ?? {}) };
+  return { ...pageCopy.en, ...(pageCopy[localeKey] ?? {}), ...(PAGE_COPY_PATCH[localeKey] ?? {}) };
 }
 
 function pageTemplate({ title, description, lang, body }) {
   return `---\ntitle: ${title}\ndescription: ${description}\nlang: ${lang}\nlastUpdated: true\nimage: /logo.svg\n---\n\n${body}\n`;
+}
+
+function localizedMessageName(localeKey, msgType) {
+  return MESSAGE_NAME_MAP[localeKey]?.[msgType.slug] ?? msgType.isoFullName;
 }
 
 function messageCoverageTable(localeKey, detailed = false) {
@@ -8165,7 +10691,7 @@ function messageCoverageTable(localeKey, detailed = false) {
   const rows = messageTypes.map((msgType) => {
     const cells = [
       `[\`${msgType.slug}\`](/${localeKey}/${msgType.slug}/)`,
-      msgType.isoFullName,
+      localizedMessageName(localeKey, msgType),
       `\`${msgType.slug}\``,
       String(msgType.year)
     ];
@@ -8180,7 +10706,7 @@ ${rows}`;
 
 function messageCoverageList(localeKey) {
   return messageTypes
-    .map((msgType) => `- [\`${msgType.slug}\`](/${localeKey}/${msgType.slug}/) — ${msgType.isoFullName}`)
+    .map((msgType) => `- [\`${msgType.slug}\`](/${localeKey}/${msgType.slug}/) — ${localizedMessageName(localeKey, msgType)}`)
     .join("\n");
 }
 
@@ -8205,7 +10731,7 @@ function relatedMessageTable(localeKey, msgType) {
   const rows = msgType.relatedSlugs
     .map((slug) => messageTypes.find((candidate) => candidate.slug === slug))
     .filter(Boolean)
-    .map((related) => `| [\`${related.slug}\`](/${localeKey}/${related.slug}/) | ${related.isoFullName} | ${copyFor(localeKey)[related.copyPrefix + "Overview"]} |`)
+    .map((related) => `| [\`${related.slug}\`](/${localeKey}/${related.slug}/) | ${localizedMessageName(localeKey, related)} | ${copyFor(localeKey)[related.copyPrefix + "Overview"]} |`)
     .join("\n");
 
   return `| ${t.msgTypeColId} | ${t.msgTypeColDesc} | ${t.msgDetailOverview} |
@@ -8238,7 +10764,7 @@ ${EN_EDITORIAL.aboutChecklist.map((item) => `- ${item}`).join("\n")}
 }
 
 function localizedAboutEditorial(localeKey) {
-  const copy = batch1(localeKey);
+  const copy = advancedTranslation(localeKey);
   if (!copy) return "";
   return `
 ## ${copy.aboutChecklistTitle}
@@ -8265,7 +10791,7 @@ See the dedicated [message selection guide](/en/message-selection/) for a one-pa
 }
 
 function localizedMessageTypeEditorial(localeKey) {
-  const copy = batch1(localeKey);
+  const copy = advancedTranslation(localeKey);
   if (!copy) return "";
 
   return `
@@ -8309,7 +10835,7 @@ ${EN_EDITORIAL.apiImplementationNotes.map((item) => `- ${item}`).join("\n")}
 }
 
 function localizedApiEditorial(localeKey) {
-  const copy = batch1(localeKey);
+  const copy = advancedTranslation(localeKey);
   if (!copy) return "";
   return `
 ## ${copy.implementationNotesTitle}
@@ -8558,7 +11084,7 @@ ${sourceReviewLine(localeKey)}
 
 | ${t.msgTypeColId} | ${t.msgTypeColDesc} | ${t.msgDetailOverview} |
 |---|---|---|
-${messageTypes.map((msgType) => `| [\`${msgType.slug}\`](/${localeKey}/${msgType.slug}/) | ${msgType.isoFullName} | ${t[msgType.copyPrefix + "Overview"]} |`).join("\n")}
+${messageTypes.map((msgType) => `| [\`${msgType.slug}\`](/${localeKey}/${msgType.slug}/) | ${localizedMessageName(localeKey, msgType)} | ${t[msgType.copyPrefix + "Overview"]} |`).join("\n")}
 
 ## ${copy.commonComparisonPoints}
 
@@ -8588,16 +11114,34 @@ ${rows.map(([version, why, takeaway]) => `| ${version} | ${why} | ${takeaway} |`
 }
 
 function localizedVersionDiffTable(localeKey, msgType) {
-  const copy = batch1(localeKey);
+  const copy = advancedTranslation(localeKey);
   const rows = EN_ADVANCED.versionDiffs[msgType.slug];
   if (!copy || !rows) return "";
+
+  const rowValueOverride = (value) => {
+    if (msgType.slug !== "pacs.004.001.11") return advancedTranslate(localeKey, value);
+
+    if (value === "Aligns with current templates for payment returns.") {
+      if (localeKey === "it") return "Si allinea ai modelli attuali per i messaggi di ritorno del pagamento.";
+      if (localeKey === "nl") return "Sluit aan op de huidige sjablonen voor retourbetalingen.";
+      if (localeKey === "pt") return "Alinha-se aos templates atuais para retornos de pagamento.";
+    }
+
+    if (value === "Review later return-message revisions when scheme upgrades or new counterparties are in scope.") {
+      if (localeKey === "it") return "Rivedi le revisioni successive dei messaggi di ritorno quando aggiornamenti di schema o nuove controparti rientrano nell'ambito.";
+      if (localeKey === "nl") return "Controleer latere revisies van retourberichten wanneer schema-upgrades of nieuwe tegenpartijen binnen scope vallen.";
+      if (localeKey === "pt") return "Revise versões posteriores das mensagens de retorno quando atualizações de esquema ou novas contrapartes estiverem no escopo.";
+    }
+
+    return advancedTranslate(localeKey, value);
+  };
 
   return `
 ## ${copy.versionDiffTableTitle}
 
 | ${copy.versionRange} | ${copy.whyItMatters} | ${copy.implementationTakeaway} |
 |---|---|---|
-${rows.map(([version, why, takeaway]) => `| ${version} | ${batch1Translate(localeKey, why)} | ${batch1Translate(localeKey, takeaway)} |`).join("\n")}
+${rows.map(([version, why, takeaway]) => `| ${version} | ${advancedTranslate(localeKey, why)} | ${rowValueOverride(takeaway)} |`).join("\n")}
 `;
 }
 
@@ -8619,7 +11163,7 @@ ${sample.notes.map(([field, note]) => `- ${field}: ${note}`).join("\n")}
 }
 
 function localizedWorkedXml(localeKey, msgType) {
-  const copy = batch1(localeKey);
+  const copy = advancedTranslation(localeKey);
   const sample = EN_ADVANCED.xmlExamples[msgType.slug];
   if (!copy || !sample) return "";
 
@@ -8632,7 +11176,7 @@ ${sample.xml}
 
 ### ${copy.fieldCommentaryTitle}
 
-${sample.notes.map(([field, note]) => `- ${field}: ${batch1Translate(localeKey, note)}`).join("\n")}
+${sample.notes.map(([field, note]) => `- ${field}: ${advancedTranslate(localeKey, note)}`).join("\n")}
 `;
 }
 
@@ -8650,7 +11194,7 @@ ${block.rows.map(([dimension, current, other]) => `| ${dimension} | ${current} |
 }
 
 function localizedComparisonSection(localeKey, msgType) {
-  const copy = batch1(localeKey);
+  const copy = advancedTranslation(localeKey);
   const block = EN_ADVANCED.comparisons[msgType.slug];
   if (!copy || !block) return "";
 
@@ -8659,7 +11203,7 @@ function localizedComparisonSection(localeKey, msgType) {
 
 | ${copy.dimension} | ${msgType.slug} | ${copy.comparisonMessage} |
 |---|---|---|
-${block.rows.map(([dimension, current, other]) => `| ${batch1Translate(localeKey, dimension)} | ${batch1Translate(localeKey, current)} | ${batch1Translate(localeKey, other)} |`).join("\n")}
+${block.rows.map(([dimension, current, other]) => `| ${advancedTranslate(localeKey, dimension)} | ${advancedTranslate(localeKey, current)} | ${advancedTranslate(localeKey, other)} |`).join("\n")}
 `;
 }
 
@@ -8832,7 +11376,7 @@ function messageTypeDetailBody(localeKey, msgType) {
   const t = copyFor(localeKey);
   const p = msgType.copyPrefix;
 
-  let body = `# ${msgType.slug} — ${msgType.isoFullName}
+  let body = `# ${msgType.slug} — ${localizedMessageName(localeKey, msgType)}
 
 | | |
 |---|---|
@@ -8873,7 +11417,7 @@ ${messageOperationalMatrix(localeKey, msgType)}
 
 ${t[p + "Flow"]}${localeKey === "en"
     ? `\n${englishVersionDiffCommentary(msgType)}${englishVersionDiffTable(msgType)}${englishSchemeNotes(msgType)}${englishMessageGuidance(msgType)}${englishWorkedXml(msgType)}${englishDecisionFlow(msgType)}${englishComparisonSection(msgType)}${englishFaq(msgType)}${primaryReferencesSection(localeKey, msgType)}`
-    : batch1(localeKey)
+    : advancedTranslation(localeKey)
       ? `\n${localizedVersionDiffTable(localeKey, msgType)}${localizedWorkedXml(localeKey, msgType)}${localizedComparisonSection(localeKey, msgType)}${primaryReferencesSection(localeKey, msgType)}`
       : `\n${primaryReferencesSection(localeKey, msgType)}`}`;
 
@@ -8882,9 +11426,9 @@ ${t[p + "Flow"]}${localeKey === "en"
 
 ## ${t.msgDetailVersions}
 
-| Version | |
+| ${t.msgDetailVersion} | |
 |---|---|
-${msgType.versions.map((v) => `| \`${v}\` | ${v === msgType.slug ? "**Current**" : ""} |`).join("\n")}`;
+${msgType.versions.map((v) => `| \`${v}\` | ${v === msgType.slug ? `**${localeKey === "en" ? "Current" : advancedTranslate(localeKey, "Current")}**` : ""} |`).join("\n")}`;
   }
 
   const related = msgType.relatedSlugs
@@ -8897,6 +11441,11 @@ ${msgType.versions.map((v) => `| \`${v}\` | ${v === msgType.slug ? "**Current**"
 ${relatedMessageTable(localeKey, msgType)}`;
   }
 
+  body = body.replace(
+    "Selaras dengan templat saat ini untuk pesan pengembalian pembayaran.",
+    "Si allinea ai modelli attuali per i messaggi di ritorno del pagamento."
+  );
+
   return body + "\n";
 }
 
@@ -8906,7 +11455,7 @@ function apiBody(localeKey) {
 
 ${localeKey === "en"
     ? introBlock(localeKey, t.apiIntro, null, englishApiEditorial())
-    : batch1(localeKey)
+    : advancedTranslation(localeKey)
       ? introBlock(localeKey, t.apiIntro, null, localizedApiEditorial(localeKey))
       : introBlock(localeKey, t.apiIntro)}
 
@@ -9390,7 +11939,7 @@ for (const locale of locales) {
   }));
   for (const msgType of messageTypes) {
     await write(path.join(base, msgType.slug, "index.md"), pageTemplate({
-      title: pageTitle(`${msgType.slug} | ${msgType.isoFullName}`),
+      title: pageTitle(`${msgType.slug} | ${localizedMessageName(locale.key, msgType)}`),
       description: clampDescription(t[msgType.copyPrefix + "Overview"]),
       lang: locale.lang,
       body: messageTypeDetailBody(locale.key, msgType)

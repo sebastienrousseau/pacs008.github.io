@@ -1,12 +1,12 @@
 ---
-title: pacs.028.001.05 | FI to FI Payment Status Request | pacs008
+title: pacs.028.001.05 | Richiesta di stato del pagamento tra istituzioni finanziarie | pacs008
 description: Il messaggio pacs.028 viene inviato da un istituto finanziario per richiedere lo stato di un'istruzione di pagamento precedentemente inviata. Consente il...
 lang: it-IT
 lastUpdated: true
 image: /logo.svg
 ---
 
-# pacs.028.001.05 — FI to FI Payment Status Request
+# pacs.028.001.05 — Richiesta di stato del pagamento tra istituzioni finanziarie
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ image: /logo.svg
 
 Il messaggio pacs.028 viene inviato da un istituto finanziario per richiedere lo stato di un'istruzione di pagamento precedentemente inviata. Consente il tracciamento proattivo dell'elaborazione dei pagamenti senza attendere un rapporto di stato non richiesto.
 
-> Ultima revisione rispetto a fonti primarie il 23 marzo 2026. Data di riferimento del catalogo ISO 20022: 27 February 2025; i collegamenti alle fonti sono riportati di seguito.
+> Ultima revisione rispetto a fonti primarie il 23 marzo 2026. Data di riferimento del catalogo ISO 20022: 2025-02-27; i collegamenti alle fonti sono riportati di seguito.
 
 ## Elementi di dati chiave
 
@@ -59,8 +59,8 @@ L'agente ordinante invia pacs.028 all'agente incaricato per richiedere lo stato 
 
 | Intervallo di versione | Perché conta | Implicazione implementativa |
 |---|---|---|
-| pacs.028.001.05 | Implementazione attuale in pacs008 | Adatto alla modellazione attuale delle richieste di stato. |
-| pacs.028.001.06 | Revisione successiva del catalogo | Check the newer catalogue revision for future interoperability planning. |
+| pacs.028.001.05 | Implementazione attuale in pacs008 | Sesuai untuk pemodelan permintaan status saat ini. |
+| pacs.028.001.06 | Revisione successiva del catalogo | Controlla la revisione di catalogo piu recente per la pianificazione futura dell'interoperabilita. |
 
 ## Esempio XML commentato
 
@@ -78,8 +78,8 @@ L'agente ordinante invia pacs.028 all'agente incaricato per richiedere lo stato 
 
 ### Commenti sui campi
 
-- `MsgId`: The request itself needs an auditable identifier distinct from the underlying payment.
-- `OrgnlInstrId`: Use the exact source identifier from the original instruction to maximize matching accuracy.
+- `MsgId`: La richiesta stessa ha bisogno di un identificatore verificabile distinto dal pagamento sottostante.
+- `OrgnlInstrId`: Usa l'identificatore sorgente esatto dell'istruzione originale per massimizzare la precisione dell'abbinamento.
 - `OrgnlEndToEndId`: Including customer traceability helps operations teams reconcile the enquiry faster.
 
 ## Confrontare pacs.028 vs pacs.002
@@ -87,9 +87,9 @@ L'agente ordinante invia pacs.028 all'agente incaricato per richiedere lo stato 
 | Dimensione | pacs.028.001.05 | Messaggio di confronto |
 |---|---|---|
 | Scopo principale | Request status | Report status |
-| Who starts the interaction | The institution asking for status | The institution sending the status |
+| Chi avvia l'interazione | L'istituzione che richiede lo stato | L'istituzione che invia lo stato |
 | Operational posture | Exception-driven enquiry | Event-driven reporting |
-| Assunzione errata da evitare | That it should be sent routinely for every payment | That it eliminates the need for proactive case management |
+| Asumsi keliru yang perlu dihindari | Che dovrebbe essere inviato di routine per ogni pagamento | Che elimina la necessita di una gestione proattiva dei casi |
 
 ## Riferimenti primari
 
@@ -101,7 +101,7 @@ L'agente ordinante invia pacs.028 all'agente incaricato per richiedere lo stato 
 ## Messaggi correlati
 | Tipo di messaggio | Descrizione | Panoramica |
 |---|---|---|
-| [`pacs.002.001.12`](/it/pacs.002.001.12/) | FI to FI Payment Status Report | Il messaggio pacs.002 viene inviato da un istituto finanziario per comunicare lo stato di un'istruzione di pagamento precedentemente inviata. Fornisce informazioni di conferma, rifiuto o stato in sospeso per le singole transazioni all'interno di un messaggio di pagamento. |
-| [`pacs.008.001.13`](/it/pacs.008.001.13/) | FI to FI Customer Credit Transfer | Il messaggio pacs.008 è l'istruzione di pagamento principale scambiata tra istituti finanziari per trasferire fondi per conto di un cliente. Contiene informazioni su debitore, creditore, importo e dettagli di rimessa per una o più transazioni di bonifico. |
-| [`pacs.009.001.10`](/it/pacs.009.001.10/) | Financial Institution Credit Transfer | Il messaggio pacs.009 viene utilizzato per bonifici tra istituti finanziari in cui il trasferimento avviene per conto proprio dell'istituto anziché per conto di un cliente. Supporta il finanziamento interbancario, i pagamenti di copertura e la gestione della liquidità. |
+| [`pacs.002.001.12`](/it/pacs.002.001.12/) | Rapporto di stato del pagamento tra istituzioni finanziarie | Il messaggio pacs.002 viene inviato da un istituto finanziario per comunicare lo stato di un'istruzione di pagamento precedentemente inviata. Fornisce informazioni di conferma, rifiuto o stato in sospeso per le singole transazioni all'interno di un messaggio di pagamento. |
+| [`pacs.008.001.13`](/it/pacs.008.001.13/) | Bonifico cliente tra istituzioni finanziarie | Il messaggio pacs.008 è l'istruzione di pagamento principale scambiata tra istituti finanziari per trasferire fondi per conto di un cliente. Contiene informazioni su debitore, creditore, importo e dettagli di rimessa per una o più transazioni di bonifico. |
+| [`pacs.009.001.10`](/it/pacs.009.001.10/) | Bonifico tra istituzioni finanziarie | Il messaggio pacs.009 viene utilizzato per bonifici tra istituti finanziari in cui il trasferimento avviene per conto proprio dell'istituto anziché per conto di un cliente. Supporta il finanziamento interbancario, i pagamenti di copertura e la gestione della liquidità. |
 

@@ -1,6 +1,6 @@
 ---
 title: Over pacs008 | pacs008
-description: Wat pacs008 doet en voor wie het bedoeld is. Generatie, validatie, API-orchestratie en compliance-ondersteuning voor FI-to-FI-klantoverdrachtworkflows.
+description: Wat pacs008 doet en voor wie het bedoeld is. Generatie, validatie, API-orchestratie en compliance-ondersteuning voor klantkredietoverboekingsworkflows...
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg
@@ -8,7 +8,7 @@ image: /logo.svg
 
 # Over pacs008
 
-pacs008 is een Python-toolkit voor het automatiseren van ISO 20022 FI-to-FI kredietoverdrachtworkflows.
+pacs008 is een Python-toolkit voor het automatiseren van ISO 20022-kredietoverdrachtworkflows tussen financiële instellingen.
 
 > Laatst gecontroleerd aan de hand van primaire bronnen op 23 maart 2026 met openbare ISO 20022-, EPC- en Swift-materialen waarnaar op deze pagina wordt verwezen.
 

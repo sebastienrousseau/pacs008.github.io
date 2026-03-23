@@ -1,6 +1,6 @@
 ---
 title: API | pacs008
-description: pacs008'de REST ve CLI iş akışı desteği. FI-to-FI müşteri kredi transferi iş akışları için oluşturma, doğrulama, API orkestrasyonu ve uyumluluk desteği.
+description: pacs008'de REST ve CLI iş akışı desteği. Finansal kuruluşlar arasındaki müşteri kredi transferi iş akışları için oluşturma, doğrulama, API orkestrasyonu...
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg
@@ -11,6 +11,13 @@ image: /logo.svg
 Proje, operasyonel ödeme mesajı iş akışları için hem REST API hem de CLI sağlar.
 
 > Bu sayfada referans verilen ISO 20022, EPC ve Swift herkese açık materyalleri kullanılarak birincil kaynaklara göre en son 23 Mart 2026 tarihinde gözden geçirildi.
+
+## Uygulama notları
+
+- Çağıranın XML'i hemen beklediği operasyonel kontroller ve küçük batch işlemler için senkron üretim kullanın.
+- Girdi dosyaları büyük olduğunda, işler yeniden deneme gerektirdiğinde veya üretim daha geniş bir orkestrasyon motorunun parçası olduğunda asenkron üretim kullanın.
+- Destek ekiplerinin olay sırasında XML çıktısını yeniden üretebilmesi için hem kaynak girdi verisini hem de doğrulama raporunu saklayın.
+- Sessiz yükseltmeleri önlemek için şablon ve XSD yollarını dağıtım yapılandırmasında sabitleyin.
 
 ## Kurulum
 
@@ -45,14 +52,14 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 | `DELETE /jobs/{job_id}` | Bekleyen veya çalışan bir işi iptal et |
 | `GET /docs` | Tüm uç noktaları keşfetmek ve test etmek için etkileşimli Swagger UI |
 
-- [`pacs.002.001.12`](/tr/pacs.002.001.12/) — FI to FI Payment Status Report
-- [`pacs.003.001.09`](/tr/pacs.003.001.09/) — FI to FI Customer Direct Debit
-- [`pacs.004.001.11`](/tr/pacs.004.001.11/) — Payment Return
-- [`pacs.007.001.11`](/tr/pacs.007.001.11/) — FI to FI Payment Reversal
-- [`pacs.008.001.13`](/tr/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.009.001.10`](/tr/pacs.009.001.10/) — Financial Institution Credit Transfer
-- [`pacs.010.001.05`](/tr/pacs.010.001.05/) — Financial Institution Direct Debit
-- [`pacs.028.001.05`](/tr/pacs.028.001.05/) — FI to FI Payment Status Request
+- [`pacs.002.001.12`](/tr/pacs.002.001.12/) — FI'dan FI'ya ödeme durumu raporu
+- [`pacs.003.001.09`](/tr/pacs.003.001.09/) — FI'dan FI'ya müşteri doğrudan borçlandırması
+- [`pacs.004.001.11`](/tr/pacs.004.001.11/) — Ödeme iadesi
+- [`pacs.007.001.11`](/tr/pacs.007.001.11/) — FI'dan FI'ya ödeme geri alma mesajı
+- [`pacs.008.001.13`](/tr/pacs.008.001.13/) — FI'dan FI'ya müşteri kredi transferi
+- [`pacs.009.001.10`](/tr/pacs.009.001.10/) — Finansal kuruluşlar arası kredi transferi
+- [`pacs.010.001.05`](/tr/pacs.010.001.05/) — Finansal kuruluşlar arası doğrudan borçlandırma
+- [`pacs.028.001.05`](/tr/pacs.028.001.05/) — FI'dan FI'ya ödeme durumu talebi
 
 ### Doğrulama örneği
 

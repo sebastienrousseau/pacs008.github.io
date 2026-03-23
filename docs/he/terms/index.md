@@ -1,6 +1,6 @@
 ---
 title: תנאים | pacs008
-description: מידע תנאים עבור אתר pacs008. יצירה, אימות, תיאום API ותמיכת ציות לתהליכי העברת אשראי FI-to-FI.
+description: מידע תנאים עבור אתר pacs008. יצירה, אימות, תיאום API ותמיכת ציות לתהליכי העברת אשראי ללקוחות בין מוסדות פיננסיים.
 lang: he-IL
 lastUpdated: true
 image: /logo.svg
