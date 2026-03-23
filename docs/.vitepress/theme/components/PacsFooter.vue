@@ -26,7 +26,7 @@ function localLink(path: string): string {
     <div class="dot-footer-inner">
       <nav class="dot-footer-nav" aria-label="Footer navigation">
         <div class="dot-footer-column">
-          <p class="dot-footer-title">Documentation</p>
+          <h2 class="dot-footer-title">Documentation</h2>
           <ul>
             <li><a :href="localLink('/about/')">{{ t.about }}</a></li>
             <li><a :href="localLink('/message-types/')">{{ t.messageTypes }}</a></li>
@@ -35,7 +35,7 @@ function localLink(path: string): string {
           </ul>
         </div>
         <div class="dot-footer-column">
-          <p class="dot-footer-title">Resources</p>
+          <h2 class="dot-footer-title">Resources</h2>
           <ul>
             <li>
               <a href="https://github.com/sebastienrousseau/pacs008" target="_blank" rel="noopener noreferrer">{{ t.github }}<span class="visually-hidden"> (opens in new tab)</span></a>
@@ -49,11 +49,10 @@ function localLink(path: string): string {
           </ul>
         </div>
         <div class="dot-footer-column">
-          <p class="dot-footer-title">Legal</p>
+          <h2 class="dot-footer-title">Legal</h2>
           <ul>
             <li><a :href="localLink('/privacy/')">{{ t.privacy }}</a></li>
             <li><a :href="localLink('/terms/')">{{ t.terms }}</a></li>
-            <li><a :href="localLink('/contact/')">{{ t.contact }}</a></li>
           </ul>
         </div>
       </nav>
@@ -62,10 +61,6 @@ function localLink(path: string): string {
         <p class="dot-footer-copyright">
           {{ t.copyright }} &copy; pacs008 2023&ndash;{{ currentYear }}.
         </p>
-        <ul class="dot-footer-legal" aria-label="Legal links">
-          <li><a :href="localLink('/privacy/')">Privacy Policy</a></li>
-          <li><a :href="localLink('/terms/')">Terms of Use</a></li>
-        </ul>
       </div>
     </div>
   </footer>
@@ -142,25 +137,6 @@ function localLink(path: string): string {
 .dot-footer-copyright {
   margin: 0;
   color: var(--pacs-footer-text);
-}
-
-.dot-footer-legal {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.25rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.dot-footer-legal a {
-  color: var(--pacs-footer-link);
-  text-decoration: none;
-}
-
-.dot-footer-legal a:hover {
-  color: var(--pacs-text-primary);
-  text-decoration: underline;
 }
 
 .visually-hidden {

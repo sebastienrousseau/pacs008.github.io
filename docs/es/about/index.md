@@ -17,6 +17,10 @@ pacs008 es un kit de herramientas Python para automatizar flujos de transferenci
 - Expone un servicio FastAPI para flujos de trabajo automatizados
 - Proporciona una CLI para ejecución local y pipelines CI
 - Admite fuentes de datos estructuradas incluyendo CSV, JSON, JSONL, SQLite y Parquet
+- Valida identificadores IBAN (75 países, suma de verificación ISO 7064) y BIC (ISO 9362)
+- Limpia datos de pago para cumplimiento SWIFT con transliteración y control de longitud de campos
+- Procesa grandes conjuntos de datos en lotes configurables para un procesamiento eficiente en memoria
+- Incluye una imagen Docker para despliegue contenedorizado de la API
 
 ## Para quién es
 
@@ -24,6 +28,24 @@ pacs008 es un kit de herramientas Python para automatizar flujos de transferenci
 - ingenieros de plataforma que construyen infraestructura interna de procesamiento de pagos
 - programas de migración hacia ISO 20022
 - equipos de cumplimiento y QA que validan mensajes de pago salientes
+
+## Validación
+
+Múltiples capas de validación operan antes de escribir cualquier XML:
+
+- Validación JSON Schema contra 20 esquemas específicos de tipo de mensaje
+- Verificación de formato y suma de control IBAN para 75 países
+- Validación de estructura BIC y código de país según ISO 9362
+- Validación XSD del XML generado contra los esquemas oficiales ISO 20022
+
+## Seguridad
+
+pacs008 aplica defensa en profundidad en cada capa del pipeline de procesamiento:
+
+- Prevención de XXE mediante defusedxml para todas las operaciones de análisis XML
+- Protección contra traversal de rutas con lista blanca estricta de directorios
+- Enmascaramiento de PII en logs JSON estructurados para cumplimiento RGPD y PCI DSS
+- Prevención de inyección SQL con sanitización estricta de nombres de tablas para fuentes SQLite
 
 ## Preparación 2026
 

@@ -40,6 +40,7 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 | `POST /generate/async` | שליחת משימת יצירה א-סינכרונית |
 | `GET /status/{job_id}` | סקר סטטוס המשימה לפי מזהה |
 | `GET /download/{job_id}` | הורדת ה-XML שנוצר לאחר השלמת המשימה |
+| `DELETE /jobs/{job_id}` | ביטול משימה ממתינה או פעילה |
 | `GET /docs` | ממשק Swagger UI אינטראקטיבי לחקירה ובדיקת כל נקודות הקצה |
 
 ### דוגמת אימות
@@ -47,7 +48,7 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 שלח נתוני תשלום לאימות לפני יצירת XML.
 
 ```bash
-curl -X POST http://localhost:8000/validate \
+curl -X POST http://localhost:8000/api/validate \
   -H "Content-Type: application/json" \
   -d '{
     "message_type": "pacs.008.001.13",
@@ -74,7 +75,7 @@ curl -X POST http://localhost:8000/validate \
 יצירת קובץ XML מסוג pacs.008.001.13 מ-payload בפורמט JSON.
 
 ```bash
-curl -X POST http://localhost:8000/generate \
+curl -X POST http://localhost:8000/api/generate \
   -H "Content-Type: application/json" \
   -d '{
     "message_type": "pacs.008.001.13",
@@ -105,17 +106,17 @@ curl -X POST http://localhost:8000/generate \
 
 ```bash
 # Submit the job
-JOB=$(curl -s -X POST http://localhost:8000/generate/async \
+JOB=$(curl -s -X POST http://localhost:8000/api/generate/async \
   -H "Content-Type: application/json" \
   -d '{"message_type":"pacs.008.001.13","data":[...]}')
 
 JOB_ID=$(echo $JOB | jq -r '.job_id')
 
 # Poll for completion
-curl http://localhost:8000/status/$JOB_ID
+curl http://localhost:8000/api/status/$JOB_ID
 
 # Download the result
-curl http://localhost:8000/download/$JOB_ID --output result.xml
+curl http://localhost:8000/api/download/$JOB_ID --output result.xml
 ```
 
 ---
@@ -203,6 +204,62 @@ from pacs008.compliance import cleanse_data_with_report
 raw = [{"debtor_name": "Müller & Söhne™", "msg_id": "X" * 50}]
 clean, report = cleanse_data_with_report(raw)
 print(report.summary())
+```
+
+---
+
+## Docker
+
+הפעל את ה-API בקונטיינר באמצעות קובץ ה-Dockerfile המצורף.
+
+```bash
+docker build -t pacs008:latest .
+docker run -p 8000:8000 pacs008:latest
+```
+
+---
+
+## אימות IBAN ו-BIC
+
+אמת מזהים פיננסיים באופן עצמאי מיצירת XML.
+
+```python
+from pacs008.validation import validate_iban, validate_bic
+
+is_valid, error = validate_iban("DE89370400440532013000", strict=False)
+is_valid, error = validate_bic("DEUTDEFF", strict=False)
+```
+
+---
+
+## עיבוד זרימתי
+
+טען מערכי נתונים גדולים בקבוצות מוגדרות להגבלת השימוש בזיכרון.
+
+```python
+from pacs008.data.loader import load_payment_data_streaming
+
+for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
+    print(f"Processing {len(chunk)} records")
+```
+
+---
+
+## שירות אימות
+
+הפעל את צינור האימות המלא לפני יצירה באופן תכנותי.
+
+```python
+from pacs008.validation import ValidationService, ValidationConfig
+
+service = ValidationService()
+report = service.validate_all(ValidationConfig(
+    xml_message_type="pacs.008.001.13",
+    xml_template_file_path="pacs008/templates/pacs.008.001.13/template.xml",
+    xsd_schema_file_path="pacs008/templates/pacs.008.001.13/pacs.008.001.13.xsd",
+    data_file_path="payments.csv",
+))
+print(report.is_valid, report.errors)
 ```
 
 ---

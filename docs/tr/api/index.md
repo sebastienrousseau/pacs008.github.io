@@ -40,6 +40,7 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 | `POST /generate/async` | Eşzamansız oluşturma işi gönder |
 | `GET /status/{job_id}` | İş durumunu ID'ye göre sorgula |
 | `GET /download/{job_id}` | İş tamamlandığında oluşturulan XML'i indir |
+| `DELETE /jobs/{job_id}` | Bekleyen veya çalışan bir işi iptal et |
 | `GET /docs` | Tüm uç noktaları keşfetmek ve test etmek için etkileşimli Swagger UI |
 
 ### Doğrulama örneği
@@ -47,7 +48,7 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 XML oluşturmadan önce ödeme verilerini doğrulama için gönderin.
 
 ```bash
-curl -X POST http://localhost:8000/validate \
+curl -X POST http://localhost:8000/api/validate \
   -H "Content-Type: application/json" \
   -d '{
     "message_type": "pacs.008.001.13",
@@ -74,7 +75,7 @@ curl -X POST http://localhost:8000/validate \
 JSON yükünden pacs.008.001.13 XML dosyası oluşturun.
 
 ```bash
-curl -X POST http://localhost:8000/generate \
+curl -X POST http://localhost:8000/api/generate \
   -H "Content-Type: application/json" \
   -d '{
     "message_type": "pacs.008.001.13",
@@ -105,17 +106,17 @@ Daha büyük dosyalar veya ardışık düzen kullanımı için eşzamansız bir 
 
 ```bash
 # Submit the job
-JOB=$(curl -s -X POST http://localhost:8000/generate/async \
+JOB=$(curl -s -X POST http://localhost:8000/api/generate/async \
   -H "Content-Type: application/json" \
   -d '{"message_type":"pacs.008.001.13","data":[...]}')
 
 JOB_ID=$(echo $JOB | jq -r '.job_id')
 
 # Poll for completion
-curl http://localhost:8000/status/$JOB_ID
+curl http://localhost:8000/api/status/$JOB_ID
 
 # Download the result
-curl http://localhost:8000/download/$JOB_ID --output result.xml
+curl http://localhost:8000/api/download/$JOB_ID --output result.xml
 ```
 
 ---
@@ -203,6 +204,62 @@ from pacs008.compliance import cleanse_data_with_report
 raw = [{"debtor_name": "Müller & Söhne™", "msg_id": "X" * 50}]
 clean, report = cleanse_data_with_report(raw)
 print(report.summary())
+```
+
+---
+
+## Docker
+
+Dahil edilen Dockerfile'ı kullanarak API'yi bir konteynerde çalıştırın.
+
+```bash
+docker build -t pacs008:latest .
+docker run -p 8000:8000 pacs008:latest
+```
+
+---
+
+## IBAN ve BIC doğrulaması
+
+Finansal tanımlayıcıları XML üretiminden bağımsız olarak doğrulayın.
+
+```python
+from pacs008.validation import validate_iban, validate_bic
+
+is_valid, error = validate_iban("DE89370400440532013000", strict=False)
+is_valid, error = validate_bic("DEUTDEFF", strict=False)
+```
+
+---
+
+## Akış işleme
+
+Bellek kullanımını sınırlamak için büyük veri kümelerini yapılandırılabilir parçalarda yükleyin.
+
+```python
+from pacs008.data.loader import load_payment_data_streaming
+
+for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
+    print(f"Processing {len(chunk)} records")
+```
+
+---
+
+## Doğrulama servisi
+
+Üretim öncesi tam doğrulama hattını programatik olarak çalıştırın.
+
+```python
+from pacs008.validation import ValidationService, ValidationConfig
+
+service = ValidationService()
+report = service.validate_all(ValidationConfig(
+    xml_message_type="pacs.008.001.13",
+    xml_template_file_path="pacs008/templates/pacs.008.001.13/template.xml",
+    xsd_schema_file_path="pacs008/templates/pacs.008.001.13/pacs.008.001.13.xsd",
+    data_file_path="payments.csv",
+))
+print(report.is_valid, report.errors)
 ```
 
 ---

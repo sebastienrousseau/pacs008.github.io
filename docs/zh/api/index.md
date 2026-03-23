@@ -40,6 +40,7 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 | `POST /generate/async` | 提交异步生成任务 |
 | `GET /status/{job_id}` | 按 ID 轮询任务状态 |
 | `GET /download/{job_id}` | 任务完成后下载生成的 XML |
+| `DELETE /jobs/{job_id}` | 取消待处理或正在运行的作业 |
 | `GET /docs` | 用于探索和测试所有端点的交互式 Swagger UI |
 
 ### 验证示例
@@ -47,7 +48,7 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 在生成 XML 之前提交支付数据进行验证。
 
 ```bash
-curl -X POST http://localhost:8000/validate \
+curl -X POST http://localhost:8000/api/validate \
   -H "Content-Type: application/json" \
   -d '{
     "message_type": "pacs.008.001.13",
@@ -74,7 +75,7 @@ curl -X POST http://localhost:8000/validate \
 从 JSON 载荷生成 pacs.008.001.13 XML 文件。
 
 ```bash
-curl -X POST http://localhost:8000/generate \
+curl -X POST http://localhost:8000/api/generate \
   -H "Content-Type: application/json" \
   -d '{
     "message_type": "pacs.008.001.13",
@@ -105,17 +106,17 @@ curl -X POST http://localhost:8000/generate \
 
 ```bash
 # Submit the job
-JOB=$(curl -s -X POST http://localhost:8000/generate/async \
+JOB=$(curl -s -X POST http://localhost:8000/api/generate/async \
   -H "Content-Type: application/json" \
   -d '{"message_type":"pacs.008.001.13","data":[...]}')
 
 JOB_ID=$(echo $JOB | jq -r '.job_id')
 
 # Poll for completion
-curl http://localhost:8000/status/$JOB_ID
+curl http://localhost:8000/api/status/$JOB_ID
 
 # Download the result
-curl http://localhost:8000/download/$JOB_ID --output result.xml
+curl http://localhost:8000/api/download/$JOB_ID --output result.xml
 ```
 
 ---
@@ -203,6 +204,62 @@ from pacs008.compliance import cleanse_data_with_report
 raw = [{"debtor_name": "Müller & Söhne™", "msg_id": "X" * 50}]
 clean, report = cleanse_data_with_report(raw)
 print(report.summary())
+```
+
+---
+
+## Docker
+
+使用附带的 Dockerfile 在容器中运行 API。
+
+```bash
+docker build -t pacs008:latest .
+docker run -p 8000:8000 pacs008:latest
+```
+
+---
+
+## IBAN 和 BIC 验证
+
+独立于 XML 生成验证金融标识符。
+
+```python
+from pacs008.validation import validate_iban, validate_bic
+
+is_valid, error = validate_iban("DE89370400440532013000", strict=False)
+is_valid, error = validate_bic("DEUTDEFF", strict=False)
+```
+
+---
+
+## 流式处理
+
+以可配置的块大小加载大型数据集以限制内存使用。
+
+```python
+from pacs008.data.loader import load_payment_data_streaming
+
+for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
+    print(f"Processing {len(chunk)} records")
+```
+
+---
+
+## 验证服务
+
+以编程方式运行完整的生成前验证管道。
+
+```python
+from pacs008.validation import ValidationService, ValidationConfig
+
+service = ValidationService()
+report = service.validate_all(ValidationConfig(
+    xml_message_type="pacs.008.001.13",
+    xml_template_file_path="pacs008/templates/pacs.008.001.13/template.xml",
+    xsd_schema_file_path="pacs008/templates/pacs.008.001.13/pacs.008.001.13.xsd",
+    data_file_path="payments.csv",
+))
+print(report.is_valid, report.errors)
 ```
 
 ---

@@ -40,6 +40,7 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 | `POST /generate/async` | Submit an asynchronous generation job |
 | `GET /status/{job_id}` | Poll job status by ID |
 | `GET /download/{job_id}` | Download the generated XML once the job completes |
+| `DELETE /jobs/{job_id}` | Cancel a pending or running job |
 | `GET /docs` | Interactive Swagger UI for exploring and testing all endpoints |
 
 ### Validation example
@@ -47,7 +48,7 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 Submit payment data for validation before generating XML.
 
 ```bash
-curl -X POST http://localhost:8000/validate \
+curl -X POST http://localhost:8000/api/validate \
   -H "Content-Type: application/json" \
   -d '{
     "message_type": "pacs.008.001.13",
@@ -74,7 +75,7 @@ curl -X POST http://localhost:8000/validate \
 Generate a pacs.008.001.13 XML file from a JSON payload.
 
 ```bash
-curl -X POST http://localhost:8000/generate \
+curl -X POST http://localhost:8000/api/generate \
   -H "Content-Type: application/json" \
   -d '{
     "message_type": "pacs.008.001.13",
@@ -105,17 +106,17 @@ For larger files or pipeline use, submit an async job and poll for completion.
 
 ```bash
 # Submit the job
-JOB=$(curl -s -X POST http://localhost:8000/generate/async \
+JOB=$(curl -s -X POST http://localhost:8000/api/generate/async \
   -H "Content-Type: application/json" \
   -d '{"message_type":"pacs.008.001.13","data":[...]}')
 
 JOB_ID=$(echo $JOB | jq -r '.job_id')
 
 # Poll for completion
-curl http://localhost:8000/status/$JOB_ID
+curl http://localhost:8000/api/status/$JOB_ID
 
 # Download the result
-curl http://localhost:8000/download/$JOB_ID --output result.xml
+curl http://localhost:8000/api/download/$JOB_ID --output result.xml
 ```
 
 ---
@@ -203,6 +204,62 @@ from pacs008.compliance import cleanse_data_with_report
 raw = [{"debtor_name": "Müller & Söhne™", "msg_id": "X" * 50}]
 clean, report = cleanse_data_with_report(raw)
 print(report.summary())
+```
+
+---
+
+## Docker
+
+Run the API in a container using the bundled Dockerfile.
+
+```bash
+docker build -t pacs008:latest .
+docker run -p 8000:8000 pacs008:latest
+```
+
+---
+
+## IBAN and BIC validation
+
+Validate financial identifiers independently of XML generation.
+
+```python
+from pacs008.validation import validate_iban, validate_bic
+
+is_valid, error = validate_iban("DE89370400440532013000", strict=False)
+is_valid, error = validate_bic("DEUTDEFF", strict=False)
+```
+
+---
+
+## Streaming
+
+Load large datasets in configurable chunks to limit memory usage.
+
+```python
+from pacs008.data.loader import load_payment_data_streaming
+
+for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
+    print(f"Processing {len(chunk)} records")
+```
+
+---
+
+## Validation service
+
+Run the full pre-generation validation pipeline programmatically.
+
+```python
+from pacs008.validation import ValidationService, ValidationConfig
+
+service = ValidationService()
+report = service.validate_all(ValidationConfig(
+    xml_message_type="pacs.008.001.13",
+    xml_template_file_path="pacs008/templates/pacs.008.001.13/template.xml",
+    xsd_schema_file_path="pacs008/templates/pacs.008.001.13/pacs.008.001.13.xsd",
+    data_file_path="payments.csv",
+))
+print(report.is_valid, report.errors)
 ```
 
 ---

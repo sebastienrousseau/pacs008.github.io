@@ -17,6 +17,10 @@ pacs008 est une boîte à outils Python pour automatiser les flux ISO 20022 de v
 - Expose un service FastAPI pour les flux automatisés
 - Fournit une CLI pour l'exécution locale et les pipelines CI
 - Prend en charge les sources de données structurées : CSV, JSON, JSONL, SQLite et Parquet
+- Valide les identifiants IBAN (75 pays, somme de contrôle ISO 7064) et BIC (ISO 9362)
+- Nettoie les données de paiement pour la conformité SWIFT avec translitération et contrôle de longueur des champs
+- Traite les grands jeux de données par lots configurables pour limiter l'utilisation mémoire
+- Fournit une image Docker pour le déploiement conteneurisé de l'API
 
 ## Pour qui
 
@@ -24,6 +28,24 @@ pacs008 est une boîte à outils Python pour automatiser les flux ISO 20022 de v
 - ingénieurs de plateforme construisant l'infrastructure de traitement des paiements interne
 - programmes de migration vers ISO 20022
 - équipes de conformité et d'assurance qualité validant les messages de paiement sortants
+
+## Validation
+
+Plusieurs couches de validation s'appliquent avant toute écriture XML :
+
+- Validation JSON Schema contre 20 schémas spécifiques aux types de messages
+- Vérification du format et de la somme de contrôle IBAN couvrant 75 pays
+- Validation de la structure BIC et du code pays selon ISO 9362
+- Validation XSD du XML généré contre les schémas officiels ISO 20022
+
+## Sécurité
+
+pacs008 applique une défense en profondeur à chaque couche du pipeline de traitement :
+
+- Prévention XXE via defusedxml pour toutes les opérations d'analyse XML
+- Protection contre la traversée de chemin avec liste blanche stricte de répertoires
+- Masquage des données personnelles dans les journaux JSON structurés pour la conformité RGPD et PCI DSS
+- Prévention de l'injection SQL avec désinfection stricte des noms de tables pour les sources SQLite
 
 ## Préparation 2026
 

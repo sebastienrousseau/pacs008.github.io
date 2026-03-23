@@ -17,6 +17,10 @@ pacs008, ISO 20022 FI-to-FI müşteri kredi transferi iş akışlarını otomati
 - Otomatik iş akışları için FastAPI hizmeti sunar
 - Yerel yürütme ve CI ardışık düzenleri için CLI sağlar
 - CSV, JSON, JSONL, SQLite ve Parquet dahil yapılandırılmış veri kaynaklarını destekler
+- IBAN (75 ülke, ISO 7064 kontrol toplamı) ve BIC (ISO 9362) tanımlayıcılarını doğrular
+- Transliterasyon ve alan uzunluğu denetimi ile SWIFT uyumluluğu için ödeme verilerini temizler
+- Bellek verimli işleme için büyük veri kümelerini yapılandırılabilir parçalarda işler
+- Konteynerleştirilmiş API dağıtımı için Docker imajı sağlar
 
 ## Kimler için
 
@@ -24,6 +28,24 @@ pacs008, ISO 20022 FI-to-FI müşteri kredi transferi iş akışlarını otomati
 - dahili ödeme işleme altyapısı oluşturan platform mühendisleri
 - ISO 20022'ye yönelik geçiş programları
 - giden ödeme mesajlarını doğrulayan uyumluluk ve QA ekipleri
+
+## Doğrulama
+
+Herhangi bir XML yazılmadan önce birden fazla doğrulama katmanı çalışır:
+
+- 20 mesaj tipine özgü şemaya karşı JSON Schema doğrulaması
+- 75 ülkeyi kapsayan IBAN format ve kontrol toplamı doğrulaması
+- ISO 9362'ye göre BIC yapısı ve ülke kodu doğrulaması
+- Üretilen XML'in resmi ISO 20022 şemalarına karşı XSD doğrulaması
+
+## Güvenlik
+
+pacs008, işleme hattının her katmanında derinlemesine savunma uygular:
+
+- Tüm XML ayrıştırma işlemleri için defusedxml aracılığıyla XXE önleme
+- Katı dizin izin listesi ile yol geçişi koruması
+- KVKK ve PCI DSS uyumluluğunu desteklemek için yapılandırılmış JSON günlüklerinde PII maskeleme
+- SQLite kaynakları için katı tablo adı temizleme ile SQL enjeksiyon önleme
 
 ## 2026 hazırlığı
 

@@ -17,6 +17,10 @@ pacs008 ist ein Python-Toolkit zur Automatisierung von ISO 20022 FI-to-FI-Kunden
 - Stellt einen FastAPI-Dienst für automatisierte Abläufe bereit
 - Bietet eine CLI für lokale Ausführung und CI-Pipelines
 - Unterstützt strukturierte Datenquellen einschließlich CSV, JSON, JSONL, SQLite und Parquet
+- Validiert IBAN- (75 Länder, ISO 7064-Prüfsumme) und BIC-Kennungen (ISO 9362)
+- Bereinigt Zahlungsdaten für SWIFT-Konformität mit Transliteration und Feldlängenkontrolle
+- Verarbeitet große Datensätze in konfigurierbaren Blöcken für speichereffiziente Verarbeitung
+- Liefert ein Docker-Image für containerisierten API-Betrieb
 
 ## Zielgruppen
 
@@ -24,6 +28,24 @@ pacs008 ist ein Python-Toolkit zur Automatisierung von ISO 20022 FI-to-FI-Kunden
 - Plattform-Ingenieure, die interne Zahlungsverarbeitungsinfrastruktur aufbauen
 - Migrationsprogramme in Richtung ISO 20022
 - Compliance- und QA-Teams, die ausgehende Zahlungsnachrichten validieren
+
+## Validierung
+
+Mehrere Validierungsschichten greifen, bevor XML geschrieben wird:
+
+- JSON-Schema-Validierung gegen 20 nachrichtenspezifische Schemata
+- IBAN-Format- und Prüfsummenverifizierung für 75 Länder
+- BIC-Struktur- und Ländercode-Validierung gemäß ISO 9362
+- XSD-Validierung des erzeugten XML gegen die offiziellen ISO 20022-Schemata
+
+## Sicherheit
+
+pacs008 setzt auf Defence-in-Depth über jede Schicht der Verarbeitungspipeline:
+
+- XXE-Prävention durch defusedxml für alle XML-Parsing-Operationen
+- Schutz vor Pfadtraversierung mit strikter Verzeichnis-Allowlist
+- PII-Maskierung in strukturierten JSON-Logs zur Unterstützung der DSGVO- und PCI DSS-Konformität
+- SQL-Injection-Prävention mit strikter Tabellennamen-Sanitisierung für SQLite-Quellen
 
 ## Bereitschaft 2026
 

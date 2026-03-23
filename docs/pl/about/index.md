@@ -17,6 +17,10 @@ pacs008 to zestaw narzędzi Python do automatyzacji przepływów przelewów kred
 - Udostępnia usługę FastAPI dla zautomatyzowanych przepływów pracy
 - Zapewnia CLI do lokalnego wykonywania i potoków CI
 - Obsługuje strukturalne źródła danych, w tym CSV, JSON, JSONL, SQLite i Parquet
+- Waliduje identyfikatory IBAN (75 krajów, suma kontrolna ISO 7064) i BIC (ISO 9362)
+- Oczyszcza dane płatnicze pod kątem zgodności ze SWIFT z transliteracją i kontrolą długości pól
+- Przetwarza duże zbiory danych w konfigurowalnych porcjach dla oszczędnego wykorzystania pamięci
+- Zawiera obraz Docker do kontenerowego wdrożenia API
 
 ## Dla kogo jest
 
@@ -24,6 +28,24 @@ pacs008 to zestaw narzędzi Python do automatyzacji przepływów przelewów kred
 - inżynierowie platform budujący wewnętrzną infrastrukturę przetwarzania płatności
 - programy migracji w kierunku ISO 20022
 - zespoły zgodności i QA walidujące wychodzące wiadomości płatnicze
+
+## Walidacja
+
+Wiele warstw walidacji działa przed zapisem jakiegokolwiek XML:
+
+- Walidacja JSON Schema wobec 20 schematów specyficznych dla typów komunikatów
+- Weryfikacja formatu i sumy kontrolnej IBAN obejmująca 75 krajów
+- Walidacja struktury BIC i kodu kraju zgodnie z ISO 9362
+- Walidacja XSD wygenerowanego XML wobec oficjalnych schematów ISO 20022
+
+## Bezpieczeństwo
+
+pacs008 stosuje obronę w głąb na każdej warstwie potoku przetwarzania:
+
+- Zapobieganie XXE poprzez defusedxml dla wszystkich operacji parsowania XML
+- Ochrona przed traversowaniem ścieżek ze ścisłą listą dozwolonych katalogów
+- Maskowanie PII w ustrukturyzowanych logach JSON w celu wsparcia zgodności z RODO i PCI DSS
+- Zapobieganie wstrzykiwaniu SQL ze ścisłą sanityzacją nazw tabel dla źródeł SQLite
 
 ## Gotowość 2026
 

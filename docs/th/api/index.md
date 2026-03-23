@@ -40,6 +40,7 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 | `POST /generate/async` | ส่งงานสร้างแบบอะซิงโครนัส |
 | `GET /status/{job_id}` | ตรวจสอบสถานะงานตาม ID |
 | `GET /download/{job_id}` | ดาวน์โหลด XML ที่สร้างแล้วเมื่องานเสร็จสิ้น |
+| `DELETE /jobs/{job_id}` | ยกเลิกงานที่รอดำเนินการหรือกำลังดำเนินการ |
 | `GET /docs` | Swagger UI แบบโต้ตอบสำหรับสำรวจและทดสอบ endpoints ทั้งหมด |
 
 ### ตัวอย่างการตรวจสอบความถูกต้อง
@@ -47,7 +48,7 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 ส่งข้อมูลการชำระเงินเพื่อตรวจสอบความถูกต้องก่อนสร้าง XML
 
 ```bash
-curl -X POST http://localhost:8000/validate \
+curl -X POST http://localhost:8000/api/validate \
   -H "Content-Type: application/json" \
   -d '{
     "message_type": "pacs.008.001.13",
@@ -74,7 +75,7 @@ curl -X POST http://localhost:8000/validate \
 สร้างไฟล์ XML pacs.008.001.13 จาก JSON payload
 
 ```bash
-curl -X POST http://localhost:8000/generate \
+curl -X POST http://localhost:8000/api/generate \
   -H "Content-Type: application/json" \
   -d '{
     "message_type": "pacs.008.001.13",
@@ -105,17 +106,17 @@ curl -X POST http://localhost:8000/generate \
 
 ```bash
 # Submit the job
-JOB=$(curl -s -X POST http://localhost:8000/generate/async \
+JOB=$(curl -s -X POST http://localhost:8000/api/generate/async \
   -H "Content-Type: application/json" \
   -d '{"message_type":"pacs.008.001.13","data":[...]}')
 
 JOB_ID=$(echo $JOB | jq -r '.job_id')
 
 # Poll for completion
-curl http://localhost:8000/status/$JOB_ID
+curl http://localhost:8000/api/status/$JOB_ID
 
 # Download the result
-curl http://localhost:8000/download/$JOB_ID --output result.xml
+curl http://localhost:8000/api/download/$JOB_ID --output result.xml
 ```
 
 ---
@@ -203,6 +204,62 @@ from pacs008.compliance import cleanse_data_with_report
 raw = [{"debtor_name": "Müller & Söhne™", "msg_id": "X" * 50}]
 clean, report = cleanse_data_with_report(raw)
 print(report.summary())
+```
+
+---
+
+## Docker
+
+รัน API ในคอนเทนเนอร์โดยใช้ Dockerfile ที่แนบมา
+
+```bash
+docker build -t pacs008:latest .
+docker run -p 8000:8000 pacs008:latest
+```
+
+---
+
+## การตรวจสอบ IBAN และ BIC
+
+ตรวจสอบตัวระบุทางการเงินโดยไม่ขึ้นกับการสร้าง XML
+
+```python
+from pacs008.validation import validate_iban, validate_bic
+
+is_valid, error = validate_iban("DE89370400440532013000", strict=False)
+is_valid, error = validate_bic("DEUTDEFF", strict=False)
+```
+
+---
+
+## การประมวลผลแบบสตรีม
+
+โหลดชุดข้อมูลขนาดใหญ่ในส่วนย่อยที่กำหนดค่าได้เพื่อจำกัดการใช้หน่วยความจำ
+
+```python
+from pacs008.data.loader import load_payment_data_streaming
+
+for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
+    print(f"Processing {len(chunk)} records")
+```
+
+---
+
+## บริการตรวจสอบ
+
+เรียกใช้ pipeline การตรวจสอบก่อนสร้างแบบเต็มรูปแบบโดยทางโปรแกรม
+
+```python
+from pacs008.validation import ValidationService, ValidationConfig
+
+service = ValidationService()
+report = service.validate_all(ValidationConfig(
+    xml_message_type="pacs.008.001.13",
+    xml_template_file_path="pacs008/templates/pacs.008.001.13/template.xml",
+    xsd_schema_file_path="pacs008/templates/pacs.008.001.13/pacs.008.001.13.xsd",
+    data_file_path="payments.csv",
+))
+print(report.is_valid, report.errors)
 ```
 
 ---

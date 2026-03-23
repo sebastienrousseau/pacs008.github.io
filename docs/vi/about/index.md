@@ -17,6 +17,10 @@ pacs008 là bộ công cụ Python để tự động hóa quy trình chuyển k
 - Cung cấp dịch vụ FastAPI cho quy trình tự động
 - Cung cấp CLI cho thực thi cục bộ và pipeline CI
 - Hỗ trợ nguồn dữ liệu có cấu trúc bao gồm CSV, JSON, JSONL, SQLite và Parquet
+- Xác thực mã IBAN (75 quốc gia, checksum ISO 7064) và BIC (ISO 9362)
+- Làm sạch dữ liệu thanh toán để tuân thủ SWIFT với chuyển tự và kiểm soát độ dài trường
+- Xử lý tập dữ liệu lớn theo từng phần có thể cấu hình để tiết kiệm bộ nhớ
+- Cung cấp Docker image để triển khai API trong container
 
 ## Đối tượng sử dụng
 
@@ -24,6 +28,24 @@ pacs008 là bộ công cụ Python để tự động hóa quy trình chuyển k
 - kỹ sư nền tảng xây dựng hạ tầng xử lý thanh toán nội bộ
 - chương trình chuyển đổi sang ISO 20022
 - đội ngũ tuân thủ và QA xác thực thông điệp thanh toán đi
+
+## Xác thực
+
+Nhiều lớp xác thực hoạt động trước khi bất kỳ XML nào được ghi:
+
+- Xác thực JSON Schema đối với 20 schema dành riêng cho từng loại thông điệp
+- Xác minh định dạng và checksum IBAN cho 75 quốc gia
+- Xác thực cấu trúc BIC và mã quốc gia theo ISO 9362
+- Xác thực XSD của XML đã tạo đối với các schema chính thức ISO 20022
+
+## Bảo mật
+
+pacs008 áp dụng phòng thủ theo chiều sâu ở mọi lớp của pipeline xử lý:
+
+- Phòng chống XXE thông qua defusedxml cho tất cả hoạt động phân tích XML
+- Bảo vệ chống path traversal với danh sách thư mục cho phép nghiêm ngặt
+- Che giấu PII trong nhật ký JSON có cấu trúc để hỗ trợ tuân thủ GDPR và PCI DSS
+- Phòng chống SQL injection với kiểm soát nghiêm ngặt tên bảng cho nguồn SQLite
 
 ## Sẵn sàng cho 2026
 

@@ -15,7 +15,6 @@ function navFor(locale: string) {
   const t = getUiStrings(locale);
   const prefix = `/${locale}`;
   return [
-    { text: t.home, link: `${prefix}/` },
     { text: t.about, link: `${prefix}/about/` },
     { text: t.messageTypes, link: `${prefix}/message-types/` },
     { text: t.api, link: `${prefix}/api/` },
@@ -247,10 +246,32 @@ ${items.join("\n")}
 
     return head;
   },
+  transformHtml(code) {
+    // SSR: add aria-label and fix empty title on theme toggle buttons
+    code = code.replace(
+      /<button\s+([^>]*class="[^"]*VPSwitchAppearance[^"]*"[^>]*)>/g,
+      (match, attrs) => {
+        let result = match;
+        // Remove empty title attribute
+        result = result.replace(/\s+title(?=[>\s])/, '');
+        // Add aria-label if missing
+        if (!/aria-label=/.test(result)) {
+          result = result.replace(/>$/, ' aria-label="Toggle dark mode">');
+        }
+        return result;
+      }
+    );
+    // SSR: add role="main" to VPContent
+    code = code.replace(
+      /id="VPContent"(?![^>]*role=)/g,
+      'id="VPContent" role="main"'
+    );
+    return code;
+  },
   themeConfig: {
     outline: { level: [2, 3] },
     siteTitle: "pacs008",
-    logo: "/logo.svg",
+    logo: { src: "/logo.svg", alt: "pacs008 home" },
     langMenuLabel: "Languages",
     search: {
       provider: "local"
