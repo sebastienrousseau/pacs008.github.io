@@ -8,7 +8,7 @@ image: /logo.svg
 
 # Over pacs008
 
-pacs008 is een Python-toolkit voor het automatiseren van ISO 20022-kredietoverdrachtworkflows tussen financiële instellingen.
+pacs008 is een Python-toolkit voor het automatiseren van ISO 20022-kredietoverdrachtsprocessen tussen financiële instellingen.
 
 > Laatst gecontroleerd aan de hand van primaire bronnen op 23 maart 2026 met openbare ISO 20022-, EPC- en Swift-materialen waarnaar op deze pagina wordt verwezen.
 
@@ -16,7 +16,7 @@ pacs008 is een Python-toolkit voor het automatiseren van ISO 20022-kredietoverdr
 
 - Genereert XML voor `pacs.008` en gerelateerde pacs-berichtdefinities
 - Valideert gegevens en XML tegen schema's
-- Stelt een FastAPI-service beschikbaar voor geautomatiseerde workflows
+- Stelt een FastAPI-service beschikbaar voor geautomatiseerde processen
 - Biedt een CLI voor lokale uitvoering en CI-pipelines
 - Ondersteunt gestructureerde gegevensbronnen waaronder CSV, JSON, JSONL, SQLite en Parquet
 - Valideert IBAN- (75 landen, ISO 7064-controlesom) en BIC-identificaties (ISO 9362)
@@ -55,7 +55,7 @@ pacs008 is ontworpen rondom de operationele deadlines en datakwaliteitsvereisten
 
 - verwerking van gestructureerde en hybride postadressen voor CBPR+ en schemamigraties
 - sterkere validatie van de datakwaliteit van debiteur, crediteur en agent
-- versiebewuste generatie over legacy en huidige pacs.008-revisies
+- versiebewuste generatie over oudere en huidige pacs.008-revisies
 - automatiseringspaden die passen bij CI, batchoperaties en interne betalingsdiensten
 
 ## Operationele focus

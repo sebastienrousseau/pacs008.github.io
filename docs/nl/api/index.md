@@ -1,6 +1,6 @@
 ---
 title: API | pacs008
-description: REST- en CLI-workflowondersteuning in pacs008. Generatie, validatie, API-orchestratie en compliance-ondersteuning voor klantkredietoverboekingsworkflows...
+description: REST- en CLI-ondersteuning voor werkprocessen in pacs008. Generatie, validatie, API-orchestratie en compliance-ondersteuning voor...
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg
@@ -8,7 +8,7 @@ image: /logo.svg
 
 # API
 
-Het project biedt zowel een REST API als een CLI voor operationele betalingsberichtworkflows.
+Het project biedt zowel een REST API als een CLI voor operationele werkprocessen rond betalingsberichten.
 
 > Laatst gecontroleerd aan de hand van primaire bronnen op 23 maart 2026 met openbare ISO 20022-, EPC- en Swift-materialen waarnaar op deze pagina wordt verwezen.
 

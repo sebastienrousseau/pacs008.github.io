@@ -44,7 +44,7 @@ Mesajul pacs.010 este utilizat între instituții financiare pentru tranzacții 
 | **Dbtr / DbtrAgt** — Identificarea instituției debitoare și a agentului acesteia | Esențial pentru gestionarea numerarului instituțional și ciclurile de decontare interbancară |
 | **IntrBkSttlmAmt** — Suma de decontare interbancară în moneda de decontare | Instituția creditoare trimite pacs.010 instituției debitoare pentru a colecta fonduri în baza unui acord prestabilit. Instituția debitoare validează cererea și decontează sau respinge debitarea directă. |
 
-## Context CBPR+ și scheme
+## Context CBPR+ și scheme de plată
 
 - Înlocuiește elemente ale MT204 pentru procesarea debitărilor directe interbancare
 - Identificarea structurată a părților urmează aceleași cerințe ca și celelalte mesaje pacs

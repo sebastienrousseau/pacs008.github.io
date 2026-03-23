@@ -59,7 +59,7 @@ Agen yang diinstruksikan (penerima) mengirim pacs.002 kembali ke agen yang membe
 
 | Rentang versi | Mengapa ini penting | Kesimpulan implementasi |
 |---|---|---|
-| pacs.002.001.12 | Implementasi saat ini di pacs008 | Gunakan ini saat mencocokkan template proyek saat ini dan aset validasi. |
+| pacs.002.001.12 | Implementasi saat ini di pacs008 | Gunakan ini saat menyesuaikan dengan contoh XML proyek saat ini dan aset validasi. |
 | pacs.002.001.13-15 | Revisi katalog berikutnya | Tinjau revisi ISO yang lebih baru sebelum memulai pekerjaan interoperabilitas baru atau menambahkan infrastruktur baru. |
 
 ## Contoh XML beranotasi

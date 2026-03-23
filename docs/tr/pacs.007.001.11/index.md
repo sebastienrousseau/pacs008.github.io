@@ -59,7 +59,7 @@ Talimat veren aracı (orijinal gönderici), daha önce talimat verilmiş bir öd
 
 | Sürüm aralığı | Neden önemli | Uygulama çıkarımı |
 |---|---|---|
-| pacs.007.001.11 | pacs008 içindeki mevcut uygulama | Reversal iş akışı modellemesi için iyi bir başlangıç noktasıdır. |
+| pacs.007.001.11 | pacs008 içindeki mevcut uygulama | Geri çevirme iş akışı modellemesi için iyi bir başlangıç noktasıdır. |
 | pacs.007.001.12-13 | Daha sonraki katalog sürümleri | Mevcut piyasa altyapısına uyum için sonraki sürümleri inceleyin. |
 
 ## Açıklamalı XML örneği

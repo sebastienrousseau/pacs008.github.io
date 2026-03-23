@@ -59,7 +59,7 @@ Talimat alan aracı (alıcı), pacs.008 veya pacs.009 gibi alınan bir ödeme ta
 
 | Sürüm aralığı | Neden önemli | Uygulama çıkarımı |
 |---|---|---|
-| pacs.002.001.12 | pacs008 içindeki mevcut uygulama | Bunu mevcut proje şablonları ve doğrulama varlıklarıyla eşleşirken kullanın. |
+| pacs.002.001.12 | pacs008 içindeki mevcut uygulama | Bunu mevcut proje şablonları ve doğrulama varlıklarıyla uyum sağlarken kullanın. |
 | pacs.002.001.13-15 | Daha sonraki katalog sürümleri | Yeni birlikte çalışabilirlik çalışmaları başlamadan veya yeni altyapılar eklenmeden önce sonraki ISO sürümlerini gözden geçirin. |
 
 ## Açıklamalı XML örneği

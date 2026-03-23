@@ -29,5 +29,5 @@ features:
   - title: "Sicurezza"
     details: "Prevenzione XXE tramite defusedxml per tutte le operazioni di parsing XML; Protezione dal path traversal con whitelist rigorosa delle directory; Mascheramento PII nei log JSON strutturati per la conformità GDPR e PCI DSS"
   - title: "Preparazione 2026"
-    details: "gestione di indirizzi postali strutturati e ibridi per CBPR+ e migrazioni di schemi; validazione più rigorosa della qualità dei dati di debitore, creditore e agente; generazione consapevole delle versioni attraverso le revisioni pacs.008 legacy e correnti"
+    details: "gestione di indirizzi postali strutturati e ibridi per CBPR+ e migrazioni di schemi; validazione più rigorosa della qualità dei dati di debitore, creditore e agente; generazione consapevole delle versioni attraverso le revisioni pacs.008 precedenti e correnti"
 ---

@@ -44,7 +44,7 @@ Mesajul pacs.008 este instrucțiunea de plată principală schimbată între ins
 | **Cdtr / CdtrAgt** — Identificarea creditorului și a agentului creditorului cu detaliile contului | Suportă metode de decontare serială, prin acoperire și directă pentru lanțuri de plăți cu mai multe etape |
 | **RmtInf** — Informații de remitere pentru referințe de plată structurate sau nestructurate | Agentul debitorului creează un pacs.008 și îl trimite agentului creditorului (direct sau prin intermediari). Fiecare agent din lanț validează, îmbogățește și transmite instrucțiunea până când agentul creditorului creditează contul beneficiarului. |
 
-## Context CBPR+ și scheme
+## Context CBPR+ și scheme de plată
 
 - Înlocuiește MT103 și MT103+ pentru transferurile de credit transfrontaliere ale clienților
 - Termenul limită pentru adresele structurate din noiembrie 2026 se aplică tuturor adreselor poștale ale părților
@@ -61,7 +61,7 @@ Agentul debitorului creează un pacs.008 și îl trimite agentului creditorului 
 |---|---|---|
 | pacs.008.001.01-07 | Revizii timpurii | Util mai ales pentru analiza migrării din sisteme vechi și pentru contextul istoric al versiunilor. |
 | pacs.008.001.08-12 | Revizii moderne anterioare celei curente | Acestea sunt reviziile care apar cel mai probabil în proiecte recente de migrare sau coexistență. |
-| pacs.008.001.13 | Revizia curentă a catalogului | Folosește asta pentru planificarea versiunii curente, validând în continuare regulile schemei și pregătirea contrapărților. |
+| pacs.008.001.13 | Revizia curentă a catalogului | Folosește această versiune pentru planificarea implementării curente, verificând în continuare regulile schemei și pregătirea contrapărților. |
 
 ## Exemplu XML comentat
 

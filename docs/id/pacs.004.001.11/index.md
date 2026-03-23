@@ -59,7 +59,7 @@ Agen yang diinstruksikan mengirim pacs.004 kembali melalui rantai pembayaran unt
 
 | Rentang versi | Mengapa ini penting | Kesimpulan implementasi |
 |---|---|---|
-| pacs.004.001.11 | Implementasi saat ini di pacs008 | Selaras dengan template saat ini untuk retur pembayaran. |
+| pacs.004.001.11 | Implementasi saat ini di pacs008 | Selaras dengan contoh XML saat ini untuk retur pembayaran. |
 | pacs.004.001.12-14 | Revisi katalog berikutnya | Tinjau revisi pesan retur yang lebih baru saat peningkatan skema atau pihak lawan baru masuk dalam cakupan. |
 
 ## Contoh XML beranotasi

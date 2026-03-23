@@ -69,9 +69,9 @@ pacs008 vượt ra ngoài tham chiếu định nghĩa thông điệp để hỗ 
 
 ## Danh sách kiểm tra triển khai
 
-- Chọn đúng họ thông điệp cho sự kiện nghiệp vụ trước khi viết template.
-- Xác thực dữ liệu nghiệp vụ trước khi tạo XML để lỗi schema không trở thành tín hiệu đầu tiên.
+- Chọn đúng họ thông điệp cho sự kiện nghiệp vụ trước khi viết mẫu XML.
+- Xác thực dữ liệu nghiệp vụ trước khi tạo XML để lỗi lược đồ không trở thành tín hiệu đầu tiên.
 - Coi chất lượng BIC, IBAN, remittance và địa chỉ bưu chính là tiêu chí phát hành chứ không phải việc dọn dẹp về sau.
-- Chạy kiểm thử hồi quy cho mỗi thay đổi quy tắc của scheme hoặc ngân hàng với dữ liệu thanh toán đại diện.
+- Chạy kiểm thử hồi quy cho mỗi thay đổi quy tắc của cơ chế thanh toán hoặc ngân hàng với dữ liệu thanh toán đại diện.
 
 

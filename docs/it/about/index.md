@@ -55,7 +55,7 @@ pacs008 è progettato attorno alle scadenze operative e ai requisiti di qualità
 
 - gestione di indirizzi postali strutturati e ibridi per CBPR+ e migrazioni di schemi
 - validazione più rigorosa della qualità dei dati di debitore, creditore e agente
-- generazione consapevole delle versioni attraverso le revisioni pacs.008 legacy e correnti
+- generazione consapevole delle versioni attraverso le revisioni pacs.008 precedenti e correnti
 - percorsi di automazione adatti a CI, operazioni batch e servizi di pagamento interni
 
 ## Focus operativo

@@ -59,7 +59,7 @@ Agen yang memberi instruksi (pengirim asli) mengirim pacs.007 maju melalui ranta
 
 | Rentang versi | Mengapa ini penting | Kesimpulan implementasi |
 |---|---|---|
-| pacs.007.001.11 | Implementasi saat ini di pacs008 | Landasan yang baik untuk pemodelan alur pembalikan. |
+| pacs.007.001.11 | Implementasi saat ini di pacs008 | Landasan yang baik untuk pemodelan alur pembalikan pembayaran. |
 | pacs.007.001.12-13 | Revisi katalog berikutnya | Periksa revisi yang lebih baru untuk keselarasan dengan infrastruktur pasar saat ini. |
 
 ## Contoh XML beranotasi

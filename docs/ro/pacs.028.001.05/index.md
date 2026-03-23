@@ -44,7 +44,7 @@ Mesajul pacs.028 este trimis de o instituție financiară pentru a solicita stat
 | **OrgnlInstrId** — Identificarea instrucțiunii originale din plata sursă | Utilizat în fluxurile de gestionare a excepțiilor și monitorizare a SLA |
 | **OrgnlEndToEndId** — Identificarea de la un capăt la altul originală pentru trasabilitate | Agentul ordonator trimite pacs.028 agentului instruit pentru a solicita statusul unei plăți specifice. Agentul instruit răspunde cu un pacs.002 care conține statusul curent de procesare. |
 
-## Context CBPR+ și scheme
+## Context CBPR+ și scheme de plată
 
 - Înlocuiește modelele de interogare a statusului MT199 și interogările manuale de mesaje SWIFT
 - CBPR+ suportă cereri de status structurate legate de identificatorii mesajului original

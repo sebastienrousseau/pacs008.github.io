@@ -27,7 +27,7 @@ pacs008 copre la definizione di messaggio pacs.008 principale e i messaggi corre
 
 ## Modello di distribuzione
 
-Ogni tipo di messaggio supportato è affiancato da risorse template e logica di validazione affinché i team possano standardizzare la generazione e i test di regressione su più canali.
+Ogni tipo di messaggio supportato è affiancato da modelli XML e logica di validazione affinché i team possano standardizzare la generazione e i test di regressione su più canali.
 
 ## Scegliere il messaggio corretto
 
@@ -45,7 +45,7 @@ Vedere la [guida alla selezione dei messaggi](/it/message-selection/) per una vi
 
 ## Capacità operative
 
-pacs008 fornisce generazione e validazione basate su template attraverso le revisioni delle definizioni di messaggi supportate:
+pacs008 fornisce generazione e validazione basate su modelli attraverso le revisioni delle definizioni di messaggi supportate:
 
 - confrontare le versioni
 - eseguire test di regressione sugli aggiornamenti degli schemi

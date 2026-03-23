@@ -44,7 +44,7 @@ Mesajul pacs.004 este utilizat pentru returnarea unei tranzacții de plată deco
 | **RtrRsnInf** — Informații privind motivul returnării cu coduri de motiv structurate | Se aplică atât returnărilor de transferuri de credit (pacs.008), cât și returnărilor de debitări directe (pacs.003) |
 | **OrgnlTxRef** — Referința tranzacției originale pentru potrivire și reconciliere | Agentul instruit trimite pacs.004 înapoi prin lanțul de plăți pentru a returna fonduri decontate anterior. Fiecare agent din lanț procesează returnarea și recreditează conturile relevante. |
 
-## Context CBPR+ și scheme
+## Context CBPR+ și scheme de plată
 
 - Înlocuiește MT103 RETURN și mesageria de returnare prin metoda de acoperire
 - Codurile de motiv de returnare sunt standardizate și lizibile automat conform ISO 20022
@@ -59,7 +59,7 @@ Agentul instruit trimite pacs.004 înapoi prin lanțul de plăți pentru a retur
 
 | Interval de versiuni | De ce contează | Concluzie de implementare |
 |---|---|---|
-| pacs.004.001.11 | Implementarea curentă în pacs008 | Se aliniază cu template-urile curente pentru retururile de plată. |
+| pacs.004.001.11 | Implementarea curentă în pacs008 | Se aliniază cu șabloanele curente pentru mesajele de retur al plăților. |
 | pacs.004.001.12-14 | Revizii ulterioare ale catalogului | Verifică reviziile ulterioare ale mesajelor de retur când upgrade-urile de schemă sau contrapărți noi intră în sferă. |
 
 ## Exemplu XML comentat

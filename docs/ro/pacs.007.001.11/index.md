@@ -44,7 +44,7 @@ Mesajul pacs.007 este utilizat pentru a inversa o instrucțiune de plată trimis
 | **RvslRsnInf** — Informații privind motivul inversării cu coduri de motiv structurate | Conține coduri de motiv de inversare structurate pentru procesarea în aval |
 | **OrgnlTxRef** — Referința tranzacției originale pentru trasabilitate de la un capăt la altul | Agentul ordonator (expeditorul original) trimite pacs.007 înainte prin lanțul de plăți pentru a inversa o plată instruită anterior. Fiecare agent procesează instrucțiunea de inversare și ajustează decontarea în consecință. |
 
-## Context CBPR+ și scheme
+## Context CBPR+ și scheme de plată
 
 - Se deosebește de pacs.004 prin direcție — inversarea curge înainte de la inițiator, returnarea curge înapoi de la beneficiar
 - CBPR+ necesită asocierea cu identificatorii mesajului original pentru potrivire automată

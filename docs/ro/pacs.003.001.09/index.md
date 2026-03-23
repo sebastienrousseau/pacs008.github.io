@@ -44,7 +44,7 @@ Mesajul pacs.003 este schimbat între instituții financiare pentru a executa o 
 | **CdtrAgt** — Identificarea agentului creditorului (instituția colectoare) | Permite colectarea în masă a mai multor instrucțiuni de debitare directă într-un singur mesaj |
 | **DbtrAgt** — Identificarea agentului debitorului (instituția plătitoare) | Agentul creditorului inițiază pacs.003 către agentul debitorului pentru a colecta fonduri. Agentul debitorului validează mandatul, verifică acoperirea contului și decontează sau returnează tranzacția. |
 
-## Context CBPR+ și scheme
+## Context CBPR+ și scheme de plată
 
 - Cerințele de adresă structurată și identificare a părților se aplică în egală măsură debitărilor directe
 - Datele legate de mandat trebuie să fie complet structurate din noiembrie 2026

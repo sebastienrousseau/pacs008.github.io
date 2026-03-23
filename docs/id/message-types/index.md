@@ -27,7 +27,7 @@ pacs008 mencakup definisi pesan inti pacs.008 dan pesan terkait yang digunakan d
 
 ## Model pengiriman
 
-Setiap jenis pesan yang didukung dilengkapi dengan aset template dan logika validasi sehingga tim dapat menstandarkan pembuatan dan pengujian regresi di berbagai saluran.
+Setiap jenis pesan yang didukung dilengkapi dengan berkas contoh XML dan logika validasi sehingga tim dapat menstandarkan pembuatan dan pengujian regresi di berbagai saluran.
 
 ## Memilih pesan yang tepat
 
@@ -45,7 +45,7 @@ Lihat [panduan pemilihan pesan](/id/message-selection/) untuk ringkasan keputusa
 
 ## Kemampuan operasional
 
-pacs008 menyediakan pembuatan dan validasi berbasis template di seluruh revisi definisi pesan yang didukung:
+pacs008 menyediakan pembuatan dan validasi berbasis contoh XML di seluruh revisi definisi pesan yang didukung:
 
 - membandingkan versi
 - menguji regresi pembaruan skema

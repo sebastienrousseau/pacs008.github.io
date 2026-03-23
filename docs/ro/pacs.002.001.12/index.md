@@ -44,7 +44,7 @@ Mesajul pacs.002 este trimis de o instituție financiară pentru a raporta statu
 | **StsRsnInf** — Informații privind motivul statusului cu coduri de motiv structurate | Suportă raportarea statusului atât la nivel de grup agregat, cât și la nivel de tranzacție individuală |
 | **OrgnlTxRef** — Referința tranzacției originale care face legătura cu instrucțiunea sursă | Agentul instruit (receptorul) trimite pacs.002 înapoi către agentul ordonator (expeditorul) pentru a confirma acceptarea, decontarea sau respingerea unei instrucțiuni de plată primite, cum ar fi pacs.008 sau pacs.009. |
 
-## Context CBPR+ și scheme
+## Context CBPR+ și scheme de plată
 
 - Înlocuiește MT199 și narațiunile de status din câmpul 79 al mesajelor MT
 - CBPR+ impune pacs.002 pentru toată comunicarea privind statusul plăților
@@ -59,7 +59,7 @@ Agentul instruit (receptorul) trimite pacs.002 înapoi către agentul ordonator 
 
 | Interval de versiuni | De ce contează | Concluzie de implementare |
 |---|---|---|
-| pacs.002.001.12 | Implementarea curentă în pacs008 | Folosește asta când trebuie să te aliniezi la template-urile și artefactele de validare curente ale proiectului. |
+| pacs.002.001.12 | Implementarea curentă în pacs008 | Folosește această versiune când trebuie să te aliniezi la șabloanele și artefactele de validare curente ale proiectului. |
 | pacs.002.001.13-15 | Revizii ulterioare ale catalogului | Revizuiește versiunile ISO ulterioare înainte de a începe lucrări noi de interoperabilitate sau de a integra infrastructuri noi. |
 
 ## Exemplu XML comentat
