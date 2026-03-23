@@ -1,6 +1,6 @@
 ---
-title: יצירת קשר | עברית
-description: כיצד ליצור קשר עם פרויקט pacs008.
+title: יצירת קשר | pacs008
+description: כיצד ליצור קשר עם פרויקט pacs008. יצירה, אימות, תיאום API ותמיכת ציות לתהליכי העברת אשראי FI-to-FI.
 lang: he-IL
 lastUpdated: true
 image: /logo.svg

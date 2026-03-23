@@ -1,6 +1,6 @@
 ---
-title: Termeni | Română
-description: Informații despre termenii site-ului pacs008.
+title: Termeni | pacs008
+description: Informații despre termenii site-ului pacs008. Generare, validare, orchestrare API și suport de conformitate pentru fluxuri de transfer de credit FI-to-FI.
 lang: ro-RO
 lastUpdated: true
 image: /logo.svg

@@ -1,6 +1,6 @@
 ---
-title: Kontak | Bahasa Indonesia
-description: Cara menghubungi proyek pacs008.
+title: Kontak | pacs008
+description: Cara menghubungi proyek pacs008. Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan FI-to-FI.
 lang: id-ID
 lastUpdated: true
 image: /logo.svg

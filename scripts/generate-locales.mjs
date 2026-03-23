@@ -6924,6 +6924,1231 @@ const pageCopy = {
   }
 };
 
+const EN_EDITORIAL = {
+  homeHighlights: [
+    "Designed for teams moving from reference documentation to executable ISO 20022 workflows.",
+    "Focuses on operational payment-message quality rather than schema labels in isolation.",
+    "Connects pacs message families so implementers can reason about generation, status, return, and reversal flows together."
+  ],
+  aboutChecklist: [
+    "Select the correct message family for the business event before writing templates.",
+    "Validate business data before XML generation so schema errors are not your first signal.",
+    "Treat BIC, IBAN, remittance, and postal-address quality as release criteria rather than cleanup work.",
+    "Regression-test every scheme or bank-specific rule change against representative payment data."
+  ],
+  messageTypesPerspectiveIntro: "The message catalogue matters most when teams need to decide which message initiates work, which message reports status, and which message corrects or reverses the flow.",
+  apiImplementationNotes: [
+    "Use synchronous generation for operator-driven checks and small batches where the caller expects an immediate XML file.",
+    "Use asynchronous generation when input files are large, when jobs need retry semantics, or when generation is part of a broader workflow engine.",
+    "Persist both the source payload and validation report so support teams can reproduce XML output during incident review.",
+    "Version-lock template and XSD file paths in deployment configuration to avoid silent upgrades during releases."
+  ],
+  messageGuidance: {
+    "pacs.002.001.12": {
+      whenToUse: "Use pacs.002 when the receiving institution needs to report acceptance, rejection, pending, or completion state for a previously submitted payment instruction.",
+      avoidUsing: "Do not use pacs.002 to alter settlement or reverse funds. It is a reporting message, not a corrective settlement message.",
+      implementationNotes: [
+        "Map external provider statuses into pacs.002 reason and status codes early so internal systems do not depend on scheme-specific free text.",
+        "Keep original message identifiers intact; status reconciliation fails quickly when identifiers are normalized inconsistently across channels.",
+        "Treat pending and rejected outcomes differently in downstream orchestration because they imply different retry and repair paths."
+      ],
+      commonPitfalls: [
+        "Conflating technical acceptance with business acceptance.",
+        "Dropping transaction-level status details when a group status exists.",
+        "Using pacs.002 as a substitute for exception-management workflows."
+      ]
+    },
+    "pacs.003.001.09": {
+      whenToUse: "Use pacs.003 for customer direct-debit collection flows between financial institutions where the creditor bank initiates collection from the debtor bank.",
+      avoidUsing: "Do not use pacs.003 for institution-own-account debits or for customer credit-transfer use cases.",
+      implementationNotes: [
+        "Mandate and debtor account data quality usually determines straight-through rates more than XML correctness alone.",
+        "Collection timing windows, cutoff handling, and return rights vary by scheme, so keep scheme logic outside the generic message model.",
+        "Store collection references separately from end-customer invoice references for downstream return and investigation handling."
+      ],
+      commonPitfalls: [
+        "Treating mandate data as optional operational context.",
+        "Failing to align debtor account checks with scheme-specific rules.",
+        "Ignoring return and reversal flows when designing the original debit pipeline."
+      ]
+    },
+    "pacs.004.001.11": {
+      whenToUse: "Use pacs.004 when settled funds need to move back to the original sender because the payment cannot be applied or must be returned after settlement.",
+      avoidUsing: "Do not use pacs.004 when the original instructing agent is requesting an upstream reversal before or around settlement; that is pacs.007 territory.",
+      implementationNotes: [
+        "Return reason codes should be mapped into internal exception categories so operations teams can route cases quickly.",
+        "Keep the original transaction reference accessible to customer-support tooling; returns are hard to reconcile without it.",
+        "Expect scheme and correspondent-bank rules to limit which return reasons are acceptable after specific processing stages."
+      ],
+      commonPitfalls: [
+        "Mixing up return and reversal processes.",
+        "Losing the link to the original transaction and value date.",
+        "Assuming every rejected beneficiary credit should become a pacs.004 automatically."
+      ]
+    },
+    "pacs.007.001.11": {
+      whenToUse: "Use pacs.007 when the original sender needs to request that a previously instructed payment be reversed, often because of an operational error or fraud scenario.",
+      avoidUsing: "Do not use pacs.007 to report status or to process a beneficiary-side return after the receiving institution has already decided to send funds back.",
+      implementationNotes: [
+        "Fraud and recall handling often require tighter time controls than standard exception processing, so reversal orchestration should be explicit.",
+        "Keep reversal reason capture structured; free text alone is rarely enough for audit and analytics.",
+        "Track partial and full reversal outcomes separately because treasury and reconciliation impacts differ."
+      ],
+      commonPitfalls: [
+        "Modeling pacs.007 as just another return message.",
+        "Not preserving the original transaction chain in reconciliation records.",
+        "Using inconsistent reversal reason mapping across channels."
+      ]
+    },
+    "pacs.008.001.13": {
+      whenToUse: "Use pacs.008 for customer credit transfers moving between financial institutions, including domestic clearing, cross-border correspondent flows, and instant-payment contexts where the customer payment instruction is the primary object.",
+      avoidUsing: "Do not use pacs.008 for institution-own-account funding transfers or as a generic envelope for status, return, or investigation messages.",
+      implementationNotes: [
+        "Address quality, party identifiers, and remittance structure typically determine downstream repair rates more than the XML skeleton itself.",
+        "Model payment purpose, charge bearer, settlement method, and party roles explicitly in source data before template rendering.",
+        "Treat version selection as a deployment concern tied to market infrastructure and bank counterparties, not just to the latest schema revision."
+      ],
+      commonPitfalls: [
+        "Assuming one pacs.008 mapping works unchanged across CBPR+, SEPA, domestic RTGS, and instant-payment contexts.",
+        "Using free text where structured remittance or address fields are expected.",
+        "Leaving exception-handling design until after XML generation already works."
+      ]
+    },
+    "pacs.009.001.10": {
+      whenToUse: "Use pacs.009 for institution-to-institution credit transfers, especially treasury movements, funding transfers, and cover-payment legs that are not customer-originated messages in their own right.",
+      avoidUsing: "Do not use pacs.009 as a direct substitute for a customer credit-transfer message when the business transaction still belongs in pacs.008.",
+      implementationNotes: [
+        "Separate cover-payment logic from customer-payment logic so reconciliation can link pacs.009 and pacs.008 without collapsing them into one record type.",
+        "Treasury and correspondent workflows often need stricter controls around value date, settlement amount, and liquidity booking.",
+        "Institution identifiers and chain transparency matter more here than retail remittance content."
+      ],
+      commonPitfalls: [
+        "Confusing own-account transfers with customer transfers.",
+        "Losing the relationship between cover and underlying customer flows.",
+        "Underestimating the impact of correspondent chain changes on settlement behavior."
+      ]
+    },
+    "pacs.010.001.05": {
+      whenToUse: "Use pacs.010 for direct-debit style institution-to-institution collections where the debit occurs on the institution's own account rather than for a retail customer mandate.",
+      avoidUsing: "Do not use pacs.010 for customer mandate collections or for credit-transfer use cases.",
+      implementationNotes: [
+        "Model authorization and bilateral agreement logic outside the message itself because those controls often sit in treasury or correspondent agreements.",
+        "Institution-own-account debits usually need tighter governance than retail direct debits due to counterparty and liquidity risk.",
+        "Design reporting and status handling alongside the collection flow; investigations are expensive when debit provenance is weak."
+      ],
+      commonPitfalls: [
+        "Treating pacs.010 as just the direct-debit equivalent of pacs.009.",
+        "Not capturing bilateral authorization context.",
+        "Ignoring downstream status and exception flows."
+      ]
+    },
+    "pacs.028.001.05": {
+      whenToUse: "Use pacs.028 when an institution needs to actively request the status of an earlier payment instruction instead of waiting for an unsolicited status update.",
+      avoidUsing: "Do not use pacs.028 as a replacement for routine event-driven status messaging when pacs.002 is already available and timely.",
+      implementationNotes: [
+        "Issue status requests selectively; overusing them can create duplicate operational traffic without improving resolution times.",
+        "Pair pacs.028 with robust timeout and escalation rules so investigations do not stall after the request is sent.",
+        "Store the reason for the request alongside the original payment identifiers for auditability and case handling."
+      ],
+      commonPitfalls: [
+        "Sending status requests too early, before the receiving institution could reasonably have progressed the payment.",
+        "Using pacs.028 without a clear exception-management workflow behind it.",
+        "Not reconciling requested statuses back into the original case record."
+      ]
+    }
+  }
+};
+
+const PRIMARY_SOURCES = {
+  isoCatalogue: "https://www.iso20022.org/iso-20022-message-definitions?search=Pacs.008",
+  epcSct: "https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and",
+  epcSctInst: "https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook",
+  swiftCbprPacs008: "https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/cbpr-payment-instructions-pacs008",
+  swiftCbprPacs009: "https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/cbpr-payment-instructions-pacs009",
+  swiftCbprSerial: "https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/fi-fi-customer-credit-transfer-serial-method-pacs008",
+  swiftCbprCover: "https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/fi-fi-customer-credit-transfer-cover-method-pacs008-pacs009",
+  swiftAddress: "https://www.swift.com/standards/iso-20022/iso-20022-programme/cbpr-roadmap",
+  swiftRoadmap: "https://www.swift.com/swift-resource/252463/download",
+  swiftGuidelines: "https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released"
+};
+
+function isoCatalogueLink(msgType = null) {
+  if (!msgType) return PRIMARY_SOURCES.isoCatalogue;
+  const search = msgType.slug.replace(/^pacs/, "Pacs");
+  return `https://www.iso20022.org/iso-20022-message-definitions?search=${encodeURIComponent(search)}`;
+}
+
+const LOCALE_SEO_COPY = {
+  en: {
+    selectionGuideTitle: "Message Selection Guide",
+    selectionGuideDescription: "Choose the right ISO 20022 pacs message for generation, status reporting, returns, reversals, and enquiries.",
+    selectionGuideIntro: "Choose the pacs family by business event first, then by scheme and operating model.",
+    quickDecisionMatrix: "Quick decision matrix",
+    commonComparisonPoints: "Common comparison points",
+    compare: "Compare",
+    keyDistinction: "Key distinction",
+    supportedMessagePages: "Supported message pages",
+    sourceReviewGeneric: "Last reviewed against primary sources on 23 March 2026 using ISO 20022, EPC, and Swift public materials referenced on this page.",
+    sourceReviewMessage: "Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: {date}; source links are listed below.",
+    primaryReferences: "Primary references",
+    customerVsInstitution: "Customer payment versus institution / cover movement",
+    returnVsReversal: "Return from receiving side versus reversal from instructing side",
+    statusVsRequest: "Status report versus status request"
+  },
+  ar: {
+    selectionGuideTitle: "دليل اختيار الرسائل",
+    selectionGuideDescription: "اختر رسالة pacs المناسبة وفق ISO 20022 لعمليات الإنشاء، وتقارير الحالة، والمرتجعات، والعكس، والاستعلامات.",
+    selectionGuideIntro: "اختر عائلة رسائل pacs بحسب الحدث التشغيلي أولاً، ثم بحسب المخطط ونموذج التشغيل.",
+    quickDecisionMatrix: "مصفوفة قرار سريعة",
+    commonComparisonPoints: "نقاط المقارنة الشائعة",
+    compare: "المقارنة",
+    keyDistinction: "الفرق الرئيسي",
+    supportedMessagePages: "صفحات الرسائل المدعومة",
+    sourceReviewGeneric: "تمت المراجعة مقابل المصادر الأساسية في 23 مارس 2026 باستخدام مواد ISO 20022 وEPC وSwift العامة المشار إليها في هذه الصفحة.",
+    sourceReviewMessage: "تمت المراجعة مقابل المصادر الأساسية في 23 مارس 2026. تاريخ مرجع كتالوج ISO 20022 هو: {date}؛ وروابط المصادر مدرجة أدناه.",
+    primaryReferences: "المراجع الأساسية",
+    customerVsInstitution: "دفعة عميل مقابل حركة مؤسسة أو دفعة تغطية",
+    returnVsReversal: "إرجاع من جهة الاستلام مقابل عكس من جهة الإرسال",
+    statusVsRequest: "تقرير حالة مقابل طلب حالة"
+  },
+  de: {
+    selectionGuideTitle: "Leitfaden zur Nachrichtenauswahl",
+    selectionGuideDescription: "Wählen Sie die passende ISO-20022-pacs-Nachricht für Erzeugung, Statusmeldungen, Returns, Reversals und Anfragen.",
+    selectionGuideIntro: "Wählen Sie die pacs-Familie zuerst nach dem Geschäftsvorfall und danach nach Schema und Betriebsmodell.",
+    quickDecisionMatrix: "Schnelle Entscheidungsmatrix",
+    commonComparisonPoints: "Häufige Vergleichspunkte",
+    compare: "Vergleich",
+    keyDistinction: "Wesentlicher Unterschied",
+    supportedMessagePages: "Unterstützte Nachrichtenseiten",
+    sourceReviewGeneric: "Zuletzt anhand von Primärquellen am 23. März 2026 geprüft. Öffentliche ISO-20022-, EPC- und Swift-Quellen sind auf dieser Seite verlinkt.",
+    sourceReviewMessage: "Zuletzt anhand von Primärquellen am 23. März 2026 geprüft. Referenzdatum des ISO-20022-Katalogs: {date}; Quellenlinks sind unten aufgeführt.",
+    primaryReferences: "Primärquellen",
+    customerVsInstitution: "Kundenzahlung versus Institut- oder Cover-Bewegung",
+    returnVsReversal: "Rückgabe von der Empfängerseite versus Reversal von der sendenden Seite",
+    statusVsRequest: "Statusmeldung versus Statusanfrage"
+  },
+  es: {
+    selectionGuideTitle: "Guía de selección de mensajes",
+    selectionGuideDescription: "Elija el mensaje pacs de ISO 20022 adecuado para generación, estados, devoluciones, reversos y consultas.",
+    selectionGuideIntro: "Elija la familia pacs primero según el evento operativo y después según el esquema y el modelo operativo.",
+    quickDecisionMatrix: "Matriz rápida de decisión",
+    commonComparisonPoints: "Puntos de comparación habituales",
+    compare: "Comparación",
+    keyDistinction: "Diferencia clave",
+    supportedMessagePages: "Páginas de mensajes admitidos",
+    sourceReviewGeneric: "Revisado por última vez frente a fuentes primarias el 23 de marzo de 2026 utilizando materiales públicos de ISO 20022, EPC y Swift enlazados en esta página.",
+    sourceReviewMessage: "Revisado por última vez frente a fuentes primarias el 23 de marzo de 2026. Fecha de referencia del catálogo ISO 20022: {date}; los enlaces a las fuentes se muestran a continuación.",
+    primaryReferences: "Referencias primarias",
+    customerVsInstitution: "Pago de cliente frente a movimiento institucional o de cobertura",
+    returnVsReversal: "Devolución desde el lado receptor frente a reverso desde el lado ordenante",
+    statusVsRequest: "Informe de estado frente a solicitud de estado"
+  },
+  fr: {
+    selectionGuideTitle: "Guide de sélection des messages",
+    selectionGuideDescription: "Choisissez le message pacs ISO 20022 adapté à la génération, aux statuts, aux retours, aux annulations et aux demandes.",
+    selectionGuideIntro: "Choisissez la famille pacs d'abord selon l'événement métier, puis selon le schéma et le modèle d'exploitation.",
+    quickDecisionMatrix: "Matrice de décision rapide",
+    commonComparisonPoints: "Points de comparaison courants",
+    compare: "Comparer",
+    keyDistinction: "Différence clé",
+    supportedMessagePages: "Pages de messages prises en charge",
+    sourceReviewGeneric: "Dernière vérification par rapport aux sources primaires le 23 mars 2026 à l'aide des documents publics ISO 20022, EPC et Swift référencés sur cette page.",
+    sourceReviewMessage: "Dernière vérification par rapport aux sources primaires le 23 mars 2026. Date de référence du catalogue ISO 20022 : {date} ; les liens vers les sources figurent ci-dessous.",
+    primaryReferences: "Références primaires",
+    customerVsInstitution: "Paiement client versus mouvement d'institution ou de couverture",
+    returnVsReversal: "Retour côté bénéficiaire versus annulation côté émetteur",
+    statusVsRequest: "Rapport de statut versus demande de statut"
+  },
+  he: {
+    selectionGuideTitle: "מדריך בחירת הודעות",
+    selectionGuideDescription: "בחרו את הודעת pacs המתאימה של ISO 20022 ליצירה, סטטוס, החזרות, היפוכים ובירורים.",
+    selectionGuideIntro: "בחרו תחילה את משפחת pacs לפי האירוע העסקי, ואז לפי הסכמה ומודל ההפעלה.",
+    quickDecisionMatrix: "מטריצת החלטה מהירה",
+    commonComparisonPoints: "נקודות השוואה נפוצות",
+    compare: "השוואה",
+    keyDistinction: "הבחנה מרכזית",
+    supportedMessagePages: "עמודי הודעות נתמכים",
+    sourceReviewGeneric: "נבדק לאחרונה מול מקורות ראשיים ב-23 במרץ 2026 תוך שימוש בחומרי ISO 20022, EPC ו-Swift ציבוריים המקושרים בעמוד זה.",
+    sourceReviewMessage: "נבדק לאחרונה מול מקורות ראשיים ב-23 במרץ 2026. תאריך הייחוס של קטלוג ISO 20022: {date}; קישורי המקורות מופיעים למטה.",
+    primaryReferences: "מקורות ראשיים",
+    customerVsInstitution: "תשלום לקוח מול תנועת מוסד או כיסוי",
+    returnVsReversal: "החזרה מצד המקבל מול היפוך מצד השולח",
+    statusVsRequest: "דוח סטטוס מול בקשת סטטוס"
+  },
+  hi: {
+    selectionGuideTitle: "संदेश चयन मार्गदर्शिका",
+    selectionGuideDescription: "जनरेशन, स्टेटस रिपोर्टिंग, रिटर्न, रिवर्सल और पूछताछ के लिए सही ISO 20022 pacs संदेश चुनें।",
+    selectionGuideIntro: "पहले व्यावसायिक घटना के आधार पर pacs परिवार चुनें, फिर स्कीम और ऑपरेटिंग मॉडल के आधार पर।",
+    quickDecisionMatrix: "त्वरित निर्णय मैट्रिक्स",
+    commonComparisonPoints: "सामान्य तुलना बिंदु",
+    compare: "तुलना",
+    keyDistinction: "मुख्य अंतर",
+    supportedMessagePages: "समर्थित संदेश पृष्ठ",
+    sourceReviewGeneric: "इस पृष्ठ पर संदर्भित ISO 20022, EPC और Swift की सार्वजनिक सामग्रियों के आधार पर 23 मार्च 2026 को प्राथमिक स्रोतों के विरुद्ध अंतिम समीक्षा की गई।",
+    sourceReviewMessage: "23 मार्च 2026 को प्राथमिक स्रोतों के विरुद्ध अंतिम समीक्षा की गई। ISO 20022 कैटलॉग संदर्भ तिथि: {date}; स्रोत लिंक नीचे सूचीबद्ध हैं।",
+    primaryReferences: "प्राथमिक संदर्भ",
+    customerVsInstitution: "ग्राहक भुगतान बनाम संस्थागत या कवर मूवमेंट",
+    returnVsReversal: "प्राप्तकर्ता पक्ष से रिटर्न बनाम प्रेषक पक्ष से रिवर्सल",
+    statusVsRequest: "स्टेटस रिपोर्ट बनाम स्टेटस अनुरोध"
+  },
+  id: {
+    selectionGuideTitle: "Panduan pemilihan pesan",
+    selectionGuideDescription: "Pilih pesan pacs ISO 20022 yang tepat untuk pembuatan, pelaporan status, retur, reversal, dan permintaan status.",
+    selectionGuideIntro: "Pilih keluarga pacs berdasarkan peristiwa bisnis terlebih dahulu, lalu berdasarkan skema dan model operasional.",
+    quickDecisionMatrix: "Matriks keputusan cepat",
+    commonComparisonPoints: "Titik perbandingan umum",
+    compare: "Perbandingan",
+    keyDistinction: "Perbedaan utama",
+    supportedMessagePages: "Halaman pesan yang didukung",
+    sourceReviewGeneric: "Terakhir ditinjau terhadap sumber primer pada 23 Maret 2026 menggunakan materi publik ISO 20022, EPC, dan Swift yang dirujuk pada halaman ini.",
+    sourceReviewMessage: "Terakhir ditinjau terhadap sumber primer pada 23 Maret 2026. Tanggal referensi katalog ISO 20022: {date}; tautan sumber tercantum di bawah.",
+    primaryReferences: "Referensi primer",
+    customerVsInstitution: "Pembayaran nasabah versus perpindahan institusi atau cover",
+    returnVsReversal: "Retur dari pihak penerima versus reversal dari pihak pengirim",
+    statusVsRequest: "Laporan status versus permintaan status"
+  },
+  it: {
+    selectionGuideTitle: "Guida alla selezione dei messaggi",
+    selectionGuideDescription: "Scegli il messaggio pacs ISO 20022 corretto per generazione, stati, resi, reversal e richieste.",
+    selectionGuideIntro: "Scegli la famiglia pacs prima in base all'evento operativo e poi in base allo schema e al modello operativo.",
+    quickDecisionMatrix: "Matrice decisionale rapida",
+    commonComparisonPoints: "Punti di confronto comuni",
+    compare: "Confronto",
+    keyDistinction: "Distinzione chiave",
+    supportedMessagePages: "Pagine dei messaggi supportati",
+    sourceReviewGeneric: "Ultima revisione rispetto a fonti primarie il 23 marzo 2026 usando materiali pubblici ISO 20022, EPC e Swift collegati in questa pagina.",
+    sourceReviewMessage: "Ultima revisione rispetto a fonti primarie il 23 marzo 2026. Data di riferimento del catalogo ISO 20022: {date}; i collegamenti alle fonti sono riportati di seguito.",
+    primaryReferences: "Riferimenti primari",
+    customerVsInstitution: "Pagamento cliente rispetto a movimento istituzionale o di copertura",
+    returnVsReversal: "Reso dal lato ricevente rispetto a reversal dal lato ordinante",
+    statusVsRequest: "Rapporto di stato rispetto a richiesta di stato"
+  },
+  ja: {
+    selectionGuideTitle: "メッセージ選択ガイド",
+    selectionGuideDescription: "生成、ステータス報告、返却、取消、照会に適した ISO 20022 pacs メッセージを選択します。",
+    selectionGuideIntro: "まず業務イベントに基づいて pacs ファミリーを選び、次にスキームと運用モデルで絞り込みます。",
+    quickDecisionMatrix: "クイック判断マトリクス",
+    commonComparisonPoints: "主な比較ポイント",
+    compare: "比較",
+    keyDistinction: "主な違い",
+    supportedMessagePages: "対応メッセージページ",
+    sourceReviewGeneric: "このページで参照している ISO 20022、EPC、Swift の公開資料に基づき、2026年3月23日に一次情報との照合を行いました。",
+    sourceReviewMessage: "2026年3月23日に一次情報との照合を行いました。ISO 20022 カタログの参照日: {date}。ソースリンクは以下に記載しています。",
+    primaryReferences: "一次参照資料",
+    customerVsInstitution: "顧客支払いと機関間／カバー送金の違い",
+    returnVsReversal: "受取側からの返却と依頼側からの取消の違い",
+    statusVsRequest: "ステータス報告とステータス照会の違い"
+  },
+  ko: {
+    selectionGuideTitle: "메시지 선택 가이드",
+    selectionGuideDescription: "생성, 상태 보고, 반환, 취소, 조회에 적합한 ISO 20022 pacs 메시지를 선택합니다.",
+    selectionGuideIntro: "먼저 업무 이벤트를 기준으로 pacs 계열을 고른 뒤, 스킴과 운영 모델에 따라 선택하십시오.",
+    quickDecisionMatrix: "빠른 결정 매트릭스",
+    commonComparisonPoints: "주요 비교 포인트",
+    compare: "비교",
+    keyDistinction: "핵심 차이",
+    supportedMessagePages: "지원되는 메시지 페이지",
+    sourceReviewGeneric: "이 페이지에 연결된 ISO 20022, EPC 및 Swift 공개 자료를 기준으로 2026년 3월 23일에 1차 출처 검토를 완료했습니다.",
+    sourceReviewMessage: "2026년 3월 23일에 1차 출처 검토를 완료했습니다. ISO 20022 카탈로그 기준일: {date}; 출처 링크는 아래에 있습니다.",
+    primaryReferences: "주요 참고자료",
+    customerVsInstitution: "고객 결제와 기관/커버 자금 이동의 차이",
+    returnVsReversal: "수취 측 반환과 지시 측 취소의 차이",
+    statusVsRequest: "상태 보고와 상태 요청의 차이"
+  },
+  nl: {
+    selectionGuideTitle: "Handleiding berichtselectie",
+    selectionGuideDescription: "Kies het juiste ISO 20022-pacs-bericht voor generatie, statusrapportage, retouren, reversals en navragen.",
+    selectionGuideIntro: "Kies de pacs-familie eerst op basis van de bedrijfsgebeurtenis en daarna op basis van schema en operationeel model.",
+    quickDecisionMatrix: "Snelle beslismatrix",
+    commonComparisonPoints: "Veelvoorkomende vergelijkingspunten",
+    compare: "Vergelijk",
+    keyDistinction: "Belangrijk onderscheid",
+    supportedMessagePages: "Ondersteunde berichtpagina's",
+    sourceReviewGeneric: "Laatst gecontroleerd aan de hand van primaire bronnen op 23 maart 2026 met openbare ISO 20022-, EPC- en Swift-materialen waarnaar op deze pagina wordt verwezen.",
+    sourceReviewMessage: "Laatst gecontroleerd aan de hand van primaire bronnen op 23 maart 2026. Referentiedatum ISO 20022-catalogus: {date}; bronlinks staan hieronder.",
+    primaryReferences: "Primaire referenties",
+    customerVsInstitution: "Klantbetaling versus institutionele of cover-beweging",
+    returnVsReversal: "Retour vanaf ontvangende zijde versus reversal vanaf verzendende zijde",
+    statusVsRequest: "Statusrapport versus statusverzoek"
+  },
+  pl: {
+    selectionGuideTitle: "Przewodnik wyboru komunikatu",
+    selectionGuideDescription: "Wybierz właściwy komunikat ISO 20022 pacs do generowania, raportowania statusu, zwrotów, odwróceń i zapytań.",
+    selectionGuideIntro: "Najpierw wybierz rodzinę pacs według zdarzenia biznesowego, a następnie według schematu i modelu operacyjnego.",
+    quickDecisionMatrix: "Szybka macierz decyzji",
+    commonComparisonPoints: "Typowe punkty porównania",
+    compare: "Porównanie",
+    keyDistinction: "Kluczowa różnica",
+    supportedMessagePages: "Obsługiwane strony komunikatów",
+    sourceReviewGeneric: "Ostatnio zweryfikowano względem źródeł pierwotnych 23 marca 2026 r. z użyciem publicznych materiałów ISO 20022, EPC i Swift wskazanych na tej stronie.",
+    sourceReviewMessage: "Ostatnio zweryfikowano względem źródeł pierwotnych 23 marca 2026 r. Data referencyjna katalogu ISO 20022: {date}; linki do źródeł podano poniżej.",
+    primaryReferences: "Źródła podstawowe",
+    customerVsInstitution: "Płatność klienta versus ruch instytucjonalny lub cover",
+    returnVsReversal: "Zwrot po stronie odbiorcy versus odwrócenie po stronie zlecającej",
+    statusVsRequest: "Raport statusu versus żądanie statusu"
+  },
+  pt: {
+    selectionGuideTitle: "Guia de seleção de mensagens",
+    selectionGuideDescription: "Escolha a mensagem pacs ISO 20022 correta para geração, status, devoluções, reversões e consultas.",
+    selectionGuideIntro: "Escolha a família pacs primeiro pelo evento operacional e depois pelo esquema e pelo modelo operacional.",
+    quickDecisionMatrix: "Matriz rápida de decisão",
+    commonComparisonPoints: "Pontos de comparação comuns",
+    compare: "Comparar",
+    keyDistinction: "Diferença principal",
+    supportedMessagePages: "Páginas de mensagens suportadas",
+    sourceReviewGeneric: "Última revisão com base em fontes primárias em 23 de março de 2026 usando materiais públicos da ISO 20022, EPC e Swift referenciados nesta página.",
+    sourceReviewMessage: "Última revisão com base em fontes primárias em 23 de março de 2026. Data de referência do catálogo ISO 20022: {date}; os links das fontes estão abaixo.",
+    primaryReferences: "Referências primárias",
+    customerVsInstitution: "Pagamento de cliente versus movimento institucional ou de cobertura",
+    returnVsReversal: "Devolução do lado recebedor versus reversão do lado originador",
+    statusVsRequest: "Relatório de status versus solicitação de status"
+  },
+  ro: {
+    selectionGuideTitle: "Ghid de selecție a mesajelor",
+    selectionGuideDescription: "Alegeți mesajul pacs ISO 20022 potrivit pentru generare, raportare de status, retururi, reversări și interogări.",
+    selectionGuideIntro: "Alegeți familia pacs mai întâi după evenimentul de business, apoi după schemă și modelul operațional.",
+    quickDecisionMatrix: "Matrice rapidă de decizie",
+    commonComparisonPoints: "Puncte comune de comparație",
+    compare: "Comparație",
+    keyDistinction: "Diferență cheie",
+    supportedMessagePages: "Pagini de mesaje acceptate",
+    sourceReviewGeneric: "Ultima verificare față de surse primare a fost efectuată la 23 martie 2026 folosind materiale publice ISO 20022, EPC și Swift menționate pe această pagină.",
+    sourceReviewMessage: "Ultima verificare față de surse primare a fost efectuată la 23 martie 2026. Data de referință a catalogului ISO 20022: {date}; linkurile către surse sunt mai jos.",
+    primaryReferences: "Referințe primare",
+    customerVsInstitution: "Plată de client versus mișcare instituțională sau cover",
+    returnVsReversal: "Retur din partea destinatarului versus reversare din partea inițiatorului",
+    statusVsRequest: "Raport de status versus solicitare de status"
+  },
+  ru: {
+    selectionGuideTitle: "Руководство по выбору сообщений",
+    selectionGuideDescription: "Выберите подходящее сообщение ISO 20022 pacs для генерации, статусов, возвратов, сторно и запросов.",
+    selectionGuideIntro: "Сначала выбирайте семейство pacs по бизнес-событию, затем по схеме и операционной модели.",
+    quickDecisionMatrix: "Быстрая матрица выбора",
+    commonComparisonPoints: "Частые точки сравнения",
+    compare: "Сравнение",
+    keyDistinction: "Ключевое различие",
+    supportedMessagePages: "Поддерживаемые страницы сообщений",
+    sourceReviewGeneric: "Последняя сверка с первичными источниками выполнена 23 марта 2026 года с использованием публичных материалов ISO 20022, EPC и Swift, указанных на этой странице.",
+    sourceReviewMessage: "Последняя сверка с первичными источниками выполнена 23 марта 2026 года. Дата справки по каталогу ISO 20022: {date}; ссылки на источники приведены ниже.",
+    primaryReferences: "Первичные источники",
+    customerVsInstitution: "Клиентский платеж против институционального или cover-перевода",
+    returnVsReversal: "Возврат со стороны получателя против сторно со стороны отправителя",
+    statusVsRequest: "Отчет о статусе против запроса статуса"
+  },
+  th: {
+    selectionGuideTitle: "คู่มือการเลือกข้อความ",
+    selectionGuideDescription: "เลือกข้อความ pacs ของ ISO 20022 ที่เหมาะสมสำหรับการสร้าง การรายงานสถานะ การคืนเงิน การย้อนรายการ และการสอบถาม",
+    selectionGuideIntro: "เลือกตระกูล pacs ตามเหตุการณ์ทางธุรกิจก่อน จากนั้นจึงเลือกตามสคีมและรูปแบบการดำเนินงาน",
+    quickDecisionMatrix: "ตารางตัดสินใจแบบรวดเร็ว",
+    commonComparisonPoints: "จุดเปรียบเทียบที่พบบ่อย",
+    compare: "เปรียบเทียบ",
+    keyDistinction: "ความแตกต่างสำคัญ",
+    supportedMessagePages: "หน้าข้อความที่รองรับ",
+    sourceReviewGeneric: "ตรวจทานล่าสุดเทียบกับแหล่งข้อมูลหลักเมื่อวันที่ 23 มีนาคม 2026 โดยใช้เอกสารสาธารณะของ ISO 20022, EPC และ Swift ที่อ้างอิงในหน้านี้",
+    sourceReviewMessage: "ตรวจทานล่าสุดเทียบกับแหล่งข้อมูลหลักเมื่อวันที่ 23 มีนาคม 2026 วันที่อ้างอิงแคตตาล็อก ISO 20022: {date}; ลิงก์แหล่งข้อมูลแสดงอยู่ด้านล่าง",
+    primaryReferences: "เอกสารอ้างอิงหลัก",
+    customerVsInstitution: "การชำระเงินของลูกค้าเทียบกับการโอนของสถาบันหรือ cover",
+    returnVsReversal: "การคืนจากฝั่งผู้รับเทียบกับการย้อนจากฝั่งผู้สั่ง",
+    statusVsRequest: "รายงานสถานะเทียบกับคำขอสถานะ"
+  },
+  tr: {
+    selectionGuideTitle: "Mesaj seçim rehberi",
+    selectionGuideDescription: "Oluşturma, durum bildirimi, iade, ters kayıt ve sorgular için doğru ISO 20022 pacs mesajını seçin.",
+    selectionGuideIntro: "Önce iş olayına göre pacs ailesini, ardından şema ve işletim modeline göre seçin.",
+    quickDecisionMatrix: "Hızlı karar matrisi",
+    commonComparisonPoints: "Yaygın karşılaştırma noktaları",
+    compare: "Karşılaştırma",
+    keyDistinction: "Temel fark",
+    supportedMessagePages: "Desteklenen mesaj sayfaları",
+    sourceReviewGeneric: "Bu sayfada referans verilen ISO 20022, EPC ve Swift herkese açık materyalleri kullanılarak birincil kaynaklara göre en son 23 Mart 2026 tarihinde gözden geçirildi.",
+    sourceReviewMessage: "Birincil kaynaklara göre en son 23 Mart 2026 tarihinde gözden geçirildi. ISO 20022 katalog referans tarihi: {date}; kaynak bağlantıları aşağıda listelenmiştir.",
+    primaryReferences: "Birincil referanslar",
+    customerVsInstitution: "Müşteri ödemesi ile kurum/cover hareketi arasındaki fark",
+    returnVsReversal: "Alıcı taraftan iade ile gönderen taraftan reversal arasındaki fark",
+    statusVsRequest: "Durum raporu ile durum isteği arasındaki fark"
+  },
+  uk: {
+    selectionGuideTitle: "Посібник з вибору повідомлень",
+    selectionGuideDescription: "Оберіть потрібне повідомлення ISO 20022 pacs для генерації, статусів, повернень, сторнування та запитів.",
+    selectionGuideIntro: "Спочатку обирайте сімейство pacs за бізнес-подією, а потім за схемою та операційною моделлю.",
+    quickDecisionMatrix: "Швидка матриця вибору",
+    commonComparisonPoints: "Типові точки порівняння",
+    compare: "Порівняння",
+    keyDistinction: "Ключова відмінність",
+    supportedMessagePages: "Підтримувані сторінки повідомлень",
+    sourceReviewGeneric: "Останню перевірку за первинними джерелами виконано 23 березня 2026 року з використанням публічних матеріалів ISO 20022, EPC і Swift, наведених на цій сторінці.",
+    sourceReviewMessage: "Останню перевірку за первинними джерелами виконано 23 березня 2026 року. Дата довідки каталогу ISO 20022: {date}; посилання на джерела наведено нижче.",
+    primaryReferences: "Первинні джерела",
+    customerVsInstitution: "Клієнтський платіж проти інституційного або cover-переказу",
+    returnVsReversal: "Повернення з боку отримувача проти сторнування з боку відправника",
+    statusVsRequest: "Звіт про статус проти запиту статусу"
+  },
+  vi: {
+    selectionGuideTitle: "Hướng dẫn chọn thông điệp",
+    selectionGuideDescription: "Chọn đúng thông điệp pacs ISO 20022 cho tạo lập, báo cáo trạng thái, hoàn trả, đảo giao dịch và truy vấn.",
+    selectionGuideIntro: "Trước hết chọn họ pacs theo sự kiện nghiệp vụ, sau đó theo quy tắc và mô hình vận hành.",
+    quickDecisionMatrix: "Ma trận quyết định nhanh",
+    commonComparisonPoints: "Các điểm so sánh phổ biến",
+    compare: "So sánh",
+    keyDistinction: "Khác biệt chính",
+    supportedMessagePages: "Các trang thông điệp được hỗ trợ",
+    sourceReviewGeneric: "Được rà soát lần cuối đối chiếu với nguồn gốc chính vào ngày 23 tháng 3 năm 2026 bằng các tài liệu công khai của ISO 20022, EPC và Swift được dẫn trên trang này.",
+    sourceReviewMessage: "Được rà soát lần cuối đối chiếu với nguồn gốc chính vào ngày 23 tháng 3 năm 2026. Ngày tham chiếu của danh mục ISO 20022: {date}; các liên kết nguồn được liệt kê bên dưới.",
+    primaryReferences: "Tài liệu tham chiếu gốc",
+    customerVsInstitution: "Thanh toán khách hàng so với chuyển động của tổ chức hoặc cover",
+    returnVsReversal: "Hoàn trả từ phía nhận so với đảo giao dịch từ phía gửi",
+    statusVsRequest: "Báo cáo trạng thái so với yêu cầu trạng thái"
+  },
+  zh: {
+    selectionGuideTitle: "报文选择指南",
+    selectionGuideDescription: "为生成、状态报告、退回、撤销和查询选择合适的 ISO 20022 pacs 报文。",
+    selectionGuideIntro: "先按业务事件选择 pacs 家族，再按方案规则和运行模式细化选择。",
+    quickDecisionMatrix: "快速决策矩阵",
+    commonComparisonPoints: "常见对比点",
+    compare: "比较项",
+    keyDistinction: "关键区别",
+    supportedMessagePages: "支持的报文页面",
+    sourceReviewGeneric: "已于 2026 年 3 月 23 日依据本页引用的 ISO 20022、EPC 和 Swift 公共资料完成主要来源复核。",
+    sourceReviewMessage: "已于 2026 年 3 月 23 日依据主要来源完成复核。ISO 20022 目录参考日期：{date}；来源链接如下。",
+    primaryReferences: "主要参考来源",
+    customerVsInstitution: "客户支付与机构/cover 资金划转的区别",
+    returnVsReversal: "接收方退回与发起方撤销的区别",
+    statusVsRequest: "状态报告与状态查询的区别"
+  },
+  "zh-tw": {
+    selectionGuideTitle: "訊息選擇指南",
+    selectionGuideDescription: "為產生、狀態回報、退回、撤銷與查詢選擇合適的 ISO 20022 pacs 訊息。",
+    selectionGuideIntro: "先依業務事件選擇 pacs 家族，再依方案規則與運作模型細化選擇。",
+    quickDecisionMatrix: "快速決策矩陣",
+    commonComparisonPoints: "常見比較重點",
+    compare: "比較項目",
+    keyDistinction: "關鍵差異",
+    supportedMessagePages: "支援的訊息頁面",
+    sourceReviewGeneric: "已於 2026 年 3 月 23 日依據本頁引用的 ISO 20022、EPC 與 Swift 公開資料完成主要來源複核。",
+    sourceReviewMessage: "已於 2026 年 3 月 23 日依據主要來源完成複核。ISO 20022 目錄參考日期：{date}；來源連結如下。",
+    primaryReferences: "主要參考來源",
+    customerVsInstitution: "客戶付款與機構/cover 資金移轉的差異",
+    returnVsReversal: "接收方退回與發起方撤銷的差異",
+    statusVsRequest: "狀態回報與狀態查詢的差異"
+  }
+};
+
+function seoCopy(localeKey) {
+  return LOCALE_SEO_COPY[localeKey] ?? LOCALE_SEO_COPY.en;
+}
+
+const ADVANCED_TRANSLATION_BATCH_1 = {
+  de: {
+    aboutChecklistTitle: "Umsetzungscheckliste",
+    choosingTitle: "Die richtige Nachricht wählen",
+    implementationNotesTitle: "Implementierungshinweise",
+    whenToUseTitle: "Wann diese Nachricht verwendet werden sollte",
+    whenNotToUseTitle: "Wann diese Nachricht nicht verwendet werden sollte",
+    commonFailureModesTitle: "Häufige Fehlerbilder",
+    versionCommentaryTitle: "Versionskommentar",
+    versionDiffTableTitle: "Tabelle der Versionsunterschiede",
+    schemeNotesTitle: "Schemaspezifische Hinweise",
+    implementationFaqTitle: "FAQ zur Implementierung",
+    workedXmlTitle: "Kommentiertes XML-Beispiel",
+    fieldCommentaryTitle: "Hinweise zu den Feldern",
+    decisionFlowTitle: "Entscheidungslogik",
+    compareTitlePrefix: "Vergleich",
+    versionRange: "Versionsbereich",
+    whyItMatters: "Warum es wichtig ist",
+    implementationTakeaway: "Praktische Konsequenz",
+    dimension: "Dimension",
+    comparisonMessage: "Vergleichsnachricht",
+    implementationChecklist: [
+      "Vor dem Schreiben von Templates zuerst die richtige Nachrichtenfamilie für das Geschäftsevent auswählen.",
+      "Geschäftsdaten vor der XML-Erzeugung validieren, damit Schemafehler nicht das erste Warnsignal sind.",
+      "BIC-, IBAN-, Remittance- und Adressqualität als Release-Kriterium behandeln und nicht als spätere Bereinigung.",
+      "Jede schemaspezifische oder bankspezifische Regeländerung mit repräsentativen Zahlungsdaten regressionsprüfen."
+    ],
+    messageTypesPerspectiveIntro: "Der Nachrichtenkatalog ist besonders dann relevant, wenn Teams entscheiden müssen, welche Nachricht einen Vorgang startet, welche den Status meldet und welche den Ablauf korrigiert oder rückgängig macht.",
+    messageSelectionGuideLine: "Siehe den dedizierten [Leitfaden zur Nachrichtenauswahl](/de/message-selection/) für eine komprimierte Entscheidungsansicht über die unterstützten pacs-Abläufe.",
+    apiImplementationNotes: [
+      "Synchrone Erzeugung für operatorgesteuerte Prüfungen und kleine Batches verwenden, wenn der Aufrufer sofort XML erwartet.",
+      "Asynchrone Erzeugung verwenden, wenn Eingabedateien groß sind, Jobs wiederholbar sein müssen oder die Erzeugung Teil einer größeren Workflow-Engine ist.",
+      "Sowohl das Quell-Payload als auch den Validierungsbericht speichern, damit Support-Teams XML-Ausgaben bei Vorfällen reproduzieren können.",
+      "Template- und XSD-Pfade in der Deployment-Konfiguration versionieren, damit es nicht zu stillen Upgrades kommt."
+    ]
+  },
+  fr: {
+    aboutChecklistTitle: "Checklist de mise en œuvre",
+    choosingTitle: "Choisir le bon message",
+    implementationNotesTitle: "Notes de mise en œuvre",
+    whenToUseTitle: "Quand utiliser ce message",
+    whenNotToUseTitle: "Quand ne pas utiliser ce message",
+    commonFailureModesTitle: "Modes d'échec courants",
+    versionCommentaryTitle: "Commentaire de version",
+    versionDiffTableTitle: "Tableau des écarts de version",
+    schemeNotesTitle: "Notes spécifiques aux schémas",
+    implementationFaqTitle: "FAQ de mise en œuvre",
+    workedXmlTitle: "Exemple XML commenté",
+    fieldCommentaryTitle: "Commentaires sur les champs",
+    decisionFlowTitle: "Logique de décision",
+    compareTitlePrefix: "Comparer",
+    versionRange: "Plage de versions",
+    whyItMatters: "Pourquoi c'est important",
+    implementationTakeaway: "Conséquence pratique",
+    dimension: "Dimension",
+    comparisonMessage: "Message de comparaison",
+    implementationChecklist: [
+      "Choisir la bonne famille de messages pour l'événement métier avant d'écrire les modèles.",
+      "Valider les données métier avant la génération XML afin que les erreurs de schéma ne soient pas le premier signal.",
+      "Traiter la qualité des BIC, IBAN, remises et adresses postales comme un critère de mise en production et non comme un nettoyage ultérieur.",
+      "Tester en régression chaque évolution de règle de schéma ou de banque avec des données de paiement représentatives."
+    ],
+    messageTypesPerspectiveIntro: "Le catalogue de messages est surtout utile lorsque les équipes doivent décider quel message initie l'action, lequel rapporte le statut et lequel corrige ou annule le flux.",
+    messageSelectionGuideLine: "Voir le [guide de sélection des messages](/fr/message-selection/) pour une vue de décision synthétique sur les flux pacs pris en charge.",
+    apiImplementationNotes: [
+      "Utiliser la génération synchrone pour les contrôles opérateur et les petits lots lorsque l'appelant attend immédiatement un fichier XML.",
+      "Utiliser la génération asynchrone lorsque les fichiers d'entrée sont volumineux, que les traitements doivent être rejouables ou que la génération s'insère dans un moteur d'orchestration plus large.",
+      "Conserver à la fois la charge utile source et le rapport de validation afin que les équipes support puissent reproduire la sortie XML lors d'un incident.",
+      "Verrouiller les chemins des modèles et des XSD dans la configuration de déploiement afin d'éviter les mises à niveau silencieuses."
+    ]
+  },
+  es: {
+    aboutChecklistTitle: "Lista de comprobación de implantación",
+    choosingTitle: "Elegir el mensaje correcto",
+    implementationNotesTitle: "Notas de implantación",
+    whenToUseTitle: "Cuándo usar este mensaje",
+    whenNotToUseTitle: "Cuándo no usar este mensaje",
+    commonFailureModesTitle: "Fallos habituales",
+    versionCommentaryTitle: "Comentario de versión",
+    versionDiffTableTitle: "Tabla de diferencias de versión",
+    schemeNotesTitle: "Notas específicas del esquema",
+    implementationFaqTitle: "Preguntas frecuentes de implantación",
+    workedXmlTitle: "Fragmento XML comentado",
+    fieldCommentaryTitle: "Comentarios de campos",
+    decisionFlowTitle: "Lógica de decisión",
+    compareTitlePrefix: "Comparar",
+    versionRange: "Rango de versiones",
+    whyItMatters: "Por qué importa",
+    implementationTakeaway: "Conclusión de implementación",
+    dimension: "Dimensión",
+    comparisonMessage: "Mensaje de comparación",
+    implementationChecklist: [
+      "Seleccione la familia de mensajes correcta para el evento de negocio antes de escribir plantillas.",
+      "Valide los datos de negocio antes de generar XML para que los errores de esquema no sean la primera señal.",
+      "Trate la calidad de BIC, IBAN, remesas y direcciones postales como criterio de salida a producción y no como limpieza posterior.",
+      "Ejecute pruebas de regresión para cada cambio de regla de esquema o de banco con datos de pago representativos."
+    ],
+    messageTypesPerspectiveIntro: "El catálogo de mensajes es más importante cuando los equipos deben decidir qué mensaje inicia el trabajo, cuál informa del estado y cuál corrige o revierte el flujo.",
+    messageSelectionGuideLine: "Consulte la [guía de selección de mensajes](/es/message-selection/) para una vista resumida de decisión sobre los flujos pacs soportados.",
+    apiImplementationNotes: [
+      "Utilice generación síncrona para comprobaciones operativas y lotes pequeños cuando el llamador espere XML de inmediato.",
+      "Utilice generación asíncrona cuando los archivos de entrada sean grandes, los trabajos necesiten reintentos o la generación forme parte de un motor de orquestación mayor.",
+      "Conserve tanto la carga útil fuente como el informe de validación para que los equipos de soporte puedan reproducir la salida XML durante una incidencia.",
+      "Fije las rutas de plantillas y XSD en la configuración de despliegue para evitar actualizaciones silenciosas."
+    ]
+  },
+  pt: {
+    aboutChecklistTitle: "Lista de verificação de implementação",
+    choosingTitle: "Escolher a mensagem correta",
+    implementationNotesTitle: "Notas de implementação",
+    whenToUseTitle: "Quando usar esta mensagem",
+    whenNotToUseTitle: "Quando não usar esta mensagem",
+    commonFailureModesTitle: "Falhas comuns",
+    versionCommentaryTitle: "Comentário de versão",
+    versionDiffTableTitle: "Tabela de diferenças de versão",
+    schemeNotesTitle: "Notas específicas de esquema",
+    implementationFaqTitle: "FAQ de implementação",
+    workedXmlTitle: "Exemplo XML comentado",
+    fieldCommentaryTitle: "Comentários de campo",
+    decisionFlowTitle: "Lógica de decisão",
+    compareTitlePrefix: "Comparar",
+    versionRange: "Faixa de versão",
+    whyItMatters: "Por que importa",
+    implementationTakeaway: "Implicação de implementação",
+    dimension: "Dimensão",
+    comparisonMessage: "Mensagem de comparação",
+    implementationChecklist: [
+      "Selecionar a família de mensagens correta para o evento de negócio antes de escrever templates.",
+      "Validar os dados de negócio antes da geração de XML para que erros de esquema não sejam o primeiro sinal.",
+      "Tratar a qualidade de BIC, IBAN, remessa e endereço postal como critério de release, e não como limpeza posterior.",
+      "Executar testes de regressão para cada alteração de regra de esquema ou de banco com dados de pagamento representativos."
+    ],
+    messageTypesPerspectiveIntro: "O catálogo de mensagens é mais importante quando as equipes precisam decidir qual mensagem inicia o fluxo, qual informa o status e qual corrige ou reverte a operação.",
+    messageSelectionGuideLine: "Veja o [guia de seleção de mensagens](/pt/message-selection/) para uma visão resumida de decisão sobre os fluxos pacs suportados.",
+    apiImplementationNotes: [
+      "Use geração síncrona para verificações operacionais e lotes pequenos quando o chamador espera XML imediatamente.",
+      "Use geração assíncrona quando os arquivos de entrada forem grandes, quando os jobs precisarem de nova tentativa ou quando a geração fizer parte de um motor de workflow maior.",
+      "Armazene tanto a carga útil de origem quanto o relatório de validação para que equipes de suporte consigam reproduzir a saída XML durante incidentes.",
+      "Fixe os caminhos de templates e XSD na configuração de implantação para evitar upgrades silenciosos."
+    ]
+  },
+  it: {
+    aboutChecklistTitle: "Checklist di implementazione",
+    choosingTitle: "Scegliere il messaggio corretto",
+    implementationNotesTitle: "Note di implementazione",
+    whenToUseTitle: "Quando usare questo messaggio",
+    whenNotToUseTitle: "Quando non usare questo messaggio",
+    commonFailureModesTitle: "Errori ricorrenti",
+    versionCommentaryTitle: "Commento di versione",
+    versionDiffTableTitle: "Tabella delle differenze di versione",
+    schemeNotesTitle: "Note specifiche di schema",
+    implementationFaqTitle: "FAQ di implementazione",
+    workedXmlTitle: "Esempio XML commentato",
+    fieldCommentaryTitle: "Commenti sui campi",
+    decisionFlowTitle: "Logica decisionale",
+    compareTitlePrefix: "Confrontare",
+    versionRange: "Intervallo di versione",
+    whyItMatters: "Perché conta",
+    implementationTakeaway: "Implicazione implementativa",
+    dimension: "Dimensione",
+    comparisonMessage: "Messaggio di confronto",
+    implementationChecklist: [
+      "Selezionare la famiglia di messaggi corretta per l'evento di business prima di scrivere i template.",
+      "Validare i dati di business prima della generazione XML in modo che gli errori di schema non siano il primo segnale.",
+      "Trattare la qualità di BIC, IBAN, remittance e indirizzi postali come criterio di rilascio e non come attività di pulizia successiva.",
+      "Eseguire test di regressione su ogni modifica di regola di schema o di banca con dati di pagamento rappresentativi."
+    ],
+    messageTypesPerspectiveIntro: "Il catalogo dei messaggi è particolarmente utile quando i team devono decidere quale messaggio avvia il lavoro, quale riporta lo stato e quale corregge o annulla il flusso.",
+    messageSelectionGuideLine: "Vedere la [guida alla selezione dei messaggi](/it/message-selection/) per una vista decisionale sintetica sui flussi pacs supportati.",
+    apiImplementationNotes: [
+      "Usare la generazione sincrona per controlli operativi e piccoli batch quando il chiamante si aspetta subito il file XML.",
+      "Usare la generazione asincrona quando i file di input sono grandi, i job richiedono retry o la generazione fa parte di un motore di orchestrazione più ampio.",
+      "Conservare sia il payload di origine sia il report di validazione affinché i team di supporto possano riprodurre l'output XML durante gli incidenti.",
+      "Bloccare le versioni dei percorsi di template e XSD nella configurazione di deployment per evitare aggiornamenti silenziosi."
+    ]
+  },
+  nl: {
+    aboutChecklistTitle: "Implementatiechecklist",
+    choosingTitle: "Het juiste bericht kiezen",
+    implementationNotesTitle: "Implementatienotities",
+    whenToUseTitle: "Wanneer dit bericht gebruiken",
+    whenNotToUseTitle: "Wanneer dit bericht niet gebruiken",
+    commonFailureModesTitle: "Veelvoorkomende foutpatronen",
+    versionCommentaryTitle: "Versiecommentaar",
+    versionDiffTableTitle: "Tabel met versieverschillen",
+    schemeNotesTitle: "Schematische aandachtspunten",
+    implementationFaqTitle: "Implementatie-FAQ",
+    workedXmlTitle: "Uitgewerkt XML-voorbeeld",
+    fieldCommentaryTitle: "Veldtoelichting",
+    decisionFlowTitle: "Beslislogica",
+    compareTitlePrefix: "Vergelijk",
+    versionRange: "Versiebereik",
+    whyItMatters: "Waarom dit telt",
+    implementationTakeaway: "Implementatieconclusie",
+    dimension: "Dimensie",
+    comparisonMessage: "Vergelijkingsbericht",
+    implementationChecklist: [
+      "Kies eerst de juiste berichtfamilie voor de businessgebeurtenis voordat templates worden geschreven.",
+      "Valideer businessdata vóór XML-generatie zodat schemafouten niet het eerste waarschuwingssignaal zijn.",
+      "Behandel de kwaliteit van BIC, IBAN, remittance en postadressen als releasecriterium en niet als latere opschoning.",
+      "Voer regressietests uit voor elke schema- of bankspecifieke regelwijziging met representatieve betaaldata."
+    ],
+    messageTypesPerspectiveIntro: "De berichtcatalogus is vooral belangrijk wanneer teams moeten bepalen welk bericht het proces start, welk bericht de status rapporteert en welk bericht de stroom corrigeert of terugdraait.",
+    messageSelectionGuideLine: "Zie de [keuzegids](/nl/message-selection/) voor een compacte beslisweergave over de ondersteunde pacs-stromen.",
+    apiImplementationNotes: [
+      "Gebruik synchrone generatie voor operatorgestuurde controles en kleine batches wanneer de aanroeper direct XML verwacht.",
+      "Gebruik asynchrone generatie wanneer invoerbestanden groot zijn, jobs retries nodig hebben of generatie deel uitmaakt van een bredere workflow-engine.",
+      "Sla zowel de bronpayload als het validatierapport op zodat supportteams XML-uitvoer tijdens incidenten kunnen reproduceren.",
+      "Vergrendel template- en XSD-paden in de deploymentconfiguratie om stille upgrades te voorkomen."
+    ]
+  }
+};
+
+function batch1(localeKey) {
+  return ADVANCED_TRANSLATION_BATCH_1[localeKey] ?? null;
+}
+
+const BATCH1_PHRASE_MAP = {
+  de: {
+    "Current implementation in pacs008": "Aktuelle Implementierung in pacs008",
+    "Later catalogue revisions": "Spätere Katalogversionen",
+    "Early revisions": "Frühe Versionen",
+    "Pre-current modern revisions": "Moderne Vorversionen",
+    "Current catalogue revision": "Aktuelle Katalogversion",
+    "Later catalogue revision": "Spätere Katalogversion",
+    "Useful mainly for legacy migration analysis and version-history context.": "Vor allem für die Analyse von Alt-Migrationen und den Versionsverlauf relevant.",
+    "These are the revisions most likely to appear in recent migration or coexistence projects.": "Diese Versionen treten am ehesten in jüngeren Migrations- oder Koexistenzprojekten auf.",
+    "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "Für die Planung mit der aktuellen Version geeignet, wobei Schema-Vorgaben und Gegenparteibereitschaft weiterhin geprüft werden sollten.",
+    "Matches the current project support for FI credit transfer flows.": "Entspricht der aktuellen Projektunterstützung für FI-Kredittransferflüsse.",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "Wichtig für die Roadmap-Planung in Korrespondenz- und Cover-Payment-Umgebungen.",
+    "Use this when matching the current project templates and validation assets.": "Verwenden Sie dies, wenn Sie mit den aktuellen Projekt-Templates und Validierungsartefakten arbeiten.",
+    "Review later ISO revisions before starting new interoperability work or onboarding new infrastructures.": "Spätere ISO-Versionen sollten vor neuer Interoperabilitätsarbeit oder der Anbindung neuer Infrastrukturen geprüft werden.",
+    "Useful for direct-debit reference modelling in the current project.": "Nützlich für die Modellierung von Lastschriftreferenzen im aktuellen Projekt.",
+    "Check later revisions for mandate, status, and interoperability updates before greenfield use.": "Vor einem Greenfield-Einsatz spätere Versionen auf Mandats-, Status- und Interoperabilitätsänderungen prüfen.",
+    "Aligns with current templates for payment returns.": "Passt zu den aktuellen Templates für Zahlungsrückgaben.",
+    "Review later return-message revisions when scheme upgrades or new counterparties are in scope.": "Spätere Rückgabenachrichten prüfen, wenn Schema-Upgrades oder neue Gegenparteien relevant werden.",
+    "Good baseline for reversal workflow modelling.": "Gute Ausgangsbasis für die Modellierung von Reversal-Workflows.",
+    "Check later revisions for current market-infrastructure alignment.": "Spätere Versionen auf aktuelle Marktinfrastruktur-Anforderungen prüfen.",
+    "Reference point for institution direct-debit support in the current project.": "Referenzpunkt für die Unterstützung institutsbezogener Lastschriften im aktuellen Projekt.",
+    "Review before adopting newer infrastructure requirements.": "Vor der Übernahme neuer Infrastrukturanforderungen prüfen.",
+    "Suitable for current status-request modelling.": "Geeignet für die aktuelle Modellierung von Statusanfragen.",
+    "Check the newer catalogue revision for future interoperability planning.": "Neuere Katalogversionen für die zukünftige Interoperabilitätsplanung prüfen.",
+    "Primary purpose": "Hauptzweck",
+    "Business owner": "Fachlicher Verantwortungsbereich",
+    "Typical pairings": "Typische Kombinationen",
+    "Wrong assumption to avoid": "Zu vermeidende Fehlannahme",
+    "Institution-own-account credit transfer or cover leg": "Instituts-Eigengeschäftstransfer oder Cover-Leg",
+    "Customer credit transfer": "Kundenkredittransfer",
+    "Customer-payment operations": "Kundenzahlungsbetrieb",
+    "Treasury / correspondent / funding operations": "Treasury-, Korrespondenz- und Funding-Betrieb",
+    "pacs.002, pacs.004, and linked pacs.008 flows": "pacs.002, pacs.004 und verknüpfte pacs.008-Flüsse",
+    "That all bank-to-bank transfers belong here": "Dass alle Bank-zu-Bank-Transfers hier eingeordnet werden sollten",
+    "That it can replace customer credit-transfer instructions": "Dass diese Nachricht Kundenkredittransfer-Anweisungen ersetzen kann",
+    "That it is just a more technical pacs.008": "Dass dies nur eine technischere pacs.008 ist",
+    "That it can carry institution funding flows cleanly": "Dass sich damit Instituts-Funding-Flüsse ohne Weiteres abbilden lassen",
+    "Primary purpose": "Hauptzweck",
+    "Report status": "Status melden",
+    "Request status": "Status anfragen",
+    "Who starts the interaction": "Wer die Interaktion startet",
+    "The institution sending the status": "Das Institut, das den Status sendet",
+    "The institution asking for status": "Das Institut, das den Status anfragt",
+    "Operational posture": "Operative Einordnung",
+    "Event-driven reporting": "Ereignisgesteuerte Statusmeldung",
+    "Exception-driven enquiry": "Ausnahmegetriebene Anfrage",
+    "That status reporting replaces investigation workflows": "Dass Statusmeldungen Investigations-Workflows ersetzen",
+    "That every payment needs an explicit status request": "Dass jede Zahlung eine explizite Statusanfrage benötigt",
+    "That it should be sent routinely for every payment": "Dass sie routinemäßig für jede Zahlung gesendet werden sollte",
+    "That it eliminates the need for proactive case management": "Dass dadurch proaktives Fallmanagement überflüssig wird",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "Verwenden Sie eine Kennung für den Funding-Leg, die weiterhin mit dem zugrunde liegenden Kundenfluss verknüpft werden kann.",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "Eigengeschäfts- und Cover-Flüsse benötigen häufig strengere Treasury-Kontrollen für Beträge und Wertstellungstermine.",
+    "These are institution parties, not retail customer roles; model them accordingly.": "Dies sind Institutsparteien und keine Retail-Kundenrollen; modellieren Sie sie entsprechend.",
+    "This should identify the message envelope, not the end-customer payment reference.": "Dies sollte den Nachrichtenumschlag identifizieren, nicht die Referenz des Endkunden.",
+    "Keep customer-facing traceability stable across downstream systems where possible.": "Halten Sie die kundenseitige Nachverfolgbarkeit möglichst stabil über nachgelagerte Systeme hinweg.",
+    "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages.": "Verwenden Sie dies konsistent in grenzüberschreitenden und tracking-intensiven Umgebungen; erzeugen Sie es nicht ad hoc in späteren Workflow-Schritten.",
+    "Validate amount and currency using business rules before schema validation.": "Prüfen Sie Betrag und Währung anhand von Geschäftsregeln vor der Schemaprüfung.",
+    "Party quality, address structure, and identifiers are usually the main determinants of repair rates.": "Parteienqualität, Adressstruktur und Identifikatoren sind meist die Haupttreiber für Repair-Raten."
+  },
+  fr: {
+    "Current implementation in pacs008": "Implémentation actuelle dans pacs008",
+    "Later catalogue revisions": "Révisions ultérieures du catalogue",
+    "Early revisions": "Révisions initiales",
+    "Pre-current modern revisions": "Révisions modernes avant la version actuelle",
+    "Current catalogue revision": "Révision actuelle du catalogue",
+    "Later catalogue revision": "Révision ultérieure du catalogue",
+    "Useful mainly for legacy migration analysis and version-history context.": "Utile surtout pour l'analyse des migrations historiques et du contexte d'évolution des versions.",
+    "These are the revisions most likely to appear in recent migration or coexistence projects.": "Ce sont les révisions les plus susceptibles d'apparaître dans les projets récents de migration ou de coexistence.",
+    "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "À utiliser pour planifier autour de la version actuelle, tout en vérifiant les règles de schéma et la préparation des contreparties.",
+    "Matches the current project support for FI credit transfer flows.": "Correspond au niveau actuel de prise en charge du projet pour les flux de virements FI.",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "Important pour la feuille de route dans les environnements de correspondance bancaire et de paiement cover.",
+    "Primary purpose": "Objectif principal",
+    "Business owner": "Responsable métier",
+    "Typical pairings": "Associations typiques",
+    "Wrong assumption to avoid": "Hypothèse erronée à éviter",
+    "Use this when matching the current project templates and validation assets.": "À utiliser lorsque vous travaillez avec les modèles et artefacts de validation actuellement pris en charge par le projet.",
+    "Useful for direct-debit reference modelling in the current project.": "Utile pour modéliser les références de prélèvement dans le projet actuel.",
+    "Aligns with current templates for payment returns.": "S'aligne sur les modèles actuels pour les retours de paiement.",
+    "Good baseline for reversal workflow modelling.": "Bonne base pour modéliser les workflows de reversal.",
+    "Reference point for institution direct-debit support in the current project.": "Point de référence pour la prise en charge des prélèvements d'institution dans le projet actuel.",
+    "Suitable for current status-request modelling.": "Adapté à la modélisation actuelle des demandes de statut.",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "Important pour la planification de la feuille de route dans les environnements de correspondance et de paiements cover.",
+    "Institution-own-account credit transfer or cover leg": "Virement sur compte propre d'institution ou jambe de couverture",
+    "Customer credit transfer": "Virement client",
+    "Customer-payment operations": "Opérations de paiements clients",
+    "Treasury / correspondent / funding operations": "Opérations de trésorerie, de correspondance et de financement",
+    "pacs.002, pacs.004, and linked pacs.008 flows": "pacs.002, pacs.004 et flux pacs.008 liés",
+    "pacs.002, pacs.004, pacs.007, pacs.028": "pacs.002, pacs.004, pacs.007, pacs.028",
+    "That it is just a more technical pacs.008": "Qu'il s'agit simplement d'une pacs.008 plus technique",
+    "That it can carry institution funding flows cleanly": "Qu'il peut porter sans difficulté des flux de financement d'institution",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "Utilisez un identifiant de jambe de financement qui puisse rester rattaché au flux client sous-jacent.",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "Les flux sur compte propre et de couverture exigent souvent des contrôles de trésorerie plus stricts sur les montants et les dates de règlement.",
+    "These are institution parties, not retail customer roles; model them accordingly.": "Il s'agit de parties institutionnelles, et non de rôles client retail ; modélisez-les comme tels.",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "Utilisez un identifiant de jambe de financement qui puisse rester rattaché au flux client sous-jacent.",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "Les flux sur compte propre et de couverture exigent souvent des contrôles de trésorerie plus stricts sur les montants et les dates de règlement.",
+    "These are institution parties, not retail customer roles; model them accordingly.": "Il s'agit de parties institutionnelles, et non de rôles client retail ; modélisez-les comme tels."
+  },
+  es: {
+    "Current implementation in pacs008": "Implementación actual en pacs008",
+    "Later catalogue revisions": "Revisiones posteriores del catálogo",
+    "Early revisions": "Revisiones iniciales",
+    "Pre-current modern revisions": "Revisiones modernas previas a la actual",
+    "Current catalogue revision": "Revisión actual del catálogo",
+    "Later catalogue revision": "Revisión posterior del catálogo",
+    "Useful mainly for legacy migration analysis and version-history context.": "Útil principalmente para análisis de migraciones heredadas y contexto histórico de versiones.",
+    "These are the revisions most likely to appear in recent migration or coexistence projects.": "Estas son las revisiones que con más probabilidad aparecerán en proyectos recientes de migración o coexistencia.",
+    "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "Úselo para planificar con la versión actual, validando aún las reglas del esquema y la preparación de las contrapartes.",
+    "Primary purpose": "Propósito principal",
+    "Business owner": "Responsable de negocio",
+    "Typical pairings": "Combinaciones típicas",
+    "Wrong assumption to avoid": "Supuesto erróneo a evitar",
+    "Use this when matching the current project templates and validation assets.": "Úselo cuando trabaje con las plantillas y artefactos de validación actualmente soportados por el proyecto.",
+    "Useful for direct-debit reference modelling in the current project.": "Útil para modelar referencias de adeudo directo en el proyecto actual.",
+    "Aligns with current templates for payment returns.": "Se alinea con las plantillas actuales para devoluciones de pagos.",
+    "Good baseline for reversal workflow modelling.": "Buena base para modelar flujos de reversal.",
+    "Matches the current project support for FI credit transfer flows.": "Coincide con el soporte actual del proyecto para flujos de transferencia de crédito FI.",
+    "Reference point for institution direct-debit support in the current project.": "Punto de referencia para el soporte de adeudos directos entre instituciones en el proyecto actual.",
+    "Suitable for current status-request modelling.": "Adecuado para el modelado actual de solicitudes de estado.",
+    "Institution-own-account credit transfer or cover leg": "Transferencia de crédito por cuenta propia de la institución o tramo de cobertura",
+    "Customer credit transfer": "Transferencia de crédito de cliente",
+    "Customer-payment operations": "Operaciones de pagos de clientes",
+    "Treasury / correspondent / funding operations": "Operaciones de tesorería, corresponsalía y financiación",
+    "pacs.002, pacs.004, and linked pacs.008 flows": "pacs.002, pacs.004 y flujos pacs.008 vinculados",
+    "pacs.002, pacs.004, pacs.007, pacs.028": "pacs.002, pacs.004, pacs.007, pacs.028",
+    "That it is just a more technical pacs.008": "Que es simplemente una pacs.008 más técnica",
+    "That it can carry institution funding flows cleanly": "Que puede transportar sin problemas flujos de financiación entre instituciones",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "Utilice un identificador del tramo de financiación que pueda seguir vinculándose al flujo de cliente subyacente.",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "Los flujos por cuenta propia y de cobertura suelen requerir controles de tesorería más estrictos sobre importes y fechas de liquidación.",
+    "These are institution parties, not retail customer roles; model them accordingly.": "Se trata de partes institucionales, no de roles de cliente minorista; modélelas en consecuencia."
+  },
+  pt: {
+    "Current implementation in pacs008": "Implementação atual no pacs008",
+    "Later catalogue revisions": "Revisões posteriores do catálogo",
+    "Early revisions": "Revisões iniciais",
+    "Pre-current modern revisions": "Revisões modernas anteriores à atual",
+    "Current catalogue revision": "Revisão atual do catálogo",
+    "Later catalogue revision": "Revisão posterior do catálogo",
+    "Useful mainly for legacy migration analysis and version-history context.": "Útil principalmente para análise de migrações legadas e contexto de histórico de versões.",
+    "These are the revisions most likely to appear in recent migration or coexistence projects.": "Estas são as revisões com maior probabilidade de aparecer em projetos recentes de migração ou coexistência.",
+    "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "Use isto para planejamento com a versão atual, ainda validando diretrizes de esquema e prontidão das contrapartes.",
+    "Primary purpose": "Objetivo principal",
+    "Business owner": "Responsável de negócio",
+    "Typical pairings": "Combinações típicas",
+    "Wrong assumption to avoid": "Suposição errada a evitar",
+    "Use this when matching the current project templates and validation assets.": "Use isto ao trabalhar com os templates e artefatos de validação atualmente suportados pelo projeto.",
+    "Useful for direct-debit reference modelling in the current project.": "Útil para modelagem de referências de débito direto no projeto atual.",
+    "Aligns with current templates for payment returns.": "Alinha-se aos templates atuais para retornos de pagamento.",
+    "Good baseline for reversal workflow modelling.": "Boa base para modelagem de fluxos de reversal.",
+    "Matches the current project support for FI credit transfer flows.": "Corresponde ao suporte atual do projeto para fluxos de transferência de crédito FI.",
+    "Reference point for institution direct-debit support in the current project.": "Ponto de referência para o suporte a débitos diretos entre instituições no projeto atual.",
+    "Suitable for current status-request modelling.": "Adequado para a modelagem atual de solicitações de status.",
+    "Institution-own-account credit transfer or cover leg": "Transferência de crédito de conta própria da instituição ou perna de cobertura",
+    "Customer credit transfer": "Transferência de crédito de cliente",
+    "Customer-payment operations": "Operações de pagamentos de clientes",
+    "Treasury / correspondent / funding operations": "Operações de tesouraria, correspondência e funding",
+    "pacs.002, pacs.004, and linked pacs.008 flows": "pacs.002, pacs.004 e fluxos pacs.008 vinculados",
+    "pacs.002, pacs.004, pacs.007, pacs.028": "pacs.002, pacs.004, pacs.007, pacs.028",
+    "That it is just a more technical pacs.008": "Que é apenas uma pacs.008 mais técnica",
+    "That it can carry institution funding flows cleanly": "Que pode transportar com facilidade fluxos de funding institucional",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "Use um identificador da perna de funding que ainda possa ser associado ao fluxo de cliente subjacente.",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "Fluxos de conta própria e de cobertura frequentemente exigem controles de tesouraria mais rígidos sobre valores e datas de liquidação.",
+    "These are institution parties, not retail customer roles; model them accordingly.": "Estas são partes institucionais, não papéis de cliente de varejo; modele-as de acordo."
+  },
+  it: {
+    "Current implementation in pacs008": "Implementazione attuale in pacs008",
+    "Later catalogue revisions": "Revisioni successive del catalogo",
+    "Early revisions": "Revisioni iniziali",
+    "Pre-current modern revisions": "Revisioni moderne precedenti a quella attuale",
+    "Current catalogue revision": "Revisione attuale del catalogo",
+    "Later catalogue revision": "Revisione successiva del catalogo",
+    "Useful mainly for legacy migration analysis and version-history context.": "Utile soprattutto per l'analisi delle migrazioni legacy e per il contesto storico delle versioni.",
+    "These are the revisions most likely to appear in recent migration or coexistence projects.": "Sono le revisioni che più probabilmente compariranno nei recenti progetti di migrazione o coesistenza.",
+    "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "Da usare per pianificare sulla versione corrente, continuando però a verificare regole di schema e prontezza delle controparti.",
+    "Primary purpose": "Scopo principale",
+    "Business owner": "Responsabile di business",
+    "Typical pairings": "Abbinamenti tipici",
+    "Wrong assumption to avoid": "Assunzione errata da evitare",
+    "Matches the current project support for FI credit transfer flows.": "Corrisponde al supporto attuale del progetto per i flussi di trasferimento di credito FI.",
+    "Important for roadmap planning in correspondent and cover-payment environments.": "Importante per la pianificazione della roadmap in ambienti di correspondent banking e pagamenti cover.",
+    "Use this when matching the current project templates and validation assets.": "Da usare quando si lavora con i template e gli artefatti di validazione attualmente supportati dal progetto.",
+    "Useful for direct-debit reference modelling in the current project.": "Utile per la modellazione dei riferimenti di addebito diretto nel progetto attuale.",
+    "Aligns with current templates for payment returns.": "Si allinea ai template attuali per i ritorni di pagamento.",
+    "Good baseline for reversal workflow modelling.": "Buona base per modellare i workflow di reversal.",
+    "Reference point for institution direct-debit support in the current project.": "Punto di riferimento per il supporto agli addebiti diretti tra istituti nel progetto attuale.",
+    "Suitable for current status-request modelling.": "Adatto alla modellazione attuale delle richieste di stato.",
+    "Institution-own-account credit transfer or cover leg": "Trasferimento di credito su conto proprio dell'istituto o gamba di copertura",
+    "Customer credit transfer": "Trasferimento di credito cliente",
+    "Customer-payment operations": "Operazioni di pagamenti clienti",
+    "Treasury / correspondent / funding operations": "Operazioni di tesoreria, correspondent banking e funding",
+    "pacs.002, pacs.004, and linked pacs.008 flows": "pacs.002, pacs.004 e flussi pacs.008 collegati",
+    "pacs.002, pacs.004, pacs.007, pacs.028": "pacs.002, pacs.004, pacs.007, pacs.028",
+    "That it is just a more technical pacs.008": "Che sia semplicemente una pacs.008 più tecnica",
+    "That it can carry institution funding flows cleanly": "Che possa gestire senza problemi flussi di funding tra istituti",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "Usare un identificatore della gamba di funding che possa restare collegato al flusso cliente sottostante.",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "I flussi su conto proprio e di copertura richiedono spesso controlli di tesoreria più rigorosi su importi e date di regolamento.",
+    "These are institution parties, not retail customer roles; model them accordingly.": "Si tratta di parti istituzionali, non di ruoli cliente retail; vanno modellate di conseguenza."
+  },
+  nl: {
+    "Current implementation in pacs008": "Huidige implementatie in pacs008",
+    "Later catalogue revisions": "Latere catalogusrevisies",
+    "Early revisions": "Vroege revisies",
+    "Pre-current modern revisions": "Moderne revisies vóór de huidige",
+    "Current catalogue revision": "Huidige catalogusrevisie",
+    "Later catalogue revision": "Latere catalogusrevisie",
+    "Useful mainly for legacy migration analysis and version-history context.": "Vooral nuttig voor analyse van legacy-migraties en versiehistorische context.",
+    "These are the revisions most likely to appear in recent migration or coexistence projects.": "Dit zijn de revisies die het meest waarschijnlijk voorkomen in recente migratie- of co-existentieprojecten.",
+    "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness.": "Gebruik dit voor planning rond de huidige versie, terwijl schemaregels en gereedheid van tegenpartijen nog steeds gevalideerd moeten worden.",
+    "Primary purpose": "Primair doel",
+    "Business owner": "Zakelijke eigenaar",
+    "Typical pairings": "Typische combinaties",
+    "Wrong assumption to avoid": "Te vermijden misvatting",
+    "Use this when matching the current project templates and validation assets.": "Gebruik dit wanneer u werkt met de momenteel ondersteunde projectsjablonen en validatie-artefacten.",
+    "Useful for direct-debit reference modelling in the current project.": "Nuttig voor het modelleren van incassoreferenties in het huidige project.",
+    "Aligns with current templates for payment returns.": "Sluit aan op de huidige sjablonen voor retourbetalingen.",
+    "Good baseline for reversal workflow modelling.": "Goede basis voor het modelleren van reversal-workflows.",
+    "Matches the current project support for FI credit transfer flows.": "Komt overeen met de huidige projectondersteuning voor FI-credittransferstromen.",
+    "Reference point for institution direct-debit support in the current project.": "Referentiepunt voor ondersteuning van institutionele incasso's in het huidige project.",
+    "Suitable for current status-request modelling.": "Geschikt voor de huidige modellering van statusverzoeken.",
+    "Institution-own-account credit transfer or cover leg": "Credittransfer op eigen rekening van de instelling of cover-leg",
+    "Customer credit transfer": "Klantcredittransfer",
+    "Customer-payment operations": "Klantbetalingsoperaties",
+    "Treasury / correspondent / funding operations": "Treasury-, correspondent- en fundingoperaties",
+    "pacs.002, pacs.004, and linked pacs.008 flows": "pacs.002, pacs.004 en gekoppelde pacs.008-stromen",
+    "That it is just a more technical pacs.008": "Dat het slechts een technischere pacs.008 is",
+    "That it can carry institution funding flows cleanly": "Dat het institutionele fundingstromen zonder meer kan dragen",
+    "Use a funding-leg identifier that can still be joined to any underlying customer flow.": "Gebruik een identifier voor de funding-leg die nog steeds aan de onderliggende klantstroom kan worden gekoppeld.",
+    "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.": "Eigen-rekening- en coverstromen vereisen vaak strengere treasurycontroles op bedragen en afwikkelingsdata.",
+    "These are institution parties, not retail customer roles; model them accordingly.": "Dit zijn institutionele partijen en geen retailklantrollen; modelleer ze overeenkomstig."
+  }
+};
+
+function batch1Translate(localeKey, text) {
+  return BATCH1_PHRASE_MAP[localeKey]?.[text] ?? text;
+}
+
+const ISO_LATEST_BY_SLUG = {
+  "pacs.002.001.12": { latest: "pacs.002.001.15", date: "27 February 2025" },
+  "pacs.003.001.09": { latest: "pacs.003.001.11", date: "27 February 2025" },
+  "pacs.004.001.11": { latest: "pacs.004.001.14", date: "27 February 2025" },
+  "pacs.007.001.11": { latest: "pacs.007.001.13", date: "27 February 2025" },
+  "pacs.008.001.13": { latest: "pacs.008.001.13", date: "27 February 2025" },
+  "pacs.009.001.10": { latest: "pacs.009.001.12", date: "27 February 2025" },
+  "pacs.010.001.05": { latest: "pacs.010.001.06", date: "27 February 2025" },
+  "pacs.028.001.05": { latest: "pacs.028.001.06", date: "27 February 2025" }
+};
+
+const EN_ADVANCED = {
+  versionDiffs: {
+    "pacs.002.001.12": [
+      ["pacs.002.001.12", "Current implementation in pacs008", "Use this when matching the current project templates and validation assets."],
+      ["pacs.002.001.13-15", "Later catalogue revisions", "Review later ISO revisions before starting new interoperability work or onboarding new infrastructures."]
+    ],
+    "pacs.003.001.09": [
+      ["pacs.003.001.09", "Current implementation in pacs008", "Useful for direct-debit reference modelling in the current project."],
+      ["pacs.003.001.10-11", "Later catalogue revisions", "Check later revisions for mandate, status, and interoperability updates before greenfield use."]
+    ],
+    "pacs.004.001.11": [
+      ["pacs.004.001.11", "Current implementation in pacs008", "Aligns with current templates for payment returns."],
+      ["pacs.004.001.12-14", "Later catalogue revisions", "Review later return-message revisions when scheme upgrades or new counterparties are in scope."]
+    ],
+    "pacs.007.001.11": [
+      ["pacs.007.001.11", "Current implementation in pacs008", "Good baseline for reversal workflow modelling."],
+      ["pacs.007.001.12-13", "Later catalogue revisions", "Check later revisions for current market-infrastructure alignment."]
+    ],
+    "pacs.008.001.13": [
+      ["pacs.008.001.01-07", "Early revisions", "Useful mainly for legacy migration analysis and version-history context."],
+      ["pacs.008.001.08-12", "Pre-current modern revisions", "These are the revisions most likely to appear in recent migration or coexistence projects."],
+      ["pacs.008.001.13", "Current catalogue revision", "Use this for current-version planning, while still validating scheme usage guidelines and counterparty readiness."]
+    ],
+    "pacs.009.001.10": [
+      ["pacs.009.001.10", "Current implementation in pacs008", "Matches the current project support for FI credit transfer flows."],
+      ["pacs.009.001.11-12", "Later catalogue revisions", "Important for roadmap planning in correspondent and cover-payment environments."]
+    ],
+    "pacs.010.001.05": [
+      ["pacs.010.001.05", "Current implementation in pacs008", "Reference point for institution direct-debit support in the current project."],
+      ["pacs.010.001.06", "Later catalogue revision", "Review before adopting newer infrastructure requirements."]
+    ],
+    "pacs.028.001.05": [
+      ["pacs.028.001.05", "Current implementation in pacs008", "Suitable for current status-request modelling."],
+      ["pacs.028.001.06", "Later catalogue revision", "Check the newer catalogue revision for future interoperability planning."]
+    ]
+  },
+  xmlExamples: {
+    "pacs.002.001.12": {
+      xml: `<FIToFIPmtStsRpt>
+  <GrpHdr>
+    <MsgId>STS-2026-0001</MsgId>
+    <CreDtTm>2026-03-01T09:15:00Z</CreDtTm>
+  </GrpHdr>
+  <TxInfAndSts>
+    <OrgnlInstrId>PAY-2026-8841</OrgnlInstrId>
+    <TxSts>RJCT</TxSts>
+    <StsRsnInf>
+      <Rsn><Cd>AC01</Cd></Rsn>
+    </StsRsnInf>
+  </TxInfAndSts>
+</FIToFIPmtStsRpt>`,
+      notes: [
+        ["`MsgId`", "Use a new identifier for the status report itself, not the original payment instruction."],
+        ["`OrgnlInstrId`", "Keep the original instruction identifier intact so status can be matched automatically."],
+        ["`TxSts`", "This is the operational state; map it carefully to internal workflow states rather than assuming a one-to-one match."],
+        ["`StsRsnInf`", "Structured reason codes are far more useful than free text for repair and analytics."]
+      ]
+    },
+    "pacs.003.001.09": {
+      xml: `<FIToFICstmrDrctDbt>
+  <GrpHdr>
+    <MsgId>DD-2026-1001</MsgId>
+  </GrpHdr>
+  <DrctDbtTxInf>
+    <PmtId><EndToEndId>MANDATE-7741</EndToEndId></PmtId>
+    <IntrBkSttlmAmt Ccy="EUR">250.00</IntrBkSttlmAmt>
+    <Dbtr><Nm>Example Debtor</Nm></Dbtr>
+    <Cdtr><Nm>Example Creditor</Nm></Cdtr>
+  </DrctDbtTxInf>
+</FIToFICstmrDrctDbt>`,
+      notes: [
+        ["`EndToEndId`", "Keep mandate and collection identifiers separate from business invoice references."],
+        ["`IntrBkSttlmAmt`", "Validate debit amount precision and currency rules before rendering XML."],
+        ["`Dbtr` / `Cdtr`", "Direct-debit success often depends more on account and mandate quality than on XML structure."]
+      ]
+    },
+    "pacs.004.001.11": {
+      xml: `<PmtRtr>
+  <GrpHdr>
+    <MsgId>RTRN-2026-0003</MsgId>
+  </GrpHdr>
+  <TxInf>
+    <OrgnlInstrId>PAY-2026-8841</OrgnlInstrId>
+    <RtrdIntrBkSttlmAmt Ccy="EUR">25000.00</RtrdIntrBkSttlmAmt>
+    <RtrRsnInf>
+      <Rsn><Cd>AC04</Cd></Rsn>
+    </RtrRsnInf>
+  </TxInf>
+</PmtRtr>`,
+      notes: [
+        ["`OrgnlInstrId`", "This must point back to the settled transaction being returned."],
+        ["`RtrdIntrBkSttlmAmt`", "Return amount should reflect the actual returned value, not a reconstructed business amount."],
+        ["`RtrRsnInf`", "Reason-code quality is critical for downstream customer communication and operational routing."]
+      ]
+    },
+    "pacs.007.001.11": {
+      xml: `<FIToFIPmtRvsl>
+  <GrpHdr>
+    <MsgId>RVSL-2026-0007</MsgId>
+  </GrpHdr>
+  <TxInf>
+    <OrgnlInstrId>PAY-2026-8841</OrgnlInstrId>
+    <RvslRsnInf>
+      <Rsn><Cd>DUPL</Cd></Rsn>
+    </RvslRsnInf>
+  </TxInf>
+</FIToFIPmtRvsl>`,
+      notes: [
+        ["`MsgId`", "The reversal itself needs its own audit-safe identifier."],
+        ["`OrgnlInstrId`", "Preserve the original payment reference to avoid reconciliation breaks."],
+        ["`RvslRsnInf`", "Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently."]
+      ]
+    },
+    "pacs.008.001.13": {
+      xml: `<FIToFICstmrCdtTrf>
+  <GrpHdr>
+    <MsgId>MSG-2026-001</MsgId>
+    <CreDtTm>2026-01-15T10:30:00Z</CreDtTm>
+  </GrpHdr>
+  <CdtTrfTxInf>
+    <PmtId>
+      <EndToEndId>E2E-INV-2026-001</EndToEndId>
+      <UETR>123e4567-e89b-12d3-a456-426614174000</UETR>
+    </PmtId>
+    <IntrBkSttlmAmt Ccy="EUR">25000.00</IntrBkSttlmAmt>
+    <Dbtr><Nm>Acme Corp GmbH</Nm></Dbtr>
+    <Cdtr><Nm>Widget Industries SA</Nm></Cdtr>
+  </CdtTrfTxInf>
+</FIToFICstmrCdtTrf>`,
+      notes: [
+        ["`MsgId`", "This should identify the message envelope, not the end-customer payment reference."],
+        ["`EndToEndId`", "Keep customer-facing traceability stable across downstream systems where possible."],
+        ["`UETR`", "Use this consistently in cross-border and tracking-heavy environments; do not generate it ad hoc in later workflow stages."],
+        ["`IntrBkSttlmAmt`", "Validate amount and currency using business rules before schema validation."],
+        ["`Dbtr` / `Cdtr`", "Party quality, address structure, and identifiers are usually the main determinants of repair rates."]
+      ]
+    },
+    "pacs.009.001.10": {
+      xml: `<FICdtTrf>
+  <GrpHdr>
+    <MsgId>FICT-2026-0005</MsgId>
+  </GrpHdr>
+  <CdtTrfTxInf>
+    <PmtId><InstrId>COVER-8841</InstrId></PmtId>
+    <IntrBkSttlmAmt Ccy="USD">25000.00</IntrBkSttlmAmt>
+    <Dbtr><Nm>Originating Bank</Nm></Dbtr>
+    <Cdtr><Nm>Cover Bank</Nm></Cdtr>
+  </CdtTrfTxInf>
+</FICdtTrf>`,
+      notes: [
+        ["`InstrId`", "Use a funding-leg identifier that can still be joined to any underlying customer flow."],
+        ["`IntrBkSttlmAmt`", "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates."],
+        ["`Dbtr` / `Cdtr`", "These are institution parties, not retail customer roles; model them accordingly."]
+      ]
+    },
+    "pacs.010.001.05": {
+      xml: `<FIDrctDbt>
+  <GrpHdr>
+    <MsgId>FIDD-2026-0012</MsgId>
+  </GrpHdr>
+  <DrctDbtTxInf>
+    <PmtId><InstrId>COLL-4500</InstrId></PmtId>
+    <IntrBkSttlmAmt Ccy="EUR">1250.00</IntrBkSttlmAmt>
+    <Cdtr><Nm>Collecting Institution</Nm></Cdtr>
+    <Dbtr><Nm>Debited Institution</Nm></Dbtr>
+  </DrctDbtTxInf>
+</FIDrctDbt>`,
+      notes: [
+        ["`InstrId`", "Use an identifier that can be traced back to the bilateral collection arrangement."],
+        ["`IntrBkSttlmAmt`", "Institution direct-debit amounts often need explicit bilateral tolerance controls."],
+        ["`Cdtr` / `Dbtr`", "Capture institutional roles clearly; this is not a retail-customer debit model."]
+      ]
+    },
+    "pacs.028.001.05": {
+      xml: `<FIToFIPmtStsReq>
+  <GrpHdr>
+    <MsgId>REQ-2026-0009</MsgId>
+  </GrpHdr>
+  <TxInf>
+    <OrgnlInstrId>PAY-2026-8841</OrgnlInstrId>
+    <OrgnlEndToEndId>E2E-INV-2026-001</OrgnlEndToEndId>
+  </TxInf>
+</FIToFIPmtStsReq>`,
+      notes: [
+        ["`MsgId`", "The request itself needs an auditable identifier distinct from the underlying payment."],
+        ["`OrgnlInstrId`", "Use the exact source identifier from the original instruction to maximize matching accuracy."],
+        ["`OrgnlEndToEndId`", "Including customer traceability helps operations teams reconcile the enquiry faster."]
+      ]
+    }
+  },
+  comparisons: {
+    "pacs.004.001.11": {
+      title: "Compare pacs.004 vs pacs.007",
+      rows: [
+        ["Primary purpose", "Return settled funds", "Reverse a previously instructed payment"],
+        ["Initiated by", "Receiving / beneficiary side", "Original instructing side"],
+        ["Direction of flow", "Back through the chain", "Forward through the chain"],
+        ["Best fit", "Post-settlement return handling", "Recall, error, or fraud-driven reversal handling"]
+      ]
+    },
+    "pacs.007.001.11": {
+      title: "Compare pacs.007 vs pacs.004",
+      rows: [
+        ["Primary purpose", "Reverse a previously instructed payment", "Return settled funds"],
+        ["Initiated by", "Original instructing side", "Receiving / beneficiary side"],
+        ["Direction of flow", "Forward through the chain", "Back through the chain"],
+        ["Best fit", "Recall, error, or fraud-driven reversal handling", "Post-settlement return handling"]
+      ]
+    },
+    "pacs.008.001.13": {
+      title: "Compare pacs.008 vs pacs.009",
+      rows: [
+        ["Primary purpose", "Customer credit transfer", "Institution-own-account credit transfer or cover leg"],
+        ["Business owner", "Customer-payment operations", "Treasury / correspondent / funding operations"],
+        ["Typical pairings", "pacs.002, pacs.004, pacs.007, pacs.028", "pacs.002, pacs.004, and sometimes linked pacs.008 flows"],
+        ["Wrong assumption to avoid", "That all bank-to-bank transfers belong here", "That it can replace customer credit-transfer instructions"]
+      ]
+    },
+    "pacs.009.001.10": {
+      title: "Compare pacs.009 vs pacs.008",
+      rows: [
+        ["Primary purpose", "Institution-own-account credit transfer or cover leg", "Customer credit transfer"],
+        ["Business owner", "Treasury / correspondent / funding operations", "Customer-payment operations"],
+        ["Typical pairings", "pacs.002, pacs.004, and linked pacs.008 flows", "pacs.002, pacs.004, pacs.007, pacs.028"],
+        ["Wrong assumption to avoid", "That it is just a more technical pacs.008", "That it can carry institution funding flows cleanly"]
+      ]
+    },
+    "pacs.002.001.12": {
+      title: "Compare pacs.002 vs pacs.028",
+      rows: [
+        ["Primary purpose", "Report status", "Request status"],
+        ["Who starts the interaction", "The institution sending the status", "The institution asking for status"],
+        ["Operational posture", "Event-driven reporting", "Exception-driven enquiry"],
+        ["Wrong assumption to avoid", "That status reporting replaces investigation workflows", "That every payment needs an explicit status request"]
+      ]
+    },
+    "pacs.028.001.05": {
+      title: "Compare pacs.028 vs pacs.002",
+      rows: [
+        ["Primary purpose", "Request status", "Report status"],
+        ["Who starts the interaction", "The institution asking for status", "The institution sending the status"],
+        ["Operational posture", "Exception-driven enquiry", "Event-driven reporting"],
+        ["Wrong assumption to avoid", "That it should be sent routinely for every payment", "That it eliminates the need for proactive case management"]
+      ]
+    }
+  }
+};
+
 function copyFor(localeKey) {
   return { ...pageCopy.en, ...(pageCopy[localeKey] ?? {}) };
 }
@@ -6932,20 +8157,557 @@ function pageTemplate({ title, description, lang, body }) {
   return `---\ntitle: ${title}\ndescription: ${description}\nlang: ${lang}\nlastUpdated: true\nimage: /logo.svg\n---\n\n${body}\n`;
 }
 
+function messageCoverageTable(localeKey, detailed = false) {
+  const t = copyFor(localeKey);
+  const headers = [t.msgTypeColId, t.msgTypeColDesc, t.msgDetailVersion, t.msgDetailYear];
+  if (detailed) headers.push(t.msgDetailOverview);
+
+  const rows = messageTypes.map((msgType) => {
+    const cells = [
+      `[\`${msgType.slug}\`](/${localeKey}/${msgType.slug}/)`,
+      msgType.isoFullName,
+      `\`${msgType.slug}\``,
+      String(msgType.year)
+    ];
+    if (detailed) cells.push(t[msgType.copyPrefix + "Overview"]);
+    return `| ${cells.join(" | ")} |`;
+  }).join("\n");
+
+  return `| ${headers.join(" | ")} |
+|${headers.map(() => "---").join("|")}|
+${rows}`;
+}
+
+function messageCoverageList(localeKey) {
+  return messageTypes
+    .map((msgType) => `- [\`${msgType.slug}\`](/${localeKey}/${msgType.slug}/) — ${msgType.isoFullName}`)
+    .join("\n");
+}
+
+function messageOperationalMatrix(localeKey, msgType) {
+  const t = copyFor(localeKey);
+  const p = msgType.copyPrefix;
+  const rows = [
+    [t[p + "Element1"], t[p + "Business1"]],
+    [t[p + "Element2"], t[p + "Business2"]],
+    [t[p + "Element3"], t[p + "Business3"]],
+    [t[p + "Element4"], t[p + "Business4"]],
+    [t[p + "Element5"], t[p + "Flow"]]
+  ];
+
+  return `| ${t.msgDetailKeyElements} | ${t.msgDetailBusinessContext} |
+|---|---|
+${rows.map(([left, right]) => `| ${left} | ${right} |`).join("\n")}`;
+}
+
+function relatedMessageTable(localeKey, msgType) {
+  const t = copyFor(localeKey);
+  const rows = msgType.relatedSlugs
+    .map((slug) => messageTypes.find((candidate) => candidate.slug === slug))
+    .filter(Boolean)
+    .map((related) => `| [\`${related.slug}\`](/${localeKey}/${related.slug}/) | ${related.isoFullName} | ${copyFor(localeKey)[related.copyPrefix + "Overview"]} |`)
+    .join("\n");
+
+  return `| ${t.msgTypeColId} | ${t.msgTypeColDesc} | ${t.msgDetailOverview} |
+|---|---|---|
+${rows}`;
+}
+
+function sourceReviewLine(localeKey, msgType = null) {
+  const copy = seoCopy(localeKey);
+  if (!msgType) {
+    return `> ${copy.sourceReviewGeneric}`;
+  }
+
+  const latestInfo = ISO_LATEST_BY_SLUG[msgType.slug];
+  return `> ${copy.sourceReviewMessage.replace("{date}", latestInfo?.date ?? "current public catalogue")}`;
+}
+
+function introBlock(localeKey, intro, msgType = null, extra = "") {
+  const parts = [intro.trim(), sourceReviewLine(localeKey, msgType)];
+  if (extra.trim()) parts.push(extra.trim());
+  return parts.join("\n\n");
+}
+
+function englishAboutEditorial() {
+  return `
+## Implementation checklist
+
+${EN_EDITORIAL.aboutChecklist.map((item) => `- ${item}`).join("\n")}
+`;
+}
+
+function localizedAboutEditorial(localeKey) {
+  const copy = batch1(localeKey);
+  if (!copy) return "";
+  return `
+## ${copy.aboutChecklistTitle}
+
+${copy.implementationChecklist.map((item) => `- ${item}`).join("\n")}
+`;
+}
+
+function englishMessageTypeEditorial() {
+  return `
+## Choosing the right message
+
+${EN_EDITORIAL.messageTypesPerspectiveIntro}
+
+- \`pacs.008\` starts the customer credit-transfer flow.
+- \`pacs.009\` handles institution-own-account credit transfers and cover flows.
+- \`pacs.002\` reports processing status.
+- \`pacs.028\` requests status when a proactive query is needed.
+- \`pacs.004\` returns settled funds.
+- \`pacs.007\` reverses an earlier payment instruction.
+
+See the dedicated [message selection guide](/en/message-selection/) for a one-page decision view across all supported pacs flows.
+`;
+}
+
+function localizedMessageTypeEditorial(localeKey) {
+  const copy = batch1(localeKey);
+  if (!copy) return "";
+
+  return `
+## ${copy.choosingTitle}
+
+${copy.messageTypesPerspectiveIntro}
+
+${copy.messageSelectionGuideLine}
+`;
+}
+
+function englishMessageGuidance(msgType) {
+  const guidance = EN_EDITORIAL.messageGuidance[msgType.slug];
+  if (!guidance) return "";
+
+  return `
+## When to use this message
+
+${guidance.whenToUse}
+
+## When not to use this message
+
+${guidance.avoidUsing}
+
+## Implementation notes
+
+${guidance.implementationNotes.map((item) => `- ${item}`).join("\n")}
+
+## Common failure modes
+
+${guidance.commonPitfalls.map((item) => `- ${item}`).join("\n")}
+`;
+}
+
+function englishApiEditorial() {
+  return `
+## Implementation notes
+
+${EN_EDITORIAL.apiImplementationNotes.map((item) => `- ${item}`).join("\n")}
+`;
+}
+
+function localizedApiEditorial(localeKey) {
+  const copy = batch1(localeKey);
+  if (!copy) return "";
+  return `
+## ${copy.implementationNotesTitle}
+
+${copy.apiImplementationNotes.map((item) => `- ${item}`).join("\n")}
+`;
+}
+
+function englishVersionDiffCommentary(msgType) {
+  const latestInfo = ISO_LATEST_BY_SLUG[msgType.slug];
+  if (!latestInfo) return "";
+
+  const isCurrent = latestInfo.latest === msgType.slug;
+  return `
+## Version commentary
+
+The ISO 20022 catalogue entry for this business area was last updated on ${latestInfo.date}. The pacs008 site currently documents \`${msgType.slug}\`${isCurrent ? `, which matches the latest catalogue version listed by ISO 20022.` : `, while the ISO 20022 catalogue lists \`${latestInfo.latest}\` as the latest published version.`}
+
+${isCurrent
+    ? `That makes this page suitable for current-version implementation planning, but scheme usage guidelines and market practice should still be checked before production rollout.`
+    : `That means this page is useful for understanding the currently implemented version in pacs008, but roadmap and interoperability planning should account for the later catalogue revision as well.`}
+`;
+}
+
+function englishSchemeNotes(msgType) {
+  const common = `Source links below point to primary standards bodies or scheme operators. Where a note goes beyond a direct statement, it is an implementation inference from those sources.`;
+
+  const bySlug = {
+    "pacs.002.001.12": [
+      `In SEPA credit-transfer and instant-payment implementations, pacs.002 is the natural companion status message for payment execution and exception feedback. See the [EPC SCT rulebook](${PRIMARY_SOURCES.epcSct}) and [EPC SCT Inst rulebook](${PRIMARY_SOURCES.epcSctInst}).`,
+      `In CBPR+, pacs.002 sits alongside pacs.008, pacs.009, and pacs.004 in the official Swift usage-guideline rollout. See [Swift's CBPR+ ISO 20022 usage-guidelines announcement](${PRIMARY_SOURCES.swiftGuidelines}).`
+    ],
+    "pacs.003.001.09": [
+      `This message is not part of the SCT or SCT Inst credit-transfer rulebooks, so teams should treat it as a separate direct-debit track rather than reusing credit-transfer assumptions. That is an implementation inference from the EPC credit-transfer rulebooks.`,
+      `This page is best used as a message-reference and implementation page, not as a stand-in for scheme rulebooks.`
+    ],
+    "pacs.004.001.11": [
+      `For SEPA credit-transfer flows, pacs.004 is part of the wider return and exception-management picture around executed payments. The [EPC SCT rulebook](${PRIMARY_SOURCES.epcSct}) and [EPC SCT Inst rulebook](${PRIMARY_SOURCES.epcSctInst}) define scheme behaviour around those operational flows.`,
+      `In CBPR+, Swift maps pacs.004 alongside pacs.008, pacs.009, and pacs.002 during the ISO 20022 migration of payment instructions. See the [CBPR+ coexistence and end-state roadmap](${PRIMARY_SOURCES.swiftRoadmap}).`
+    ],
+    "pacs.007.001.11": [
+      `pacs.007 is operationally closer to recall and reversal handling than to beneficiary-side returns, so teams should not collapse it into the same process model as pacs.004. That is an implementation inference from the message roles and Swift CBPR+ payment-instruction scope.`,
+      `This message is relevant to fast exception handling in instant-payment and fraud-response contexts even where scheme-specific operating rules sit outside the generic message definition.`
+    ],
+    "pacs.008.001.13": [
+      `For SEPA credit transfers, pacs.008 is part of the SCT scheme messaging stack defined by the [EPC SCT rulebook](${PRIMARY_SOURCES.epcSct}).`,
+      `For instant payments, pacs.008 is also central to SCT Inst flows under the [EPC SCT Inst rulebook](${PRIMARY_SOURCES.epcSctInst}), where timing, rejection, and exception handling expectations are much tighter.`,
+      `For CBPR+, Swift positions pacs.008 as the ISO 20022 successor to MT103-style customer credit-transfer instructions. See [Swift CBPR+ pacs.008 training overview](${PRIMARY_SOURCES.swiftCbprPacs008}), [serial method](${PRIMARY_SOURCES.swiftCbprSerial}), and [cover method](${PRIMARY_SOURCES.swiftCbprCover}).`,
+      `Swift's CBPR+ roadmap also shows MT 103 moving to pacs.008 during the migration timeline, with coexistence ending in November 2025 and further end-state milestones extending beyond that period. See the [Swift roadmap PDF](${PRIMARY_SOURCES.swiftRoadmap}).`,
+      `Structured-address changes around November 2026 materially affect pacs.008 data quality and party modelling in cross-border usage. See the [Swift CBPR+ roadmap](${PRIMARY_SOURCES.swiftAddress}).`
+    ],
+    "pacs.009.001.10": [
+      `In CBPR+, pacs.009 carries institution-to-institution credit-transfer and cover-payment legs. Swift explicitly maps MT 200, MT 202, and MT 202 COV into pacs.009 usage patterns in its [roadmap PDF](${PRIMARY_SOURCES.swiftRoadmap}) and related [CBPR+ pacs.009 material](${PRIMARY_SOURCES.swiftCbprPacs009}).`,
+      `For cover method, pacs.009 should be analysed together with the related customer leg in pacs.008 rather than as an isolated payment object. See [Swift's pacs.008/pacs.009 cover-method training page](${PRIMARY_SOURCES.swiftCbprCover}).`,
+      `This message is outside the SCT/SCT Inst customer credit-transfer rulebooks, so teams should not assume SEPA customer-payment rules apply unchanged to pacs.009.`
+    ],
+    "pacs.010.001.05": [
+      `pacs.010 is not part of the SCT or SCT Inst credit-transfer rulebooks, so credit-transfer implementation shortcuts do not carry over automatically.`,
+      `Use this page as a technical-reference and implementation guide for institution direct-debit scenarios rather than as a substitute for market-scheme documentation.`
+    ],
+    "pacs.028.001.05": [
+      `pacs.028 is the proactive status-request counterpart to status-reporting flows such as pacs.002, and it becomes operationally relevant where institutions need explicit query behaviour rather than waiting for unsolicited updates.`,
+      `In practice, this message is most useful when paired with clear exception-management timing rules defined by a scheme, counterparty agreement, or internal operations model.`
+    ]
+  };
+
+  const notes = bySlug[msgType.slug] ?? [];
+  if (notes.length === 0) return "";
+
+  return `
+## Scheme-specific notes
+
+${notes.map((item) => `- ${item}`).join("\n")}
+
+${common}
+`;
+}
+
+function englishFaq(msgType) {
+  const faqBySlug = {
+    "pacs.002.001.12": [
+      ["Is pacs.002 a payment message?", "No. It reports status for an earlier instruction rather than moving value itself."],
+      ["Should pacs.002 replace internal workflow states?", "No. It should inform them, but internal case states still need their own operational logic."]
+    ],
+    "pacs.003.001.09": [
+      ["Is pacs.003 the direct-debit mirror of pacs.008?", "Not exactly. It serves customer direct-debit flows, which have different mandate, timing, and exception semantics."],
+      ["What matters most operationally?", "Mandate quality, debtor-account rules, and return handling usually matter more than XML generation alone."]
+    ],
+    "pacs.004.001.11": [
+      ["What is the difference between pacs.004 and pacs.007?", "pacs.004 returns settled funds from the receiving side, while pacs.007 requests reversal from the original instructing side."],
+      ["Should every failed beneficiary credit become pacs.004?", "Not automatically. The right path depends on scheme rules, settlement stage, and counterparty handling."]
+    ],
+    "pacs.007.001.11": [
+      ["Is pacs.007 only for fraud scenarios?", "No. Fraud is a major use case, but any instructing-side need to reverse a payment can trigger it."],
+      ["Can it be handled like a normal return?", "No. Reversal timing, reason capture, and reconciliation differ materially from returns."]
+    ],
+    "pacs.008.001.13": [
+      ["Is pacs.008 enough on its own for production payments?", "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."],
+      ["What causes the most repair work?", "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."]
+    ],
+    "pacs.009.001.10": [
+      ["When should I choose pacs.009 over pacs.008?", "Choose pacs.009 for institution-own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions."],
+      ["Why is pacs.009 often harder to reconcile than expected?", "Because institutions must preserve the relationship between treasury funding, correspondent legs, and any linked customer payment."]
+    ],
+    "pacs.010.001.05": [
+      ["Is pacs.010 commonly used in retail payment products?", "It is more naturally aligned to institution-own-account direct-debit scenarios than to standard retail products."],
+      ["What should teams design first?", "Authorization context, bilateral controls, and exception handling should be clear before XML templates are finalised."]
+    ],
+    "pacs.028.001.05": [
+      ["Should pacs.028 be sent automatically after every payment?", "Usually no. It is most effective as a targeted exception tool, not as blanket traffic."],
+      ["What makes pacs.028 valuable?", "Clear timeout, escalation, and reconciliation rules around the original payment case."]
+    ]
+  };
+
+  const items = faqBySlug[msgType.slug];
+  if (!items) return "";
+
+  return `
+## Implementation FAQ
+
+${items.map(([q, a]) => `### ${q}\n\n${a}`).join("\n\n")}
+`;
+}
+
+function primaryReferencesSection(localeKey, msgType) {
+  const copy = seoCopy(localeKey);
+  const common = [
+    `- [ISO 20022 message definitions catalogue for \`${msgType.slug}\`](${isoCatalogueLink(msgType)})`,
+    `- [Swift CBPR+ ISO 20022 usage-guidelines announcement](${PRIMARY_SOURCES.swiftGuidelines})`,
+    `- [Swift CBPR+ migration roadmap PDF](${PRIMARY_SOURCES.swiftRoadmap})`
+  ];
+
+  const specific = {
+    "pacs.008.001.13": [
+      `- [EPC SEPA Credit Transfer rulebook](${PRIMARY_SOURCES.epcSct})`,
+      `- [EPC SEPA Instant Credit Transfer rulebook](${PRIMARY_SOURCES.epcSctInst})`,
+      `- [Swift CBPR+ pacs.008 overview](${PRIMARY_SOURCES.swiftCbprPacs008})`,
+      `- [Swift CBPR+ serial-method pacs.008 guidance](${PRIMARY_SOURCES.swiftCbprSerial})`,
+      `- [Swift CBPR+ cover-method pacs.008/pacs.009 guidance](${PRIMARY_SOURCES.swiftCbprCover})`,
+      `- [Swift CBPR+ roadmap and standards programme](${PRIMARY_SOURCES.swiftAddress})`
+    ],
+    "pacs.009.001.10": [
+      `- [Swift CBPR+ pacs.009 overview](${PRIMARY_SOURCES.swiftCbprPacs009})`,
+      `- [Swift CBPR+ cover-method pacs.008/pacs.009 guidance](${PRIMARY_SOURCES.swiftCbprCover})`
+    ],
+    "pacs.002.001.12": [
+      `- [EPC SEPA Credit Transfer rulebook](${PRIMARY_SOURCES.epcSct})`,
+      `- [EPC SEPA Instant Credit Transfer rulebook](${PRIMARY_SOURCES.epcSctInst})`
+    ],
+    "pacs.004.001.11": [
+      `- [EPC SEPA Credit Transfer rulebook](${PRIMARY_SOURCES.epcSct})`,
+      `- [EPC SEPA Instant Credit Transfer rulebook](${PRIMARY_SOURCES.epcSctInst})`
+    ]
+  };
+
+  const lines = [...common, ...(specific[msgType.slug] ?? [])];
+  return `
+## ${copy.primaryReferences}
+
+${lines.join("\n")}
+`;
+}
+
+function englishDecisionFlow(msgType) {
+  const flows = {
+    "pacs.002.001.12": [
+      "Need to communicate status of an earlier instruction?",
+      "Yes -> Use pacs.002.",
+      "No -> Need to ask another institution for status?",
+      "Yes -> Consider pacs.028 instead.",
+      "No -> Stay in the payment or exception flow."
+    ],
+    "pacs.003.001.09": [
+      "Need an FI-to-FI customer direct debit?",
+      "Yes -> Use pacs.003.",
+      "No -> Need a customer credit transfer?",
+      "Yes -> Use pacs.008 instead.",
+      "No -> Re-check whether the business case is a direct debit at all."
+    ],
+    "pacs.004.001.11": [
+      "Has value already settled and now needs to move back?",
+      "Yes -> Use pacs.004.",
+      "No -> Is the instructing side trying to stop or reverse the payment?",
+      "Yes -> Consider pacs.007 instead.",
+      "No -> Review scheme exception handling before choosing a message."
+    ],
+    "pacs.007.001.11": [
+      "Is the instructing side requesting reversal of an earlier instruction?",
+      "Yes -> Use pacs.007.",
+      "No -> Has the receiving side already returned settled funds?",
+      "Yes -> Consider pacs.004 instead.",
+      "No -> Check whether the case is status, investigation, or recall handling."
+    ],
+    "pacs.008.001.13": [
+      "Is this a customer credit-transfer instruction between institutions?",
+      "Yes -> Use pacs.008.",
+      "No -> Is it an institution funding leg or cover payment?",
+      "Yes -> Consider pacs.009 instead.",
+      "No -> Re-check whether the business event is status, return, or reversal."
+    ],
+    "pacs.009.001.10": [
+      "Is this own-account bank movement or a cover leg?",
+      "Yes -> Use pacs.009.",
+      "No -> Is it a customer payment instruction?",
+      "Yes -> Consider pacs.008 instead.",
+      "No -> Validate whether treasury or settlement operations own the case."
+    ],
+    "pacs.010.001.05": [
+      "Need an institution direct-debit message?",
+      "Yes -> Use pacs.010.",
+      "No -> Need a customer direct-debit flow?",
+      "Yes -> Consider pacs.003 instead.",
+      "No -> Re-check whether the scenario is actually a credit transfer."
+    ],
+    "pacs.028.001.05": [
+      "Need to ask for status because unsolicited updates are not enough?",
+      "Yes -> Use pacs.028.",
+      "No -> Need to send status instead of request it?",
+      "Yes -> Consider pacs.002 instead.",
+      "No -> Keep the case in normal operational monitoring."
+    ]
+  };
+
+  const steps = flows[msgType.slug];
+  if (!steps) return "";
+
+  return `
+## Decision flow
+
+\`\`\`text
+${steps.join("\n")}
+\`\`\`
+`;
+}
+
+function localizedSelectionGuide(localeKey) {
+  const copy = seoCopy(localeKey);
+  const t = copyFor(localeKey);
+  return `# ${copy.selectionGuideTitle}
+
+${copy.selectionGuideIntro}
+
+${sourceReviewLine(localeKey)}
+
+## ${copy.quickDecisionMatrix}
+
+| ${t.msgTypeColId} | ${t.msgTypeColDesc} | ${t.msgDetailOverview} |
+|---|---|---|
+${messageTypes.map((msgType) => `| [\`${msgType.slug}\`](/${localeKey}/${msgType.slug}/) | ${msgType.isoFullName} | ${t[msgType.copyPrefix + "Overview"]} |`).join("\n")}
+
+## ${copy.commonComparisonPoints}
+
+| ${copy.compare} | ${copy.keyDistinction} |
+|---|---|
+| \`pacs.008\` vs \`pacs.009\` | ${copy.customerVsInstitution} |
+| \`pacs.004\` vs \`pacs.007\` | ${copy.returnVsReversal} |
+| \`pacs.002\` vs \`pacs.028\` | ${copy.statusVsRequest} |
+
+## ${copy.supportedMessagePages}
+
+${messageCoverageList(localeKey)}
+`;
+}
+
+function englishVersionDiffTable(msgType) {
+  const rows = EN_ADVANCED.versionDiffs[msgType.slug];
+  if (!rows) return "";
+
+  return `
+## Version-diff table
+
+| Version range | Why it matters | Implementation takeaway |
+|---|---|---|
+${rows.map(([version, why, takeaway]) => `| ${version} | ${why} | ${takeaway} |`).join("\n")}
+`;
+}
+
+function localizedVersionDiffTable(localeKey, msgType) {
+  const copy = batch1(localeKey);
+  const rows = EN_ADVANCED.versionDiffs[msgType.slug];
+  if (!copy || !rows) return "";
+
+  return `
+## ${copy.versionDiffTableTitle}
+
+| ${copy.versionRange} | ${copy.whyItMatters} | ${copy.implementationTakeaway} |
+|---|---|---|
+${rows.map(([version, why, takeaway]) => `| ${version} | ${batch1Translate(localeKey, why)} | ${batch1Translate(localeKey, takeaway)} |`).join("\n")}
+`;
+}
+
+function englishWorkedXml(msgType) {
+  const sample = EN_ADVANCED.xmlExamples[msgType.slug];
+  if (!sample) return "";
+
+  return `
+## Worked XML fragment
+
+\`\`\`xml
+${sample.xml}
+\`\`\`
+
+### Field commentary
+
+${sample.notes.map(([field, note]) => `- ${field}: ${note}`).join("\n")}
+`;
+}
+
+function localizedWorkedXml(localeKey, msgType) {
+  const copy = batch1(localeKey);
+  const sample = EN_ADVANCED.xmlExamples[msgType.slug];
+  if (!copy || !sample) return "";
+
+  return `
+## ${copy.workedXmlTitle}
+
+\`\`\`xml
+${sample.xml}
+\`\`\`
+
+### ${copy.fieldCommentaryTitle}
+
+${sample.notes.map(([field, note]) => `- ${field}: ${batch1Translate(localeKey, note)}`).join("\n")}
+`;
+}
+
+function englishComparisonSection(msgType) {
+  const block = EN_ADVANCED.comparisons[msgType.slug];
+  if (!block) return "";
+
+  return `
+## ${block.title}
+
+| Dimension | ${msgType.slug} | Comparison message |
+|---|---|---|
+${block.rows.map(([dimension, current, other]) => `| ${dimension} | ${current} | ${other} |`).join("\n")}
+`;
+}
+
+function localizedComparisonSection(localeKey, msgType) {
+  const copy = batch1(localeKey);
+  const block = EN_ADVANCED.comparisons[msgType.slug];
+  if (!copy || !block) return "";
+
+  return `
+## ${copy.compareTitlePrefix} ${block.title.replace(/^Compare\s+/i, "")}
+
+| ${copy.dimension} | ${msgType.slug} | ${copy.comparisonMessage} |
+|---|---|---|
+${block.rows.map(([dimension, current, other]) => `| ${batch1Translate(localeKey, dimension)} | ${batch1Translate(localeKey, current)} | ${batch1Translate(localeKey, other)} |`).join("\n")}
+`;
+}
+
+function normalizeWhitespace(value) {
+  return value.replace(/\s+/g, " ").trim();
+}
+
+function clampDescription(value, max = 158) {
+  const normalized = normalizeWhitespace(value);
+  if (normalized.length <= max) return normalized;
+  const sliced = normalized.slice(0, max - 3);
+  const lastSpace = sliced.lastIndexOf(" ");
+  return `${(lastSpace > 80 ? sliced.slice(0, lastSpace) : sliced).replace(/[ ,;:.!?-]+$/g, "")}...`;
+}
+
+function localeSectionDescription(locale, summary) {
+  return clampDescription(`${summary} ${locale.tagline}`);
+}
+
+function homeTitle(locale) {
+  return locale.key === "en"
+    ? "pacs008 | ISO 20022 pacs.008 Toolkit and API"
+    : `pacs008 | ${locale.label} | ISO 20022 Toolkit`;
+}
+
+function pageTitle(primary, suffix = "pacs008") {
+  if (primary.endsWith(`| ${suffix}`) || primary === suffix) {
+    return primary;
+  }
+  return `${primary} | ${suffix}`;
+}
+
 function homeFrontmatter(locale) {
+  const isCanonicalEnglishHome = locale.key === "en";
+  const t = copyFor(locale.key);
   return `---
-title: pacs008 | ${locale.label}
-description: ${locale.tagline}
+title: ${homeTitle(locale)}
+description: ${clampDescription(locale.tagline)}
 lang: ${locale.lang}
 author: Sebastien Rousseau
 lastUpdated: true
 image: /logo.svg
 imageAlt: pacs008
-canonical: /${locale.key}/
-robots: index, follow
+canonical: ${locale.key === "en" ? "/" : `/${locale.key}/`}
+robots: ${isCanonicalEnglishHome ? "noindex, follow" : "index, follow"}
 draft: false
-noindex: false
-sitemap: true
+noindex: ${isCanonicalEnglishHome ? "true" : "false"}
+sitemap: ${isCanonicalEnglishHome ? "false" : "true"}
 breadcrumbTitle: pacs008
 pageType: home
 schemaType: WebSite
@@ -6955,7 +8717,16 @@ metaTitle: pacs008
 subtitle: ${locale.tagline}
 tagline: ${locale.tagline}
 actionText: ${locale.cta}
-actionLink: /${locale.key}/about/
+actionLink: ${locale.key === "en" ? "/en/about/" : `/${locale.key}/about/`}
+features:
+  - title: "${t.whatItDoes}"
+    details: "${t.aboutBullet1}; ${t.aboutBullet2}; ${t.aboutBullet3}"
+  - title: "${t.validationTitle}"
+    details: "${t.validation1}; ${t.validation2}; ${t.validation4}"
+  - title: "${t.securityTitle}"
+    details: "${t.security1}; ${t.security2}; ${t.security3}"
+  - title: "${t.readinessTitle}"
+    details: "${t.readiness1}; ${t.readiness2}; ${t.readiness3}"
 ---
 `;
 }
@@ -6964,7 +8735,7 @@ function aboutBody(localeKey) {
   const t = copyFor(localeKey);
   return `# ${t.aboutTitle}
 
-${t.aboutIntro}
+${introBlock(localeKey, t.aboutIntro)}
 
 ## ${t.whatItDoes}
 
@@ -7020,28 +8791,24 @@ ${t.differenceIntro}
 - ${t.difference2}
 - ${t.difference3}
 - ${t.difference4}
+${localeKey === "en" ? englishAboutEditorial() : localizedAboutEditorial(localeKey)}
 `;
 }
 
 function messageTypesBody(localeKey) {
   const t = copyFor(localeKey);
-  const rows = versions.map((version) => {
-    const mt = versionToMsgType[version];
-    return `| [\`${version}\`](/${localeKey}/${mt.slug}/) | ${mt.isoFullName} |`;
-  }).join("\n");
   return `# ${t.messageTitle}
 
-${t.messageIntro}
+${introBlock(localeKey, t.messageIntro)}
 
 ## ${t.includedSupport}
 
-| ${t.msgTypeColId} | ${t.msgTypeColDesc} |
-|---|---|
-${rows}
+${messageCoverageTable(localeKey, true)}
 
 ## ${t.deliveryModel}
 
 ${t.deliveryText}
+${localeKey === "en" ? englishMessageTypeEditorial() : localizedMessageTypeEditorial(localeKey)}
 
 ## ${t.marketTitle}
 
@@ -7076,7 +8843,7 @@ function messageTypeDetailBody(localeKey, msgType) {
 
 ## ${t.msgDetailOverview}
 
-${t[p + "Overview"]}
+${introBlock(localeKey, t[p + "Overview"], msgType)}
 
 ## ${t.msgDetailKeyElements}
 
@@ -7093,6 +8860,8 @@ ${t[p + "Overview"]}
 - ${t[p + "Business3"]}
 - ${t[p + "Business4"]}
 
+${messageOperationalMatrix(localeKey, msgType)}
+
 ## ${t.msgDetailCbprContext}
 
 - ${t[p + "Cbpr1"]}
@@ -7102,7 +8871,11 @@ ${t[p + "Overview"]}
 
 ## ${t.msgDetailFlow}
 
-${t[p + "Flow"]}`;
+${t[p + "Flow"]}${localeKey === "en"
+    ? `\n${englishVersionDiffCommentary(msgType)}${englishVersionDiffTable(msgType)}${englishSchemeNotes(msgType)}${englishMessageGuidance(msgType)}${englishWorkedXml(msgType)}${englishDecisionFlow(msgType)}${englishComparisonSection(msgType)}${englishFaq(msgType)}${primaryReferencesSection(localeKey, msgType)}`
+    : batch1(localeKey)
+      ? `\n${localizedVersionDiffTable(localeKey, msgType)}${localizedWorkedXml(localeKey, msgType)}${localizedComparisonSection(localeKey, msgType)}${primaryReferencesSection(localeKey, msgType)}`
+      : `\n${primaryReferencesSection(localeKey, msgType)}`}`;
 
   if (msgType.versions.length > 1) {
     body += `
@@ -7121,8 +8894,7 @@ ${msgType.versions.map((v) => `| \`${v}\` | ${v === msgType.slug ? "**Current**"
     body += `
 
 ## ${t.msgDetailRelated}
-
-${related.map((r) => `- [\`${r.slug}\`](/${localeKey}/${r.slug}/) — ${r.isoFullName}`).join("\n")}`;
+${relatedMessageTable(localeKey, msgType)}`;
   }
 
   return body + "\n";
@@ -7132,7 +8904,11 @@ function apiBody(localeKey) {
   const t = copyFor(localeKey);
   return `# ${t.apiTitle}
 
-${t.apiIntro}
+${localeKey === "en"
+    ? introBlock(localeKey, t.apiIntro, null, englishApiEditorial())
+    : batch1(localeKey)
+      ? introBlock(localeKey, t.apiIntro, null, localizedApiEditorial(localeKey))
+      : introBlock(localeKey, t.apiIntro)}
 
 ## ${t.apiInstallTitle}
 
@@ -7167,6 +8943,8 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 | \`DELETE /jobs/{job_id}\` | ${t.apiEndpointCancel} |
 | \`GET /docs\` | ${t.apiEndpointDocs} |
 
+${messageCoverageList(localeKey)}
+
 ### ${t.apiValidateExample}
 
 ${t.apiValidateDesc}
@@ -7192,6 +8970,15 @@ curl -X POST http://localhost:8000/api/validate \\
       "creditor_name": "Widget Industries SA"
     }]
   }'
+\`\`\`
+
+\`\`\`json
+{
+  "valid": true,
+  "message_type": "pacs.008.001.13",
+  "errors": [],
+  "warnings": []
+}
 \`\`\`
 
 ### ${t.apiGenerateExample}
@@ -7241,6 +9028,15 @@ curl http://localhost:8000/api/status/$JOB_ID
 
 # Download the result
 curl http://localhost:8000/api/download/$JOB_ID --output result.xml
+\`\`\`
+
+\`\`\`json
+{
+  "job_id": "8f7f0d4b-7df9-4d1a-8d47-19f4f28b6d38",
+  "status": "completed",
+  "message_type": "pacs.008.001.13",
+  "download_url": "/api/download/8f7f0d4b-7df9-4d1a-8d47-19f4f28b6d38"
+}
 \`\`\`
 
 ---
@@ -7341,6 +9137,13 @@ docker build -t pacs008:latest .
 docker run -p 8000:8000 pacs008:latest
 \`\`\`
 
+\`\`\`bash
+docker run --rm \
+  -e PACS008_LOG_LEVEL=INFO \
+  -v $PWD/examples:/data \
+  -p 8000:8000 pacs008:latest
+\`\`\`
+
 ---
 
 ## ${t.apiValidationSectionTitle}
@@ -7365,6 +9168,14 @@ from pacs008.data.loader import load_payment_data_streaming
 
 for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
     print(f"Processing {len(chunk)} records")
+\`\`\`
+
+\`\`\`python
+from pacs008.validation import validate_batch
+
+for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
+    report = validate_batch(chunk, "pacs.008.001.13")
+    print(report.summary())
 \`\`\`
 
 ---
@@ -7499,12 +9310,36 @@ async function write(filePath, content) {
 
 await write(
   path.join(docsDir, "index.md"),
-  `---\ntitle: pacs008\ndescription: Redirecting to the English home page.\nlang: en-GB\nlayout: page\nrobots: noindex, follow\ncanonical: /en/\n---\n\nRedirecting to [English home page](/en/)…\n`
+  `---
+title: ${homeTitle(locales[0])}
+description: ${clampDescription(locales[0].tagline)}
+lang: en-GB
+author: Sebastien Rousseau
+lastUpdated: true
+image: /logo.svg
+imageAlt: pacs008
+canonical: /
+robots: index, follow
+draft: false
+noindex: false
+sitemap: true
+breadcrumbTitle: pacs008
+pageType: home
+schemaType: WebSite
+heroText: ${locales[0].hero}
+home: true
+metaTitle: pacs008
+subtitle: ${locales[0].tagline}
+tagline: ${locales[0].tagline}
+actionText: ${locales[0].cta}
+actionLink: /en/about/
+---
+`
 );
 
 await write(
   path.join(docsDir, "404.md"),
-  `---\ntitle: Page not found | pacs008\ndescription: The requested pacs008 page could not be found.\nlang: en-GB\n---\n\n# Page not found\n\nThe page you requested is not available. Head back to [the English home page](/en/).\n`
+  `---\ntitle: Page not found | pacs008\ndescription: The requested pacs008 page could not be found.\nlang: en-GB\nrobots: noindex, follow\n---\n\n# Page not found\n\nThe page you requested is not available. Head back to [the home page](/).\n`
 );
 
 for (const locale of locales) {
@@ -7512,45 +9347,51 @@ for (const locale of locales) {
   const t = copyFor(locale.key);
   await write(path.join(base, "index.md"), homeFrontmatter(locale));
   await write(path.join(base, "about", "index.md"), pageTemplate({
-    title: `${t.aboutTitle} | ${locale.label}`,
-    description: t.aboutDescription,
+    title: pageTitle(t.aboutTitle),
+    description: localeSectionDescription(locale, t.aboutDescription),
     lang: locale.lang,
     body: aboutBody(locale.key)
   }));
   await write(path.join(base, "message-types", "index.md"), pageTemplate({
-    title: `${t.messageTitle} | ${locale.label}`,
-    description: t.messageDescription,
+    title: pageTitle(t.messageTitle, "pacs008 ISO 20022"),
+    description: localeSectionDescription(locale, t.messageDescription),
     lang: locale.lang,
     body: messageTypesBody(locale.key)
   }));
+  await write(path.join(base, "message-selection", "index.md"), pageTemplate({
+    title: pageTitle(seoCopy(locale.key).selectionGuideTitle, "pacs008"),
+    description: clampDescription(seoCopy(locale.key).selectionGuideDescription),
+    lang: locale.lang,
+    body: localizedSelectionGuide(locale.key)
+  }));
   await write(path.join(base, "api", "index.md"), pageTemplate({
-    title: `${t.apiTitle} | ${locale.label}`,
-    description: t.apiDescription,
+    title: pageTitle(t.apiTitle),
+    description: localeSectionDescription(locale, t.apiDescription),
     lang: locale.lang,
     body: apiBody(locale.key)
   }));
   await write(path.join(base, "contact", "index.md"), pageTemplate({
-    title: `${t.contactTitle} | ${locale.label}`,
-    description: t.contactDescription,
+    title: pageTitle(`${t.contactTitle} | pacs008`),
+    description: localeSectionDescription(locale, t.contactDescription),
     lang: locale.lang,
     body: contactBody(locale.key)
   }));
   await write(path.join(base, "privacy", "index.md"), pageTemplate({
-    title: `${t.privacyTitle} | ${locale.label}`,
-    description: t.privacyDescription,
+    title: pageTitle(`${t.privacyTitle} | pacs008`),
+    description: localeSectionDescription(locale, t.privacyDescription),
     lang: locale.lang,
     body: privacyBody(locale.key)
   }));
   await write(path.join(base, "terms", "index.md"), pageTemplate({
-    title: `${t.termsTitle} | ${locale.label}`,
-    description: t.termsDescription,
+    title: pageTitle(`${t.termsTitle} | pacs008`),
+    description: localeSectionDescription(locale, t.termsDescription),
     lang: locale.lang,
     body: termsBody(locale.key)
   }));
   for (const msgType of messageTypes) {
     await write(path.join(base, msgType.slug, "index.md"), pageTemplate({
-      title: `${msgType.slug} — ${msgType.isoFullName} | ${locale.label}`,
-      description: t[msgType.copyPrefix + "Overview"],
+      title: pageTitle(`${msgType.slug} | ${msgType.isoFullName}`),
+      description: clampDescription(t[msgType.copyPrefix + "Overview"]),
       lang: locale.lang,
       body: messageTypeDetailBody(locale.key, msgType)
     }));

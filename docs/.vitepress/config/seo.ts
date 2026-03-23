@@ -78,9 +78,13 @@ export function buildHreflangTags(routePath: string): Array<[string, Record<stri
 
   const tags: Array<[string, Record<string, string>]> = [];
   for (const key of Object.keys(LOCALE_META)) {
-    tags.push(["link", { rel: "alternate", hreflang: key === "zh-tw" ? "zh-Hant" : key, href: toAbsoluteUrl(`/${key}${suffix}`) }]);
+    const href = key === "en" && suffix === "/"
+      ? toAbsoluteUrl("/")
+      : toAbsoluteUrl(`/${key}${suffix}`);
+    tags.push(["link", { rel: "alternate", hreflang: key === "zh-tw" ? "zh-Hant" : key, href }]);
   }
-  tags.push(["link", { rel: "alternate", hreflang: "x-default", href: toAbsoluteUrl(`/en${suffix}`) }]);
+  const xDefaultHref = suffix === "/" ? toAbsoluteUrl("/") : toAbsoluteUrl(`/en${suffix}`);
+  tags.push(["link", { rel: "alternate", hreflang: "x-default", href: xDefaultHref }]);
   return tags;
 }
 
@@ -97,7 +101,7 @@ export function resolvePageMeta(pageData: { title?: string; description?: string
   return {
     title: title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`,
     description,
-    canonical: toAbsoluteUrl(routePath === "/" ? "/en/" : routePath),
+    canonical: toAbsoluteUrl(routePath === "/" || routePath === "/en/" ? "/" : routePath),
     locale,
     localeOg: locale.replace("-", "_"),
     routePath,

@@ -1,6 +1,6 @@
 ---
-title: pacs.009.001.10 — Financial Institution Credit Transfer | العربية
-description: يُستخدم رسالة pacs.009 للتحويلات بين المؤسسات المالية عندما يكون التحويل لحساب المؤسسة الخاص وليس نيابة عن عميل. يدعم التمويل بين البنوك ومدفوعات التغطية وإدارة السيولة.
+title: pacs.009.001.10 | Financial Institution Credit Transfer | pacs008
+description: يُستخدم رسالة pacs.009 للتحويلات بين المؤسسات المالية عندما يكون التحويل لحساب المؤسسة الخاص وليس نيابة عن عميل. يدعم التمويل بين البنوك ومدفوعات التغطية...
 lang: ar-SA
 lastUpdated: true
 image: /logo.svg
@@ -19,6 +19,8 @@ image: /logo.svg
 
 يُستخدم رسالة pacs.009 للتحويلات بين المؤسسات المالية عندما يكون التحويل لحساب المؤسسة الخاص وليس نيابة عن عميل. يدعم التمويل بين البنوك ومدفوعات التغطية وإدارة السيولة.
 
+> تمت المراجعة مقابل المصادر الأساسية في 23 مارس 2026. تاريخ مرجع كتالوج ISO 20022 هو: 27 February 2025؛ وروابط المصادر مدرجة أدناه.
+
 ## عناصر البيانات الرئيسية
 
 - **GrpHdr** — رأس المجموعة مع تعريف الرسالة ومعلومات التسوية
@@ -34,6 +36,14 @@ image: /logo.svg
 - يحمل ساق التغطية لتحويلات العملاء المسوّاة بطريقة التغطية
 - يمكّن عمليات الخزينة والتمويل بين المؤسسات المالية
 
+| عناصر البيانات الرئيسية | السياق التجاري |
+|---|---|
+| **GrpHdr** — رأس المجموعة مع تعريف الرسالة ومعلومات التسوية | يُستخدم لتحويلات الحساب الخاص بين البنوك ومدفوعات التغطية |
+| **CdtTrfTxInf** — معلومات معاملة التحويل مع مبلغ التسوية بين البنوك | يدعم إدارة السيولة بين شركاء البنوك المراسلة |
+| **Dbtr / DbtrAgt** — المؤسسة المدينة وتعريف وكيلها | يحمل ساق التغطية لتحويلات العملاء المسوّاة بطريقة التغطية |
+| **Cdtr / CdtrAgt** — المؤسسة الدائنة وتعريف وكيلها | يمكّن عمليات الخزينة والتمويل بين المؤسسات المالية |
+| **IntrBkSttlmAmt** — مبلغ التسوية بين البنوك بعملة التسوية | ترسل المؤسسة المدينة pacs.009 إلى المؤسسة الدائنة لتحويل أموالها الخاصة. لمدفوعات التغطية، يوفر pacs.009 ساق التمويل بينما يحمل pacs.008 تعليمات العميل عبر مسار منفصل. |
+
 ## سياق CBPR+ والأنظمة
 
 - يحل محل MT202 و MT202COV للتحويلات بين المؤسسات
@@ -45,9 +55,19 @@ image: /logo.svg
 
 ترسل المؤسسة المدينة pacs.009 إلى المؤسسة الدائنة لتحويل أموالها الخاصة. لمدفوعات التغطية، يوفر pacs.009 ساق التمويل بينما يحمل pacs.008 تعليمات العميل عبر مسار منفصل.
 
-## الرسائل ذات الصلة
+## المراجع الأساسية
 
-- [`pacs.008.001.13`](/ar/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.002.001.12`](/ar/pacs.002.001.12/) — FI to FI Payment Status Report
-- [`pacs.010.001.05`](/ar/pacs.010.001.05/) — Financial Institution Direct Debit
+- [ISO 20022 message definitions catalogue for `pacs.009.001.10`](https://www.iso20022.org/iso-20022-message-definitions?search=Pacs.009.001.10)
+- [Swift CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released)
+- [Swift CBPR+ migration roadmap PDF](https://www.swift.com/swift-resource/252463/download)
+- [Swift CBPR+ pacs.009 overview](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/cbpr-payment-instructions-pacs009)
+- [Swift CBPR+ cover-method pacs.008/pacs.009 guidance](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/fi-fi-customer-credit-transfer-cover-method-pacs008-pacs009)
+
+
+## الرسائل ذات الصلة
+| نوع الرسالة | الوصف | نظرة عامة |
+|---|---|---|
+| [`pacs.008.001.13`](/ar/pacs.008.001.13/) | FI to FI Customer Credit Transfer | رسالة pacs.008 هي تعليمات الدفع الأساسية المتبادلة بين المؤسسات المالية لتحويل الأموال نيابة عن العميل. تحمل معلومات المدين والدائن والمبلغ والتحويل لمعاملة واحدة أو أكثر. |
+| [`pacs.002.001.12`](/ar/pacs.002.001.12/) | FI to FI Payment Status Report | يُرسل رسالة pacs.002 من مؤسسة مالية للإبلاغ عن حالة تعليمات الدفع المرسلة سابقاً. يوفر تأكيداً أو رفضاً أو معلومات حالة معلقة للمعاملات الفردية ضمن رسالة الدفع. |
+| [`pacs.010.001.05`](/ar/pacs.010.001.05/) | Financial Institution Direct Debit | يُستخدم رسالة pacs.010 بين المؤسسات المالية لمعاملات الخصم المباشر على الحساب الخاص للمؤسسة. يمكّن مؤسسة من تحصيل الأموال مباشرة من حساب مؤسسة أخرى. |
 

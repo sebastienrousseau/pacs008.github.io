@@ -1,6 +1,6 @@
 ---
-title: Privacidad | Español
-description: Información de privacidad del sitio web de pacs008.
+title: Privacidad | pacs008
+description: Información de privacidad del sitio web de pacs008. Generación, validación, orquestación de API y soporte de cumplimiento para flujos de transferencia de...
 lang: es-ES
 lastUpdated: true
 image: /logo.svg

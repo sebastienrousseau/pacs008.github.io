@@ -1,6 +1,6 @@
 ---
-title: O pacs008 | Polski
-description: Co robi pacs008 i dla kogo jest przeznaczony.
+title: O pacs008 | pacs008
+description: Co robi pacs008 i dla kogo jest przeznaczony. Generowanie, walidacja, orkiestracja API i wsparcie zgodności dla przepływów przelewów kredytowych FI-to-FI.
 lang: pl-PL
 lastUpdated: true
 image: /logo.svg
@@ -9,6 +9,8 @@ image: /logo.svg
 # O pacs008
 
 pacs008 to zestaw narzędzi Python do automatyzacji przepływów przelewów kredytowych ISO 20022 między instytucjami finansowymi.
+
+> Ostatnio zweryfikowano względem źródeł pierwotnych 23 marca 2026 r. z użyciem publicznych materiałów ISO 20022, EPC i Swift wskazanych na tej stronie.
 
 ## Co robi
 
@@ -64,4 +66,5 @@ pacs008 wykracza poza referencje definicji wiadomości, wspierając implementacj
 - walidacja przed dostarczeniem
 - modelowanie łańcuchów płatności i formatów dalszego przetwarzania
 - umożliwienie testowania zmian specyficznych dla schematu w kodzie
+
 

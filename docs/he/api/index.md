@@ -1,6 +1,6 @@
 ---
-title: API | עברית
-description: תמיכת תהליכי REST ו-CLI ב-pacs008.
+title: API | pacs008
+description: תמיכת תהליכי REST ו-CLI ב-pacs008. יצירה, אימות, תיאום API ותמיכת ציות לתהליכי העברת אשראי FI-to-FI.
 lang: he-IL
 lastUpdated: true
 image: /logo.svg
@@ -9,6 +9,8 @@ image: /logo.svg
 # API
 
 הפרויקט מספק גם REST API וגם CLI לתהליכי עיבוד הודעות תשלום תפעוליים.
+
+> נבדק לאחרונה מול מקורות ראשיים ב-23 במרץ 2026 תוך שימוש בחומרי ISO 20022, EPC ו-Swift ציבוריים המקושרים בעמוד זה.
 
 ## התקנה
 
@@ -43,6 +45,15 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 | `DELETE /jobs/{job_id}` | ביטול משימה ממתינה או פעילה |
 | `GET /docs` | ממשק Swagger UI אינטראקטיבי לחקירה ובדיקת כל נקודות הקצה |
 
+- [`pacs.002.001.12`](/he/pacs.002.001.12/) — FI to FI Payment Status Report
+- [`pacs.003.001.09`](/he/pacs.003.001.09/) — FI to FI Customer Direct Debit
+- [`pacs.004.001.11`](/he/pacs.004.001.11/) — Payment Return
+- [`pacs.007.001.11`](/he/pacs.007.001.11/) — FI to FI Payment Reversal
+- [`pacs.008.001.13`](/he/pacs.008.001.13/) — FI to FI Customer Credit Transfer
+- [`pacs.009.001.10`](/he/pacs.009.001.10/) — Financial Institution Credit Transfer
+- [`pacs.010.001.05`](/he/pacs.010.001.05/) — Financial Institution Direct Debit
+- [`pacs.028.001.05`](/he/pacs.028.001.05/) — FI to FI Payment Status Request
+
 ### דוגמת אימות
 
 שלח נתוני תשלום לאימות לפני יצירת XML.
@@ -68,6 +79,15 @@ curl -X POST http://localhost:8000/api/validate \
       "creditor_name": "Widget Industries SA"
     }]
   }'
+```
+
+```json
+{
+  "valid": true,
+  "message_type": "pacs.008.001.13",
+  "errors": [],
+  "warnings": []
+}
 ```
 
 ### דוגמת יצירה סינכרונית
@@ -117,6 +137,15 @@ curl http://localhost:8000/api/status/$JOB_ID
 
 # Download the result
 curl http://localhost:8000/api/download/$JOB_ID --output result.xml
+```
+
+```json
+{
+  "job_id": "8f7f0d4b-7df9-4d1a-8d47-19f4f28b6d38",
+  "status": "completed",
+  "message_type": "pacs.008.001.13",
+  "download_url": "/api/download/8f7f0d4b-7df9-4d1a-8d47-19f4f28b6d38"
+}
 ```
 
 ---
@@ -217,6 +246,10 @@ docker build -t pacs008:latest .
 docker run -p 8000:8000 pacs008:latest
 ```
 
+```bash
+docker run --rm   -e PACS008_LOG_LEVEL=INFO   -v $PWD/examples:/data   -p 8000:8000 pacs008:latest
+```
+
 ---
 
 ## אימות IBAN ו-BIC
@@ -241,6 +274,14 @@ from pacs008.data.loader import load_payment_data_streaming
 
 for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
     print(f"Processing {len(chunk)} records")
+```
+
+```python
+from pacs008.validation import validate_batch
+
+for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
+    report = validate_batch(chunk, "pacs.008.001.13")
+    print(report.summary())
 ```
 
 ---

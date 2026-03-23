@@ -1,6 +1,6 @@
 ---
-title: Termini | Italiano
-description: Informazioni sui termini del sito web pacs008.
+title: Termini | pacs008
+description: Informazioni sui termini del sito web pacs008. Generazione, validazione, orchestrazione API e conformità per i flussi di bonifico cliente FI-to-FI.
 lang: it-IT
 lastUpdated: true
 image: /logo.svg

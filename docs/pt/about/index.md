@@ -1,6 +1,6 @@
 ---
-title: Sobre o pacs008 | Português
-description: O que o pacs008 faz e para quem é destinado.
+title: Sobre o pacs008 | pacs008
+description: O que o pacs008 faz e para quem é destinado. Geração, validação, orquestração de API e suporte de conformidade para fluxos de transferência de crédito...
 lang: pt-BR
 lastUpdated: true
 image: /logo.svg
@@ -9,6 +9,8 @@ image: /logo.svg
 # Sobre o pacs008
 
 O pacs008 é um kit de ferramentas Python para automatizar fluxos de transferência de crédito ISO 20022 entre instituições financeiras.
+
+> Última revisão com base em fontes primárias em 23 de março de 2026 usando materiais públicos da ISO 20022, EPC e Swift referenciados nesta página.
 
 ## O que faz
 
@@ -64,4 +66,12 @@ O pacs008 vai além da referência de definição de mensagem para apoiar a impl
 - validar antes da entrega
 - modelar cadeias de pagamento e formatos downstream
 - tornar alterações específicas de esquema testáveis em código
+
+## Lista de verificação de implementação
+
+- Selecionar a família de mensagens correta para o evento de negócio antes de escrever templates.
+- Validar os dados de negócio antes da geração de XML para que erros de esquema não sejam o primeiro sinal.
+- Tratar a qualidade de BIC, IBAN, remessa e endereço postal como critério de release, e não como limpeza posterior.
+- Executar testes de regressão para cada alteração de regra de esquema ou de banco com dados de pagamento representativos.
+
 

@@ -1,6 +1,6 @@
 ---
-title: Contato | Português
-description: Como entrar em contato com o projeto pacs008.
+title: Contato | pacs008
+description: Como entrar em contato com o projeto pacs008. Geração, validação, orquestração de API e suporte de conformidade para fluxos de transferência de crédito...
 lang: pt-BR
 lastUpdated: true
 image: /logo.svg

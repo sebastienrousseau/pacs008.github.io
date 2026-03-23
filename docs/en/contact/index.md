@@ -1,6 +1,6 @@
 ---
-title: Contact | English
-description: How to reach the pacs008 project.
+title: Contact | pacs008
+description: How to reach the pacs008 project. Generation, validation, API orchestration, and compliance support for FI-to-FI customer credit transfer workflows.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg

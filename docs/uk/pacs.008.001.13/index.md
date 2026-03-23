@@ -1,6 +1,6 @@
 ---
-title: pacs.008.001.13 — FI to FI Customer Credit Transfer | Українська
-description: Повідомлення pacs.008 є основним платіжним дорученням, що передається між фінансовими установами для переказу коштів від імені клієнта. Воно містить інформацію про дебітора, кредитора, суму та реквізити переказу для однієї або кількох транзакцій кредитового переказу.
+title: pacs.008.001.13 | FI to FI Customer Credit Transfer | pacs008
+description: Повідомлення pacs.008 є основним платіжним дорученням, що передається між фінансовими установами для переказу коштів від імені клієнта. Воно містить...
 lang: uk-UA
 lastUpdated: true
 image: /logo.svg
@@ -19,6 +19,8 @@ image: /logo.svg
 
 Повідомлення pacs.008 є основним платіжним дорученням, що передається між фінансовими установами для переказу коштів від імені клієнта. Воно містить інформацію про дебітора, кредитора, суму та реквізити переказу для однієї або кількох транзакцій кредитового переказу.
 
+> Останню перевірку за первинними джерелами виконано 23 березня 2026 року. Дата довідки каталогу ISO 20022: 27 February 2025; посилання на джерела наведено нижче.
+
 ## Ключові елементи даних
 
 - **GrpHdr** — Заголовок групи з ідентифікатором повідомлення, датою створення, кількістю транзакцій та інформацією про розрахунок
@@ -34,6 +36,14 @@ image: /logo.svg
 - Містить структуровану інформацію про переказ для підтримки автоматичної звірки
 - Підтримує послідовний, покриваючий та прямий методи розрахунку для багатоетапних платіжних ланцюгів
 
+| Ключові елементи даних | Бізнес-контекст |
+|---|---|
+| **GrpHdr** — Заголовок групи з ідентифікатором повідомлення, датою створення, кількістю транзакцій та інформацією про розрахунок | Основне повідомлення для транскордонних та внутрішніх кредитових переказів, ініційованих клієнтом |
+| **CdtTrfTxInf** — Інформація про транзакцію кредитового переказу з сумою, комісіями та призначенням | Використовується в SEPA SCT, SEPA Instant, CBPR+ та національних клірингових системах |
+| **Dbtr / DbtrAgt** — Ідентифікація дебітора та агента дебітора і реквізити рахунку | Містить структуровану інформацію про переказ для підтримки автоматичної звірки |
+| **Cdtr / CdtrAgt** — Ідентифікація кредитора та агента кредитора і реквізити рахунку | Підтримує послідовний, покриваючий та прямий методи розрахунку для багатоетапних платіжних ланцюгів |
+| **RmtInf** — Інформація про переказ для структурованих або неструктурованих платіжних посилань | Агент дебітора створює pacs.008 та надсилає його агенту кредитора (безпосередньо або через посередників). Кожен агент у ланцюгу перевіряє, збагачує та пересилає доручення, доки агент кредитора не зарахує кошти на рахунок бенефіціара. |
+
 ## Контекст CBPR+ та схем
 
 - Замінює MT103 та MT103+ для транскордонних клієнтських кредитових переказів
@@ -44,6 +54,19 @@ image: /logo.svg
 ## Потік повідомлення
 
 Агент дебітора створює pacs.008 та надсилає його агенту кредитора (безпосередньо або через посередників). Кожен агент у ланцюгу перевіряє, збагачує та пересилає доручення, доки агент кредитора не зарахує кошти на рахунок бенефіціара.
+
+## Первинні джерела
+
+- [ISO 20022 message definitions catalogue for `pacs.008.001.13`](https://www.iso20022.org/iso-20022-message-definitions?search=Pacs.008.001.13)
+- [Swift CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released)
+- [Swift CBPR+ migration roadmap PDF](https://www.swift.com/swift-resource/252463/download)
+- [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and)
+- [EPC SEPA Instant Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook)
+- [Swift CBPR+ pacs.008 overview](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/cbpr-payment-instructions-pacs008)
+- [Swift CBPR+ serial-method pacs.008 guidance](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/fi-fi-customer-credit-transfer-serial-method-pacs008)
+- [Swift CBPR+ cover-method pacs.008/pacs.009 guidance](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/fi-fi-customer-credit-transfer-cover-method-pacs008-pacs009)
+- [Swift CBPR+ roadmap and standards programme](https://www.swift.com/standards/iso-20022/iso-20022-programme/cbpr-roadmap)
+
 
 ## Підтримувані версії
 
@@ -64,8 +87,9 @@ image: /logo.svg
 | `pacs.008.001.13` | **Current** |
 
 ## Пов'язані повідомлення
-
-- [`pacs.002.001.12`](/uk/pacs.002.001.12/) — FI to FI Payment Status Report
-- [`pacs.004.001.11`](/uk/pacs.004.001.11/) — Payment Return
-- [`pacs.009.001.10`](/uk/pacs.009.001.10/) — Financial Institution Credit Transfer
+| Тип повідомлення | Опис | Огляд |
+|---|---|---|
+| [`pacs.002.001.12`](/uk/pacs.002.001.12/) | FI to FI Payment Status Report | Повідомлення pacs.002 надсилається фінансовою установою для звітування про статус раніше надісланого платіжного доручення. Воно надає інформацію про підтвердження, відхилення або статус очікування для окремих транзакцій у межах платіжного повідомлення. |
+| [`pacs.004.001.11`](/uk/pacs.004.001.11/) | Payment Return | Повідомлення pacs.004 використовується для повернення раніше розрахованої платіжної транзакції. Воно обертає рух коштів, коли платіж не може бути зарахований, був надісланий помилково або відкликається установою-відправником. |
+| [`pacs.009.001.10`](/uk/pacs.009.001.10/) | Financial Institution Credit Transfer | Повідомлення pacs.009 використовується для кредитових переказів між фінансовими установами, коли переказ здійснюється від власного імені установи, а не від імені клієнта. Воно підтримує міжбанківське фінансування, покриваючі платежі та управління ліквідністю. |
 

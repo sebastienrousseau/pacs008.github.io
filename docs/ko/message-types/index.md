@@ -1,6 +1,6 @@
 ---
-title: 메시지 유형 | 한국어
-description: 지원되는 ISO 20022 pacs 메시지 정의 및 버전.
+title: 메시지 유형 | pacs008 ISO 20022
+description: 지원되는 ISO 20022 pacs 메시지 정의 및 버전. FI-to-FI 고객 신용 이체 워크플로를 위한 생성, 검증, API 오케스트레이션, 규정 준수 지원.
 lang: ko-KR
 lastUpdated: true
 image: /logo.svg
@@ -10,34 +10,25 @@ image: /logo.svg
 
 pacs008은 핵심 pacs.008 메시지 정의와 오케스트레이션 및 조정 플로우에서 사용되는 관련 메시지를 포함합니다.
 
+> 이 페이지에 연결된 ISO 20022, EPC 및 Swift 공개 자료를 기준으로 2026년 3월 23일에 1차 출처 검토를 완료했습니다.
+
 ## 포함된 지원
 
-| 메시지 유형 | 설명 |
-|---|---|
-| [`pacs.002.001.12`](/ko/pacs.002.001.12/) | FI to FI Payment Status Report |
-| [`pacs.003.001.09`](/ko/pacs.003.001.09/) | FI to FI Customer Direct Debit |
-| [`pacs.004.001.11`](/ko/pacs.004.001.11/) | Payment Return |
-| [`pacs.007.001.11`](/ko/pacs.007.001.11/) | FI to FI Payment Reversal |
-| [`pacs.008.001.01`](/ko/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.02`](/ko/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.03`](/ko/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.04`](/ko/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.05`](/ko/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.06`](/ko/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.07`](/ko/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.08`](/ko/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.09`](/ko/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.10`](/ko/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.11`](/ko/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.12`](/ko/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.13`](/ko/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.009.001.10`](/ko/pacs.009.001.10/) | Financial Institution Credit Transfer |
-| [`pacs.010.001.05`](/ko/pacs.010.001.05/) | Financial Institution Direct Debit |
-| [`pacs.028.001.05`](/ko/pacs.028.001.05/) | FI to FI Payment Status Request |
+| 메시지 유형 | 설명 | 버전 | 연도 | 개요 |
+|---|---|---|---|---|
+| [`pacs.002.001.12`](/ko/pacs.002.001.12/) | FI to FI Payment Status Report | `pacs.002.001.12` | 2019 | pacs.002 메시지는 금융기관이 이전에 전송한 결제 지시의 상태를 보고하기 위해 발송합니다. 결제 메시지 내 개별 거래에 대한 확인, 거절 또는 보류 상태 정보를 제공합니다. |
+| [`pacs.003.001.09`](/ko/pacs.003.001.09/) | FI to FI Customer Direct Debit | `pacs.003.001.09` | 2019 | pacs.003 메시지는 고객 자동이체 지시를 실행하기 위해 금융기관 간에 교환됩니다. 채권자의 은행이 채권자를 대신하여 채무자의 은행에서 자금을 회수할 수 있게 합니다. |
+| [`pacs.004.001.11`](/ko/pacs.004.001.11/) | Payment Return | `pacs.004.001.11` | 2019 | pacs.004 메시지는 이전에 결제된 결제 거래를 반환하는 데 사용됩니다. 결제가 적용될 수 없었거나, 오류로 전송되었거나, 발신 기관이 회수를 요청하는 경우 자금 흐름을 역전시킵니다. |
+| [`pacs.007.001.11`](/ko/pacs.007.001.11/) | FI to FI Payment Reversal | `pacs.007.001.11` | 2019 | pacs.007 메시지는 아직 결제되지 않은 이전에 전송된 결제 지시를 취소하거나 결제된 결제의 취소를 요청하는 데 사용됩니다. pacs.004(반환)와 달리 원래의 지시 에이전트가 개시합니다. |
+| [`pacs.008.001.13`](/ko/pacs.008.001.13/) | FI to FI Customer Credit Transfer | `pacs.008.001.13` | 2023 | pacs.008 메시지는 고객을 대신하여 자금을 이체하기 위해 금융기관 간에 교환되는 핵심 결제 지시입니다. 하나 이상의 신용이체 거래에 대해 채무자, 채권자, 금액 및 송금 정보를 포함합니다. |
+| [`pacs.009.001.10`](/ko/pacs.009.001.10/) | Financial Institution Credit Transfer | `pacs.009.001.10` | 2019 | pacs.009 메시지는 고객을 대신하는 것이 아닌 금융기관 자체 계정의 신용이체에 사용됩니다. 은행 간 자금 이동, 커버 결제 및 유동성 관리를 지원합니다. |
+| [`pacs.010.001.05`](/ko/pacs.010.001.05/) | Financial Institution Direct Debit | `pacs.010.001.05` | 2019 | pacs.010 메시지는 금융기관 자체 계정의 자동이체 거래를 위해 금융기관 간에 사용됩니다. 한 기관이 다른 기관의 계좌에서 직접 자금을 추심할 수 있게 합니다. |
+| [`pacs.028.001.05`](/ko/pacs.028.001.05/) | FI to FI Payment Status Request | `pacs.028.001.05` | 2019 | pacs.028 메시지는 금융기관이 이전에 전송한 결제 지시의 상태를 조회하기 위해 발송합니다. 비요청 상태 보고를 기다리지 않고 결제 처리의 능동적 추적을 가능하게 합니다. |
 
 ## 제공 모델
 
 지원되는 각 메시지 유형은 템플릿 자산과 검증 로직으로 뒷받침되어 팀이 여러 다운스트림 채널에서 생성 및 회귀 테스트를 표준화할 수 있습니다.
+
 
 ## 2026 시장 컨텍스트
 

@@ -1,6 +1,6 @@
 ---
-title: Conditions | Français
-description: Informations sur les conditions du site pacs008.
+title: Conditions | pacs008
+description: Informations sur les conditions du site pacs008. Génération, validation, orchestration d'API et conformité pour les flux de virement client FI-to-FI.
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg

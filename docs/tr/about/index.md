@@ -1,6 +1,6 @@
 ---
-title: pacs008 Hakkında | Türkçe
-description: pacs008 ne yapar ve kimler için tasarlanmıştır.
+title: pacs008 Hakkında | pacs008
+description: pacs008 ne yapar ve kimler için tasarlanmıştır. FI-to-FI müşteri kredi transferi iş akışları için oluşturma, doğrulama, API orkestrasyonu ve uyumluluk...
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg
@@ -9,6 +9,8 @@ image: /logo.svg
 # pacs008 Hakkında
 
 pacs008, ISO 20022 FI-to-FI müşteri kredi transferi iş akışlarını otomatikleştirmek için bir Python araç setidir.
+
+> Bu sayfada referans verilen ISO 20022, EPC ve Swift herkese açık materyalleri kullanılarak birincil kaynaklara göre en son 23 Mart 2026 tarihinde gözden geçirildi.
 
 ## Ne yapar
 
@@ -64,4 +66,5 @@ pacs008, mesaj tanımı referansının ötesine geçerek operasyonel uygulamayı
 - teslimattan önce doğrulama
 - ödeme zincirlerini ve alt akış formatlarını modelleme
 - şemaya özgü değişiklikleri kodda test edilebilir hale getirme
+
 

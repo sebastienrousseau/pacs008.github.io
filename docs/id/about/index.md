@@ -1,6 +1,6 @@
 ---
-title: Tentang pacs008 | Bahasa Indonesia
-description: Apa yang dilakukan pacs008 dan untuk siapa.
+title: Tentang pacs008 | pacs008
+description: Apa yang dilakukan pacs008 dan untuk siapa. Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan FI-to-FI.
 lang: id-ID
 lastUpdated: true
 image: /logo.svg
@@ -9,6 +9,8 @@ image: /logo.svg
 # Tentang pacs008
 
 pacs008 adalah toolkit Python untuk mengotomatisasi alur kerja transfer kredit ISO 20022 antar lembaga keuangan.
+
+> Terakhir ditinjau terhadap sumber primer pada 23 Maret 2026 menggunakan materi publik ISO 20022, EPC, dan Swift yang dirujuk pada halaman ini.
 
 ## Apa yang dilakukan
 
@@ -64,4 +66,5 @@ pacs008 melampaui referensi definisi pesan untuk mendukung implementasi operasio
 - memvalidasi sebelum pengiriman
 - memodelkan rantai pembayaran dan format hilir
 - membuat perubahan khusus skema dapat diuji dalam kode
+
 

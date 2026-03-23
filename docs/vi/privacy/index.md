@@ -1,6 +1,6 @@
 ---
-title: Quyền riêng tư | Tiếng Việt
-description: Thông tin quyền riêng tư cho trang web pacs008.
+title: Quyền riêng tư | pacs008
+description: Thông tin quyền riêng tư cho trang web pacs008. Tạo, xác thực, điều phối API và hỗ trợ tuân thủ cho quy trình chuyển khoản tín dụng khách hàng FI-to-FI.
 lang: vi-VN
 lastUpdated: true
 image: /logo.svg

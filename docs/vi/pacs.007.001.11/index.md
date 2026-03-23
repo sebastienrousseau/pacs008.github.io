@@ -1,6 +1,6 @@
 ---
-title: pacs.007.001.11 — FI to FI Payment Reversal | Tiếng Việt
-description: Thông điệp pacs.007 được sử dụng để đảo ngược lệnh thanh toán đã gửi trước đó chưa được quyết toán hoặc để yêu cầu đảo ngược khoản thanh toán đã quyết toán. Khác với pacs.004 (hoàn trả), thông điệp này được khởi tạo bởi đại lý ra lệnh gốc.
+title: pacs.007.001.11 | FI to FI Payment Reversal | pacs008
+description: Thông điệp pacs.007 được sử dụng để đảo ngược lệnh thanh toán đã gửi trước đó chưa được quyết toán hoặc để yêu cầu đảo ngược khoản thanh toán đã quyết...
 lang: vi-VN
 lastUpdated: true
 image: /logo.svg
@@ -19,6 +19,8 @@ image: /logo.svg
 
 Thông điệp pacs.007 được sử dụng để đảo ngược lệnh thanh toán đã gửi trước đó chưa được quyết toán hoặc để yêu cầu đảo ngược khoản thanh toán đã quyết toán. Khác với pacs.004 (hoàn trả), thông điệp này được khởi tạo bởi đại lý ra lệnh gốc.
 
+> Được rà soát lần cuối đối chiếu với nguồn gốc chính vào ngày 23 tháng 3 năm 2026. Ngày tham chiếu của danh mục ISO 20022: 27 February 2025; các liên kết nguồn được liệt kê bên dưới.
+
 ## Yếu tố dữ liệu chính
 
 - **GrpHdr** — Tiêu đề nhóm với mã nhận dạng thông điệp và dấu thời gian tạo
@@ -34,6 +36,14 @@ Thông điệp pacs.007 được sử dụng để đảo ngược lệnh thanh 
 - Hỗ trợ đảo ngược toàn bộ và một phần số tiền thanh toán gốc
 - Mang mã lý do đảo ngược có cấu trúc cho xử lý hạ nguồn
 
+| Yếu tố dữ liệu chính | Bối cảnh kinh doanh |
+|---|---|
+| **GrpHdr** — Tiêu đề nhóm với mã nhận dạng thông điệp và dấu thời gian tạo | Được khởi tạo khi bên gửi gốc phát hiện lỗi trước hoặc sau quyết toán |
+| **TxInf** — Thông tin giao dịch với số tiền đảo ngược và các bên | Được sử dụng trong các tình huống gian lận khi cần đảo ngược nhanh chóng |
+| **OrgnlGrpInf** — Thông tin nhóm gốc tham chiếu đến thông điệp nguồn | Hỗ trợ đảo ngược toàn bộ và một phần số tiền thanh toán gốc |
+| **RvslRsnInf** — Thông tin lý do đảo ngược với mã lý do có cấu trúc | Mang mã lý do đảo ngược có cấu trúc cho xử lý hạ nguồn |
+| **OrgnlTxRef** — Tham chiếu giao dịch gốc để truy vết từ đầu đến cuối | Đại lý ra lệnh (bên gửi gốc) gửi pacs.007 xuôi qua chuỗi thanh toán để đảo ngược khoản thanh toán đã ra lệnh trước đó. Mỗi đại lý xử lý lệnh đảo ngược và điều chỉnh quyết toán tương ứng. |
+
 ## Bối cảnh CBPR+ và lược đồ
 
 - Phân biệt với pacs.004 theo hướng — đảo ngược đi xuôi từ bên gửi gốc, hoàn trả đi ngược từ người thụ hưởng
@@ -45,9 +55,17 @@ Thông điệp pacs.007 được sử dụng để đảo ngược lệnh thanh 
 
 Đại lý ra lệnh (bên gửi gốc) gửi pacs.007 xuôi qua chuỗi thanh toán để đảo ngược khoản thanh toán đã ra lệnh trước đó. Mỗi đại lý xử lý lệnh đảo ngược và điều chỉnh quyết toán tương ứng.
 
-## Thông điệp liên quan
+## Tài liệu tham chiếu gốc
 
-- [`pacs.008.001.13`](/vi/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.004.001.11`](/vi/pacs.004.001.11/) — Payment Return
-- [`pacs.002.001.12`](/vi/pacs.002.001.12/) — FI to FI Payment Status Report
+- [ISO 20022 message definitions catalogue for `pacs.007.001.11`](https://www.iso20022.org/iso-20022-message-definitions?search=Pacs.007.001.11)
+- [Swift CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released)
+- [Swift CBPR+ migration roadmap PDF](https://www.swift.com/swift-resource/252463/download)
+
+
+## Thông điệp liên quan
+| Loại thông điệp | Mô tả | Tổng quan |
+|---|---|---|
+| [`pacs.008.001.13`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer | Thông điệp pacs.008 là lệnh thanh toán cốt lõi được trao đổi giữa các tổ chức tài chính để chuyển tiền thay mặt khách hàng. Thông điệp này mang thông tin con nợ, chủ nợ, số tiền và thông tin chuyển tiền cho một hoặc nhiều giao dịch chuyển khoản tín dụng. |
+| [`pacs.004.001.11`](/vi/pacs.004.001.11/) | Payment Return | Thông điệp pacs.004 được sử dụng để hoàn trả giao dịch thanh toán đã quyết toán trước đó. Thông điệp này đảo ngược dòng tiền khi khoản thanh toán không thể áp dụng, được gửi nhầm, hoặc đang bị thu hồi bởi tổ chức gốc. |
+| [`pacs.002.001.12`](/vi/pacs.002.001.12/) | FI to FI Payment Status Report | Thông điệp pacs.002 được gửi bởi tổ chức tài chính để báo cáo trạng thái của lệnh thanh toán đã gửi trước đó. Thông điệp này cung cấp thông tin xác nhận, từ chối hoặc trạng thái đang chờ xử lý cho các giao dịch riêng lẻ trong thông điệp thanh toán. |
 

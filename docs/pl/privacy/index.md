@@ -1,6 +1,6 @@
 ---
-title: Prywatność | Polski
-description: Informacje o prywatności strony pacs008.
+title: Prywatność | pacs008
+description: Informacje o prywatności strony pacs008. Generowanie, walidacja, orkiestracja API i wsparcie zgodności dla przepływów przelewów kredytowych FI-to-FI.
 lang: pl-PL
 lastUpdated: true
 image: /logo.svg

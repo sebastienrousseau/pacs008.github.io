@@ -1,6 +1,6 @@
 ---
-title: Terms | English
-description: Terms information for the pacs008 website.
+title: Terms | pacs008
+description: Terms information for the pacs008 website. Generation, validation, API orchestration, and compliance support for FI-to-FI customer credit transfer workflows.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg

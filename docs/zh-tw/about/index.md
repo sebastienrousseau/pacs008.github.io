@@ -1,6 +1,6 @@
 ---
-title: 關於 pacs008 | 繁體中文
-description: pacs008 的功能及適用對象。
+title: 關於 pacs008 | pacs008
+description: pacs008 的功能及適用對象。 面向 FI-to-FI 客戶信貸轉帳工作流程的產生、驗證、API 編排與合規支援。
 lang: zh-TW
 lastUpdated: true
 image: /logo.svg
@@ -9,6 +9,8 @@ image: /logo.svg
 # 關於 pacs008
 
 pacs008 是一個 Python 工具包，用於自動化 ISO 20022 金融機構間客戶信貸轉帳工作流程。
+
+> 已於 2026 年 3 月 23 日依據本頁引用的 ISO 20022、EPC 與 Swift 公開資料完成主要來源複核。
 
 ## 功能
 
@@ -64,4 +66,5 @@ pacs008 超越訊息定義參考，支援營運實施：
 - 交付前驗證
 - 建模支付鏈和下游格式
 - 使方案特定的變更在程式碼中可測試
+
 

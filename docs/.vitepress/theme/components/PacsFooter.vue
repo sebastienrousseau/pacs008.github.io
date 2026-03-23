@@ -13,11 +13,13 @@ const locale = computed(() => {
   return first && LOCALE_KEYS.has(first) ? first : "en";
 });
 
-const localePrefix = computed(() => `/${locale.value}`);
 const t = computed(() => getUiStrings(locale.value));
 
 function localLink(path: string): string {
-  return `${localePrefix.value}${path}`;
+  if (locale.value === "en") {
+    return path === "/" ? "/" : `/en${path}`;
+  }
+  return `/${locale.value}${path}`;
 }
 </script>
 
@@ -30,6 +32,7 @@ function localLink(path: string): string {
           <ul>
             <li><a :href="localLink('/about/')">{{ t.about }}</a></li>
             <li><a :href="localLink('/message-types/')">{{ t.messageTypes }}</a></li>
+            <li><a :href="localLink('/message-selection/')">{{ t.selectionGuide }}</a></li>
             <li><a :href="localLink('/api/')">{{ t.api }}</a></li>
             <li><a :href="localLink('/contact/')">{{ t.contact }}</a></li>
           </ul>

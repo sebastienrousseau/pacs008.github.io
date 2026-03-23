@@ -1,6 +1,6 @@
 ---
-title: الشروط | العربية
-description: معلومات الشروط لموقع pacs008.
+title: الشروط | pacs008
+description: معلومات الشروط لموقع pacs008. التوليد والتحقق وتنسيق واجهات البرمجة ودعم الامتثال لتدفقات تحويل الائتمان بين المؤسسات المالية.
 lang: ar-SA
 lastUpdated: true
 image: /logo.svg

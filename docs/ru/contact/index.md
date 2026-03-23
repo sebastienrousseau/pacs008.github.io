@@ -1,6 +1,6 @@
 ---
-title: Контакты | Русский
-description: Как связаться с проектом pacs008.
+title: Контакты | pacs008
+description: Как связаться с проектом pacs008. Генерация, валидация, оркестрация API и поддержка комплаенса для потоков кредитовых переводов FI-to-FI.
 lang: ru-RU
 lastUpdated: true
 image: /logo.svg

@@ -1,6 +1,6 @@
 ---
-title: Über pacs008 | Deutsch
-description: Was pacs008 leistet und für wen es gedacht ist.
+title: Über pacs008 | pacs008
+description: Was pacs008 leistet und für wen es gedacht ist. Generierung, Validierung, API-Orchestrierung und Compliance-Unterstützung für...
 lang: de-DE
 lastUpdated: true
 image: /logo.svg
@@ -9,6 +9,8 @@ image: /logo.svg
 # Über pacs008
 
 pacs008 ist ein Python-Toolkit zur Automatisierung von ISO 20022 FI-to-FI-Kundenzahlungsabläufen.
+
+> Zuletzt anhand von Primärquellen am 23. März 2026 geprüft. Öffentliche ISO-20022-, EPC- und Swift-Quellen sind auf dieser Seite verlinkt.
 
 ## Funktionen
 
@@ -64,4 +66,12 @@ pacs008 geht über die Nachrichtendefinitions-Referenz hinaus und unterstützt d
 - Vor der Zustellung validieren
 - Zahlungsketten und nachgelagerte Formate modellieren
 - Schema-spezifische Änderungen im Code testbar machen
+
+## Umsetzungscheckliste
+
+- Vor dem Schreiben von Templates zuerst die richtige Nachrichtenfamilie für das Geschäftsevent auswählen.
+- Geschäftsdaten vor der XML-Erzeugung validieren, damit Schemafehler nicht das erste Warnsignal sind.
+- BIC-, IBAN-, Remittance- und Adressqualität als Release-Kriterium behandeln und nicht als spätere Bereinigung.
+- Jede schemaspezifische oder bankspezifische Regeländerung mit repräsentativen Zahlungsdaten regressionsprüfen.
+
 

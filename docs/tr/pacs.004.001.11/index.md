@@ -1,6 +1,6 @@
 ---
-title: pacs.004.001.11 — Payment Return | Türkçe
-description: pacs.004 mesajı, daha önce takas edilmiş bir ödeme işlemini iade etmek için kullanılır. Bir ödeme uygulanamadığında, hatalı gönderildiğinde veya kaynak kuruluş tarafından geri çağrıldığında fon akışını tersine çevirir.
+title: pacs.004.001.11 | Payment Return | pacs008
+description: pacs.004 mesajı, daha önce takas edilmiş bir ödeme işlemini iade etmek için kullanılır. Bir ödeme uygulanamadığında, hatalı gönderildiğinde veya kaynak...
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg
@@ -19,6 +19,8 @@ image: /logo.svg
 
 pacs.004 mesajı, daha önce takas edilmiş bir ödeme işlemini iade etmek için kullanılır. Bir ödeme uygulanamadığında, hatalı gönderildiğinde veya kaynak kuruluş tarafından geri çağrıldığında fon akışını tersine çevirir.
 
+> Birincil kaynaklara göre en son 23 Mart 2026 tarihinde gözden geçirildi. ISO 20022 katalog referans tarihi: 27 February 2025; kaynak bağlantıları aşağıda listelenmiştir.
+
 ## Temel veri öğeleri
 
 - **GrpHdr** — Mesaj tanımlama ve oluşturma zaman damgası içeren Grup Başlığı
@@ -34,6 +36,14 @@ pacs.004 mesajı, daha önce takas edilmiş bir ödeme işlemini iade etmek içi
 - Düzenleyici ve operasyonel şeffaflık için yapılandırılmış iade neden kodları taşır
 - Hem kredi transferi iadelerine (pacs.008) hem de doğrudan borçlandırma iadelerine (pacs.003) uygulanır
 
+| Temel veri öğeleri | İş bağlamı |
+|---|---|
+| **GrpHdr** — Mesaj tanımlama ve oluşturma zaman damgası içeren Grup Başlığı | Lehdarın hesabına alacak kaydedilemediğinde takas sonrası iadeleri işler |
+| **TxInf** — İade tutarı ve tarafları içeren İşlem Bilgisi | Göndericinin fon iadesi talep ettiği geri çağırma senaryolarını destekler |
+| **OrgnlGrpInf** — Kaynak mesaja bağlayan Orijinal Grup Bilgisi | Düzenleyici ve operasyonel şeffaflık için yapılandırılmış iade neden kodları taşır |
+| **RtrRsnInf** — Yapılandırılmış neden kodları içeren İade Nedeni Bilgisi | Hem kredi transferi iadelerine (pacs.008) hem de doğrudan borçlandırma iadelerine (pacs.003) uygulanır |
+| **OrgnlTxRef** — Eşleştirme ve mutabakat için Orijinal İşlem Referansı | Talimat alan aracı, daha önce takas edilmiş fonları iade etmek üzere ödeme zinciri boyunca geriye pacs.004 gönderir. Zincirdeki her aracı iadeyi işler ve ilgili hesapları geri alacaklandırır. |
+
 ## CBPR+ ve şema bağlamı
 
 - MT103 RETURN ve teminat yöntemi iade mesajlarının yerine geçer
@@ -45,9 +55,19 @@ pacs.004 mesajı, daha önce takas edilmiş bir ödeme işlemini iade etmek içi
 
 Talimat alan aracı, daha önce takas edilmiş fonları iade etmek üzere ödeme zinciri boyunca geriye pacs.004 gönderir. Zincirdeki her aracı iadeyi işler ve ilgili hesapları geri alacaklandırır.
 
-## İlgili mesajlar
+## Birincil referanslar
 
-- [`pacs.008.001.13`](/tr/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.003.001.09`](/tr/pacs.003.001.09/) — FI to FI Customer Direct Debit
-- [`pacs.002.001.12`](/tr/pacs.002.001.12/) — FI to FI Payment Status Report
+- [ISO 20022 message definitions catalogue for `pacs.004.001.11`](https://www.iso20022.org/iso-20022-message-definitions?search=Pacs.004.001.11)
+- [Swift CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released)
+- [Swift CBPR+ migration roadmap PDF](https://www.swift.com/swift-resource/252463/download)
+- [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and)
+- [EPC SEPA Instant Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook)
+
+
+## İlgili mesajlar
+| Mesaj türü | Açıklama | Genel bakış |
+|---|---|---|
+| [`pacs.008.001.13`](/tr/pacs.008.001.13/) | FI to FI Customer Credit Transfer | pacs.008 mesajı, bir müşteri adına fon transfer etmek üzere finans kuruluşları arasında iletilen temel ödeme talimatıdır. Bir veya daha fazla kredi transferi işlemi için borçlu, alacaklı, tutar ve havale bilgilerini taşır. |
+| [`pacs.003.001.09`](/tr/pacs.003.001.09/) | FI to FI Customer Direct Debit | pacs.003 mesajı, bir müşteri doğrudan borçlandırma talimatını yürütmek üzere finans kuruluşları arasında iletilir. Alacaklının bankasının, alacaklı adına borçlunun bankasından fon tahsil etmesini sağlar. |
+| [`pacs.002.001.12`](/tr/pacs.002.001.12/) | FI to FI Payment Status Report | pacs.002 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu bildirmek üzere bir finans kuruluşu tarafından gönderilir. Bir ödeme mesajı içindeki bireysel işlemler için onay, ret veya bekleyen durum bilgisi sağlar. |
 

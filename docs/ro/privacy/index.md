@@ -1,6 +1,6 @@
 ---
-title: Confidențialitate | Română
-description: Informații de confidențialitate pentru site-ul pacs008.
+title: Confidențialitate | pacs008
+description: Informații de confidențialitate pentru site-ul pacs008. Generare, validare, orchestrare API și suport de conformitate pentru fluxuri de transfer de credit...
 lang: ro-RO
 lastUpdated: true
 image: /logo.svg

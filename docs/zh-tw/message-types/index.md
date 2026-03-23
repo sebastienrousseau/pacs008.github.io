@@ -1,6 +1,6 @@
 ---
-title: 訊息類型 | 繁體中文
-description: 支援的 ISO 20022 pacs 訊息定義和版本。
+title: 訊息類型 | pacs008 ISO 20022
+description: 支援的 ISO 20022 pacs 訊息定義和版本。 面向 FI-to-FI 客戶信貸轉帳工作流程的產生、驗證、API 編排與合規支援。
 lang: zh-TW
 lastUpdated: true
 image: /logo.svg
@@ -10,34 +10,25 @@ image: /logo.svg
 
 pacs008 涵蓋核心 pacs.008 訊息定義和編排及對帳流程中使用的相關訊息。
 
+> 已於 2026 年 3 月 23 日依據本頁引用的 ISO 20022、EPC 與 Swift 公開資料完成主要來源複核。
+
 ## 包含的支援
 
-| 訊息類型 | 說明 |
-|---|---|
-| [`pacs.002.001.12`](/zh-tw/pacs.002.001.12/) | FI to FI Payment Status Report |
-| [`pacs.003.001.09`](/zh-tw/pacs.003.001.09/) | FI to FI Customer Direct Debit |
-| [`pacs.004.001.11`](/zh-tw/pacs.004.001.11/) | Payment Return |
-| [`pacs.007.001.11`](/zh-tw/pacs.007.001.11/) | FI to FI Payment Reversal |
-| [`pacs.008.001.01`](/zh-tw/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.02`](/zh-tw/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.03`](/zh-tw/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.04`](/zh-tw/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.05`](/zh-tw/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.06`](/zh-tw/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.07`](/zh-tw/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.08`](/zh-tw/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.09`](/zh-tw/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.10`](/zh-tw/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.11`](/zh-tw/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.12`](/zh-tw/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.13`](/zh-tw/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.009.001.10`](/zh-tw/pacs.009.001.10/) | Financial Institution Credit Transfer |
-| [`pacs.010.001.05`](/zh-tw/pacs.010.001.05/) | Financial Institution Direct Debit |
-| [`pacs.028.001.05`](/zh-tw/pacs.028.001.05/) | FI to FI Payment Status Request |
+| 訊息類型 | 說明 | 版本 | 年份 | 概述 |
+|---|---|---|---|---|
+| [`pacs.002.001.12`](/zh-tw/pacs.002.001.12/) | FI to FI Payment Status Report | `pacs.002.001.12` | 2019 | pacs.002 訊息由金融機構發送，用於報告先前發送的付款指令之狀態。它為付款訊息中的個別交易提供確認、拒絕或待處理的狀態資訊。 |
+| [`pacs.003.001.09`](/zh-tw/pacs.003.001.09/) | FI to FI Customer Direct Debit | `pacs.003.001.09` | 2019 | pacs.003 訊息在金融機構之間交換，用於執行客戶直接扣款指令。它使債權人的銀行能夠代表債權人從債務人的銀行收取資金。 |
+| [`pacs.004.001.11`](/zh-tw/pacs.004.001.11/) | Payment Return | `pacs.004.001.11` | 2019 | pacs.004 訊息用於退回先前已清算的付款交易。當付款無法入帳、被錯誤發送或發起機構請求召回時，它將逆轉資金流向。 |
+| [`pacs.007.001.11`](/zh-tw/pacs.007.001.11/) | FI to FI Payment Reversal | `pacs.007.001.11` | 2019 | pacs.007 訊息用於撤銷先前發送但尚未清算的付款指令，或請求撤銷已清算的付款。與 pacs.004（退回）不同，它由原始指示代理人發起。 |
+| [`pacs.008.001.13`](/zh-tw/pacs.008.001.13/) | FI to FI Customer Credit Transfer | `pacs.008.001.13` | 2023 | pacs.008 訊息是金融機構之間交換的核心付款指令，用於代表客戶轉移資金。它為一筆或多筆信用轉帳交易攜帶債務人、債權人、金額和匯款資訊。 |
+| [`pacs.009.001.10`](/zh-tw/pacs.009.001.10/) | Financial Institution Credit Transfer | `pacs.009.001.10` | 2019 | pacs.009 訊息用於金融機構自身帳戶間的信用轉帳，而非代表客戶進行。它支援銀行間資金調撥、覆蓋付款和流動性管理。 |
+| [`pacs.010.001.05`](/zh-tw/pacs.010.001.05/) | Financial Institution Direct Debit | `pacs.010.001.05` | 2019 | pacs.010 訊息用於金融機構自身帳戶的直接扣款交易。它使一個機構能夠直接從另一個機構的帳戶中收取資金。 |
+| [`pacs.028.001.05`](/zh-tw/pacs.028.001.05/) | FI to FI Payment Status Request | `pacs.028.001.05` | 2019 | pacs.028 訊息由金融機構發送，用於查詢先前發送的付款指令之狀態。它無需等待主動推送的狀態報告，即可實現對付款處理的主動追蹤。 |
 
 ## 交付模型
 
 每種支援的訊息類型都配備範本資源和驗證邏輯，以便團隊能夠在多個下游管道中標準化生成和迴歸測試。
+
 
 ## 2026 市場背景
 

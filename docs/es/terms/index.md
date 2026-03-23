@@ -1,6 +1,6 @@
 ---
-title: Términos | Español
-description: Información sobre los términos del sitio web de pacs008.
+title: Términos | pacs008
+description: Información sobre los términos del sitio web de pacs008. Generación, validación, orquestación de API y soporte de cumplimiento para flujos de...
 lang: es-ES
 lastUpdated: true
 image: /logo.svg

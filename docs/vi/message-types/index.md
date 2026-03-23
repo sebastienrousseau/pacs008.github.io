@@ -1,6 +1,6 @@
 ---
-title: Loại thông điệp | Tiếng Việt
-description: Các định nghĩa và phiên bản thông điệp pacs ISO 20022 được hỗ trợ.
+title: Loại thông điệp | pacs008 ISO 20022
+description: Các định nghĩa và phiên bản thông điệp pacs ISO 20022 được hỗ trợ. Tạo, xác thực, điều phối API và hỗ trợ tuân thủ cho quy trình chuyển khoản tín dụng...
 lang: vi-VN
 lastUpdated: true
 image: /logo.svg
@@ -10,34 +10,25 @@ image: /logo.svg
 
 pacs008 bao gồm định nghĩa thông điệp pacs.008 cốt lõi và các thông điệp liên quan được sử dụng trong các luồng điều phối và đối soát.
 
+> Được rà soát lần cuối đối chiếu với nguồn gốc chính vào ngày 23 tháng 3 năm 2026 bằng các tài liệu công khai của ISO 20022, EPC và Swift được dẫn trên trang này.
+
 ## Hỗ trợ bao gồm
 
-| Loại thông điệp | Mô tả |
-|---|---|
-| [`pacs.002.001.12`](/vi/pacs.002.001.12/) | FI to FI Payment Status Report |
-| [`pacs.003.001.09`](/vi/pacs.003.001.09/) | FI to FI Customer Direct Debit |
-| [`pacs.004.001.11`](/vi/pacs.004.001.11/) | Payment Return |
-| [`pacs.007.001.11`](/vi/pacs.007.001.11/) | FI to FI Payment Reversal |
-| [`pacs.008.001.01`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.02`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.03`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.04`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.05`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.06`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.07`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.08`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.09`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.10`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.11`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.12`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.13`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.009.001.10`](/vi/pacs.009.001.10/) | Financial Institution Credit Transfer |
-| [`pacs.010.001.05`](/vi/pacs.010.001.05/) | Financial Institution Direct Debit |
-| [`pacs.028.001.05`](/vi/pacs.028.001.05/) | FI to FI Payment Status Request |
+| Loại thông điệp | Mô tả | Phiên bản | Năm | Tổng quan |
+|---|---|---|---|---|
+| [`pacs.002.001.12`](/vi/pacs.002.001.12/) | FI to FI Payment Status Report | `pacs.002.001.12` | 2019 | Thông điệp pacs.002 được gửi bởi tổ chức tài chính để báo cáo trạng thái của lệnh thanh toán đã gửi trước đó. Thông điệp này cung cấp thông tin xác nhận, từ chối hoặc trạng thái đang chờ xử lý cho các giao dịch riêng lẻ trong thông điệp thanh toán. |
+| [`pacs.003.001.09`](/vi/pacs.003.001.09/) | FI to FI Customer Direct Debit | `pacs.003.001.09` | 2019 | Thông điệp pacs.003 được trao đổi giữa các tổ chức tài chính để thực hiện lệnh ghi nợ trực tiếp của khách hàng. Thông điệp này cho phép ngân hàng của chủ nợ thu tiền từ ngân hàng của con nợ thay mặt cho chủ nợ. |
+| [`pacs.004.001.11`](/vi/pacs.004.001.11/) | Payment Return | `pacs.004.001.11` | 2019 | Thông điệp pacs.004 được sử dụng để hoàn trả giao dịch thanh toán đã quyết toán trước đó. Thông điệp này đảo ngược dòng tiền khi khoản thanh toán không thể áp dụng, được gửi nhầm, hoặc đang bị thu hồi bởi tổ chức gốc. |
+| [`pacs.007.001.11`](/vi/pacs.007.001.11/) | FI to FI Payment Reversal | `pacs.007.001.11` | 2019 | Thông điệp pacs.007 được sử dụng để đảo ngược lệnh thanh toán đã gửi trước đó chưa được quyết toán hoặc để yêu cầu đảo ngược khoản thanh toán đã quyết toán. Khác với pacs.004 (hoàn trả), thông điệp này được khởi tạo bởi đại lý ra lệnh gốc. |
+| [`pacs.008.001.13`](/vi/pacs.008.001.13/) | FI to FI Customer Credit Transfer | `pacs.008.001.13` | 2023 | Thông điệp pacs.008 là lệnh thanh toán cốt lõi được trao đổi giữa các tổ chức tài chính để chuyển tiền thay mặt khách hàng. Thông điệp này mang thông tin con nợ, chủ nợ, số tiền và thông tin chuyển tiền cho một hoặc nhiều giao dịch chuyển khoản tín dụng. |
+| [`pacs.009.001.10`](/vi/pacs.009.001.10/) | Financial Institution Credit Transfer | `pacs.009.001.10` | 2019 | Thông điệp pacs.009 được sử dụng cho chuyển khoản tín dụng giữa các tổ chức tài chính khi việc chuyển khoản là thay mặt tổ chức chứ không phải thay mặt khách hàng. Thông điệp này hỗ trợ cấp vốn liên ngân hàng, thanh toán cover và quản lý thanh khoản. |
+| [`pacs.010.001.05`](/vi/pacs.010.001.05/) | Financial Institution Direct Debit | `pacs.010.001.05` | 2019 | Thông điệp pacs.010 được sử dụng giữa các tổ chức tài chính cho giao dịch ghi nợ trực tiếp trên tài khoản của chính tổ chức. Thông điệp này cho phép một tổ chức thu tiền trực tiếp từ tài khoản của tổ chức khác. |
+| [`pacs.028.001.05`](/vi/pacs.028.001.05/) | FI to FI Payment Status Request | `pacs.028.001.05` | 2019 | Thông điệp pacs.028 được gửi bởi tổ chức tài chính để yêu cầu trạng thái của lệnh thanh toán đã gửi trước đó. Thông điệp này cho phép theo dõi chủ động việc xử lý thanh toán mà không cần chờ báo cáo trạng thái không được yêu cầu. |
 
 ## Mô hình phân phối
 
 Mỗi loại thông điệp được hỗ trợ đều có tài nguyên mẫu và logic xác thực để các nhóm có thể chuẩn hóa việc tạo và kiểm tra hồi quy trên nhiều kênh.
+
 
 ## Bối cảnh thị trường 2026
 

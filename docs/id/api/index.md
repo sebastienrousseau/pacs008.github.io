@@ -1,6 +1,6 @@
 ---
-title: API | Bahasa Indonesia
-description: Dukungan alur kerja REST dan CLI di pacs008.
+title: API | pacs008
+description: Dukungan alur kerja REST dan CLI di pacs008. Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan FI-to-FI.
 lang: id-ID
 lastUpdated: true
 image: /logo.svg
@@ -9,6 +9,8 @@ image: /logo.svg
 # API
 
 Proyek ini menyediakan REST API dan CLI untuk alur kerja pemrosesan pesan pembayaran operasional.
+
+> Terakhir ditinjau terhadap sumber primer pada 23 Maret 2026 menggunakan materi publik ISO 20022, EPC, dan Swift yang dirujuk pada halaman ini.
 
 ## Instalasi
 
@@ -43,6 +45,15 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 | `DELETE /jobs/{job_id}` | Membatalkan tugas yang tertunda atau sedang berjalan |
 | `GET /docs` | Antarmuka Swagger UI interaktif untuk menjelajahi dan menguji semua endpoint |
 
+- [`pacs.002.001.12`](/id/pacs.002.001.12/) — FI to FI Payment Status Report
+- [`pacs.003.001.09`](/id/pacs.003.001.09/) — FI to FI Customer Direct Debit
+- [`pacs.004.001.11`](/id/pacs.004.001.11/) — Payment Return
+- [`pacs.007.001.11`](/id/pacs.007.001.11/) — FI to FI Payment Reversal
+- [`pacs.008.001.13`](/id/pacs.008.001.13/) — FI to FI Customer Credit Transfer
+- [`pacs.009.001.10`](/id/pacs.009.001.10/) — Financial Institution Credit Transfer
+- [`pacs.010.001.05`](/id/pacs.010.001.05/) — Financial Institution Direct Debit
+- [`pacs.028.001.05`](/id/pacs.028.001.05/) — FI to FI Payment Status Request
+
 ### Contoh validasi
 
 Kirim data pembayaran untuk validasi sebelum membuat XML.
@@ -68,6 +79,15 @@ curl -X POST http://localhost:8000/api/validate \
       "creditor_name": "Widget Industries SA"
     }]
   }'
+```
+
+```json
+{
+  "valid": true,
+  "message_type": "pacs.008.001.13",
+  "errors": [],
+  "warnings": []
+}
 ```
 
 ### Contoh pembuatan sinkron
@@ -117,6 +137,15 @@ curl http://localhost:8000/api/status/$JOB_ID
 
 # Download the result
 curl http://localhost:8000/api/download/$JOB_ID --output result.xml
+```
+
+```json
+{
+  "job_id": "8f7f0d4b-7df9-4d1a-8d47-19f4f28b6d38",
+  "status": "completed",
+  "message_type": "pacs.008.001.13",
+  "download_url": "/api/download/8f7f0d4b-7df9-4d1a-8d47-19f4f28b6d38"
+}
 ```
 
 ---
@@ -217,6 +246,10 @@ docker build -t pacs008:latest .
 docker run -p 8000:8000 pacs008:latest
 ```
 
+```bash
+docker run --rm   -e PACS008_LOG_LEVEL=INFO   -v $PWD/examples:/data   -p 8000:8000 pacs008:latest
+```
+
 ---
 
 ## Validasi IBAN dan BIC
@@ -241,6 +274,14 @@ from pacs008.data.loader import load_payment_data_streaming
 
 for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
     print(f"Processing {len(chunk)} records")
+```
+
+```python
+from pacs008.validation import validate_batch
+
+for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
+    report = validate_batch(chunk, "pacs.008.001.13")
+    print(report.summary())
 ```
 
 ---

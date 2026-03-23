@@ -1,6 +1,6 @@
 ---
-title: pacs.028.001.05 — FI to FI Payment Status Request | Italiano
-description: Il messaggio pacs.028 viene inviato da un istituto finanziario per richiedere lo stato di un'istruzione di pagamento precedentemente inviata. Consente il tracciamento proattivo dell'elaborazione dei pagamenti senza attendere un rapporto di stato non richiesto.
+title: pacs.028.001.05 | FI to FI Payment Status Request | pacs008
+description: Il messaggio pacs.028 viene inviato da un istituto finanziario per richiedere lo stato di un'istruzione di pagamento precedentemente inviata. Consente il...
 lang: it-IT
 lastUpdated: true
 image: /logo.svg
@@ -19,6 +19,8 @@ image: /logo.svg
 
 Il messaggio pacs.028 viene inviato da un istituto finanziario per richiedere lo stato di un'istruzione di pagamento precedentemente inviata. Consente il tracciamento proattivo dell'elaborazione dei pagamenti senza attendere un rapporto di stato non richiesto.
 
+> Ultima revisione rispetto a fonti primarie il 23 marzo 2026. Data di riferimento del catalogo ISO 20022: 27 February 2025; i collegamenti alle fonti sono riportati di seguito.
+
 ## Elementi di dati chiave
 
 - **GrpHdr** — Intestazione di gruppo con identificazione del messaggio e marca temporale di creazione
@@ -34,6 +36,14 @@ Il messaggio pacs.028 viene inviato da un istituto finanziario per richiedere lo
 - Integra pacs.002 avviando la comunicazione sullo stato anziché attendere
 - Utilizzato nei flussi di lavoro di gestione delle eccezioni e monitoraggio degli SLA
 
+| Elementi di dati chiave | Contesto di business |
+|---|---|
+| **GrpHdr** — Intestazione di gruppo con identificazione del messaggio e marca temporale di creazione | Consente l'indagine proattiva sullo stato delle istruzioni di pagamento in transito |
+| **TxInf** — Informazioni sulla transazione che identificano il pagamento oggetto dell'indagine | Supporta i team operativi nell'indagine su pagamenti ritardati o mancanti |
+| **OrgnlGrpInf** — Informazioni sul gruppo originale con riferimento al messaggio di origine | Integra pacs.002 avviando la comunicazione sullo stato anziché attendere |
+| **OrgnlInstrId** — Identificazione dell'istruzione originale dal pagamento di origine | Utilizzato nei flussi di lavoro di gestione delle eccezioni e monitoraggio degli SLA |
+| **OrgnlEndToEndId** — Identificazione end-to-end originale per la tracciabilità | L'agente ordinante invia pacs.028 all'agente incaricato per richiedere lo stato di un pagamento specifico. L'agente incaricato risponde con un pacs.002 contenente lo stato di elaborazione attuale. |
+
 ## Contesto CBPR+ e schemi
 
 - Sostituisce i modelli di richiesta di stato MT199 e le interrogazioni manuali dei messaggi SWIFT
@@ -45,9 +55,53 @@ Il messaggio pacs.028 viene inviato da un istituto finanziario per richiedere lo
 
 L'agente ordinante invia pacs.028 all'agente incaricato per richiedere lo stato di un pagamento specifico. L'agente incaricato risponde con un pacs.002 contenente lo stato di elaborazione attuale.
 
-## Messaggi correlati
+## Tabella delle differenze di versione
 
-- [`pacs.002.001.12`](/it/pacs.002.001.12/) — FI to FI Payment Status Report
-- [`pacs.008.001.13`](/it/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.009.001.10`](/it/pacs.009.001.10/) — Financial Institution Credit Transfer
+| Intervallo di versione | Perché conta | Implicazione implementativa |
+|---|---|---|
+| pacs.028.001.05 | Implementazione attuale in pacs008 | Adatto alla modellazione attuale delle richieste di stato. |
+| pacs.028.001.06 | Revisione successiva del catalogo | Check the newer catalogue revision for future interoperability planning. |
+
+## Esempio XML commentato
+
+```xml
+<FIToFIPmtStsReq>
+  <GrpHdr>
+    <MsgId>REQ-2026-0009</MsgId>
+  </GrpHdr>
+  <TxInf>
+    <OrgnlInstrId>PAY-2026-8841</OrgnlInstrId>
+    <OrgnlEndToEndId>E2E-INV-2026-001</OrgnlEndToEndId>
+  </TxInf>
+</FIToFIPmtStsReq>
+```
+
+### Commenti sui campi
+
+- `MsgId`: The request itself needs an auditable identifier distinct from the underlying payment.
+- `OrgnlInstrId`: Use the exact source identifier from the original instruction to maximize matching accuracy.
+- `OrgnlEndToEndId`: Including customer traceability helps operations teams reconcile the enquiry faster.
+
+## Confrontare pacs.028 vs pacs.002
+
+| Dimensione | pacs.028.001.05 | Messaggio di confronto |
+|---|---|---|
+| Scopo principale | Request status | Report status |
+| Who starts the interaction | The institution asking for status | The institution sending the status |
+| Operational posture | Exception-driven enquiry | Event-driven reporting |
+| Assunzione errata da evitare | That it should be sent routinely for every payment | That it eliminates the need for proactive case management |
+
+## Riferimenti primari
+
+- [ISO 20022 message definitions catalogue for `pacs.028.001.05`](https://www.iso20022.org/iso-20022-message-definitions?search=Pacs.028.001.05)
+- [Swift CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released)
+- [Swift CBPR+ migration roadmap PDF](https://www.swift.com/swift-resource/252463/download)
+
+
+## Messaggi correlati
+| Tipo di messaggio | Descrizione | Panoramica |
+|---|---|---|
+| [`pacs.002.001.12`](/it/pacs.002.001.12/) | FI to FI Payment Status Report | Il messaggio pacs.002 viene inviato da un istituto finanziario per comunicare lo stato di un'istruzione di pagamento precedentemente inviata. Fornisce informazioni di conferma, rifiuto o stato in sospeso per le singole transazioni all'interno di un messaggio di pagamento. |
+| [`pacs.008.001.13`](/it/pacs.008.001.13/) | FI to FI Customer Credit Transfer | Il messaggio pacs.008 è l'istruzione di pagamento principale scambiata tra istituti finanziari per trasferire fondi per conto di un cliente. Contiene informazioni su debitore, creditore, importo e dettagli di rimessa per una o più transazioni di bonifico. |
+| [`pacs.009.001.10`](/it/pacs.009.001.10/) | Financial Institution Credit Transfer | Il messaggio pacs.009 viene utilizzato per bonifici tra istituti finanziari in cui il trasferimento avviene per conto proprio dell'istituto anziché per conto di un cliente. Supporta il finanziamento interbancario, i pagamenti di copertura e la gestione della liquidità. |
 

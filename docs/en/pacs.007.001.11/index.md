@@ -1,6 +1,6 @@
 ---
-title: pacs.007.001.11 — FI to FI Payment Reversal | English
-description: The pacs.007 message is used to reverse a previously sent payment instruction that has not yet been settled or to request reversal of a settled payment. Unlike pacs.004 (return), it is initiated by the original instructing agent.
+title: pacs.007.001.11 | FI to FI Payment Reversal | pacs008
+description: The pacs.007 message is used to reverse a previously sent payment instruction that has not yet been settled or to request reversal of a settled payment...
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
@@ -19,6 +19,8 @@ image: /logo.svg
 
 The pacs.007 message is used to reverse a previously sent payment instruction that has not yet been settled or to request reversal of a settled payment. Unlike pacs.004 (return), it is initiated by the original instructing agent.
 
+> Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 27 February 2025; source links are listed below.
+
 ## Key data elements
 
 - **GrpHdr** — Group Header with message identification and creation timestamp
@@ -34,6 +36,14 @@ The pacs.007 message is used to reverse a previously sent payment instruction th
 - Supports both full and partial reversal of original payment amounts
 - Carries structured reversal reason codes for downstream processing
 
+| Key data elements | Business context |
+|---|---|
+| **GrpHdr** — Group Header with message identification and creation timestamp | Initiated when the original sender identifies an error before or after settlement |
+| **TxInf** — Transaction Information with reversal amount and parties | Used in fraud scenarios where rapid reversal is required |
+| **OrgnlGrpInf** — Original Group Information referencing the source message | Supports both full and partial reversal of original payment amounts |
+| **RvslRsnInf** — Reversal Reason Information with structured reason codes | Carries structured reversal reason codes for downstream processing |
+| **OrgnlTxRef** — Original Transaction Reference for end-to-end traceability | The instructing agent (original sender) sends pacs.007 forward through the payment chain to reverse a previously instructed payment. Each agent processes the reversal instruction and adjusts settlement accordingly. |
+
 ## CBPR+ and scheme context
 
 - Distinguished from pacs.004 by direction — reversal flows forward from originator, return flows backward from beneficiary
@@ -45,9 +55,108 @@ The pacs.007 message is used to reverse a previously sent payment instruction th
 
 The instructing agent (original sender) sends pacs.007 forward through the payment chain to reverse a previously instructed payment. Each agent processes the reversal instruction and adjusts settlement accordingly.
 
-## Related messages
+## Version commentary
 
-- [`pacs.008.001.13`](/en/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.004.001.11`](/en/pacs.004.001.11/) — Payment Return
-- [`pacs.002.001.12`](/en/pacs.002.001.12/) — FI to FI Payment Status Report
+The ISO 20022 catalogue entry for this business area was last updated on 27 February 2025. The pacs008 site currently documents `pacs.007.001.11`, while the ISO 20022 catalogue lists `pacs.007.001.13` as the latest published version.
+
+That means this page is useful for understanding the currently implemented version in pacs008, but roadmap and interoperability planning should account for the later catalogue revision as well.
+
+## Version-diff table
+
+| Version range | Why it matters | Implementation takeaway |
+|---|---|---|
+| pacs.007.001.11 | Current implementation in pacs008 | Good baseline for reversal workflow modelling. |
+| pacs.007.001.12-13 | Later catalogue revisions | Check later revisions for current market-infrastructure alignment. |
+
+## Scheme-specific notes
+
+- pacs.007 is operationally closer to recall and reversal handling than to beneficiary-side returns, so teams should not collapse it into the same process model as pacs.004. That is an implementation inference from the message roles and Swift CBPR+ payment-instruction scope.
+- This message is relevant to fast exception handling in instant-payment and fraud-response contexts even where scheme-specific operating rules sit outside the generic message definition.
+
+Source links below point to primary standards bodies or scheme operators. Where a note goes beyond a direct statement, it is an implementation inference from those sources.
+
+## When to use this message
+
+Use pacs.007 when the original sender needs to request that a previously instructed payment be reversed, often because of an operational error or fraud scenario.
+
+## When not to use this message
+
+Do not use pacs.007 to report status or to process a beneficiary-side return after the receiving institution has already decided to send funds back.
+
+## Implementation notes
+
+- Fraud and recall handling often require tighter time controls than standard exception processing, so reversal orchestration should be explicit.
+- Keep reversal reason capture structured; free text alone is rarely enough for audit and analytics.
+- Track partial and full reversal outcomes separately because treasury and reconciliation impacts differ.
+
+## Common failure modes
+
+- Modeling pacs.007 as just another return message.
+- Not preserving the original transaction chain in reconciliation records.
+- Using inconsistent reversal reason mapping across channels.
+
+## Worked XML fragment
+
+```xml
+<FIToFIPmtRvsl>
+  <GrpHdr>
+    <MsgId>RVSL-2026-0007</MsgId>
+  </GrpHdr>
+  <TxInf>
+    <OrgnlInstrId>PAY-2026-8841</OrgnlInstrId>
+    <RvslRsnInf>
+      <Rsn><Cd>DUPL</Cd></Rsn>
+    </RvslRsnInf>
+  </TxInf>
+</FIToFIPmtRvsl>
+```
+
+### Field commentary
+
+- `MsgId`: The reversal itself needs its own audit-safe identifier.
+- `OrgnlInstrId`: Preserve the original payment reference to avoid reconciliation breaks.
+- `RvslRsnInf`: Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently.
+
+## Decision flow
+
+```text
+Is the instructing side requesting reversal of an earlier instruction?
+Yes -> Use pacs.007.
+No -> Has the receiving side already returned settled funds?
+Yes -> Consider pacs.004 instead.
+No -> Check whether the case is status, investigation, or recall handling.
+```
+
+## Compare pacs.007 vs pacs.004
+
+| Dimension | pacs.007.001.11 | Comparison message |
+|---|---|---|
+| Primary purpose | Reverse a previously instructed payment | Return settled funds |
+| Initiated by | Original instructing side | Receiving / beneficiary side |
+| Direction of flow | Forward through the chain | Back through the chain |
+| Best fit | Recall, error, or fraud-driven reversal handling | Post-settlement return handling |
+
+## Implementation FAQ
+
+### Is pacs.007 only for fraud scenarios?
+
+No. Fraud is a major use case, but any instructing-side need to reverse a payment can trigger it.
+
+### Can it be handled like a normal return?
+
+No. Reversal timing, reason capture, and reconciliation differ materially from returns.
+
+## Primary references
+
+- [ISO 20022 message definitions catalogue for `pacs.007.001.11`](https://www.iso20022.org/iso-20022-message-definitions?search=Pacs.007.001.11)
+- [Swift CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released)
+- [Swift CBPR+ migration roadmap PDF](https://www.swift.com/swift-resource/252463/download)
+
+
+## Related messages
+| Message type | Description | Overview |
+|---|---|---|
+| [`pacs.008.001.13`](/en/pacs.008.001.13/) | FI to FI Customer Credit Transfer | The pacs.008 message is the core payment instruction exchanged between financial institutions to transfer funds on behalf of a customer. It carries debtor, creditor, amount, and remittance information for one or more credit transfer transactions. |
+| [`pacs.004.001.11`](/en/pacs.004.001.11/) | Payment Return | The pacs.004 message is used to return a previously settled payment transaction. It reverses the flow of funds when a payment cannot be applied, was sent in error, or is being recalled by the originating institution. |
+| [`pacs.002.001.12`](/en/pacs.002.001.12/) | FI to FI Payment Status Report | The pacs.002 message is sent by a financial institution to report the status of a previously sent payment instruction. It provides confirmation, rejection, or pending status information for individual transactions within a payment message. |
 

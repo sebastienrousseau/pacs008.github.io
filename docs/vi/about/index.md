@@ -1,6 +1,6 @@
 ---
-title: Giới thiệu pacs008 | Tiếng Việt
-description: pacs008 làm gì và dành cho ai.
+title: Giới thiệu pacs008 | pacs008
+description: pacs008 làm gì và dành cho ai. Tạo, xác thực, điều phối API và hỗ trợ tuân thủ cho quy trình chuyển khoản tín dụng khách hàng FI-to-FI.
 lang: vi-VN
 lastUpdated: true
 image: /logo.svg
@@ -9,6 +9,8 @@ image: /logo.svg
 # Giới thiệu pacs008
 
 pacs008 là bộ công cụ Python để tự động hóa quy trình chuyển khoản tín dụng khách hàng ISO 20022 giữa các tổ chức tài chính.
+
+> Được rà soát lần cuối đối chiếu với nguồn gốc chính vào ngày 23 tháng 3 năm 2026 bằng các tài liệu công khai của ISO 20022, EPC và Swift được dẫn trên trang này.
 
 ## Chức năng
 
@@ -64,4 +66,5 @@ pacs008 vượt ra ngoài tham chiếu định nghĩa thông điệp để hỗ 
 - xác thực trước khi giao
 - mô hình hóa chuỗi thanh toán và định dạng hạ nguồn
 - làm cho các thay đổi cụ thể theo lược đồ có thể kiểm tra được trong mã
+
 

@@ -1,6 +1,6 @@
 ---
-title: Privacy | English
-description: Privacy information for the pacs008 website.
+title: Privacy | pacs008
+description: Privacy information for the pacs008 website. Generation, validation, API orchestration, and compliance support for FI-to-FI customer credit transfer...
 lang: en-GB
 lastUpdated: true
 image: /logo.svg

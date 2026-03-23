@@ -1,6 +1,6 @@
 ---
-title: Confidentialité | Français
-description: Informations de confidentialité pour le site pacs008.
+title: Confidentialité | pacs008
+description: Informations de confidentialité pour le site pacs008. Génération, validation, orchestration d'API et conformité pour les flux de virement client FI-to-FI.
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg

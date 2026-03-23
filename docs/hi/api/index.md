@@ -1,6 +1,6 @@
 ---
-title: API | हिन्दी
-description: pacs008 में REST और CLI वर्कफ़्लो समर्थन।
+title: API | pacs008
+description: pacs008 में REST और CLI वर्कफ़्लो समर्थन। FI-to-FI ग्राहक क्रेडिट ट्रांसफर वर्कफ़्लो के लिए जनरेशन, वैलिडेशन, API ऑर्केस्ट्रेशन और अनुपालन समर्थन।
 lang: hi-IN
 lastUpdated: true
 image: /logo.svg
@@ -9,6 +9,8 @@ image: /logo.svg
 # API
 
 परियोजना परिचालन भुगतान संदेश वर्कफ़्लो के लिए REST API और CLI दोनों प्रदान करती है।
+
+> इस पृष्ठ पर संदर्भित ISO 20022, EPC और Swift की सार्वजनिक सामग्रियों के आधार पर 23 मार्च 2026 को प्राथमिक स्रोतों के विरुद्ध अंतिम समीक्षा की गई।
 
 ## इंस्टॉलेशन
 
@@ -43,6 +45,15 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 | `DELETE /jobs/{job_id}` | लंबित या चल रही नौकरी को रद्द करें |
 | `GET /docs` | सभी एंडपॉइंट एक्सप्लोर और टेस्ट करने के लिए इंटरएक्टिव Swagger UI |
 
+- [`pacs.002.001.12`](/hi/pacs.002.001.12/) — FI to FI Payment Status Report
+- [`pacs.003.001.09`](/hi/pacs.003.001.09/) — FI to FI Customer Direct Debit
+- [`pacs.004.001.11`](/hi/pacs.004.001.11/) — Payment Return
+- [`pacs.007.001.11`](/hi/pacs.007.001.11/) — FI to FI Payment Reversal
+- [`pacs.008.001.13`](/hi/pacs.008.001.13/) — FI to FI Customer Credit Transfer
+- [`pacs.009.001.10`](/hi/pacs.009.001.10/) — Financial Institution Credit Transfer
+- [`pacs.010.001.05`](/hi/pacs.010.001.05/) — Financial Institution Direct Debit
+- [`pacs.028.001.05`](/hi/pacs.028.001.05/) — FI to FI Payment Status Request
+
 ### वैलिडेशन उदाहरण
 
 XML जनरेट करने से पहले वैलिडेशन के लिए भुगतान डेटा सबमिट करें।
@@ -68,6 +79,15 @@ curl -X POST http://localhost:8000/api/validate \
       "creditor_name": "Widget Industries SA"
     }]
   }'
+```
+
+```json
+{
+  "valid": true,
+  "message_type": "pacs.008.001.13",
+  "errors": [],
+  "warnings": []
+}
 ```
 
 ### समकालिक जनरेशन उदाहरण
@@ -117,6 +137,15 @@ curl http://localhost:8000/api/status/$JOB_ID
 
 # Download the result
 curl http://localhost:8000/api/download/$JOB_ID --output result.xml
+```
+
+```json
+{
+  "job_id": "8f7f0d4b-7df9-4d1a-8d47-19f4f28b6d38",
+  "status": "completed",
+  "message_type": "pacs.008.001.13",
+  "download_url": "/api/download/8f7f0d4b-7df9-4d1a-8d47-19f4f28b6d38"
+}
 ```
 
 ---
@@ -217,6 +246,10 @@ docker build -t pacs008:latest .
 docker run -p 8000:8000 pacs008:latest
 ```
 
+```bash
+docker run --rm   -e PACS008_LOG_LEVEL=INFO   -v $PWD/examples:/data   -p 8000:8000 pacs008:latest
+```
+
 ---
 
 ## IBAN और BIC सत्यापन
@@ -241,6 +274,14 @@ from pacs008.data.loader import load_payment_data_streaming
 
 for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
     print(f"Processing {len(chunk)} records")
+```
+
+```python
+from pacs008.validation import validate_batch
+
+for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
+    report = validate_batch(chunk, "pacs.008.001.13")
+    print(report.summary())
 ```
 
 ---

@@ -2,7 +2,7 @@ import { defineConfig } from "vitepress";
 import { writeFileSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { sharedHead } from "./config/head";
-import { LOCALE_META, SITE_URL, buildHreflangTags, resolvePageMeta } from "./config/seo";
+import { LOCALE_HOME_LABELS, LOCALE_META, SITE_URL, buildHreflangTags, resolvePageMeta } from "./config/seo";
 import { getUiStrings } from "./config/i18n";
 
 const RTL_LOCALES = new Set(["ar", "he"]);
@@ -14,12 +14,18 @@ function escapeXml(s: string): string {
 function navFor(locale: string) {
   const t = getUiStrings(locale);
   const prefix = `/${locale}`;
-  return [
+  const nav = [
     { text: t.about, link: `${prefix}/about/` },
     { text: t.messageTypes, link: `${prefix}/message-types/` },
+    { text: t.selectionGuide, link: `${prefix}/message-selection/` },
     { text: t.api, link: `${prefix}/api/` },
     { text: t.contact, link: `${prefix}/contact/` }
   ];
+  return nav;
+}
+
+function localeHomePath(locale: string): string {
+  return locale === "en" ? "/" : `/${locale}/`;
 }
 
 const locales = Object.fromEntries(
@@ -52,7 +58,7 @@ const locales = Object.fromEntries(
       }[key],
       lang: value.lang,
       dir: RTL_LOCALES.has(key) ? "rtl" : "ltr",
-      link: `/${key}/`,
+      link: localeHomePath(key),
       themeConfig: {
         nav: navFor(key)
       }
@@ -72,7 +78,7 @@ export default defineConfig({
   sitemap: {
     hostname: "https://pacs008.com",
     transformItems(items) {
-      return items.filter((item) => !item.url.includes("404"));
+      return items.filter((item) => !item.url.includes("404") && !/\/en\/$/.test(item.url));
     }
   },
   locales,
@@ -166,13 +172,6 @@ ${items.join("\n")}
     }
   },
   transformHead({ pageData }) {
-    if (pageData.relativePath === "index.md") {
-      return [
-        ["meta", { "http-equiv": "refresh", content: "0;url=/en/" }],
-        ["link", { rel: "canonical", href: "https://pacs008.com/en/" }]
-      ];
-    }
-
     const meta = resolvePageMeta(pageData);
     const fm = pageData.frontmatter;
     const head: Array<[string, Record<string, string>]> = [
@@ -216,12 +215,22 @@ ${items.join("\n")}
       .filter(Boolean);
 
     if (segments.length > 0) {
-      const breadcrumbItems = segments.map((seg, i) => ({
-        "@type": "ListItem",
-        "position": i + 1,
-        "name": seg.charAt(0).toUpperCase() + seg.slice(1).replace(/-/g, " "),
-        "item": `${SITE_URL}/${segments.slice(0, i + 1).join("/")}/`
-      }));
+      const localeKey = LOCALE_META[segments[0]] ? segments[0] : "en";
+      const contentSegments = LOCALE_META[segments[0]] ? segments.slice(1) : segments;
+      const breadcrumbItems = [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": LOCALE_HOME_LABELS[localeKey],
+          "item": `${SITE_URL}${localeHomePath(localeKey)}`
+        },
+        ...contentSegments.map((seg, i) => ({
+          "@type": "ListItem",
+          "position": i + 2,
+          "name": seg.charAt(0).toUpperCase() + seg.slice(1).replace(/-/g, " "),
+          "item": `${SITE_URL}/${[...segments.slice(0, LOCALE_META[segments[0]] ? 1 : 0), ...contentSegments.slice(0, i + 1)].join("/")}/`
+        }))
+      ];
 
       head.push(["script", { type: "application/ld+json" }, JSON.stringify({
         "@context": "https://schema.org",
@@ -234,10 +243,10 @@ ${items.join("\n")}
     head.push(["script", { type: "application/ld+json" }, JSON.stringify({
       "@context": "https://schema.org/",
       "@type": "WebPage",
-      "author": { "@type": "Person", "@id": "Sebastien Rousseau" },
-      "copyrightHolder": { "@type": "Person", "@id": "Sebastien Rousseau" },
+      "author": { "@type": "Person", "@id": `${SITE_URL}/#sebastien-rousseau`, "name": "Sebastien Rousseau", "url": "https://sebastienrousseau.com/" },
+      "copyrightHolder": { "@type": "Person", "@id": `${SITE_URL}/#sebastien-rousseau`, "name": "Sebastien Rousseau", "url": "https://sebastienrousseau.com/" },
       "copyrightYear": "© 2025 pacs008. All rights reserved.",
-      "creator": { "@type": "Person", "@id": "Sebastien Rousseau" },
+      "creator": { "@type": "Person", "@id": `${SITE_URL}/#sebastien-rousseau`, "name": "Sebastien Rousseau", "url": "https://sebastienrousseau.com/" },
       "dateModified": new Date().toISOString(),
       "datePublished": "2025-01-01T00:00:00.000Z",
       "description": meta.description,
@@ -246,7 +255,17 @@ ${items.join("\n")}
       "inLanguage": meta.locale,
       "mainEntityOfPage": meta.canonical,
       "name": SITE_NAME,
-      "publisher": { "@type": "Person", "@id": "Sebastien Rousseau" }
+      "publisher": {
+        "@type": "Organization",
+        "@id": `${SITE_URL}/#organization`,
+        "name": SITE_NAME,
+        "url": SITE_URL,
+        "logo": { "@type": "ImageObject", "url": meta.ogImage },
+        "sameAs": [
+          "https://github.com/sebastienrousseau/pacs008",
+          "https://pypi.org/project/pacs008/"
+        ]
+      }
     })] as unknown as [string, Record<string, string>]);
 
     return head;

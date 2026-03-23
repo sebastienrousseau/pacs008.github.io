@@ -1,6 +1,6 @@
 ---
-title: Tipi di messaggio | Italiano
-description: Definizioni e versioni di messaggi pacs ISO 20022 supportate.
+title: Tipi di messaggio | pacs008 ISO 20022
+description: Definizioni e versioni di messaggi pacs ISO 20022 supportate. Generazione, validazione, orchestrazione API e conformità per i flussi di bonifico cliente...
 lang: it-IT
 lastUpdated: true
 image: /logo.svg
@@ -10,34 +10,31 @@ image: /logo.svg
 
 pacs008 copre la definizione di messaggio pacs.008 principale e i messaggi correlati utilizzati nei flussi di orchestrazione e riconciliazione.
 
+> Ultima revisione rispetto a fonti primarie il 23 marzo 2026 usando materiali pubblici ISO 20022, EPC e Swift collegati in questa pagina.
+
 ## Supporto incluso
 
-| Tipo di messaggio | Descrizione |
-|---|---|
-| [`pacs.002.001.12`](/it/pacs.002.001.12/) | FI to FI Payment Status Report |
-| [`pacs.003.001.09`](/it/pacs.003.001.09/) | FI to FI Customer Direct Debit |
-| [`pacs.004.001.11`](/it/pacs.004.001.11/) | Payment Return |
-| [`pacs.007.001.11`](/it/pacs.007.001.11/) | FI to FI Payment Reversal |
-| [`pacs.008.001.01`](/it/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.02`](/it/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.03`](/it/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.04`](/it/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.05`](/it/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.06`](/it/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.07`](/it/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.08`](/it/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.09`](/it/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.10`](/it/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.11`](/it/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.12`](/it/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.008.001.13`](/it/pacs.008.001.13/) | FI to FI Customer Credit Transfer |
-| [`pacs.009.001.10`](/it/pacs.009.001.10/) | Financial Institution Credit Transfer |
-| [`pacs.010.001.05`](/it/pacs.010.001.05/) | Financial Institution Direct Debit |
-| [`pacs.028.001.05`](/it/pacs.028.001.05/) | FI to FI Payment Status Request |
+| Tipo di messaggio | Descrizione | Versione | Anno | Panoramica |
+|---|---|---|---|---|
+| [`pacs.002.001.12`](/it/pacs.002.001.12/) | FI to FI Payment Status Report | `pacs.002.001.12` | 2019 | Il messaggio pacs.002 viene inviato da un istituto finanziario per comunicare lo stato di un'istruzione di pagamento precedentemente inviata. Fornisce informazioni di conferma, rifiuto o stato in sospeso per le singole transazioni all'interno di un messaggio di pagamento. |
+| [`pacs.003.001.09`](/it/pacs.003.001.09/) | FI to FI Customer Direct Debit | `pacs.003.001.09` | 2019 | Il messaggio pacs.003 viene scambiato tra istituti finanziari per eseguire un'istruzione di addebito diretto del cliente. Consente alla banca del creditore di raccogliere fondi dalla banca del debitore per conto del creditore. |
+| [`pacs.004.001.11`](/it/pacs.004.001.11/) | Payment Return | `pacs.004.001.11` | 2019 | Il messaggio pacs.004 viene utilizzato per restituire una transazione di pagamento precedentemente regolata. Inverte il flusso di fondi quando un pagamento non può essere applicato, è stato inviato per errore o viene richiamato dall'istituto di origine. |
+| [`pacs.007.001.11`](/it/pacs.007.001.11/) | FI to FI Payment Reversal | `pacs.007.001.11` | 2019 | Il messaggio pacs.007 viene utilizzato per stornare un'istruzione di pagamento precedentemente inviata che non è ancora stata regolata o per richiedere lo storno di un pagamento regolato. A differenza di pacs.004 (restituzione), è avviato dall'agente ordinante originale. |
+| [`pacs.008.001.13`](/it/pacs.008.001.13/) | FI to FI Customer Credit Transfer | `pacs.008.001.13` | 2023 | Il messaggio pacs.008 è l'istruzione di pagamento principale scambiata tra istituti finanziari per trasferire fondi per conto di un cliente. Contiene informazioni su debitore, creditore, importo e dettagli di rimessa per una o più transazioni di bonifico. |
+| [`pacs.009.001.10`](/it/pacs.009.001.10/) | Financial Institution Credit Transfer | `pacs.009.001.10` | 2019 | Il messaggio pacs.009 viene utilizzato per bonifici tra istituti finanziari in cui il trasferimento avviene per conto proprio dell'istituto anziché per conto di un cliente. Supporta il finanziamento interbancario, i pagamenti di copertura e la gestione della liquidità. |
+| [`pacs.010.001.05`](/it/pacs.010.001.05/) | Financial Institution Direct Debit | `pacs.010.001.05` | 2019 | Il messaggio pacs.010 viene utilizzato tra istituti finanziari per transazioni di addebito diretto sul conto proprio dell'istituto. Consente a un istituto di raccogliere fondi direttamente dal conto di un altro istituto. |
+| [`pacs.028.001.05`](/it/pacs.028.001.05/) | FI to FI Payment Status Request | `pacs.028.001.05` | 2019 | Il messaggio pacs.028 viene inviato da un istituto finanziario per richiedere lo stato di un'istruzione di pagamento precedentemente inviata. Consente il tracciamento proattivo dell'elaborazione dei pagamenti senza attendere un rapporto di stato non richiesto. |
 
 ## Modello di distribuzione
 
 Ogni tipo di messaggio supportato è affiancato da risorse template e logica di validazione affinché i team possano standardizzare la generazione e i test di regressione su più canali.
+
+## Scegliere il messaggio corretto
+
+Il catalogo dei messaggi è particolarmente utile quando i team devono decidere quale messaggio avvia il lavoro, quale riporta lo stato e quale corregge o annulla il flusso.
+
+Vedere la [guida alla selezione dei messaggi](/it/message-selection/) per una vista decisionale sintetica sui flussi pacs supportati.
+
 
 ## Contesto di mercato 2026
 

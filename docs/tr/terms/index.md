@@ -1,6 +1,6 @@
 ---
-title: Koşullar | Türkçe
-description: pacs008 web sitesi koşullar bilgileri.
+title: Koşullar | pacs008
+description: pacs008 web sitesi koşullar bilgileri. FI-to-FI müşteri kredi transferi iş akışları için oluşturma, doğrulama, API orkestrasyonu ve uyumluluk desteği.
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg

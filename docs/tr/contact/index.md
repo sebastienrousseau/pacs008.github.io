@@ -1,6 +1,6 @@
 ---
-title: İletişim | Türkçe
-description: pacs008 projesine nasıl ulaşılır.
+title: İletişim | pacs008
+description: pacs008 projesine nasıl ulaşılır. FI-to-FI müşteri kredi transferi iş akışları için oluşturma, doğrulama, API orkestrasyonu ve uyumluluk desteği.
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg

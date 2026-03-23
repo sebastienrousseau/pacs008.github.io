@@ -1,6 +1,6 @@
 ---
-title: Bedingungen | Deutsch
-description: Informationen zu den Nutzungsbedingungen der pacs008-Website.
+title: Bedingungen | pacs008
+description: Informationen zu den Nutzungsbedingungen der pacs008-Website. Generierung, Validierung, API-Orchestrierung und Compliance-Unterstützung für...
 lang: de-DE
 lastUpdated: true
 image: /logo.svg

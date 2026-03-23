@@ -1,6 +1,6 @@
 ---
-title: pacs.002.001.12 — FI to FI Payment Status Report | العربية
-description: يُرسل رسالة pacs.002 من مؤسسة مالية للإبلاغ عن حالة تعليمات الدفع المرسلة سابقاً. يوفر تأكيداً أو رفضاً أو معلومات حالة معلقة للمعاملات الفردية ضمن رسالة الدفع.
+title: pacs.002.001.12 | FI to FI Payment Status Report | pacs008
+description: يُرسل رسالة pacs.002 من مؤسسة مالية للإبلاغ عن حالة تعليمات الدفع المرسلة سابقاً. يوفر تأكيداً أو رفضاً أو معلومات حالة معلقة للمعاملات الفردية ضمن رسالة...
 lang: ar-SA
 lastUpdated: true
 image: /logo.svg
@@ -19,6 +19,8 @@ image: /logo.svg
 
 يُرسل رسالة pacs.002 من مؤسسة مالية للإبلاغ عن حالة تعليمات الدفع المرسلة سابقاً. يوفر تأكيداً أو رفضاً أو معلومات حالة معلقة للمعاملات الفردية ضمن رسالة الدفع.
 
+> تمت المراجعة مقابل المصادر الأساسية في 23 مارس 2026. تاريخ مرجع كتالوج ISO 20022 هو: 27 February 2025؛ وروابط المصادر مدرجة أدناه.
+
 ## عناصر البيانات الرئيسية
 
 - **GrpHdr** — رأس المجموعة مع تعريف الرسالة والطابع الزمني للإنشاء
@@ -34,6 +36,14 @@ image: /logo.svg
 - مطلوب في تدفقات CBPR+ للإقرار بمعالجة رسائل pacs.008 و pacs.009
 - يدعم الإبلاغ عن الحالة على مستوى المجموعة وعلى مستوى المعاملات الفردية
 
+| عناصر البيانات الرئيسية | السياق التجاري |
+|---|---|
+| **GrpHdr** — رأس المجموعة مع تعريف الرسالة والطابع الزمني للإنشاء | يُستخدم لتأكيد التسوية أو الإبلاغ عن رفض التحويلات والخصم المباشر والمرتجعات |
+| **OrgnlGrpInfAndSts** — معلومات وحالة المجموعة الأصلية للتقارير الجماعية | يمكّن المطابقة بين الوكلاء المُرسلين والمُستلمين |
+| **TxInfAndSts** — معلومات وحالة المعاملة لنتائج المعاملات الفردية | مطلوب في تدفقات CBPR+ للإقرار بمعالجة رسائل pacs.008 و pacs.009 |
+| **StsRsnInf** — معلومات سبب الحالة مع رموز أسباب منظمة | يدعم الإبلاغ عن الحالة على مستوى المجموعة وعلى مستوى المعاملات الفردية |
+| **OrgnlTxRef** — مرجع المعاملة الأصلية المرتبط بالتعليمات المصدرية | يرسل الوكيل المُستلم pacs.002 إلى الوكيل المُرسل لتأكيد القبول أو التسوية أو الرفض لتعليمات دفع مستلمة مثل pacs.008 أو pacs.009. |
+
 ## سياق CBPR+ والأنظمة
 
 - يحل محل سرديات حالة MT199 والحقل 79 في رسائل MT
@@ -45,9 +55,19 @@ image: /logo.svg
 
 يرسل الوكيل المُستلم pacs.002 إلى الوكيل المُرسل لتأكيد القبول أو التسوية أو الرفض لتعليمات دفع مستلمة مثل pacs.008 أو pacs.009.
 
-## الرسائل ذات الصلة
+## المراجع الأساسية
 
-- [`pacs.008.001.13`](/ar/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.009.001.10`](/ar/pacs.009.001.10/) — Financial Institution Credit Transfer
-- [`pacs.028.001.05`](/ar/pacs.028.001.05/) — FI to FI Payment Status Request
+- [ISO 20022 message definitions catalogue for `pacs.002.001.12`](https://www.iso20022.org/iso-20022-message-definitions?search=Pacs.002.001.12)
+- [Swift CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released)
+- [Swift CBPR+ migration roadmap PDF](https://www.swift.com/swift-resource/252463/download)
+- [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and)
+- [EPC SEPA Instant Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook)
+
+
+## الرسائل ذات الصلة
+| نوع الرسالة | الوصف | نظرة عامة |
+|---|---|---|
+| [`pacs.008.001.13`](/ar/pacs.008.001.13/) | FI to FI Customer Credit Transfer | رسالة pacs.008 هي تعليمات الدفع الأساسية المتبادلة بين المؤسسات المالية لتحويل الأموال نيابة عن العميل. تحمل معلومات المدين والدائن والمبلغ والتحويل لمعاملة واحدة أو أكثر. |
+| [`pacs.009.001.10`](/ar/pacs.009.001.10/) | Financial Institution Credit Transfer | يُستخدم رسالة pacs.009 للتحويلات بين المؤسسات المالية عندما يكون التحويل لحساب المؤسسة الخاص وليس نيابة عن عميل. يدعم التمويل بين البنوك ومدفوعات التغطية وإدارة السيولة. |
+| [`pacs.028.001.05`](/ar/pacs.028.001.05/) | FI to FI Payment Status Request | يُرسل رسالة pacs.028 من مؤسسة مالية لطلب حالة تعليمات دفع مرسلة سابقاً. يمكّن التتبع الاستباقي لمعالجة المدفوعات دون انتظار تقرير حالة غير مطلوب. |
 

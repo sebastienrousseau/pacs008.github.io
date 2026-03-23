@@ -1,6 +1,6 @@
 ---
-title: お問い合わせ | 日本語
-description: pacs008 プロジェクトへの連絡方法。
+title: お問い合わせ | pacs008
+description: pacs008 プロジェクトへの連絡方法。 FI-to-FI 顧客クレジット移転ワークフローの生成、検証、API オーケストレーション、コンプライアンス対応。
 lang: ja-JP
 lastUpdated: true
 image: /logo.svg

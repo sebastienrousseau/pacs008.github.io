@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "npm run generate && vitepress build docs",
+    "postbuild": "node scripts/postbuild-seo.mjs",
     "preview": "vitepress preview docs",
     "generate": "node scripts/generate-locales.mjs"
   },

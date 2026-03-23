@@ -1,6 +1,6 @@
 ---
-title: API | 繁體中文
-description: pacs008 中的 REST 和 CLI 工作流程支援。
+title: API | pacs008
+description: pacs008 中的 REST 和 CLI 工作流程支援。 面向 FI-to-FI 客戶信貸轉帳工作流程的產生、驗證、API 編排與合規支援。
 lang: zh-TW
 lastUpdated: true
 image: /logo.svg
@@ -9,6 +9,8 @@ image: /logo.svg
 # API
 
 該專案同時提供 REST API 和 CLI，用於營運支付訊息處理工作流程。
+
+> 已於 2026 年 3 月 23 日依據本頁引用的 ISO 20022、EPC 與 Swift 公開資料完成主要來源複核。
 
 ## 安裝
 
@@ -43,6 +45,15 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 | `DELETE /jobs/{job_id}` | 取消待處理或正在執行的工作 |
 | `GET /docs` | 用於探索和測試所有端點的互動式 Swagger UI |
 
+- [`pacs.002.001.12`](/zh-tw/pacs.002.001.12/) — FI to FI Payment Status Report
+- [`pacs.003.001.09`](/zh-tw/pacs.003.001.09/) — FI to FI Customer Direct Debit
+- [`pacs.004.001.11`](/zh-tw/pacs.004.001.11/) — Payment Return
+- [`pacs.007.001.11`](/zh-tw/pacs.007.001.11/) — FI to FI Payment Reversal
+- [`pacs.008.001.13`](/zh-tw/pacs.008.001.13/) — FI to FI Customer Credit Transfer
+- [`pacs.009.001.10`](/zh-tw/pacs.009.001.10/) — Financial Institution Credit Transfer
+- [`pacs.010.001.05`](/zh-tw/pacs.010.001.05/) — Financial Institution Direct Debit
+- [`pacs.028.001.05`](/zh-tw/pacs.028.001.05/) — FI to FI Payment Status Request
+
 ### 驗證範例
 
 在產生 XML 之前提交支付資料進行驗證。
@@ -68,6 +79,15 @@ curl -X POST http://localhost:8000/api/validate \
       "creditor_name": "Widget Industries SA"
     }]
   }'
+```
+
+```json
+{
+  "valid": true,
+  "message_type": "pacs.008.001.13",
+  "errors": [],
+  "warnings": []
+}
 ```
 
 ### 同步產生範例
@@ -117,6 +137,15 @@ curl http://localhost:8000/api/status/$JOB_ID
 
 # Download the result
 curl http://localhost:8000/api/download/$JOB_ID --output result.xml
+```
+
+```json
+{
+  "job_id": "8f7f0d4b-7df9-4d1a-8d47-19f4f28b6d38",
+  "status": "completed",
+  "message_type": "pacs.008.001.13",
+  "download_url": "/api/download/8f7f0d4b-7df9-4d1a-8d47-19f4f28b6d38"
+}
 ```
 
 ---
@@ -217,6 +246,10 @@ docker build -t pacs008:latest .
 docker run -p 8000:8000 pacs008:latest
 ```
 
+```bash
+docker run --rm   -e PACS008_LOG_LEVEL=INFO   -v $PWD/examples:/data   -p 8000:8000 pacs008:latest
+```
+
 ---
 
 ## IBAN 和 BIC 驗證
@@ -241,6 +274,14 @@ from pacs008.data.loader import load_payment_data_streaming
 
 for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
     print(f"Processing {len(chunk)} records")
+```
+
+```python
+from pacs008.validation import validate_batch
+
+for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
+    report = validate_batch(chunk, "pacs.008.001.13")
+    print(report.summary())
 ```
 
 ---

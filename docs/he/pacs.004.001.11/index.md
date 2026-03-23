@@ -1,5 +1,5 @@
 ---
-title: pacs.004.001.11 — Payment Return | עברית
+title: pacs.004.001.11 | Payment Return | pacs008
 description: הודעת pacs.004 משמשת להחזרת עסקת תשלום שנסלקה בעבר. היא הופכת את זרימת הכספים כאשר תשלום אינו ניתן להחלה, נשלח בטעות או מוחזר על ידי המוסד המקורי.
 lang: he-IL
 lastUpdated: true
@@ -19,6 +19,8 @@ image: /logo.svg
 
 הודעת pacs.004 משמשת להחזרת עסקת תשלום שנסלקה בעבר. היא הופכת את זרימת הכספים כאשר תשלום אינו ניתן להחלה, נשלח בטעות או מוחזר על ידי המוסד המקורי.
 
+> נבדק לאחרונה מול מקורות ראשיים ב-23 במרץ 2026. תאריך הייחוס של קטלוג ISO 20022: 27 February 2025; קישורי המקורות מופיעים למטה.
+
 ## אלמנטי נתונים מרכזיים
 
 - **GrpHdr** — כותרת קבוצה עם זיהוי הודעה וחותמת זמן יצירה
@@ -34,6 +36,14 @@ image: /logo.svg
 - נושאת קודי סיבת החזרה מובנים לשקיפות רגולטורית ותפעולית
 - חלה הן על החזרות העברות זכות (pacs.008) והן על החזרות חיוב ישיר (pacs.003)
 
+| אלמנטי נתונים מרכזיים | הקשר עסקי |
+|---|---|
+| **GrpHdr** — כותרת קבוצה עם זיהוי הודעה וחותמת זמן יצירה | מטפלת בהחזרות לאחר סליקה כאשר לא ניתן לזכות את חשבון המוטב |
+| **TxInf** — מידע עסקה עם סכום ההחזרה והצדדים | תומכת בתרחישי ביטול כאשר המקור מבקש החזרת כספים |
+| **OrgnlGrpInf** — מידע על הקבוצה המקורית המקשר להודעת המקור | נושאת קודי סיבת החזרה מובנים לשקיפות רגולטורית ותפעולית |
+| **RtrRsnInf** — מידע על סיבת ההחזרה עם קודי סיבה מובנים | חלה הן על החזרות העברות זכות (pacs.008) והן על החזרות חיוב ישיר (pacs.003) |
+| **OrgnlTxRef** — הפניה לעסקה המקורית להתאמה וסיווג | הסוכן מקבל ההוראות שולח pacs.004 בחזרה דרך שרשרת התשלום להחזרת כספים שנסלקו בעבר. כל סוכן בשרשרת מעבד את ההחזרה ומזכה בחזרה את החשבונות הרלוונטיים. |
+
 ## הקשר CBPR+ וסכמות
 
 - מחליפה MT103 RETURN והודעות החזרה בשיטת הכיסוי
@@ -45,9 +55,19 @@ image: /logo.svg
 
 הסוכן מקבל ההוראות שולח pacs.004 בחזרה דרך שרשרת התשלום להחזרת כספים שנסלקו בעבר. כל סוכן בשרשרת מעבד את ההחזרה ומזכה בחזרה את החשבונות הרלוונטיים.
 
-## הודעות קשורות
+## מקורות ראשיים
 
-- [`pacs.008.001.13`](/he/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.003.001.09`](/he/pacs.003.001.09/) — FI to FI Customer Direct Debit
-- [`pacs.002.001.12`](/he/pacs.002.001.12/) — FI to FI Payment Status Report
+- [ISO 20022 message definitions catalogue for `pacs.004.001.11`](https://www.iso20022.org/iso-20022-message-definitions?search=Pacs.004.001.11)
+- [Swift CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released)
+- [Swift CBPR+ migration roadmap PDF](https://www.swift.com/swift-resource/252463/download)
+- [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and)
+- [EPC SEPA Instant Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook)
+
+
+## הודעות קשורות
+| סוג הודעה | תיאור | סקירה |
+|---|---|---|
+| [`pacs.008.001.13`](/he/pacs.008.001.13/) | FI to FI Customer Credit Transfer | הודעת pacs.008 היא הוראת התשלום המרכזית המוחלפת בין מוסדות פיננסיים להעברת כספים בשם לקוח. היא נושאת מידע על החייב, הנושה, הסכום ופרטי ההעברה עבור עסקת העברת זכות אחת או יותר. |
+| [`pacs.003.001.09`](/he/pacs.003.001.09/) | FI to FI Customer Direct Debit | הודעת pacs.003 מוחלפת בין מוסדות פיננסיים לביצוע הוראת חיוב ישיר של לקוח. היא מאפשרת לבנק הנושה לגבות כספים מבנק החייב בשם הנושה. |
+| [`pacs.002.001.12`](/he/pacs.002.001.12/) | FI to FI Payment Status Report | הודעת pacs.002 נשלחת על ידי מוסד פיננסי לדיווח על מצב הוראת תשלום שנשלחה בעבר. היא מספקת מידע על אישור, דחייה או סטטוס ממתין עבור עסקאות בודדות בתוך הודעת תשלום. |
 

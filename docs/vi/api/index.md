@@ -1,6 +1,6 @@
 ---
-title: API | Tiếng Việt
-description: Hỗ trợ quy trình REST và CLI trong pacs008.
+title: API | pacs008
+description: Hỗ trợ quy trình REST và CLI trong pacs008. Tạo, xác thực, điều phối API và hỗ trợ tuân thủ cho quy trình chuyển khoản tín dụng khách hàng FI-to-FI.
 lang: vi-VN
 lastUpdated: true
 image: /logo.svg
@@ -9,6 +9,8 @@ image: /logo.svg
 # API
 
 Dự án cung cấp cả REST API và CLI cho quy trình xử lý thông điệp thanh toán vận hành.
+
+> Được rà soát lần cuối đối chiếu với nguồn gốc chính vào ngày 23 tháng 3 năm 2026 bằng các tài liệu công khai của ISO 20022, EPC và Swift được dẫn trên trang này.
 
 ## Cài đặt
 
@@ -43,6 +45,15 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 | `DELETE /jobs/{job_id}` | Hủy tác vụ đang chờ hoặc đang chạy |
 | `GET /docs` | Swagger UI tương tác để khám phá và kiểm tra tất cả các endpoint |
 
+- [`pacs.002.001.12`](/vi/pacs.002.001.12/) — FI to FI Payment Status Report
+- [`pacs.003.001.09`](/vi/pacs.003.001.09/) — FI to FI Customer Direct Debit
+- [`pacs.004.001.11`](/vi/pacs.004.001.11/) — Payment Return
+- [`pacs.007.001.11`](/vi/pacs.007.001.11/) — FI to FI Payment Reversal
+- [`pacs.008.001.13`](/vi/pacs.008.001.13/) — FI to FI Customer Credit Transfer
+- [`pacs.009.001.10`](/vi/pacs.009.001.10/) — Financial Institution Credit Transfer
+- [`pacs.010.001.05`](/vi/pacs.010.001.05/) — Financial Institution Direct Debit
+- [`pacs.028.001.05`](/vi/pacs.028.001.05/) — FI to FI Payment Status Request
+
 ### Ví dụ xác thực
 
 Gửi dữ liệu thanh toán để xác thực trước khi tạo XML.
@@ -68,6 +79,15 @@ curl -X POST http://localhost:8000/api/validate \
       "creditor_name": "Widget Industries SA"
     }]
   }'
+```
+
+```json
+{
+  "valid": true,
+  "message_type": "pacs.008.001.13",
+  "errors": [],
+  "warnings": []
+}
 ```
 
 ### Ví dụ tạo tệp đồng bộ
@@ -117,6 +137,15 @@ curl http://localhost:8000/api/status/$JOB_ID
 
 # Download the result
 curl http://localhost:8000/api/download/$JOB_ID --output result.xml
+```
+
+```json
+{
+  "job_id": "8f7f0d4b-7df9-4d1a-8d47-19f4f28b6d38",
+  "status": "completed",
+  "message_type": "pacs.008.001.13",
+  "download_url": "/api/download/8f7f0d4b-7df9-4d1a-8d47-19f4f28b6d38"
+}
 ```
 
 ---
@@ -217,6 +246,10 @@ docker build -t pacs008:latest .
 docker run -p 8000:8000 pacs008:latest
 ```
 
+```bash
+docker run --rm   -e PACS008_LOG_LEVEL=INFO   -v $PWD/examples:/data   -p 8000:8000 pacs008:latest
+```
+
 ---
 
 ## Xác thực IBAN và BIC
@@ -241,6 +274,14 @@ from pacs008.data.loader import load_payment_data_streaming
 
 for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
     print(f"Processing {len(chunk)} records")
+```
+
+```python
+from pacs008.validation import validate_batch
+
+for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
+    report = validate_batch(chunk, "pacs.008.001.13")
+    print(report.summary())
 ```
 
 ---

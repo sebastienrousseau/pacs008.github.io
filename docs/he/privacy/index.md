@@ -1,6 +1,6 @@
 ---
-title: פרטיות | עברית
-description: מידע פרטיות עבור אתר pacs008.
+title: פרטיות | pacs008
+description: מידע פרטיות עבור אתר pacs008. יצירה, אימות, תיאום API ותמיכת ציות לתהליכי העברת אשראי FI-to-FI.
 lang: he-IL
 lastUpdated: true
 image: /logo.svg

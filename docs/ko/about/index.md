@@ -1,6 +1,6 @@
 ---
-title: pacs008 소개 | 한국어
-description: pacs008이 하는 일과 대상 사용자.
+title: pacs008 소개 | pacs008
+description: pacs008이 하는 일과 대상 사용자. FI-to-FI 고객 신용 이체 워크플로를 위한 생성, 검증, API 오케스트레이션, 규정 준수 지원.
 lang: ko-KR
 lastUpdated: true
 image: /logo.svg
@@ -9,6 +9,8 @@ image: /logo.svg
 # pacs008 소개
 
 pacs008은 ISO 20022 FI-to-FI 고객 신용 이체 워크플로를 자동화하기 위한 Python 툴킷입니다.
+
+> 이 페이지에 연결된 ISO 20022, EPC 및 Swift 공개 자료를 기준으로 2026년 3월 23일에 1차 출처 검토를 완료했습니다.
 
 ## 기능
 
@@ -64,4 +66,5 @@ pacs008은 메시지 정의 참조를 넘어 운영 구현을 지원합니다:
 - 전달 전 검증
 - 결제 체인 및 다운스트림 형식 모델링
 - 스키마별 변경 사항을 코드에서 테스트 가능하게 만들기
+
 

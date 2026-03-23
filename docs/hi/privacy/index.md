@@ -1,6 +1,6 @@
 ---
-title: गोपनीयता | हिन्दी
-description: pacs008 वेबसाइट के लिए गोपनीयता जानकारी।
+title: गोपनीयता | pacs008
+description: pacs008 वेबसाइट के लिए गोपनीयता जानकारी। FI-to-FI ग्राहक क्रेडिट ट्रांसफर वर्कफ़्लो के लिए जनरेशन, वैलिडेशन, API ऑर्केस्ट्रेशन और अनुपालन समर्थन।
 lang: hi-IN
 lastUpdated: true
 image: /logo.svg

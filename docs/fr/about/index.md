@@ -1,6 +1,6 @@
 ---
-title: À propos de pacs008 | Français
-description: Ce que fait pacs008 et à qui il s'adresse.
+title: À propos de pacs008 | pacs008
+description: Ce que fait pacs008 et à qui il s'adresse. Génération, validation, orchestration d'API et conformité pour les flux de virement client FI-to-FI.
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg
@@ -9,6 +9,8 @@ image: /logo.svg
 # À propos de pacs008
 
 pacs008 est une boîte à outils Python pour automatiser les flux ISO 20022 de virement client FI-to-FI.
+
+> Dernière vérification par rapport aux sources primaires le 23 mars 2026 à l'aide des documents publics ISO 20022, EPC et Swift référencés sur cette page.
 
 ## Ce qu'il fait
 
@@ -64,4 +66,12 @@ pacs008 va au-delà de la référence des définitions de messages pour soutenir
 - valider avant livraison
 - modéliser les chaînes de paiement et les formats en aval
 - rendre les modifications spécifiques aux schémas testables dans le code
+
+## Checklist de mise en œuvre
+
+- Choisir la bonne famille de messages pour l'événement métier avant d'écrire les modèles.
+- Valider les données métier avant la génération XML afin que les erreurs de schéma ne soient pas le premier signal.
+- Traiter la qualité des BIC, IBAN, remises et adresses postales comme un critère de mise en production et non comme un nettoyage ultérieur.
+- Tester en régression chaque évolution de règle de schéma ou de banque avec des données de paiement représentatives.
+
 

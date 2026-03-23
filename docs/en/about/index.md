@@ -1,6 +1,6 @@
 ---
-title: About pacs008 | English
-description: What pacs008 does and who it is for.
+title: About pacs008 | pacs008
+description: What pacs008 does and who it is for. Generation, validation, API orchestration, and compliance support for FI-to-FI customer credit transfer workflows.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
@@ -9,6 +9,8 @@ image: /logo.svg
 # About pacs008
 
 pacs008 is a Python toolkit for automating ISO 20022 FI-to-FI customer credit transfer workflows.
+
+> Last reviewed against primary sources on 23 March 2026 using ISO 20022, EPC, and Swift public materials referenced on this page.
 
 ## What it does
 
@@ -64,4 +66,12 @@ pacs008 goes beyond message definition reference to support operational implemen
 - validate before delivery
 - model payment chains and downstream formats
 - make scheme-specific changes testable in code
+
+## Implementation checklist
+
+- Select the correct message family for the business event before writing templates.
+- Validate business data before XML generation so schema errors are not your first signal.
+- Treat BIC, IBAN, remittance, and postal-address quality as release criteria rather than cleanup work.
+- Regression-test every scheme or bank-specific rule change against representative payment data.
+
 

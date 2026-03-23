@@ -1,6 +1,6 @@
 ---
-title: pacs.002.001.12 — FI to FI Payment Status Report | עברית
-description: הודעת pacs.002 נשלחת על ידי מוסד פיננסי לדיווח על מצב הוראת תשלום שנשלחה בעבר. היא מספקת מידע על אישור, דחייה או סטטוס ממתין עבור עסקאות בודדות בתוך הודעת תשלום.
+title: pacs.002.001.12 | FI to FI Payment Status Report | pacs008
+description: הודעת pacs.002 נשלחת על ידי מוסד פיננסי לדיווח על מצב הוראת תשלום שנשלחה בעבר. היא מספקת מידע על אישור, דחייה או סטטוס ממתין עבור עסקאות בודדות בתוך הודעת...
 lang: he-IL
 lastUpdated: true
 image: /logo.svg
@@ -19,6 +19,8 @@ image: /logo.svg
 
 הודעת pacs.002 נשלחת על ידי מוסד פיננסי לדיווח על מצב הוראת תשלום שנשלחה בעבר. היא מספקת מידע על אישור, דחייה או סטטוס ממתין עבור עסקאות בודדות בתוך הודעת תשלום.
 
+> נבדק לאחרונה מול מקורות ראשיים ב-23 במרץ 2026. תאריך הייחוס של קטלוג ISO 20022: 27 February 2025; קישורי המקורות מופיעים למטה.
+
 ## אלמנטי נתונים מרכזיים
 
 - **GrpHdr** — כותרת קבוצה עם זיהוי הודעה וחותמת זמן יצירה
@@ -34,6 +36,14 @@ image: /logo.svg
 - נדרשת בתהליכי CBPR+ לאישור עיבוד הודעות pacs.008 ו-pacs.009
 - תומכת בדיווח סטטוס הן ברמת קבוצת הצרור והן ברמת העסקה הבודדת
 
+| אלמנטי נתונים מרכזיים | הקשר עסקי |
+|---|---|
+| **GrpHdr** — כותרת קבוצה עם זיהוי הודעה וחותמת זמן יצירה | משמשת לאישור סליקה או דיווח על דחיית העברות זכות, חיובים ישירים והחזרות תשלום |
+| **OrgnlGrpInfAndSts** — מידע על הקבוצה המקורית וסטטוס לדיווח ברמת הצרור | מאפשרת התאמה בין סוכנים מורים לסוכנים מקבלי הוראות |
+| **TxInfAndSts** — מידע על העסקה וסטטוס לתוצאות עסקאות בודדות | נדרשת בתהליכי CBPR+ לאישור עיבוד הודעות pacs.008 ו-pacs.009 |
+| **StsRsnInf** — מידע על סיבת הסטטוס עם קודי סיבה מובנים | תומכת בדיווח סטטוס הן ברמת קבוצת הצרור והן ברמת העסקה הבודדת |
+| **OrgnlTxRef** — הפניה לעסקה המקורית המקשרת חזרה להוראת המקור | הסוכן מקבל ההוראות (המקבל) שולח pacs.002 בחזרה לסוכן המורה (השולח) לאישור קבלה, סליקה או דחייה של הוראת תשלום שהתקבלה כגון pacs.008 או pacs.009. |
+
 ## הקשר CBPR+ וסכמות
 
 - מחליפה את MT199 ונרטיבי סטטוס בשדה 79 בהודעות MT
@@ -45,9 +55,19 @@ image: /logo.svg
 
 הסוכן מקבל ההוראות (המקבל) שולח pacs.002 בחזרה לסוכן המורה (השולח) לאישור קבלה, סליקה או דחייה של הוראת תשלום שהתקבלה כגון pacs.008 או pacs.009.
 
-## הודעות קשורות
+## מקורות ראשיים
 
-- [`pacs.008.001.13`](/he/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.009.001.10`](/he/pacs.009.001.10/) — Financial Institution Credit Transfer
-- [`pacs.028.001.05`](/he/pacs.028.001.05/) — FI to FI Payment Status Request
+- [ISO 20022 message definitions catalogue for `pacs.002.001.12`](https://www.iso20022.org/iso-20022-message-definitions?search=Pacs.002.001.12)
+- [Swift CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released)
+- [Swift CBPR+ migration roadmap PDF](https://www.swift.com/swift-resource/252463/download)
+- [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and)
+- [EPC SEPA Instant Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook)
+
+
+## הודעות קשורות
+| סוג הודעה | תיאור | סקירה |
+|---|---|---|
+| [`pacs.008.001.13`](/he/pacs.008.001.13/) | FI to FI Customer Credit Transfer | הודעת pacs.008 היא הוראת התשלום המרכזית המוחלפת בין מוסדות פיננסיים להעברת כספים בשם לקוח. היא נושאת מידע על החייב, הנושה, הסכום ופרטי ההעברה עבור עסקת העברת זכות אחת או יותר. |
+| [`pacs.009.001.10`](/he/pacs.009.001.10/) | Financial Institution Credit Transfer | הודעת pacs.009 משמשת להעברות זכות בין מוסדות פיננסיים כאשר ההעברה מבוצעת בשם המוסד עצמו ולא בשם לקוח. היא תומכת במימון בין-בנקאי, תשלומי כיסוי וניהול נזילות. |
+| [`pacs.028.001.05`](/he/pacs.028.001.05/) | FI to FI Payment Status Request | הודעת pacs.028 נשלחת על ידי מוסד פיננסי לבקשת מצב הוראת תשלום שנשלחה בעבר. היא מאפשרת מעקב יזום אחר עיבוד התשלום מבלי להמתין לדוח סטטוס שלא התבקש. |
 

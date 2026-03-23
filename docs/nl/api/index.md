@@ -1,6 +1,6 @@
 ---
-title: API | Nederlands
-description: REST- en CLI-workflowondersteuning in pacs008.
+title: API | pacs008
+description: REST- en CLI-workflowondersteuning in pacs008. Generatie, validatie, API-orchestratie en compliance-ondersteuning voor FI-to-FI-klantoverdrachtworkflows.
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg
@@ -9,6 +9,15 @@ image: /logo.svg
 # API
 
 Het project biedt zowel een REST API als een CLI voor operationele betalingsberichtworkflows.
+
+> Laatst gecontroleerd aan de hand van primaire bronnen op 23 maart 2026 met openbare ISO 20022-, EPC- en Swift-materialen waarnaar op deze pagina wordt verwezen.
+
+## Implementatienotities
+
+- Gebruik synchrone generatie voor operatorgestuurde controles en kleine batches wanneer de aanroeper direct XML verwacht.
+- Gebruik asynchrone generatie wanneer invoerbestanden groot zijn, jobs retries nodig hebben of generatie deel uitmaakt van een bredere workflow-engine.
+- Sla zowel de bronpayload als het validatierapport op zodat supportteams XML-uitvoer tijdens incidenten kunnen reproduceren.
+- Vergrendel template- en XSD-paden in de deploymentconfiguratie om stille upgrades te voorkomen.
 
 ## Installatie
 
@@ -43,6 +52,15 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 | `DELETE /jobs/{job_id}` | Een wachtende of lopende taak annuleren |
 | `GET /docs` | Interactieve Swagger UI voor het verkennen en testen van alle eindpunten |
 
+- [`pacs.002.001.12`](/nl/pacs.002.001.12/) — FI to FI Payment Status Report
+- [`pacs.003.001.09`](/nl/pacs.003.001.09/) — FI to FI Customer Direct Debit
+- [`pacs.004.001.11`](/nl/pacs.004.001.11/) — Payment Return
+- [`pacs.007.001.11`](/nl/pacs.007.001.11/) — FI to FI Payment Reversal
+- [`pacs.008.001.13`](/nl/pacs.008.001.13/) — FI to FI Customer Credit Transfer
+- [`pacs.009.001.10`](/nl/pacs.009.001.10/) — Financial Institution Credit Transfer
+- [`pacs.010.001.05`](/nl/pacs.010.001.05/) — Financial Institution Direct Debit
+- [`pacs.028.001.05`](/nl/pacs.028.001.05/) — FI to FI Payment Status Request
+
 ### Validatievoorbeeld
 
 Dien betalingsgegevens in voor validatie voordat XML wordt gegenereerd.
@@ -68,6 +86,15 @@ curl -X POST http://localhost:8000/api/validate \
       "creditor_name": "Widget Industries SA"
     }]
   }'
+```
+
+```json
+{
+  "valid": true,
+  "message_type": "pacs.008.001.13",
+  "errors": [],
+  "warnings": []
+}
 ```
 
 ### Synchroon generatievoorbeeld
@@ -117,6 +144,15 @@ curl http://localhost:8000/api/status/$JOB_ID
 
 # Download the result
 curl http://localhost:8000/api/download/$JOB_ID --output result.xml
+```
+
+```json
+{
+  "job_id": "8f7f0d4b-7df9-4d1a-8d47-19f4f28b6d38",
+  "status": "completed",
+  "message_type": "pacs.008.001.13",
+  "download_url": "/api/download/8f7f0d4b-7df9-4d1a-8d47-19f4f28b6d38"
+}
 ```
 
 ---
@@ -217,6 +253,10 @@ docker build -t pacs008:latest .
 docker run -p 8000:8000 pacs008:latest
 ```
 
+```bash
+docker run --rm   -e PACS008_LOG_LEVEL=INFO   -v $PWD/examples:/data   -p 8000:8000 pacs008:latest
+```
+
 ---
 
 ## IBAN- en BIC-validatie
@@ -241,6 +281,14 @@ from pacs008.data.loader import load_payment_data_streaming
 
 for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
     print(f"Processing {len(chunk)} records")
+```
+
+```python
+from pacs008.validation import validate_batch
+
+for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
+    report = validate_batch(chunk, "pacs.008.001.13")
+    print(report.summary())
 ```
 
 ---

@@ -1,6 +1,6 @@
 ---
-title: API | Italiano
-description: Supporto flussi REST e CLI in pacs008.
+title: API | pacs008
+description: Supporto flussi REST e CLI in pacs008. Generazione, validazione, orchestrazione API e conformità per i flussi di bonifico cliente FI-to-FI.
 lang: it-IT
 lastUpdated: true
 image: /logo.svg
@@ -9,6 +9,15 @@ image: /logo.svg
 # API
 
 Il progetto fornisce sia una REST API sia una CLI per i flussi operativi di elaborazione dei messaggi di pagamento.
+
+> Ultima revisione rispetto a fonti primarie il 23 marzo 2026 usando materiali pubblici ISO 20022, EPC e Swift collegati in questa pagina.
+
+## Note di implementazione
+
+- Usare la generazione sincrona per controlli operativi e piccoli batch quando il chiamante si aspetta subito il file XML.
+- Usare la generazione asincrona quando i file di input sono grandi, i job richiedono retry o la generazione fa parte di un motore di orchestrazione più ampio.
+- Conservare sia il payload di origine sia il report di validazione affinché i team di supporto possano riprodurre l'output XML durante gli incidenti.
+- Bloccare le versioni dei percorsi di template e XSD nella configurazione di deployment per evitare aggiornamenti silenziosi.
 
 ## Installazione
 
@@ -43,6 +52,15 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 | `DELETE /jobs/{job_id}` | Annullare un job in attesa o in esecuzione |
 | `GET /docs` | Swagger UI interattiva per esplorare e testare tutti gli endpoint |
 
+- [`pacs.002.001.12`](/it/pacs.002.001.12/) — FI to FI Payment Status Report
+- [`pacs.003.001.09`](/it/pacs.003.001.09/) — FI to FI Customer Direct Debit
+- [`pacs.004.001.11`](/it/pacs.004.001.11/) — Payment Return
+- [`pacs.007.001.11`](/it/pacs.007.001.11/) — FI to FI Payment Reversal
+- [`pacs.008.001.13`](/it/pacs.008.001.13/) — FI to FI Customer Credit Transfer
+- [`pacs.009.001.10`](/it/pacs.009.001.10/) — Financial Institution Credit Transfer
+- [`pacs.010.001.05`](/it/pacs.010.001.05/) — Financial Institution Direct Debit
+- [`pacs.028.001.05`](/it/pacs.028.001.05/) — FI to FI Payment Status Request
+
 ### Esempio di validazione
 
 Invia i dati di pagamento per la validazione prima di generare XML.
@@ -68,6 +86,15 @@ curl -X POST http://localhost:8000/api/validate \
       "creditor_name": "Widget Industries SA"
     }]
   }'
+```
+
+```json
+{
+  "valid": true,
+  "message_type": "pacs.008.001.13",
+  "errors": [],
+  "warnings": []
+}
 ```
 
 ### Esempio di generazione sincrona
@@ -117,6 +144,15 @@ curl http://localhost:8000/api/status/$JOB_ID
 
 # Download the result
 curl http://localhost:8000/api/download/$JOB_ID --output result.xml
+```
+
+```json
+{
+  "job_id": "8f7f0d4b-7df9-4d1a-8d47-19f4f28b6d38",
+  "status": "completed",
+  "message_type": "pacs.008.001.13",
+  "download_url": "/api/download/8f7f0d4b-7df9-4d1a-8d47-19f4f28b6d38"
+}
 ```
 
 ---
@@ -217,6 +253,10 @@ docker build -t pacs008:latest .
 docker run -p 8000:8000 pacs008:latest
 ```
 
+```bash
+docker run --rm   -e PACS008_LOG_LEVEL=INFO   -v $PWD/examples:/data   -p 8000:8000 pacs008:latest
+```
+
 ---
 
 ## Validazione IBAN e BIC
@@ -241,6 +281,14 @@ from pacs008.data.loader import load_payment_data_streaming
 
 for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
     print(f"Processing {len(chunk)} records")
+```
+
+```python
+from pacs008.validation import validate_batch
+
+for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
+    report = validate_batch(chunk, "pacs.008.001.13")
+    print(report.summary())
 ```
 
 ---

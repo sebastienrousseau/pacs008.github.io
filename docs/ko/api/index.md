@@ -1,6 +1,6 @@
 ---
-title: API | 한국어
-description: pacs008의 REST 및 CLI 워크플로 지원.
+title: API | pacs008
+description: pacs008의 REST 및 CLI 워크플로 지원. FI-to-FI 고객 신용 이체 워크플로를 위한 생성, 검증, API 오케스트레이션, 규정 준수 지원.
 lang: ko-KR
 lastUpdated: true
 image: /logo.svg
@@ -9,6 +9,8 @@ image: /logo.svg
 # API
 
 이 프로젝트는 운영 결제 메시지 워크플로를 위한 REST API와 CLI를 모두 제공합니다.
+
+> 이 페이지에 연결된 ISO 20022, EPC 및 Swift 공개 자료를 기준으로 2026년 3월 23일에 1차 출처 검토를 완료했습니다.
 
 ## 설치
 
@@ -43,6 +45,15 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 | `DELETE /jobs/{job_id}` | 대기 중이거나 실행 중인 작업 취소 |
 | `GET /docs` | 모든 엔드포인트를 탐색하고 테스트하기 위한 인터랙티브 Swagger UI |
 
+- [`pacs.002.001.12`](/ko/pacs.002.001.12/) — FI to FI Payment Status Report
+- [`pacs.003.001.09`](/ko/pacs.003.001.09/) — FI to FI Customer Direct Debit
+- [`pacs.004.001.11`](/ko/pacs.004.001.11/) — Payment Return
+- [`pacs.007.001.11`](/ko/pacs.007.001.11/) — FI to FI Payment Reversal
+- [`pacs.008.001.13`](/ko/pacs.008.001.13/) — FI to FI Customer Credit Transfer
+- [`pacs.009.001.10`](/ko/pacs.009.001.10/) — Financial Institution Credit Transfer
+- [`pacs.010.001.05`](/ko/pacs.010.001.05/) — Financial Institution Direct Debit
+- [`pacs.028.001.05`](/ko/pacs.028.001.05/) — FI to FI Payment Status Request
+
 ### 유효성 검사 예제
 
 XML을 생성하기 전에 유효성 검사를 위해 결제 데이터를 제출합니다.
@@ -68,6 +79,15 @@ curl -X POST http://localhost:8000/api/validate \
       "creditor_name": "Widget Industries SA"
     }]
   }'
+```
+
+```json
+{
+  "valid": true,
+  "message_type": "pacs.008.001.13",
+  "errors": [],
+  "warnings": []
+}
 ```
 
 ### 동기 생성 예제
@@ -117,6 +137,15 @@ curl http://localhost:8000/api/status/$JOB_ID
 
 # Download the result
 curl http://localhost:8000/api/download/$JOB_ID --output result.xml
+```
+
+```json
+{
+  "job_id": "8f7f0d4b-7df9-4d1a-8d47-19f4f28b6d38",
+  "status": "completed",
+  "message_type": "pacs.008.001.13",
+  "download_url": "/api/download/8f7f0d4b-7df9-4d1a-8d47-19f4f28b6d38"
+}
 ```
 
 ---
@@ -217,6 +246,10 @@ docker build -t pacs008:latest .
 docker run -p 8000:8000 pacs008:latest
 ```
 
+```bash
+docker run --rm   -e PACS008_LOG_LEVEL=INFO   -v $PWD/examples:/data   -p 8000:8000 pacs008:latest
+```
+
 ---
 
 ## IBAN 및 BIC 검증
@@ -241,6 +274,14 @@ from pacs008.data.loader import load_payment_data_streaming
 
 for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
     print(f"Processing {len(chunk)} records")
+```
+
+```python
+from pacs008.validation import validate_batch
+
+for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
+    report = validate_batch(chunk, "pacs.008.001.13")
+    print(report.summary())
 ```
 
 ---

@@ -1,6 +1,6 @@
 ---
-title: pacs.007.001.11 — FI to FI Payment Reversal | Deutsch
-description: Die Nachricht pacs.007 wird verwendet, um eine zuvor gesendete Zahlungsanweisung umzukehren, die noch nicht abgewickelt wurde, oder um die Umkehrung einer abgewickelten Zahlung zu beantragen. Im Gegensatz zu pacs.004 (Rückgabe) wird sie vom ursprünglichen beauftragenden Agenten initiiert.
+title: pacs.007.001.11 | FI to FI Payment Reversal | pacs008
+description: Die Nachricht pacs.007 wird verwendet, um eine zuvor gesendete Zahlungsanweisung umzukehren, die noch nicht abgewickelt wurde, oder um die Umkehrung einer...
 lang: de-DE
 lastUpdated: true
 image: /logo.svg
@@ -19,6 +19,8 @@ image: /logo.svg
 
 Die Nachricht pacs.007 wird verwendet, um eine zuvor gesendete Zahlungsanweisung umzukehren, die noch nicht abgewickelt wurde, oder um die Umkehrung einer abgewickelten Zahlung zu beantragen. Im Gegensatz zu pacs.004 (Rückgabe) wird sie vom ursprünglichen beauftragenden Agenten initiiert.
 
+> Zuletzt anhand von Primärquellen am 23. März 2026 geprüft. Referenzdatum des ISO-20022-Katalogs: 27 February 2025; Quellenlinks sind unten aufgeführt.
+
 ## Wichtige Datenelemente
 
 - **GrpHdr** — Gruppenkopf mit Nachrichtenidentifikation und Erstellungszeitstempel
@@ -34,6 +36,14 @@ Die Nachricht pacs.007 wird verwendet, um eine zuvor gesendete Zahlungsanweisung
 - Unterstützt sowohl vollständige als auch teilweise Umkehrung von Originalzahlungsbeträgen
 - Trägt strukturierte Umkehrgrundcodes für die nachgelagerte Verarbeitung
 
+| Wichtige Datenelemente | Geschäftskontext |
+|---|---|
+| **GrpHdr** — Gruppenkopf mit Nachrichtenidentifikation und Erstellungszeitstempel | Wird initiiert, wenn der ursprüngliche Sender einen Fehler vor oder nach der Abwicklung feststellt |
+| **TxInf** — Transaktionsinformationen mit Umkehrbetrag und Parteien | Wird in Betrugsfällen verwendet, bei denen eine schnelle Umkehrung erforderlich ist |
+| **OrgnlGrpInf** — Originalgruppendaten mit Bezug auf die Quellnachricht | Unterstützt sowohl vollständige als auch teilweise Umkehrung von Originalzahlungsbeträgen |
+| **RvslRsnInf** — Umkehrgrundinformationen mit strukturierten Grundcodes | Trägt strukturierte Umkehrgrundcodes für die nachgelagerte Verarbeitung |
+| **OrgnlTxRef** — Originaltransaktionsreferenz für End-to-End-Nachverfolgbarkeit | Der beauftragende Agent (ursprünglicher Sender) sendet pacs.007 durch die Zahlungskette, um eine zuvor beauftragte Zahlung umzukehren. Jeder Agent verarbeitet die Umkehranweisung und passt die Abwicklung entsprechend an. |
+
 ## CBPR+- und Schema-Kontext
 
 - Unterscheidet sich von pacs.004 durch die Richtung — Umkehrung fließt vorwärts vom Auftraggeber, Rückgabe fließt rückwärts vom Begünstigten
@@ -45,9 +55,55 @@ Die Nachricht pacs.007 wird verwendet, um eine zuvor gesendete Zahlungsanweisung
 
 Der beauftragende Agent (ursprünglicher Sender) sendet pacs.007 durch die Zahlungskette, um eine zuvor beauftragte Zahlung umzukehren. Jeder Agent verarbeitet die Umkehranweisung und passt die Abwicklung entsprechend an.
 
-## Verwandte Nachrichten
+## Tabelle der Versionsunterschiede
 
-- [`pacs.008.001.13`](/de/pacs.008.001.13/) — FI to FI Customer Credit Transfer
-- [`pacs.004.001.11`](/de/pacs.004.001.11/) — Payment Return
-- [`pacs.002.001.12`](/de/pacs.002.001.12/) — FI to FI Payment Status Report
+| Versionsbereich | Warum es wichtig ist | Praktische Konsequenz |
+|---|---|---|
+| pacs.007.001.11 | Aktuelle Implementierung in pacs008 | Gute Ausgangsbasis für die Modellierung von Reversal-Workflows. |
+| pacs.007.001.12-13 | Spätere Katalogversionen | Spätere Versionen auf aktuelle Marktinfrastruktur-Anforderungen prüfen. |
+
+## Kommentiertes XML-Beispiel
+
+```xml
+<FIToFIPmtRvsl>
+  <GrpHdr>
+    <MsgId>RVSL-2026-0007</MsgId>
+  </GrpHdr>
+  <TxInf>
+    <OrgnlInstrId>PAY-2026-8841</OrgnlInstrId>
+    <RvslRsnInf>
+      <Rsn><Cd>DUPL</Cd></Rsn>
+    </RvslRsnInf>
+  </TxInf>
+</FIToFIPmtRvsl>
+```
+
+### Hinweise zu den Feldern
+
+- `MsgId`: The reversal itself needs its own audit-safe identifier.
+- `OrgnlInstrId`: Preserve the original payment reference to avoid reconciliation breaks.
+- `RvslRsnInf`: Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently.
+
+## Vergleich pacs.007 vs pacs.004
+
+| Dimension | pacs.007.001.11 | Vergleichsnachricht |
+|---|---|---|
+| Hauptzweck | Reverse a previously instructed payment | Return settled funds |
+| Initiated by | Original instructing side | Receiving / beneficiary side |
+| Direction of flow | Forward through the chain | Back through the chain |
+| Best fit | Recall, error, or fraud-driven reversal handling | Post-settlement return handling |
+
+## Primärquellen
+
+- [ISO 20022 message definitions catalogue for `pacs.007.001.11`](https://www.iso20022.org/iso-20022-message-definitions?search=Pacs.007.001.11)
+- [Swift CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released)
+- [Swift CBPR+ migration roadmap PDF](https://www.swift.com/swift-resource/252463/download)
+
+
+## Verwandte Nachrichten
+| Nachrichtentyp | Beschreibung | Überblick |
+|---|---|---|
+| [`pacs.008.001.13`](/de/pacs.008.001.13/) | FI to FI Customer Credit Transfer | Die Nachricht pacs.008 ist die zentrale Zahlungsanweisung, die zwischen Finanzinstituten ausgetauscht wird, um Gelder im Auftrag eines Kunden zu überweisen. Sie enthält Informationen zu Schuldner, Gläubiger, Betrag und Überweisungszweck für eine oder mehrere Überweisungen. |
+| [`pacs.004.001.11`](/de/pacs.004.001.11/) | Payment Return | Die Nachricht pacs.004 wird verwendet, um eine zuvor abgewickelte Zahlungstransaktion zurückzugeben. Sie kehrt den Geldfluss um, wenn eine Zahlung nicht angewendet werden kann, irrtümlich gesendet wurde oder vom Ursprungsinstitut zurückgerufen wird. |
+| [`pacs.002.001.12`](/de/pacs.002.001.12/) | FI to FI Payment Status Report | Die Nachricht pacs.002 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung zu melden. Sie liefert Bestätigungs-, Ablehnungs- oder Statusinformationen für einzelne Transaktionen innerhalb einer Zahlungsnachricht. |
 

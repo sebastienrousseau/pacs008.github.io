@@ -1,6 +1,6 @@
 ---
-title: Ketentuan | Bahasa Indonesia
-description: Informasi ketentuan untuk situs web pacs008.
+title: Ketentuan | pacs008
+description: Informasi ketentuan untuk situs web pacs008. Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan FI-to-FI.
 lang: id-ID
 lastUpdated: true
 image: /logo.svg

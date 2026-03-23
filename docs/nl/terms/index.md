@@ -1,6 +1,6 @@
 ---
-title: Voorwaarden | Nederlands
-description: Voorwaarden-informatie voor de pacs008-website.
+title: Voorwaarden | pacs008
+description: Voorwaarden-informatie voor de pacs008-website. Generatie, validatie, API-orchestratie en compliance-ondersteuning voor FI-to-FI-klantoverdrachtworkflows.
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg

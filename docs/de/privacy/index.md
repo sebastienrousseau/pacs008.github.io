@@ -1,6 +1,6 @@
 ---
-title: Datenschutz | Deutsch
-description: Datenschutzinformationen für die pacs008-Website.
+title: Datenschutz | pacs008
+description: Datenschutzinformationen für die pacs008-Website. Generierung, Validierung, API-Orchestrierung und Compliance-Unterstützung für...
 lang: de-DE
 lastUpdated: true
 image: /logo.svg

@@ -1,6 +1,6 @@
 ---
-title: API | Polski
-description: Obsługa przepływów REST i CLI w pacs008.
+title: API | pacs008
+description: Obsługa przepływów REST i CLI w pacs008. Generowanie, walidacja, orkiestracja API i wsparcie zgodności dla przepływów przelewów kredytowych FI-to-FI.
 lang: pl-PL
 lastUpdated: true
 image: /logo.svg
@@ -9,6 +9,8 @@ image: /logo.svg
 # API
 
 Projekt zapewnia zarówno REST API, jak i CLI do operacyjnych przepływów wiadomości płatniczych.
+
+> Ostatnio zweryfikowano względem źródeł pierwotnych 23 marca 2026 r. z użyciem publicznych materiałów ISO 20022, EPC i Swift wskazanych na tej stronie.
 
 ## Instalacja
 
@@ -43,6 +45,15 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 | `DELETE /jobs/{job_id}` | Anulowanie oczekującego lub trwającego zadania |
 | `GET /docs` | Interaktywny Swagger UI do eksploracji i testowania wszystkich endpointów |
 
+- [`pacs.002.001.12`](/pl/pacs.002.001.12/) — FI to FI Payment Status Report
+- [`pacs.003.001.09`](/pl/pacs.003.001.09/) — FI to FI Customer Direct Debit
+- [`pacs.004.001.11`](/pl/pacs.004.001.11/) — Payment Return
+- [`pacs.007.001.11`](/pl/pacs.007.001.11/) — FI to FI Payment Reversal
+- [`pacs.008.001.13`](/pl/pacs.008.001.13/) — FI to FI Customer Credit Transfer
+- [`pacs.009.001.10`](/pl/pacs.009.001.10/) — Financial Institution Credit Transfer
+- [`pacs.010.001.05`](/pl/pacs.010.001.05/) — Financial Institution Direct Debit
+- [`pacs.028.001.05`](/pl/pacs.028.001.05/) — FI to FI Payment Status Request
+
 ### Przykład walidacji
 
 Wyślij dane płatności do walidacji przed generowaniem XML.
@@ -68,6 +79,15 @@ curl -X POST http://localhost:8000/api/validate \
       "creditor_name": "Widget Industries SA"
     }]
   }'
+```
+
+```json
+{
+  "valid": true,
+  "message_type": "pacs.008.001.13",
+  "errors": [],
+  "warnings": []
+}
 ```
 
 ### Przykład generowania synchronicznego
@@ -117,6 +137,15 @@ curl http://localhost:8000/api/status/$JOB_ID
 
 # Download the result
 curl http://localhost:8000/api/download/$JOB_ID --output result.xml
+```
+
+```json
+{
+  "job_id": "8f7f0d4b-7df9-4d1a-8d47-19f4f28b6d38",
+  "status": "completed",
+  "message_type": "pacs.008.001.13",
+  "download_url": "/api/download/8f7f0d4b-7df9-4d1a-8d47-19f4f28b6d38"
+}
 ```
 
 ---
@@ -217,6 +246,10 @@ docker build -t pacs008:latest .
 docker run -p 8000:8000 pacs008:latest
 ```
 
+```bash
+docker run --rm   -e PACS008_LOG_LEVEL=INFO   -v $PWD/examples:/data   -p 8000:8000 pacs008:latest
+```
+
 ---
 
 ## Walidacja IBAN i BIC
@@ -241,6 +274,14 @@ from pacs008.data.loader import load_payment_data_streaming
 
 for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
     print(f"Processing {len(chunk)} records")
+```
+
+```python
+from pacs008.validation import validate_batch
+
+for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
+    report = validate_batch(chunk, "pacs.008.001.13")
+    print(report.summary())
 ```
 
 ---
