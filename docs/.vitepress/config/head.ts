@@ -12,6 +12,5 @@ export const sharedHead: HeadConfig[] = [
   ["link", { rel: "icon", href: "/logo.svg", type: "image/svg+xml" }],
   ["link", { rel: "manifest", href: "/manifest.json" }],
   ["link", { rel: "preconnect", href: "https://cloudcdn.pro", crossorigin: "" }],
-  ["link", { rel: "preload", href: "https://cloudcdn.pro/stock/images/banners/meiying-ng-OrwkD-iWgqg.webp", as: "image", type: "image/webp", fetchpriority: "high" }],
   ["link", { rel: "alternate", type: "application/rss+xml", title: "pacs008 RSS Feed", href: "https://pacs008.com/rss.xml" }]
 ];

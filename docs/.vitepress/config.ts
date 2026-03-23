@@ -193,6 +193,11 @@ ${items.join("\n")}
       ...buildHreflangTags(meta.routePath)
     ];
 
+    // Preload hero image only on home pages
+    if (fm.layout === "home") {
+      head.push(["link", { rel: "preload", href: "https://cloudcdn.pro/stock/images/banners/meiying-ng-OrwkD-iWgqg.webp", as: "image", type: "image/webp", fetchpriority: "high" }] as unknown as [string, Record<string, string>]);
+    }
+
     // JSON-LD: WebSite on homepage, BreadcrumbList on all pages
     if (fm.layout === "home") {
       head.push(["script", { type: "application/ld+json" }, JSON.stringify({
