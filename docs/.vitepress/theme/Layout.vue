@@ -39,7 +39,6 @@ onMounted(() => {
 </script>
 
 <template>
-  <a class="skip-link" href="#VPContent">Skip to content</a>
   <Layout>
     <template #doc-before>
       <Breadcrumbs />

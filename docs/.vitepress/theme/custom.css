@@ -58,7 +58,7 @@
   /* Footer */
   --pacs-footer-bg: #f9f9f9;
   --pacs-footer-text: #494950;
-  --pacs-footer-link: var(--pacs-theme-text);
+  --pacs-footer-link: #005868;
   --pacs-footer-title: #1d1d1f;
 
   /* VitePress mappings */
@@ -201,14 +201,14 @@ strong {
   border-radius: 4px;
 }
 
-/* ---------- Skip Link ---------- */
-.skip-link {
+/* ---------- Skip Link (VitePress default, styled) ---------- */
+.VPSkipLink {
   position: fixed;
   top: 8px;
   inset-inline-start: 8px;
   z-index: 9999;
   background: #1d1d1f;
-  color: #ffffff;
+  color: #ffffff !important;
   padding: 0.625rem 1rem;
   border-radius: 8px;
   border: 2px solid var(--pacs-focus);
@@ -216,18 +216,20 @@ strong {
   font-weight: 600;
   transform: translateY(-200%);
   text-decoration: none;
+  clip: unset !important;
+  clip-path: none !important;
+  width: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
 }
 
-.skip-link:focus,
-.skip-link:focus-visible {
+.VPSkipLink:focus,
+.VPSkipLink:focus-visible {
   transform: translateY(0);
   outline: 3px solid var(--pacs-focus);
   outline-offset: 3px;
-}
-
-/* Hide VitePress default skip link to avoid duplicate */
-.VPSkipLink {
-  display: none !important;
 }
 
 /* ---------- Sidebar — hidden (single-column layout) ---------- */
@@ -428,12 +430,12 @@ strong {
   justify-content: center;
 }
 
-/* Hero overlay */
+/* Hero overlay — darkened for WCAG 2 AA white-text contrast */
 .VPHomeHero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0, 153, 172, 0.618);
+  background: rgba(0, 80, 95, 0.78);
   z-index: 0;
 }
 
@@ -485,7 +487,7 @@ strong {
 .VPHomeHero .tagline {
   font-size: 1.75rem;
   line-height: 1.618;
-  color: rgba(255, 255, 255, 0.9);
+  color: #ffffff;
   max-width: none !important;
   margin-left: auto;
   margin-right: auto;
