@@ -493,6 +493,7 @@ strong {
 
 .VPHomeHero .actions {
   margin-top: 1.618rem;
+  justify-content: flex-end !important;
 }
 
 /* ---------- Buttons ---------- */
