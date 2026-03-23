@@ -8,13 +8,25 @@ image: /logo.svg
 
 # Privacidad
 
-## Alcance actual
+Esta declaración de privacidad explica cómo pacs008.com gestiona la información cuando visita el sitio web.
 
-- información del sitio web del proyecto
-- enlaces del repositorio y distribución de paquetes
-- vía de contacto para preguntas o solicitudes de soporte
+## Información que recopilamos
 
-## Nota práctica
+pacs008.com no recopila datos personales. El sitio web no utiliza cookies ni tecnologías de seguimiento para identificar a los visitantes.
 
-Para despliegues operativos o regulados, haga que sus equipos legales y de cumplimiento revisen cualquier redacción final de privacidad, retención o términos antes de publicar.
+## Analítica
+
+Servicios de análisis de terceros pueden recopilar datos anonimizados y agregados, como páginas visitadas y URL de referencia. Estos datos no pueden utilizarse para identificar a los visitantes.
+
+## Sus derechos
+
+Según su jurisdicción, puede tener derechos con respecto a sus datos personales, incluido el derecho de acceso, rectificación o supresión. Dado que pacs008.com no recopila datos personales, es poco probable que estos derechos sean aplicables.
+
+## Cambios en esta declaración
+
+Esta declaración de privacidad puede revisarse periódicamente. Los cambios se publicarán en esta página.
+
+## Contacto
+
+Si tiene preguntas sobre esta declaración de privacidad, visite la [página de contacto](/es/contact/).
 

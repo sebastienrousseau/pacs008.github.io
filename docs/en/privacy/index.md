@@ -8,13 +8,25 @@ image: /logo.svg
 
 # Privacy
 
-## Current scope
+This privacy statement explains how pacs008.com handles information when you visit the website.
 
-- project website information
-- repository and package distribution links
-- contact route for questions or support requests
+## Information we collect
 
-## Practical note
+pacs008.com does not collect personal data. The website does not use cookies or tracking technologies to identify individual visitors.
 
-For operational or regulated deployments, have your legal and compliance teams review any final privacy, retention, or terms language before publishing.
+## Analytics
+
+Third-party analytics services may collect anonymised, aggregate data such as page views and referring URLs. This data cannot be used to identify individual visitors.
+
+## Your rights
+
+Depending on your jurisdiction, you may have rights regarding your personal data, including the right to access, correct, or delete information. Because pacs008.com does not collect personal data, these rights are unlikely to be applicable.
+
+## Changes to this statement
+
+This privacy statement may be revised periodically. Any changes will be published on this page.
+
+## Contact
+
+If you have questions about this privacy statement, please visit the [contact page](/en/contact/).
 

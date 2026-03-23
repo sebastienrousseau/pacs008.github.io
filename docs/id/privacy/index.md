@@ -8,13 +8,25 @@ image: /logo.svg
 
 # Privasi
 
-## Cakupan saat ini
+Pernyataan privasi ini menjelaskan bagaimana pacs008.com menangani informasi saat Anda mengunjungi situs web.
 
-- informasi situs web proyek
-- tautan repositori dan distribusi paket
-- jalur kontak untuk pertanyaan atau permintaan dukungan
+## Informasi yang kami kumpulkan
 
-## Catatan praktis
+pacs008.com tidak mengumpulkan data pribadi. Situs web tidak menggunakan cookie atau teknologi pelacakan untuk mengidentifikasi pengunjung.
 
-Untuk penerapan operasional atau yang diatur, minta tim hukum dan kepatuhan Anda meninjau bahasa privasi, retensi, atau ketentuan akhir sebelum menerbitkan.
+## Analitik
+
+Layanan analitik pihak ketiga mungkin mengumpulkan data anonim dan agregat seperti tampilan halaman dan URL perujuk. Data ini tidak dapat digunakan untuk mengidentifikasi pengunjung.
+
+## Hak Anda
+
+Bergantung pada yurisdiksi Anda, Anda mungkin memiliki hak terkait data pribadi Anda, termasuk hak untuk mengakses, memperbaiki, atau menghapus informasi. Karena pacs008.com tidak mengumpulkan data pribadi, hak-hak ini kemungkinan tidak berlaku.
+
+## Perubahan pada pernyataan ini
+
+Pernyataan privasi ini dapat direvisi secara berkala. Perubahan apa pun akan dipublikasikan di halaman ini.
+
+## Kontak
+
+Jika Anda memiliki pertanyaan tentang pernyataan privasi ini, silakan kunjungi [halaman kontak](/id/contact/).
 

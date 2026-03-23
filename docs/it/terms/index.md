@@ -8,13 +8,29 @@ image: /logo.svg
 
 # Termini
 
-## Ambito attuale
+Accedendo a pacs008.com, accettate di essere vincolati dalle presenti condizioni d'uso.
 
-- informazioni del sito web del progetto
-- link del repository e distribuzione dei pacchetti
-- canale di contatto per domande o richieste di supporto
+## Proprietà intellettuale
 
-## Nota pratica
+Tutti i contenuti di pacs008.com, inclusi testi, grafiche, loghi e software, sono proprietà dei rispettivi titolari e sono protetti dalle leggi sul diritto d'autore e sui marchi.
 
-Per distribuzioni operative o regolamentate, far revisionare ai team legali e di conformità qualsiasi formulazione finale su privacy, conservazione o termini prima della pubblicazione.
+## Link a terze parti
+
+pacs008.com può contenere link a siti web di terze parti. Questi link sono forniti solo per comodità. pacs008.com non approva né si assume responsabilità per i contenuti o le pratiche dei siti collegati.
+
+## Limitazione di responsabilità
+
+pacs008.com è fornito "così com'è" senza garanzie di alcun tipo. In nessun caso gli operatori del sito saranno responsabili per danni derivanti dall'uso o dall'impossibilità di utilizzare il sito web.
+
+## Legge applicabile
+
+Le presenti condizioni sono regolate dalle leggi della giurisdizione applicabile. Eventuali controversie saranno risolte presso i tribunali competenti.
+
+## Modifiche alle condizioni
+
+Le presenti condizioni d'uso possono essere aggiornate in qualsiasi momento. L'uso continuato del sito web dopo le modifiche costituisce accettazione delle condizioni riviste.
+
+## Contatti
+
+Per domande su queste condizioni, visitate la [pagina dei contatti](/it/contact/).
 

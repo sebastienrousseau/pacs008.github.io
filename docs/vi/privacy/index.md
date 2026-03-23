@@ -8,13 +8,25 @@ image: /logo.svg
 
 # Quyền riêng tư
 
-## Phạm vi hiện tại
+Tuyên bố quyền riêng tư này giải thích cách pacs008.com xử lý thông tin khi bạn truy cập trang web.
 
-- thông tin trang web dự án
-- liên kết kho lưu trữ và phân phối gói
-- đường liên hệ cho câu hỏi hoặc yêu cầu hỗ trợ
+## Thông tin chúng tôi thu thập
 
-## Lưu ý thực tế
+pacs008.com không thu thập dữ liệu cá nhân. Trang web không sử dụng cookie hoặc công nghệ theo dõi để nhận dạng từng người truy cập.
 
-Đối với các triển khai vận hành hoặc được quản lý, hãy yêu cầu đội ngũ pháp lý và tuân thủ xem xét mọi từ ngữ cuối cùng về quyền riêng tư, lưu giữ hoặc điều khoản trước khi xuất bản.
+## Phân tích
+
+Các dịch vụ phân tích của bên thứ ba có thể thu thập dữ liệu ẩn danh, tổng hợp như lượt xem trang và URL giới thiệu. Dữ liệu này không thể được sử dụng để nhận dạng từng người truy cập.
+
+## Quyền của bạn
+
+Tùy thuộc vào quyền tài phán của bạn, bạn có thể có các quyền liên quan đến dữ liệu cá nhân, bao gồm quyền truy cập, chỉnh sửa hoặc xóa thông tin. Vì pacs008.com không thu thập dữ liệu cá nhân, các quyền này có thể không áp dụng.
+
+## Thay đổi tuyên bố này
+
+Tuyên bố quyền riêng tư này có thể được sửa đổi định kỳ. Mọi thay đổi sẽ được công bố trên trang này.
+
+## Liên hệ
+
+Nếu bạn có câu hỏi về tuyên bố quyền riêng tư này, vui lòng truy cập [trang liên hệ](/vi/contact/).
 

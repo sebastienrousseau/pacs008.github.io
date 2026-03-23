@@ -8,13 +8,25 @@ image: /logo.svg
 
 # Confidentialité
 
-## Portée actuelle
+Cette déclaration de confidentialité explique comment pacs008.com traite les informations lors de votre visite.
 
-- informations du site web du projet
-- liens du dépôt et de distribution des paquets
-- voie de contact pour les questions ou les demandes de support
+## Informations que nous collectons
 
-## Note pratique
+pacs008.com ne collecte aucune donnée personnelle. Le site n'utilise ni cookies ni technologies de suivi pour identifier les visiteurs.
 
-Pour les déploiements opérationnels ou réglementés, faites relire les formulations finales par vos équipes juridiques et conformité.
+## Analytique
+
+Des services d'analyse tiers peuvent collecter des données anonymisées et agrégées, telles que les pages vues et les URL de provenance. Ces données ne permettent pas d'identifier les visiteurs.
+
+## Vos droits
+
+Selon votre juridiction, vous pouvez disposer de droits relatifs à vos données personnelles, notamment le droit d'accès, de rectification ou de suppression. Étant donné que pacs008.com ne collecte pas de données personnelles, ces droits ne sont probablement pas applicables.
+
+## Modifications de cette déclaration
+
+Cette déclaration de confidentialité peut être révisée périodiquement. Toute modification sera publiée sur cette page.
+
+## Contact
+
+Si vous avez des questions concernant cette déclaration de confidentialité, veuillez consulter la [page de contact](/fr/contact/).
 
