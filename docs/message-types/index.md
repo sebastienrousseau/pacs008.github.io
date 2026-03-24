@@ -33,7 +33,7 @@ pacs008 covers the core pacs.008 message and the related pacs messages used for 
           <td class="message-coverage-table__id"><a href="/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="message-coverage-table__name">FI to FI Payment Status Report</td>
           <td class="message-coverage-table__year">2019</td>
-          <td class="message-coverage-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether processing was accepted, rejected, pending, or settled.</td>
+          <td class="message-coverage-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected, pending, or settled.</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
@@ -51,7 +51,7 @@ pacs008 covers the core pacs.008 message and the related pacs messages used for 
           <td class="message-coverage-table__id"><a href="/pacs.007.001.11/"><code>pacs.007.001.11</code></a></td>
           <td class="message-coverage-table__name">FI to FI Payment Reversal</td>
           <td class="message-coverage-table__year">2019</td>
-          <td class="message-coverage-table__overview">The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, it starts from the original instructing side.</td>
+          <td class="message-coverage-table__overview">The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, it starts from the original sender.</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
@@ -63,13 +63,13 @@ pacs008 covers the core pacs.008 message and the related pacs messages used for 
           <td class="message-coverage-table__id"><a href="/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
           <td class="message-coverage-table__name">Financial Institution Credit Transfer</td>
           <td class="message-coverage-table__year">2019</td>
-          <td class="message-coverage-table__overview">The pacs.009 message moves funds between financial institutions on their own behalf. It supports interbank funding, cover payments, and liquidity management.</td>
+          <td class="message-coverage-table__overview">The pacs.009 message moves funds between financial institutions on their own behalf. It supports funding, cover payments, and liquidity management.</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/pacs.010.001.05/"><code>pacs.010.001.05</code></a></td>
           <td class="message-coverage-table__name">Financial Institution Direct Debit</td>
           <td class="message-coverage-table__year">2019</td>
-          <td class="message-coverage-table__overview">The pacs.010 message lets one financial institution debit another institution&#39;s own account. It is used for institution-to-institution collections, not for customer mandate payments.</td>
+          <td class="message-coverage-table__overview">The pacs.010 message lets one financial institution debit another institution&#39;s own account. It is for institution-to-institution collections, not customer direct debits.</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/pacs.028.001.05/"><code>pacs.028.001.05</code></a></td>

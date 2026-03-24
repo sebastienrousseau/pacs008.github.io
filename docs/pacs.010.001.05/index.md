@@ -1,6 +1,6 @@
 ---
 title: pacs.010.001.05 | Financial Institution Direct Debit | pacs008
-description: The pacs.010 message lets one financial institution debit another institution's own account. It is used for institution-to-institution collections, not...
+description: The pacs.010 message lets one financial institution debit another institution's own account. It is for institution-to-institution collections, not...
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
@@ -43,9 +43,9 @@ image: /logo.svg
 
 ## Overview
 
-The pacs.010 message lets one financial institution debit another institution's own account. It is used for institution-to-institution collections, not for customer mandate payments.
+The pacs.010 message lets one financial institution debit another institution's own account. It is for institution-to-institution collections, not customer direct debits.
 
-> Reviewed against primary sources on 23 March 2026. ISO catalogue date: 2025-02-27.
+> Reviewed 23 March 2026. ISO catalogue date: 2025-02-27.
 
 ## Key data elements
 
@@ -59,7 +59,7 @@ The pacs.010 message lets one financial institution debit another institution's 
 
 - Supports direct-debit collection between financial institutions.
 - Used for fees, margin calls, and other institution obligations.
-- Needs a bilateral agreement between the participating institutions.
+- Needs a bilateral agreement between the institutions.
 - Often sits in treasury and liquidity workflows.
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Key data elements Business context">
@@ -85,7 +85,7 @@ The pacs.010 message lets one financial institution debit another institution's 
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Creditor institution and its agent identification</td>
-          <td class="operational-matrix-table__right">Needs a bilateral agreement between the participating institutions</td>
+          <td class="operational-matrix-table__right">Needs a bilateral agreement between the institutions</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Debtor institution and its agent identification</td>
@@ -104,7 +104,7 @@ The pacs.010 message lets one financial institution debit another institution's 
 - It maps older interbank direct-debit processing into ISO 20022.
 - It uses the same structured party-data rules as other pacs messages.
 - Institution identifiers such as BIC and LEI still need validation.
-- It appears in broader ISO 20022 migration plans across market infrastructures.
+- It appears in wider ISO 20022 migration plans across market infrastructures.
 
 ## Message flow
 
@@ -150,9 +150,7 @@ Use this page for the version that pacs008 implements today, and review the newe
 ## Scheme-specific notes
 
 - pacs.010 is not part of the SCT or SCT Inst credit-transfer rulebooks, so credit-transfer shortcuts do not carry over here.
-- Use this page as a technical guide for institution direct-debit scenarios, not as a substitute for market-scheme documentation.
-
-Source links below point to primary standards bodies or scheme operators. Where a note goes beyond a direct statement, it is an implementation inference from those sources.
+- Use this page as a guide for institution direct-debit scenarios, not as a substitute for market-scheme documentation.
 
 ## When to use this message
 
@@ -160,7 +158,7 @@ Use pacs.010 when one institution must debit another institution's own account.
 
 ## When not to use this message
 
-Do not use pacs.010 for customer mandate collections or credit-transfer flows.
+Do not use pacs.010 for customer direct debits or credit transfers.
 
 ## Implementation notes
 
@@ -242,12 +240,12 @@ Start with authorization, bilateral controls, and exception handling before fina
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
           <td class="related-messages-table__name">Financial Institution Credit Transfer</td>
-          <td class="related-messages-table__overview">The pacs.009 message moves funds between financial institutions on their own behalf. It supports interbank funding, cover payments, and liquidity management.</td>
+          <td class="related-messages-table__overview">The pacs.009 message moves funds between financial institutions on their own behalf. It supports funding, cover payments, and liquidity management.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="related-messages-table__name">FI to FI Payment Status Report</td>
-          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether processing was accepted, rejected, pending, or settled.</td>
+          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected, pending, or settled.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>

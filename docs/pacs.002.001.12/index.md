@@ -1,6 +1,6 @@
 ---
 title: pacs.002.001.12 | FI to FI Payment Status Report | pacs008
-description: The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether processing was accepted, rejected...
+description: The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected...
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
@@ -43,9 +43,9 @@ image: /logo.svg
 
 ## Overview
 
-The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether processing was accepted, rejected, pending, or settled.
+The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected, pending, or settled.
 
-> Reviewed against primary sources on 23 March 2026. ISO catalogue date: 2025-02-27.
+> Reviewed 23 March 2026. ISO catalogue date: 2025-02-27.
 
 ## Key data elements
 
@@ -57,10 +57,10 @@ The pacs.002 message reports the status of an earlier payment instruction. It te
 
 ## Business context
 
-- Used to confirm settlement or report rejection of credit transfers, direct debits, and payment returns.
-- Enables reconciliation between instructing and instructed agents.
-- Required in CBPR+ flows to acknowledge processing of pacs.008 and pacs.009 messages.
-- Supports both bulk group-level and individual transaction-level status reporting.
+- Confirms settlement or rejection of credit transfers, direct debits, and returns.
+- Supports reconciliation between instructing and instructed agents.
+- Used in CBPR+ flows for pacs.008 and pacs.009 status reporting.
+- Supports group-level and transaction-level status reporting.
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Key data elements Business context">
   <table>
@@ -77,23 +77,23 @@ The pacs.002 message reports the status of an earlier payment instruction. It te
     <tbody>
         <tr>
           <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message identification and creation timestamp</td>
-          <td class="operational-matrix-table__right">Used to confirm settlement or report rejection of credit transfers, direct debits, and payment returns</td>
+          <td class="operational-matrix-table__right">Confirms settlement or rejection of credit transfers, direct debits, and returns</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>OrgnlGrpInfAndSts</strong> — Original Group Information and Status for bulk-level reporting</td>
-          <td class="operational-matrix-table__right">Enables reconciliation between instructing and instructed agents</td>
+          <td class="operational-matrix-table__right">Supports reconciliation between instructing and instructed agents</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>TxInfAndSts</strong> — Transaction Information and Status for individual transaction outcomes</td>
-          <td class="operational-matrix-table__right">Required in CBPR+ flows to acknowledge processing of pacs.008 and pacs.009 messages</td>
+          <td class="operational-matrix-table__right">Used in CBPR+ flows for pacs.008 and pacs.009 status reporting</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>StsRsnInf</strong> — Status Reason Information with structured reason codes</td>
-          <td class="operational-matrix-table__right">Supports both bulk group-level and individual transaction-level status reporting</td>
+          <td class="operational-matrix-table__right">Supports group-level and transaction-level status reporting</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Original Transaction Reference linking back to the source instruction</td>
-          <td class="operational-matrix-table__right">The instructed agent (receiver) sends pacs.002 back to the instructing agent (sender) to confirm acceptance, settlement, or rejection of a received payment instruction such as pacs.008 or pacs.009.</td>
+          <td class="operational-matrix-table__right">The instructed agent sends pacs.002 back to the instructing agent to confirm acceptance, settlement, or rejection of a payment instruction such as pacs.008 or pacs.009.</td>
         </tr>
     </tbody>
   </table>
@@ -101,14 +101,14 @@ The pacs.002 message reports the status of an earlier payment instruction. It te
 
 ## CBPR+ and scheme context
 
-- Replaces MT199 and field 79 status narratives in MT messages.
+- Replaces MT199 and field 79 status text in MT messages.
 - CBPR+ mandates pacs.002 for all payment status communication.
 - Structured reason codes replace free-text rejection explanations.
 - SWIFT gpi tracking integration requires pacs.002 for end-to-end transparency.
 
 ## Message flow
 
-The instructed agent (receiver) sends pacs.002 back to the instructing agent (sender) to confirm acceptance, settlement, or rejection of a received payment instruction such as pacs.008 or pacs.009.
+The instructed agent sends pacs.002 back to the instructing agent to confirm acceptance, settlement, or rejection of a payment instruction such as pacs.008 or pacs.009.
 
 ## Version commentary
 
@@ -151,8 +151,6 @@ Use this page for the version that pacs008 implements today, and review the newe
 
 - In SEPA credit-transfer and instant-payment flows, pacs.002 is the main companion status message. See the [EPC SCT rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) and [EPC SCT Inst rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook).
 - In CBPR+, pacs.002 sits alongside pacs.008, pacs.009, and pacs.004 in the Swift rollout. See [Swift's CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released).
-
-Source links below point to primary standards bodies or scheme operators. Where a note goes beyond a direct statement, it is an implementation inference from those sources.
 
 ## When to use this message
 
@@ -293,7 +291,7 @@ No. It should inform them, but internal case states still need their own operati
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
           <td class="related-messages-table__name">Financial Institution Credit Transfer</td>
-          <td class="related-messages-table__overview">The pacs.009 message moves funds between financial institutions on their own behalf. It supports interbank funding, cover payments, and liquidity management.</td>
+          <td class="related-messages-table__overview">The pacs.009 message moves funds between financial institutions on their own behalf. It supports funding, cover payments, and liquidity management.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.028.001.05/"><code>pacs.028.001.05</code></a></td>

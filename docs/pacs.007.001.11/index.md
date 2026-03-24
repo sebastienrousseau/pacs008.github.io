@@ -1,6 +1,6 @@
 ---
 title: pacs.007.001.11 | FI to FI Payment Reversal | pacs008
-description: The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, it starts from the original instructing side.
+description: The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, it starts from the original sender.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
@@ -43,9 +43,9 @@ image: /logo.svg
 
 ## Overview
 
-The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, it starts from the original instructing side.
+The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, it starts from the original sender.
 
-> Reviewed against primary sources on 23 March 2026. ISO catalogue date: 2025-02-27.
+> Reviewed 23 March 2026. ISO catalogue date: 2025-02-27.
 
 ## Key data elements
 
@@ -57,10 +57,10 @@ The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, i
 
 ## Business context
 
-- Initiated when the original sender identifies an error before or after settlement.
-- Used in fraud scenarios where rapid reversal is required.
+- Used when the original sender finds an error before or after settlement.
+- Used in fraud cases that need fast reversal.
 - Supports both full and partial reversal of original payment amounts.
-- Carries structured reversal reason codes for downstream processing.
+- Carries structured reversal reason codes.
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Key data elements Business context">
   <table>
@@ -77,11 +77,11 @@ The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, i
     <tbody>
         <tr>
           <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message identification and creation timestamp</td>
-          <td class="operational-matrix-table__right">Initiated when the original sender identifies an error before or after settlement</td>
+          <td class="operational-matrix-table__right">Used when the original sender finds an error before or after settlement</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>TxInf</strong> — Transaction Information with reversal amount and parties</td>
-          <td class="operational-matrix-table__right">Used in fraud scenarios where rapid reversal is required</td>
+          <td class="operational-matrix-table__right">Used in fraud cases that need fast reversal</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Original Group Information referencing the source message</td>
@@ -89,11 +89,11 @@ The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, i
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>RvslRsnInf</strong> — Reversal Reason Information with structured reason codes</td>
-          <td class="operational-matrix-table__right">Carries structured reversal reason codes for downstream processing</td>
+          <td class="operational-matrix-table__right">Carries structured reversal reason codes</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Original Transaction Reference for end-to-end traceability</td>
-          <td class="operational-matrix-table__right">The instructing agent (original sender) sends pacs.007 forward through the payment chain to reverse a previously instructed payment. Each agent processes the reversal instruction and adjusts settlement accordingly.</td>
+          <td class="operational-matrix-table__right">The instructing agent sends pacs.007 forward through the payment chain to reverse an earlier payment. Each agent processes the reversal and adjusts settlement.</td>
         </tr>
     </tbody>
   </table>
@@ -101,14 +101,14 @@ The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, i
 
 ## CBPR+ and scheme context
 
-- Distinguished from pacs.004 by direction — reversal flows forward from originator, return flows backward from beneficiary.
+- It differs from pacs.004 by direction: reversals move forward, returns move back.
 - CBPR+ requires pairing with original message identifiers for automated matching.
 - Structured reason codes replace free-text narratives from legacy MT messages.
-- Increasingly used in instant payment recall and fraud prevention workflows.
+- Used more often in instant-payment recall and fraud workflows.
 
 ## Message flow
 
-The instructing agent (original sender) sends pacs.007 forward through the payment chain to reverse a previously instructed payment. Each agent processes the reversal instruction and adjusts settlement accordingly.
+The instructing agent sends pacs.007 forward through the payment chain to reverse an earlier payment. Each agent processes the reversal and adjusts settlement.
 
 ## Version commentary
 
@@ -151,8 +151,6 @@ Use this page for the version that pacs008 implements today, and review the newe
 
 - pacs.007 is closer to recall and reversal handling than to beneficiary-side returns, so do not collapse it into the same process model as pacs.004.
 - It is often used for fast exception handling in instant-payment and fraud-response contexts.
-
-Source links below point to primary standards bodies or scheme operators. Where a note goes beyond a direct statement, it is an implementation inference from those sources.
 
 ## When to use this message
 
@@ -293,7 +291,7 @@ No. Reversal timing, reason capture, and reconciliation differ materially from r
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="related-messages-table__name">FI to FI Payment Status Report</td>
-          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether processing was accepted, rejected, pending, or settled.</td>
+          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected, pending, or settled.</td>
         </tr>
     </tbody>
   </table>

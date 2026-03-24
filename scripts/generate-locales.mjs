@@ -395,8 +395,8 @@ const pageCopy = {
     deliveryModel: "Delivery model",
     deliveryText: "Each supported message comes with templates and validation rules. Teams can use the same assets in local tests, CI, and internal payment services.",
     apiTitle: "API",
-    apiDescription: "Use the pacs008 REST API, CLI, and Python library to validate payment data, manage checks, and generate ISO 20022 XML.",
-    apiIntro: "pacs008 gives you three entry points: REST API, CLI, and Python library.",
+    apiDescription: "Use the pacs008 REST API, CLI, and Python library to validate payment data, run checks, and generate ISO 20022 XML files.",
+    apiIntro: "pacs008 offers a REST API, CLI, and Python library.",
     apiCapabilities: "API capabilities",
     cliCapabilities: "CLI capabilities",
     contactTitle: "Contact",
@@ -452,7 +452,7 @@ const pageCopy = {
     apiInstallTitle: "Installation",
     apiInstallText: "Install the package from PyPI. You need Python 3.9.2 or later.",
     apiRestTitle: "REST API",
-    apiRestIntro: "Start the built-in FastAPI server for validation and XML generation over HTTP.",
+    apiRestIntro: "Start the built-in FastAPI server for HTTP validation and XML generation.",
     apiRestStart: "Start the server",
     apiEndpointsTitle: "Endpoints",
     apiEndpointHealth: "Health check that returns service status",
@@ -463,9 +463,9 @@ const pageCopy = {
     apiEndpointDownload: "Download XML after the job completes",
     apiEndpointDocs: "Swagger UI for testing all endpoints",
     apiValidateExample: "Validation example",
-    apiValidateDesc: "Validate payment data before you generate XML.",
+    apiValidateDesc: "Check payment data before you generate XML.",
     apiGenerateExample: "Synchronous generation example",
-    apiGenerateDesc: "Generate a `pacs.008.001.13` XML file from JSON data.",
+    apiGenerateDesc: "Generate a `pacs.008.001.13` XML file from JSON.",
     apiAsyncExample: "Asynchronous generation",
     apiAsyncDesc: "For larger files or workflow engines, submit an async job and poll until it finishes.",
     apiCliTitle: "CLI",
@@ -543,21 +543,21 @@ const pageCopy = {
     msgDetailRelated: "Related messages",
     msgTypeColId: "Message type",
     msgTypeColDesc: "Description",
-    pacs002Overview: "The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether processing was accepted, rejected, pending, or settled.",
+    pacs002Overview: "The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected, pending, or settled.",
     pacs002Element1: "**GrpHdr** — Group Header with message identification and creation timestamp",
     pacs002Element2: "**OrgnlGrpInfAndSts** — Original Group Information and Status for bulk-level reporting",
     pacs002Element3: "**TxInfAndSts** — Transaction Information and Status for individual transaction outcomes",
     pacs002Element4: "**StsRsnInf** — Status Reason Information with structured reason codes",
     pacs002Element5: "**OrgnlTxRef** — Original Transaction Reference linking back to the source instruction",
-    pacs002Business1: "Used to confirm settlement or report rejection of credit transfers, direct debits, and payment returns",
-    pacs002Business2: "Enables reconciliation between instructing and instructed agents",
-    pacs002Business3: "Required in CBPR+ flows to acknowledge processing of pacs.008 and pacs.009 messages",
-    pacs002Business4: "Supports both bulk group-level and individual transaction-level status reporting",
-    pacs002Cbpr1: "Replaces MT199 and field 79 status narratives in MT messages",
+    pacs002Business1: "Confirms settlement or rejection of credit transfers, direct debits, and returns",
+    pacs002Business2: "Supports reconciliation between instructing and instructed agents",
+    pacs002Business3: "Used in CBPR+ flows for pacs.008 and pacs.009 status reporting",
+    pacs002Business4: "Supports group-level and transaction-level status reporting",
+    pacs002Cbpr1: "Replaces MT199 and field 79 status text in MT messages",
     pacs002Cbpr2: "CBPR+ mandates pacs.002 for all payment status communication",
     pacs002Cbpr3: "Structured reason codes replace free-text rejection explanations",
     pacs002Cbpr4: "SWIFT gpi tracking integration requires pacs.002 for end-to-end transparency",
-    pacs002Flow: "The instructed agent (receiver) sends pacs.002 back to the instructing agent (sender) to confirm acceptance, settlement, or rejection of a received payment instruction such as pacs.008 or pacs.009.",
+    pacs002Flow: "The instructed agent sends pacs.002 back to the instructing agent to confirm acceptance, settlement, or rejection of a payment instruction such as pacs.008 or pacs.009.",
     pacs003Overview: "The pacs.003 message executes a customer direct debit between financial institutions. It lets the creditor bank collect funds from the debtor bank.",
     pacs003Element1: "**GrpHdr** — Group Header with message identification and settlement information",
     pacs003Element2: "**DrctDbtTxInf** — Direct Debit Transaction Information with amount and parties",
@@ -588,52 +588,52 @@ const pageCopy = {
     pacs004Cbpr3: "CBPR+ requires full original transaction reference data for matching",
     pacs004Cbpr4: "SWIFT gpi tracking extends to return transactions for end-to-end visibility",
     pacs004Flow: "The instructed agent sends pacs.004 back through the payment chain to return previously settled funds. Each agent in the chain processes the return and credits back the relevant accounts.",
-    pacs007Overview: "The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, it starts from the original instructing side.",
+    pacs007Overview: "The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, it starts from the original sender.",
     pacs007Element1: "**GrpHdr** — Group Header with message identification and creation timestamp",
     pacs007Element2: "**TxInf** — Transaction Information with reversal amount and parties",
     pacs007Element3: "**OrgnlGrpInf** — Original Group Information referencing the source message",
     pacs007Element4: "**RvslRsnInf** — Reversal Reason Information with structured reason codes",
     pacs007Element5: "**OrgnlTxRef** — Original Transaction Reference for end-to-end traceability",
-    pacs007Business1: "Initiated when the original sender identifies an error before or after settlement",
-    pacs007Business2: "Used in fraud scenarios where rapid reversal is required",
+    pacs007Business1: "Used when the original sender finds an error before or after settlement",
+    pacs007Business2: "Used in fraud cases that need fast reversal",
     pacs007Business3: "Supports both full and partial reversal of original payment amounts",
-    pacs007Business4: "Carries structured reversal reason codes for downstream processing",
-    pacs007Cbpr1: "Distinguished from pacs.004 by direction — reversal flows forward from originator, return flows backward from beneficiary",
+    pacs007Business4: "Carries structured reversal reason codes",
+    pacs007Cbpr1: "It differs from pacs.004 by direction: reversals move forward, returns move back",
     pacs007Cbpr2: "CBPR+ requires pairing with original message identifiers for automated matching",
     pacs007Cbpr3: "Structured reason codes replace free-text narratives from legacy MT messages",
-    pacs007Cbpr4: "Increasingly used in instant payment recall and fraud prevention workflows",
-    pacs007Flow: "The instructing agent (original sender) sends pacs.007 forward through the payment chain to reverse a previously instructed payment. Each agent processes the reversal instruction and adjusts settlement accordingly.",
+    pacs007Cbpr4: "Used more often in instant-payment recall and fraud workflows",
+    pacs007Flow: "The instructing agent sends pacs.007 forward through the payment chain to reverse an earlier payment. Each agent processes the reversal and adjusts settlement.",
     pacs008dOverview: "The pacs.008 message is the main customer credit-transfer instruction between financial institutions. It carries party, amount, and remittance data.",
     pacs008dElement1: "**GrpHdr** — Group Header with message ID, creation date, number of transactions, and settlement information",
     pacs008dElement2: "**CdtTrfTxInf** — Credit Transfer Transaction Information with amount, charges, and purpose",
     pacs008dElement3: "**Dbtr / DbtrAgt** — Debtor and Debtor Agent identification and account details",
     pacs008dElement4: "**Cdtr / CdtrAgt** — Creditor and Creditor Agent identification and account details",
     pacs008dElement5: "**RmtInf** — Remittance Information for structured or unstructured payment references",
-    pacs008dBusiness1: "The primary message for customer-initiated cross-border and domestic credit transfers",
+    pacs008dBusiness1: "Main message for customer cross-border and domestic credit transfers",
     pacs008dBusiness2: "Used across SEPA SCT, SEPA Instant, CBPR+, and national clearing systems",
-    pacs008dBusiness3: "Carries structured remittance information to support straight-through reconciliation",
-    pacs008dBusiness4: "Supports serial, cover, and direct settlement methods for multi-leg payment chains",
+    pacs008dBusiness3: "Carries remittance data for straight-through reconciliation",
+    pacs008dBusiness4: "Supports serial, cover, and direct settlement methods",
     pacs008dCbpr1: "Replaces MT103 and MT103+ for cross-border customer credit transfers",
-    pacs008dCbpr2: "Structured address deadline of November 2026 applies to all party postal addresses",
-    pacs008dCbpr3: "SWIFT gpi requires pacs.008 for UETR-based end-to-end tracking",
-    pacs008dCbpr4: "13 revisions reflect ongoing schema evolution across market infrastructures",
-    pacs008dFlow: "The debtor agent creates a pacs.008 and sends it to the creditor agent (directly or via intermediaries). Each agent in the chain validates, enriches, and forwards the instruction until the creditor agent credits the beneficiary's account.",
-    pacs009Overview: "The pacs.009 message moves funds between financial institutions on their own behalf. It supports interbank funding, cover payments, and liquidity management.",
+    pacs008dCbpr2: "The November 2026 structured-address deadline applies to party postal addresses",
+    pacs008dCbpr3: "SWIFT gpi uses pacs.008 for UETR-based tracking",
+    pacs008dCbpr4: "Revision 13 reflects ongoing schema change across market infrastructures",
+    pacs008dFlow: "The debtor agent sends pacs.008 to the creditor agent, directly or through intermediaries. Each agent validates and forwards the instruction until the creditor agent credits the beneficiary.",
+    pacs009Overview: "The pacs.009 message moves funds between financial institutions on their own behalf. It supports funding, cover payments, and liquidity management.",
     pacs009Element1: "**GrpHdr** — Group Header with message identification and settlement information",
     pacs009Element2: "**CdtTrfTxInf** — Credit Transfer Transaction Information with interbank settlement amount",
     pacs009Element3: "**Dbtr / DbtrAgt** — Debtor institution and its agent identification",
     pacs009Element4: "**Cdtr / CdtrAgt** — Creditor institution and its agent identification",
     pacs009Element5: "**IntrBkSttlmAmt** — Interbank Settlement Amount in the settlement currency",
     pacs009Business1: "Used for bank-to-bank own-account transfers and cover payments",
-    pacs009Business2: "Supports liquidity management between correspondent banking partners",
-    pacs009Business3: "Carries the cover leg of customer credit transfers settled via cover method",
-    pacs009Business4: "Enables treasury and funding operations between financial institutions",
+    pacs009Business2: "Supports liquidity management between correspondent banks",
+    pacs009Business3: "Carries the cover leg of customer credit transfers",
+    pacs009Business4: "Supports treasury and funding operations",
     pacs009Cbpr1: "Replaces MT202 and MT202COV for institution-to-institution transfers",
-    pacs009Cbpr2: "Cover method flows pair pacs.009 with the underlying pacs.008 customer instruction",
-    pacs009Cbpr3: "Structured party data and LEI identification increasingly required",
-    pacs009Cbpr4: "SWIFT gpi covers pacs.009 for correspondent banking transparency",
-    pacs009Flow: "The debtor institution sends pacs.009 to the creditor institution to transfer its own funds. For cover-method payments, pacs.009 provides the funding leg while pacs.008 carries the customer instruction through a separate path.",
-    pacs010Overview: "The pacs.010 message lets one financial institution debit another institution's own account. It is used for institution-to-institution collections, not for customer mandate payments.",
+    pacs009Cbpr2: "Cover-method flows pair pacs.009 with the underlying pacs.008 instruction",
+    pacs009Cbpr3: "Structured party data and LEI identification are used more often",
+    pacs009Cbpr4: "SWIFT gpi covers pacs.009 for correspondent-banking transparency",
+    pacs009Flow: "The debtor institution sends pacs.009 to the creditor institution to transfer its own funds. In cover flows, pacs.009 carries the funding leg while pacs.008 carries the customer instruction on a separate path.",
+    pacs010Overview: "The pacs.010 message lets one financial institution debit another institution's own account. It is for institution-to-institution collections, not customer direct debits.",
     pacs010Element1: "**GrpHdr** — Group Header with message identification and settlement information",
     pacs010Element2: "**DrctDbtTxInf** — Direct Debit Transaction Information with collection amount",
     pacs010Element3: "**Cdtr / CdtrAgt** — Creditor institution and its agent identification",
@@ -641,12 +641,12 @@ const pageCopy = {
     pacs010Element5: "**IntrBkSttlmAmt** — Interbank Settlement Amount in the settlement currency",
     pacs010Business1: "Supports direct-debit collection between financial institutions",
     pacs010Business2: "Used for fees, margin calls, and other institution obligations",
-    pacs010Business3: "Needs a bilateral agreement between the participating institutions",
+    pacs010Business3: "Needs a bilateral agreement between the institutions",
     pacs010Business4: "Often sits in treasury and liquidity workflows",
     pacs010Cbpr1: "It maps older interbank direct-debit processing into ISO 20022.",
     pacs010Cbpr2: "It uses the same structured party-data rules as other pacs messages.",
     pacs010Cbpr3: "Institution identifiers such as BIC and LEI still need validation.",
-    pacs010Cbpr4: "It appears in broader ISO 20022 migration plans across market infrastructures.",
+    pacs010Cbpr4: "It appears in wider ISO 20022 migration plans across market infrastructures.",
     pacs010Flow: "The collecting institution sends pacs.010 under a pre-agreed setup. The receiving institution checks the request and either settles or rejects it.",
     pacs028Overview: "The pacs.028 message asks another institution for the status of an earlier payment. It is a targeted status query for delayed, unclear, or missing payment updates.",
     pacs028Element1: "**GrpHdr** — Group Header with message identification and creation timestamp",
@@ -7215,12 +7215,12 @@ const EN_EDITORIAL = {
       ]
     },
     "pacs.008.001.13": {
-      whenToUse: "Use pacs.008 for customer credit transfers moving between financial institutions, including domestic clearing, cross-border correspondent flows, and instant-payment contexts where the customer payment instruction is the primary object.",
-      avoidUsing: "Do not use pacs.008 for institution-own-account funding transfers or as a generic envelope for status, return, or investigation messages.",
+      whenToUse: "Use pacs.008 for customer credit transfers moving between financial institutions.",
+      avoidUsing: "Do not use pacs.008 for institution-own-account funding transfers or for status, return, or investigation messages.",
       implementationNotes: [
-        "Address quality, party identifiers, and remittance structure typically determine downstream repair rates more than the XML skeleton itself.",
-        "Model payment purpose, charge bearer, settlement method, and party roles explicitly in source data before template rendering.",
-        "Treat version selection as a deployment concern tied to market infrastructure and bank counterparties, not just to the latest schema revision."
+        "Address quality, party identifiers, and remittance structure often matter more than the XML skeleton.",
+        "Model payment purpose, charge bearer, settlement method, and party roles in source data before rendering.",
+        "Treat version selection as a deployment decision tied to market infrastructure and counterparties."
       ],
       commonPitfalls: [
         "Assuming one pacs.008 mapping works unchanged across CBPR+, SEPA, domestic RTGS, and instant-payment contexts.",
@@ -7244,7 +7244,7 @@ const EN_EDITORIAL = {
     },
     "pacs.010.001.05": {
       whenToUse: "Use pacs.010 when one institution must debit another institution's own account.",
-      avoidUsing: "Do not use pacs.010 for customer mandate collections or credit-transfer flows.",
+      avoidUsing: "Do not use pacs.010 for customer direct debits or credit transfers.",
       implementationNotes: [
         "Keep bilateral approval logic outside the message.",
         "Treat institution-own-account debits as high-control flows.",
@@ -10949,7 +10949,7 @@ function sourceReviewLine(localeKey, msgType = null) {
 
   const latestInfo = ISO_LATEST_BY_SLUG[msgType.slug];
   if (localeKey === "en") {
-    return `> Reviewed against primary sources on 23 March 2026. ISO catalogue date: ${latestInfo?.date ?? "current public catalogue"}.`;
+    return `> Reviewed 23 March 2026. ISO catalogue date: ${latestInfo?.date ?? "current public catalogue"}.`;
   }
 
   const copy = seoCopy(localeKey);
@@ -11039,10 +11039,9 @@ function englishApiEditorial() {
   return `
 ## Implementation notes
 
-- Use sync generation for operator checks and small batches.
+- Use sync generation for small operator checks.
 - Use async generation for large files and workflow engines.
 - Keep the input payload and validation report.
-- Pin template and XSD paths in deployment config.
 `;
 }
 
@@ -11073,8 +11072,6 @@ ${isCurrent
 }
 
 function englishSchemeNotes(msgType) {
-  const common = `Source links below point to primary standards bodies or scheme operators. Where a note goes beyond a direct statement, it is an implementation inference from those sources.`;
-
   const bySlug = {
     "pacs.002.001.12": [
       `In SEPA credit-transfer and instant-payment flows, pacs.002 is the main companion status message. See the [EPC SCT rulebook](${PRIMARY_SOURCES.epcSct}) and [EPC SCT Inst rulebook](${PRIMARY_SOURCES.epcSctInst}).`,
@@ -11094,10 +11091,10 @@ function englishSchemeNotes(msgType) {
     ],
     "pacs.008.001.13": [
       `For SEPA credit transfers, pacs.008 is part of the SCT scheme messaging stack defined by the [EPC SCT rulebook](${PRIMARY_SOURCES.epcSct}).`,
-      `For instant payments, pacs.008 is also central to SCT Inst flows under the [EPC SCT Inst rulebook](${PRIMARY_SOURCES.epcSctInst}), where timing, rejection, and exception handling expectations are much tighter.`,
+      `For instant payments, pacs.008 is also central to SCT Inst flows under the [EPC SCT Inst rulebook](${PRIMARY_SOURCES.epcSctInst}).`,
       `For CBPR+, Swift positions pacs.008 as the ISO 20022 successor to MT103-style customer credit-transfer instructions. See [Swift CBPR+ pacs.008 training overview](${PRIMARY_SOURCES.swiftCbprPacs008}), [serial method](${PRIMARY_SOURCES.swiftCbprSerial}), and [cover method](${PRIMARY_SOURCES.swiftCbprCover}).`,
-      `Swift's CBPR+ roadmap also shows MT 103 moving to pacs.008 during the migration timeline, with coexistence ending in November 2025 and further end-state milestones extending beyond that period. See the [Swift roadmap PDF](${PRIMARY_SOURCES.swiftRoadmap}).`,
-      `Structured-address changes around November 2026 materially affect pacs.008 data quality and party modelling in cross-border usage. See the [Swift CBPR+ roadmap](${PRIMARY_SOURCES.swiftAddress}).`
+      `Swift's roadmap shows MT 103 moving to pacs.008 during migration. See the [Swift roadmap PDF](${PRIMARY_SOURCES.swiftRoadmap}).`,
+      `Structured-address changes around November 2026 affect pacs.008 data quality in cross-border use. See the [Swift CBPR+ roadmap](${PRIMARY_SOURCES.swiftAddress}).`
     ],
     "pacs.009.001.10": [
       `In CBPR+, pacs.009 carries institution-to-institution credit transfers and cover-payment legs. See the [roadmap PDF](${PRIMARY_SOURCES.swiftRoadmap}) and [CBPR+ pacs.009 material](${PRIMARY_SOURCES.swiftCbprPacs009}).`,
@@ -11106,7 +11103,7 @@ function englishSchemeNotes(msgType) {
     ],
     "pacs.010.001.05": [
       `pacs.010 is not part of the SCT or SCT Inst credit-transfer rulebooks, so credit-transfer shortcuts do not carry over here.`,
-      `Use this page as a technical guide for institution direct-debit scenarios, not as a substitute for market-scheme documentation.`
+      `Use this page as a guide for institution direct-debit scenarios, not as a substitute for market-scheme documentation.`
     ],
     "pacs.028.001.05": [
       `pacs.028 is the active status-request partner to pacs.002. Use it when a team must ask for status instead of waiting for an update.`,
@@ -11121,8 +11118,6 @@ function englishSchemeNotes(msgType) {
 ## Scheme-specific notes
 
 ${notes.map((item) => `- ${item}`).join("\n")}
-
-${common}
 `;
 }
 

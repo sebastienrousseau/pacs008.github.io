@@ -45,7 +45,7 @@ image: /logo.svg
 
 The pacs.008 message is the main customer credit-transfer instruction between financial institutions. It carries party, amount, and remittance data.
 
-> Reviewed against primary sources on 23 March 2026. ISO catalogue date: 2025-02-27.
+> Reviewed 23 March 2026. ISO catalogue date: 2025-02-27.
 
 ## Key data elements
 
@@ -57,10 +57,10 @@ The pacs.008 message is the main customer credit-transfer instruction between fi
 
 ## Business context
 
-- The primary message for customer-initiated cross-border and domestic credit transfers.
+- Main message for customer cross-border and domestic credit transfers.
 - Used across SEPA SCT, SEPA Instant, CBPR+, and national clearing systems.
-- Carries structured remittance information to support straight-through reconciliation.
-- Supports serial, cover, and direct settlement methods for multi-leg payment chains.
+- Carries remittance data for straight-through reconciliation.
+- Supports serial, cover, and direct settlement methods.
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Key data elements Business context">
   <table>
@@ -77,7 +77,7 @@ The pacs.008 message is the main customer credit-transfer instruction between fi
     <tbody>
         <tr>
           <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message ID, creation date, number of transactions, and settlement information</td>
-          <td class="operational-matrix-table__right">The primary message for customer-initiated cross-border and domestic credit transfers</td>
+          <td class="operational-matrix-table__right">Main message for customer cross-border and domestic credit transfers</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Credit Transfer Transaction Information with amount, charges, and purpose</td>
@@ -85,15 +85,15 @@ The pacs.008 message is the main customer credit-transfer instruction between fi
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Debtor and Debtor Agent identification and account details</td>
-          <td class="operational-matrix-table__right">Carries structured remittance information to support straight-through reconciliation</td>
+          <td class="operational-matrix-table__right">Carries remittance data for straight-through reconciliation</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Creditor and Creditor Agent identification and account details</td>
-          <td class="operational-matrix-table__right">Supports serial, cover, and direct settlement methods for multi-leg payment chains</td>
+          <td class="operational-matrix-table__right">Supports serial, cover, and direct settlement methods</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>RmtInf</strong> — Remittance Information for structured or unstructured payment references</td>
-          <td class="operational-matrix-table__right">The debtor agent creates a pacs.008 and sends it to the creditor agent (directly or via intermediaries). Each agent in the chain validates, enriches, and forwards the instruction until the creditor agent credits the beneficiary&#39;s account.</td>
+          <td class="operational-matrix-table__right">The debtor agent sends pacs.008 to the creditor agent, directly or through intermediaries. Each agent validates and forwards the instruction until the creditor agent credits the beneficiary.</td>
         </tr>
     </tbody>
   </table>
@@ -102,13 +102,13 @@ The pacs.008 message is the main customer credit-transfer instruction between fi
 ## CBPR+ and scheme context
 
 - Replaces MT103 and MT103+ for cross-border customer credit transfers.
-- Structured address deadline of November 2026 applies to all party postal addresses.
-- SWIFT gpi requires pacs.008 for UETR-based end-to-end tracking.
-- 13 revisions reflect ongoing schema evolution across market infrastructures.
+- The November 2026 structured-address deadline applies to party postal addresses.
+- SWIFT gpi uses pacs.008 for UETR-based tracking.
+- Revision 13 reflects ongoing schema change across market infrastructures.
 
 ## Message flow
 
-The debtor agent creates a pacs.008 and sends it to the creditor agent (directly or via intermediaries). Each agent in the chain validates, enriches, and forwards the instruction until the creditor agent credits the beneficiary's account.
+The debtor agent sends pacs.008 to the creditor agent, directly or through intermediaries. Each agent validates and forwards the instruction until the creditor agent credits the beneficiary.
 
 ## Version commentary
 
@@ -155,26 +155,24 @@ Use this page for current implementation work, but still check scheme guidance b
 ## Scheme-specific notes
 
 - For SEPA credit transfers, pacs.008 is part of the SCT scheme messaging stack defined by the [EPC SCT rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and).
-- For instant payments, pacs.008 is also central to SCT Inst flows under the [EPC SCT Inst rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook), where timing, rejection, and exception handling expectations are much tighter.
+- For instant payments, pacs.008 is also central to SCT Inst flows under the [EPC SCT Inst rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook).
 - For CBPR+, Swift positions pacs.008 as the ISO 20022 successor to MT103-style customer credit-transfer instructions. See [Swift CBPR+ pacs.008 training overview](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/cbpr-payment-instructions-pacs008), [serial method](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/fi-fi-customer-credit-transfer-serial-method-pacs008), and [cover method](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/fi-fi-customer-credit-transfer-cover-method-pacs008-pacs009).
-- Swift's CBPR+ roadmap also shows MT 103 moving to pacs.008 during the migration timeline, with coexistence ending in November 2025 and further end-state milestones extending beyond that period. See the [Swift roadmap PDF](https://www.swift.com/swift-resource/252463/download).
-- Structured-address changes around November 2026 materially affect pacs.008 data quality and party modelling in cross-border usage. See the [Swift CBPR+ roadmap](https://www.swift.com/standards/iso-20022/iso-20022-programme/cbpr-roadmap).
-
-Source links below point to primary standards bodies or scheme operators. Where a note goes beyond a direct statement, it is an implementation inference from those sources.
+- Swift's roadmap shows MT 103 moving to pacs.008 during migration. See the [Swift roadmap PDF](https://www.swift.com/swift-resource/252463/download).
+- Structured-address changes around November 2026 affect pacs.008 data quality in cross-border use. See the [Swift CBPR+ roadmap](https://www.swift.com/standards/iso-20022/iso-20022-programme/cbpr-roadmap).
 
 ## When to use this message
 
-Use pacs.008 for customer credit transfers moving between financial institutions, including domestic clearing, cross-border correspondent flows, and instant-payment contexts where the customer payment instruction is the primary object.
+Use pacs.008 for customer credit transfers moving between financial institutions.
 
 ## When not to use this message
 
-Do not use pacs.008 for institution-own-account funding transfers or as a generic envelope for status, return, or investigation messages.
+Do not use pacs.008 for institution-own-account funding transfers or for status, return, or investigation messages.
 
 ## Implementation notes
 
-- Address quality, party identifiers, and remittance structure typically determine downstream repair rates more than the XML skeleton itself.
-- Model payment purpose, charge bearer, settlement method, and party roles explicitly in source data before template rendering.
-- Treat version selection as a deployment concern tied to market infrastructure and bank counterparties, not just to the latest schema revision.
+- Address quality, party identifiers, and remittance structure often matter more than the XML skeleton.
+- Model payment purpose, charge bearer, settlement method, and party roles in source data before rendering.
+- Treat version selection as a deployment decision tied to market infrastructure and counterparties.
 
 ## Common failure modes
 
@@ -374,7 +372,7 @@ Weak party data, poor address structuring, inconsistent identifiers, and unstruc
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="related-messages-table__name">FI to FI Payment Status Report</td>
-          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether processing was accepted, rejected, pending, or settled.</td>
+          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected, pending, or settled.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
@@ -384,7 +382,7 @@ Weak party data, poor address structuring, inconsistent identifiers, and unstruc
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
           <td class="related-messages-table__name">Financial Institution Credit Transfer</td>
-          <td class="related-messages-table__overview">The pacs.009 message moves funds between financial institutions on their own behalf. It supports interbank funding, cover payments, and liquidity management.</td>
+          <td class="related-messages-table__overview">The pacs.009 message moves funds between financial institutions on their own behalf. It supports funding, cover payments, and liquidity management.</td>
         </tr>
     </tbody>
   </table>

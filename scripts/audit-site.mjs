@@ -29,6 +29,8 @@ function relativeUrl(root, file) {
 function stripMarkdown(text) {
   return text
     .replace(/^---\n[\s\S]*?\n---\n/, "")
+    .replace(/<div class="[^"]*-table"[\s\S]*?<\/div>/g, " ")
+    .replace(/<table[\s\S]*?<\/table>/g, " ")
     .replace(/```[\s\S]*?```/g, " ")
     .replace(/<[^>]+>/g, " ")
     .replace(/\[[^\]]+\]\([^)]+\)/g, " ")
@@ -64,6 +66,7 @@ function englishPageClass(url) {
 
 function englishReadability(markdownFiles) {
   const pages = [];
+  const skippedPages = [];
   for (const file of markdownFiles) {
     const rel = path.relative(docsRoot, file).split(path.sep);
     if (rel.length > 2) continue;
@@ -75,6 +78,15 @@ function englishReadability(markdownFiles) {
       .filter((s) => /[A-Za-z]/.test(s));
 
     if (!words.length || !sentences.length) continue;
+    if (words.length < 80 || sentences.length < 3) {
+      skippedPages.push({
+        path: relativeUrl(docsRoot, file),
+        words: words.length,
+        sentences: sentences.length,
+        reason: "Not enough prose for a meaningful Flesch score",
+      });
+      continue;
+    }
     const syllables = words.reduce((sum, word) => sum + countSyllables(word), 0);
     const fre = 206.835 - 1.015 * (words.length / sentences.length) - 84.6 * (syllables / words.length);
     const fk = 0.39 * (words.length / sentences.length) + 11.8 * (syllables / words.length) - 15.59;
@@ -102,6 +114,7 @@ function englishReadability(markdownFiles) {
   return {
     note: "Flesch Reading Ease and Flesch-Kincaid Grade Level are English-language formulas. They are not valid as cross-locale quality metrics for CJK, RTL, or most non-English pages.",
     pages: pages.length,
+    skippedPages,
     averageFleschReadingEase: avg("fleschReadingEase"),
     averageFleschKincaidGrade: avg("fleschKincaidGrade"),
     targetSummary: {

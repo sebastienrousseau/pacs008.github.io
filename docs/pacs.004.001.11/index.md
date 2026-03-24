@@ -45,7 +45,7 @@ image: /logo.svg
 
 The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied or must be sent back.
 
-> Reviewed against primary sources on 23 March 2026. ISO catalogue date: 2025-02-27.
+> Reviewed 23 March 2026. ISO catalogue date: 2025-02-27.
 
 ## Key data elements
 
@@ -151,8 +151,6 @@ Use this page for the version that pacs008 implements today, and review the newe
 
 - For SEPA credit-transfer flows, pacs.004 is part of the wider return and exception-management picture around executed payments. The [EPC SCT rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) and [EPC SCT Inst rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) define scheme behaviour around those operational flows.
 - In CBPR+, Swift maps pacs.004 alongside pacs.008, pacs.009, and pacs.002 during the ISO 20022 migration of payment instructions. See the [CBPR+ coexistence and end-state roadmap](https://www.swift.com/swift-resource/252463/download).
-
-Source links below point to primary standards bodies or scheme operators. Where a note goes beyond a direct statement, it is an implementation inference from those sources.
 
 ## When to use this message
 
@@ -296,7 +294,7 @@ Not automatically. The right path depends on scheme rules, settlement stage, and
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="related-messages-table__name">FI to FI Payment Status Report</td>
-          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether processing was accepted, rejected, pending, or settled.</td>
+          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected, pending, or settled.</td>
         </tr>
     </tbody>
   </table>

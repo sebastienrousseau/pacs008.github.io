@@ -45,7 +45,7 @@ image: /logo.svg
 
 The pacs.003 message executes a customer direct debit between financial institutions. It lets the creditor bank collect funds from the debtor bank.
 
-> Reviewed against primary sources on 23 March 2026. ISO catalogue date: 2025-02-27.
+> Reviewed 23 March 2026. ISO catalogue date: 2025-02-27.
 
 ## Key data elements
 
@@ -152,8 +152,6 @@ Use this page for the version that pacs008 implements today, and review the newe
 - This message is outside the SCT and SCT Inst credit-transfer rulebooks, so treat it as a separate direct-debit track.
 - Use this page as a message guide, not as a substitute for scheme rulebooks.
 
-Source links below point to primary standards bodies or scheme operators. Where a note goes beyond a direct statement, it is an implementation inference from those sources.
-
 ## When to use this message
 
 Use pacs.003 for customer direct-debit collection between financial institutions.
@@ -247,12 +245,12 @@ Mandate quality, debtor-account rules, and return handling matter more than XML 
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.007.001.11/"><code>pacs.007.001.11</code></a></td>
           <td class="related-messages-table__name">FI to FI Payment Reversal</td>
-          <td class="related-messages-table__overview">The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, it starts from the original instructing side.</td>
+          <td class="related-messages-table__overview">The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, it starts from the original sender.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="related-messages-table__name">FI to FI Payment Status Report</td>
-          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether processing was accepted, rejected, pending, or settled.</td>
+          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected, pending, or settled.</td>
         </tr>
     </tbody>
   </table>
