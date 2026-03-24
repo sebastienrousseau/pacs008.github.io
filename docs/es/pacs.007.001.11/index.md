@@ -159,9 +159,9 @@ El agente ordenante (emisor original) envía pacs.007 a través de la cadena de 
 
 ### Comentarios de campos
 
-- `MsgId`: La propia reversión necesita su propio identificador seguro para auditoría.
+- `MsgId`: The reversal needs its own identifier.
 - `OrgnlInstrId`: Conserve la referencia original del pago para evitar rupturas en la conciliación.
-- `RvslRsnInf`: Use motivos de reversión estructurados para que los casos de fraude, error y pago duplicado puedan encaminarse de forma distinta.
+- `RvslRsnInf`: Use structured reversal reasons so cases can be routed correctly.
 
 ## Comparar pacs.007 vs pacs.004
 

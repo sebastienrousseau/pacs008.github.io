@@ -135,7 +135,7 @@ Talimat alan aracı (alıcı), pacs.008 veya pacs.009 gibi alınan bir ödeme ta
         <tr>
           <td class="version-diff-table__range">pacs.002.001.13-15</td>
           <td class="version-diff-table__why">Daha sonraki katalog sürümleri</td>
-          <td class="version-diff-table__takeaway">Yeni birlikte çalışabilirlik çalışmaları başlamadan veya yeni altyapılar eklenmeden önce sonraki ISO sürümlerini gözden geçirin.</td>
+          <td class="version-diff-table__takeaway">Review later ISO revisions before new interoperability work.</td>
         </tr>
     </tbody>
   </table>
@@ -161,10 +161,10 @@ Talimat alan aracı (alıcı), pacs.008 veya pacs.009 gibi alınan bir ödeme ta
 
 ### Alan açıklamaları
 
-- `MsgId`: Orijinal ödeme talimatı için değil, durum raporunun kendisi için yeni bir tanımlayıcı kullanın.
-- `OrgnlInstrId`: Durumun otomatik eşleştirilebilmesi için orijinal talimat tanımlayıcısını değiştirmeden koruyun.
-- `TxSts`: Bu operasyonel durumdur; bire bir eşleşme varsaymak yerine dahili süreç durumlarına dikkatle eşleyin.
-- `StsRsnInf`: Yapılandırılmış neden kodları, düzeltme işlemleri ve analitik için serbest metinden çok daha kullanışlıdır.
+- `MsgId`: Use a new identifier for the status report itself.
+- `OrgnlInstrId`: Keep the original instruction identifier intact.
+- `TxSts`: Map this carefully to internal workflow states.
+- `StsRsnInf`: Structured reason codes are more useful than free text.
 
 ## Karşılaştır pacs.002 vs pacs.028
 

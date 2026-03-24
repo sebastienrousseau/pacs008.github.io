@@ -135,7 +135,7 @@ image: /logo.svg
         <tr>
           <td class="version-diff-table__range">pacs.002.001.13-15</td>
           <td class="version-diff-table__why">Пізніші редакції каталогу</td>
-          <td class="version-diff-table__takeaway">Перегляньте пізніші редакції ISO перед початком нової роботи з взаємосумісності або підключенням нових інфраструктур.</td>
+          <td class="version-diff-table__takeaway">Review later ISO revisions before new interoperability work.</td>
         </tr>
     </tbody>
   </table>
@@ -161,10 +161,10 @@ image: /logo.svg
 
 ### Коментарі до полів
 
-- `MsgId`: Використовуйте новий ідентифікатор саме для звіту про статус, а не для початкової платіжної інструкції.
-- `OrgnlInstrId`: Зберігайте початковий ідентифікатор інструкції без змін, щоб статус можна було зіставити автоматично.
-- `TxSts`: Це операційний стан; обережно зіставляйте його з внутрішніми станами обробки, а не припускайте просту відповідність один до одного.
-- `StsRsnInf`: Структуровані коди причин значно корисніші за вільний текст для усунення проблем і аналітики.
+- `MsgId`: Use a new identifier for the status report itself.
+- `OrgnlInstrId`: Keep the original instruction identifier intact.
+- `TxSts`: Map this carefully to internal workflow states.
+- `StsRsnInf`: Structured reason codes are more useful than free text.
 
 ## Порівняння pacs.002 vs pacs.028
 

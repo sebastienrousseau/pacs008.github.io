@@ -159,9 +159,9 @@ Das Schuldnerinstitut sendet pacs.009 an das Gläubigerinstitut, um eigene Mitte
 
 ### Hinweise zu den Feldern
 
-- `InstrId`: Verwenden Sie eine Kennung für die Liquiditätstranche, die weiterhin mit dem zugrunde liegenden Kundenfluss verknüpft werden kann.
-- `IntrBkSttlmAmt`: Eigengeschäfts- und Cover-Flüsse benötigen häufig strengere Treasury-Kontrollen für Beträge und Wertstellungstermine.
-- `Dbtr` / `Cdtr`: Dies sind Institutsparteien und keine Rollen von Privatkunden; modellieren Sie sie entsprechend.
+- `InstrId`: Use a funding-leg identifier that still links back to any customer flow.
+- `IntrBkSttlmAmt`: Own-account and cover flows need strict treasury controls on amount and date.
+- `Dbtr` / `Cdtr`: These are institution parties, not retail customer roles.
 
 ## Vergleich pacs.009 vs pacs.008
 

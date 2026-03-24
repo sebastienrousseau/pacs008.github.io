@@ -159,9 +159,9 @@ image: /logo.svg
 
 ### הערות לשדות
 
-- `InstrId`: השתמשו במזהה של שלב המימון שאפשר עדיין לקשר לכל זרם לקוח בסיסי.
-- `IntrBkSttlmAmt`: תזרימי חשבון עצמי ותזרימי כיסוי דורשים לעיתים קרובות בקרות אוצר מחמירות יותר על סכומי ותאריכי הסליקה.
-- `Dbtr` / `Cdtr`: אלה צדדים מוסדיים, ולא תפקידי לקוח קמעונאי; יש למודל אותם בהתאם.
+- `InstrId`: Use a funding-leg identifier that still links back to any customer flow.
+- `IntrBkSttlmAmt`: Own-account and cover flows need strict treasury controls on amount and date.
+- `Dbtr` / `Cdtr`: These are institution parties, not retail customer roles.
 
 ## השוואה pacs.009 vs pacs.008
 

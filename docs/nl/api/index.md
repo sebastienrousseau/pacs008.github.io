@@ -10,8 +10,6 @@ image: /logo.svg
 
 Het project biedt zowel een REST API als een CLI voor operationele processen rond betalingsberichten.
 
-> Laatst gecontroleerd aan de hand van primaire bronnen op 23 maart 2026 met openbare ISO 20022-, EPC- en Swift-materialen waarnaar op deze pagina wordt verwezen.
-
 ## Implementatienotities
 
 - Gebruik synchrone generatie voor operatorgestuurde controles en kleine batches wanneer de aanroeper direct XML verwacht.

@@ -159,9 +159,9 @@ Tổ chức con nợ gửi pacs.009 đến tổ chức chủ nợ để chuyển
 
 ### Chú thích trường
 
-- `InstrId`: Hãy dùng mã định danh cho chặng tài trợ vốn mà vẫn có thể liên kết với luồng khách hàng gốc.
-- `IntrBkSttlmAmt`: Các luồng cho tài khoản riêng và luồng bù đắp thường cần kiểm soát ngân quỹ chặt chẽ hơn đối với số tiền và ngày thanh toán.
-- `Dbtr` / `Cdtr`: Đây là các bên tham gia giữa các tổ chức, không phải vai trò khách hàng bán lẻ; hãy mô hình hóa cho phù hợp.
+- `InstrId`: Use a funding-leg identifier that still links back to any customer flow.
+- `IntrBkSttlmAmt`: Own-account and cover flows need strict treasury controls on amount and date.
+- `Dbtr` / `Cdtr`: These are institution parties, not retail customer roles.
 
 ## So sánh pacs.009 vs pacs.008
 

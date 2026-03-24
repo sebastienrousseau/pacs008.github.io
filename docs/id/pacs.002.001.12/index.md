@@ -135,7 +135,7 @@ Agen yang diinstruksikan (penerima) mengirim pacs.002 kembali ke agen yang membe
         <tr>
           <td class="version-diff-table__range">pacs.002.001.13-15</td>
           <td class="version-diff-table__why">Revisi katalog berikutnya</td>
-          <td class="version-diff-table__takeaway">Tinjau revisi ISO yang lebih baru sebelum memulai pekerjaan interoperabilitas baru atau menambahkan infrastruktur baru.</td>
+          <td class="version-diff-table__takeaway">Review later ISO revisions before new interoperability work.</td>
         </tr>
     </tbody>
   </table>
@@ -161,10 +161,10 @@ Agen yang diinstruksikan (penerima) mengirim pacs.002 kembali ke agen yang membe
 
 ### Komentar bidang
 
-- `MsgId`: Gunakan pengenal baru untuk laporan status itu sendiri, bukan untuk instruksi pembayaran asli.
-- `OrgnlInstrId`: Pertahankan pengenal instruksi asli agar status dapat dicocokkan secara otomatis.
-- `TxSts`: Ini adalah status operasional; petakan dengan hati-hati ke status proses internal dan jangan mengasumsikan kecocokan satu-ke-satu.
-- `StsRsnInf`: Kode alasan terstruktur jauh lebih berguna daripada teks bebas untuk perbaikan dan analitik.
+- `MsgId`: Use a new identifier for the status report itself.
+- `OrgnlInstrId`: Keep the original instruction identifier intact.
+- `TxSts`: Map this carefully to internal workflow states.
+- `StsRsnInf`: Structured reason codes are more useful than free text.
 
 ## Bandingkan pacs.002 vs pacs.028
 

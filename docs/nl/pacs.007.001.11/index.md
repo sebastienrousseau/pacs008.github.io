@@ -159,9 +159,9 @@ De opdrachtgevende agent (oorspronkelijke verzender) stuurt pacs.007 voorwaarts 
 
 ### Veldtoelichting
 
-- `MsgId`: De terugboeking zelf heeft een eigen auditbestendige identificatie nodig.
+- `MsgId`: The reversal needs its own identifier.
 - `OrgnlInstrId`: Behoud de oorspronkelijke betalingsreferentie om onderbrekingen in de reconciliatie te voorkomen.
-- `RvslRsnInf`: Gebruik gestructureerde redenen voor terugboeking zodat fraude-, fout- en dubbelbetalingsgevallen verschillend kunnen worden afgehandeld.
+- `RvslRsnInf`: Use structured reversal reasons so cases can be routed correctly.
 
 ## Vergelijk pacs.007 vs pacs.004
 

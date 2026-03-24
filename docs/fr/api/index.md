@@ -10,8 +10,6 @@ image: /logo.svg
 
 Le projet fournit à la fois une API REST et une CLI pour les flux de traitement des messages de paiement.
 
-> Dernière vérification par rapport aux sources primaires le 23 mars 2026 à l'aide des documents publics ISO 20022, EPC et Swift référencés sur cette page.
-
 ## Notes de mise en œuvre
 
 - Utiliser la génération synchrone pour les contrôles opérateur et les petits lots lorsque l'appelant attend immédiatement un fichier XML.

@@ -10,8 +10,6 @@ image: /logo.svg
 
 pacs008 est une boîte à outils Python pour automatiser les flux ISO 20022 de virement client entre institutions financières.
 
-> Dernière vérification par rapport aux sources primaires le 23 mars 2026 à l'aide des documents publics ISO 20022, EPC et Swift référencés sur cette page.
-
 ## Ce qu'il fait
 
 - Génère du XML pour `pacs.008` et les définitions de messages pacs associées

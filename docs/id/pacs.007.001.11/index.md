@@ -159,9 +159,9 @@ Agen yang memberi instruksi (pengirim asli) mengirim pacs.007 maju melalui ranta
 
 ### Komentar bidang
 
-- `MsgId`: Pesan pembalikan itu sendiri memerlukan pengenal tersendiri yang aman untuk keperluan audit.
+- `MsgId`: The reversal needs its own identifier.
 - `OrgnlInstrId`: Pertahankan referensi pembayaran asli agar rekonsiliasi tidak terputus.
-- `RvslRsnInf`: Gunakan alasan pembalikan terstruktur agar kasus penipuan, kesalahan, dan pembayaran duplikat dapat dirutekan secara berbeda.
+- `RvslRsnInf`: Use structured reversal reasons so cases can be routed correctly.
 
 ## Bandingkan pacs.007 vs pacs.004
 

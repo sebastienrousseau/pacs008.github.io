@@ -10,8 +10,6 @@ image: /logo.svg
 
 Proje, operasyonel ödeme mesajı iş akışları için hem REST API hem de CLI sağlar.
 
-> Bu sayfada referans verilen ISO 20022, EPC ve Swift herkese açık materyalleri kullanılarak birincil kaynaklara göre en son 23 Mart 2026 tarihinde gözden geçirildi.
-
 ## Uygulama notları
 
 - Çağıranın XML'i hemen beklediği operasyonel kontroller ve küçük batch işlemler için senkron üretim kullanın.

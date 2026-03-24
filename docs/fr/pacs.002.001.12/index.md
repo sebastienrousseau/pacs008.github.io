@@ -135,7 +135,7 @@ L'agent instruit (récepteur) envoie pacs.002 à l'agent instructeur (émetteur)
         <tr>
           <td class="version-diff-table__range">pacs.002.001.13-15</td>
           <td class="version-diff-table__why">Révisions ultérieures du catalogue</td>
-          <td class="version-diff-table__takeaway">Examinez les versions ISO ultérieures avant de lancer de nouveaux travaux d&#39;interopérabilité ou d&#39;intégrer de nouvelles infrastructures.</td>
+          <td class="version-diff-table__takeaway">Review later ISO revisions before new interoperability work.</td>
         </tr>
     </tbody>
   </table>
@@ -161,10 +161,10 @@ L'agent instruit (récepteur) envoie pacs.002 à l'agent instructeur (émetteur)
 
 ### Commentaires sur les champs
 
-- `MsgId`: Utilisez un nouvel identifiant pour le rapport de statut lui-même, et non pour l'instruction de paiement d'origine.
-- `OrgnlInstrId`: Conservez l'identifiant de l'instruction d'origine afin que le statut puisse être rapproché automatiquement.
-- `TxSts`: Il s'agit de l'état opérationnel ; rattachez-le soigneusement aux états internes du traitement au lieu de supposer une correspondance directe.
-- `StsRsnInf`: Les codes de motif structurés sont bien plus utiles que le texte libre pour les réparations et l'analytique.
+- `MsgId`: Use a new identifier for the status report itself.
+- `OrgnlInstrId`: Keep the original instruction identifier intact.
+- `TxSts`: Map this carefully to internal workflow states.
+- `StsRsnInf`: Structured reason codes are more useful than free text.
 
 ## Comparer pacs.002 vs pacs.028
 

@@ -10,8 +10,6 @@ image: /logo.svg
 
 pacs008 涵盖核心 pacs.008 报文定义和编排及对账流程中使用的相关报文。
 
-> 已于 2026 年 3 月 23 日依据本页引用的 ISO 20022、EPC 和 Swift 公共资料完成主要来源复核。
-
 ## 包含的支持
 
 <div class="message-coverage-table" tabindex="0" aria-label="包含的支持">

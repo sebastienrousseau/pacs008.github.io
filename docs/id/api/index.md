@@ -10,8 +10,6 @@ image: /logo.svg
 
 Proyek ini menyediakan REST API dan CLI untuk alur kerja pemrosesan pesan pembayaran operasional.
 
-> Terakhir ditinjau terhadap sumber primer pada 23 Maret 2026 menggunakan materi publik ISO 20022, EPC, dan Swift yang dirujuk pada halaman ini.
-
 ## Catatan implementasi
 
 - Gunakan pembuatan sinkron untuk pemeriksaan operasional dan batch kecil saat pemanggil membutuhkan XML segera.

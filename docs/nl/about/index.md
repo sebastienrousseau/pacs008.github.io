@@ -10,8 +10,6 @@ image: /logo.svg
 
 pacs008 is een Python-toolkit voor het automatiseren van ISO 20022-kredietoverdrachtsprocessen tussen financiële instellingen.
 
-> Laatst gecontroleerd aan de hand van primaire bronnen op 23 maart 2026 met openbare ISO 20022-, EPC- en Swift-materialen waarnaar op deze pagina wordt verwezen.
-
 ## Wat het doet
 
 - Genereert XML voor `pacs.008` en gerelateerde pacs-berichtdefinities

@@ -10,7 +10,7 @@ image: /logo.svg
 
 Scegli la famiglia pacs prima in base all'evento operativo e poi in base allo schema e al modello operativo.
 
-> Ultima revisione rispetto a fonti primarie il 23 marzo 2026 usando materiali pubblici ISO 20022, EPC e Swift collegati in questa pagina.
+
 
 ## Matrice decisionale rapida
 

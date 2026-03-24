@@ -159,9 +159,9 @@ L'istituto debitore invia pacs.009 all'istituto creditore per trasferire i propr
 
 ### Commenti sui campi
 
-- `InstrId`: Usa un identificatore della tratta di provvista che possa ancora essere collegato al flusso cliente sottostante.
-- `IntrBkSttlmAmt`: I flussi su conto proprio e di copertura richiedono spesso controlli di tesoreria più rigorosi su importi e date di regolamento.
-- `Dbtr` / `Cdtr`: Si tratta di controparti istituzionali, non di ruoli retail del cliente; modellale di conseguenza.
+- `InstrId`: Use a funding-leg identifier that still links back to any customer flow.
+- `IntrBkSttlmAmt`: Own-account and cover flows need strict treasury controls on amount and date.
+- `Dbtr` / `Cdtr`: These are institution parties, not retail customer roles.
 
 ## Confrontare pacs.009 vs pacs.008
 

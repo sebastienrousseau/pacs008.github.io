@@ -159,9 +159,9 @@ L'agent instructeur (expéditeur d'origine) envoie pacs.007 à travers la chaîn
 
 ### Commentaires sur les champs
 
-- `MsgId`: L'annulation elle-même doit disposer de son propre identifiant sûr pour l'audit.
+- `MsgId`: The reversal needs its own identifier.
 - `OrgnlInstrId`: Conservez la référence de paiement d'origine pour éviter les ruptures de rapprochement.
-- `RvslRsnInf`: Utilisez des motifs d'annulation structurés afin d'orienter différemment les cas de fraude, d'erreur et de doublon de paiement.
+- `RvslRsnInf`: Use structured reversal reasons so cases can be routed correctly.
 
 ## Comparer pacs.007 vs pacs.004
 

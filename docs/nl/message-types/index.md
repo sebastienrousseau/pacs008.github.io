@@ -10,8 +10,6 @@ image: /logo.svg
 
 pacs008 dekt de kern pacs.008-berichtdefinitie en gerelateerde berichten die worden gebruikt in orkestratie- en afstemmingsstromen.
 
-> Laatst gecontroleerd aan de hand van primaire bronnen op 23 maart 2026 met openbare ISO 20022-, EPC- en Swift-materialen waarnaar op deze pagina wordt verwezen.
-
 ## Inbegrepen ondersteuning
 
 <div class="message-coverage-table" tabindex="0" aria-label="Inbegrepen ondersteuning">

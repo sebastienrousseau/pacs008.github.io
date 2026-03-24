@@ -10,7 +10,7 @@ image: /logo.svg
 
 Choose the pacs family by business event first, then by scheme and operating model.
 
-> Last reviewed against primary sources on 23 March 2026 using ISO 20022, EPC, and Swift public materials referenced on this page.
+
 
 ## Quick decision matrix
 

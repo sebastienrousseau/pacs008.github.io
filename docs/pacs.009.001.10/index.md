@@ -45,7 +45,7 @@ image: /logo.svg
 
 The pacs.009 message moves funds between financial institutions on their own behalf. It supports interbank funding, cover payments, and liquidity management.
 
-> Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
+> Reviewed against primary sources on 23 March 2026. ISO catalogue date: 2025-02-27.
 
 ## Key data elements
 
@@ -149,25 +149,25 @@ Use this page for the version that pacs008 implements today, and review the newe
 
 ## Scheme-specific notes
 
-- In CBPR+, pacs.009 carries institution-to-institution credit-transfer and cover-payment legs. Swift explicitly maps MT 200, MT 202, and MT 202 COV into pacs.009 usage patterns in its [roadmap PDF](https://www.swift.com/swift-resource/252463/download) and related [CBPR+ pacs.009 material](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/cbpr-payment-instructions-pacs009).
-- For cover method, pacs.009 should be analysed together with the related customer leg in pacs.008 rather than as an isolated payment object. See [Swift's pacs.008/pacs.009 cover-method training page](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/fi-fi-customer-credit-transfer-cover-method-pacs008-pacs009).
-- This message is outside the SCT/SCT Inst customer credit-transfer rulebooks, so teams should not assume SEPA customer-payment rules apply unchanged to pacs.009.
+- In CBPR+, pacs.009 carries institution-to-institution credit transfers and cover-payment legs. See the [roadmap PDF](https://www.swift.com/swift-resource/252463/download) and [CBPR+ pacs.009 material](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/cbpr-payment-instructions-pacs009).
+- For cover method, analyse pacs.009 together with the related customer leg in pacs.008. See [Swift's pacs.008/pacs.009 cover-method training page](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/fi-fi-customer-credit-transfer-cover-method-pacs008-pacs009).
+- This message is outside the SCT and SCT Inst customer credit-transfer rulebooks, so SEPA customer-payment rules do not carry over unchanged.
 
 Source links below point to primary standards bodies or scheme operators. Where a note goes beyond a direct statement, it is an implementation inference from those sources.
 
 ## When to use this message
 
-Use pacs.009 for institution-to-institution credit transfers, especially treasury movements, funding transfers, and cover-payment legs that are not customer-originated messages in their own right.
+Use pacs.009 for institution-to-institution credit transfers, especially treasury, funding, and cover-payment legs.
 
 ## When not to use this message
 
-Do not use pacs.009 as a direct substitute for a customer credit-transfer message when the business transaction still belongs in pacs.008.
+Do not use pacs.009 when the business transaction still belongs in pacs.008.
 
 ## Implementation notes
 
-- Separate cover-payment logic from customer-payment logic so reconciliation can link pacs.009 and pacs.008 without collapsing them into one record type.
-- Treasury and correspondent workflows often need stricter controls around value date, settlement amount, and liquidity booking.
-- Institution identifiers and chain transparency matter more here than retail remittance content.
+- Separate cover-payment logic from customer-payment logic.
+- Apply strict controls to value date, settlement amount, and liquidity booking.
+- Prioritise institution identifiers and chain transparency.
 
 ## Common failure modes
 
@@ -193,9 +193,9 @@ Do not use pacs.009 as a direct substitute for a customer credit-transfer messag
 
 ### Field commentary
 
-- `InstrId`: Use a funding-leg identifier that can still be joined to any underlying customer flow.
-- `IntrBkSttlmAmt`: Own-account and cover flows often need stricter treasury controls around settlement amounts and dates.
-- `Dbtr` / `Cdtr`: These are institution parties, not retail customer roles; model them accordingly.
+- `InstrId`: Use a funding-leg identifier that still links back to any customer flow.
+- `IntrBkSttlmAmt`: Own-account and cover flows need strict treasury controls on amount and date.
+- `Dbtr` / `Cdtr`: These are institution parties, not retail customer roles.
 
 ## Decision flow
 

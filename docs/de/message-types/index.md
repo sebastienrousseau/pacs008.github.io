@@ -10,8 +10,6 @@ image: /logo.svg
 
 pacs008 deckt die zentrale pacs.008-Nachrichtendefinition sowie verwandte Nachrichten für Orchestrierung und Abstimmung ab.
 
-> Zuletzt anhand von Primärquellen am 23. März 2026 geprüft. Öffentliche ISO-20022-, EPC- und Swift-Quellen sind auf dieser Seite verlinkt.
-
 ## Enthaltene Unterstützung
 
 <div class="message-coverage-table" tabindex="0" aria-label="Enthaltene Unterstützung">

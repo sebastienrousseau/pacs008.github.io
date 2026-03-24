@@ -159,9 +159,9 @@ image: /logo.svg
 
 ### تعليقات الحقول
 
-- `InstrId`: استخدم معرّفاً لمرحلة التمويل يمكن ربطه بأي تدفق عميل أساسي.
-- `IntrBkSttlmAmt`: غالباً ما تحتاج تدفقات الحساب الذاتي والتغطية إلى ضوابط خزينة أكثر صرامة حول مبالغ وتواريخ التسوية.
-- `Dbtr` / `Cdtr`: هذه أطراف مؤسسية وليست أدوار عملاء تجزئة؛ قم بنمذجتها وفقاً لذلك.
+- `InstrId`: Use a funding-leg identifier that still links back to any customer flow.
+- `IntrBkSttlmAmt`: Own-account and cover flows need strict treasury controls on amount and date.
+- `Dbtr` / `Cdtr`: These are institution parties, not retail customer roles.
 
 ## مقارنة pacs.009 vs pacs.008
 

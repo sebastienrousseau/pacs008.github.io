@@ -159,9 +159,9 @@ Der beauftragende Agent (ursprünglicher Sender) sendet pacs.007 durch die Zahlu
 
 ### Hinweise zu den Feldern
 
-- `MsgId`: Die Rückabwicklung selbst benötigt eine eigene revisionssichere Kennung.
+- `MsgId`: The reversal needs its own identifier.
 - `OrgnlInstrId`: Bewahren Sie die ursprüngliche Zahlungsreferenz auf, um Brüche bei der Abstimmung zu vermeiden.
-- `RvslRsnInf`: Verwenden Sie strukturierte Rückabwicklungsgründe, damit Betrugs-, Fehler- und Doppelzahlungsfälle unterschiedlich geroutet werden können.
+- `RvslRsnInf`: Use structured reversal reasons so cases can be routed correctly.
 
 ## Vergleich pacs.007 vs pacs.004
 

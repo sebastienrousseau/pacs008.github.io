@@ -10,8 +10,6 @@ image: /logo.svg
 
 Dự án cung cấp cả REST API và CLI cho quy trình xử lý thông điệp thanh toán vận hành.
 
-> Được rà soát lần cuối đối chiếu với nguồn gốc chính vào ngày 23 tháng 3 năm 2026 bằng các tài liệu công khai của ISO 20022, EPC và Swift được dẫn trên trang này.
-
 ## Ghi chú triển khai
 
 - Dùng tạo sinh đồng bộ cho các kiểm tra vận hành và lô nhỏ khi bên gọi cần XML ngay lập tức.

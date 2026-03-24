@@ -45,7 +45,7 @@ image: /logo.svg
 
 The pacs.008 message is the main customer credit-transfer instruction between financial institutions. It carries party, amount, and remittance data.
 
-> Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
+> Reviewed against primary sources on 23 March 2026. ISO catalogue date: 2025-02-27.
 
 ## Key data elements
 

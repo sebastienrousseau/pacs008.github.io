@@ -10,8 +10,6 @@ image: /logo.svg
 
 pacs008 obejmuje główną definicję wiadomości pacs.008 i powiązane wiadomości wykorzystywane w przepływach orkiestracji i uzgadniania.
 
-> Ostatnio zweryfikowano względem źródeł pierwotnych 23 marca 2026 r. z użyciem publicznych materiałów ISO 20022, EPC i Swift wskazanych na tej stronie.
-
 ## Uwzględnione wsparcie
 
 <div class="message-coverage-table" tabindex="0" aria-label="Uwzględnione wsparcie">

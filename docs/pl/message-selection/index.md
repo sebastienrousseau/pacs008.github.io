@@ -10,7 +10,7 @@ image: /logo.svg
 
 Najpierw wybierz rodzinę pacs według zdarzenia biznesowego, a następnie według schematu i modelu operacyjnego.
 
-> Ostatnio zweryfikowano względem źródeł pierwotnych 23 marca 2026 r. z użyciem publicznych materiałów ISO 20022, EPC i Swift wskazanych na tej stronie.
+
 
 ## Szybka macierz decyzji
 

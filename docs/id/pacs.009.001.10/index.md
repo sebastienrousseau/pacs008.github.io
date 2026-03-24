@@ -159,9 +159,9 @@ Lembaga debitur mengirim pacs.009 ke lembaga kreditur untuk mentransfer dananya 
 
 ### Komentar bidang
 
-- `InstrId`: Gunakan pengenal tahap pendanaan yang tetap dapat dihubungkan ke alur pelanggan dasar apa pun.
-- `IntrBkSttlmAmt`: Alur rekening sendiri dan alur penutup sering memerlukan kontrol tresuri yang lebih ketat atas jumlah dan tanggal penyelesaian.
-- `Dbtr` / `Cdtr`: Ini adalah pihak antar-lembaga, bukan peran nasabah ritel; modelkan sesuai konteks tersebut.
+- `InstrId`: Use a funding-leg identifier that still links back to any customer flow.
+- `IntrBkSttlmAmt`: Own-account and cover flows need strict treasury controls on amount and date.
+- `Dbtr` / `Cdtr`: These are institution parties, not retail customer roles.
 
 ## Bandingkan pacs.009 vs pacs.008
 

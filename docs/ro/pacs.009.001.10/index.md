@@ -159,9 +159,9 @@ Instituția debitoare trimite pacs.009 instituției creditoare pentru a transfer
 
 ### Comentarii pe câmpuri
 
-- `InstrId`: Folosește un identificator al etapei de finanțare care poate fi încă asociat cu fluxul de client de bază.
-- `IntrBkSttlmAmt`: Fluxurile pe cont propriu și fluxurile de acoperire necesită adesea controale de trezorerie mai stricte asupra sumelor și datelor de decontare.
-- `Dbtr` / `Cdtr`: Acestea sunt părți instituționale, nu roluri de client retail; modelează-le în consecință.
+- `InstrId`: Use a funding-leg identifier that still links back to any customer flow.
+- `IntrBkSttlmAmt`: Own-account and cover flows need strict treasury controls on amount and date.
+- `Dbtr` / `Cdtr`: These are institution parties, not retail customer roles.
 
 ## Compară pacs.009 vs pacs.008
 

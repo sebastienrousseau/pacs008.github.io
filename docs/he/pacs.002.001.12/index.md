@@ -135,7 +135,7 @@ image: /logo.svg
         <tr>
           <td class="version-diff-table__range">pacs.002.001.13-15</td>
           <td class="version-diff-table__why">גרסאות קטלוג מאוחרות יותר</td>
-          <td class="version-diff-table__takeaway">בדקו גרסאות ISO מאוחרות יותר לפני התחלת עבודת אינטראופרביליות חדשה או חיבור תשתיות חדשות.</td>
+          <td class="version-diff-table__takeaway">Review later ISO revisions before new interoperability work.</td>
         </tr>
     </tbody>
   </table>
@@ -161,10 +161,10 @@ image: /logo.svg
 
 ### הערות לשדות
 
-- `MsgId`: השתמשו במזהה חדש לדוח הסטטוס עצמו, ולא למזהה הוראת התשלום המקורית.
-- `OrgnlInstrId`: שמרו את מזהה ההוראה המקורית ללא שינוי כדי שניתן יהיה להתאים את הסטטוס אוטומטית.
-- `TxSts`: זהו המצב התפעולי; יש למפות אותו בזהירות למצבי התהליך הפנימיים ולא להניח התאמה של אחד-לאחד.
-- `StsRsnInf`: קודי סיבה מובנים שימושיים הרבה יותר מטקסט חופשי עבור תיקון וניתוח.
+- `MsgId`: Use a new identifier for the status report itself.
+- `OrgnlInstrId`: Keep the original instruction identifier intact.
+- `TxSts`: Map this carefully to internal workflow states.
+- `StsRsnInf`: Structured reason codes are more useful than free text.
 
 ## השוואה pacs.002 vs pacs.028
 

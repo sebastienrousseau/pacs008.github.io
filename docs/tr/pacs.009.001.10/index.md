@@ -159,9 +159,9 @@ Borçlu kuruluş, kendi fonlarını transfer etmek üzere alacaklı kuruluşa pa
 
 ### Alan açıklamaları
 
-- `InstrId`: Alttaki müşteri akışıyla hâlâ ilişkilendirilebilen bir finansman aşaması tanımlayıcısı kullanın.
-- `IntrBkSttlmAmt`: Kendi hesap ve karşılama akışları çoğu zaman takas tutarları ve tarihleri üzerinde daha sıkı hazine kontrolleri gerektirir.
-- `Dbtr` / `Cdtr`: Bunlar perakende müşteri rolleri değil, kurum taraflarıdır; buna göre modelleyin.
+- `InstrId`: Use a funding-leg identifier that still links back to any customer flow.
+- `IntrBkSttlmAmt`: Own-account and cover flows need strict treasury controls on amount and date.
+- `Dbtr` / `Cdtr`: These are institution parties, not retail customer roles.
 
 ## Karşılaştır pacs.009 vs pacs.008
 

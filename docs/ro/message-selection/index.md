@@ -10,7 +10,7 @@ image: /logo.svg
 
 Alegeți familia pacs mai întâi după evenimentul de business, apoi după schemă și modelul operațional.
 
-> Ultima verificare față de surse primare a fost efectuată la 23 martie 2026 folosind materiale publice ISO 20022, EPC și Swift menționate pe această pagină.
+
 
 ## Matrice rapidă de decizie
 

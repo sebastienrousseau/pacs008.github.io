@@ -159,9 +159,9 @@ De debiteurinstelling stuurt pacs.009 naar de crediteurinstelling om eigen gelde
 
 ### Veldtoelichting
 
-- `InstrId`: Gebruik een identifier voor de financieringsstap die nog steeds aan de onderliggende klantstroom kan worden gekoppeld.
-- `IntrBkSttlmAmt`: Eigen-rekening- en coverstromen vereisen vaak strengere treasurycontroles op bedragen en afwikkelingsdata.
-- `Dbtr` / `Cdtr`: Dit zijn institutionele partijen en geen retailklantrollen; modelleer ze overeenkomstig.
+- `InstrId`: Use a funding-leg identifier that still links back to any customer flow.
+- `IntrBkSttlmAmt`: Own-account and cover flows need strict treasury controls on amount and date.
+- `Dbtr` / `Cdtr`: These are institution parties, not retail customer roles.
 
 ## Vergelijk pacs.009 vs pacs.008
 

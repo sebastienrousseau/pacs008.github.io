@@ -159,9 +159,9 @@ Thông điệp pacs.007 được sử dụng để đảo ngược lệnh thanh 
 
 ### Chú thích trường
 
-- `MsgId`: Bản thân thông điệp hoàn tác cần có mã định danh riêng an toàn cho kiểm toán.
+- `MsgId`: The reversal needs its own identifier.
 - `OrgnlInstrId`: Giữ nguyên tham chiếu thanh toán gốc để tránh đứt gãy đối soát.
-- `RvslRsnInf`: Hãy dùng lý do hoàn tác có cấu trúc để các trường hợp gian lận, lỗi và thanh toán trùng có thể được định tuyến khác nhau.
+- `RvslRsnInf`: Use structured reversal reasons so cases can be routed correctly.
 
 ## So sánh pacs.007 vs pacs.004
 

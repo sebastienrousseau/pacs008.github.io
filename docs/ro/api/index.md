@@ -10,8 +10,6 @@ image: /logo.svg
 
 Proiectul oferă atât un REST API, cât și un CLI pentru fluxurile operaționale de mesaje de plăți.
 
-> Ultima verificare față de surse primare a fost efectuată la 23 martie 2026 folosind materiale publice ISO 20022, EPC și Swift menționate pe această pagină.
-
 ## Note de implementare
 
 - Folosește generarea sincronă pentru verificări operaționale și loturi mici când apelantul așteaptă XML imediat.

@@ -45,7 +45,7 @@ image: /logo.svg
 
 The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, it starts from the original instructing side.
 
-> Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
+> Reviewed against primary sources on 23 March 2026. ISO catalogue date: 2025-02-27.
 
 ## Key data elements
 
@@ -149,24 +149,24 @@ Use this page for the version that pacs008 implements today, and review the newe
 
 ## Scheme-specific notes
 
-- pacs.007 is operationally closer to recall and reversal handling than to beneficiary-side returns, so teams should not collapse it into the same process model as pacs.004. That is an implementation inference from the message roles and Swift CBPR+ payment-instruction scope.
-- This message is relevant to fast exception handling in instant-payment and fraud-response contexts even where scheme-specific operating rules sit outside the generic message definition.
+- pacs.007 is closer to recall and reversal handling than to beneficiary-side returns, so do not collapse it into the same process model as pacs.004.
+- It is often used for fast exception handling in instant-payment and fraud-response contexts.
 
 Source links below point to primary standards bodies or scheme operators. Where a note goes beyond a direct statement, it is an implementation inference from those sources.
 
 ## When to use this message
 
-Use pacs.007 when the original sender needs to request that a previously instructed payment be reversed, often because of an operational error or fraud scenario.
+Use pacs.007 when the original sender needs to reverse an earlier payment instruction.
 
 ## When not to use this message
 
-Do not use pacs.007 to report status or to process a beneficiary-side return after the receiving institution has already decided to send funds back.
+Do not use pacs.007 to report status or to process a beneficiary-side return.
 
 ## Implementation notes
 
-- Fraud and recall handling often require tighter time controls than standard exception processing, so reversal orchestration should be explicit.
-- Keep reversal reason capture structured; free text alone is rarely enough for audit and analytics.
-- Track partial and full reversal outcomes separately because treasury and reconciliation impacts differ.
+- Make reversal timing explicit.
+- Keep reversal reasons structured.
+- Track partial and full reversals separately.
 
 ## Common failure modes
 
@@ -192,9 +192,9 @@ Do not use pacs.007 to report status or to process a beneficiary-side return aft
 
 ### Field commentary
 
-- `MsgId`: The reversal itself needs its own audit-safe identifier.
+- `MsgId`: The reversal needs its own identifier.
 - `OrgnlInstrId`: Preserve the original payment reference to avoid reconciliation breaks.
-- `RvslRsnInf`: Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently.
+- `RvslRsnInf`: Use structured reversal reasons so cases can be routed correctly.
 
 ## Decision flow
 

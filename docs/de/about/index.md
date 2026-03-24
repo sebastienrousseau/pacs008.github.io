@@ -10,8 +10,6 @@ image: /logo.svg
 
 pacs008 ist ein Python-Toolkit zur Automatisierung von ISO 20022-Kundenzahlungsabläufen zwischen Finanzinstituten.
 
-> Zuletzt anhand von Primärquellen am 23. März 2026 geprüft. Öffentliche ISO-20022-, EPC- und Swift-Quellen sind auf dieser Seite verlinkt.
-
 ## Funktionen
 
 - Erzeugt XML für `pacs.008` und verwandte pacs-Nachrichtendefinitionen

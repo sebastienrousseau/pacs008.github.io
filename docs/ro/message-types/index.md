@@ -10,8 +10,6 @@ image: /logo.svg
 
 pacs008 acoperă definiția de mesaj pacs.008 principală și mesajele conexe utilizate în fluxurile de orchestrare și reconciliere.
 
-> Ultima verificare față de surse primare a fost efectuată la 23 martie 2026 folosind materiale publice ISO 20022, EPC și Swift menționate pe această pagină.
-
 ## Suport inclus
 
 <div class="message-coverage-table" tabindex="0" aria-label="Suport inclus">

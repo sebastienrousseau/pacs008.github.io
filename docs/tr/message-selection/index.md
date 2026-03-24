@@ -10,7 +10,7 @@ image: /logo.svg
 
 Önce iş olayına göre pacs ailesini, ardından şema ve işletim modeline göre seçin.
 
-> Bu sayfada referans verilen ISO 20022, EPC ve Swift herkese açık materyalleri kullanılarak birincil kaynaklara göre en son 23 Mart 2026 tarihinde gözden geçirildi.
+
 
 ## Hızlı karar matrisi
 

@@ -159,9 +159,9 @@ La institución deudora envía pacs.009 a la institución acreedora para transfe
 
 ### Comentarios de campos
 
-- `InstrId`: Utilice un identificador del tramo de liquidez que pueda seguir vinculado al flujo de cliente subyacente.
-- `IntrBkSttlmAmt`: Los flujos por cuenta propia y de cobertura suelen requerir controles de tesorería más estrictos sobre importes y fechas de liquidación.
-- `Dbtr` / `Cdtr`: Se trata de partes institucionales, no de roles de cliente minorista; modélelas en consecuencia.
+- `InstrId`: Use a funding-leg identifier that still links back to any customer flow.
+- `IntrBkSttlmAmt`: Own-account and cover flows need strict treasury controls on amount and date.
+- `Dbtr` / `Cdtr`: These are institution parties, not retail customer roles.
 
 ## Comparar pacs.009 vs pacs.008
 

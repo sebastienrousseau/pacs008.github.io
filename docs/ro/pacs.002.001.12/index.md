@@ -135,7 +135,7 @@ Agentul instruit (receptorul) trimite pacs.002 înapoi către agentul ordonator 
         <tr>
           <td class="version-diff-table__range">pacs.002.001.13-15</td>
           <td class="version-diff-table__why">Revizii ulterioare ale catalogului</td>
-          <td class="version-diff-table__takeaway">Revizuiește versiunile ISO ulterioare înainte de a începe lucrări noi de interoperabilitate sau de a integra infrastructuri noi.</td>
+          <td class="version-diff-table__takeaway">Review later ISO revisions before new interoperability work.</td>
         </tr>
     </tbody>
   </table>
@@ -161,10 +161,10 @@ Agentul instruit (receptorul) trimite pacs.002 înapoi către agentul ordonator 
 
 ### Comentarii pe câmpuri
 
-- `MsgId`: Folosește un identificator nou pentru raportul de status în sine, nu pentru instrucțiunea de plată originală.
-- `OrgnlInstrId`: Păstrează nemodificat identificatorul instrucțiunii originale pentru ca statusul să poată fi corelat automat.
-- `TxSts`: Acesta este statusul operațional; mapează-l cu atenție la stările interne ale procesului și nu presupune o corespondență unu-la-unu.
-- `StsRsnInf`: Codurile structurate de motiv sunt mult mai utile decât textul liber pentru reparații și analitice.
+- `MsgId`: Use a new identifier for the status report itself.
+- `OrgnlInstrId`: Keep the original instruction identifier intact.
+- `TxSts`: Map this carefully to internal workflow states.
+- `StsRsnInf`: Structured reason codes are more useful than free text.
 
 ## Compară pacs.002 vs pacs.028
 

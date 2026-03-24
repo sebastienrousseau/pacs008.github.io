@@ -159,9 +159,9 @@ image: /logo.svg
 
 ### تعليقات الحقول
 
-- `MsgId`: تحتاج رسالة العكس نفسها إلى معرّف مستقل وآمن لأغراض التدقيق.
+- `MsgId`: The reversal needs its own identifier.
 - `OrgnlInstrId`: حافظ على مرجع الدفعة الأصلي لتجنب انقطاع المطابقة.
-- `RvslRsnInf`: استخدم أسباب عكس مهيكلة بحيث يمكن توجيه حالات الاحتيال والخطأ وتكرار الدفعات بشكل مختلف.
+- `RvslRsnInf`: Use structured reversal reasons so cases can be routed correctly.
 
 ## مقارنة pacs.007 vs pacs.004
 

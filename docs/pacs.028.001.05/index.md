@@ -45,7 +45,7 @@ image: /logo.svg
 
 The pacs.028 message asks another institution for the status of an earlier payment. It is a targeted status query for delayed, unclear, or missing payment updates.
 
-> Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
+> Reviewed against primary sources on 23 March 2026. ISO catalogue date: 2025-02-27.
 
 ## Key data elements
 

@@ -159,9 +159,9 @@ L'institution débitrice envoie pacs.009 à l'institution créancière pour tran
 
 ### Commentaires sur les champs
 
-- `InstrId`: Utilisez un identifiant de volet de liquidité qui puisse rester rattaché au flux client sous-jacent.
-- `IntrBkSttlmAmt`: Les flux sur compte propre et de couverture exigent souvent des contrôles de trésorerie plus stricts sur les montants et les dates de règlement.
-- `Dbtr` / `Cdtr`: Il s'agit de parties institutionnelles, et non de rôles de clientèle de détail ; modélisez-les comme tels.
+- `InstrId`: Use a funding-leg identifier that still links back to any customer flow.
+- `IntrBkSttlmAmt`: Own-account and cover flows need strict treasury controls on amount and date.
+- `Dbtr` / `Cdtr`: These are institution parties, not retail customer roles.
 
 ## Comparer pacs.009 vs pacs.008
 

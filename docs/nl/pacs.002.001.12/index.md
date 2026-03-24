@@ -135,7 +135,7 @@ De opdrachthebbende agent (ontvanger) stuurt pacs.002 terug naar de opdrachtgeve
         <tr>
           <td class="version-diff-table__range">pacs.002.001.13-15</td>
           <td class="version-diff-table__why">Latere catalogusrevisies</td>
-          <td class="version-diff-table__takeaway">Bekijk latere ISO-revisies voordat u nieuw interoperabiliteitswerk start of nieuwe infrastructuren aansluit.</td>
+          <td class="version-diff-table__takeaway">Review later ISO revisions before new interoperability work.</td>
         </tr>
     </tbody>
   </table>
@@ -161,10 +161,10 @@ De opdrachthebbende agent (ontvanger) stuurt pacs.002 terug naar de opdrachtgeve
 
 ### Veldtoelichting
 
-- `MsgId`: Gebruik een nieuwe identificatie voor het statusrapport zelf, niet voor de oorspronkelijke betalingsinstructie.
-- `OrgnlInstrId`: Laat de oorspronkelijke instructie-identificatie ongewijzigd zodat de status automatisch kan worden gematcht.
-- `TxSts`: Dit is de operationele status; koppel die zorgvuldig aan interne processtatussen in plaats van een directe een-op-eenrelatie aan te nemen.
-- `StsRsnInf`: Gestructureerde redencodes zijn veel nuttiger dan vrije tekst voor herstel en analyse.
+- `MsgId`: Use a new identifier for the status report itself.
+- `OrgnlInstrId`: Keep the original instruction identifier intact.
+- `TxSts`: Map this carefully to internal workflow states.
+- `StsRsnInf`: Structured reason codes are more useful than free text.
 
 ## Vergelijk pacs.002 vs pacs.028
 

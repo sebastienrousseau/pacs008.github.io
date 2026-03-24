@@ -159,9 +159,9 @@ Instytucja dłużnika wysyła pacs.009 do instytucji wierzyciela w celu przekaza
 
 ### Komentarze do pól
 
-- `InstrId`: Używaj identyfikatora etapu finansowania, który nadal można powiązać z bazowym przepływem klienta.
-- `IntrBkSttlmAmt`: Przepływy na rachunek własny i przepływy pokryciowe często wymagają bardziej rygorystycznej kontroli skarbowej kwot i dat rozrachunku.
-- `Dbtr` / `Cdtr`: Są to strony instytucjonalne, a nie role klienta detalicznego; modeluj je odpowiednio.
+- `InstrId`: Use a funding-leg identifier that still links back to any customer flow.
+- `IntrBkSttlmAmt`: Own-account and cover flows need strict treasury controls on amount and date.
+- `Dbtr` / `Cdtr`: These are institution parties, not retail customer roles.
 
 ## Porównanie pacs.009 vs pacs.008
 

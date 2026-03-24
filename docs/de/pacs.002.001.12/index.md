@@ -135,7 +135,7 @@ Der beauftragte Agent (Empfänger) sendet pacs.002 an den beauftragenden Agent (
         <tr>
           <td class="version-diff-table__range">pacs.002.001.13-15</td>
           <td class="version-diff-table__why">Spätere Katalogversionen</td>
-          <td class="version-diff-table__takeaway">Spätere ISO-Versionen sollten vor neuer Interoperabilitätsarbeit oder der Anbindung neuer Infrastrukturen geprüft werden.</td>
+          <td class="version-diff-table__takeaway">Review later ISO revisions before new interoperability work.</td>
         </tr>
     </tbody>
   </table>
@@ -161,10 +161,10 @@ Der beauftragte Agent (Empfänger) sendet pacs.002 an den beauftragenden Agent (
 
 ### Hinweise zu den Feldern
 
-- `MsgId`: Verwenden Sie eine neue Kennung für den Statusbericht selbst, nicht für die ursprüngliche Zahlungsanweisung.
-- `OrgnlInstrId`: Belassen Sie die ursprüngliche Anweisungskennung unverändert, damit der Status automatisch zugeordnet werden kann.
-- `TxSts`: Dies ist der operative Status; ordnen Sie ihn sorgfältig internen Workflow-Status zu, statt von einer Eins-zu-eins-Entsprechung auszugehen.
-- `StsRsnInf`: Strukturierte Grundcodes sind für Repair-Prozesse und Analysen deutlich nützlicher als Freitext.
+- `MsgId`: Use a new identifier for the status report itself.
+- `OrgnlInstrId`: Keep the original instruction identifier intact.
+- `TxSts`: Map this carefully to internal workflow states.
+- `StsRsnInf`: Structured reason codes are more useful than free text.
 
 ## Vergleich pacs.002 vs pacs.028
 

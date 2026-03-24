@@ -10,8 +10,6 @@ image: /logo.svg
 
 pacs008 涵蓋核心 pacs.008 訊息定義和編排及對帳流程中使用的相關訊息。
 
-> 已於 2026 年 3 月 23 日依據本頁引用的 ISO 20022、EPC 與 Swift 公開資料完成主要來源複核。
-
 ## 包含的支援
 
 <div class="message-coverage-table" tabindex="0" aria-label="包含的支援">

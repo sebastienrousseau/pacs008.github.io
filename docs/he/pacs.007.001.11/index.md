@@ -159,9 +159,9 @@ image: /logo.svg
 
 ### הערות לשדות
 
-- `MsgId`: להודעת ההיפוך עצמה נדרש מזהה נפרד ובטוח לביקורת.
+- `MsgId`: The reversal needs its own identifier.
 - `OrgnlInstrId`: שמרו על אסמכתת התשלום המקורית כדי למנוע שברים בתהליכי התאמה.
-- `RvslRsnInf`: השתמשו בסיבות היפוך מובנות כדי שמקרי הונאה, טעות ותשלום כפול ינותבו באופן שונה.
+- `RvslRsnInf`: Use structured reversal reasons so cases can be routed correctly.
 
 ## השוואה pacs.007 vs pacs.004
 

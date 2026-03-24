@@ -10,8 +10,6 @@ image: /logo.svg
 
 pacs008 はコアの pacs.008 メッセージ定義と、オーケストレーションおよびリコンシリエーションフローで使用される関連メッセージをカバーします。
 
-> このページで参照している ISO 20022、EPC、Swift の公開資料に基づき、2026年3月23日に一次情報との照合を行いました。
-
 ## 含まれるサポート
 
 <div class="message-coverage-table" tabindex="0" aria-label="含まれるサポート">

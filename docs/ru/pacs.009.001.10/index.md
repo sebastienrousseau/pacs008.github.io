@@ -159,9 +159,9 @@ image: /logo.svg
 
 ### Комментарии к полям
 
-- `InstrId`: Используйте идентификатор этапа финансирования, который по-прежнему можно связать с исходным клиентским потоком.
-- `IntrBkSttlmAmt`: Потоки по собственному счёту и покрывающие потоки часто требуют более строгого казначейского контроля сумм и дат расчётов.
-- `Dbtr` / `Cdtr`: Это стороны-учреждения, а не роли розничных клиентов; моделируйте их соответственно.
+- `InstrId`: Use a funding-leg identifier that still links back to any customer flow.
+- `IntrBkSttlmAmt`: Own-account and cover flows need strict treasury controls on amount and date.
+- `Dbtr` / `Cdtr`: These are institution parties, not retail customer roles.
 
 ## Сравнение pacs.009 vs pacs.008
 

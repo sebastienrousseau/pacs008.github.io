@@ -10,8 +10,6 @@ image: /logo.svg
 
 pacs008 copre la definizione di messaggio pacs.008 principale e i messaggi correlati utilizzati nei flussi di orchestrazione e riconciliazione.
 
-> Ultima revisione rispetto a fonti primarie il 23 marzo 2026 usando materiali pubblici ISO 20022, EPC e Swift collegati in questa pagina.
-
 ## Supporto incluso
 
 <div class="message-coverage-table" tabindex="0" aria-label="Supporto incluso">

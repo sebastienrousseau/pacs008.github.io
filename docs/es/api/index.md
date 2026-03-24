@@ -10,8 +10,6 @@ image: /logo.svg
 
 El proyecto proporciona tanto una API REST como una CLI para flujos de procesamiento de mensajes de pago.
 
-> Revisado por última vez frente a fuentes primarias el 23 de marzo de 2026 utilizando materiales públicos de ISO 20022, EPC y Swift enlazados en esta página.
-
 ## Notas de implantación
 
 - Utilice generación síncrona para comprobaciones operativas y lotes pequeños cuando el llamador espere XML de inmediato.

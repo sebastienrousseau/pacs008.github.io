@@ -135,7 +135,7 @@ L'agente incaricato (destinatario) invia pacs.002 all'agente ordinante (mittente
         <tr>
           <td class="version-diff-table__range">pacs.002.001.13-15</td>
           <td class="version-diff-table__why">Revisioni successive del catalogo</td>
-          <td class="version-diff-table__takeaway">Esamina le revisioni ISO successive prima di avviare nuovi lavori di interoperabilita o di integrare nuove infrastrutture.</td>
+          <td class="version-diff-table__takeaway">Review later ISO revisions before new interoperability work.</td>
         </tr>
     </tbody>
   </table>
@@ -161,10 +161,10 @@ L'agente incaricato (destinatario) invia pacs.002 all'agente ordinante (mittente
 
 ### Commenti sui campi
 
-- `MsgId`: Usa un nuovo identificatore per il rapporto di stato stesso, non per l'istruzione di pagamento originale.
-- `OrgnlInstrId`: Mantieni intatto l'identificatore dell'istruzione originale in modo che lo stato possa essere riconciliato automaticamente.
-- `TxSts`: Questo e lo stato operativo; mappalo con attenzione sugli stati interni del processo invece di presumere una corrispondenza diretta.
-- `StsRsnInf`: I codici motivo strutturati sono molto piu utili del testo libero per le riparazioni e l'analitica.
+- `MsgId`: Use a new identifier for the status report itself.
+- `OrgnlInstrId`: Keep the original instruction identifier intact.
+- `TxSts`: Map this carefully to internal workflow states.
+- `StsRsnInf`: Structured reason codes are more useful than free text.
 
 ## Confrontare pacs.002 vs pacs.028
 

@@ -10,7 +10,7 @@ image: /logo.svg
 
 Trước hết chọn họ pacs theo sự kiện nghiệp vụ, sau đó theo quy tắc và mô hình vận hành.
 
-> Được rà soát lần cuối đối chiếu với nguồn gốc chính vào ngày 23 tháng 3 năm 2026 bằng các tài liệu công khai của ISO 20022, EPC và Swift được dẫn trên trang này.
+
 
 ## Ma trận quyết định nhanh
 

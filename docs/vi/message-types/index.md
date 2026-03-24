@@ -10,8 +10,6 @@ image: /logo.svg
 
 pacs008 bao gồm định nghĩa thông điệp pacs.008 cốt lõi và các thông điệp liên quan được sử dụng trong các luồng điều phối và đối soát.
 
-> Được rà soát lần cuối đối chiếu với nguồn gốc chính vào ngày 23 tháng 3 năm 2026 bằng các tài liệu công khai của ISO 20022, EPC và Swift được dẫn trên trang này.
-
 ## Hỗ trợ bao gồm
 
 <div class="message-coverage-table" tabindex="0" aria-label="Hỗ trợ bao gồm">

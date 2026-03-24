@@ -10,8 +10,6 @@ image: /logo.svg
 
 pacs008, temel pacs.008 mesaj tanımını ve orkestrasyon ve mutabakat akışlarında kullanılan ilgili mesajları kapsar.
 
-> Bu sayfada referans verilen ISO 20022, EPC ve Swift herkese açık materyalleri kullanılarak birincil kaynaklara göre en son 23 Mart 2026 tarihinde gözden geçirildi.
-
 ## Dahil edilen destek
 
 <div class="message-coverage-table" tabindex="0" aria-label="Dahil edilen destek">

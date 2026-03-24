@@ -135,7 +135,7 @@ Thông điệp pacs.002 được gửi bởi tổ chức tài chính để báo 
         <tr>
           <td class="version-diff-table__range">pacs.002.001.13-15</td>
           <td class="version-diff-table__why">Các bản sửa đổi danh mục về sau</td>
-          <td class="version-diff-table__takeaway">Hãy xem các bản sửa đổi ISO mới hơn trước khi bắt đầu công việc tương tác mới hoặc tiếp nhận hạ tầng mới.</td>
+          <td class="version-diff-table__takeaway">Review later ISO revisions before new interoperability work.</td>
         </tr>
     </tbody>
   </table>
@@ -161,10 +161,10 @@ Thông điệp pacs.002 được gửi bởi tổ chức tài chính để báo 
 
 ### Chú thích trường
 
-- `MsgId`: Hãy dùng một mã định danh mới cho chính báo cáo trạng thái, không phải cho chỉ thị thanh toán gốc.
-- `OrgnlInstrId`: Giữ nguyên mã định danh của chỉ thị gốc để trạng thái có thể được đối chiếu tự động.
-- `TxSts`: Đây là trạng thái vận hành; hãy ánh xạ cẩn thận sang các trạng thái xử lý nội bộ thay vì giả định đối chiếu một-một.
-- `StsRsnInf`: Mã lý do có cấu trúc hữu ích hơn rất nhiều so với văn bản tự do cho xử lý sai sót và phân tích.
+- `MsgId`: Use a new identifier for the status report itself.
+- `OrgnlInstrId`: Keep the original instruction identifier intact.
+- `TxSts`: Map this carefully to internal workflow states.
+- `StsRsnInf`: Structured reason codes are more useful than free text.
 
 ## So sánh pacs.002 vs pacs.028
 

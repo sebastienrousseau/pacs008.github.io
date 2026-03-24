@@ -135,7 +135,7 @@ Agent zlecony (odbiorca) wysyła pacs.002 z powrotem do agenta zlecającego (nad
         <tr>
           <td class="version-diff-table__range">pacs.002.001.13-15</td>
           <td class="version-diff-table__why">Późniejsze rewizje katalogu</td>
-          <td class="version-diff-table__takeaway">Przed rozpoczęciem nowych prac interoperacyjnych lub podłączaniem nowych infrastruktur sprawdź późniejsze rewizje ISO.</td>
+          <td class="version-diff-table__takeaway">Review later ISO revisions before new interoperability work.</td>
         </tr>
     </tbody>
   </table>
@@ -161,10 +161,10 @@ Agent zlecony (odbiorca) wysyła pacs.002 z powrotem do agenta zlecającego (nad
 
 ### Komentarze do pól
 
-- `MsgId`: Użyj nowego identyfikatora dla samego raportu statusowego, a nie dla oryginalnej instrukcji płatniczej.
-- `OrgnlInstrId`: Zachowaj oryginalny identyfikator instrukcji bez zmian, aby status można było dopasować automatycznie.
-- `TxSts`: To jest stan operacyjny; mapuj go ostrożnie do wewnętrznych stanów procesu, zamiast zakładać dopasowanie jeden do jednego.
-- `StsRsnInf`: Ustrukturyzowane kody przyczyn są znacznie bardziej przydatne niż wolny tekst do napraw i analiz.
+- `MsgId`: Use a new identifier for the status report itself.
+- `OrgnlInstrId`: Keep the original instruction identifier intact.
+- `TxSts`: Map this carefully to internal workflow states.
+- `StsRsnInf`: Structured reason codes are more useful than free text.
 
 ## Porównanie pacs.002 vs pacs.028
 

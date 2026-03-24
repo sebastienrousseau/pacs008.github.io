@@ -10,8 +10,6 @@ image: /logo.svg
 
 pacs008 là bộ công cụ Python để tự động hóa quy trình chuyển khoản tín dụng khách hàng ISO 20022 giữa các tổ chức tài chính.
 
-> Được rà soát lần cuối đối chiếu với nguồn gốc chính vào ngày 23 tháng 3 năm 2026 bằng các tài liệu công khai của ISO 20022, EPC và Swift được dẫn trên trang này.
-
 ## Chức năng
 
 - Tạo XML cho `pacs.008` và các định nghĩa thông điệp pacs liên quan

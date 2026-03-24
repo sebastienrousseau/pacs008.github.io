@@ -10,7 +10,7 @@ image: /logo.svg
 
 Pilih keluarga pacs berdasarkan peristiwa bisnis terlebih dahulu, lalu berdasarkan skema dan model operasional.
 
-> Terakhir ditinjau terhadap sumber primer pada 23 Maret 2026 menggunakan materi publik ISO 20022, EPC, dan Swift yang dirujuk pada halaman ini.
+
 
 ## Matriks keputusan cepat
 

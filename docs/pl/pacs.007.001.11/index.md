@@ -159,9 +159,9 @@ Agent zlecający (oryginalny nadawca) wysyła pacs.007 do przodu przez łańcuch
 
 ### Komentarze do pól
 
-- `MsgId`: Sam komunikat odwołania płatności musi mieć własny identyfikator bezpieczny z punktu widzenia audytu.
+- `MsgId`: The reversal needs its own identifier.
 - `OrgnlInstrId`: Zachowaj oryginalne odniesienie płatności, aby uniknąć przerw w uzgadnianiu.
-- `RvslRsnInf`: Używaj ustrukturyzowanych powodów odwołania płatności, aby przypadki oszustwa, błędu i duplikatu płatności można było kierować inaczej.
+- `RvslRsnInf`: Use structured reversal reasons so cases can be routed correctly.
 
 ## Porównanie pacs.007 vs pacs.004
 

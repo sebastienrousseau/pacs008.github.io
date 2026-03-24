@@ -135,7 +135,7 @@ image: /logo.svg
         <tr>
           <td class="version-diff-table__range">pacs.002.001.13-15</td>
           <td class="version-diff-table__why">إصدارات الكتالوج اللاحقة</td>
-          <td class="version-diff-table__takeaway">راجع إصدارات ISO اللاحقة قبل بدء أعمال توافق جديدة أو ضم بنى تحتية جديدة.</td>
+          <td class="version-diff-table__takeaway">Review later ISO revisions before new interoperability work.</td>
         </tr>
     </tbody>
   </table>
@@ -161,10 +161,10 @@ image: /logo.svg
 
 ### تعليقات الحقول
 
-- `MsgId`: استخدم معرّفاً جديداً لتقرير الحالة نفسه، وليس لتعليمات الدفع الأصلية.
-- `OrgnlInstrId`: أبقِ معرّف التعليمات الأصلية دون تغيير حتى يمكن مطابقة الحالة تلقائياً.
-- `TxSts`: هذه هي الحالة التشغيلية؛ قم بمواءمتها بعناية مع حالات سير العمل الداخلية بدلاً من افتراض تطابق واحد لواحد.
-- `StsRsnInf`: تعد رموز الأسباب المنظمة أكثر فائدة بكثير من النص الحر لأغراض الإصلاح والتحليل.
+- `MsgId`: Use a new identifier for the status report itself.
+- `OrgnlInstrId`: Keep the original instruction identifier intact.
+- `TxSts`: Map this carefully to internal workflow states.
+- `StsRsnInf`: Structured reason codes are more useful than free text.
 
 ## مقارنة pacs.002 vs pacs.028
 

@@ -159,9 +159,9 @@ Talimat veren aracı (orijinal gönderici), daha önce talimat verilmiş bir öd
 
 ### Alan açıklamaları
 
-- `MsgId`: Geri çevirme mesajının kendisinin denetime uygun ayrı bir tanımlayıcıya ihtiyacı vardır.
+- `MsgId`: The reversal needs its own identifier.
 - `OrgnlInstrId`: Mutabakat kırılmalarını önlemek için orijinal ödeme referansını koruyun.
-- `RvslRsnInf`: Dolandırıcılık, hata ve mükerrer ödeme vakalarının farklı yönlendirilebilmesi için yapılandırılmış geri çevirme nedenleri kullanın.
+- `RvslRsnInf`: Use structured reversal reasons so cases can be routed correctly.
 
 ## Karşılaştır pacs.007 vs pacs.004
 

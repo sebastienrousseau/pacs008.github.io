@@ -45,7 +45,7 @@ image: /logo.svg
 
 The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied or must be sent back.
 
-> Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
+> Reviewed against primary sources on 23 March 2026. ISO catalogue date: 2025-02-27.
 
 ## Key data elements
 

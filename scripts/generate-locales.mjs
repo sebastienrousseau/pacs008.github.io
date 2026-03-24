@@ -7159,12 +7159,12 @@ const EN_EDITORIAL = {
   ],
   messageGuidance: {
     "pacs.002.001.12": {
-      whenToUse: "Use pacs.002 when the receiving institution needs to report acceptance, rejection, pending, or completion state for a previously submitted payment instruction.",
-      avoidUsing: "Do not use pacs.002 to alter settlement or reverse funds. It is a reporting message, not a corrective settlement message.",
+      whenToUse: "Use pacs.002 when the receiving institution needs to report the status of an earlier payment instruction.",
+      avoidUsing: "Do not use pacs.002 to alter settlement or reverse funds.",
       implementationNotes: [
-        "Map external provider statuses into pacs.002 reason and status codes early so internal systems do not depend on scheme-specific free text.",
-        "Keep original message identifiers intact; status reconciliation fails quickly when identifiers are normalized inconsistently across channels.",
-        "Treat pending and rejected outcomes differently in downstream orchestration because they imply different retry and repair paths."
+        "Map external statuses into pacs.002 reason and status codes early.",
+        "Keep original message identifiers intact.",
+        "Treat pending and rejected outcomes differently downstream."
       ],
       commonPitfalls: [
         "Conflating technical acceptance with business acceptance.",
@@ -7201,12 +7201,12 @@ const EN_EDITORIAL = {
       ]
     },
     "pacs.007.001.11": {
-      whenToUse: "Use pacs.007 when the original sender needs to request that a previously instructed payment be reversed, often because of an operational error or fraud scenario.",
-      avoidUsing: "Do not use pacs.007 to report status or to process a beneficiary-side return after the receiving institution has already decided to send funds back.",
+      whenToUse: "Use pacs.007 when the original sender needs to reverse an earlier payment instruction.",
+      avoidUsing: "Do not use pacs.007 to report status or to process a beneficiary-side return.",
       implementationNotes: [
-        "Fraud and recall handling often require tighter time controls than standard exception processing, so reversal orchestration should be explicit.",
-        "Keep reversal reason capture structured; free text alone is rarely enough for audit and analytics.",
-        "Track partial and full reversal outcomes separately because treasury and reconciliation impacts differ."
+        "Make reversal timing explicit.",
+        "Keep reversal reasons structured.",
+        "Track partial and full reversals separately."
       ],
       commonPitfalls: [
         "Modeling pacs.007 as just another return message.",
@@ -7229,12 +7229,12 @@ const EN_EDITORIAL = {
       ]
     },
     "pacs.009.001.10": {
-      whenToUse: "Use pacs.009 for institution-to-institution credit transfers, especially treasury movements, funding transfers, and cover-payment legs that are not customer-originated messages in their own right.",
-      avoidUsing: "Do not use pacs.009 as a direct substitute for a customer credit-transfer message when the business transaction still belongs in pacs.008.",
+      whenToUse: "Use pacs.009 for institution-to-institution credit transfers, especially treasury, funding, and cover-payment legs.",
+      avoidUsing: "Do not use pacs.009 when the business transaction still belongs in pacs.008.",
       implementationNotes: [
-        "Separate cover-payment logic from customer-payment logic so reconciliation can link pacs.009 and pacs.008 without collapsing them into one record type.",
-        "Treasury and correspondent workflows often need stricter controls around value date, settlement amount, and liquidity booking.",
-        "Institution identifiers and chain transparency matter more here than retail remittance content."
+        "Separate cover-payment logic from customer-payment logic.",
+        "Apply strict controls to value date, settlement amount, and liquidity booking.",
+        "Prioritise institution identifiers and chain transparency."
       ],
       commonPitfalls: [
         "Confusing own-account transfers with customer transfers.",
@@ -10490,7 +10490,7 @@ const EN_ADVANCED = {
   versionDiffs: {
     "pacs.002.001.12": [
       ["pacs.002.001.12", "Current implementation in pacs008", "Use this when matching the current project templates and validation assets."],
-      ["pacs.002.001.13-15", "Later catalogue revisions", "Review later ISO revisions before starting new interoperability work or onboarding new infrastructures."]
+      ["pacs.002.001.13-15", "Later catalogue revisions", "Review later ISO revisions before new interoperability work."]
     ],
     "pacs.003.001.09": [
       ["pacs.003.001.09", "Current implementation in pacs008", "Useful for direct-debit reference modelling in the current project."],
@@ -10538,10 +10538,10 @@ const EN_ADVANCED = {
   </TxInfAndSts>
 </FIToFIPmtStsRpt>`,
       notes: [
-        ["`MsgId`", "Use a new identifier for the status report itself, not the original payment instruction."],
-        ["`OrgnlInstrId`", "Keep the original instruction identifier intact so status can be matched automatically."],
-        ["`TxSts`", "This is the operational state; map it carefully to internal workflow states rather than assuming a one-to-one match."],
-        ["`StsRsnInf`", "Structured reason codes are far more useful than free text for repair and analytics."]
+        ["`MsgId`", "Use a new identifier for the status report itself."],
+        ["`OrgnlInstrId`", "Keep the original instruction identifier intact."],
+        ["`TxSts`", "Map this carefully to internal workflow states."],
+        ["`StsRsnInf`", "Structured reason codes are more useful than free text."]
       ]
     },
     "pacs.003.001.09": {
@@ -10594,9 +10594,9 @@ const EN_ADVANCED = {
   </TxInf>
 </FIToFIPmtRvsl>`,
       notes: [
-        ["`MsgId`", "The reversal itself needs its own audit-safe identifier."],
+        ["`MsgId`", "The reversal needs its own identifier."],
         ["`OrgnlInstrId`", "Preserve the original payment reference to avoid reconciliation breaks."],
-        ["`RvslRsnInf`", "Use structured reversal reasons so fraud, error, and duplicate-payment cases can be routed differently."]
+        ["`RvslRsnInf`", "Use structured reversal reasons so cases can be routed correctly."]
       ]
     },
     "pacs.008.001.13": {
@@ -10636,9 +10636,9 @@ const EN_ADVANCED = {
   </CdtTrfTxInf>
 </FICdtTrf>`,
       notes: [
-        ["`InstrId`", "Use a funding-leg identifier that can still be joined to any underlying customer flow."],
-        ["`IntrBkSttlmAmt`", "Own-account and cover flows often need stricter treasury controls around settlement amounts and dates."],
-        ["`Dbtr` / `Cdtr`", "These are institution parties, not retail customer roles; model them accordingly."]
+        ["`InstrId`", "Use a funding-leg identifier that still links back to any customer flow."],
+        ["`IntrBkSttlmAmt`", "Own-account and cover flows need strict treasury controls on amount and date."],
+        ["`Dbtr` / `Cdtr`", "These are institution parties, not retail customer roles."]
       ]
     },
     "pacs.010.001.05": {
@@ -10945,17 +10945,21 @@ function relatedMessageTable(localeKey, msgType) {
 }
 
 function sourceReviewLine(localeKey, msgType = null) {
-  const copy = seoCopy(localeKey);
-  if (!msgType) {
-    return `> ${copy.sourceReviewGeneric}`;
-  }
+  if (!msgType) return "";
 
   const latestInfo = ISO_LATEST_BY_SLUG[msgType.slug];
+  if (localeKey === "en") {
+    return `> Reviewed against primary sources on 23 March 2026. ISO catalogue date: ${latestInfo?.date ?? "current public catalogue"}.`;
+  }
+
+  const copy = seoCopy(localeKey);
   return `> ${copy.sourceReviewMessage.replace("{date}", latestInfo?.date ?? "current public catalogue")}`;
 }
 
 function introBlock(localeKey, intro, msgType = null, extra = "") {
-  const parts = [intro.trim(), sourceReviewLine(localeKey, msgType)];
+  const parts = [intro.trim()];
+  const review = sourceReviewLine(localeKey, msgType);
+  if (review) parts.push(review);
   if (extra.trim()) parts.push(extra.trim());
   return parts.join("\n\n");
 }
@@ -11073,8 +11077,8 @@ function englishSchemeNotes(msgType) {
 
   const bySlug = {
     "pacs.002.001.12": [
-      `In SEPA credit-transfer and instant-payment implementations, pacs.002 is the natural companion status message for payment execution and exception feedback. See the [EPC SCT rulebook](${PRIMARY_SOURCES.epcSct}) and [EPC SCT Inst rulebook](${PRIMARY_SOURCES.epcSctInst}).`,
-      `In CBPR+, pacs.002 sits alongside pacs.008, pacs.009, and pacs.004 in the official Swift usage-guideline rollout. See [Swift's CBPR+ ISO 20022 usage-guidelines announcement](${PRIMARY_SOURCES.swiftGuidelines}).`
+      `In SEPA credit-transfer and instant-payment flows, pacs.002 is the main companion status message. See the [EPC SCT rulebook](${PRIMARY_SOURCES.epcSct}) and [EPC SCT Inst rulebook](${PRIMARY_SOURCES.epcSctInst}).`,
+      `In CBPR+, pacs.002 sits alongside pacs.008, pacs.009, and pacs.004 in the Swift rollout. See [Swift's CBPR+ ISO 20022 usage-guidelines announcement](${PRIMARY_SOURCES.swiftGuidelines}).`
     ],
     "pacs.003.001.09": [
       `This message is outside the SCT and SCT Inst credit-transfer rulebooks, so treat it as a separate direct-debit track.`,
@@ -11085,8 +11089,8 @@ function englishSchemeNotes(msgType) {
       `In CBPR+, Swift maps pacs.004 alongside pacs.008, pacs.009, and pacs.002 during the ISO 20022 migration of payment instructions. See the [CBPR+ coexistence and end-state roadmap](${PRIMARY_SOURCES.swiftRoadmap}).`
     ],
     "pacs.007.001.11": [
-      `pacs.007 is operationally closer to recall and reversal handling than to beneficiary-side returns, so teams should not collapse it into the same process model as pacs.004. That is an implementation inference from the message roles and Swift CBPR+ payment-instruction scope.`,
-      `This message is relevant to fast exception handling in instant-payment and fraud-response contexts even where scheme-specific operating rules sit outside the generic message definition.`
+      `pacs.007 is closer to recall and reversal handling than to beneficiary-side returns, so do not collapse it into the same process model as pacs.004.`,
+      `It is often used for fast exception handling in instant-payment and fraud-response contexts.`
     ],
     "pacs.008.001.13": [
       `For SEPA credit transfers, pacs.008 is part of the SCT scheme messaging stack defined by the [EPC SCT rulebook](${PRIMARY_SOURCES.epcSct}).`,
@@ -11096,9 +11100,9 @@ function englishSchemeNotes(msgType) {
       `Structured-address changes around November 2026 materially affect pacs.008 data quality and party modelling in cross-border usage. See the [Swift CBPR+ roadmap](${PRIMARY_SOURCES.swiftAddress}).`
     ],
     "pacs.009.001.10": [
-      `In CBPR+, pacs.009 carries institution-to-institution credit-transfer and cover-payment legs. Swift explicitly maps MT 200, MT 202, and MT 202 COV into pacs.009 usage patterns in its [roadmap PDF](${PRIMARY_SOURCES.swiftRoadmap}) and related [CBPR+ pacs.009 material](${PRIMARY_SOURCES.swiftCbprPacs009}).`,
-      `For cover method, pacs.009 should be analysed together with the related customer leg in pacs.008 rather than as an isolated payment object. See [Swift's pacs.008/pacs.009 cover-method training page](${PRIMARY_SOURCES.swiftCbprCover}).`,
-      `This message is outside the SCT/SCT Inst customer credit-transfer rulebooks, so teams should not assume SEPA customer-payment rules apply unchanged to pacs.009.`
+      `In CBPR+, pacs.009 carries institution-to-institution credit transfers and cover-payment legs. See the [roadmap PDF](${PRIMARY_SOURCES.swiftRoadmap}) and [CBPR+ pacs.009 material](${PRIMARY_SOURCES.swiftCbprPacs009}).`,
+      `For cover method, analyse pacs.009 together with the related customer leg in pacs.008. See [Swift's pacs.008/pacs.009 cover-method training page](${PRIMARY_SOURCES.swiftCbprCover}).`,
+      `This message is outside the SCT and SCT Inst customer credit-transfer rulebooks, so SEPA customer-payment rules do not carry over unchanged.`
     ],
     "pacs.010.001.05": [
       `pacs.010 is not part of the SCT or SCT Inst credit-transfer rulebooks, so credit-transfer shortcuts do not carry over here.`,

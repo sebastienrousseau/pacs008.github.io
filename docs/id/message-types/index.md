@@ -10,8 +10,6 @@ image: /logo.svg
 
 pacs008 mencakup definisi pesan inti pacs.008 dan pesan terkait yang digunakan dalam alur orkestrasi dan rekonsiliasi.
 
-> Terakhir ditinjau terhadap sumber primer pada 23 Maret 2026 menggunakan materi publik ISO 20022, EPC, dan Swift yang dirujuk pada halaman ini.
-
 ## Dukungan yang disertakan
 
 <div class="message-coverage-table" tabindex="0" aria-label="Dukungan yang disertakan">

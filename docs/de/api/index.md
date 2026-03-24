@@ -10,8 +10,6 @@ image: /logo.svg
 
 Das Projekt bietet sowohl eine REST-API als auch eine CLI für operative Zahlungsnachrichten-Workflows.
 
-> Zuletzt anhand von Primärquellen am 23. März 2026 geprüft. Öffentliche ISO-20022-, EPC- und Swift-Quellen sind auf dieser Seite verlinkt.
-
 ## Implementierungshinweise
 
 - Synchrone Erzeugung für operatorgesteuerte Prüfungen und kleine Batches verwenden, wenn der Aufrufer sofort XML erwartet.

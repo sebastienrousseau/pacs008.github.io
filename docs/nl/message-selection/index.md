@@ -10,7 +10,7 @@ image: /logo.svg
 
 Kies de pacs-familie eerst op basis van de bedrijfsgebeurtenis en daarna op basis van schema en operationeel model.
 
-> Laatst gecontroleerd aan de hand van primaire bronnen op 23 maart 2026 met openbare ISO 20022-, EPC- en Swift-materialen waarnaar op deze pagina wordt verwezen.
+
 
 ## Snelle beslismatrix
 

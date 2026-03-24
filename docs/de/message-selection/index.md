@@ -10,7 +10,7 @@ image: /logo.svg
 
 Wählen Sie die pacs-Familie zuerst nach dem Geschäftsvorfall und danach nach Schema und Betriebsmodell.
 
-> Zuletzt anhand von Primärquellen am 23. März 2026 geprüft. Öffentliche ISO-20022-, EPC- und Swift-Quellen sind auf dieser Seite verlinkt.
+
 
 ## Schnelle Entscheidungsmatrix
 

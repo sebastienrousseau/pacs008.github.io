@@ -159,9 +159,9 @@ O agente instruente (remetente original) envia pacs.007 para frente pela cadeia 
 
 ### Comentários de campo
 
-- `MsgId`: A própria reversão precisa do seu próprio identificador seguro para auditoria.
+- `MsgId`: The reversal needs its own identifier.
 - `OrgnlInstrId`: Preserve a referência original do pagamento para evitar rupturas na reconciliação.
-- `RvslRsnInf`: Use motivos de reversão estruturados para que casos de fraude, erro e pagamento em duplicidade possam ser encaminhados de forma distinta.
+- `RvslRsnInf`: Use structured reversal reasons so cases can be routed correctly.
 
 ## Comparar pacs.007 vs pacs.004
 

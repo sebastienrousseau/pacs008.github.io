@@ -10,8 +10,6 @@ image: /logo.svg
 
 O pacs008 é um kit de ferramentas Python para automatizar fluxos de transferência de crédito ISO 20022 entre instituições financeiras.
 
-> Última revisão com base em fontes primárias em 23 de março de 2026 usando materiais públicos da ISO 20022, EPC e Swift referenciados nesta página.
-
 ## O que faz
 
 - Gera XML para `pacs.008` e definições de mensagens pacs relacionadas

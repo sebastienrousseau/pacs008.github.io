@@ -159,9 +159,9 @@ Agentul ordonator (expeditorul original) trimite pacs.007 înainte prin lanțul 
 
 ### Comentarii pe câmpuri
 
-- `MsgId`: Mesajul de reversare în sine are nevoie de propriul identificator sigur pentru audit.
+- `MsgId`: The reversal needs its own identifier.
 - `OrgnlInstrId`: Păstrează referința originală a plății pentru a evita rupturile în reconciliere.
-- `RvslRsnInf`: Folosește motive de reversare structurate astfel încât cazurile de fraudă, eroare și plată duplicată să poată fi rutate diferit.
+- `RvslRsnInf`: Use structured reversal reasons so cases can be routed correctly.
 
 ## Compară pacs.007 vs pacs.004
 

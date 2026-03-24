@@ -10,8 +10,6 @@ image: /logo.svg
 
 pacs008 couvre la définition de message pacs.008 principale et les messages liés utilisés dans les flux d'orchestration et de rapprochement.
 
-> Dernière vérification par rapport aux sources primaires le 23 mars 2026 à l'aide des documents publics ISO 20022, EPC et Swift référencés sur cette page.
-
 ## Prise en charge incluse
 
 <div class="message-coverage-table" tabindex="0" aria-label="Prise en charge incluse">

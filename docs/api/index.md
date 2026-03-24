@@ -10,8 +10,6 @@ image: /logo.svg
 
 pacs008 gives you three entry points: REST API, CLI, and Python library.
 
-> Last reviewed against primary sources on 23 March 2026 using ISO 20022, EPC, and Swift public materials referenced on this page.
-
 ## Implementation notes
 
 - Use sync generation for operator checks and small batches.

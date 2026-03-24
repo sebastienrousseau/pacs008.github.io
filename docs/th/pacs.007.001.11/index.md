@@ -159,9 +159,9 @@ image: /logo.svg
 
 ### คำอธิบายฟิลด์
 
-- `MsgId`: ข้อความการกลับรายการเองต้องมีตัวระบุเฉพาะที่ปลอดภัยต่อการตรวจสอบย้อนหลัง
+- `MsgId`: The reversal needs its own identifier.
 - `OrgnlInstrId`: เก็บอ้างอิงการชำระเงินต้นฉบับไว้เพื่อหลีกเลี่ยงความขาดตอนในการกระทบยอด
-- `RvslRsnInf`: ใช้เหตุผลการกลับรายการแบบมีโครงสร้างเพื่อให้กรณีทุจริต ข้อผิดพลาด และการชำระเงินซ้ำสามารถกำหนดเส้นทางต่างกันได้
+- `RvslRsnInf`: Use structured reversal reasons so cases can be routed correctly.
 
 ## เปรียบเทียบ pacs.007 vs pacs.004
 

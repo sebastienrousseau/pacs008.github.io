@@ -10,7 +10,7 @@ image: /logo.svg
 
 Choisissez la famille pacs d'abord selon l'événement métier, puis selon le schéma et le modèle d'exploitation.
 
-> Dernière vérification par rapport aux sources primaires le 23 mars 2026 à l'aide des documents publics ISO 20022, EPC et Swift référencés sur cette page.
+
 
 ## Matrice de décision rapide
 

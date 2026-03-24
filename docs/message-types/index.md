@@ -10,8 +10,6 @@ image: /logo.svg
 
 pacs008 covers the core pacs.008 message and the related pacs messages used for status, returns, reversals, and enquiries.
 
-> Last reviewed against primary sources on 23 March 2026 using ISO 20022, EPC, and Swift public materials referenced on this page.
-
 ## Included support
 
 <div class="message-coverage-table" tabindex="0" aria-label="Included support">

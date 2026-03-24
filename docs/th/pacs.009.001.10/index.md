@@ -159,9 +159,9 @@ image: /logo.svg
 
 ### คำอธิบายฟิลด์
 
-- `InstrId`: ใช้ตัวระบุของช่วงการจัดหาเงินทุนที่ยังคงเชื่อมโยงกับกระบวนการลูกค้าต้นทางได้
-- `IntrBkSttlmAmt`: กระแสเงินของบัญชีตนเองและการชำระเงินเพื่อครอบคลุมมักต้องการการควบคุมด้านการเงินคลังที่เข้มงวดมากขึ้นต่อจำนวนเงินและวันที่ชำระบัญชี
-- `Dbtr` / `Cdtr`: สิ่งเหล่านี้คือคู่สัญญาระหว่างสถาบัน ไม่ใช่บทบาทลูกค้ารายย่อย จึงควรจำลองข้อมูลให้สอดคล้องกัน
+- `InstrId`: Use a funding-leg identifier that still links back to any customer flow.
+- `IntrBkSttlmAmt`: Own-account and cover flows need strict treasury controls on amount and date.
+- `Dbtr` / `Cdtr`: These are institution parties, not retail customer roles.
 
 ## เปรียบเทียบ pacs.009 vs pacs.008
 

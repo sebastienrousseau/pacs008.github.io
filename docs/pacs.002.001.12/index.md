@@ -45,7 +45,7 @@ image: /logo.svg
 
 The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether processing was accepted, rejected, pending, or settled.
 
-> Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
+> Reviewed against primary sources on 23 March 2026. ISO catalogue date: 2025-02-27.
 
 ## Key data elements
 
@@ -141,7 +141,7 @@ Use this page for the version that pacs008 implements today, and review the newe
         <tr>
           <td class="version-diff-table__range">pacs.002.001.13-15</td>
           <td class="version-diff-table__why">Later catalogue revisions</td>
-          <td class="version-diff-table__takeaway">Review later ISO revisions before starting new interoperability work or onboarding new infrastructures.</td>
+          <td class="version-diff-table__takeaway">Review later ISO revisions before new interoperability work.</td>
         </tr>
     </tbody>
   </table>
@@ -149,24 +149,24 @@ Use this page for the version that pacs008 implements today, and review the newe
 
 ## Scheme-specific notes
 
-- In SEPA credit-transfer and instant-payment implementations, pacs.002 is the natural companion status message for payment execution and exception feedback. See the [EPC SCT rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) and [EPC SCT Inst rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook).
-- In CBPR+, pacs.002 sits alongside pacs.008, pacs.009, and pacs.004 in the official Swift usage-guideline rollout. See [Swift's CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released).
+- In SEPA credit-transfer and instant-payment flows, pacs.002 is the main companion status message. See the [EPC SCT rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) and [EPC SCT Inst rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook).
+- In CBPR+, pacs.002 sits alongside pacs.008, pacs.009, and pacs.004 in the Swift rollout. See [Swift's CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released).
 
 Source links below point to primary standards bodies or scheme operators. Where a note goes beyond a direct statement, it is an implementation inference from those sources.
 
 ## When to use this message
 
-Use pacs.002 when the receiving institution needs to report acceptance, rejection, pending, or completion state for a previously submitted payment instruction.
+Use pacs.002 when the receiving institution needs to report the status of an earlier payment instruction.
 
 ## When not to use this message
 
-Do not use pacs.002 to alter settlement or reverse funds. It is a reporting message, not a corrective settlement message.
+Do not use pacs.002 to alter settlement or reverse funds.
 
 ## Implementation notes
 
-- Map external provider statuses into pacs.002 reason and status codes early so internal systems do not depend on scheme-specific free text.
-- Keep original message identifiers intact; status reconciliation fails quickly when identifiers are normalized inconsistently across channels.
-- Treat pending and rejected outcomes differently in downstream orchestration because they imply different retry and repair paths.
+- Map external statuses into pacs.002 reason and status codes early.
+- Keep original message identifiers intact.
+- Treat pending and rejected outcomes differently downstream.
 
 ## Common failure modes
 
@@ -194,10 +194,10 @@ Do not use pacs.002 to alter settlement or reverse funds. It is a reporting mess
 
 ### Field commentary
 
-- `MsgId`: Use a new identifier for the status report itself, not the original payment instruction.
-- `OrgnlInstrId`: Keep the original instruction identifier intact so status can be matched automatically.
-- `TxSts`: This is the operational state; map it carefully to internal workflow states rather than assuming a one-to-one match.
-- `StsRsnInf`: Structured reason codes are far more useful than free text for repair and analytics.
+- `MsgId`: Use a new identifier for the status report itself.
+- `OrgnlInstrId`: Keep the original instruction identifier intact.
+- `TxSts`: Map this carefully to internal workflow states.
+- `StsRsnInf`: Structured reason codes are more useful than free text.
 
 ## Decision flow
 

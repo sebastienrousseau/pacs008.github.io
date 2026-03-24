@@ -159,9 +159,9 @@ L'agente ordinante (mittente originale) invia pacs.007 in avanti attraverso la c
 
 ### Commenti sui campi
 
-- `MsgId`: La reversa stessa ha bisogno di un proprio identificatore sicuro per l'audit.
+- `MsgId`: The reversal needs its own identifier.
 - `OrgnlInstrId`: Conserva il riferimento di pagamento originale per evitare rotture nella riconciliazione.
-- `RvslRsnInf`: Usa motivi di reversa strutturati in modo che i casi di frode, errore e pagamento duplicato possano essere instradati in modo diverso.
+- `RvslRsnInf`: Use structured reversal reasons so cases can be routed correctly.
 
 ## Confrontare pacs.007 vs pacs.004
 

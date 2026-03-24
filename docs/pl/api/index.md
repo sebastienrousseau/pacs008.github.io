@@ -10,8 +10,6 @@ image: /logo.svg
 
 Projekt zapewnia zarówno REST API, jak i CLI do operacyjnych przepływów wiadomości płatniczych.
 
-> Ostatnio zweryfikowano względem źródeł pierwotnych 23 marca 2026 r. z użyciem publicznych materiałów ISO 20022, EPC i Swift wskazanych na tej stronie.
-
 ## Uwagi wdrożeniowe
 
 - Używaj generowania synchronicznego do kontroli operacyjnych i małych wsadów, gdy wywołujący oczekuje XML natychmiast.

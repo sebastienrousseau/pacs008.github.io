@@ -10,8 +10,6 @@ image: /logo.svg
 
 pacs008 helps teams create and check ISO 20022 payment messages. It is a Python toolkit for payment operations.
 
-> Last reviewed against primary sources on 23 March 2026 using ISO 20022, EPC, and Swift public materials referenced on this page.
-
 ## What it does
 
 - Generates XML for `pacs.008` and related pacs messages.

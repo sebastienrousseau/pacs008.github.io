@@ -10,8 +10,6 @@ image: /logo.svg
 
 pacs008은 핵심 pacs.008 메시지 정의와 오케스트레이션 및 조정 플로우에서 사용되는 관련 메시지를 포함합니다.
 
-> 이 페이지에 연결된 ISO 20022, EPC 및 Swift 공개 자료를 기준으로 2026년 3월 23일에 1차 출처 검토를 완료했습니다.
-
 ## 포함된 지원
 
 <div class="message-coverage-table" tabindex="0" aria-label="포함된 지원">

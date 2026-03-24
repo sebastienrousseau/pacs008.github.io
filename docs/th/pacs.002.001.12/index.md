@@ -135,7 +135,7 @@ image: /logo.svg
         <tr>
           <td class="version-diff-table__range">pacs.002.001.13-15</td>
           <td class="version-diff-table__why">รุ่นแก้ไขแค็ตตาล็อกที่ใหม่กว่า</td>
-          <td class="version-diff-table__takeaway">ตรวจสอบรุ่นแก้ไข ISO ที่ใหม่กว่าก่อนเริ่มงานด้าน interoperability ใหม่หรือเชื่อมต่อโครงสร้างพื้นฐานใหม่</td>
+          <td class="version-diff-table__takeaway">Review later ISO revisions before new interoperability work.</td>
         </tr>
     </tbody>
   </table>
@@ -161,10 +161,10 @@ image: /logo.svg
 
 ### คำอธิบายฟิลด์
 
-- `MsgId`: ใช้ตัวระบุใหม่สำหรับรายงานสถานะเอง ไม่ใช่สำหรับคำสั่งชำระเงินต้นฉบับ
-- `OrgnlInstrId`: คงตัวระบุของคำสั่งต้นฉบับไว้เพื่อให้ระบบจับคู่สถานะได้โดยอัตโนมัติ
-- `TxSts`: นี่คือสถานะเชิงปฏิบัติการ ควรแมปอย่างระมัดระวังกับสถานะกระบวนการภายในแทนการสมมติว่าเป็นการจับคู่แบบหนึ่งต่อหนึ่ง
-- `StsRsnInf`: รหัสเหตุผลแบบมีโครงสร้างมีประโยชน์มากกว่าข้อความอิสระอย่างมากสำหรับการแก้ไขปัญหาและการวิเคราะห์
+- `MsgId`: Use a new identifier for the status report itself.
+- `OrgnlInstrId`: Keep the original instruction identifier intact.
+- `TxSts`: Map this carefully to internal workflow states.
+- `StsRsnInf`: Structured reason codes are more useful than free text.
 
 ## เปรียบเทียบ pacs.002 vs pacs.028
 
