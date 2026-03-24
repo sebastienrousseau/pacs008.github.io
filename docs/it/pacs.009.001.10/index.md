@@ -1,6 +1,6 @@
 ---
-title: pacs.009.001.10 | Bonifico tra istituzioni finanziarie | pacs008
-description: Il messaggio pacs.009 viene utilizzato per bonifici tra istituti finanziari in cui il trasferimento avviene per conto proprio dell'istituto anziché per...
+title: "pacs.009.001.10 | Bonifico tra istituzioni finanziarie | pacs008"
+description: "Il messaggio pacs.009 viene utilizzato per bonifici tra istituti finanziari in cui il trasferimento avviene per conto proprio dell'istituto anziché per..."
 lang: it-IT
 lastUpdated: true
 image: /logo.svg

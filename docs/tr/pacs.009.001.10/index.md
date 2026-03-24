@@ -1,5 +1,5 @@
 ---
-title: pacs.009.001.10 | Finansal kuruluşlar arası kredi transferi | pacs008
+title: "pacs.009.001.10 | Finansal kuruluşlar arası kredi transferi | pacs008"
 description: pacs.009 mesajı, transferin bir müşteri adına değil kurumun kendi adına gerçekleştirildiği durumlarda finans kuruluşları arasında kredi transferleri için...
 lang: tr-TR
 lastUpdated: true

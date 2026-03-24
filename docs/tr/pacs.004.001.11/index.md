@@ -1,5 +1,5 @@
 ---
-title: pacs.004.001.11 | Ödeme iadesi | pacs008
+title: "pacs.004.001.11 | Ödeme iadesi | pacs008"
 description: pacs.004 mesajı, daha önce takas edilmiş bir ödeme işlemini iade etmek için kullanılır. Bir ödeme uygulanamadığında, hatalı gönderildiğinde veya kaynak...
 lang: tr-TR
 lastUpdated: true

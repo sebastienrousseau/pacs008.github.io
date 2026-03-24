@@ -1,5 +1,5 @@
 ---
-title: pacs.007.001.11 | Đảo ngược thanh toán giữa các tổ chức tài chính | pacs008
+title: "pacs.007.001.11 | Đảo ngược thanh toán giữa các tổ chức tài chính | pacs008"
 description: Thông điệp pacs.007 được sử dụng để đảo ngược lệnh thanh toán đã gửi trước đó chưa được quyết toán hoặc để yêu cầu đảo ngược khoản thanh toán đã quyết...
 lang: vi-VN
 lastUpdated: true

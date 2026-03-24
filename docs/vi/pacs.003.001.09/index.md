@@ -1,5 +1,5 @@
 ---
-title: pacs.003.001.09 | Ghi nợ trực tiếp khách hàng giữa các tổ chức tài chính | pacs008
+title: "pacs.003.001.09 | Ghi nợ trực tiếp khách hàng giữa các tổ chức tài chính | pacs008"
 description: Thông điệp pacs.003 được trao đổi giữa các tổ chức tài chính để thực hiện lệnh ghi nợ trực tiếp của khách hàng. Thông điệp này cho phép ngân hàng của chủ...
 lang: vi-VN
 lastUpdated: true

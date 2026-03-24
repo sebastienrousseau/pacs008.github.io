@@ -1,5 +1,5 @@
 ---
-title: Warunki | pacs008
+title: "Warunki | pacs008"
 description: Informacje o warunkach strony pacs008.
 lang: pl-PL
 lastUpdated: true

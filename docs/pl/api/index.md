@@ -1,5 +1,5 @@
 ---
-title: API | pacs008
+title: "API | pacs008"
 description: Obsługa przepływów REST i CLI w pacs008.
 lang: pl-PL
 lastUpdated: true

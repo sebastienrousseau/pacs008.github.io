@@ -1,5 +1,5 @@
 ---
-title: pacs.004.001.11 | Betalingsretour | pacs008
+title: "pacs.004.001.11 | Betalingsretour | pacs008"
 description: Het pacs.004-bericht wordt gebruikt om een eerder afgewikkelde betalingstransactie te retourneren. Het keert de geldstroom om wanneer een betaling niet...
 lang: nl-NL
 lastUpdated: true

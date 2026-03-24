@@ -1,5 +1,5 @@
 ---
-title: शर्तें | pacs008
+title: "शर्तें | pacs008"
 description: pacs008 वेबसाइट के लिए शर्तों की जानकारी।
 lang: hi-IN
 lastUpdated: true

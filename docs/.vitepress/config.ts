@@ -20,6 +20,8 @@ function navFor(locale: string) {
     { text: t.selectionGuide, link: `${prefix}/message-selection/` },
     { text: t.api, link: `${prefix}/api/` },
     { text: t.structuredAddress, link: `${prefix}/structured-address/` },
+    { text: t.pacsExplained, link: `${prefix}/pacs-explained/` },
+    { text: t.faq, link: `${prefix}/faq/` },
     { text: t.contact, link: `${prefix}/contact/` }
   ];
   return nav;
@@ -66,7 +68,9 @@ function breadcrumbNameForSegment(locale: string, segment: string): string {
     privacy: t.privacy,
     terms: t.terms,
     editorial: t.editorial,
-    "structured-address": t.structuredAddress
+    "structured-address": t.structuredAddress,
+    faq: t.faq,
+    "pacs-explained": t.pacsExplained
   };
   return known[segment] || segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, " ");
 }

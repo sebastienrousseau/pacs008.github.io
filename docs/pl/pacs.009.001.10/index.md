@@ -1,5 +1,5 @@
 ---
-title: pacs.009.001.10 | Przelew kredytowy między instytucjami finansowymi | pacs008
+title: "pacs.009.001.10 | Przelew kredytowy między instytucjami finansowymi | pacs008"
 description: Komunikat pacs.009 jest używany do poleceń przelewu między instytucjami finansowymi, w których transfer odbywa się na rachunek własny instytucji, a nie w...
 lang: pl-PL
 lastUpdated: true

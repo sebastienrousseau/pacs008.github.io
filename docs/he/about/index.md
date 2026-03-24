@@ -1,5 +1,5 @@
 ---
-title: אודות pacs008 | pacs008
+title: "אודות pacs008 | pacs008"
 description: מה pacs008 עושה ולמי הוא מיועד. יצירה, אימות, תיאום API ותמיכת ציות לתהליכי העברת אשראי ללקוחות בין מוסדות פיננסיים.
 lang: he-IL
 lastUpdated: true

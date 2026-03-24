@@ -1,5 +1,5 @@
 ---
-title: Termeni | pacs008
+title: "Termeni | pacs008"
 description: Informații despre termenii site-ului pacs008.
 lang: ro-RO
 lastUpdated: true

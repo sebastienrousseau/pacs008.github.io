@@ -1,5 +1,5 @@
 ---
-title: pacs.009.001.10 | Transfer de credit între instituții financiare | pacs008
+title: "pacs.009.001.10 | Transfer de credit între instituții financiare | pacs008"
 description: Mesajul pacs.009 este utilizat pentru transferuri de credit între instituții financiare în care transferul se face în cont propriu al instituției și nu în...
 lang: ro-RO
 lastUpdated: true

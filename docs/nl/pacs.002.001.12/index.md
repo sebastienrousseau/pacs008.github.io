@@ -1,5 +1,5 @@
 ---
-title: pacs.002.001.12 | FI-naar-FI-betalingsstatusrapport | pacs008
+title: "pacs.002.001.12 | FI-naar-FI-betalingsstatusrapport | pacs008"
 description: Het pacs.002-bericht wordt door een financiële instelling verzonden om de status te rapporteren van een eerder verzonden betalingsinstructie. Het biedt...
 lang: nl-NL
 lastUpdated: true

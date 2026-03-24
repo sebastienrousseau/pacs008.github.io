@@ -1,5 +1,5 @@
 ---
-title: 报文类型 | pacs008 ISO 20022
+title: "报文类型 | pacs008 ISO 20022"
 description: 支持的 ISO 20022 pacs 报文定义和版本。 面向金融机构间客户信贷转账工作流的生成、校验、API 编排与合规支持。
 lang: zh-CN
 lastUpdated: true

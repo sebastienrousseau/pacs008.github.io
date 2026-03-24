@@ -1,5 +1,5 @@
 ---
-title: pacs.010.001.05 | Debit direct între instituții financiare | pacs008
+title: "pacs.010.001.05 | Debit direct între instituții financiare | pacs008"
 description: Mesajul pacs.010 este utilizat între instituții financiare pentru tranzacții de debitare directă pe contul propriu al instituției. Permite unei instituții...
 lang: ro-RO
 lastUpdated: true

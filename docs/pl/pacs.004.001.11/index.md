@@ -1,5 +1,5 @@
 ---
-title: pacs.004.001.11 | Zwrot płatności | pacs008
+title: "pacs.004.001.11 | Zwrot płatności | pacs008"
 description: Komunikat pacs.004 jest używany do zwrotu wcześniej rozliczonej transakcji płatniczej. Odwraca przepływ środków, gdy płatność nie może zostać zastosowana...
 lang: pl-PL
 lastUpdated: true

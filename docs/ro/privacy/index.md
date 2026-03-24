@@ -1,5 +1,5 @@
 ---
-title: Confidențialitate | pacs008
+title: "Confidențialitate | pacs008"
 description: Informații de confidențialitate pentru site-ul pacs008.
 lang: ro-RO
 lastUpdated: true

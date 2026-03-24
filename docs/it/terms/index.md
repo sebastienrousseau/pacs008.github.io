@@ -1,5 +1,5 @@
 ---
-title: Termini | pacs008
+title: "Termini | pacs008"
 description: Informazioni sui termini del sito web pacs008.
 lang: it-IT
 lastUpdated: true

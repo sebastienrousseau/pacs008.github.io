@@ -1,5 +1,5 @@
 ---
-title: Despre pacs008 | pacs008
+title: "Despre pacs008 | pacs008"
 description: Ce face pacs008 și cui se adresează.
 lang: ro-RO
 lastUpdated: true

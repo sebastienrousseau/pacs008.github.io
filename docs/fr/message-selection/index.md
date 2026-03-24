@@ -1,5 +1,5 @@
 ---
-title: Guide de sélection des messages | pacs008
+title: "Guide de sélection des messages | pacs008"
 description: Choisissez le message pacs ISO 20022 adapté à la génération, aux statuts, aux retours, aux annulations et aux demandes.
 lang: fr-FR
 lastUpdated: true

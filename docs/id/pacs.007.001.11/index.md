@@ -1,5 +1,5 @@
 ---
-title: pacs.007.001.11 | Pembalikan Pembayaran FI ke FI | pacs008
+title: "pacs.007.001.11 | Pembalikan Pembayaran FI ke FI | pacs008"
 description: Pesan pacs.007 digunakan untuk membalikkan instruksi pembayaran yang sebelumnya dikirim yang belum diselesaikan atau untuk meminta pembalikan pembayaran...
 lang: id-ID
 lastUpdated: true

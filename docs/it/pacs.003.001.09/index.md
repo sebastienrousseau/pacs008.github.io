@@ -1,6 +1,6 @@
 ---
-title: pacs.003.001.09 | Addebito diretto cliente tra istituzioni finanziarie | pacs008
-description: Il messaggio pacs.003 viene scambiato tra istituti finanziari per eseguire un'istruzione di addebito diretto del cliente. Consente alla banca del...
+title: "pacs.003.001.09 | Addebito diretto cliente tra istituzioni finanziarie | pacs008"
+description: "Il messaggio pacs.003 viene scambiato tra istituti finanziari per eseguire un'istruzione di addebito diretto del cliente. Consente alla banca del..."
 lang: it-IT
 lastUpdated: true
 image: /logo.svg

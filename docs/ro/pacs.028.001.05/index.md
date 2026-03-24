@@ -1,5 +1,5 @@
 ---
-title: pacs.028.001.05 | Cerere de stare a plății FI-la-FI | pacs008
+title: "pacs.028.001.05 | Cerere de stare a plății FI-la-FI | pacs008"
 description: Mesajul pacs.028 este trimis de o instituție financiară pentru a solicita statusul unei instrucțiuni de plată trimise anterior. Permite urmărirea...
 lang: ro-RO
 lastUpdated: true

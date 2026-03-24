@@ -1,5 +1,5 @@
 ---
-title: 訊息類型 | pacs008 ISO 20022
+title: "訊息類型 | pacs008 ISO 20022"
 description: 支援的 ISO 20022 pacs 訊息定義和版本。 面向金融機構間客戶信貸轉帳工作流程的產生、驗證、API 編排與合規支援。
 lang: zh-TW
 lastUpdated: true

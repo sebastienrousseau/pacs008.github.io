@@ -1,6 +1,6 @@
 ---
-title: pacs.004.001.11 | Retour de paiement | pacs008
-description: Le message pacs.004 est utilisé pour retourner une transaction de paiement précédemment réglée. Il inverse le flux de fonds lorsqu'un paiement ne peut...
+title: "pacs.004.001.11 | Retour de paiement | pacs008"
+description: "Le message pacs.004 est utilisé pour retourner une transaction de paiement précédemment réglée. Il inverse le flux de fonds lorsqu'un paiement ne peut..."
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg

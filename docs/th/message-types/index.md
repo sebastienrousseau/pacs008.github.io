@@ -1,5 +1,5 @@
 ---
-title: ประเภทข้อความ | pacs008 ISO 20022
+title: "ประเภทข้อความ | pacs008 ISO 20022"
 description: คำจำกัดความและเวอร์ชันข้อความ pacs ISO 20022 ที่รองรับ
 lang: th-TH
 lastUpdated: true

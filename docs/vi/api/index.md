@@ -1,5 +1,5 @@
 ---
-title: API | pacs008
+title: "API | pacs008"
 description: Hỗ trợ quy trình REST và CLI trong pacs008.
 lang: vi-VN
 lastUpdated: true

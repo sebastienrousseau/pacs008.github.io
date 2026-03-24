@@ -1,5 +1,5 @@
 ---
-title: Prywatność | pacs008
+title: "Prywatność | pacs008"
 description: Informacje o prywatności strony pacs008.
 lang: pl-PL
 lastUpdated: true

@@ -1,5 +1,5 @@
 ---
-title: pacs.002.001.12 | FI to FI Payment Status Report | pacs008
+title: "pacs.002.001.12 | FI to FI Payment Status Report | pacs008"
 description: The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected...
 lang: en-GB
 lastUpdated: true

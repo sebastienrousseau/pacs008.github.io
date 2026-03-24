@@ -1,5 +1,5 @@
 ---
-title: pacs.010.001.05 | Lastschrift zwischen Finanzinstituten | pacs008
+title: "pacs.010.001.05 | Lastschrift zwischen Finanzinstituten | pacs008"
 description: Die Nachricht pacs.010 wird zwischen Finanzinstituten für Lastschrifttransaktionen auf eigene Rechnung verwendet. Sie ermöglicht es einem Institut, Gelder...
 lang: de-DE
 lastUpdated: true

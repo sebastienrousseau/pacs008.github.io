@@ -1,6 +1,6 @@
 ---
-title: pacs.009.001.10 | Virement entre institutions financières | pacs008
-description: Le message pacs.009 est utilisé pour les virements entre institutions financières lorsque le transfert est pour le compte propre de l'institution plutôt...
+title: "pacs.009.001.10 | Virement entre institutions financières | pacs008"
+description: "Le message pacs.009 est utilisé pour les virements entre institutions financières lorsque le transfert est pour le compte propre de l'institution plutôt..."
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg

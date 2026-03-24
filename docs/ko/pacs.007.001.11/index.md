@@ -1,5 +1,5 @@
 ---
-title: pacs.007.001.11 | 금융기관 간 지급 취소 | pacs008
+title: "pacs.007.001.11 | 금융기관 간 지급 취소 | pacs008"
 description: pacs.007 메시지는 아직 결제되지 않은 이전에 전송된 결제 지시를 취소하거나 결제된 결제의 취소를 요청하는 데 사용됩니다. pacs.004(반환)와 달리 원래의 지시 에이전트가 개시합니다.
 lang: ko-KR
 lastUpdated: true

@@ -1,5 +1,5 @@
 ---
-title: Типи повідомлень | pacs008 ISO 20022
+title: "Типи повідомлень | pacs008 ISO 20022"
 description: Підтримувані визначення та версії повідомлень pacs ISO 20022.
 lang: uk-UA
 lastUpdated: true

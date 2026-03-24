@@ -1,5 +1,5 @@
 ---
-title: API | pacs008
+title: "API | pacs008"
 description: pacs008의 REST 및 CLI 워크플로 지원. 금융기관 간 고객 신용 이체 워크플로를 위한 생성, 검증, API 오케스트레이션, 규정 준수 지원.
 lang: ko-KR
 lastUpdated: true

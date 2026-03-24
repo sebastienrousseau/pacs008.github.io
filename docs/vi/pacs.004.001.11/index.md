@@ -1,5 +1,5 @@
 ---
-title: pacs.004.001.11 | Hoàn trả thanh toán | pacs008
+title: "pacs.004.001.11 | Hoàn trả thanh toán | pacs008"
 description: Thông điệp pacs.004 được sử dụng để hoàn trả giao dịch thanh toán đã quyết toán trước đó. Thông điệp này đảo ngược dòng tiền khi khoản thanh toán không...
 lang: vi-VN
 lastUpdated: true

@@ -1,5 +1,5 @@
 ---
-title: pacs.028.001.05 | FI'dan FI'ya ödeme durumu talebi | pacs008
+title: "pacs.028.001.05 | FI'dan FI'ya ödeme durumu talebi | pacs008"
 description: pacs.028 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu talep etmek üzere bir finans kuruluşu tarafından gönderilir. İstenmeyen bir durum...
 lang: tr-TR
 lastUpdated: true

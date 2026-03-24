@@ -1,5 +1,5 @@
 ---
-title: About pacs008 - ISO 20022 toolkit | pacs008
+title: "About pacs008 - ISO 20022 toolkit | pacs008"
 description: Learn how pacs008 helps teams generate, validate, test, and ship ISO 20022 payment messages for daily payment operations.
 lang: en-GB
 lastUpdated: true

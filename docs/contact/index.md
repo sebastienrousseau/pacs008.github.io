@@ -1,5 +1,5 @@
 ---
-title: Contact the pacs008 project | pacs008
+title: "Contact the pacs008 project | pacs008"
 description: Find the pacs008 repository, releases, and package links for support, issue reporting, and implementation questions.
 lang: en-GB
 lastUpdated: true

@@ -1,5 +1,5 @@
 ---
-title: pacs008 소개 | pacs008
+title: "pacs008 소개 | pacs008"
 description: pacs008이 하는 일과 대상 사용자. 금융기관 간 고객 신용 이체 워크플로를 위한 생성, 검증, API 오케스트레이션, 규정 준수 지원.
 lang: ko-KR
 lastUpdated: true

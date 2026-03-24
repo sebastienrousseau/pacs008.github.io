@@ -1,5 +1,5 @@
 ---
-title: pacs.003.001.09 | 金融机构间客户直接借记 | pacs008
+title: "pacs.003.001.09 | 金融机构间客户直接借记 | pacs008"
 description: pacs.003 消息在金融机构之间交换，用于执行客户直接借记指令。它使债权人的银行能够代表债权人从债务人的银行收取资金。
 lang: zh-CN
 lastUpdated: true

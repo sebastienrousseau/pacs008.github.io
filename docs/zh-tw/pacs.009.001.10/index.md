@@ -1,5 +1,5 @@
 ---
-title: pacs.009.001.10 | 金融機構信用轉帳 | pacs008
+title: "pacs.009.001.10 | 金融機構信用轉帳 | pacs008"
 description: pacs.009 訊息用於金融機構自身帳戶間的信用轉帳，而非代表客戶進行。它支援銀行間資金調撥、覆蓋付款和流動性管理。
 lang: zh-TW
 lastUpdated: true

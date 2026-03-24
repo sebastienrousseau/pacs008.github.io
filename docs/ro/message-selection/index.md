@@ -1,5 +1,5 @@
 ---
-title: Ghid de selecție a mesajelor | pacs008
+title: "Ghid de selecție a mesajelor | pacs008"
 description: Alegeți mesajul pacs ISO 20022 potrivit pentru generare, raportare de status, retururi, reversări și interogări.
 lang: ro-RO
 lastUpdated: true

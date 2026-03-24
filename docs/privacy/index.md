@@ -1,5 +1,5 @@
 ---
-title: Privacy notice for pacs008 | pacs008
+title: "Privacy notice for pacs008 | pacs008"
 description: Read how pacs008.com handles website data, uses basic analytics, and explains visitor privacy rights and limits.
 lang: en-GB
 lastUpdated: true

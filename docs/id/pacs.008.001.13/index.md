@@ -1,5 +1,5 @@
 ---
-title: pacs.008.001.13 | Transfer Kredit Pelanggan FI ke FI | pacs008
+title: "pacs.008.001.13 | Transfer Kredit Pelanggan FI ke FI | pacs008"
 description: Pesan pacs.008 adalah instruksi pembayaran inti yang dipertukarkan antara lembaga keuangan untuk mentransfer dana atas nama pelanggan. Pesan ini membawa...
 lang: id-ID
 lastUpdated: true

@@ -1,5 +1,5 @@
 ---
-title: pacs.009.001.10 | 金融机构信用转账 | pacs008
+title: "pacs.009.001.10 | 金融机构信用转账 | pacs008"
 description: pacs.009 消息用于金融机构自身账户间的信用转账，而非代表客户进行。它支持银行间资金调拨、覆盖支付和流动性管理。
 lang: zh-CN
 lastUpdated: true

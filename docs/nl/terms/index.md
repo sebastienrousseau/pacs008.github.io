@@ -1,5 +1,5 @@
 ---
-title: Voorwaarden | pacs008
+title: "Voorwaarden | pacs008"
 description: Voorwaarden-informatie voor de pacs008-website.
 lang: nl-NL
 lastUpdated: true

@@ -1,5 +1,5 @@
 ---
-title: Условия | pacs008
+title: "Условия | pacs008"
 description: Информация об условиях использования сайта pacs008.
 lang: ru-RU
 lastUpdated: true

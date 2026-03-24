@@ -1,5 +1,5 @@
 ---
-title: Jenis Pesan | pacs008 ISO 20022
+title: "Jenis Pesan | pacs008 ISO 20022"
 description: Definisi dan versi pesan pacs ISO 20022 yang didukung.
 lang: id-ID
 lastUpdated: true

@@ -1,5 +1,5 @@
 ---
-title: pacs.003.001.09 | Polecenie zapłaty klienta FI-do-FI | pacs008
+title: "pacs.003.001.09 | Polecenie zapłaty klienta FI-do-FI | pacs008"
 description: Komunikat pacs.003 jest wymieniany między instytucjami finansowymi w celu realizacji instrukcji polecenia zapłaty klienta. Umożliwia bankowi wierzyciela...
 lang: pl-PL
 lastUpdated: true

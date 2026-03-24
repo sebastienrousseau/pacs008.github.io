@@ -1,6 +1,6 @@
 ---
-title: pacs.007.001.11 | Storno di pagamento tra istituzioni finanziarie | pacs008
-description: Il messaggio pacs.007 viene utilizzato per stornare un'istruzione di pagamento precedentemente inviata che non è ancora stata regolata o per richiedere lo...
+title: "pacs.007.001.11 | Storno di pagamento tra istituzioni finanziarie | pacs008"
+description: "Il messaggio pacs.007 viene utilizzato per stornare un'istruzione di pagamento precedentemente inviata che non è ancora stata regolata o per richiedere lo..."
 lang: it-IT
 lastUpdated: true
 image: /logo.svg

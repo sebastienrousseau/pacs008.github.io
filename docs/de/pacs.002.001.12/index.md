@@ -1,5 +1,5 @@
 ---
-title: pacs.002.001.12 | FI-zu-FI-Zahlungsstatusbericht | pacs008
+title: "pacs.002.001.12 | FI-zu-FI-Zahlungsstatusbericht | pacs008"
 description: Die Nachricht pacs.002 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung zu melden. Sie liefert...
 lang: de-DE
 lastUpdated: true

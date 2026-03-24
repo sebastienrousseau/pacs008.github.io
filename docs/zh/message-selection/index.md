@@ -1,5 +1,5 @@
 ---
-title: 报文选择指南 | pacs008
+title: "报文选择指南 | pacs008"
 description: 为生成、状态报告、退回、撤销和查询选择合适的 ISO 20022 pacs 报文。
 lang: zh-CN
 lastUpdated: true

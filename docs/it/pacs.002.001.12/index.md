@@ -1,6 +1,6 @@
 ---
-title: pacs.002.001.12 | Rapporto di stato del pagamento tra istituzioni finanziarie | pacs008
-description: Il messaggio pacs.002 viene inviato da un istituto finanziario per comunicare lo stato di un'istruzione di pagamento precedentemente inviata. Fornisce...
+title: "pacs.002.001.12 | Rapporto di stato del pagamento tra istituzioni finanziarie | pacs008"
+description: "Il messaggio pacs.002 viene inviato da un istituto finanziario per comunicare lo stato di un'istruzione di pagamento precedentemente inviata. Fornisce..."
 lang: it-IT
 lastUpdated: true
 image: /logo.svg

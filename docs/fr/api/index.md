@@ -1,5 +1,5 @@
 ---
-title: API | pacs008
+title: "API | pacs008"
 description: Prise en charge REST et CLI dans pacs008.
 lang: fr-FR
 lastUpdated: true

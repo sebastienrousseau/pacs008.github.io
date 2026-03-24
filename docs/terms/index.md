@@ -1,5 +1,5 @@
 ---
-title: Terms of use for pacs008 | pacs008
+title: "Terms of use for pacs008 | pacs008"
 description: Read the pacs008.com terms of use, intellectual property notice, third-party link terms, and liability limits.
 lang: en-GB
 lastUpdated: true

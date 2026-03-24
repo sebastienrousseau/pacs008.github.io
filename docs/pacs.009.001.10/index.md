@@ -1,5 +1,5 @@
 ---
-title: pacs.009.001.10 | Financial Institution Credit Transfer | pacs008
+title: "pacs.009.001.10 | Financial Institution Credit Transfer | pacs008"
 description: The pacs.009 message moves funds between banks on their own behalf. It supports funding, cover payments, and liquidity management.
 lang: en-GB
 lastUpdated: true

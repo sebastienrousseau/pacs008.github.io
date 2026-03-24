@@ -1,5 +1,5 @@
 ---
-title: pacs008 について | pacs008
+title: "pacs008 について | pacs008"
 description: pacs008 の機能と対象ユーザー。 金融機関間の顧客クレジット移転ワークフロー向けの生成、検証、API オーケストレーション、コンプライアンス対応。
 lang: ja-JP
 lastUpdated: true

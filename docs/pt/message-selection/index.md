@@ -1,5 +1,5 @@
 ---
-title: Guia de seleção de mensagens | pacs008
+title: "Guia de seleção de mensagens | pacs008"
 description: Escolha a mensagem pacs ISO 20022 correta para geração, status, devoluções, reversões e consultas.
 lang: pt-BR
 lastUpdated: true

@@ -1,5 +1,5 @@
 ---
-title: API | pacs008
+title: "API | pacs008"
 description: การสนับสนุนเวิร์กโฟลว์ REST และ CLI ใน pacs008
 lang: th-TH
 lastUpdated: true

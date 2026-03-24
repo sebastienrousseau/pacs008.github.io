@@ -1,5 +1,5 @@
 ---
-title: Types de messages | pacs008 ISO 20022
+title: "Types de messages | pacs008 ISO 20022"
 description: Définitions et versions de messages pacs ISO 20022 prises en charge.
 lang: fr-FR
 lastUpdated: true

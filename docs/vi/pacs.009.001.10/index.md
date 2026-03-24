@@ -1,5 +1,5 @@
 ---
-title: pacs.009.001.10 | Chuyển khoản tín dụng giữa các tổ chức tài chính | pacs008
+title: "pacs.009.001.10 | Chuyển khoản tín dụng giữa các tổ chức tài chính | pacs008"
 description: Thông điệp pacs.009 được sử dụng cho chuyển khoản tín dụng giữa các tổ chức tài chính khi việc chuyển khoản là thay mặt tổ chức chứ không phải thay mặt...
 lang: vi-VN
 lastUpdated: true

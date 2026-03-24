@@ -1,5 +1,5 @@
 ---
-title: pacs.010.001.05 | Polecenie zapłaty między instytucjami finansowymi | pacs008
+title: "pacs.010.001.05 | Polecenie zapłaty między instytucjami finansowymi | pacs008"
 description: Komunikat pacs.010 jest używany między instytucjami finansowymi do transakcji poleceń zapłaty na rachunek własny instytucji. Umożliwia jednej instytucji...
 lang: pl-PL
 lastUpdated: true

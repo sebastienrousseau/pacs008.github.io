@@ -1,5 +1,5 @@
 ---
-title: pacs.004.001.11 | 지급 반환 | pacs008
+title: "pacs.004.001.11 | 지급 반환 | pacs008"
 description: pacs.004 메시지는 이전에 결제된 결제 거래를 반환하는 데 사용됩니다. 결제가 적용될 수 없었거나, 오류로 전송되었거나, 발신 기관이 회수를 요청하는 경우 자금 흐름을 역전시킵니다.
 lang: ko-KR
 lastUpdated: true

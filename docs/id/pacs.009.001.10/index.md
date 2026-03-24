@@ -1,5 +1,5 @@
 ---
-title: pacs.009.001.10 | Transfer Kredit Antar Lembaga Keuangan | pacs008
+title: "pacs.009.001.10 | Transfer Kredit Antar Lembaga Keuangan | pacs008"
 description: Pesan pacs.009 digunakan untuk transfer kredit antara lembaga keuangan di mana transfer dilakukan atas nama lembaga itu sendiri bukan atas nama pelanggan...
 lang: id-ID
 lastUpdated: true

@@ -1,5 +1,5 @@
 ---
-title: pacs.003.001.09 | Débito direto de cliente FI a FI | pacs008
+title: "pacs.003.001.09 | Débito direto de cliente FI a FI | pacs008"
 description: A mensagem pacs.003 é trocada entre instituições financeiras para executar uma instrução de débito direto do cliente. Permite que o banco do credor colete...
 lang: pt-BR
 lastUpdated: true

@@ -1,5 +1,5 @@
 ---
-title: pacs.009.001.10 | Transferência de crédito entre instituições financeiras | pacs008
+title: "pacs.009.001.10 | Transferência de crédito entre instituições financeiras | pacs008"
 description: A mensagem pacs.009 é utilizada para transferências de crédito entre instituições financeiras onde a transferência ocorre por conta própria da instituição...
 lang: pt-BR
 lastUpdated: true

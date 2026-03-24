@@ -1,5 +1,5 @@
 ---
-title: pacs.008.001.13 | Przelew kredytowy klienta FI-do-FI | pacs008
+title: "pacs.008.001.13 | Przelew kredytowy klienta FI-do-FI | pacs008"
 description: Komunikat pacs.008 jest podstawową instrukcją płatniczą wymienianą między instytucjami finansowymi w celu przekazania środków w imieniu klienta. Zawiera...
 lang: pl-PL
 lastUpdated: true

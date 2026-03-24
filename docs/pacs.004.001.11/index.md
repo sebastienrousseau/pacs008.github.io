@@ -1,5 +1,5 @@
 ---
-title: pacs.004.001.11 | Payment Return | pacs008
+title: "pacs.004.001.11 | Payment Return | pacs008"
 description: The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied.
 lang: en-GB
 lastUpdated: true

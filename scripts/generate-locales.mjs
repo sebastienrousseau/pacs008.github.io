@@ -582,6 +582,9 @@ const pageCopy = {
     editorialAccuracyText: "pacs008.com aims to be accurate and current, but it is not a substitute for scheme rulebooks, counterparty agreements, or legal advice. Always confirm implementation details against the primary sources and the specific rules of the market or scheme you operate in.",
     editorialContactTitle: "Contact",
     editorialContactText: "If you find an error or have a correction, please open an issue in the [pacs008 repository](https://github.com/sebastienrousseau/pacs008/issues).",
+    faqPageTitle: "Frequently asked questions",
+    faqPageDescription: "Common questions about ISO 20022 pacs messages, CBPR+ migration, message selection, implementation, and the pacs008 toolkit.",
+    faqPageIntro: "This page answers common questions about ISO 20022 pacs messages, how they work together, and how pacs008 helps teams implement them.",
     structuredAddressTitle: "November 2026 structured-address deadline",
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT requires structured postal addresses in cross-border payment messages from November 2026. This page explains what changes, which messages are affected, and how pacs008 helps teams prepare.",
@@ -612,6 +615,9 @@ const pageCopy = {
     structuredAddressAction3: "Add address validation to your pre-generation pipeline using pacs008.",
     structuredAddressAction4: "Test with representative payment data before the deadline.",
     structuredAddressRefsTitle: "References",
+    pacsExplainedTitle: "PACS messages explained",
+    pacsExplainedDescription: "Detailed technical reference for ISO 20022 pacs messages: lifecycle, XML structure, settlement methods, reason codes, address types, identifiers, remittance, and UETR tracking.",
+    pacsExplainedIntro: "This page provides a detailed technical reference for the ISO 20022 pacs message family. It covers how messages work together in a complete payment lifecycle, the XML structure, settlement methods, reason codes, party identification, remittance information, and end-to-end tracking.",
     msgDetailIdentifier: "Identifier",
     msgDetailIsoName: "ISO name",
     msgDetailStatus: "Registration status",
@@ -11790,8 +11796,13 @@ function copyFor(localeKey) {
   return { ...pageCopy.en, ...(pageCopy[localeKey] ?? {}), ...(PAGE_COPY_PATCH[localeKey] ?? {}) };
 }
 
+function yamlSafe(value) {
+  if (/[:#{}\[\]|>@`"']/.test(value)) return JSON.stringify(value);
+  return value;
+}
+
 function pageTemplate({ title, description, lang, body, extraFrontmatter }) {
-  let fm = `---\ntitle: ${title}\ndescription: ${description}\nlang: ${lang}\nlastUpdated: true\nimage: /logo.svg`;
+  let fm = `---\ntitle: ${yamlSafe(title)}\ndescription: ${yamlSafe(description)}\nlang: ${lang}\nlastUpdated: true\nimage: /logo.svg`;
   if (extraFrontmatter) fm += `\n${extraFrontmatter}`;
   fm += `\n---\n\n${body}\n`;
   return fm;
@@ -13689,6 +13700,446 @@ ${t.structuredAddressWhatText}
 `;
 }
 
+function faqPageBody(localeKey) {
+  const t = copyFor(localeKey);
+  return `# ${t.faqPageTitle}
+
+${t.faqPageIntro}
+
+## General
+
+### What is ISO 20022?
+
+ISO 20022 is an international standard for financial messaging. It defines a common language and model for payment messages exchanged between financial institutions. Unlike older formats such as SWIFT MT, ISO 20022 uses XML and supports richer, more structured data for parties, amounts, and references.
+
+### What are pacs messages?
+
+The pacs (payments clearing and settlement) message family covers interbank payment instructions, status reports, returns, reversals, and enquiries. It includes pacs.002, pacs.003, pacs.004, pacs.007, pacs.008, pacs.009, pacs.010, and pacs.028. Each message serves a specific role in the payment lifecycle.
+
+### How do pacs messages differ from SWIFT MT messages?
+
+SWIFT MT messages use a flat, field-tag format (e.g. MT103 for customer credit transfers). Pacs messages use hierarchical XML with richer data structures. Key differences include support for multiple transactions per message, structured party identification (LEI, multiple IDs), structured postal addresses, and structured remittance information. MT103 maps to pacs.008, MT202 maps to pacs.009, and MT199 status text is replaced by pacs.002.
+
+### What is the relationship between pain and pacs messages?
+
+Pain (payment initiation) messages travel between the customer and their bank. Pacs messages travel between banks. A pain.001 customer credit-transfer initiation from the debtor's bank becomes a pacs.008 interbank instruction. The two domains share common data elements but serve different parts of the payment chain.
+
+## Message selection
+
+### When should I use pacs.008?
+
+Use pacs.008 for customer credit-transfer instructions between banks. It carries debtor and creditor party data, amounts, remittance information, and settlement details. It is the main message for sending customer payments across the interbank network, whether domestically (SEPA) or cross-border (CBPR+).
+
+### When should I use pacs.009 instead of pacs.008?
+
+Use pacs.009 for institution-own-account transfers, funding legs, and cover payments. Unlike pacs.008, which carries a customer payment on behalf of a debtor, pacs.009 moves funds between banks on their own behalf. In cover-method flows, pacs.009 carries the funding while pacs.008 carries the customer instruction on a separate path.
+
+### What is the difference between pacs.004 and pacs.007?
+
+pacs.004 returns settled funds from the receiving side back through the chain. pacs.007 reverses a payment from the original instructing side forward through the chain. Use pacs.004 when the beneficiary bank cannot apply the credit after settlement. Use pacs.007 when the originator discovers an error, duplicate, or fraud.
+
+### When should I use pacs.028 instead of waiting for pacs.002?
+
+Use pacs.028 when you need to actively request the status of a payment that has not received a timely pacs.002 update. pacs.002 is event-driven (the receiving agent sends it proactively), while pacs.028 is exception-driven (the instructing agent requests it). Use pacs.028 for delayed, unclear, or missing payment updates, not as routine traffic.
+
+### What is pacs.003 used for?
+
+pacs.003 carries customer direct-debit instructions between banks. The creditor agent sends it to the debtor agent to collect funds. It requires a valid mandate reference and supports SEPA Core and B2B direct-debit schemes. It is not used for credit transfers or institution-own-account debits.
+
+### What is pacs.010 used for?
+
+pacs.010 handles direct debits between financial institutions on their own accounts. It is used for bank-to-bank collections such as fees, margin calls, and similar obligations under bilateral agreements. It is not used for customer direct debits or credit transfers.
+
+## Message structure
+
+### What is the Group Header (GrpHdr)?
+
+The Group Header appears exactly once per pacs message. It contains the message identifier (MsgId), creation timestamp (CreDtTm), number of transactions (NbOfTxs), settlement information (SttlmInf), and optionally the total interbank settlement amount and payment type information. It identifies the message envelope, not the individual business transactions.
+
+### What are the payment identifiers in pacs.008?
+
+pacs.008 uses four main identifiers. MsgId identifies the message envelope and changes at each hop. InstrId is a point-to-point reference between adjacent agents and may change per hop. EndToEndId is set by the originator and must not be altered by any agent in the chain. TxId is assigned by the first instructing agent and remains constant in the interbank space. UETR is a UUID that stays unchanged across all legs for end-to-end tracking.
+
+### What settlement methods are available?
+
+Four settlement methods are defined. CLRG settles through a clearing system such as TARGET2, EURO1, or CHIPS. INDA settles on the books of the instructed agent where the debtor agent holds an account. INGA settles on the books of the instructing agent where the instructed agent holds an account. COVE settles through a separate cover payment carried by pacs.009.
+
+### What do the charge bearer codes mean?
+
+DEBT means all charges are borne by the debtor (equivalent to MT103 OUR). CRED means all charges are borne by the creditor (equivalent to BEN). SHAR means charges are shared between debtor and creditor agents (equivalent to SHA). SLEV means charges follow the service level rules and is mandatory for SEPA credit transfers.
+
+## CBPR+ and migration
+
+### What is CBPR+?
+
+CBPR+ (Cross-Border Payments and Reporting Plus) is SWIFT's programme for adopting ISO 20022 in cross-border payment messaging. It went live in March 2023 and replaces MT messages with pacs equivalents. CBPR+ mandates pacs.002 for all status communication, supports richer party data and structured addresses, and uses UETR-based tracking through gpi.
+
+### What happened to the MT/MX coexistence period?
+
+The coexistence period for cross-border payment instructions ended in November 2025. Since then, CBPR+ messages must use the ISO 20022 (MX) format. Translation services that converted between MT and MX during the transition are no longer available for new flows. Banks must now send and receive native pacs messages.
+
+### What is the November 2026 structured-address deadline?
+
+From November 2026, SWIFT CBPR+ requires structured postal addresses in cross-border payment messages. Unstructured address lines (AdrLine alone) will no longer be accepted for key party fields. At minimum, TwnNm and Ctry are required, with StrtNm and BldgNb or PstBx recommended. This improves sanctions screening and reduces manual repair.
+
+### How does pacs.008 replace MT103?
+
+pacs.008 replaces MT103 and MT103+ for customer credit transfers. Key mapping: MT103 field 20 maps to MsgId or InstrId; field 32A splits into IntrBkSttlmDt and IntrBkSttlmAmt; field 50a maps to Dbtr and DbtrAcct; field 59a maps to Cdtr and CdtrAcct; field 70 maps to RmtInf; field 71A maps to ChrgBr. pacs.008 adds UETR, structured remittance, LEI identification, and supports multiple transactions per message.
+
+### How does pacs.009 replace MT202?
+
+pacs.009 replaces MT202 and MT202COV for institution-to-institution transfers. In cover-method flows, the MT202COV (which carried both funding and underlying customer data) splits cleanly: pacs.009 carries the funding leg while pacs.008 carries the customer instruction directly. This separation improves data quality and reduces reconciliation issues.
+
+## Technical details
+
+### What are structured vs unstructured addresses?
+
+Structured addresses use separate XML elements for each component: StrtNm (street), BldgNb (building number), PstCd (post code), TwnNm (town), Ctry (country), and optional elements like Flr, Room, and DstrctNm. Unstructured addresses use up to seven AdrLine elements with free text. Hybrid addresses combine both during the transition period. After November 2026, CBPR+ requires the structured format.
+
+### What is UETR and how does gpi tracking work?
+
+UETR (Unique End-to-End Transaction Reference) is a UUID v4 identifier generated by the debtor agent and carried unchanged across all legs of a payment. It appears in pacs.008, pacs.009, pacs.002, pacs.004, pacs.007, and pacs.028. SWIFT gpi uses the UETR to track payments through a cloud-based Tracker database. Each agent confirms receipt and processing, enabling end-to-end visibility and SLA monitoring.
+
+### What are common pacs.002 status codes?
+
+ACCP means accepted after customer-profile checks. ACSP means accepted and settlement is in progress. ACSC means settlement on the debtor account is complete. RJCT means rejected (with a reason code in StsRsnInf). PDNG means pending further processing. RCVD means received but not yet processed. Each status may include a structured reason code such as AC01 (incorrect account), AM04 (insufficient funds), or RC01 (incorrect BIC).
+
+### What are common return reason codes in pacs.004?
+
+Frequent return reason codes include AC01 (incorrect account number), AC04 (closed account), AC06 (blocked account), AM04 (insufficient funds), BE04 (missing creditor address), CUST (requested by customer), DUPL (duplicate payment), FOCR (following cancellation request), and FR01 (fraud). The full list is defined in the ISO 20022 External Code Sets.
+
+### What is structured remittance information?
+
+Structured remittance in pacs.008 uses the RmtInf/Strd element to carry document references (invoice numbers, credit notes), amounts (due, remitted, tax, discount), and creditor references (ISO 11649 RF references). This enables automated invoice matching and reconciliation. Common document type codes include CINV (commercial invoice), CREN (credit note), and SOAC (statement of account).
+
+### What is LEI and when is it used?
+
+LEI (Legal Entity Identifier) is a 20-character alphanumeric code per ISO 17442. It uniquely identifies legal entities participating in financial transactions. In pacs messages, LEI appears in OrgId/LEI for parties and FinInstnId/LEI for agents. CBPR+ increasingly encourages LEI for party and agent identification. It improves entity disambiguation and supports regulatory reporting requirements.
+
+## About pacs008 toolkit
+
+### What does pacs008 do?
+
+pacs008 is a Python toolkit that generates, validates, and ships ISO 20022 payment messages. It reads payment data from CSV, JSON, JSONL, SQLite, and Parquet sources, validates against JSON Schema and XSD, checks IBAN and BIC identifiers, cleans data for SWIFT character compliance, and outputs XML files. It provides a REST API, CLI, and Python library.
+
+### Which message types does pacs008 support?
+
+pacs008 supports eight message types: pacs.002.001.12 (status report), pacs.003.001.09 (customer direct debit), pacs.004.001.11 (payment return), pacs.007.001.11 (payment reversal), pacs.008.001.13 (customer credit transfer), pacs.009.001.10 (financial institution credit transfer), pacs.010.001.05 (financial institution direct debit), and pacs.028.001.05 (payment status request).
+
+### How does pacs008 help with the 2026 structured-address deadline?
+
+pacs008 validates structured and hybrid postal address fields before XML generation. It flags unstructured address data that would fail after the November 2026 deadline, supports both pre-deadline hybrid and post-deadline structured-only formats, and integrates address quality checks into CI pipelines and batch validation workflows.
+
+### Can pacs008 validate data without generating XML?
+
+Yes. Use the \`--dry-run\` CLI flag or the \`POST /validate\` API endpoint to validate payment data without generating XML. The validation pipeline checks JSON Schema conformance, IBAN format and checksum, BIC structure, and SWIFT character compliance. The exit code or API response indicates whether validation passed or failed.
+
+## References
+
+- [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions)
+- [ISO 20022 external code sets](https://www.iso20022.org/external_code_list.page)
+- [SWIFT CBPR+ ISO 20022 usage guidelines](https://www.swift.com/standards/iso-20022)
+- [SWIFT CBPR+ migration roadmap](https://www.swift.com/swift-resource/252463/download)
+- [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and)
+- [EPC SEPA Instant Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook)
+- [SWIFT gpi](https://www.swift.com/our-solutions/swift-gpi)
+`;
+}
+
+function pacsExplainedBody(localeKey) {
+  const t = copyFor(localeKey);
+  return `# ${t.pacsExplainedTitle}
+
+${t.pacsExplainedIntro}
+
+## Payment lifecycle
+
+The complete pacs payment lifecycle involves six stages and multiple message types working together.
+
+**Stage 1 — Initiation.** The payment originates in the customer-to-bank domain (pain.001). The debtor's bank receives the instruction and maps it into the interbank domain.
+
+**Stage 2 — Interbank instruction.** The debtor agent creates a pacs.008 and sends it to the next agent in the chain. In a serial flow, the pacs.008 travels hop by hop through intermediaries. In a cover flow, the pacs.008 goes directly from debtor agent to creditor agent, while a separate pacs.009 carries the funding leg through the correspondent chain.
+
+**Stage 3 — Status reporting.** At each hop, the receiving agent may return a pacs.002 confirming acceptance (ACCP/ACSP/ACSC), rejection (RJCT), or pending status (PDNG). In CBPR+, pacs.002 is mandatory for all payment status communication.
+
+**Stage 4 — Settlement.** Settlement occurs through a clearing system (CLRG), on correspondent accounts (INDA/INGA), or via a cover payment (COVE). The interbank settlement date and amount control when and how much settles.
+
+**Stage 5 — Credit to beneficiary.** The creditor agent credits the beneficiary and may send a customer notification.
+
+**Stage 6 — Exception handling.** If the beneficiary cannot be credited post-settlement, pacs.004 returns funds back through the chain. If the originator discovers an error or fraud, pacs.007 goes forward through the chain. If status is unknown, pacs.028 queries the next agent and the answer returns via pacs.002.
+
+### Serial method flow
+
+\`\`\`text
+Debtor Agent --(pacs.008)--> Intermediary Agent
+Intermediary Agent --(pacs.002)--> Debtor Agent [status]
+Intermediary Agent --(pacs.008)--> Creditor Agent
+Creditor Agent --(pacs.002)--> Intermediary Agent [status]
+Creditor Agent --> Creditor [credit notification]
+\`\`\`
+
+### Cover method flow
+
+\`\`\`text
+Debtor Agent --(pacs.008)--> Creditor Agent [direct, with customer data]
+Debtor Agent --(pacs.009)--> Cover Bank --(pacs.009)--> Creditor Agent [funding leg]
+\`\`\`
+
+## XML structure of pacs.008
+
+pacs.008 has two main building blocks: the Group Header (GrpHdr) and Credit Transfer Transaction Information (CdtTrfTxInf).
+
+### Group Header (GrpHdr)
+
+The Group Header appears exactly once per message and contains:
+
+- **MsgId** — Unique message identifier assigned by the sending agent. Max 35 characters, must be unique per sender.
+- **CreDtTm** — Creation timestamp in ISO 8601 format.
+- **NbOfTxs** — Count of individual transactions in the message.
+- **SttlmInf** — Settlement information including the settlement method (SttlmMtd) and optionally the clearing system and settlement account.
+- **IntrBkSttlmDt** — Date on which interbank settlement occurs.
+- **PmtTpInf** — Payment type information including priority, service level, local instrument, and category purpose.
+
+### Credit Transfer Transaction Information (CdtTrfTxInf)
+
+Each transaction carries:
+
+- **PmtId** — Payment identifiers: InstrId, EndToEndId, TxId, and UETR.
+- **IntrBkSttlmAmt** — Interbank settlement amount with currency code.
+- **InstdAmt** — Original instructed amount (may differ from settlement amount due to FX).
+- **ChrgBr** — Charge bearer code (DEBT, CRED, SHAR, or SLEV).
+- **Dbtr / DbtrAcct / DbtrAgt** — Debtor name, address, identification, account, and agent.
+- **Cdtr / CdtrAcct / CdtrAgt** — Creditor name, address, identification, account, and agent.
+- **IntrmyAgt1 / 2 / 3** — Up to three intermediary agents in the chain.
+- **RmtInf** — Remittance information, either unstructured (free text) or structured (document references, amounts, dates).
+- **Purp** — Structured purpose code.
+- **RgltryRptg** — Regulatory reporting details.
+
+## Payment identifiers
+
+pacs messages use several identifiers that serve different roles in the payment chain.
+
+<div class="api-fields-table" tabindex="0" aria-label="Payment identifiers">
+  <table>
+    <caption>Payment identifiers and their roles</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Identifier</th>
+        <th scope="col">Set by</th>
+        <th scope="col">Changes in chain?</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><strong>MsgId</strong></td>
+          <td class="api-fields-table__desc">Each sending agent</td>
+          <td class="api-fields-table__constraint">Yes — new per message</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><strong>InstrId</strong></td>
+          <td class="api-fields-table__desc">Each instructing agent</td>
+          <td class="api-fields-table__constraint">Yes — may change per hop</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><strong>EndToEndId</strong></td>
+          <td class="api-fields-table__desc">Originator (debtor)</td>
+          <td class="api-fields-table__constraint">No — must not be altered</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><strong>TxId</strong></td>
+          <td class="api-fields-table__desc">First instructing agent</td>
+          <td class="api-fields-table__constraint">No — must not be altered</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><strong>UETR</strong></td>
+          <td class="api-fields-table__desc">Debtor agent</td>
+          <td class="api-fields-table__constraint">No — universal tracking</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+## Settlement methods
+
+The SttlmMtd element defines how interbank settlement occurs.
+
+- **CLRG** — Settlement through a clearing system such as TARGET2, EURO1, or CHIPS. Most common for domestic and regional clearing.
+- **INDA** — Settlement on the books of the instructed agent. The debtor agent holds a nostro account with the next agent. Typical for bilateral correspondent banking.
+- **INGA** — Settlement on the books of the instructing agent. The instructed agent holds a nostro account with the sending agent. Less common than INDA.
+- **COVE** — Settlement through a separate cover payment. A pacs.009 carries the funding leg while pacs.008 carries the customer data directly. Used in cross-border correspondent banking.
+
+## Charge bearer codes
+
+The ChrgBr element specifies who bears the payment charges.
+
+- **DEBT** — Debtor bears all charges (MT103 equivalent: OUR). Creditor receives the full amount.
+- **CRED** — Creditor bears all charges (MT103 equivalent: BEN). Charges are deducted from the transfer.
+- **SHAR** — Charges are shared (MT103 equivalent: SHA). Each party pays their own agent's charges. Most common for cross-border payments.
+- **SLEV** — Charges follow the service level. Mandatory for SEPA. No deductions from the transfer amount.
+
+## MT103 to pacs.008 field mapping
+
+<div class="api-fields-table" tabindex="0" aria-label="MT103 to pacs.008 field mapping">
+  <table>
+    <caption>Key field mapping from MT103 to pacs.008</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">MT103 field</th>
+        <th scope="col">MT103 name</th>
+        <th scope="col">pacs.008 XML path</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field">20</td><td class="api-fields-table__desc">Sender's Reference</td><td class="api-fields-table__constraint">GrpHdr/MsgId or PmtId/InstrId</td></tr>
+        <tr><td class="api-fields-table__field">23B</td><td class="api-fields-table__desc">Bank Operation Code</td><td class="api-fields-table__constraint">PmtTpInf/SvcLvl</td></tr>
+        <tr><td class="api-fields-table__field">32A</td><td class="api-fields-table__desc">Value Date / Amount</td><td class="api-fields-table__constraint">IntrBkSttlmDt + IntrBkSttlmAmt</td></tr>
+        <tr><td class="api-fields-table__field">33B</td><td class="api-fields-table__desc">Instructed Amount</td><td class="api-fields-table__constraint">InstdAmt</td></tr>
+        <tr><td class="api-fields-table__field">50a</td><td class="api-fields-table__desc">Ordering Customer</td><td class="api-fields-table__constraint">Dbtr + DbtrAcct</td></tr>
+        <tr><td class="api-fields-table__field">52a</td><td class="api-fields-table__desc">Ordering Institution</td><td class="api-fields-table__constraint">DbtrAgt</td></tr>
+        <tr><td class="api-fields-table__field">57a</td><td class="api-fields-table__desc">Account With Institution</td><td class="api-fields-table__constraint">CdtrAgt</td></tr>
+        <tr><td class="api-fields-table__field">59a</td><td class="api-fields-table__desc">Beneficiary Customer</td><td class="api-fields-table__constraint">Cdtr + CdtrAcct</td></tr>
+        <tr><td class="api-fields-table__field">70</td><td class="api-fields-table__desc">Remittance Information</td><td class="api-fields-table__constraint">RmtInf/Ustrd or RmtInf/Strd</td></tr>
+        <tr><td class="api-fields-table__field">71A</td><td class="api-fields-table__desc">Details of Charges</td><td class="api-fields-table__constraint">ChrgBr (BEN→CRED, OUR→DEBT, SHA→SHAR)</td></tr>
+        <tr><td class="api-fields-table__field">72</td><td class="api-fields-table__desc">Sender to Receiver Info</td><td class="api-fields-table__constraint">InstrForCdtrAgt / InstrForNxtAgt</td></tr>
+        <tr><td class="api-fields-table__field">N/A</td><td class="api-fields-table__desc">UETR (Block 3, field 121)</td><td class="api-fields-table__constraint">PmtId/UETR</td></tr>
+    </tbody>
+  </table>
+</div>
+
+## Status and reason codes
+
+### pacs.002 status codes
+
+<div class="api-fields-table" tabindex="0" aria-label="pacs.002 status codes">
+  <table>
+    <caption>Transaction status codes in pacs.002</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Code</th>
+        <th scope="col">Meaning</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field"><code>ACCP</code></td><td class="api-fields-table__desc">Accepted — preceding checks passed</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACSP</code></td><td class="api-fields-table__desc">Accepted — settlement in progress</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACSC</code></td><td class="api-fields-table__desc">Accepted — settlement completed</td></tr>
+        <tr><td class="api-fields-table__field"><code>RCVD</code></td><td class="api-fields-table__desc">Received — not yet processed</td></tr>
+        <tr><td class="api-fields-table__field"><code>PDNG</code></td><td class="api-fields-table__desc">Pending — further processing needed</td></tr>
+        <tr><td class="api-fields-table__field"><code>RJCT</code></td><td class="api-fields-table__desc">Rejected — with reason code</td></tr>
+    </tbody>
+  </table>
+</div>
+
+### Common rejection and return reason codes
+
+<div class="api-fields-table" tabindex="0" aria-label="Common reason codes">
+  <table>
+    <caption>Frequently used rejection and return reason codes</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Code</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field"><code>AC01</code></td><td class="api-fields-table__desc">Incorrect account number</td><td class="api-fields-table__constraint">Account number is invalid or does not exist</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC04</code></td><td class="api-fields-table__desc">Closed account</td><td class="api-fields-table__constraint">Account is closed</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC06</code></td><td class="api-fields-table__desc">Blocked account</td><td class="api-fields-table__constraint">Account is blocked for transactions</td></tr>
+        <tr><td class="api-fields-table__field"><code>AM04</code></td><td class="api-fields-table__desc">Insufficient funds</td><td class="api-fields-table__constraint">Insufficient funds in debtor account</td></tr>
+        <tr><td class="api-fields-table__field"><code>AM05</code></td><td class="api-fields-table__desc">Duplication</td><td class="api-fields-table__constraint">Duplicate payment detected</td></tr>
+        <tr><td class="api-fields-table__field"><code>BE04</code></td><td class="api-fields-table__desc">Missing creditor address</td><td class="api-fields-table__constraint">Creditor address is missing or incomplete</td></tr>
+        <tr><td class="api-fields-table__field"><code>CUST</code></td><td class="api-fields-table__desc">Requested by customer</td><td class="api-fields-table__constraint">Return or rejection requested by the customer</td></tr>
+        <tr><td class="api-fields-table__field"><code>DUPL</code></td><td class="api-fields-table__desc">Duplicate payment</td><td class="api-fields-table__constraint">Duplicate payment identified</td></tr>
+        <tr><td class="api-fields-table__field"><code>FOCR</code></td><td class="api-fields-table__desc">Following cancellation</td><td class="api-fields-table__constraint">Following a cancellation request</td></tr>
+        <tr><td class="api-fields-table__field"><code>FR01</code></td><td class="api-fields-table__desc">Fraud</td><td class="api-fields-table__constraint">Suspected fraud</td></tr>
+        <tr><td class="api-fields-table__field"><code>RC01</code></td><td class="api-fields-table__desc">Incorrect BIC</td><td class="api-fields-table__constraint">BIC is incorrect or unknown</td></tr>
+        <tr><td class="api-fields-table__field"><code>RR03</code></td><td class="api-fields-table__desc">Missing creditor name/address</td><td class="api-fields-table__constraint">Creditor name or address data is missing</td></tr>
+        <tr><td class="api-fields-table__field"><code>TM01</code></td><td class="api-fields-table__desc">Cut-off time</td><td class="api-fields-table__constraint">Cut-off time has passed</td></tr>
+    </tbody>
+  </table>
+</div>
+
+## Postal address format
+
+### Structured address
+
+\`\`\`xml
+<PstlAdr>
+  <StrtNm>High Street</StrtNm>
+  <BldgNb>42</BldgNb>
+  <PstCd>EC2V 8BX</PstCd>
+  <TwnNm>London</TwnNm>
+  <Ctry>GB</Ctry>
+</PstlAdr>
+\`\`\`
+
+### Unstructured address (deprecated for CBPR+ after November 2026)
+
+\`\`\`xml
+<PstlAdr>
+  <AdrLine>42 High Street</AdrLine>
+  <AdrLine>London EC2V 8BX</AdrLine>
+  <Ctry>GB</Ctry>
+</PstlAdr>
+\`\`\`
+
+Key constraints: StrtNm max 70 characters (CBPR+), TwnNm max 35 characters (CBPR+), Ctry is ISO 3166-1 alpha-2, AdrLine max 70 characters per line and max 7 lines.
+
+## Party identification
+
+Parties in pacs.008 support multiple identification methods:
+
+- **BIC** — Business Identifier Code per ISO 9362. 8 or 11 characters (BBBBCCLL or BBBBCCLLBBB). Used in FinInstnId/BICFI for agents and OrgId/AnyBIC for parties.
+- **LEI** — Legal Entity Identifier per ISO 17442. 20 alphanumeric characters. Appears in OrgId/LEI for parties and FinInstnId/LEI for agents. Improves entity disambiguation for regulatory reporting.
+- **IBAN** — International Bank Account Number per ISO 13616. Used in DbtrAcct/Id/IBAN and CdtrAcct/Id/IBAN.
+- **Organisation IDs** — Other scheme-based identifiers (tax ID, DUNS, customer number) via OrgId/Othr with a scheme name code.
+- **Private IDs** — For natural persons: date and place of birth, passport (CCPT), national ID (NIDN), or driver's licence (DRLC) via PrvtId.
+
+## Remittance information
+
+Remittance data in pacs.008 uses the RmtInf element with two forms:
+
+**Unstructured** — Free text up to 140 characters per occurrence. Simple but limits automated reconciliation.
+
+**Structured** — Document references with type codes, numbers, dates, and amounts. Common document types: CINV (commercial invoice), CREN (credit note), SOAC (statement of account). Supports ISO 11649 creditor references (RF + check digits + reference) via CdtrRefInf. Enables automated invoice matching and multi-invoice payments.
+
+## UETR and gpi tracking
+
+UETR (Unique End-to-End Transaction Reference) is a UUID v4 generated by the debtor agent. It appears in PmtId/UETR across pacs.008, pacs.009, pacs.002, pacs.004, pacs.007, and pacs.028. It must remain unchanged throughout the entire payment chain.
+
+SWIFT gpi uses the UETR to track payments through a cloud-based Tracker database. Each agent confirms receipt and processing, enabling end-to-end visibility. The gpi SLA for cross-border payments targets same-day credit to the creditor account.
+
+## References
+
+- [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions)
+- [ISO 20022 external code sets](https://www.iso20022.org/external_code_list.page)
+- [SWIFT CBPR+ ISO 20022 usage guidelines](https://www.swift.com/standards/iso-20022)
+- [SWIFT CBPR+ migration roadmap PDF](https://www.swift.com/swift-resource/252463/download)
+- [SWIFT gpi](https://www.swift.com/our-solutions/swift-gpi)
+- [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and)
+`;
+}
+
 function contactBody(localeKey) {
   const t = copyFor(localeKey);
   if (localeKey === "en") {
@@ -13842,6 +14293,18 @@ for (const locale of locales) {
     body: structuredAddressBody(locale.key),
     extraFrontmatter: saHowto
   }));
+  await write(path.join(base, "faq", "index.md"), pageTemplate({
+    title: sectionPageTitle(locale.key, "faq", pageTitle(`${t.faqPageTitle} | pacs008`)),
+    description: localeSectionDescription(locale, t.faqPageDescription),
+    lang: locale.lang,
+    body: faqPageBody(locale.key)
+  }));
+  await write(path.join(base, "pacs-explained", "index.md"), pageTemplate({
+    title: sectionPageTitle(locale.key, "pacs-explained", pageTitle(`${t.pacsExplainedTitle} | pacs008`)),
+    description: localeSectionDescription(locale, t.pacsExplainedDescription),
+    lang: locale.lang,
+    body: pacsExplainedBody(locale.key)
+  }));
   for (const msgType of messageTypes) {
     let faqFrontmatter = "";
     if (msgType.faq && msgType.faq.length > 0) {
@@ -13859,5 +14322,5 @@ for (const locale of locales) {
   }
 }
 
-const totalPages = locales.length * (9 + messageTypes.length);
+const totalPages = locales.length * (11 + messageTypes.length);
 console.log(`Generated ${totalPages} pages across ${locales.length} locales for pacs008.`);

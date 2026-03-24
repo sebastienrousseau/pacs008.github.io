@@ -1,5 +1,5 @@
 ---
-title: 利用規約 | pacs008
+title: "利用規約 | pacs008"
 description: pacs008 ウェブサイトの利用規約情報。 金融機関間の顧客クレジット移転ワークフロー向けの生成、検証、API オーケストレーション、コンプライアンス対応。
 lang: ja-JP
 lastUpdated: true

@@ -1,5 +1,5 @@
 ---
-title: Confidentialité | pacs008
+title: "Confidentialité | pacs008"
 description: Informations de confidentialité pour le site pacs008.
 lang: fr-FR
 lastUpdated: true

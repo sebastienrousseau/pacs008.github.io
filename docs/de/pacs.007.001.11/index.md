@@ -1,5 +1,5 @@
 ---
-title: pacs.007.001.11 | FI-zu-FI-Zahlungsstornierung | pacs008
+title: "pacs.007.001.11 | FI-zu-FI-Zahlungsstornierung | pacs008"
 description: Die Nachricht pacs.007 wird verwendet, um eine zuvor gesendete Zahlungsanweisung umzukehren, die noch nicht abgewickelt wurde, oder um die Umkehrung einer...
 lang: de-DE
 lastUpdated: true

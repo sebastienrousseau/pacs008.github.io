@@ -1,5 +1,5 @@
 ---
-title: Privacy | pacs008
+title: "Privacy | pacs008"
 description: Privacy-informatie voor de pacs008-website.
 lang: nl-NL
 lastUpdated: true

@@ -1,5 +1,5 @@
 ---
-title: pacs.007.001.11 | Reversão de pagamento FI a FI | pacs008
+title: "pacs.007.001.11 | Reversão de pagamento FI a FI | pacs008"
 description: A mensagem pacs.007 é utilizada para reverter uma instrução de pagamento enviada anteriormente que ainda não foi liquidada ou para solicitar a reversão de...
 lang: pt-BR
 lastUpdated: true

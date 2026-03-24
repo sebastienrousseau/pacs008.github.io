@@ -1,5 +1,5 @@
 ---
-title: Acerca de pacs008 | pacs008
+title: "Acerca de pacs008 | pacs008"
 description: Qué hace pacs008 y a quién va dirigido.
 lang: es-ES
 lastUpdated: true

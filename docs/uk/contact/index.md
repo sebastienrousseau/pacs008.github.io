@@ -1,6 +1,6 @@
 ---
-title: Контакти | pacs008
-description: Як зв'язатися з проєктом pacs008.
+title: "Контакти | pacs008"
+description: "Як зв'язатися з проєктом pacs008."
 lang: uk-UA
 lastUpdated: true
 image: /logo.svg

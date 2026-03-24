@@ -1,5 +1,5 @@
 ---
-title: Gizlilik | pacs008
+title: "Gizlilik | pacs008"
 description: pacs008 web sitesi gizlilik bilgileri.
 lang: tr-TR
 lastUpdated: true

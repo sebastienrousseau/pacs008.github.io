@@ -1,5 +1,5 @@
 ---
-title: pacs.028.001.05 | Yêu cầu trạng thái thanh toán giữa các tổ chức tài chính | pacs008
+title: "pacs.028.001.05 | Yêu cầu trạng thái thanh toán giữa các tổ chức tài chính | pacs008"
 description: Thông điệp pacs.028 được gửi bởi tổ chức tài chính để yêu cầu trạng thái của lệnh thanh toán đã gửi trước đó. Thông điệp này cho phép theo dõi chủ động...
 lang: vi-VN
 lastUpdated: true

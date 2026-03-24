@@ -1,5 +1,5 @@
 ---
-title: Mesaj Türleri | pacs008 ISO 20022
+title: "Mesaj Türleri | pacs008 ISO 20022"
 description: Desteklenen ISO 20022 pacs mesaj tanımları ve sürümleri.
 lang: tr-TR
 lastUpdated: true

@@ -1,5 +1,5 @@
 ---
-title: pacs.010.001.05 | Finansal kuruluşlar arası doğrudan borçlandırma | pacs008
+title: "pacs.010.001.05 | Finansal kuruluşlar arası doğrudan borçlandırma | pacs008"
 description: pacs.010 mesajı, kuruluşun kendi hesabındaki doğrudan borçlandırma işlemleri için finans kuruluşları arasında kullanılır. Bir kuruluşun başka bir...
 lang: tr-TR
 lastUpdated: true

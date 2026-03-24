@@ -1,5 +1,5 @@
 ---
-title: 개인정보 | pacs008
+title: "개인정보 | pacs008"
 description: pacs008 웹사이트의 개인정보 보호 정보. 금융기관 간 고객 신용 이체 워크플로를 위한 생성, 검증, API 오케스트레이션, 규정 준수 지원.
 lang: ko-KR
 lastUpdated: true

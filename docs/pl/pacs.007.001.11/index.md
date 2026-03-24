@@ -1,5 +1,5 @@
 ---
-title: pacs.007.001.11 | Odwrócenie płatności FI-do-FI | pacs008
+title: "pacs.007.001.11 | Odwrócenie płatności FI-do-FI | pacs008"
 description: Komunikat pacs.007 jest używany do odwrócenia wcześniej wysłanej instrukcji płatniczej, która nie została jeszcze rozliczona, lub do żądania odwrócenia...
 lang: pl-PL
 lastUpdated: true

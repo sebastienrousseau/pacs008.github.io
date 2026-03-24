@@ -1,5 +1,5 @@
 ---
-title: Panduan pemilihan pesan | pacs008
+title: "Panduan pemilihan pesan | pacs008"
 description: Pilih pesan pacs ISO 20022 yang tepat untuk pembuatan, pelaporan status, retur, pembalikan, dan permintaan status.
 lang: id-ID
 lastUpdated: true

@@ -1,5 +1,5 @@
 ---
-title: Tipuri de mesaje | pacs008 ISO 20022
+title: "Tipuri de mesaje | pacs008 ISO 20022"
 description: Definiții și versiuni de mesaje pacs ISO 20022 acceptate.
 lang: ro-RO
 lastUpdated: true

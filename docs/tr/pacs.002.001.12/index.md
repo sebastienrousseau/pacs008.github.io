@@ -1,5 +1,5 @@
 ---
-title: pacs.002.001.12 | FI'dan FI'ya ödeme durumu raporu | pacs008
+title: "pacs.002.001.12 | FI'dan FI'ya ödeme durumu raporu | pacs008"
 description: pacs.002 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu bildirmek üzere bir finans kuruluşu tarafından gönderilir. Bir ödeme mesajı içindeki...
 lang: tr-TR
 lastUpdated: true

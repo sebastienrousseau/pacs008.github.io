@@ -1,6 +1,6 @@
 ---
-title: pacs.028.001.05 | Demande de statut de paiement FI à FI | pacs008
-description: Le message pacs.028 est envoyé par une institution financière pour demander le statut d'une instruction de paiement précédemment envoyée. Il permet le...
+title: "pacs.028.001.05 | Demande de statut de paiement FI à FI | pacs008"
+description: "Le message pacs.028 est envoyé par une institution financière pour demander le statut d'une instruction de paiement précédemment envoyée. Il permet le..."
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg

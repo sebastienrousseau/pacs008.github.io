@@ -1,5 +1,5 @@
 ---
-title: API | pacs008
+title: "API | pacs008"
 description: REST- en CLI-ondersteuning voor operationele processen in pacs008.
 lang: nl-NL
 lastUpdated: true

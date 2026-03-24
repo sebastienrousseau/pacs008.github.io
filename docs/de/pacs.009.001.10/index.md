@@ -1,5 +1,5 @@
 ---
-title: pacs.009.001.10 | Kredittransfer zwischen Finanzinstituten | pacs008
+title: "pacs.009.001.10 | Kredittransfer zwischen Finanzinstituten | pacs008"
 description: Die Nachricht pacs.009 wird für Überweisungen zwischen Finanzinstituten verwendet, bei denen die Überweisung auf eigene Rechnung des Instituts erfolgt...
 lang: de-DE
 lastUpdated: true

@@ -1,5 +1,5 @@
 ---
-title: Контакты | pacs008
+title: "Контакты | pacs008"
 description: Как связаться с проектом pacs008.
 lang: ru-RU
 lastUpdated: true

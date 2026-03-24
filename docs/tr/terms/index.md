@@ -1,5 +1,5 @@
 ---
-title: Koşullar | pacs008
+title: "Koşullar | pacs008"
 description: pacs008 web sitesi koşullar bilgileri.
 lang: tr-TR
 lastUpdated: true

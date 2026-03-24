@@ -1,5 +1,5 @@
 ---
-title: Конфиденциальность | pacs008
+title: "Конфиденциальность | pacs008"
 description: Информация о конфиденциальности сайта pacs008.
 lang: ru-RU
 lastUpdated: true

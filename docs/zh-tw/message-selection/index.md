@@ -1,5 +1,5 @@
 ---
-title: 訊息選擇指南 | pacs008
+title: "訊息選擇指南 | pacs008"
 description: 為產生、狀態回報、退回、撤銷與查詢選擇合適的 ISO 20022 pacs 訊息。
 lang: zh-TW
 lastUpdated: true

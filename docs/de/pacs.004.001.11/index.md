@@ -1,5 +1,5 @@
 ---
-title: pacs.004.001.11 | Zahlungsrückgabe | pacs008
+title: "pacs.004.001.11 | Zahlungsrückgabe | pacs008"
 description: Die Nachricht pacs.004 wird verwendet, um eine zuvor abgewickelte Zahlungstransaktion zurückzugeben. Sie kehrt den Geldfluss um, wenn eine Zahlung nicht...
 lang: de-DE
 lastUpdated: true

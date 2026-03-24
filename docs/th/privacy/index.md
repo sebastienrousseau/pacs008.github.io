@@ -1,5 +1,5 @@
 ---
-title: ความเป็นส่วนตัว | pacs008
+title: "ความเป็นส่วนตัว | pacs008"
 description: ข้อมูลความเป็นส่วนตัวสำหรับเว็บไซต์ pacs008
 lang: th-TH
 lastUpdated: true

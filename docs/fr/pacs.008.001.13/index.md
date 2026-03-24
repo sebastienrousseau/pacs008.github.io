@@ -1,6 +1,6 @@
 ---
-title: pacs.008.001.13 | Virement client FI à FI | pacs008
-description: Le message pacs.008 est l'instruction de paiement centrale échangée entre institutions financières pour transférer des fonds au nom d'un client. Il porte...
+title: "pacs.008.001.13 | Virement client FI à FI | pacs008"
+description: "Le message pacs.008 est l'instruction de paiement centrale échangée entre institutions financières pour transférer des fonds au nom d'un client. Il porte..."
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg

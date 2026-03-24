@@ -1,5 +1,5 @@
 ---
-title: pacs.007.001.11 | FI-naar-FI-betalingsstornering | pacs008
+title: "pacs.007.001.11 | FI-naar-FI-betalingsstornering | pacs008"
 description: Het pacs.007-bericht wordt gebruikt om een eerder verzonden betalingsinstructie die nog niet is afgewikkeld te storneren of om stornering van een...
 lang: nl-NL
 lastUpdated: true

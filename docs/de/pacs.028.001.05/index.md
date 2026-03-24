@@ -1,5 +1,5 @@
 ---
-title: pacs.028.001.05 | FI-zu-FI-Anfrage zum Zahlungsstatus | pacs008
+title: "pacs.028.001.05 | FI-zu-FI-Anfrage zum Zahlungsstatus | pacs008"
 description: Die Nachricht pacs.028 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung anzufragen. Sie ermöglicht die...
 lang: de-DE
 lastUpdated: true

@@ -1,5 +1,5 @@
 ---
-title: pacs.008.001.13 | Transfer de credit client FI-la-FI | pacs008
+title: "pacs.008.001.13 | Transfer de credit client FI-la-FI | pacs008"
 description: Mesajul pacs.008 este instrucțiunea de plată principală schimbată între instituții financiare pentru a transfera fonduri în numele unui client. Conține...
 lang: ro-RO
 lastUpdated: true

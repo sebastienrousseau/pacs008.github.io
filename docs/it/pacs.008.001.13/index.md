@@ -1,6 +1,6 @@
 ---
-title: pacs.008.001.13 | Bonifico cliente tra istituzioni finanziarie | pacs008
-description: Il messaggio pacs.008 è l'istruzione di pagamento principale scambiata tra istituti finanziari per trasferire fondi per conto di un cliente. Contiene...
+title: "pacs.008.001.13 | Bonifico cliente tra istituzioni finanziarie | pacs008"
+description: "Il messaggio pacs.008 è l'istruzione di pagamento principale scambiata tra istituti finanziari per trasferire fondi per conto di un cliente. Contiene..."
 lang: it-IT
 lastUpdated: true
 image: /logo.svg

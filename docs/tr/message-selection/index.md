@@ -1,5 +1,5 @@
 ---
-title: Mesaj seçim rehberi | pacs008
+title: "Mesaj seçim rehberi | pacs008"
 description: Oluşturma, durum bildirimi, iade, ters kayıt ve sorgular için doğru ISO 20022 pacs mesajını seçin.
 lang: tr-TR
 lastUpdated: true

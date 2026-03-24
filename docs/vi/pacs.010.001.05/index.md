@@ -1,5 +1,5 @@
 ---
-title: pacs.010.001.05 | Ghi nợ trực tiếp giữa các tổ chức tài chính | pacs008
+title: "pacs.010.001.05 | Ghi nợ trực tiếp giữa các tổ chức tài chính | pacs008"
 description: Thông điệp pacs.010 được sử dụng giữa các tổ chức tài chính cho giao dịch ghi nợ trực tiếp trên tài khoản của chính tổ chức. Thông điệp này cho phép một...
 lang: vi-VN
 lastUpdated: true

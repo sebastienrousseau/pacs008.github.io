@@ -1,5 +1,5 @@
 ---
-title: API | pacs008
+title: "API | pacs008"
 description: Поддержка REST и CLI в pacs008 для генерации, валидации, оркестрации API и контроля соответствия в потоках кредитовых переводов FI-to-FI.
 lang: ru-RU
 lastUpdated: true

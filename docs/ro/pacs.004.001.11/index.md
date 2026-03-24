@@ -1,5 +1,5 @@
 ---
-title: pacs.004.001.11 | Retur de plată | pacs008
+title: "pacs.004.001.11 | Retur de plată | pacs008"
 description: Mesajul pacs.004 este utilizat pentru returnarea unei tranzacții de plată decontate anterior. Inversează fluxul de fonduri atunci când o plată nu poate fi...
 lang: ro-RO
 lastUpdated: true

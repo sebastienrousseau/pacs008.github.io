@@ -1,5 +1,5 @@
 ---
-title: pacs.003.001.09 | FI-naar-FI-klantincasso | pacs008
+title: "pacs.003.001.09 | FI-naar-FI-klantincasso | pacs008"
 description: Het pacs.003-bericht wordt uitgewisseld tussen financiële instellingen om een incasso-instructie van de klant uit te voeren. Het stelt de bank van de...
 lang: nl-NL
 lastUpdated: true

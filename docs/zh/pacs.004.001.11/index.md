@@ -1,5 +1,5 @@
 ---
-title: pacs.004.001.11 | 支付退回 | pacs008
+title: "pacs.004.001.11 | 支付退回 | pacs008"
 description: pacs.004 消息用于退回先前已结算的支付交易。当支付无法入账、被错误发送或发起机构请求召回时，它将逆转资金流向。
 lang: zh-CN
 lastUpdated: true

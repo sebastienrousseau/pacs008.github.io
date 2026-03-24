@@ -1,5 +1,5 @@
 ---
-title: Contact | pacs008
+title: "Contact | pacs008"
 description: Hoe u het pacs008-project kunt bereiken.
 lang: nl-NL
 lastUpdated: true

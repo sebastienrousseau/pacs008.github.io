@@ -1,5 +1,5 @@
 ---
-title: pacs008 Hakkında | pacs008
+title: "pacs008 Hakkında | pacs008"
 description: pacs008 ne yapar ve kimler için tasarlanmıştır.
 lang: tr-TR
 lastUpdated: true

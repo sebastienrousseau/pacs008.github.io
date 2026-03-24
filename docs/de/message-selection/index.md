@@ -1,5 +1,5 @@
 ---
-title: Leitfaden zur Nachrichtenauswahl | pacs008
+title: "Leitfaden zur Nachrichtenauswahl | pacs008"
 description: Wählen Sie die passende ISO-20022-pacs-Nachricht für Erzeugung, Statusmeldungen, Returns, Reversals und Anfragen.
 lang: de-DE
 lastUpdated: true

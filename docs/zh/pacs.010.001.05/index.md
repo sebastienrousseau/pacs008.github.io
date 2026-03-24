@@ -1,5 +1,5 @@
 ---
-title: pacs.010.001.05 | 金融机构直接借记 | pacs008
+title: "pacs.010.001.05 | 金融机构直接借记 | pacs008"
 description: pacs.010 消息用于金融机构自身账户的直接借记交易。它使一个机构能够直接从另一个机构的账户中收取资金。
 lang: zh-CN
 lastUpdated: true

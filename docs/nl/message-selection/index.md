@@ -1,5 +1,5 @@
 ---
-title: Handleiding berichtselectie | pacs008
+title: "Handleiding berichtselectie | pacs008"
 description: Kies het juiste ISO 20022-pacs-bericht voor generatie, statusrapportage, retouren, terugboekingen en navragen.
 lang: nl-NL
 lastUpdated: true

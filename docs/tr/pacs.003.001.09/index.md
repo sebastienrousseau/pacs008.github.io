@@ -1,5 +1,5 @@
 ---
-title: pacs.003.001.09 | FI'dan FI'ya müşteri doğrudan borçlandırması | pacs008
+title: "pacs.003.001.09 | FI'dan FI'ya müşteri doğrudan borçlandırması | pacs008"
 description: pacs.003 mesajı, bir müşteri doğrudan borçlandırma talimatını yürütmek üzere finans kuruluşları arasında iletilir. Alacaklının bankasının, alacaklı adına...
 lang: tr-TR
 lastUpdated: true

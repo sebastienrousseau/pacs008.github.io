@@ -1,5 +1,5 @@
 ---
-title: pacs.002.001.12 | Raport de stare a plății FI-la-FI | pacs008
+title: "pacs.002.001.12 | Raport de stare a plății FI-la-FI | pacs008"
 description: Mesajul pacs.002 este trimis de o instituție financiară pentru a raporta statusul unei instrucțiuni de plată trimise anterior. Furnizează informații de...
 lang: ro-RO
 lastUpdated: true

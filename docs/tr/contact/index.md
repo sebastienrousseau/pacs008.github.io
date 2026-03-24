@@ -1,5 +1,5 @@
 ---
-title: İletişim | pacs008
+title: "İletişim | pacs008"
 description: pacs008 projesine nasıl ulaşılır.
 lang: tr-TR
 lastUpdated: true

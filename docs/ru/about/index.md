@@ -1,5 +1,5 @@
 ---
-title: О pacs008 | pacs008
+title: "О pacs008 | pacs008"
 description: Что делает pacs008 и для кого он предназначен.
 lang: ru-RU
 lastUpdated: true

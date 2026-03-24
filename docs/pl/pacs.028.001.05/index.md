@@ -1,5 +1,5 @@
 ---
-title: pacs.028.001.05 | Zapytanie o status płatności FI-do-FI | pacs008
+title: "pacs.028.001.05 | Zapytanie o status płatności FI-do-FI | pacs008"
 description: Komunikat pacs.028 jest wysyłany przez instytucję finansową w celu zapytania o status wcześniej wysłanej instrukcji płatniczej. Umożliwia proaktywne...
 lang: pl-PL
 lastUpdated: true

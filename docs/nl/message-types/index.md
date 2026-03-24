@@ -1,5 +1,5 @@
 ---
-title: Berichttypen | pacs008 ISO 20022
+title: "Berichttypen | pacs008 ISO 20022"
 description: Ondersteunde ISO 20022 pacs-berichtdefinities en versies.
 lang: nl-NL
 lastUpdated: true

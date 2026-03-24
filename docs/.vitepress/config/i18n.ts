@@ -38,6 +38,8 @@ export interface UiStrings {
   author: string;
   editorial: string;
   structuredAddress: string;
+  faq: string;
+  pacsExplained: string;
   langMenuLabel: string;
   skipToContentLabel: string;
   returnToTopLabel: string;
@@ -79,6 +81,8 @@ const en: UiStrings = {
   author: "Author",
   editorial: "Editorial policy",
   structuredAddress: "Structured address deadline",
+  faq: "FAQ",
+  pacsExplained: "PACS explained",
   langMenuLabel: "Change language",
   skipToContentLabel: "Skip to content",
   returnToTopLabel: "Return to top",

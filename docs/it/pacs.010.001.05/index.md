@@ -1,6 +1,6 @@
 ---
-title: pacs.010.001.05 | Addebito diretto tra istituzioni finanziarie | pacs008
-description: Il messaggio pacs.010 viene utilizzato tra istituti finanziari per transazioni di addebito diretto sul conto proprio dell'istituto. Consente a un istituto...
+title: "pacs.010.001.05 | Addebito diretto tra istituzioni finanziarie | pacs008"
+description: "Il messaggio pacs.010 viene utilizzato tra istituti finanziari per transazioni di addebito diretto sul conto proprio dell'istituto. Consente a un istituto..."
 lang: it-IT
 lastUpdated: true
 image: /logo.svg

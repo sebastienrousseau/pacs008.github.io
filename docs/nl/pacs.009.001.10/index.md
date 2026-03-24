@@ -1,5 +1,5 @@
 ---
-title: pacs.009.001.10 | Kredietoverboeking tussen financiële instellingen | pacs008
+title: "pacs.009.001.10 | Kredietoverboeking tussen financiële instellingen | pacs008"
 description: Het pacs.009-bericht wordt gebruikt voor overboekingen tussen financiële instellingen waarbij de overboeking voor eigen rekening van de instelling...
 lang: nl-NL
 lastUpdated: true

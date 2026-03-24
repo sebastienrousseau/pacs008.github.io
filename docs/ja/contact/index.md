@@ -1,5 +1,5 @@
 ---
-title: お問い合わせ | pacs008
+title: "お問い合わせ | pacs008"
 description: pacs008 プロジェクトへの連絡方法。 金融機関間の顧客クレジット移転ワークフロー向けの生成、検証、API オーケストレーション、コンプライアンス対応。
 lang: ja-JP
 lastUpdated: true

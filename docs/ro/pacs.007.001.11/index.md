@@ -1,5 +1,5 @@
 ---
-title: pacs.007.001.11 | Reversare de plată FI-la-FI | pacs008
+title: "pacs.007.001.11 | Reversare de plată FI-la-FI | pacs008"
 description: Mesajul pacs.007 este utilizat pentru a inversa o instrucțiune de plată trimisă anterior care nu a fost încă decontată sau pentru a solicita inversarea...
 lang: ro-RO
 lastUpdated: true

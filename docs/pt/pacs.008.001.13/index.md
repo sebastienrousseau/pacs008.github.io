@@ -1,5 +1,5 @@
 ---
-title: pacs.008.001.13 | Transferência de crédito de cliente FI a FI | pacs008
+title: "pacs.008.001.13 | Transferência de crédito de cliente FI a FI | pacs008"
 description: A mensagem pacs.008 é a instrução de pagamento principal trocada entre instituições financeiras para transferir fundos em nome de um cliente. Contém...
 lang: pt-BR
 lastUpdated: true

@@ -1,6 +1,6 @@
 ---
-title: pacs.010.001.05 | Financial Institution Direct Debit | pacs008
-description: The pacs.010 message lets one financial institution debit another institution's own account. It is for bank-to-bank collections, not customer direct debits.
+title: "pacs.010.001.05 | Financial Institution Direct Debit | pacs008"
+description: "The pacs.010 message lets one financial institution debit another institution's own account. It is for bank-to-bank collections, not customer direct debits."
 lang: en-GB
 lastUpdated: true
 image: /logo.svg

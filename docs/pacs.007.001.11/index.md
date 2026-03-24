@@ -1,5 +1,5 @@
 ---
-title: pacs.007.001.11 | FI to FI Payment Reversal | pacs008
+title: "pacs.007.001.11 | FI to FI Payment Reversal | pacs008"
 description: The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, it starts from the original sender.
 lang: en-GB
 lastUpdated: true

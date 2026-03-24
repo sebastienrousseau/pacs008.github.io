@@ -1,5 +1,5 @@
 ---
-title: pacs.004.001.11 | Reso di pagamento | pacs008
+title: "pacs.004.001.11 | Reso di pagamento | pacs008"
 description: Il messaggio pacs.004 viene utilizzato per restituire una transazione di pagamento precedentemente regolata. Inverte il flusso di fondi quando un...
 lang: it-IT
 lastUpdated: true

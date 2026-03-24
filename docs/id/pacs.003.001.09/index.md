@@ -1,5 +1,5 @@
 ---
-title: pacs.003.001.09 | Direct Debit Pelanggan FI ke FI | pacs008
+title: "pacs.003.001.09 | Direct Debit Pelanggan FI ke FI | pacs008"
 description: Pesan pacs.003 dipertukarkan antara lembaga keuangan untuk mengeksekusi instruksi debit langsung pelanggan. Pesan ini memungkinkan bank kreditur untuk...
 lang: id-ID
 lastUpdated: true

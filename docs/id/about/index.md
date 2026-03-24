@@ -1,5 +1,5 @@
 ---
-title: Tentang pacs008 | pacs008
+title: "Tentang pacs008 | pacs008"
 description: Apa yang dilakukan pacs008 dan untuk siapa.
 lang: id-ID
 lastUpdated: true

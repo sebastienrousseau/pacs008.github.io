@@ -1,5 +1,5 @@
 ---
-title: pacs.003.001.09 | 金融機構間客戶直接扣款 | pacs008
+title: "pacs.003.001.09 | 金融機構間客戶直接扣款 | pacs008"
 description: pacs.003 訊息在金融機構之間交換，用於執行客戶直接扣款指令。它使債權人的銀行能夠代表債權人從債務人的銀行收取資金。
 lang: zh-TW
 lastUpdated: true

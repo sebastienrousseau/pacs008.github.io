@@ -1,6 +1,6 @@
 ---
-title: pacs.028.001.05 | Richiesta di stato del pagamento tra istituzioni finanziarie | pacs008
-description: Il messaggio pacs.028 viene inviato da un istituto finanziario per richiedere lo stato di un'istruzione di pagamento precedentemente inviata. Consente il...
+title: "pacs.028.001.05 | Richiesta di stato del pagamento tra istituzioni finanziarie | pacs008"
+description: "Il messaggio pacs.028 viene inviato da un istituto finanziario per richiedere lo stato di un'istruzione di pagamento precedentemente inviata. Consente il..."
 lang: it-IT
 lastUpdated: true
 image: /logo.svg

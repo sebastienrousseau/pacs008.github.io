@@ -1,5 +1,5 @@
 ---
-title: Politique éditoriale | pacs008
+title: "Politique éditoriale | pacs008"
 description: Comment le contenu de pacs008.com est créé, vérifié et maintenu. Sources, processus de révision et calendrier de mise à jour.
 lang: fr-FR
 lastUpdated: true

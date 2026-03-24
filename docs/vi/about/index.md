@@ -1,5 +1,5 @@
 ---
-title: Giới thiệu pacs008 | pacs008
+title: "Giới thiệu pacs008 | pacs008"
 description: pacs008 làm gì và dành cho ai. Tạo, xác thực, điều phối API và hỗ trợ tuân thủ cho quy trình chuyển khoản tín dụng khách hàng giữa các tổ chức tài chính.
 lang: vi-VN
 lastUpdated: true

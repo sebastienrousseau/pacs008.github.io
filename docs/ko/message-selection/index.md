@@ -1,5 +1,5 @@
 ---
-title: 메시지 선택 가이드 | pacs008
+title: "메시지 선택 가이드 | pacs008"
 description: 생성, 상태 보고, 반환, 취소, 조회에 적합한 ISO 20022 pacs 메시지를 선택합니다.
 lang: ko-KR
 lastUpdated: true

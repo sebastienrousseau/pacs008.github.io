@@ -1,5 +1,5 @@
 ---
-title: pacs.028.001.05 | 金融機構間付款狀態請求 | pacs008
+title: "pacs.028.001.05 | 金融機構間付款狀態請求 | pacs008"
 description: pacs.028 訊息由金融機構發送，用於查詢先前發送的付款指令之狀態。它無需等待主動推送的狀態報告，即可實現對付款處理的主動追蹤。
 lang: zh-TW
 lastUpdated: true

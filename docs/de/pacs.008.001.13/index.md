@@ -1,5 +1,5 @@
 ---
-title: pacs.008.001.13 | FI-zu-FI-Kundenkredittransfer | pacs008
+title: "pacs.008.001.13 | FI-zu-FI-Kundenkredittransfer | pacs008"
 description: Die Nachricht pacs.008 ist die zentrale Zahlungsanweisung, die zwischen Finanzinstituten ausgetauscht wird, um Gelder im Auftrag eines Kunden zu...
 lang: de-DE
 lastUpdated: true

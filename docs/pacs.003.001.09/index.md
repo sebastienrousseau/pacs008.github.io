@@ -1,5 +1,5 @@
 ---
-title: pacs.003.001.09 | FI to FI Customer Direct Debit | pacs008
+title: "pacs.003.001.09 | FI to FI Customer Direct Debit | pacs008"
 description: The pacs.003 message carries a customer direct debit between banks. It lets the creditor bank collect funds from the debtor bank.
 lang: en-GB
 lastUpdated: true

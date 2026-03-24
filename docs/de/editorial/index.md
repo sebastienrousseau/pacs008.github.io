@@ -1,5 +1,5 @@
 ---
-title: Redaktionelle Richtlinie | pacs008
+title: "Redaktionelle Richtlinie | pacs008"
 description: Wie Inhalte auf pacs008.com erstellt, geprüft und gepflegt werden. Quellen, Prüfverfahren und Aktualisierungsplan.
 lang: de-DE
 lastUpdated: true

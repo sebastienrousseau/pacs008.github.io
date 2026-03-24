@@ -1,5 +1,5 @@
 ---
-title: pacs.004.001.11 | Retorno de pagamento | pacs008
+title: "pacs.004.001.11 | Retorno de pagamento | pacs008"
 description: A mensagem pacs.004 é utilizada para devolver uma transação de pagamento previamente liquidada. Reverte o fluxo de fundos quando um pagamento não pode ser...
 lang: pt-BR
 lastUpdated: true

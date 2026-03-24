@@ -1,5 +1,5 @@
 ---
-title: Конфіденційність | pacs008
+title: "Конфіденційність | pacs008"
 description: Інформація про конфіденційність сайту pacs008.
 lang: uk-UA
 lastUpdated: true

@@ -1,5 +1,5 @@
 ---
-title: 关于 pacs008 | pacs008
+title: "关于 pacs008 | pacs008"
 description: pacs008 的功能及适用对象。 面向金融机构间客户信贷转账工作流的生成、校验、API 编排与合规支持。
 lang: zh-CN
 lastUpdated: true

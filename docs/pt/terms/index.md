@@ -1,5 +1,5 @@
 ---
-title: Termos | pacs008
+title: "Termos | pacs008"
 description: Informações sobre os termos do site pacs008.
 lang: pt-BR
 lastUpdated: true

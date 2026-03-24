@@ -1,5 +1,5 @@
 ---
-title: pacs.010.001.05 | Débito directo entre instituciones financieras | pacs008
+title: "pacs.010.001.05 | Débito directo entre instituciones financieras | pacs008"
 description: El mensaje pacs.010 se utiliza entre instituciones financieras para transacciones de adeudo directo por cuenta propia de la institución. Permite a una...
 lang: es-ES
 lastUpdated: true

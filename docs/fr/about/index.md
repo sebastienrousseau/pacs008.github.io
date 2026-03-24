@@ -1,6 +1,6 @@
 ---
-title: À propos de pacs008 | pacs008
-description: Ce que fait pacs008 et à qui il s'adresse.
+title: "À propos de pacs008 | pacs008"
+description: "Ce que fait pacs008 et à qui il s'adresse."
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg

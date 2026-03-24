@@ -1,5 +1,5 @@
 ---
-title: pacs.003.001.09 | Debit direct de client FI-la-FI | pacs008
+title: "pacs.003.001.09 | Debit direct de client FI-la-FI | pacs008"
 description: Mesajul pacs.003 este schimbat între instituții financiare pentru a executa o instrucțiune de debitare directă a clientului. Permite băncii creditorului...
 lang: ro-RO
 lastUpdated: true

@@ -1,5 +1,5 @@
 ---
-title: Ketentuan | pacs008
+title: "Ketentuan | pacs008"
 description: Informasi ketentuan untuk situs web pacs008.
 lang: id-ID
 lastUpdated: true

@@ -1,5 +1,5 @@
 ---
-title: pacs.028.001.05 | FI-naar-FI-aanvraag betalingsstatus | pacs008
+title: "pacs.028.001.05 | FI-naar-FI-aanvraag betalingsstatus | pacs008"
 description: Het pacs.028-bericht wordt door een financiële instelling verzonden om de status op te vragen van een eerder verzonden betalingsinstructie. Het maakt...
 lang: nl-NL
 lastUpdated: true
