@@ -1,6 +1,6 @@
 ---
 title: pacs008 API - validate data and generate XML | pacs008
-description: Use the pacs008 REST API, CLI, and Python library to validate payment data, run checks, and generate ISO 20022 XML files.
+description: Use the pacs008 REST API, CLI, and Python library to validate payment data and generate ISO 20022 XML files.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
@@ -8,13 +8,13 @@ image: /logo.svg
 
 # API
 
-pacs008 offers a REST API, CLI, and Python library.
+pacs008 offers a REST API, CLI, and Python library for payment data checks and XML generation.
 
 ## Implementation notes
 
-- Use sync generation for small operator checks.
-- Use async generation for large files and workflow engines.
-- Keep the input payload and validation report.
+- Use sync generation for quick checks.
+- Use async generation for large files.
+- Keep the input payload and validation report together.
 
 ## Installation
 
@@ -28,7 +28,7 @@ python -m pip install pacs008
 
 ## REST API
 
-Start the built-in FastAPI server for HTTP validation and XML generation.
+Start the FastAPI server for HTTP validation and XML generation.
 
 ### Start the server
 
@@ -91,7 +91,7 @@ See [Message Types](/message-types/) for the full list of supported message page
 
 ### Validation example
 
-Check payment data before you generate XML.
+Validate payment data before you generate XML.
 
 ```bash
 curl -X POST http://localhost:8000/api/validate \
@@ -157,7 +157,7 @@ curl -X POST http://localhost:8000/api/generate \
 
 ### Asynchronous generation
 
-For larger files or workflow engines, submit an async job and poll until it finishes.
+For large files, submit an async job and poll until it finishes.
 
 ```bash
 # Submit the job
@@ -227,7 +227,7 @@ Add `--verbose` for detailed output during generation.
 
 Use the library directly in Python scripts or services.
 
-### Generate XML from a list of payment records
+### Generate XML from payment records
 
 ```python
 from pacs008 import generate_xml_string

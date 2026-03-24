@@ -1,6 +1,6 @@
 ---
 title: pacs.010.001.05 | Financial Institution Direct Debit | pacs008
-description: The pacs.010 message lets one financial institution debit another institution's own account. It is for institution-to-institution collections, not...
+description: The pacs.010 message lets one financial institution debit another institution's own account. It is for bank-to-bank collections, not customer direct debits.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
@@ -43,7 +43,7 @@ image: /logo.svg
 
 ## Overview
 
-The pacs.010 message lets one financial institution debit another institution's own account. It is for institution-to-institution collections, not customer direct debits.
+The pacs.010 message lets one financial institution debit another institution's own account. It is for bank-to-bank collections, not customer direct debits.
 
 > Reviewed 23 March 2026. ISO catalogue date: 2025-02-27.
 
@@ -57,10 +57,10 @@ The pacs.010 message lets one financial institution debit another institution's 
 
 ## Business context
 
-- Supports direct-debit collection between financial institutions.
-- Used for fees, margin calls, and other institution obligations.
-- Needs a bilateral agreement between the institutions.
-- Often sits in treasury and liquidity workflows.
+- Supports bank-to-bank direct-debit collection.
+- Used for fees, margin calls, and similar obligations.
+- Needs a bilateral agreement between the banks.
+- Often sits in treasury or liquidity operations.
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Key data elements Business context">
   <table>
@@ -77,23 +77,23 @@ The pacs.010 message lets one financial institution debit another institution's 
     <tbody>
         <tr>
           <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message identification and settlement information</td>
-          <td class="operational-matrix-table__right">Supports direct-debit collection between financial institutions</td>
+          <td class="operational-matrix-table__right">Supports bank-to-bank direct-debit collection</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Direct Debit Transaction Information with collection amount</td>
-          <td class="operational-matrix-table__right">Used for fees, margin calls, and other institution obligations</td>
+          <td class="operational-matrix-table__right">Used for fees, margin calls, and similar obligations</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Creditor institution and its agent identification</td>
-          <td class="operational-matrix-table__right">Needs a bilateral agreement between the institutions</td>
+          <td class="operational-matrix-table__right">Needs a bilateral agreement between the banks</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Debtor institution and its agent identification</td>
-          <td class="operational-matrix-table__right">Often sits in treasury and liquidity workflows</td>
+          <td class="operational-matrix-table__right">Often sits in treasury or liquidity operations</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Interbank Settlement Amount in the settlement currency</td>
-          <td class="operational-matrix-table__right">The collecting institution sends pacs.010 under a pre-agreed setup. The receiving institution checks the request and either settles or rejects it.</td>
+          <td class="operational-matrix-table__right">The collecting bank sends pacs.010 under a bilateral agreement. The receiving bank checks the request and either settles or rejects it.</td>
         </tr>
     </tbody>
   </table>
@@ -102,13 +102,13 @@ The pacs.010 message lets one financial institution debit another institution's 
 ## CBPR+ and scheme context
 
 - It maps older interbank direct-debit processing into ISO 20022.
-- It uses the same structured party-data rules as other pacs messages.
-- Institution identifiers such as BIC and LEI still need validation.
-- It appears in wider ISO 20022 migration plans across market infrastructures.
+- It follows the same structured party-data rules as other pacs messages.
+- Bank identifiers such as BIC and LEI still need validation.
+- It appears in wider ISO 20022 migration plans.
 
 ## Message flow
 
-The collecting institution sends pacs.010 under a pre-agreed setup. The receiving institution checks the request and either settles or rejects it.
+The collecting bank sends pacs.010 under a bilateral agreement. The receiving bank checks the request and either settles or rejects it.
 
 ## Version commentary
 
@@ -149,12 +149,12 @@ Use this page for the version that pacs008 implements today, and review the newe
 
 ## Scheme-specific notes
 
-- pacs.010 is not part of the SCT or SCT Inst credit-transfer rulebooks, so credit-transfer shortcuts do not carry over here.
-- Use this page as a guide for institution direct-debit scenarios, not as a substitute for market-scheme documentation.
+- pacs.010 is not part of the SCT or SCT Inst credit-transfer rulebooks, so credit-transfer rules do not carry over here.
+- Use this page as a guide for bank-to-bank direct-debit scenarios, not as a substitute for market-scheme documentation.
 
 ## When to use this message
 
-Use pacs.010 when one institution must debit another institution's own account.
+Use pacs.010 when one bank must debit another bank's own account.
 
 ## When not to use this message
 
@@ -162,14 +162,14 @@ Do not use pacs.010 for customer direct debits or credit transfers.
 
 ## Implementation notes
 
-- Keep bilateral approval logic outside the message.
-- Treat institution-own-account debits as high-control flows.
+- Keep bilateral approval rules outside the message.
+- Treat own-account debits as high-control flows.
 - Design status and exception handling with the collection flow.
 
 ## Common failure modes
 
 - Treating pacs.010 as the debit mirror of pacs.009.
-- Not capturing bilateral authorization context.
+- Not storing the bilateral approval context.
 - Ignoring downstream status and exception flows.
 
 ## Worked XML fragment
@@ -197,22 +197,22 @@ Do not use pacs.010 for customer direct debits or credit transfers.
 ## Decision flow
 
 ```text
-Need an institution direct-debit message?
+Need a bank-to-bank direct-debit message?
 Yes -> Use pacs.010.
 No -> Need a customer direct-debit flow?
 Yes -> Consider pacs.003 instead.
-No -> Re-check whether the scenario is actually a credit transfer.
+No -> Re-check whether the case is really a credit transfer.
 ```
 
 ## Implementation FAQ
 
 ### Is pacs.010 common in retail payment products?
 
-Usually no. It fits institution direct-debit scenarios better than standard retail products.
+Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products.
 
 ### What should teams design first?
 
-Start with authorization, bilateral controls, and exception handling before finalising XML templates.
+Start with approval rules, bilateral controls, and exception handling before finalising XML templates.
 
 ## Primary references
 

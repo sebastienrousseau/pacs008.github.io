@@ -395,8 +395,8 @@ const pageCopy = {
     deliveryModel: "Delivery model",
     deliveryText: "Each supported message comes with templates and validation rules. Teams can use the same assets in local tests, CI, and internal payment services.",
     apiTitle: "API",
-    apiDescription: "Use the pacs008 REST API, CLI, and Python library to validate payment data, run checks, and generate ISO 20022 XML files.",
-    apiIntro: "pacs008 offers a REST API, CLI, and Python library.",
+    apiDescription: "Use the pacs008 REST API, CLI, and Python library to validate payment data and generate ISO 20022 XML files.",
+    apiIntro: "pacs008 offers a REST API, CLI, and Python library for payment data checks and XML generation.",
     apiCapabilities: "API capabilities",
     cliCapabilities: "CLI capabilities",
     contactTitle: "Contact",
@@ -452,7 +452,7 @@ const pageCopy = {
     apiInstallTitle: "Installation",
     apiInstallText: "Install the package from PyPI. You need Python 3.9.2 or later.",
     apiRestTitle: "REST API",
-    apiRestIntro: "Start the built-in FastAPI server for HTTP validation and XML generation.",
+    apiRestIntro: "Start the FastAPI server for HTTP validation and XML generation.",
     apiRestStart: "Start the server",
     apiEndpointsTitle: "Endpoints",
     apiEndpointHealth: "Health check that returns service status",
@@ -463,11 +463,11 @@ const pageCopy = {
     apiEndpointDownload: "Download XML after the job completes",
     apiEndpointDocs: "Swagger UI for testing all endpoints",
     apiValidateExample: "Validation example",
-    apiValidateDesc: "Check payment data before you generate XML.",
+    apiValidateDesc: "Validate payment data before you generate XML.",
     apiGenerateExample: "Synchronous generation example",
     apiGenerateDesc: "Generate a `pacs.008.001.13` XML file from JSON.",
     apiAsyncExample: "Asynchronous generation",
-    apiAsyncDesc: "For larger files or workflow engines, submit an async job and poll until it finishes.",
+    apiAsyncDesc: "For large files, submit an async job and poll until it finishes.",
     apiCliTitle: "CLI",
     apiCliIntro: "The CLI takes a data file, message version, template, and schema. It validates the input and writes XML to the output directory.",
     apiCliBasic: "Basic usage",
@@ -477,7 +477,7 @@ const pageCopy = {
     apiCliVerbose: "Add `--verbose` for detailed output during generation.",
     apiPythonTitle: "Python API",
     apiPythonIntro: "Use the library directly in Python scripts or services.",
-    apiPythonGenerate: "Generate XML from a list of payment records",
+    apiPythonGenerate: "Generate XML from payment records",
     apiPythonCompliance: "SWIFT compliance check",
     apiPythonComplianceDesc: "Check and clean data against SWIFT character and field-length rules before generation.",
     apiFieldsTitle: "Required data fields",
@@ -633,21 +633,21 @@ const pageCopy = {
     pacs009Cbpr3: "Structured party data and LEI identification are used more often",
     pacs009Cbpr4: "SWIFT gpi covers pacs.009 for correspondent-banking transparency",
     pacs009Flow: "The debtor institution sends pacs.009 to the creditor institution to transfer its own funds. In cover flows, pacs.009 carries the funding leg while pacs.008 carries the customer instruction on a separate path.",
-    pacs010Overview: "The pacs.010 message lets one financial institution debit another institution's own account. It is for institution-to-institution collections, not customer direct debits.",
+    pacs010Overview: "The pacs.010 message lets one financial institution debit another institution's own account. It is for bank-to-bank collections, not customer direct debits.",
     pacs010Element1: "**GrpHdr** — Group Header with message identification and settlement information",
     pacs010Element2: "**DrctDbtTxInf** — Direct Debit Transaction Information with collection amount",
     pacs010Element3: "**Cdtr / CdtrAgt** — Creditor institution and its agent identification",
     pacs010Element4: "**Dbtr / DbtrAgt** — Debtor institution and its agent identification",
     pacs010Element5: "**IntrBkSttlmAmt** — Interbank Settlement Amount in the settlement currency",
-    pacs010Business1: "Supports direct-debit collection between financial institutions",
-    pacs010Business2: "Used for fees, margin calls, and other institution obligations",
-    pacs010Business3: "Needs a bilateral agreement between the institutions",
-    pacs010Business4: "Often sits in treasury and liquidity workflows",
+    pacs010Business1: "Supports bank-to-bank direct-debit collection",
+    pacs010Business2: "Used for fees, margin calls, and similar obligations",
+    pacs010Business3: "Needs a bilateral agreement between the banks",
+    pacs010Business4: "Often sits in treasury or liquidity operations",
     pacs010Cbpr1: "It maps older interbank direct-debit processing into ISO 20022.",
-    pacs010Cbpr2: "It uses the same structured party-data rules as other pacs messages.",
-    pacs010Cbpr3: "Institution identifiers such as BIC and LEI still need validation.",
-    pacs010Cbpr4: "It appears in wider ISO 20022 migration plans across market infrastructures.",
-    pacs010Flow: "The collecting institution sends pacs.010 under a pre-agreed setup. The receiving institution checks the request and either settles or rejects it.",
+    pacs010Cbpr2: "It follows the same structured party-data rules as other pacs messages.",
+    pacs010Cbpr3: "Bank identifiers such as BIC and LEI still need validation.",
+    pacs010Cbpr4: "It appears in wider ISO 20022 migration plans.",
+    pacs010Flow: "The collecting bank sends pacs.010 under a bilateral agreement. The receiving bank checks the request and either settles or rejects it.",
     pacs028Overview: "The pacs.028 message asks another institution for the status of an earlier payment. It is a targeted status query for delayed, unclear, or missing payment updates.",
     pacs028Element1: "**GrpHdr** — Group Header with message identification and creation timestamp",
     pacs028Element2: "**TxInf** — Transaction Information identifying the payment to enquire about",
@@ -7243,16 +7243,16 @@ const EN_EDITORIAL = {
       ]
     },
     "pacs.010.001.05": {
-      whenToUse: "Use pacs.010 when one institution must debit another institution's own account.",
+      whenToUse: "Use pacs.010 when one bank must debit another bank's own account.",
       avoidUsing: "Do not use pacs.010 for customer direct debits or credit transfers.",
       implementationNotes: [
-        "Keep bilateral approval logic outside the message.",
-        "Treat institution-own-account debits as high-control flows.",
+        "Keep bilateral approval rules outside the message.",
+        "Treat own-account debits as high-control flows.",
         "Design status and exception handling with the collection flow."
       ],
       commonPitfalls: [
         "Treating pacs.010 as the debit mirror of pacs.009.",
-        "Not capturing bilateral authorization context.",
+        "Not storing the bilateral approval context.",
         "Ignoring downstream status and exception flows."
       ]
     },
@@ -11039,9 +11039,9 @@ function englishApiEditorial() {
   return `
 ## Implementation notes
 
-- Use sync generation for small operator checks.
-- Use async generation for large files and workflow engines.
-- Keep the input payload and validation report.
+- Use sync generation for quick checks.
+- Use async generation for large files.
+- Keep the input payload and validation report together.
 `;
 }
 
@@ -11102,8 +11102,8 @@ function englishSchemeNotes(msgType) {
       `This message is outside the SCT and SCT Inst customer credit-transfer rulebooks, so SEPA customer-payment rules do not carry over unchanged.`
     ],
     "pacs.010.001.05": [
-      `pacs.010 is not part of the SCT or SCT Inst credit-transfer rulebooks, so credit-transfer shortcuts do not carry over here.`,
-      `Use this page as a guide for institution direct-debit scenarios, not as a substitute for market-scheme documentation.`
+      `pacs.010 is not part of the SCT or SCT Inst credit-transfer rulebooks, so credit-transfer rules do not carry over here.`,
+      `Use this page as a guide for bank-to-bank direct-debit scenarios, not as a substitute for market-scheme documentation.`
     ],
     "pacs.028.001.05": [
       `pacs.028 is the active status-request partner to pacs.002. Use it when a team must ask for status instead of waiting for an update.`,
@@ -11148,8 +11148,8 @@ function englishFaq(msgType) {
       ["Why is pacs.009 often harder to reconcile than expected?", "Because institutions must preserve the relationship between treasury funding, correspondent legs, and any linked customer payment."]
     ],
     "pacs.010.001.05": [
-      ["Is pacs.010 common in retail payment products?", "Usually no. It fits institution direct-debit scenarios better than standard retail products."],
-      ["What should teams design first?", "Start with authorization, bilateral controls, and exception handling before finalising XML templates."]
+      ["Is pacs.010 common in retail payment products?", "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."],
+      ["What should teams design first?", "Start with approval rules, bilateral controls, and exception handling before finalising XML templates."]
     ],
     "pacs.028.001.05": [
       ["Should pacs.028 be sent after every payment?", "Usually no. It works best as a targeted exception tool, not as blanket traffic."],
@@ -11251,11 +11251,11 @@ function englishDecisionFlow(msgType) {
       "No -> Validate whether treasury or settlement operations own the case."
     ],
     "pacs.010.001.05": [
-      "Need an institution direct-debit message?",
+      "Need a bank-to-bank direct-debit message?",
       "Yes -> Use pacs.010.",
       "No -> Need a customer direct-debit flow?",
       "Yes -> Consider pacs.003 instead.",
-      "No -> Re-check whether the scenario is actually a credit transfer."
+      "No -> Re-check whether the case is really a credit transfer."
     ],
     "pacs.028.001.05": [
       "Need to ask for status because unsolicited updates are not enough?",

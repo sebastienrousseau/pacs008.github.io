@@ -69,7 +69,7 @@ pacs008 covers the core pacs.008 message and the related pacs messages used for 
           <td class="message-coverage-table__id"><a href="/pacs.010.001.05/"><code>pacs.010.001.05</code></a></td>
           <td class="message-coverage-table__name">Financial Institution Direct Debit</td>
           <td class="message-coverage-table__year">2019</td>
-          <td class="message-coverage-table__overview">The pacs.010 message lets one financial institution debit another institution&#39;s own account. It is for institution-to-institution collections, not customer direct debits.</td>
+          <td class="message-coverage-table__overview">The pacs.010 message lets one financial institution debit another institution&#39;s own account. It is for bank-to-bank collections, not customer direct debits.</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/pacs.028.001.05/"><code>pacs.028.001.05</code></a></td>
