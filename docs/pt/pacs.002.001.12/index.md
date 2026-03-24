@@ -59,7 +59,7 @@ O agente instruído (receptor) envia pacs.002 de volta ao agente instruente (rem
 
 | Faixa de versão | Por que importa | Implicação de implementação |
 |---|---|---|
-| pacs.002.001.12 | Implementação atual no pacs008 | Use isto ao trabalhar com os templates e artefatos de validação atualmente suportados pelo projeto. |
+| pacs.002.001.12 | Implementação atual no pacs008 | Use isto ao trabalhar com os modelos XML e artefatos de validação atualmente suportados pelo projeto. |
 | pacs.002.001.13-15 | Revisões posteriores do catálogo | Revise versões ISO posteriores antes de iniciar novos trabalhos de interoperabilidade ou integrar novas infraestruturas. |
 
 ## Exemplo XML comentado
@@ -93,7 +93,7 @@ O agente instruído (receptor) envia pacs.002 de volta ao agente instruente (rem
 |---|---|---|
 | Objetivo principal | Report status | Request status |
 | Quem inicia a interação | A instituição que envia o status | A instituição que solicita o status |
-| Operational posture | Event-driven reporting | Exception-driven enquiry |
+| Postura operacional | Event-driven reporting | Consulta orientada por exceção |
 | Suposição errada a evitar | Que o reporte de status substitui os fluxos de investigação | Que todo pagamento precisa de uma solicitação explícita de status |
 
 ## Referências primárias

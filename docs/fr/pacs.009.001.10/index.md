@@ -80,18 +80,18 @@ L'institution débitrice envoie pacs.009 à l'institution créancière pour tran
 
 ### Commentaires sur les champs
 
-- `InstrId`: Utilisez un identifiant de jambe de financement qui puisse rester rattaché au flux client sous-jacent.
+- `InstrId`: Utilisez un identifiant de volet de liquidité qui puisse rester rattaché au flux client sous-jacent.
 - `IntrBkSttlmAmt`: Les flux sur compte propre et de couverture exigent souvent des contrôles de trésorerie plus stricts sur les montants et les dates de règlement.
-- `Dbtr` / `Cdtr`: Il s'agit de parties institutionnelles, et non de rôles client retail ; modélisez-les comme tels.
+- `Dbtr` / `Cdtr`: Il s'agit de parties institutionnelles, et non de rôles de clientèle de détail ; modélisez-les comme tels.
 
 ## Comparer pacs.009 vs pacs.008
 
 | Dimension | pacs.009.001.10 | Message de comparaison |
 |---|---|---|
 | Objectif principal | Virement sur compte propre d'institution ou jambe de couverture | Virement client |
-| Responsable métier | Opérations de trésorerie, de correspondance et de financement | Opérations de paiements clients |
+| Responsable métier | Opérations de trésorerie, de correspondance et de liquidité | Opérations de paiements clients |
 | Associations typiques | pacs.002, pacs.004 et flux pacs.008 liés | pacs.002, pacs.004, pacs.007, pacs.028 |
-| Hypothèse erronée à éviter | Qu'il s'agit simplement d'une pacs.008 plus technique | Qu'il peut porter sans difficulté des flux de financement d'institution |
+| Hypothèse erronée à éviter | Qu'il s'agit simplement d'une pacs.008 plus technique | Qu'il peut porter sans difficulté des flux de liquidité entre institutions |
 
 ## Références primaires
 

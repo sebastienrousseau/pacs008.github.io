@@ -32,5 +32,5 @@ These terms of use may be updated at any time. Continued use of the website afte
 
 ## Contact
 
-If you have questions about these terms, please visit the [contact page](/en/contact/).
+If you have questions about these terms, please visit the [contact page](/contact/).
 

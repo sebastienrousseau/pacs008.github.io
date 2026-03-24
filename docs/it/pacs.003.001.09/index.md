@@ -48,7 +48,7 @@ Il messaggio pacs.003 viene scambiato tra istituti finanziari per eseguire un'is
 
 - I requisiti di indirizzo strutturato e identificazione delle parti si applicano ugualmente agli addebiti diretti
 - I dati relativi al mandato devono essere completamente strutturati da novembre 2026
-- Sostituisce i formati di addebito diretto legacy in stile MT104 nei flussi transfrontalieri
+- Sostituisce nei flussi transfrontalieri i precedenti formati di addebito diretto in stile MT104
 - La validazione dell'identificazione dello schema del creditore è sempre più applicata
 
 ## Flusso del messaggio
@@ -60,7 +60,7 @@ L'agente del creditore avvia pacs.003 verso l'agente del debitore per raccoglier
 | Intervallo di versione | Perché conta | Implicazione implementativa |
 |---|---|---|
 | pacs.003.001.09 | Implementazione attuale in pacs008 | Utile per la modellazione dei riferimenti di addebito diretto nel progetto corrente. |
-| pacs.003.001.10-11 | Revisioni successive del catalogo | Check later revisions for mandate, status, and interoperability updates before greenfield use. |
+| pacs.003.001.10-11 | Revisioni successive del catalogo | Periksa revisi yang lebih baru untuk pembaruan mandat, status, dan interoperabilitas sebelum dipakai dalam implementasi baru. |
 
 ## Esempio XML commentato
 

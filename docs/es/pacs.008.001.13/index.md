@@ -96,7 +96,7 @@ El agente del deudor crea un pacs.008 y lo envía al agente del acreedor (direct
 | Dimensión | pacs.008.001.13 | Mensaje de comparación |
 |---|---|---|
 | Propósito principal | Transferencia de crédito de cliente | Transferencia de crédito por cuenta propia de la institución o tramo de cobertura |
-| Responsable de negocio | Operaciones de pagos de clientes | Operaciones de tesorería, corresponsalía y financiación |
+| Responsable de negocio | Operaciones de pagos de clientes | Operaciones de tesorería, corresponsalía y liquidez |
 | Combinaciones típicas | pacs.002, pacs.004, pacs.007, pacs.028 | pacs.002, pacs.004, and sometimes linked pacs.008 flows |
 | Supuesto erróneo a evitar | That all bank-to-bank transfers belong here | That it can replace customer credit-transfer instructions |
 

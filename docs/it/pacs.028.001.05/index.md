@@ -59,7 +59,7 @@ L'agente ordinante invia pacs.028 all'agente incaricato per richiedere lo stato 
 
 | Intervallo di versione | Perché conta | Implicazione implementativa |
 |---|---|---|
-| pacs.028.001.05 | Implementazione attuale in pacs008 | Sesuai untuk pemodelan permintaan status saat ini. |
+| pacs.028.001.05 | Implementazione attuale in pacs008 | Adatto alla modellazione attuale delle richieste di stato. |
 | pacs.028.001.06 | Revisione successiva del catalogo | Controlla la revisione di catalogo piu recente per la pianificazione futura dell'interoperabilita. |
 
 ## Esempio XML commentato
@@ -80,16 +80,16 @@ L'agente ordinante invia pacs.028 all'agente incaricato per richiedere lo stato 
 
 - `MsgId`: La richiesta stessa ha bisogno di un identificatore verificabile distinto dal pagamento sottostante.
 - `OrgnlInstrId`: Usa l'identificatore sorgente esatto dell'istruzione originale per massimizzare la precisione dell'abbinamento.
-- `OrgnlEndToEndId`: Including customer traceability helps operations teams reconcile the enquiry faster.
+- `OrgnlEndToEndId`: Includere la tracciabilità lato cliente aiuta i team operativi a riconciliare più rapidamente la richiesta.
 
 ## Confrontare pacs.028 vs pacs.002
 
 | Dimensione | pacs.028.001.05 | Messaggio di confronto |
 |---|---|---|
-| Scopo principale | Request status | Report status |
+| Scopo principale | Richiesta di stato | Rapporto di stato |
 | Chi avvia l'interazione | L'istituzione che richiede lo stato | L'istituzione che invia lo stato |
-| Operational posture | Exception-driven enquiry | Event-driven reporting |
-| Asumsi keliru yang perlu dihindari | Che dovrebbe essere inviato di routine per ogni pagamento | Che elimina la necessita di una gestione proattiva dei casi |
+| Impostazione operativa | Richiesta guidata da eccezioni | Reporting guidato da evento |
+| Ipotesi errata da evitare | Che dovrebbe essere inviato di routine per ogni pagamento | Che elimina la necessita di una gestione proattiva dei casi |
 
 ## Riferimenti primari
 

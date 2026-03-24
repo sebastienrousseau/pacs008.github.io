@@ -23,7 +23,7 @@ actionText: Scopri pacs008
 actionLink: /it/about/
 features:
   - title: "Cosa fa"
-    details: "Genera XML per `pacs.008` e definizioni di messaggi pacs correlate; Valida dati e XML rispetto agli schemi; Espone un servizio FastAPI per flussi di lavoro automatizzati"
+    details: "Genera XML per `pacs.008` e definizioni di messaggi pacs correlate; Valida dati e XML rispetto agli schemi; Espone un servizio FastAPI per processi automatizzati"
   - title: "Validazione"
     details: "Validazione JSON Schema contro 20 schemi specifici per tipo di messaggio; Verifica formato e checksum IBAN per 75 paesi; Validazione XSD dell'XML generato contro gli schemi ufficiali ISO 20022"
   - title: "Sicurezza"

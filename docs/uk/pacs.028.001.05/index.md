@@ -80,7 +80,7 @@ image: /logo.svg
 
 - `MsgId`: Сам запит повинен мати аудитований ідентифікатор, відмінний від базового платежу.
 - `OrgnlInstrId`: Використовуйте точний вихідний ідентифікатор з початкової інструкції, щоб максимізувати точність зіставлення.
-- `OrgnlEndToEndId`: Including customer traceability helps operations teams reconcile the enquiry faster.
+- `OrgnlEndToEndId`: Додавання клієнтської трасованості допомагає операційним командам швидше звіряти запит.
 
 ## Порівняння pacs.028 vs pacs.002
 

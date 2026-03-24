@@ -8,16 +8,16 @@ image: /logo.svg
 
 # API
 
-O projeto fornece tanto uma API REST quanto uma CLI para fluxos operacionais de mensagens de pagamento.
+O projeto fornece tanto uma API REST quanto uma CLI para processos operacionais de mensagens de pagamento.
 
 > Última revisão com base em fontes primárias em 23 de março de 2026 usando materiais públicos da ISO 20022, EPC e Swift referenciados nesta página.
 
 ## Notas de implementação
 
 - Use geração síncrona para verificações operacionais e lotes pequenos quando o chamador espera XML imediatamente.
-- Use geração assíncrona quando os arquivos de entrada forem grandes, quando os jobs precisarem de nova tentativa ou quando a geração fizer parte de um motor de workflow maior.
+- Use geração assíncrona quando os arquivos de entrada forem grandes, quando os jobs precisarem de nova tentativa ou quando a geração fizer parte de um processo de orquestração mais amplo.
 - Armazene tanto a carga útil de origem quanto o relatório de validação para que equipes de suporte consigam reproduzir a saída XML durante incidentes.
-- Fixe os caminhos de templates e XSD na configuração de implantação para evitar upgrades silenciosos.
+- Fixe os caminhos dos modelos XML e dos arquivos XSD na configuração de implantação para evitar atualizações silenciosas.
 
 ## Instalação
 
@@ -159,7 +159,7 @@ curl http://localhost:8000/api/download/$JOB_ID --output result.xml
 
 ## CLI
 
-A interface de linha de comando aceita um arquivo de dados, uma versão de mensagem, um template e um esquema. Valida a entrada e grava o XML gerado no diretório de saída.
+A interface de linha de comando aceita um arquivo de dados, uma versão de mensagem, um modelo XML e um esquema. Valida a entrada e grava o XML gerado no diretório de saída.
 
 ### Uso básico
 

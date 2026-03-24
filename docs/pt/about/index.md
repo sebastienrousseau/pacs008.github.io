@@ -16,7 +16,7 @@ O pacs008 é um kit de ferramentas Python para automatizar fluxos de transferên
 
 - Gera XML para `pacs.008` e definições de mensagens pacs relacionadas
 - Valida dados e XML contra esquemas
-- Expõe um serviço FastAPI para fluxos de trabalho automatizados
+- Expõe um serviço FastAPI para processos automatizados
 - Fornece uma CLI para execução local e pipelines CI
 - Suporta fontes de dados estruturadas incluindo CSV, JSON, JSONL, SQLite e Parquet
 - Valida identificadores IBAN (75 países, checksum ISO 7064) e BIC (ISO 9362)
@@ -64,12 +64,12 @@ O pacs008 vai além da referência de definição de mensagem para apoiar a impl
 
 - gerar XML a partir de dados de origem reais
 - validar antes da entrega
-- modelar cadeias de pagamento e formatos downstream
+- modelar cadeias de pagamento e formatos posteriores
 - tornar alterações específicas de esquema testáveis em código
 
 ## Lista de verificação de implementação
 
-- Selecionar a família de mensagens correta para o evento de negócio antes de escrever templates.
+- Selecionar a família de mensagens correta para o evento de negócio antes de escrever modelos XML.
 - Validar os dados de negócio antes da geração de XML para que erros de esquema não sejam o primeiro sinal.
 - Tratar a qualidade de BIC, IBAN, remessa e endereço postal como critério de release, e não como limpeza posterior.
 - Executar testes de regressão para cada alteração de regra de esquema ou de banco com dados de pagamento representativos.

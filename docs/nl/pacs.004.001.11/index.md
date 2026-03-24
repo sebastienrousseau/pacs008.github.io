@@ -59,7 +59,7 @@ De opdrachthebbende agent stuurt pacs.004 terug door de betalingsketen om eerder
 
 | Versiebereik | Waarom dit telt | Implementatieconclusie |
 |---|---|---|
-| pacs.004.001.11 | Huidige implementatie in pacs008 | Sluit aan op de huidige sjablonen voor retourbetalingen. |
+| pacs.004.001.11 | Huidige implementatie in pacs008 | Sluit aan op de huidige modellen voor retourbetalingen. |
 | pacs.004.001.12-14 | Latere catalogusrevisies | Controleer latere revisies van retourberichten wanneer schema-upgrades of nieuwe tegenpartijen binnen scope vallen. |
 
 ## Uitgewerkt XML-voorbeeld
@@ -83,7 +83,7 @@ De opdrachthebbende agent stuurt pacs.004 terug door de betalingsketen om eerder
 
 - `OrgnlInstrId`: This must point back to the settled transaction being returned.
 - `RtrdIntrBkSttlmAmt`: Return amount should reflect the actual returned value, not a reconstructed business amount.
-- `RtrRsnInf`: Reason-code quality is critical for downstream customer communication and operational routing.
+- `RtrRsnInf`: De kwaliteit van redenencodes is cruciaal voor verdere klantcommunicatie en operationele routering.
 
 ## Vergelijk pacs.004 vs pacs.007
 

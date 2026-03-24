@@ -60,7 +60,7 @@ De debiteurinstelling stuurt pacs.009 naar de crediteurinstelling om eigen gelde
 | Versiebereik | Waarom dit telt | Implementatieconclusie |
 |---|---|---|
 | pacs.009.001.10 | Huidige implementatie in pacs008 | Komt overeen met de huidige projectondersteuning voor FI-credittransferstromen. |
-| pacs.009.001.11-12 | Latere catalogusrevisies | Belangrijk voor roadmapplanning in omgevingen voor correspondentbankieren en dekkingsbetalingen. |
+| pacs.009.001.11-12 | Latere catalogusrevisies | Belangrijk voor routeplanning in omgevingen voor correspondentbankieren en dekkingsbetalingen. |
 
 ## Uitgewerkt XML-voorbeeld
 

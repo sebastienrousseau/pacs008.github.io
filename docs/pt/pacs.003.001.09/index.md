@@ -60,7 +60,7 @@ O agente do credor inicia pacs.003 em direção ao agente do devedor para coleta
 | Faixa de versão | Por que importa | Implicação de implementação |
 |---|---|---|
 | pacs.003.001.09 | Implementação atual no pacs008 | Útil para a modelagem de referências de débito direto no projeto atual. |
-| pacs.003.001.10-11 | Revisões posteriores do catálogo | Check later revisions for mandate, status, and interoperability updates before greenfield use. |
+| pacs.003.001.10-11 | Revisões posteriores do catálogo | Revise versões posteriores para mudanças de mandato, status e interoperabilidade antes do uso em uma nova implementação. |
 
 ## Exemplo XML comentado
 

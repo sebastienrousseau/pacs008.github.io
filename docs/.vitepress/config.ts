@@ -13,7 +13,7 @@ function escapeXml(s: string): string {
 
 function navFor(locale: string) {
   const t = getUiStrings(locale);
-  const prefix = `/${locale}`;
+  const prefix = locale === "en" ? "" : `/${locale}`;
   const nav = [
     { text: t.about, link: `${prefix}/about/` },
     { text: t.messageTypes, link: `${prefix}/message-types/` },
@@ -24,8 +24,48 @@ function navFor(locale: string) {
   return nav;
 }
 
+function localSearchOptionsFor(locale: string) {
+  const t = getUiStrings(locale);
+  return {
+    translations: {
+      button: {
+        buttonText: t.searchButtonText,
+        buttonAriaLabel: t.searchButtonAriaLabel
+      }
+    }
+  };
+}
+
 function localeHomePath(locale: string): string {
   return locale === "en" ? "/" : `/${locale}/`;
+}
+
+function localeFromBuiltPath(rel: string): string {
+  const segments = rel.split("/").filter(Boolean);
+  return segments[0] && LOCALE_META[segments[0]] ? segments[0] : "en";
+}
+
+function postBuildLocaleReplacements(html: string, locale: string): string {
+  const t = getUiStrings(locale);
+  return html
+    .replace(/>\s*Main Navigation\s*</g, `> ${t.mainNavigation} <`)
+    .replace(/aria-label="extra navigation"/g, `aria-label="${escapeXml(t.extraNavigation)}"`)
+    .replace(/aria-label="mobile navigation"/g, `aria-label="${escapeXml(t.mobileNavigation)}"`)
+    .replace(/aria-label="Toggle dark mode"/g, `aria-label="${escapeXml(t.toggleDarkMode)}"`);
+}
+
+function breadcrumbNameForSegment(locale: string, segment: string): string {
+  const t = getUiStrings(locale);
+  const known: Record<string, string> = {
+    about: t.about,
+    "message-types": t.messageTypes,
+    "message-selection": t.selectionGuide,
+    api: t.api,
+    contact: t.contact,
+    privacy: t.privacy,
+    terms: t.terms
+  };
+  return known[segment] || segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, " ");
 }
 
 const locales = Object.fromEntries(
@@ -60,7 +100,24 @@ const locales = Object.fromEntries(
       dir: RTL_LOCALES.has(key) ? "rtl" : "ltr",
       link: localeHomePath(key),
       themeConfig: {
-        nav: navFor(key)
+        nav: navFor(key),
+        outline: { label: getUiStrings(key).outlineLabel },
+        darkModeSwitchLabel: getUiStrings(key).appearanceLabel,
+        lightModeSwitchTitle: getUiStrings(key).lightModeSwitchTitle,
+        darkModeSwitchTitle: getUiStrings(key).darkModeSwitchTitle,
+        sidebarMenuLabel: getUiStrings(key).outlineLabel,
+        returnToTopLabel: getUiStrings(key).returnToTopLabel,
+        langMenuLabel: getUiStrings(key).langMenuLabel,
+        skipToContentLabel: getUiStrings(key).skipToContentLabel,
+        lastUpdated: { text: getUiStrings(key).lastUpdatedText },
+        search: {
+          provider: "local",
+          options: localSearchOptionsFor(key)
+        },
+        footer: {
+          message: getUiStrings(key).footerMessage,
+          copyright: getUiStrings(key).footerCopyright
+        }
       }
     }
   ])
@@ -98,14 +155,17 @@ export default defineConfig({
     }
 
     for (const file of walkDir(outDir)) {
-      const html = readFileSync(file, "utf8");
+      let html = readFileSync(file, "utf8");
+      const rel = file.slice(outDir.length).replace(/\\/g, "/");
+      html = postBuildLocaleReplacements(html, localeFromBuiltPath(rel));
+      writeFileSync(file, html, "utf8");
       const titleMatch = html.match(/<title>([^<]*)<\/title>/);
       const descMatch = html.match(/<meta name="description" content="([^"]*)"/);
       const title = titleMatch?.[1] || "";
       const description = descMatch?.[1] || "";
       if (!title || title.includes("Page not found")) continue;
-      const rel = file.slice(outDir.length).replace(/index\.html$/, "").replace(/\\/g, "/");
-      const link = `${SITE_URL}${rel}`;
+      const itemRel = rel.replace(/index\.html$/, "");
+      const link = `${SITE_URL}${itemRel}`;
       items.push(`    <item>
       <title>${escapeXml(title)}</title>
       <link>${escapeXml(link)}</link>
@@ -149,7 +209,7 @@ ${items.join("\n")}
 
     if (fm.layout === "home" && !fm.hero) {
       const actionText = typeof fm.actionText === "string" ? fm.actionText : "Learn about pacs008";
-      const actionLink = typeof fm.actionLink === "string" ? fm.actionLink : "/en/about/";
+      const actionLink = typeof fm.actionLink === "string" ? fm.actionLink : "/about/";
       fm.hero = {
         name: typeof fm.heroText === "string" ? fm.heroText : fm.title || SITE_NAME,
         text: "",
@@ -227,7 +287,7 @@ ${items.join("\n")}
         ...contentSegments.map((seg, i) => ({
           "@type": "ListItem",
           "position": i + 2,
-          "name": seg.charAt(0).toUpperCase() + seg.slice(1).replace(/-/g, " "),
+          "name": breadcrumbNameForSegment(localeKey, seg),
           "item": `${SITE_URL}/${[...segments.slice(0, LOCALE_META[segments[0]] ? 1 : 0), ...contentSegments.slice(0, i + 1)].join("/")}/`
         }))
       ];
@@ -297,15 +357,13 @@ ${items.join("\n")}
     siteTitle: "pacs008",
     logo: { src: "/logo.svg", alt: "pacs008 home" },
     langMenuLabel: "Languages",
-    search: {
-      provider: "local"
-    },
+    search: { provider: "local", options: localSearchOptionsFor("en") },
     socialLinks: [
       { icon: "github", link: "https://github.com/sebastienrousseau/pacs008" }
     ],
     footer: {
-      message: "Open-source ISO 20022 tooling for financial teams and engineers.",
-      copyright: "Copyright © Sebastien Rousseau 2026"
+      message: getUiStrings("en").footerMessage,
+      copyright: getUiStrings("en").footerCopyright
     }
   }
 });

@@ -84,7 +84,7 @@ L'agent instruit (récepteur) envoie pacs.002 à l'agent instructeur (émetteur)
 
 - `MsgId`: Utilisez un nouvel identifiant pour le rapport de statut lui-même, et non pour l'instruction de paiement d'origine.
 - `OrgnlInstrId`: Conservez l'identifiant de l'instruction d'origine afin que le statut puisse être rapproché automatiquement.
-- `TxSts`: Il s'agit de l'état opérationnel ; rattachez-le soigneusement aux états internes du workflow au lieu de supposer une correspondance directe.
+- `TxSts`: Il s'agit de l'état opérationnel ; rattachez-le soigneusement aux états internes du traitement au lieu de supposer une correspondance directe.
 - `StsRsnInf`: Les codes de motif structurés sont bien plus utiles que le texte libre pour les réparations et l'analytique.
 
 ## Comparer pacs.002 vs pacs.028
@@ -94,7 +94,7 @@ L'agent instruit (récepteur) envoie pacs.002 à l'agent instructeur (émetteur)
 | Objectif principal | Report status | Request status |
 | Qui initie l'interaction | L'établissement qui envoie le statut | L'établissement qui demande le statut |
 | Posture opérationnelle | Reporting déclenché par événement | Demande pilotée par exception |
-| Hypothèse erronée à éviter | Que le reporting de statut remplace les workflows d'investigation | Que chaque paiement nécessite une demande de statut explicite |
+| Hypothèse erronée à éviter | Que le reporting de statut remplace les processus d'investigation | Que chaque paiement nécessite une demande de statut explicite |
 
 ## Références primaires
 

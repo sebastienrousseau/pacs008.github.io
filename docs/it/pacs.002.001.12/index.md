@@ -59,7 +59,7 @@ L'agente incaricato (destinatario) invia pacs.002 all'agente ordinante (mittente
 
 | Intervallo di versione | Perché conta | Implicazione implementativa |
 |---|---|---|
-| pacs.002.001.12 | Implementazione attuale in pacs008 | Gunakan ini saat mencocokkan templat proyek saat ini dan aset validasi. |
+| pacs.002.001.12 | Implementazione attuale in pacs008 | Da usare quando si lavora con i modelli XML di progetto e gli artefatti di validazione attualmente supportati. |
 | pacs.002.001.13-15 | Revisioni successive del catalogo | Esamina le revisioni ISO successive prima di avviare nuovi lavori di interoperabilita o di integrare nuove infrastrutture. |
 
 ## Esempio XML commentato
@@ -84,17 +84,17 @@ L'agente incaricato (destinatario) invia pacs.002 all'agente ordinante (mittente
 
 - `MsgId`: Usa un nuovo identificatore per il rapporto di stato stesso, non per l'istruzione di pagamento originale.
 - `OrgnlInstrId`: Mantieni intatto l'identificatore dell'istruzione originale in modo che lo stato possa essere riconciliato automaticamente.
-- `TxSts`: Questo e lo stato operativo; mappalo con attenzione sugli stati interni del workflow invece di presumere una corrispondenza diretta.
+- `TxSts`: Questo e lo stato operativo; mappalo con attenzione sugli stati interni del processo invece di presumere una corrispondenza diretta.
 - `StsRsnInf`: I codici motivo strutturati sono molto piu utili del testo libero per le riparazioni e l'analitica.
 
 ## Confrontare pacs.002 vs pacs.028
 
 | Dimensione | pacs.002.001.12 | Messaggio di confronto |
 |---|---|---|
-| Scopo principale | Report status | Request status |
+| Scopo principale | Rapporto di stato | Richiesta di stato |
 | Chi avvia l'interazione | L'istituzione che invia lo stato | L'istituzione che richiede lo stato |
-| Operational posture | Event-driven reporting | Exception-driven enquiry |
-| Asumsi keliru yang perlu dihindari | Che la reportistica di stato sostituisca i flussi di indagine | Che ogni pagamento richieda una richiesta di stato esplicita |
+| Impostazione operativa | Reporting guidato da evento | Richiesta guidata da eccezioni |
+| Ipotesi errata da evitare | Che la reportistica di stato sostituisca i flussi di investigazione | Che ogni pagamento richieda una richiesta di stato esplicita |
 
 ## Riferimenti primari
 

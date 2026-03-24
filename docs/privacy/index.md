@@ -28,5 +28,5 @@ This privacy statement may be revised periodically. Any changes will be publishe
 
 ## Contact
 
-If you have questions about this privacy statement, please visit the [contact page](/en/contact/).
+If you have questions about this privacy statement, please visit the [contact page](/contact/).
 

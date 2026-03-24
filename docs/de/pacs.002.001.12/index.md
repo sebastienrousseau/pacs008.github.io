@@ -94,7 +94,7 @@ Der beauftragte Agent (Empfänger) sendet pacs.002 an den beauftragenden Agent (
 | Hauptzweck | Status melden | Status anfragen |
 | Wer die Interaktion startet | Das Institut, das den Status sendet | Das Institut, das den Status anfragt |
 | Operative Einordnung | Ereignisgesteuerte Statusmeldung | Ausnahmegetriebene Anfrage |
-| Zu vermeidende Fehlannahme | Dass Statusmeldungen Investigations-Workflows ersetzen | Dass jede Zahlung eine explizite Statusanfrage benötigt |
+| Zu vermeidende Fehlannahme | Dass Statusmeldungen Nachforschungsprozesse ersetzen | Dass jede Zahlung eine explizite Statusanfrage benötigt |
 
 ## Primärquellen
 

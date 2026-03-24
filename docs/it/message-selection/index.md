@@ -1,6 +1,6 @@
 ---
 title: Guida alla selezione dei messaggi | pacs008
-description: Scegli il messaggio pacs ISO 20022 corretto per generazione, stati, resi, reversal e richieste.
+description: Scegli il messaggio pacs ISO 20022 corretto per generazione, stati, resi, storni e richieste.
 lang: it-IT
 lastUpdated: true
 image: /logo.svg
@@ -30,7 +30,7 @@ Scegli la famiglia pacs prima in base all'evento operativo e poi in base allo sc
 | Confronto | Distinzione chiave |
 |---|---|
 | `pacs.008` vs `pacs.009` | Pagamento cliente rispetto a movimento istituzionale o di copertura |
-| `pacs.004` vs `pacs.007` | Reso dal lato ricevente rispetto a reversal dal lato ordinante |
+| `pacs.004` vs `pacs.007` | Reso dal lato ricevente rispetto a storno dal lato ordinante |
 | `pacs.002` vs `pacs.028` | Rapporto di stato rispetto a richiesta di stato |
 
 ## Pagine dei messaggi supportati

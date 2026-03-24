@@ -49,7 +49,7 @@ Il messaggio pacs.010 viene utilizzato tra istituti finanziari per transazioni d
 - Sostituisce elementi di MT204 per l'elaborazione degli addebiti diretti interbancari
 - L'identificazione strutturata delle parti segue gli stessi requisiti degli altri messaggi pacs
 - La validazione degli identificativi istituzionali (BIC, LEI) è obbligatoria
-- Incluso nelle roadmap di adozione completa di ISO 20022 attraverso le infrastrutture di mercato
+- Incluso nei piani di adozione completa di ISO 20022 tra le infrastrutture di mercato
 
 ## Flusso del messaggio
 
@@ -59,7 +59,7 @@ L'istituto creditore invia pacs.010 all'istituto debitore per raccogliere fondi 
 
 | Intervallo di versione | Perché conta | Implicazione implementativa |
 |---|---|---|
-| pacs.010.001.05 | Implementazione attuale in pacs008 | Menjadi titik acuan untuk dukungan debit langsung antar lembaga dalam proyek saat ini. |
+| pacs.010.001.05 | Implementazione attuale in pacs008 | Punto di riferimento per il supporto agli addebiti diretti tra istituzioni nel progetto attuale. |
 | pacs.010.001.06 | Revisione successiva del catalogo | Review before adopting newer infrastructure requirements. |
 
 ## Esempio XML commentato

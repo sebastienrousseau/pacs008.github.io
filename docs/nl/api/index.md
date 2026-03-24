@@ -1,6 +1,6 @@
 ---
 title: API | pacs008
-description: REST- en CLI-ondersteuning voor werkprocessen in pacs008. Generatie, validatie, API-orchestratie en compliance-ondersteuning voor...
+description: REST- en CLI-ondersteuning voor operationele processen in pacs008. Generatie, validatie, API-orchestratie en compliance-ondersteuning voor...
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg
@@ -8,16 +8,16 @@ image: /logo.svg
 
 # API
 
-Het project biedt zowel een REST API als een CLI voor operationele werkprocessen rond betalingsberichten.
+Het project biedt zowel een REST API als een CLI voor operationele processen rond betalingsberichten.
 
 > Laatst gecontroleerd aan de hand van primaire bronnen op 23 maart 2026 met openbare ISO 20022-, EPC- en Swift-materialen waarnaar op deze pagina wordt verwezen.
 
 ## Implementatienotities
 
 - Gebruik synchrone generatie voor operatorgestuurde controles en kleine batches wanneer de aanroeper direct XML verwacht.
-- Gebruik asynchrone generatie wanneer invoerbestanden groot zijn, jobs retries nodig hebben of generatie deel uitmaakt van een bredere workflow-engine.
+- Gebruik asynchrone generatie wanneer invoerbestanden groot zijn, jobs opnieuw moeten worden geprobeerd of generatie deel uitmaakt van een breder orkestratieproces.
 - Sla zowel de bronpayload als het validatierapport op zodat supportteams XML-uitvoer tijdens incidenten kunnen reproduceren.
-- Vergrendel template- en XSD-paden in de deploymentconfiguratie om stille upgrades te voorkomen.
+- Vergrendel XML-sjabloon- en XSD-paden in de implementatieconfiguratie om stille upgrades te voorkomen.
 
 ## Installatie
 

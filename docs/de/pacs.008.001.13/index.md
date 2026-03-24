@@ -96,7 +96,7 @@ Der Schuldneragent erstellt einen pacs.008 und sendet ihn an den Gläubigeragent
 | Dimension | pacs.008.001.13 | Vergleichsnachricht |
 |---|---|---|
 | Hauptzweck | Kundenkredittransfer | Instituts-Eigengeschäftstransfer oder Cover-Leg |
-| Fachlicher Verantwortungsbereich | Kundenzahlungsbetrieb | Treasury-, Korrespondenz- und Funding-Betrieb |
+| Fachlicher Verantwortungsbereich | Kundenzahlungsbetrieb | Treasury-, Korrespondenz- und Liquiditätsbetrieb |
 | Typische Kombinationen | pacs.002, pacs.004, pacs.007, pacs.028 | pacs.002, pacs.004, and sometimes linked pacs.008 flows |
 | Zu vermeidende Fehlannahme | Dass alle Bank-zu-Bank-Transfers hier eingeordnet werden sollten | Dass diese Nachricht Kundenkredittransfer-Anweisungen ersetzen kann |
 

@@ -83,7 +83,7 @@ L'agente incaricato invia pacs.004 attraverso la catena di pagamento per restitu
 
 - `OrgnlInstrId`: This must point back to the settled transaction being returned.
 - `RtrdIntrBkSttlmAmt`: Return amount should reflect the actual returned value, not a reconstructed business amount.
-- `RtrRsnInf`: Reason-code quality is critical for downstream customer communication and operational routing.
+- `RtrRsnInf`: Kualitas kode alasan sangat penting untuk komunikasi lanjutan kepada nasabah dan pengalihan operasional.
 
 ## Confrontare pacs.004 vs pacs.007
 

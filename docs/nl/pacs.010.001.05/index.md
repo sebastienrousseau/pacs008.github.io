@@ -49,7 +49,7 @@ Het pacs.010-bericht wordt tussen financiële instellingen gebruikt voor incasso
 - Vervangt elementen van MT204 voor de verwerking van interbancaire incasso's
 - Gestructureerde partij-identificatie volgt dezelfde vereisten als andere pacs-berichten
 - Validatie van institutionele identificatoren (BIC, LEI) is verplicht
-- Opgenomen in roadmaps voor volledige ISO 20022-adoptie over marktinfrastructuren heen
+- Opgenomen in uitrolplannen voor volledige ISO 20022-adoptie over marktinfrastructuren heen
 
 ## Berichtstroom
 

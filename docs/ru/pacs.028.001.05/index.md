@@ -80,7 +80,7 @@ image: /logo.svg
 
 - `MsgId`: Сам запрос должен иметь проверяемый идентификатор, отличный от базового платежа.
 - `OrgnlInstrId`: Используйте точный исходный идентификатор из первоначальной инструкции, чтобы максимально повысить точность сопоставления.
-- `OrgnlEndToEndId`: Including customer traceability helps operations teams reconcile the enquiry faster.
+- `OrgnlEndToEndId`: Добавление клиентской трассируемости помогает операционным командам быстрее сопоставлять запрос.
 
 ## Сравнение pacs.028 vs pacs.002
 

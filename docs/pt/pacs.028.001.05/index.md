@@ -80,7 +80,7 @@ O agente instruente envia pacs.028 ao agente instruído para solicitar o status 
 
 - `MsgId`: A própria solicitação precisa de um identificador auditável distinto do pagamento subjacente.
 - `OrgnlInstrId`: Use o identificador de origem exato da instrução original para maximizar a precisão da conciliação.
-- `OrgnlEndToEndId`: Including customer traceability helps operations teams reconcile the enquiry faster.
+- `OrgnlEndToEndId`: Incluir rastreabilidade voltada ao cliente ajuda as equipes operacionais a reconciliar a consulta mais rapidamente.
 
 ## Comparar pacs.028 vs pacs.002
 
@@ -88,7 +88,7 @@ O agente instruente envia pacs.028 ao agente instruído para solicitar o status 
 |---|---|---|
 | Objetivo principal | Request status | Report status |
 | Quem inicia a interação | A instituição que solicita o status | A instituição que envia o status |
-| Operational posture | Exception-driven enquiry | Event-driven reporting |
+| Postura operacional | Consulta orientada por exceção | Event-driven reporting |
 | Suposição errada a evitar | Que ele deveria ser enviado rotineiramente para cada pagamento | Que ele elimina a necessidade de gerenciamento proativo de casos |
 
 ## Referências primárias

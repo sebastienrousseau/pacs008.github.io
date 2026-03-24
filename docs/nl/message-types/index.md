@@ -1,6 +1,6 @@
 ---
 title: Berichttypen | pacs008 ISO 20022
-description: Ondersteunde ISO 20022 pacs-berichtdefinities en versies. Generatie, validatie, API-orchestratie en compliance-ondersteuning voor...
+description: Ondersteunde ISO 20022 pacs-berichtdefinities en versies. Generatie, validatie, API-orchestratie en compliance-ondersteuning voor klantkredietoverdrachten...
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg

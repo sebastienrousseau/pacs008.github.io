@@ -147,7 +147,7 @@ Mandate quality, debtor-account rules, and return handling usually matter more t
 ## Related messages
 | Message type | Description | Overview |
 |---|---|---|
-| [`pacs.004.001.11`](/en/pacs.004.001.11/) | Payment Return | The pacs.004 message is used to return a previously settled payment transaction. It reverses the flow of funds when a payment cannot be applied, was sent in error, or is being recalled by the originating institution. |
-| [`pacs.007.001.11`](/en/pacs.007.001.11/) | FI to FI Payment Reversal | The pacs.007 message is used to reverse a previously sent payment instruction that has not yet been settled or to request reversal of a settled payment. Unlike pacs.004 (return), it is initiated by the original instructing agent. |
-| [`pacs.002.001.12`](/en/pacs.002.001.12/) | FI to FI Payment Status Report | The pacs.002 message is sent by a financial institution to report the status of a previously sent payment instruction. It provides confirmation, rejection, or pending status information for individual transactions within a payment message. |
+| [`pacs.004.001.11`](/pacs.004.001.11/) | Payment Return | The pacs.004 message is used to return a previously settled payment transaction. It reverses the flow of funds when a payment cannot be applied, was sent in error, or is being recalled by the originating institution. |
+| [`pacs.007.001.11`](/pacs.007.001.11/) | FI to FI Payment Reversal | The pacs.007 message is used to reverse a previously sent payment instruction that has not yet been settled or to request reversal of a settled payment. Unlike pacs.004 (return), it is initiated by the original instructing agent. |
+| [`pacs.002.001.12`](/pacs.002.001.12/) | FI to FI Payment Status Report | The pacs.002 message is sent by a financial institution to report the status of a previously sent payment instruction. It provides confirmation, rejection, or pending status information for individual transactions within a payment message. |
 

@@ -60,7 +60,7 @@ El agente del acreedor inicia pacs.003 hacia el agente del deudor para cobrar fo
 | Rango de versiones | Por qué importa | Conclusión de implementación |
 |---|---|---|
 | pacs.003.001.09 | Implementación actual en pacs008 | Útil para la modelización de referencias de adeudo directo en el proyecto actual. |
-| pacs.003.001.10-11 | Revisiones posteriores del catálogo | Revise versiones posteriores para cambios de mandato, estado e interoperabilidad antes de un uso greenfield. |
+| pacs.003.001.10-11 | Revisiones posteriores del catálogo | Revise versiones posteriores para cambios de mandato, estado e interoperabilidad antes de usarlo en una nueva implementación. |
 
 ## Fragmento XML comentado
 

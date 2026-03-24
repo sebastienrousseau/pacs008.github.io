@@ -80,18 +80,18 @@ Das Schuldnerinstitut sendet pacs.009 an das Gläubigerinstitut, um eigene Mitte
 
 ### Hinweise zu den Feldern
 
-- `InstrId`: Verwenden Sie eine Kennung für den Funding-Leg, die weiterhin mit dem zugrunde liegenden Kundenfluss verknüpft werden kann.
+- `InstrId`: Verwenden Sie eine Kennung für die Liquiditätstranche, die weiterhin mit dem zugrunde liegenden Kundenfluss verknüpft werden kann.
 - `IntrBkSttlmAmt`: Eigengeschäfts- und Cover-Flüsse benötigen häufig strengere Treasury-Kontrollen für Beträge und Wertstellungstermine.
-- `Dbtr` / `Cdtr`: Dies sind Institutsparteien und keine Retail-Kundenrollen; modellieren Sie sie entsprechend.
+- `Dbtr` / `Cdtr`: Dies sind Institutsparteien und keine Rollen von Privatkunden; modellieren Sie sie entsprechend.
 
 ## Vergleich pacs.009 vs pacs.008
 
 | Dimension | pacs.009.001.10 | Vergleichsnachricht |
 |---|---|---|
 | Hauptzweck | Instituts-Eigengeschäftstransfer oder Cover-Leg | Kundenkredittransfer |
-| Fachlicher Verantwortungsbereich | Treasury-, Korrespondenz- und Funding-Betrieb | Kundenzahlungsbetrieb |
+| Fachlicher Verantwortungsbereich | Treasury-, Korrespondenz- und Liquiditätsbetrieb | Kundenzahlungsbetrieb |
 | Typische Kombinationen | pacs.002, pacs.004 und verknüpfte pacs.008-Flüsse | pacs.002, pacs.004, pacs.007, pacs.028 |
-| Zu vermeidende Fehlannahme | Dass dies nur eine technischere pacs.008 ist | Dass sich damit Instituts-Funding-Flüsse ohne Weiteres abbilden lassen |
+| Zu vermeidende Fehlannahme | Dass dies nur eine technischere pacs.008 ist | Dass sich damit institutsinterne Liquiditätsflüsse ohne Weiteres abbilden lassen |
 
 ## Primärquellen
 

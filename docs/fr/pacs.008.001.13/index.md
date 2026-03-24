@@ -96,7 +96,7 @@ L'agent du débiteur crée un pacs.008 et l'envoie à l'agent du créancier (dir
 | Dimension | pacs.008.001.13 | Message de comparaison |
 |---|---|---|
 | Objectif principal | Virement client | Virement sur compte propre d'institution ou jambe de couverture |
-| Responsable métier | Opérations de paiements clients | Opérations de trésorerie, de correspondance et de financement |
+| Responsable métier | Opérations de paiements clients | Opérations de trésorerie, de correspondance et de liquidité |
 | Associations typiques | pacs.002, pacs.004, pacs.007, pacs.028 | pacs.002, pacs.004, and sometimes linked pacs.008 flows |
 | Hypothèse erronée à éviter | That all bank-to-bank transfers belong here | That it can replace customer credit-transfer instructions |
 

@@ -59,7 +59,7 @@ De opdrachthebbende agent (ontvanger) stuurt pacs.002 terug naar de opdrachtgeve
 
 | Versiebereik | Waarom dit telt | Implementatieconclusie |
 |---|---|---|
-| pacs.002.001.12 | Huidige implementatie in pacs008 | Gebruik dit wanneer u werkt met de momenteel ondersteunde projectsjablonen en validatie-artefacten. |
+| pacs.002.001.12 | Huidige implementatie in pacs008 | Gebruik dit wanneer u moet aansluiten op de momenteel ondersteunde projectmodellen en validatie-artefacten. |
 | pacs.002.001.13-15 | Latere catalogusrevisies | Bekijk latere ISO-revisies voordat u nieuw interoperabiliteitswerk start of nieuwe infrastructuren aansluit. |
 
 ## Uitgewerkt XML-voorbeeld
@@ -84,7 +84,7 @@ De opdrachthebbende agent (ontvanger) stuurt pacs.002 terug naar de opdrachtgeve
 
 - `MsgId`: Gebruik een nieuwe identificatie voor het statusrapport zelf, niet voor de oorspronkelijke betalingsinstructie.
 - `OrgnlInstrId`: Laat de oorspronkelijke instructie-identificatie ongewijzigd zodat de status automatisch kan worden gematcht.
-- `TxSts`: Dit is de operationele status; koppel die zorgvuldig aan interne workflowstatussen in plaats van een directe een-op-eenrelatie aan te nemen.
+- `TxSts`: Dit is de operationele status; koppel die zorgvuldig aan interne processtatussen in plaats van een directe een-op-eenrelatie aan te nemen.
 - `StsRsnInf`: Gestructureerde redencodes zijn veel nuttiger dan vrije tekst voor herstel en analyse.
 
 ## Vergelijk pacs.002 vs pacs.028
@@ -93,7 +93,7 @@ De opdrachthebbende agent (ontvanger) stuurt pacs.002 terug naar de opdrachtgeve
 |---|---|---|
 | Primair doel | Report status | Request status |
 | Wie de interactie start | De instelling die de status verzendt | De instelling die om status vraagt |
-| Operational posture | Event-driven reporting | Exception-driven enquiry |
+| Operationele invalshoek | Event-driven reporting | Navraag op basis van uitzonderingen |
 | Te vermijden misvatting | Dat statusrapportage onderzoekswerkstromen vervangt | Dat elke betaling een expliciet statusverzoek nodig heeft |
 
 ## Primaire referenties

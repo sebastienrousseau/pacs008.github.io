@@ -84,7 +84,7 @@ El agente instruido (receptor) envía pacs.002 al agente ordenante (emisor) para
 
 - `MsgId`: Use un identificador nuevo para el propio informe de estado, no para la instrucción de pago original.
 - `OrgnlInstrId`: Mantenga intacto el identificador original de la instrucción para que el estado pueda conciliarse automáticamente.
-- `TxSts`: Este es el estado operativo; asígnelo con cuidado a los estados internos del flujo en lugar de asumir una correspondencia directa.
+- `TxSts`: Este es el estado operativo; asígnelo con cuidado a los estados internos del proceso en lugar de asumir una correspondencia directa.
 - `StsRsnInf`: Los códigos de motivo estructurados son mucho más útiles que el texto libre para reparaciones y analítica.
 
 ## Comparar pacs.002 vs pacs.028

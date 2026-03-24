@@ -17,7 +17,7 @@ Proyek ini menyediakan REST API dan CLI untuk alur kerja pemrosesan pesan pembay
 - Gunakan pembuatan sinkron untuk pemeriksaan operasional dan batch kecil saat pemanggil membutuhkan XML segera.
 - Gunakan pembuatan asinkron saat file input besar, pekerjaan perlu percobaan ulang, atau proses pembuatan menjadi bagian dari mesin orkestrasi yang lebih luas.
 - Simpan data masukan sumber dan laporan validasi agar tim dukungan dapat mereproduksi keluaran XML saat insiden.
-- Kunci jalur template dan XSD di konfigurasi penerapan untuk mencegah pembaruan diam-diam.
+- Kunci jalur model XML dan XSD di konfigurasi penerapan untuk mencegah pembaruan diam-diam.
 
 ## Instalasi
 

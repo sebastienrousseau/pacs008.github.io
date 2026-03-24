@@ -60,7 +60,7 @@ De crediteuragent initieert pacs.003 richting de debiteuragent om gelden te inne
 | Versiebereik | Waarom dit telt | Implementatieconclusie |
 |---|---|---|
 | pacs.003.001.09 | Huidige implementatie in pacs008 | Nuttig voor de referentiemodellering van incasso's in het huidige project. |
-| pacs.003.001.10-11 | Latere catalogusrevisies | Check later revisions for mandate, status, and interoperability updates before greenfield use. |
+| pacs.003.001.10-11 | Latere catalogusrevisies | Controleer latere revisies op wijzigingen rond mandaat, status en interoperabiliteit voordat u dit in een nieuwe implementatie gebruikt. |
 
 ## Uitgewerkt XML-voorbeeld
 

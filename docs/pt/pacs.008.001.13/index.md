@@ -86,7 +86,7 @@ O agente do devedor cria um pacs.008 e o envia ao agente do credor (diretamente 
 ### Comentários de campo
 
 - `MsgId`: Este campo deve identificar o envelope da mensagem, e não a referência de pagamento do cliente final.
-- `EndToEndId`: Keep customer-facing traceability stable across downstream systems where possible.
+- `EndToEndId`: Mantenha a rastreabilidade voltada ao cliente estável em todos os sistemas posteriores sempre que possível.
 - `UETR`: Use isto de forma consistente em ambientes transfronteiriços com forte exigência de rastreabilidade; não o gere de forma ad hoc em etapas posteriores do processamento.
 - `IntrBkSttlmAmt`: Valide valor e moeda com regras de negócio antes da validação do esquema.
 - `Dbtr` / `Cdtr`: A qualidade dos dados das partes, a estrutura do endereço e os identificadores costumam ser os principais fatores do volume de reparos.

@@ -80,7 +80,7 @@ La institución deudora envía pacs.009 a la institución acreedora para transfe
 
 ### Comentarios de campos
 
-- `InstrId`: Utilice un identificador del tramo de financiación que pueda seguir vinculándose al flujo de cliente subyacente.
+- `InstrId`: Utilice un identificador del tramo de liquidez que pueda seguir vinculado al flujo de cliente subyacente.
 - `IntrBkSttlmAmt`: Los flujos por cuenta propia y de cobertura suelen requerir controles de tesorería más estrictos sobre importes y fechas de liquidación.
 - `Dbtr` / `Cdtr`: Se trata de partes institucionales, no de roles de cliente minorista; modélelas en consecuencia.
 
@@ -89,9 +89,9 @@ La institución deudora envía pacs.009 a la institución acreedora para transfe
 | Dimensión | pacs.009.001.10 | Mensaje de comparación |
 |---|---|---|
 | Propósito principal | Transferencia de crédito por cuenta propia de la institución o tramo de cobertura | Transferencia de crédito de cliente |
-| Responsable de negocio | Operaciones de tesorería, corresponsalía y financiación | Operaciones de pagos de clientes |
+| Responsable de negocio | Operaciones de tesorería, corresponsalía y liquidez | Operaciones de pagos de clientes |
 | Combinaciones típicas | pacs.002, pacs.004 y flujos pacs.008 vinculados | pacs.002, pacs.004, pacs.007, pacs.028 |
-| Supuesto erróneo a evitar | Que es simplemente una pacs.008 más técnica | Que puede transportar sin problemas flujos de financiación entre instituciones |
+| Supuesto erróneo a evitar | Que es simplemente una pacs.008 más técnica | Que puede gestionar sin problemas flujos de liquidez entre instituciones |
 
 ## Referencias primarias
 

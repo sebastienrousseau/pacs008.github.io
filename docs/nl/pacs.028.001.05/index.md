@@ -34,14 +34,14 @@ Het pacs.028-bericht wordt door een financiële instelling verzonden om de statu
 - Maakt proactieve statusopvraging mogelijk voor betalingsinstructies in transit
 - Ondersteunt operationele teams bij het onderzoeken van vertraagde of ontbrekende betalingen
 - Vult pacs.002 aan door statuscommunicatie te initiëren in plaats van af te wachten
-- Gebruikt in workflows voor uitzonderingsafhandeling en SLA-monitoring
+- Gebruikt in processen voor uitzonderingsafhandeling en SLA-monitoring
 
 | Belangrijke gegevenselementen | Zakelijke context |
 |---|---|
 | **GrpHdr** — Groepskoptekst met berichtidentificatie en aanmaaktijdstempel | Maakt proactieve statusopvraging mogelijk voor betalingsinstructies in transit |
 | **TxInf** — Transactie-informatie die de betaling identificeert waarover wordt geïnformeerd | Ondersteunt operationele teams bij het onderzoeken van vertraagde of ontbrekende betalingen |
 | **OrgnlGrpInf** — Oorspronkelijke groepsinformatie met verwijzing naar het bronbericht | Vult pacs.002 aan door statuscommunicatie te initiëren in plaats van af te wachten |
-| **OrgnlInstrId** — Oorspronkelijke instructie-identificatie uit de bronbetaling | Gebruikt in workflows voor uitzonderingsafhandeling en SLA-monitoring |
+| **OrgnlInstrId** — Oorspronkelijke instructie-identificatie uit de bronbetaling | Gebruikt in processen voor uitzonderingsafhandeling en SLA-monitoring |
 | **OrgnlEndToEndId** — Oorspronkelijke end-to-end-identificatie voor traceerbaarheid | De opdrachtgevende agent stuurt pacs.028 naar de opdrachthebbende agent om de status van een specifieke betaling op te vragen. De opdrachthebbende agent antwoordt met een pacs.002 met de huidige verwerkingsstatus. |
 
 ## CBPR+- en schema-context
@@ -80,7 +80,7 @@ De opdrachtgevende agent stuurt pacs.028 naar de opdrachthebbende agent om de st
 
 - `MsgId`: Het verzoek zelf heeft een controleerbare identificatie nodig die losstaat van de onderliggende betaling.
 - `OrgnlInstrId`: Gebruik de exacte bronidentificatie uit de oorspronkelijke instructie om de matchingnauwkeurigheid te maximaliseren.
-- `OrgnlEndToEndId`: Including customer traceability helps operations teams reconcile the enquiry faster.
+- `OrgnlEndToEndId`: Het opnemen van klantgerichte traceerbaarheid helpt operationele teams de navraag sneller af te stemmen.
 
 ## Vergelijk pacs.028 vs pacs.002
 
@@ -88,7 +88,7 @@ De opdrachtgevende agent stuurt pacs.028 naar de opdrachthebbende agent om de st
 |---|---|---|
 | Primair doel | Request status | Report status |
 | Wie de interactie start | De instelling die om status vraagt | De instelling die de status verzendt |
-| Operational posture | Exception-driven enquiry | Event-driven reporting |
+| Operationele invalshoek | Navraag op basis van uitzonderingen | Event-driven reporting |
 | Te vermijden misvatting | Dat het routinematig voor elke betaling zou moeten worden verzonden | Dat het de noodzaak van proactief casemanagement wegneemt |
 
 ## Primaire referenties

@@ -75,15 +75,16 @@ export function buildHreflangTags(routePath: string): Array<[string, Record<stri
   const suffix = first && LOCALE_KEYS.has(first)
     ? `/${segments.slice(1).join("/")}/`.replace(/\/+/g, "/")
     : routePath;
+  const localizedHref = (key: string) => key === "en"
+    ? toAbsoluteUrl(suffix)
+    : toAbsoluteUrl(`/${key}${suffix}`);
 
   const tags: Array<[string, Record<string, string>]> = [];
   for (const key of Object.keys(LOCALE_META)) {
-    const href = key === "en" && suffix === "/"
-      ? toAbsoluteUrl("/")
-      : toAbsoluteUrl(`/${key}${suffix}`);
+    const href = localizedHref(key);
     tags.push(["link", { rel: "alternate", hreflang: key === "zh-tw" ? "zh-Hant" : key, href }]);
   }
-  const xDefaultHref = suffix === "/" ? toAbsoluteUrl("/") : toAbsoluteUrl(`/en${suffix}`);
+  const xDefaultHref = localizedHref("en");
   tags.push(["link", { rel: "alternate", hreflang: "x-default", href: xDefaultHref }]);
   return tags;
 }

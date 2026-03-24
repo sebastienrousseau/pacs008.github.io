@@ -59,7 +59,7 @@ L'agente del debitore crea un pacs.008 e lo invia all'agente del creditore (dire
 
 | Intervallo di versione | Perché conta | Implicazione implementativa |
 |---|---|---|
-| pacs.008.001.01-07 | Revisioni iniziali | Utile soprattutto per l'analisi delle migrazioni legacy e per il contesto storico delle versioni. |
+| pacs.008.001.01-07 | Revisioni iniziali | Utile soprattutto per l'analisi delle migrazioni da sistemi precedenti e per il contesto storico delle versioni. |
 | pacs.008.001.08-12 | Revisioni moderne precedenti a quella attuale | Sono le revisioni che più probabilmente compariranno nei recenti progetti di migrazione o coesistenza. |
 | pacs.008.001.13 | Revisione attuale del catalogo | Da usare per pianificare sulla versione corrente, continuando però a verificare regole di schema e prontezza delle controparti. |
 
@@ -86,19 +86,19 @@ L'agente del debitore crea un pacs.008 e lo invia all'agente del creditore (dire
 ### Commenti sui campi
 
 - `MsgId`: Questo campo deve identificare l'involucro del messaggio, non il riferimento di pagamento del cliente finale.
-- `EndToEndId`: Keep customer-facing traceability stable across downstream systems where possible.
-- `UETR`: Gunakan ini secara konsisten dalam lingkungan lintas batas dan yang menuntut pelacakan tinggi; jangan hasilkan secara ad hoc pada tahap proses berikutnya.
-- `IntrBkSttlmAmt`: Validasi jumlah dan mata uang menggunakan aturan bisnis sebelum validasi skema.
-- `Dbtr` / `Cdtr`: Kualitas data pihak, struktur alamat, dan pengenal biasanya menjadi penentu utama tingkat perbaikan.
+- `EndToEndId`: Jaga agar keterlacakan yang terlihat oleh nasabah tetap stabil di seluruh sistem hilir bila memungkinkan.
+- `UETR`: Usa questo campo in modo coerente negli ambienti transfrontalieri e ad alta tracciabilità; non generarlo in modo estemporaneo nelle fasi successive del processo.
+- `IntrBkSttlmAmt`: Valida importo e valuta con regole di business prima della validazione dello schema.
+- `Dbtr` / `Cdtr`: La qualità dei dati delle parti, la struttura degli indirizzi e gli identificatori sono di solito i principali fattori che determinano il volume di riparazione.
 
 ## Confrontare pacs.008 vs pacs.009
 
 | Dimensione | pacs.008.001.13 | Messaggio di confronto |
 |---|---|---|
-| Scopo principale | Transfer kredit nasabah | Transfer kredit rekening milik institusi sendiri atau tahap penutup pendanaan |
-| Pemilik proses bisnis | Operasi pembayaran nasabah | Operasi tresuri / korespondensi / pendanaan |
-| Kombinasi yang umum | pacs.002, pacs.004, pacs.007, pacs.028 | pacs.002, pacs.004, and sometimes linked pacs.008 flows |
-| Asumsi keliru yang perlu dihindari | That all bank-to-bank transfers belong here | That it can replace customer credit-transfer instructions |
+| Scopo principale | Trasferimento di credito del cliente | Trasferimento di credito su conto proprio dell'istituzione o gamba di copertura |
+| Responsabile di business | Operazioni di pagamento del cliente | Operazioni di tesoreria, corrispondenza e funding |
+| Abbinamenti tipici | pacs.002, pacs.004, pacs.007, pacs.028 | pacs.002, pacs.004 e, in alcuni casi, flussi pacs.008 collegati |
+| Ipotesi errata da evitare | Che tutti i trasferimenti banca-a-banca rientrino qui | Che possa sostituire le istruzioni di trasferimento di credito del cliente |
 
 ## Riferimenti primari
 

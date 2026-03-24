@@ -59,7 +59,7 @@ L'agente ordinante (mittente originale) invia pacs.007 in avanti attraverso la c
 
 | Intervallo di versione | Perché conta | Implicazione implementativa |
 |---|---|---|
-| pacs.007.001.11 | Implementazione attuale in pacs008 | Landasan yang baik untuk pemodelan alur pembalikan. |
+| pacs.007.001.11 | Implementazione attuale in pacs008 | Buona base per modellare i flussi di storno. |
 | pacs.007.001.12-13 | Revisioni successive del catalogo | Check later revisions for current market-infrastructure alignment. |
 
 ## Esempio XML commentato

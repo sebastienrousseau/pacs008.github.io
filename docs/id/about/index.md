@@ -69,7 +69,7 @@ pacs008 melampaui referensi definisi pesan untuk mendukung implementasi operasio
 
 ## Daftar periksa implementasi
 
-- Pilih keluarga pesan yang tepat untuk peristiwa bisnis sebelum menulis template.
+- Pilih keluarga pesan yang tepat untuk peristiwa bisnis sebelum menulis model XML.
 - Validasi data bisnis sebelum menghasilkan XML agar kesalahan skema bukan menjadi sinyal pertama.
 - Perlakukan kualitas BIC, IBAN, remittance, dan alamat pos sebagai kriteria rilis, bukan pekerjaan pembersihan belakangan.
 - Jalankan uji regresi untuk setiap perubahan aturan skema atau bank dengan data pembayaran yang representatif.

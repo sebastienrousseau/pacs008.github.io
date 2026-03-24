@@ -15,9 +15,9 @@ Il progetto fornisce sia una REST API sia una CLI per i flussi operativi di elab
 ## Note di implementazione
 
 - Usare la generazione sincrona per controlli operativi e piccoli batch quando il chiamante si aspetta subito il file XML.
-- Usare la generazione asincrona quando i file di input sono grandi, i job richiedono retry o la generazione fa parte di un motore di orchestrazione più ampio.
+- Usare la generazione asincrona quando i file di input sono grandi, i job richiedono retry o la generazione fa parte di un processo di orchestrazione più ampio.
 - Conservare sia il payload di origine sia il report di validazione affinché i team di supporto possano riprodurre l'output XML durante gli incidenti.
-- Bloccare le versioni dei percorsi di template e XSD nella configurazione di deployment per evitare aggiornamenti silenziosi.
+- Bloccare le versioni dei percorsi dei modelli XML e dei file XSD nella configurazione di distribuzione per evitare aggiornamenti silenziosi.
 
 ## Installazione
 
@@ -159,7 +159,7 @@ curl http://localhost:8000/api/download/$JOB_ID --output result.xml
 
 ## CLI
 
-L'interfaccia a riga di comando accetta un file di dati, una versione del messaggio, un template e uno schema. Valida l'input e scrive l'XML generato nella directory di output.
+L'interfaccia a riga di comando accetta un file di dati, una versione del messaggio, un modello XML e uno schema. Valida l'input e scrive l'XML generato nella directory di output.
 
 ### Utilizzo di base
 

@@ -59,7 +59,7 @@ O agente instruído envia pacs.004 de volta pela cadeia de pagamento para devolv
 
 | Faixa de versão | Por que importa | Implicação de implementação |
 |---|---|---|
-| pacs.004.001.11 | Implementação atual no pacs008 | Alinha-se aos templates atuais para retornos de pagamento. |
+| pacs.004.001.11 | Implementação atual no pacs008 | Alinha-se aos modelos XML atuais para retornos de pagamento. |
 | pacs.004.001.12-14 | Revisões posteriores do catálogo | Revise versões posteriores das mensagens de retorno quando atualizações de esquema ou novas contrapartes estiverem no escopo. |
 
 ## Exemplo XML comentado
@@ -83,7 +83,7 @@ O agente instruído envia pacs.004 de volta pela cadeia de pagamento para devolv
 
 - `OrgnlInstrId`: This must point back to the settled transaction being returned.
 - `RtrdIntrBkSttlmAmt`: Return amount should reflect the actual returned value, not a reconstructed business amount.
-- `RtrRsnInf`: Reason-code quality is critical for downstream customer communication and operational routing.
+- `RtrRsnInf`: A qualidade dos códigos de motivo é crucial para a comunicação posterior com o cliente e o encaminhamento operacional.
 
 ## Comparar pacs.004 vs pacs.007
 

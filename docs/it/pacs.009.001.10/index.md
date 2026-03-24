@@ -34,15 +34,15 @@ Il messaggio pacs.009 viene utilizzato per bonifici tra istituti finanziari in c
 - Utilizzato per trasferimenti bancari su conto proprio e pagamenti di copertura
 - Supporta la gestione della liquidità tra partner di corrispondenza bancaria
 - Trasporta la tratta di copertura dei bonifici della clientela regolati con metodo copertura
-- Consente operazioni di tesoreria e finanziamento tra istituti finanziari
+- Consente operazioni di tesoreria e provvista tra istituti finanziari
 
 | Elementi di dati chiave | Contesto di business |
 |---|---|
 | **GrpHdr** — Intestazione di gruppo con identificazione del messaggio e informazioni di regolamento | Utilizzato per trasferimenti bancari su conto proprio e pagamenti di copertura |
 | **CdtTrfTxInf** — Informazioni sulla transazione di bonifico con importo di regolamento interbancario | Supporta la gestione della liquidità tra partner di corrispondenza bancaria |
 | **Dbtr / DbtrAgt** — Identificazione dell'istituto debitore e del suo agente | Trasporta la tratta di copertura dei bonifici della clientela regolati con metodo copertura |
-| **Cdtr / CdtrAgt** — Identificazione dell'istituto creditore e del suo agente | Consente operazioni di tesoreria e finanziamento tra istituti finanziari |
-| **IntrBkSttlmAmt** — Importo di regolamento interbancario nella valuta di regolamento | L'istituto debitore invia pacs.009 all'istituto creditore per trasferire i propri fondi. Per i pagamenti con metodo copertura, pacs.009 fornisce la tratta di finanziamento mentre pacs.008 trasporta l'istruzione del cliente attraverso un percorso separato. |
+| **Cdtr / CdtrAgt** — Identificazione dell'istituto creditore e del suo agente | Consente operazioni di tesoreria e provvista tra istituti finanziari |
+| **IntrBkSttlmAmt** — Importo di regolamento interbancario nella valuta di regolamento | L'istituto debitore invia pacs.009 all'istituto creditore per trasferire i propri fondi. Per i pagamenti con metodo copertura, pacs.009 fornisce la tratta di provvista mentre pacs.008 trasporta l'istruzione del cliente attraverso un percorso separato. |
 
 ## Contesto CBPR+ e schemi
 
@@ -53,14 +53,14 @@ Il messaggio pacs.009 viene utilizzato per bonifici tra istituti finanziari in c
 
 ## Flusso del messaggio
 
-L'istituto debitore invia pacs.009 all'istituto creditore per trasferire i propri fondi. Per i pagamenti con metodo copertura, pacs.009 fornisce la tratta di finanziamento mentre pacs.008 trasporta l'istruzione del cliente attraverso un percorso separato.
+L'istituto debitore invia pacs.009 all'istituto creditore per trasferire i propri fondi. Per i pagamenti con metodo copertura, pacs.009 fornisce la tratta di provvista mentre pacs.008 trasporta l'istruzione del cliente attraverso un percorso separato.
 
 ## Tabella delle differenze di versione
 
 | Intervallo di versione | Perché conta | Implicazione implementativa |
 |---|---|---|
-| pacs.009.001.10 | Implementazione attuale in pacs008 | Sesuai dengan dukungan proyek saat ini untuk alur transfer kredit FI. |
-| pacs.009.001.11-12 | Revisioni successive del catalogo | Penting untuk perencanaan peta jalan dalam lingkungan perbankan koresponden dan pembayaran penutup. |
+| pacs.009.001.10 | Implementazione attuale in pacs008 | È coerente con il supporto attuale del progetto per i flussi di bonifico FI. |
+| pacs.009.001.11-12 | Revisioni successive del catalogo | Importante per la pianificazione evolutiva in ambienti di banca corrispondente e pagamenti di copertura. |
 
 ## Esempio XML commentato
 
@@ -80,18 +80,18 @@ L'istituto debitore invia pacs.009 all'istituto creditore per trasferire i propr
 
 ### Commenti sui campi
 
-- `InstrId`: Gunakan pengenal tahap pendanaan yang tetap dapat dihubungkan ke alur pelanggan dasar apa pun.
-- `IntrBkSttlmAmt`: Alur rekening sendiri dan alur penutup sering memerlukan kontrol tresuri yang lebih ketat atas jumlah dan tanggal penyelesaian.
-- `Dbtr` / `Cdtr`: Ini adalah pihak institusional, bukan peran nasabah ritel; modelkan sesuai itu.
+- `InstrId`: Usa un identificatore della tratta di provvista che possa ancora essere collegato al flusso cliente sottostante.
+- `IntrBkSttlmAmt`: I flussi su conto proprio e di copertura richiedono spesso controlli di tesoreria più rigorosi su importi e date di regolamento.
+- `Dbtr` / `Cdtr`: Si tratta di controparti istituzionali, non di ruoli retail del cliente; modellale di conseguenza.
 
 ## Confrontare pacs.009 vs pacs.008
 
 | Dimensione | pacs.009.001.10 | Messaggio di confronto |
 |---|---|---|
-| Scopo principale | Transfer kredit rekening milik institusi sendiri atau tahap penutup pendanaan | Transfer kredit nasabah |
-| Pemilik proses bisnis | Operasi tresuri / korespondensi / pendanaan | Operasi pembayaran nasabah |
-| Kombinasi yang umum | aliran pacs.002, pacs.004, dan pacs.008 yang terkait | pacs.002, pacs.004, pacs.007, pacs.028 |
-| Asumsi keliru yang perlu dihindari | Bahwa ini hanyalah pacs.008 yang lebih teknis | Bahwa ini dapat membawa aliran pendanaan institusi dengan rapi |
+| Scopo principale | Trasferimento di credito su conto proprio dell'istituzione o gamba di copertura | Trasferimento di credito del cliente |
+| Responsabile di business | Operazioni di tesoreria, corrispondenza e funding | Operazioni di pagamento del cliente |
+| Abbinamenti tipici | flussi pacs.002, pacs.004 e pacs.008 collegati | pacs.002, pacs.004, pacs.007, pacs.028 |
+| Ipotesi errata da evitare | Che sia semplicemente una pacs.008 più tecnica | Che possa gestire senza problemi i flussi di provvista tra istituzioni |
 
 ## Riferimenti primari
 

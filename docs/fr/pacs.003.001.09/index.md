@@ -60,7 +60,7 @@ L'agent du créancier initie pacs.003 vers l'agent du débiteur pour collecter d
 | Plage de versions | Pourquoi c'est important | Conséquence pratique |
 |---|---|---|
 | pacs.003.001.09 | Implémentation actuelle dans pacs008 | Utile pour la modélisation de références de prélèvement dans le projet actuel. |
-| pacs.003.001.10-11 | Révisions ultérieures du catalogue | Examinez les révisions ultérieures pour les évolutions de mandat, de statut et d'interopérabilité avant tout usage greenfield. |
+| pacs.003.001.10-11 | Révisions ultérieures du catalogue | Examinez les révisions ultérieures pour les évolutions de mandat, de statut et d'interopérabilité avant toute nouvelle mise en oeuvre. |
 
 ## Exemple XML commenté
 

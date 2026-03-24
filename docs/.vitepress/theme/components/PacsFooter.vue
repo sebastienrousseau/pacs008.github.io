@@ -17,7 +17,7 @@ const t = computed(() => getUiStrings(locale.value));
 
 function localLink(path: string): string {
   if (locale.value === "en") {
-    return path === "/" ? "/" : `/en${path}`;
+    return path;
   }
   return `/${locale.value}${path}`;
 }
@@ -26,9 +26,9 @@ function localLink(path: string): string {
 <template>
   <footer class="dot-footer" role="contentinfo">
     <div class="dot-footer-inner">
-      <nav class="dot-footer-nav" aria-label="Footer navigation">
+      <nav class="dot-footer-nav" :aria-label="t.footerNavLabel">
         <div class="dot-footer-column">
-          <h2 class="dot-footer-title">Documentation</h2>
+          <h2 class="dot-footer-title">{{ t.documentation }}</h2>
           <ul>
             <li><a :href="localLink('/about/')">{{ t.about }}</a></li>
             <li><a :href="localLink('/message-types/')">{{ t.messageTypes }}</a></li>
@@ -38,21 +38,21 @@ function localLink(path: string): string {
           </ul>
         </div>
         <div class="dot-footer-column">
-          <h2 class="dot-footer-title">Resources</h2>
+          <h2 class="dot-footer-title">{{ t.resources }}</h2>
           <ul>
             <li>
-              <a href="https://github.com/sebastienrousseau/pacs008" target="_blank" rel="noopener noreferrer">{{ t.github }}<span class="visually-hidden"> (opens in new tab)</span></a>
+              <a href="https://github.com/sebastienrousseau/pacs008" target="_blank" rel="noopener noreferrer">{{ t.github }}<span class="visually-hidden"> {{ t.opensInNewTab }}</span></a>
             </li>
             <li>
-              <a href="https://pypi.org/project/pacs008/" target="_blank" rel="noopener noreferrer">{{ t.pypi }}<span class="visually-hidden"> (opens in new tab)</span></a>
+              <a href="https://pypi.org/project/pacs008/" target="_blank" rel="noopener noreferrer">{{ t.pypi }}<span class="visually-hidden"> {{ t.opensInNewTab }}</span></a>
             </li>
             <li>
-              <a href="https://github.com/sebastienrousseau/pacs008/releases" target="_blank" rel="noopener noreferrer">Releases<span class="visually-hidden"> (opens in new tab)</span></a>
+              <a href="https://github.com/sebastienrousseau/pacs008/releases" target="_blank" rel="noopener noreferrer">{{ t.releases }}<span class="visually-hidden"> {{ t.opensInNewTab }}</span></a>
             </li>
           </ul>
         </div>
         <div class="dot-footer-column">
-          <h2 class="dot-footer-title">Legal</h2>
+          <h2 class="dot-footer-title">{{ t.legal }}</h2>
           <ul>
             <li><a :href="localLink('/privacy/')">{{ t.privacy }}</a></li>
             <li><a :href="localLink('/terms/')">{{ t.terms }}</a></li>

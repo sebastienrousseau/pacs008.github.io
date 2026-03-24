@@ -1,6 +1,6 @@
 ---
 title: Handleiding berichtselectie | pacs008
-description: Kies het juiste ISO 20022-pacs-bericht voor generatie, statusrapportage, retouren, reversals en navragen.
+description: Kies het juiste ISO 20022-pacs-bericht voor generatie, statusrapportage, retouren, terugboekingen en navragen.
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg
@@ -30,7 +30,7 @@ Kies de pacs-familie eerst op basis van de bedrijfsgebeurtenis en daarna op basi
 | Vergelijk | Belangrijk onderscheid |
 |---|---|
 | `pacs.008` vs `pacs.009` | Klantbetaling versus institutionele of dekkingsbeweging |
-| `pacs.004` vs `pacs.007` | Retour vanaf ontvangende zijde versus reversal vanaf verzendende zijde |
+| `pacs.004` vs `pacs.007` | Retour vanaf ontvangende zijde versus terugboeking vanaf verzendende zijde |
 | `pacs.002` vs `pacs.028` | Statusrapport versus statusverzoek |
 
 ## Ondersteunde berichtpagina's

@@ -59,7 +59,7 @@ De debiteuragent maakt een pacs.008 aan en stuurt dit naar de crediteuragent (re
 
 | Versiebereik | Waarom dit telt | Implementatieconclusie |
 |---|---|---|
-| pacs.008.001.01-07 | Vroege revisies | Vooral nuttig voor analyse van legacy-migraties en versiehistorische context. |
+| pacs.008.001.01-07 | Vroege revisies | Vooral nuttig voor analyse van migraties vanuit oudere omgevingen en voor versiehistorische context. |
 | pacs.008.001.08-12 | Moderne revisies vóór de huidige | Dit zijn de revisies die het meest waarschijnlijk voorkomen in recente migratie- of co-existentieprojecten. |
 | pacs.008.001.13 | Huidige catalogusrevisie | Gebruik dit voor planning rond de huidige versie, terwijl schemaregels en gereedheid van tegenpartijen nog steeds gevalideerd moeten worden. |
 
@@ -86,7 +86,7 @@ De debiteuragent maakt een pacs.008 aan en stuurt dit naar de crediteuragent (re
 ### Veldtoelichting
 
 - `MsgId`: Dit veld moet de berichtenenvelop identificeren, niet de betalingsreferentie van de eindklant.
-- `EndToEndId`: Keep customer-facing traceability stable across downstream systems where possible.
+- `EndToEndId`: Houd klantgerichte traceerbaarheid waar mogelijk stabiel in alle vervolgsystemen.
 - `UETR`: Gebruik dit consequent in grensoverschrijdende omgevingen met hoge traceerbaarheidseisen; genereer het niet ad hoc in latere verwerkingsstappen.
 - `IntrBkSttlmAmt`: Valideer bedrag en valuta met bedrijfsregels voordat de schemavalidatie plaatsvindt.
 - `Dbtr` / `Cdtr`: De kwaliteit van partijgegevens, adresstructuur en identificatoren bepaalt meestal in hoge mate het aantal herstelacties.
@@ -98,7 +98,7 @@ De debiteuragent maakt een pacs.008 aan en stuurt dit naar de crediteuragent (re
 | Primair doel | Klantcredittransfer | Credittransfer op eigen rekening van de instelling of dekkingsstap |
 | Zakelijke eigenaar | Klantbetalingsoperaties | Treasury-, correspondent- en financieringsoperaties |
 | Typische combinaties | pacs.002, pacs.004, pacs.007, pacs.028 | pacs.002, pacs.004, and sometimes linked pacs.008 flows |
-| Te vermijden misvatting | That all bank-to-bank transfers belong here | That it can replace customer credit-transfer instructions |
+| Te vermijden misvatting | Dat alle bank-naar-banktransfers hieronder vallen | Dat dit klantinstructies voor credittransfers kan vervangen |
 
 ## Primaire referenties
 
