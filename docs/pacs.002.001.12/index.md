@@ -36,13 +36,42 @@ The pacs.002 message is sent by a financial institution to report the status of 
 - Required in CBPR+ flows to acknowledge processing of pacs.008 and pacs.009 messages
 - Supports both bulk group-level and individual transaction-level status reporting
 
-| Key data elements | Business context |
-|---|---|
-| **GrpHdr** — Group Header with message identification and creation timestamp | Used to confirm settlement or report rejection of credit transfers, direct debits, and payment returns |
-| **OrgnlGrpInfAndSts** — Original Group Information and Status for bulk-level reporting | Enables reconciliation between instructing and instructed agents |
-| **TxInfAndSts** — Transaction Information and Status for individual transaction outcomes | Required in CBPR+ flows to acknowledge processing of pacs.008 and pacs.009 messages |
-| **StsRsnInf** — Status Reason Information with structured reason codes | Supports both bulk group-level and individual transaction-level status reporting |
-| **OrgnlTxRef** — Original Transaction Reference linking back to the source instruction | The instructed agent (receiver) sends pacs.002 back to the instructing agent (sender) to confirm acceptance, settlement, or rejection of a received payment instruction such as pacs.008 or pacs.009. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Key data elements Business context">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Key data elements</th>
+        <th>Business context</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Group Header with message identification and creation timestamp</td>
+          <td class="operational-matrix-table__right">Used to confirm settlement or report rejection of credit transfers, direct debits, and payment returns</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlGrpInfAndSts** — Original Group Information and Status for bulk-level reporting</td>
+          <td class="operational-matrix-table__right">Enables reconciliation between instructing and instructed agents</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**TxInfAndSts** — Transaction Information and Status for individual transaction outcomes</td>
+          <td class="operational-matrix-table__right">Required in CBPR+ flows to acknowledge processing of pacs.008 and pacs.009 messages</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**StsRsnInf** — Status Reason Information with structured reason codes</td>
+          <td class="operational-matrix-table__right">Supports both bulk group-level and individual transaction-level status reporting</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlTxRef** — Original Transaction Reference linking back to the source instruction</td>
+          <td class="operational-matrix-table__right">The instructed agent (receiver) sends pacs.002 back to the instructing agent (sender) to confirm acceptance, settlement, or rejection of a received payment instruction such as pacs.008 or pacs.009.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## CBPR+ and scheme context
 
@@ -63,10 +92,34 @@ That means this page is useful for understanding the currently implemented versi
 
 ## Version-diff table
 
-| Version range | Why it matters | Implementation takeaway |
-|---|---|---|
-| pacs.002.001.12 | Current implementation in pacs008 | Use this when matching the current project templates and validation assets. |
-| pacs.002.001.13-15 | Later catalogue revisions | Review later ISO revisions before starting new interoperability work or onboarding new infrastructures. |
+<div class="version-diff-table" tabindex="0" aria-label="Version-diff table">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Version range</th>
+        <th>Why it matters</th>
+        <th>Implementation takeaway</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.002.001.12</td>
+          <td class="version-diff-table__why">Current implementation in pacs008</td>
+          <td class="version-diff-table__takeaway">Use this when matching the current project templates and validation assets.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.002.001.13-15</td>
+          <td class="version-diff-table__why">Later catalogue revisions</td>
+          <td class="version-diff-table__takeaway">Review later ISO revisions before starting new interoperability work or onboarding new infrastructures.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Scheme-specific notes
 
@@ -132,12 +185,44 @@ No -> Stay in the payment or exception flow.
 
 ## Compare pacs.002 vs pacs.028
 
-| Dimension | pacs.002.001.12 | Comparison message |
-|---|---|---|
-| Primary purpose | Report status | Request status |
-| Who starts the interaction | The institution sending the status | The institution asking for status |
-| Operational posture | Event-driven reporting | Exception-driven enquiry |
-| Wrong assumption to avoid | That status reporting replaces investigation workflows | That every payment needs an explicit status request |
+<div class="message-comparison-table" tabindex="0" aria-label="Compare pacs.002 vs pacs.028">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Dimension</th>
+        <th>pacs.002.001.12</th>
+        <th>Comparison message</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Primary purpose</td>
+          <td class="message-comparison-table__current">Report status</td>
+          <td class="message-comparison-table__other">Request status</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Who starts the interaction</td>
+          <td class="message-comparison-table__current">The institution sending the status</td>
+          <td class="message-comparison-table__other">The institution asking for status</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Operational posture</td>
+          <td class="message-comparison-table__current">Event-driven reporting</td>
+          <td class="message-comparison-table__other">Exception-driven enquiry</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Wrong assumption to avoid</td>
+          <td class="message-comparison-table__current">That status reporting replaces investigation workflows</td>
+          <td class="message-comparison-table__other">That every payment needs an explicit status request</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Implementation FAQ
 
@@ -159,9 +244,37 @@ No. It should inform them, but internal case states still need their own operati
 
 
 ## Related messages
-| Message type | Description | Overview |
-|---|---|---|
-| [`pacs.008.001.13`](/pacs.008.001.13/) | FI to FI Customer Credit Transfer | The pacs.008 message is the core payment instruction exchanged between financial institutions to transfer funds on behalf of a customer. It carries debtor, creditor, amount, and remittance information for one or more credit transfer transactions. |
-| [`pacs.009.001.10`](/pacs.009.001.10/) | Financial Institution Credit Transfer | The pacs.009 message is used for credit transfers between financial institutions where the transfer is on the institution's own behalf rather than on behalf of a customer. It supports interbank funding, cover payments, and liquidity management. |
-| [`pacs.028.001.05`](/pacs.028.001.05/) | FI to FI Payment Status Request | The pacs.028 message is sent by a financial institution to request the status of a previously sent payment instruction. It enables proactive tracking of payment processing without waiting for an unsolicited status report. |
+<div class="related-messages-table" tabindex="0" aria-label="Related messages">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Message type</th>
+        <th>Description</th>
+        <th>Overview</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">FI to FI Customer Credit Transfer</td>
+          <td class="related-messages-table__overview">The pacs.008 message is the core payment instruction exchanged between financial institutions to transfer funds on behalf of a customer. It carries debtor, creditor, amount, and remittance information for one or more credit transfer transactions.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">Financial Institution Credit Transfer</td>
+          <td class="related-messages-table__overview">The pacs.009 message is used for credit transfers between financial institutions where the transfer is on the institution&#39;s own behalf rather than on behalf of a customer. It supports interbank funding, cover payments, and liquidity management.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pacs.028.001.05/"><code>pacs.028.001.05</code></a></td>
+          <td class="related-messages-table__name">FI to FI Payment Status Request</td>
+          <td class="related-messages-table__overview">The pacs.028 message is sent by a financial institution to request the status of a previously sent payment instruction. It enables proactive tracking of payment processing without waiting for an unsolicited status report.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

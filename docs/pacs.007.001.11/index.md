@@ -36,13 +36,42 @@ The pacs.007 message is used to reverse a previously sent payment instruction th
 - Supports both full and partial reversal of original payment amounts
 - Carries structured reversal reason codes for downstream processing
 
-| Key data elements | Business context |
-|---|---|
-| **GrpHdr** — Group Header with message identification and creation timestamp | Initiated when the original sender identifies an error before or after settlement |
-| **TxInf** — Transaction Information with reversal amount and parties | Used in fraud scenarios where rapid reversal is required |
-| **OrgnlGrpInf** — Original Group Information referencing the source message | Supports both full and partial reversal of original payment amounts |
-| **RvslRsnInf** — Reversal Reason Information with structured reason codes | Carries structured reversal reason codes for downstream processing |
-| **OrgnlTxRef** — Original Transaction Reference for end-to-end traceability | The instructing agent (original sender) sends pacs.007 forward through the payment chain to reverse a previously instructed payment. Each agent processes the reversal instruction and adjusts settlement accordingly. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Key data elements Business context">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Key data elements</th>
+        <th>Business context</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Group Header with message identification and creation timestamp</td>
+          <td class="operational-matrix-table__right">Initiated when the original sender identifies an error before or after settlement</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**TxInf** — Transaction Information with reversal amount and parties</td>
+          <td class="operational-matrix-table__right">Used in fraud scenarios where rapid reversal is required</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Original Group Information referencing the source message</td>
+          <td class="operational-matrix-table__right">Supports both full and partial reversal of original payment amounts</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**RvslRsnInf** — Reversal Reason Information with structured reason codes</td>
+          <td class="operational-matrix-table__right">Carries structured reversal reason codes for downstream processing</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlTxRef** — Original Transaction Reference for end-to-end traceability</td>
+          <td class="operational-matrix-table__right">The instructing agent (original sender) sends pacs.007 forward through the payment chain to reverse a previously instructed payment. Each agent processes the reversal instruction and adjusts settlement accordingly.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## CBPR+ and scheme context
 
@@ -63,10 +92,34 @@ That means this page is useful for understanding the currently implemented versi
 
 ## Version-diff table
 
-| Version range | Why it matters | Implementation takeaway |
-|---|---|---|
-| pacs.007.001.11 | Current implementation in pacs008 | Good baseline for reversal workflow modelling. |
-| pacs.007.001.12-13 | Later catalogue revisions | Check later revisions for current market-infrastructure alignment. |
+<div class="version-diff-table" tabindex="0" aria-label="Version-diff table">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Version range</th>
+        <th>Why it matters</th>
+        <th>Implementation takeaway</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.007.001.11</td>
+          <td class="version-diff-table__why">Current implementation in pacs008</td>
+          <td class="version-diff-table__takeaway">Good baseline for reversal workflow modelling.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.007.001.12-13</td>
+          <td class="version-diff-table__why">Later catalogue revisions</td>
+          <td class="version-diff-table__takeaway">Check later revisions for current market-infrastructure alignment.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Scheme-specific notes
 
@@ -129,12 +182,44 @@ No -> Check whether the case is status, investigation, or recall handling.
 
 ## Compare pacs.007 vs pacs.004
 
-| Dimension | pacs.007.001.11 | Comparison message |
-|---|---|---|
-| Primary purpose | Reverse a previously instructed payment | Return settled funds |
-| Initiated by | Original instructing side | Receiving / beneficiary side |
-| Direction of flow | Forward through the chain | Back through the chain |
-| Best fit | Recall, error, or fraud-driven reversal handling | Post-settlement return handling |
+<div class="message-comparison-table" tabindex="0" aria-label="Compare pacs.007 vs pacs.004">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Dimension</th>
+        <th>pacs.007.001.11</th>
+        <th>Comparison message</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Primary purpose</td>
+          <td class="message-comparison-table__current">Reverse a previously instructed payment</td>
+          <td class="message-comparison-table__other">Return settled funds</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Initiated by</td>
+          <td class="message-comparison-table__current">Original instructing side</td>
+          <td class="message-comparison-table__other">Receiving / beneficiary side</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Direction of flow</td>
+          <td class="message-comparison-table__current">Forward through the chain</td>
+          <td class="message-comparison-table__other">Back through the chain</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Best fit</td>
+          <td class="message-comparison-table__current">Recall, error, or fraud-driven reversal handling</td>
+          <td class="message-comparison-table__other">Post-settlement return handling</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Implementation FAQ
 
@@ -154,9 +239,37 @@ No. Reversal timing, reason capture, and reconciliation differ materially from r
 
 
 ## Related messages
-| Message type | Description | Overview |
-|---|---|---|
-| [`pacs.008.001.13`](/pacs.008.001.13/) | FI to FI Customer Credit Transfer | The pacs.008 message is the core payment instruction exchanged between financial institutions to transfer funds on behalf of a customer. It carries debtor, creditor, amount, and remittance information for one or more credit transfer transactions. |
-| [`pacs.004.001.11`](/pacs.004.001.11/) | Payment Return | The pacs.004 message is used to return a previously settled payment transaction. It reverses the flow of funds when a payment cannot be applied, was sent in error, or is being recalled by the originating institution. |
-| [`pacs.002.001.12`](/pacs.002.001.12/) | FI to FI Payment Status Report | The pacs.002 message is sent by a financial institution to report the status of a previously sent payment instruction. It provides confirmation, rejection, or pending status information for individual transactions within a payment message. |
+<div class="related-messages-table" tabindex="0" aria-label="Related messages">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Message type</th>
+        <th>Description</th>
+        <th>Overview</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">FI to FI Customer Credit Transfer</td>
+          <td class="related-messages-table__overview">The pacs.008 message is the core payment instruction exchanged between financial institutions to transfer funds on behalf of a customer. It carries debtor, creditor, amount, and remittance information for one or more credit transfer transactions.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
+          <td class="related-messages-table__name">Payment Return</td>
+          <td class="related-messages-table__overview">The pacs.004 message is used to return a previously settled payment transaction. It reverses the flow of funds when a payment cannot be applied, was sent in error, or is being recalled by the originating institution.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">FI to FI Payment Status Report</td>
+          <td class="related-messages-table__overview">The pacs.002 message is sent by a financial institution to report the status of a previously sent payment instruction. It provides confirmation, rejection, or pending status information for individual transactions within a payment message.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

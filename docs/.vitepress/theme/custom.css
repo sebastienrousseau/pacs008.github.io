@@ -454,8 +454,197 @@ strong {
   text-align: center;
 }
 
+.decision-matrix-table,
+.comparison-points-table,
+.api-fields-table,
+.api-endpoints-table,
+.related-messages-table,
+.version-diff-table,
+.message-comparison-table,
+.operational-matrix-table {
+  margin: 1.5rem 0 2rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.decision-matrix-table table,
+.comparison-points-table table,
+.api-fields-table table,
+.api-endpoints-table table,
+.related-messages-table table,
+.version-diff-table table,
+.message-comparison-table table,
+.operational-matrix-table table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.decision-matrix-table table {
+  min-width: 860px;
+}
+
+.comparison-points-table table {
+  min-width: 680px;
+}
+
+.api-fields-table table {
+  min-width: 840px;
+}
+
+.api-endpoints-table table,
+.related-messages-table table,
+.message-comparison-table table,
+.operational-matrix-table table {
+  min-width: 820px;
+}
+
+.version-diff-table table {
+  min-width: 880px;
+}
+
+.decision-matrix-table th,
+.decision-matrix-table td,
+.comparison-points-table th,
+.comparison-points-table td,
+.api-fields-table th,
+.api-fields-table td,
+.api-endpoints-table th,
+.api-endpoints-table td,
+.related-messages-table th,
+.related-messages-table td,
+.version-diff-table th,
+.version-diff-table td,
+.message-comparison-table th,
+.message-comparison-table td,
+.operational-matrix-table th,
+.operational-matrix-table td {
+  vertical-align: top;
+  font-size: 1rem;
+  line-height: 1.55;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+
+.decision-matrix-table th,
+.comparison-points-table th,
+.api-fields-table th,
+.api-endpoints-table th,
+.related-messages-table th,
+.version-diff-table th,
+.message-comparison-table th,
+.operational-matrix-table th {
+  text-align: left;
+}
+
+.decision-matrix-table td code,
+.comparison-points-table td code,
+.api-fields-table td code,
+.api-endpoints-table td code,
+.related-messages-table td code,
+.decision-matrix-table th code,
+.comparison-points-table th code,
+.api-fields-table th code,
+.api-endpoints-table th code,
+.related-messages-table th code {
+  font-size: 0.95rem;
+}
+
+.decision-matrix-table__col-id {
+  width: 24%;
+}
+
+.decision-matrix-table__col-name {
+  width: 24%;
+}
+
+.decision-matrix-table__col-overview {
+  width: 52%;
+}
+
+.comparison-points-table__col-compare {
+  width: 30%;
+}
+
+.comparison-points-table__col-key {
+  width: 70%;
+}
+
+.api-fields-table__col-field {
+  width: 28%;
+}
+
+.api-fields-table__col-desc {
+  width: 34%;
+}
+
+.api-fields-table__col-constraint {
+  width: 38%;
+}
+
+.api-endpoints-table__col-endpoint {
+  width: 34%;
+}
+
+.api-endpoints-table__col-desc {
+  width: 66%;
+}
+
+.related-messages-table__col-id {
+  width: 24%;
+}
+
+.related-messages-table__col-name {
+  width: 24%;
+}
+
+.related-messages-table__col-overview {
+  width: 52%;
+}
+
+.version-diff-table__col-range {
+  width: 20%;
+}
+
+.version-diff-table__col-why {
+  width: 38%;
+}
+
+.version-diff-table__col-takeaway {
+  width: 42%;
+}
+
+.message-comparison-table__col-dimension {
+  width: 24%;
+}
+
+.message-comparison-table__col-current {
+  width: 38%;
+}
+
+.message-comparison-table__col-other {
+  width: 38%;
+}
+
+.operational-matrix-table__col-left {
+  width: 36%;
+}
+
+.operational-matrix-table__col-right {
+  width: 64%;
+}
+
 @media (max-width: 768px) {
-  .message-coverage-table {
+  .message-coverage-table,
+  .decision-matrix-table,
+  .comparison-points-table,
+  .api-fields-table,
+  .api-endpoints-table,
+  .related-messages-table,
+  .version-diff-table,
+  .message-comparison-table,
+  .operational-matrix-table {
     margin-inline: -0.25rem;
     padding-inline: 0.25rem;
   }

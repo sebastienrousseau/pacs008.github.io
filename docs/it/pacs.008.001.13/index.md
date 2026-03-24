@@ -36,13 +36,42 @@ Il messaggio pacs.008 è l'istruzione di pagamento principale scambiata tra isti
 - Trasporta informazioni di rimessa strutturate per supportare la riconciliazione automatica
 - Supporta metodi di regolamento seriale, copertura e diretto per catene di pagamento multi-tratta
 
-| Elementi di dati chiave | Contesto di business |
-|---|---|
-| **GrpHdr** — Intestazione di gruppo con ID messaggio, data di creazione, numero di transazioni e informazioni di regolamento | Il messaggio principale per bonifici transfrontalieri e domestici avviati dal cliente |
-| **CdtTrfTxInf** — Informazioni sulla transazione di bonifico con importo, commissioni e finalità | Utilizzato attraverso SEPA SCT, SEPA Instant, CBPR+ e i sistemi di compensazione nazionali |
-| **Dbtr / DbtrAgt** — Identificazione del debitore e dell'agente del debitore con dettagli del conto | Trasporta informazioni di rimessa strutturate per supportare la riconciliazione automatica |
-| **Cdtr / CdtrAgt** — Identificazione del creditore e dell'agente del creditore con dettagli del conto | Supporta metodi di regolamento seriale, copertura e diretto per catene di pagamento multi-tratta |
-| **RmtInf** — Informazioni di rimessa per riferimenti di pagamento strutturati o non strutturati | L'agente del debitore crea un pacs.008 e lo invia all'agente del creditore (direttamente o tramite intermediari). Ogni agente nella catena convalida, arricchisce e inoltra l'istruzione fino a quando l'agente del creditore accredita il conto del beneficiario. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Elementi di dati chiave Contesto di business">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Elementi di dati chiave</th>
+        <th>Contesto di business</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Intestazione di gruppo con ID messaggio, data di creazione, numero di transazioni e informazioni di regolamento</td>
+          <td class="operational-matrix-table__right">Il messaggio principale per bonifici transfrontalieri e domestici avviati dal cliente</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Informazioni sulla transazione di bonifico con importo, commissioni e finalità</td>
+          <td class="operational-matrix-table__right">Utilizzato attraverso SEPA SCT, SEPA Instant, CBPR+ e i sistemi di compensazione nazionali</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identificazione del debitore e dell&#39;agente del debitore con dettagli del conto</td>
+          <td class="operational-matrix-table__right">Trasporta informazioni di rimessa strutturate per supportare la riconciliazione automatica</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identificazione del creditore e dell&#39;agente del creditore con dettagli del conto</td>
+          <td class="operational-matrix-table__right">Supporta metodi di regolamento seriale, copertura e diretto per catene di pagamento multi-tratta</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**RmtInf** — Informazioni di rimessa per riferimenti di pagamento strutturati o non strutturati</td>
+          <td class="operational-matrix-table__right">L&#39;agente del debitore crea un pacs.008 e lo invia all&#39;agente del creditore (direttamente o tramite intermediari). Ogni agente nella catena convalida, arricchisce e inoltra l&#39;istruzione fino a quando l&#39;agente del creditore accredita il conto del beneficiario.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Contesto CBPR+ e schemi
 
@@ -57,11 +86,39 @@ L'agente del debitore crea un pacs.008 e lo invia all'agente del creditore (dire
 
 ## Tabella delle differenze di versione
 
-| Intervallo di versione | Perché conta | Implicazione implementativa |
-|---|---|---|
-| pacs.008.001.01-07 | Revisioni iniziali | Utile soprattutto per l'analisi delle migrazioni da sistemi precedenti e per il contesto storico delle versioni. |
-| pacs.008.001.08-12 | Revisioni moderne precedenti a quella attuale | Sono le revisioni che più probabilmente compariranno nei recenti progetti di migrazione o coesistenza. |
-| pacs.008.001.13 | Revisione attuale del catalogo | Da usare per pianificare sulla versione corrente, continuando però a verificare regole di schema e prontezza delle controparti. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabella delle differenze di versione">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Intervallo di versione</th>
+        <th>Perché conta</th>
+        <th>Implicazione implementativa</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.01-07</td>
+          <td class="version-diff-table__why">Revisioni iniziali</td>
+          <td class="version-diff-table__takeaway">Utile soprattutto per l&#39;analisi delle migrazioni da sistemi precedenti e per il contesto storico delle versioni.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.08-12</td>
+          <td class="version-diff-table__why">Revisioni moderne precedenti a quella attuale</td>
+          <td class="version-diff-table__takeaway">Sono le revisioni che più probabilmente compariranno nei recenti progetti di migrazione o coesistenza.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.13</td>
+          <td class="version-diff-table__why">Revisione attuale del catalogo</td>
+          <td class="version-diff-table__takeaway">Da usare per pianificare sulla versione corrente, continuando però a verificare regole di schema e prontezza delle controparti.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Esempio XML commentato
 
@@ -93,12 +150,44 @@ L'agente del debitore crea un pacs.008 e lo invia all'agente del creditore (dire
 
 ## Confrontare pacs.008 vs pacs.009
 
-| Dimensione | pacs.008.001.13 | Messaggio di confronto |
-|---|---|---|
-| Scopo principale | Trasferimento di credito del cliente | Trasferimento di credito su conto proprio dell'istituzione o gamba di copertura |
-| Responsabile di business | Operazioni di pagamento del cliente | Operazioni di tesoreria, corrispondenza e funding |
-| Abbinamenti tipici | pacs.002, pacs.004, pacs.007, pacs.028 | pacs.002, pacs.004 e, in alcuni casi, flussi pacs.008 collegati |
-| Ipotesi errata da evitare | Che tutti i trasferimenti banca-a-banca rientrino qui | Che possa sostituire le istruzioni di trasferimento di credito del cliente |
+<div class="message-comparison-table" tabindex="0" aria-label="Confrontare pacs.008 vs pacs.009">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Dimensione</th>
+        <th>pacs.008.001.13</th>
+        <th>Messaggio di confronto</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Scopo principale</td>
+          <td class="message-comparison-table__current">Trasferimento di credito del cliente</td>
+          <td class="message-comparison-table__other">Trasferimento di credito su conto proprio dell&#39;istituzione o gamba di copertura</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Responsabile di business</td>
+          <td class="message-comparison-table__current">Operazioni di pagamento del cliente</td>
+          <td class="message-comparison-table__other">Operazioni di tesoreria, corrispondenza e funding</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Abbinamenti tipici</td>
+          <td class="message-comparison-table__current">pacs.002, pacs.004, pacs.007, pacs.028</td>
+          <td class="message-comparison-table__other">pacs.002, pacs.004 e, in alcuni casi, flussi pacs.008 collegati</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Ipotesi errata da evitare</td>
+          <td class="message-comparison-table__current">Che tutti i trasferimenti banca-a-banca rientrino qui</td>
+          <td class="message-comparison-table__other">Che possa sostituire le istruzioni di trasferimento di credito del cliente</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Riferimenti primari
 
@@ -132,9 +221,37 @@ L'agente del debitore crea un pacs.008 e lo invia all'agente del creditore (dire
 | `pacs.008.001.13` | **Current** |
 
 ## Messaggi correlati
-| Tipo di messaggio | Descrizione | Panoramica |
-|---|---|---|
-| [`pacs.002.001.12`](/it/pacs.002.001.12/) | Rapporto di stato del pagamento tra istituzioni finanziarie | Il messaggio pacs.002 viene inviato da un istituto finanziario per comunicare lo stato di un'istruzione di pagamento precedentemente inviata. Fornisce informazioni di conferma, rifiuto o stato in sospeso per le singole transazioni all'interno di un messaggio di pagamento. |
-| [`pacs.004.001.11`](/it/pacs.004.001.11/) | Reso di pagamento | Il messaggio pacs.004 viene utilizzato per restituire una transazione di pagamento precedentemente regolata. Inverte il flusso di fondi quando un pagamento non può essere applicato, è stato inviato per errore o viene richiamato dall'istituto di origine. |
-| [`pacs.009.001.10`](/it/pacs.009.001.10/) | Bonifico tra istituzioni finanziarie | Il messaggio pacs.009 viene utilizzato per bonifici tra istituti finanziari in cui il trasferimento avviene per conto proprio dell'istituto anziché per conto di un cliente. Supporta il finanziamento interbancario, i pagamenti di copertura e la gestione della liquidità. |
+<div class="related-messages-table" tabindex="0" aria-label="Messaggi correlati">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Tipo di messaggio</th>
+        <th>Descrizione</th>
+        <th>Panoramica</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/it/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">Rapporto di stato del pagamento tra istituzioni finanziarie</td>
+          <td class="related-messages-table__overview">Il messaggio pacs.002 viene inviato da un istituto finanziario per comunicare lo stato di un&#39;istruzione di pagamento precedentemente inviata. Fornisce informazioni di conferma, rifiuto o stato in sospeso per le singole transazioni all&#39;interno di un messaggio di pagamento.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/it/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
+          <td class="related-messages-table__name">Reso di pagamento</td>
+          <td class="related-messages-table__overview">Il messaggio pacs.004 viene utilizzato per restituire una transazione di pagamento precedentemente regolata. Inverte il flusso di fondi quando un pagamento non può essere applicato, è stato inviato per errore o viene richiamato dall&#39;istituto di origine.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/it/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">Bonifico tra istituzioni finanziarie</td>
+          <td class="related-messages-table__overview">Il messaggio pacs.009 viene utilizzato per bonifici tra istituti finanziari in cui il trasferimento avviene per conto proprio dell&#39;istituto anziché per conto di un cliente. Supporta il finanziamento interbancario, i pagamenti di copertura e la gestione della liquidità.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

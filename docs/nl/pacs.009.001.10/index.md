@@ -36,13 +36,42 @@ Het pacs.009-bericht wordt gebruikt voor overboekingen tussen financiële instel
 - Bevat het dekkingsdeel van klantenoverboekingen die via de dekkingsmethode worden afgewikkeld
 - Maakt treasury- en financieringsoperaties tussen financiële instellingen mogelijk
 
-| Belangrijke gegevenselementen | Zakelijke context |
-|---|---|
-| **GrpHdr** — Groepskoptekst met berichtidentificatie en afwikkelingsinformatie | Gebruikt voor interbancaire overboekingen voor eigen rekening en dekkingsbetalingen |
-| **CdtTrfTxInf** — Overboekingstransactie-informatie met interbancair afwikkelingsbedrag | Ondersteunt liquiditeitsbeheer tussen correspondentbankpartners |
-| **Dbtr / DbtrAgt** — Identificatie van de debiteurinstelling en haar agent | Bevat het dekkingsdeel van klantenoverboekingen die via de dekkingsmethode worden afgewikkeld |
-| **Cdtr / CdtrAgt** — Identificatie van de crediteurinstelling en haar agent | Maakt treasury- en financieringsoperaties tussen financiële instellingen mogelijk |
-| **IntrBkSttlmAmt** — Interbancair afwikkelingsbedrag in de afwikkelingsvaluta | De debiteurinstelling stuurt pacs.009 naar de crediteurinstelling om eigen gelden over te maken. Bij betalingen via de dekkingsmethode voorziet pacs.009 in het financieringsdeel terwijl pacs.008 de klantinstructie via een apart pad vervoert. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Belangrijke gegevenselementen Zakelijke context">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Belangrijke gegevenselementen</th>
+        <th>Zakelijke context</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Groepskoptekst met berichtidentificatie en afwikkelingsinformatie</td>
+          <td class="operational-matrix-table__right">Gebruikt voor interbancaire overboekingen voor eigen rekening en dekkingsbetalingen</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Overboekingstransactie-informatie met interbancair afwikkelingsbedrag</td>
+          <td class="operational-matrix-table__right">Ondersteunt liquiditeitsbeheer tussen correspondentbankpartners</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identificatie van de debiteurinstelling en haar agent</td>
+          <td class="operational-matrix-table__right">Bevat het dekkingsdeel van klantenoverboekingen die via de dekkingsmethode worden afgewikkeld</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identificatie van de crediteurinstelling en haar agent</td>
+          <td class="operational-matrix-table__right">Maakt treasury- en financieringsoperaties tussen financiële instellingen mogelijk</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Interbancair afwikkelingsbedrag in de afwikkelingsvaluta</td>
+          <td class="operational-matrix-table__right">De debiteurinstelling stuurt pacs.009 naar de crediteurinstelling om eigen gelden over te maken. Bij betalingen via de dekkingsmethode voorziet pacs.009 in het financieringsdeel terwijl pacs.008 de klantinstructie via een apart pad vervoert.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## CBPR+- en schema-context
 
@@ -57,10 +86,34 @@ De debiteurinstelling stuurt pacs.009 naar de crediteurinstelling om eigen gelde
 
 ## Tabel met versieverschillen
 
-| Versiebereik | Waarom dit telt | Implementatieconclusie |
-|---|---|---|
-| pacs.009.001.10 | Huidige implementatie in pacs008 | Komt overeen met de huidige projectondersteuning voor FI-credittransferstromen. |
-| pacs.009.001.11-12 | Latere catalogusrevisies | Belangrijk voor routeplanning in omgevingen voor correspondentbankieren en dekkingsbetalingen. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabel met versieverschillen">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Versiebereik</th>
+        <th>Waarom dit telt</th>
+        <th>Implementatieconclusie</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.009.001.10</td>
+          <td class="version-diff-table__why">Huidige implementatie in pacs008</td>
+          <td class="version-diff-table__takeaway">Komt overeen met de huidige projectondersteuning voor FI-credittransferstromen.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.009.001.11-12</td>
+          <td class="version-diff-table__why">Latere catalogusrevisies</td>
+          <td class="version-diff-table__takeaway">Belangrijk voor routeplanning in omgevingen voor correspondentbankieren en dekkingsbetalingen.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Uitgewerkt XML-voorbeeld
 
@@ -86,12 +139,44 @@ De debiteurinstelling stuurt pacs.009 naar de crediteurinstelling om eigen gelde
 
 ## Vergelijk pacs.009 vs pacs.008
 
-| Dimensie | pacs.009.001.10 | Vergelijkingsbericht |
-|---|---|---|
-| Primair doel | Credittransfer op eigen rekening van de instelling of dekkingsstap | Klantcredittransfer |
-| Zakelijke eigenaar | Treasury-, correspondent- en financieringsoperaties | Klantbetalingsoperaties |
-| Typische combinaties | pacs.002, pacs.004 en gekoppelde pacs.008-stromen | pacs.002, pacs.004, pacs.007, pacs.028 |
-| Te vermijden misvatting | Dat het slechts een technischere pacs.008 is | Dat het institutionele financieringsstromen zonder meer kan dragen |
+<div class="message-comparison-table" tabindex="0" aria-label="Vergelijk pacs.009 vs pacs.008">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Dimensie</th>
+        <th>pacs.009.001.10</th>
+        <th>Vergelijkingsbericht</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Primair doel</td>
+          <td class="message-comparison-table__current">Credittransfer op eigen rekening van de instelling of dekkingsstap</td>
+          <td class="message-comparison-table__other">Klantcredittransfer</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Zakelijke eigenaar</td>
+          <td class="message-comparison-table__current">Treasury-, correspondent- en financieringsoperaties</td>
+          <td class="message-comparison-table__other">Klantbetalingsoperaties</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Typische combinaties</td>
+          <td class="message-comparison-table__current">pacs.002, pacs.004 en gekoppelde pacs.008-stromen</td>
+          <td class="message-comparison-table__other">pacs.002, pacs.004, pacs.007, pacs.028</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Te vermijden misvatting</td>
+          <td class="message-comparison-table__current">Dat het slechts een technischere pacs.008 is</td>
+          <td class="message-comparison-table__other">Dat het institutionele financieringsstromen zonder meer kan dragen</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Primaire referenties
 
@@ -103,9 +188,37 @@ De debiteurinstelling stuurt pacs.009 naar de crediteurinstelling om eigen gelde
 
 
 ## Gerelateerde berichten
-| Berichttype | Beschrijving | Overzicht |
-|---|---|---|
-| [`pacs.008.001.13`](/nl/pacs.008.001.13/) | FI-naar-FI-klantkredietoverboeking | Het pacs.008-bericht is de kernbetalingsinstructie die wordt uitgewisseld tussen financiële instellingen om namens een klant gelden over te maken. Het bevat informatie over debiteur, crediteur, bedrag en betalingskenmerken voor een of meer overboekingstransacties. |
-| [`pacs.002.001.12`](/nl/pacs.002.001.12/) | FI-naar-FI-betalingsstatusrapport | Het pacs.002-bericht wordt door een financiële instelling verzonden om de status te rapporteren van een eerder verzonden betalingsinstructie. Het biedt bevestigings-, afwijzings- of hangende statusinformatie voor individuele transacties binnen een betalingsbericht. |
-| [`pacs.010.001.05`](/nl/pacs.010.001.05/) | Incasso tussen financiële instellingen | Het pacs.010-bericht wordt tussen financiële instellingen gebruikt voor incassotransacties op eigen rekening van de instelling. Het stelt de ene instelling in staat om gelden rechtstreeks van de rekening van een andere instelling te innen. |
+<div class="related-messages-table" tabindex="0" aria-label="Gerelateerde berichten">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Berichttype</th>
+        <th>Beschrijving</th>
+        <th>Overzicht</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/nl/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">FI-naar-FI-klantkredietoverboeking</td>
+          <td class="related-messages-table__overview">Het pacs.008-bericht is de kernbetalingsinstructie die wordt uitgewisseld tussen financiële instellingen om namens een klant gelden over te maken. Het bevat informatie over debiteur, crediteur, bedrag en betalingskenmerken voor een of meer overboekingstransacties.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/nl/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">FI-naar-FI-betalingsstatusrapport</td>
+          <td class="related-messages-table__overview">Het pacs.002-bericht wordt door een financiële instelling verzonden om de status te rapporteren van een eerder verzonden betalingsinstructie. Het biedt bevestigings-, afwijzings- of hangende statusinformatie voor individuele transacties binnen een betalingsbericht.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/nl/pacs.010.001.05/"><code>pacs.010.001.05</code></a></td>
+          <td class="related-messages-table__name">Incasso tussen financiële instellingen</td>
+          <td class="related-messages-table__overview">Het pacs.010-bericht wordt tussen financiële instellingen gebruikt voor incassotransacties op eigen rekening van de instelling. Het stelt de ene instelling in staat om gelden rechtstreeks van de rekening van een andere instelling te innen.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

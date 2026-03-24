@@ -10761,42 +10761,63 @@ function escapeHtml(value) {
     .replaceAll("'", "&#39;");
 }
 
-function messageCoverageTable(localeKey, detailed = false) {
-  const t = copyFor(localeKey);
-  if (detailed) {
-    const rows = messageTypes.map((msgType) => {
-      const link = localePath(localeKey, msgType.slug);
-      const name = localizedMessageName(localeKey, msgType);
-      const overview = t[msgType.copyPrefix + "Overview"];
-      return `        <tr>
-          <td class="message-coverage-table__id"><a href="${escapeHtml(link)}"><code>${escapeHtml(msgType.slug)}</code></a></td>
-          <td class="message-coverage-table__name">${escapeHtml(name)}</td>
-          <td class="message-coverage-table__year">${escapeHtml(msgType.year)}</td>
-          <td class="message-coverage-table__overview">${escapeHtml(overview)}</td>
-        </tr>`;
-    }).join("\n");
+function htmlTable({ className, ariaLabel, columns, rows }) {
+  const colgroup = columns.map((column) => `      <col class="${column.className}">`).join("\n");
+  const head = columns.map((column) => `        <th>${escapeHtml(column.label)}</th>`).join("\n");
+  const body = rows.map((row) => `        <tr>
+${row.map((cell) => `          <td class="${cell.className}">${cell.html}</td>`).join("\n")}
+        </tr>`).join("\n");
 
-    return `<div class="message-coverage-table" tabindex="0" aria-label="${escapeHtml(t.includedSupport)}">
+  return `<div class="${className}" tabindex="0" aria-label="${escapeHtml(ariaLabel)}">
   <table>
     <colgroup>
-      <col class="message-coverage-table__col-id">
-      <col class="message-coverage-table__col-name">
-      <col class="message-coverage-table__col-year">
-      <col class="message-coverage-table__col-overview">
+${colgroup}
     </colgroup>
     <thead>
       <tr>
-        <th>${escapeHtml(t.msgTypeColId)}</th>
-        <th>${escapeHtml(t.msgTypeColDesc)}</th>
-        <th>${escapeHtml(t.msgDetailYear)}</th>
-        <th>${escapeHtml(t.msgDetailOverview)}</th>
+${head}
       </tr>
     </thead>
     <tbody>
-${rows}
+${body}
     </tbody>
   </table>
 </div>`;
+}
+
+function messageCoverageTable(localeKey, detailed = false) {
+  const t = copyFor(localeKey);
+  if (detailed) {
+    const rows = messageTypes.map((msgType) => [
+      {
+        className: "message-coverage-table__id",
+        html: `<a href="${escapeHtml(localePath(localeKey, msgType.slug))}"><code>${escapeHtml(msgType.slug)}</code></a>`
+      },
+      {
+        className: "message-coverage-table__name",
+        html: escapeHtml(localizedMessageName(localeKey, msgType))
+      },
+      {
+        className: "message-coverage-table__year",
+        html: escapeHtml(msgType.year)
+      },
+      {
+        className: "message-coverage-table__overview",
+        html: escapeHtml(t[msgType.copyPrefix + "Overview"])
+      }
+    ]);
+
+    return htmlTable({
+      className: "message-coverage-table",
+      ariaLabel: t.includedSupport,
+      columns: [
+        { className: "message-coverage-table__col-id", label: t.msgTypeColId },
+        { className: "message-coverage-table__col-name", label: t.msgTypeColDesc },
+        { className: "message-coverage-table__col-year", label: t.msgDetailYear },
+        { className: "message-coverage-table__col-overview", label: t.msgDetailOverview }
+      ],
+      rows
+    });
   }
 
   const headers = [t.msgTypeColId, t.msgTypeColDesc, t.msgDetailYear];
@@ -10831,9 +10852,18 @@ function messageOperationalMatrix(localeKey, msgType) {
     [t[p + "Element5"], t[p + "Flow"]]
   ];
 
-  return `| ${t.msgDetailKeyElements} | ${t.msgDetailBusinessContext} |
-|---|---|
-${rows.map(([left, right]) => `| ${left} | ${right} |`).join("\n")}`;
+  return htmlTable({
+    className: "operational-matrix-table",
+    ariaLabel: `${t.msgDetailKeyElements} ${t.msgDetailBusinessContext}`,
+    columns: [
+      { className: "operational-matrix-table__col-left", label: t.msgDetailKeyElements },
+      { className: "operational-matrix-table__col-right", label: t.msgDetailBusinessContext }
+    ],
+    rows: rows.map(([left, right]) => [
+      { className: "operational-matrix-table__left", html: escapeHtml(left) },
+      { className: "operational-matrix-table__right", html: escapeHtml(right) }
+    ])
+  });
 }
 
 function relatedMessageTable(localeKey, msgType) {
@@ -10841,12 +10871,31 @@ function relatedMessageTable(localeKey, msgType) {
   const rows = msgType.relatedSlugs
     .map((slug) => messageTypes.find((candidate) => candidate.slug === slug))
     .filter(Boolean)
-    .map((related) => `| [\`${related.slug}\`](${localePath(localeKey, related.slug)}) | ${localizedMessageName(localeKey, related)} | ${copyFor(localeKey)[related.copyPrefix + "Overview"]} |`)
-    .join("\n");
+    .map((related) => [
+      {
+        className: "related-messages-table__id",
+        html: `<a href="${escapeHtml(localePath(localeKey, related.slug))}"><code>${escapeHtml(related.slug)}</code></a>`
+      },
+      {
+        className: "related-messages-table__name",
+        html: escapeHtml(localizedMessageName(localeKey, related))
+      },
+      {
+        className: "related-messages-table__overview",
+        html: escapeHtml(copyFor(localeKey)[related.copyPrefix + "Overview"])
+      }
+    ]);
 
-  return `| ${t.msgTypeColId} | ${t.msgTypeColDesc} | ${t.msgDetailOverview} |
-|---|---|---|
-${rows}`;
+  return htmlTable({
+    className: "related-messages-table",
+    ariaLabel: t.msgDetailRelated,
+    columns: [
+      { className: "related-messages-table__col-id", label: t.msgTypeColId },
+      { className: "related-messages-table__col-name", label: t.msgTypeColDesc },
+      { className: "related-messages-table__col-overview", label: t.msgDetailOverview }
+    ],
+    rows
+  });
 }
 
 function sourceReviewLine(localeKey, msgType = null) {
@@ -11184,6 +11233,52 @@ ${steps.join("\n")}
 function localizedSelectionGuide(localeKey) {
   const copy = seoCopy(localeKey);
   const t = copyFor(localeKey);
+  const quickDecisionTable = htmlTable({
+    className: "decision-matrix-table",
+    ariaLabel: copy.quickDecisionMatrix,
+    columns: [
+      { className: "decision-matrix-table__col-id", label: t.msgTypeColId },
+      { className: "decision-matrix-table__col-name", label: t.msgTypeColDesc },
+      { className: "decision-matrix-table__col-overview", label: t.msgDetailOverview }
+    ],
+    rows: messageTypes.map((msgType) => [
+      {
+        className: "decision-matrix-table__id",
+        html: `<a href="${escapeHtml(localePath(localeKey, msgType.slug))}"><code>${escapeHtml(msgType.slug)}</code></a>`
+      },
+      {
+        className: "decision-matrix-table__name",
+        html: escapeHtml(localizedMessageName(localeKey, msgType))
+      },
+      {
+        className: "decision-matrix-table__overview",
+        html: escapeHtml(t[msgType.copyPrefix + "Overview"])
+      }
+    ])
+  });
+  const comparisonTable = htmlTable({
+    className: "comparison-points-table",
+    ariaLabel: copy.commonComparisonPoints,
+    columns: [
+      { className: "comparison-points-table__col-compare", label: copy.compare },
+      { className: "comparison-points-table__col-key", label: copy.keyDistinction }
+    ],
+    rows: [
+      [
+        { className: "comparison-points-table__compare", html: "<code>pacs.008</code> vs <code>pacs.009</code>" },
+        { className: "comparison-points-table__key", html: escapeHtml(copy.customerVsInstitution) }
+      ],
+      [
+        { className: "comparison-points-table__compare", html: "<code>pacs.004</code> vs <code>pacs.007</code>" },
+        { className: "comparison-points-table__key", html: escapeHtml(copy.returnVsReversal) }
+      ],
+      [
+        { className: "comparison-points-table__compare", html: "<code>pacs.002</code> vs <code>pacs.028</code>" },
+        { className: "comparison-points-table__key", html: escapeHtml(copy.statusVsRequest) }
+      ]
+    ]
+  });
+
   return `# ${copy.selectionGuideTitle}
 
 ${copy.selectionGuideIntro}
@@ -11192,17 +11287,11 @@ ${sourceReviewLine(localeKey)}
 
 ## ${copy.quickDecisionMatrix}
 
-| ${t.msgTypeColId} | ${t.msgTypeColDesc} | ${t.msgDetailOverview} |
-|---|---|---|
-${messageTypes.map((msgType) => `| [\`${msgType.slug}\`](${localePath(localeKey, msgType.slug)}) | ${localizedMessageName(localeKey, msgType)} | ${t[msgType.copyPrefix + "Overview"]} |`).join("\n")}
+${quickDecisionTable}
 
 ## ${copy.commonComparisonPoints}
 
-| ${copy.compare} | ${copy.keyDistinction} |
-|---|---|
-| \`pacs.008\` vs \`pacs.009\` | ${copy.customerVsInstitution} |
-| \`pacs.004\` vs \`pacs.007\` | ${copy.returnVsReversal} |
-| \`pacs.002\` vs \`pacs.028\` | ${copy.statusVsRequest} |
+${comparisonTable}
 
 ## ${copy.supportedMessagePages}
 
@@ -11217,9 +11306,20 @@ function englishVersionDiffTable(msgType) {
   return `
 ## Version-diff table
 
-| Version range | Why it matters | Implementation takeaway |
-|---|---|---|
-${rows.map(([version, why, takeaway]) => `| ${version} | ${why} | ${takeaway} |`).join("\n")}
+${htmlTable({
+    className: "version-diff-table",
+    ariaLabel: "Version-diff table",
+    columns: [
+      { className: "version-diff-table__col-range", label: "Version range" },
+      { className: "version-diff-table__col-why", label: "Why it matters" },
+      { className: "version-diff-table__col-takeaway", label: "Implementation takeaway" }
+    ],
+    rows: rows.map(([version, why, takeaway]) => [
+      { className: "version-diff-table__range", html: escapeHtml(version) },
+      { className: "version-diff-table__why", html: escapeHtml(why) },
+      { className: "version-diff-table__takeaway", html: escapeHtml(takeaway) }
+    ])
+  })}
 `;
 }
 
@@ -11249,9 +11349,20 @@ function localizedVersionDiffTable(localeKey, msgType) {
   return `
 ## ${copy.versionDiffTableTitle}
 
-| ${copy.versionRange} | ${copy.whyItMatters} | ${copy.implementationTakeaway} |
-|---|---|---|
-${rows.map(([version, why, takeaway]) => `| ${version} | ${advancedTranslate(localeKey, why)} | ${rowValueOverride(takeaway)} |`).join("\n")}
+${htmlTable({
+    className: "version-diff-table",
+    ariaLabel: copy.versionDiffTableTitle,
+    columns: [
+      { className: "version-diff-table__col-range", label: copy.versionRange },
+      { className: "version-diff-table__col-why", label: copy.whyItMatters },
+      { className: "version-diff-table__col-takeaway", label: copy.implementationTakeaway }
+    ],
+    rows: rows.map(([version, why, takeaway]) => [
+      { className: "version-diff-table__range", html: escapeHtml(version) },
+      { className: "version-diff-table__why", html: escapeHtml(advancedTranslate(localeKey, why)) },
+      { className: "version-diff-table__takeaway", html: escapeHtml(rowValueOverride(takeaway)) }
+    ])
+  })}
 `;
 }
 
@@ -11297,9 +11408,20 @@ function englishComparisonSection(msgType) {
   return `
 ## ${block.title}
 
-| Dimension | ${msgType.slug} | Comparison message |
-|---|---|---|
-${block.rows.map(([dimension, current, other]) => `| ${dimension} | ${current} | ${other} |`).join("\n")}
+${htmlTable({
+    className: "message-comparison-table",
+    ariaLabel: block.title,
+    columns: [
+      { className: "message-comparison-table__col-dimension", label: "Dimension" },
+      { className: "message-comparison-table__col-current", label: msgType.slug },
+      { className: "message-comparison-table__col-other", label: "Comparison message" }
+    ],
+    rows: block.rows.map(([dimension, current, other]) => [
+      { className: "message-comparison-table__dimension", html: escapeHtml(dimension) },
+      { className: "message-comparison-table__current", html: escapeHtml(current) },
+      { className: "message-comparison-table__other", html: escapeHtml(other) }
+    ])
+  })}
 `;
 }
 
@@ -11311,9 +11433,20 @@ function localizedComparisonSection(localeKey, msgType) {
   let section = `
 ## ${copy.compareTitlePrefix} ${block.title.replace(/^Compare\s+/i, "")}
 
-| ${copy.dimension} | ${msgType.slug} | ${copy.comparisonMessage} |
-|---|---|---|
-${block.rows.map(([dimension, current, other]) => `| ${advancedTranslate(localeKey, dimension)} | ${advancedTranslate(localeKey, current)} | ${advancedTranslate(localeKey, other)} |`).join("\n")}
+${htmlTable({
+    className: "message-comparison-table",
+    ariaLabel: `${copy.compareTitlePrefix} ${block.title.replace(/^Compare\s+/i, "")}`,
+    columns: [
+      { className: "message-comparison-table__col-dimension", label: copy.dimension },
+      { className: "message-comparison-table__col-current", label: msgType.slug },
+      { className: "message-comparison-table__col-other", label: copy.comparisonMessage }
+    ],
+    rows: block.rows.map(([dimension, current, other]) => [
+      { className: "message-comparison-table__dimension", html: escapeHtml(advancedTranslate(localeKey, dimension)) },
+      { className: "message-comparison-table__current", html: escapeHtml(advancedTranslate(localeKey, current)) },
+      { className: "message-comparison-table__other", html: escapeHtml(advancedTranslate(localeKey, other)) }
+    ])
+  })}
 `;
 
   if (localeKey === "it") {
@@ -11821,16 +11954,27 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 
 ### ${t.apiEndpointsTitle}
 
-| Endpoint | ${t.apiFieldCol2} |
-|---|---|
-| \`GET /health\` | ${t.apiEndpointHealth} |
-| \`POST /validate\` | ${t.apiEndpointValidate} |
-| \`POST /generate\` | ${t.apiEndpointGenerate} |
-| \`POST /generate/async\` | ${t.apiEndpointAsync} |
-| \`GET /status/{job_id}\` | ${t.apiEndpointStatus} |
-| \`GET /download/{job_id}\` | ${t.apiEndpointDownload} |
-| \`DELETE /jobs/{job_id}\` | ${t.apiEndpointCancel} |
-| \`GET /docs\` | ${t.apiEndpointDocs} |
+${htmlTable({
+    className: "api-endpoints-table",
+    ariaLabel: t.apiEndpointsTitle,
+    columns: [
+      { className: "api-endpoints-table__col-endpoint", label: "Endpoint" },
+      { className: "api-endpoints-table__col-desc", label: t.apiFieldCol2 }
+    ],
+    rows: [
+      ["GET /health", t.apiEndpointHealth],
+      ["POST /validate", t.apiEndpointValidate],
+      ["POST /generate", t.apiEndpointGenerate],
+      ["POST /generate/async", t.apiEndpointAsync],
+      ["GET /status/{job_id}", t.apiEndpointStatus],
+      ["GET /download/{job_id}", t.apiEndpointDownload],
+      ["DELETE /jobs/{job_id}", t.apiEndpointCancel],
+      ["GET /docs", t.apiEndpointDocs]
+    ].map(([endpoint, description]) => [
+      { className: "api-endpoints-table__endpoint", html: `<code>${escapeHtml(endpoint)}</code>` },
+      { className: "api-endpoints-table__desc", html: escapeHtml(description) }
+    ])
+  })}
 
 ${messageCoverageList(localeKey)}
 
@@ -12092,28 +12236,54 @@ print(report.is_valid, report.errors)
 
 ${t.apiFieldsIntro}
 
-| ${t.apiFieldCol1} | ${t.apiFieldCol2} | ${t.apiFieldCol3} |
-|---|---|---|
-| \`msg_id\` | ${t.apiFieldMsgId} | ${t.apiFieldMsgIdC} |
-| \`creation_date_time\` | ${t.apiFieldCreDt} | ${t.apiFieldCreDtC} |
-| \`nb_of_txs\` | ${t.apiFieldNbTxs} | ${t.apiFieldNbTxsC} |
-| \`settlement_method\` | ${t.apiFieldSttlm} | ${t.apiFieldSttlmC} |
-| \`end_to_end_id\` | ${t.apiFieldE2E} | ${t.apiFieldE2EC} |
-| \`interbank_settlement_amount\` | ${t.apiFieldAmt} | ${t.apiFieldAmtC} |
-| \`interbank_settlement_currency\` | ${t.apiFieldCcy} | ${t.apiFieldCcyC} |
-| \`charge_bearer\` | ${t.apiFieldChrgBr} | ${t.apiFieldChrgBrC} |
-| \`debtor_name\` | ${t.apiFieldDbtrNm} | ${t.apiFieldDbtrNmC} |
-| \`debtor_agent_bic\` | ${t.apiFieldDbtrBic} | ${t.apiFieldDbtrBicC} |
-| \`creditor_agent_bic\` | ${t.apiFieldCdtrBic} | ${t.apiFieldCdtrBicC} |
-| \`creditor_name\` | ${t.apiFieldCdtrNm} | ${t.apiFieldCdtrNmC} |
+${htmlTable({
+    className: "api-fields-table",
+    ariaLabel: t.apiFieldsTitle,
+    columns: [
+      { className: "api-fields-table__col-field", label: t.apiFieldCol1 },
+      { className: "api-fields-table__col-desc", label: t.apiFieldCol2 },
+      { className: "api-fields-table__col-constraint", label: t.apiFieldCol3 }
+    ],
+    rows: [
+      ["msg_id", t.apiFieldMsgId, t.apiFieldMsgIdC],
+      ["creation_date_time", t.apiFieldCreDt, t.apiFieldCreDtC],
+      ["nb_of_txs", t.apiFieldNbTxs, t.apiFieldNbTxsC],
+      ["settlement_method", t.apiFieldSttlm, t.apiFieldSttlmC],
+      ["end_to_end_id", t.apiFieldE2E, t.apiFieldE2EC],
+      ["interbank_settlement_amount", t.apiFieldAmt, t.apiFieldAmtC],
+      ["interbank_settlement_currency", t.apiFieldCcy, t.apiFieldCcyC],
+      ["charge_bearer", t.apiFieldChrgBr, t.apiFieldChrgBrC],
+      ["debtor_name", t.apiFieldDbtrNm, t.apiFieldDbtrNmC],
+      ["debtor_agent_bic", t.apiFieldDbtrBic, t.apiFieldDbtrBicC],
+      ["creditor_agent_bic", t.apiFieldCdtrBic, t.apiFieldCdtrBicC],
+      ["creditor_name", t.apiFieldCdtrNm, t.apiFieldCdtrNmC]
+    ].map(([field, description, constraint]) => [
+      { className: "api-fields-table__field", html: `<code>${escapeHtml(field)}</code>` },
+      { className: "api-fields-table__desc", html: escapeHtml(description) },
+      { className: "api-fields-table__constraint", html: escapeHtml(constraint) }
+    ])
+  })}
 
 ### ${t.apiFieldVersionTitle}
 
-| ${t.apiFieldCol1} | ${t.apiFieldCol2} | ${t.apiFieldCol3} |
-|---|---|---|
-| \`uetr\` | ${t.apiFieldUetr} | ${t.apiFieldUetrC} |
-| \`mandate_id\` | ${t.apiFieldMandate} | ${t.apiFieldMandateC} |
-| \`expiry_date_time\` | ${t.apiFieldExpiry} | ${t.apiFieldExpiryC} |
+${htmlTable({
+    className: "api-fields-table api-fields-table--versioned",
+    ariaLabel: t.apiFieldVersionTitle,
+    columns: [
+      { className: "api-fields-table__col-field", label: t.apiFieldCol1 },
+      { className: "api-fields-table__col-desc", label: t.apiFieldCol2 },
+      { className: "api-fields-table__col-constraint", label: t.apiFieldCol3 }
+    ],
+    rows: [
+      ["uetr", t.apiFieldUetr, t.apiFieldUetrC],
+      ["mandate_id", t.apiFieldMandate, t.apiFieldMandateC],
+      ["expiry_date_time", t.apiFieldExpiry, t.apiFieldExpiryC]
+    ].map(([field, description, constraint]) => [
+      { className: "api-fields-table__field", html: `<code>${escapeHtml(field)}</code>` },
+      { className: "api-fields-table__desc", html: escapeHtml(description) },
+      { className: "api-fields-table__constraint", html: escapeHtml(constraint) }
+    ])
+  })}
 `;
 
   if (localeKey === "id") {

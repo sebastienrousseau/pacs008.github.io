@@ -36,13 +36,42 @@ pacs.004 mesajı, daha önce takas edilmiş bir ödeme işlemini iade etmek içi
 - Düzenleyici ve operasyonel şeffaflık için yapılandırılmış iade neden kodları taşır
 - Hem kredi transferi iadelerine (pacs.008) hem de doğrudan borçlandırma iadelerine (pacs.003) uygulanır
 
-| Temel veri öğeleri | İş bağlamı |
-|---|---|
-| **GrpHdr** — Mesaj tanımlama ve oluşturma zaman damgası içeren Grup Başlığı | Lehdarın hesabına alacak kaydedilemediğinde takas sonrası iadeleri işler |
-| **TxInf** — İade tutarı ve tarafları içeren İşlem Bilgisi | Göndericinin fon iadesi talep ettiği geri çağırma senaryolarını destekler |
-| **OrgnlGrpInf** — Kaynak mesaja bağlayan Orijinal Grup Bilgisi | Düzenleyici ve operasyonel şeffaflık için yapılandırılmış iade neden kodları taşır |
-| **RtrRsnInf** — Yapılandırılmış neden kodları içeren İade Nedeni Bilgisi | Hem kredi transferi iadelerine (pacs.008) hem de doğrudan borçlandırma iadelerine (pacs.003) uygulanır |
-| **OrgnlTxRef** — Eşleştirme ve mutabakat için Orijinal İşlem Referansı | Talimat alan aracı, daha önce takas edilmiş fonları iade etmek üzere ödeme zinciri boyunca geriye pacs.004 gönderir. Zincirdeki her aracı iadeyi işler ve ilgili hesapları geri alacaklandırır. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Temel veri öğeleri İş bağlamı">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Temel veri öğeleri</th>
+        <th>İş bağlamı</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Mesaj tanımlama ve oluşturma zaman damgası içeren Grup Başlığı</td>
+          <td class="operational-matrix-table__right">Lehdarın hesabına alacak kaydedilemediğinde takas sonrası iadeleri işler</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**TxInf** — İade tutarı ve tarafları içeren İşlem Bilgisi</td>
+          <td class="operational-matrix-table__right">Göndericinin fon iadesi talep ettiği geri çağırma senaryolarını destekler</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Kaynak mesaja bağlayan Orijinal Grup Bilgisi</td>
+          <td class="operational-matrix-table__right">Düzenleyici ve operasyonel şeffaflık için yapılandırılmış iade neden kodları taşır</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**RtrRsnInf** — Yapılandırılmış neden kodları içeren İade Nedeni Bilgisi</td>
+          <td class="operational-matrix-table__right">Hem kredi transferi iadelerine (pacs.008) hem de doğrudan borçlandırma iadelerine (pacs.003) uygulanır</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlTxRef** — Eşleştirme ve mutabakat için Orijinal İşlem Referansı</td>
+          <td class="operational-matrix-table__right">Talimat alan aracı, daha önce takas edilmiş fonları iade etmek üzere ödeme zinciri boyunca geriye pacs.004 gönderir. Zincirdeki her aracı iadeyi işler ve ilgili hesapları geri alacaklandırır.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## CBPR+ ve şema bağlamı
 
@@ -57,10 +86,34 @@ Talimat alan aracı, daha önce takas edilmiş fonları iade etmek üzere ödeme
 
 ## Sürüm fark tablosu
 
-| Sürüm aralığı | Neden önemli | Uygulama çıkarımı |
-|---|---|---|
-| pacs.004.001.11 | pacs008 içindeki mevcut uygulama | Ödeme iade mesajları için mevcut şablonlarla uyumludur. |
-| pacs.004.001.12-14 | Daha sonraki katalog sürümleri | Kapsamda şema yükseltmeleri veya yeni karşı taraflar varsa, daha sonraki iade mesajı sürümlerini inceleyin. |
+<div class="version-diff-table" tabindex="0" aria-label="Sürüm fark tablosu">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Sürüm aralığı</th>
+        <th>Neden önemli</th>
+        <th>Uygulama çıkarımı</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.004.001.11</td>
+          <td class="version-diff-table__why">pacs008 içindeki mevcut uygulama</td>
+          <td class="version-diff-table__takeaway">Ödeme iade mesajları için mevcut şablonlarla uyumludur.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.004.001.12-14</td>
+          <td class="version-diff-table__why">Daha sonraki katalog sürümleri</td>
+          <td class="version-diff-table__takeaway">Kapsamda şema yükseltmeleri veya yeni karşı taraflar varsa, daha sonraki iade mesajı sürümlerini inceleyin.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Açıklamalı XML örneği
 
@@ -87,12 +140,44 @@ Talimat alan aracı, daha önce takas edilmiş fonları iade etmek üzere ödeme
 
 ## Karşılaştır pacs.004 vs pacs.007
 
-| Boyut | pacs.004.001.11 | Karşılaştırma mesajı |
-|---|---|---|
-| Temel amaç | Return settled funds | Reverse a previously instructed payment |
-| Initiated by | Receiving / beneficiary side | Original instructing side |
-| Direction of flow | Back through the chain | Forward through the chain |
-| En uygun olduğu durum | Mutabakattan sonra iade işleme | Geri çağırma, hata veya dolandırıcılık kaynaklı geri çevirme işleme |
+<div class="message-comparison-table" tabindex="0" aria-label="Karşılaştır pacs.004 vs pacs.007">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Boyut</th>
+        <th>pacs.004.001.11</th>
+        <th>Karşılaştırma mesajı</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Temel amaç</td>
+          <td class="message-comparison-table__current">Return settled funds</td>
+          <td class="message-comparison-table__other">Reverse a previously instructed payment</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Initiated by</td>
+          <td class="message-comparison-table__current">Receiving / beneficiary side</td>
+          <td class="message-comparison-table__other">Original instructing side</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Direction of flow</td>
+          <td class="message-comparison-table__current">Back through the chain</td>
+          <td class="message-comparison-table__other">Forward through the chain</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">En uygun olduğu durum</td>
+          <td class="message-comparison-table__current">Mutabakattan sonra iade işleme</td>
+          <td class="message-comparison-table__other">Geri çağırma, hata veya dolandırıcılık kaynaklı geri çevirme işleme</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Birincil referanslar
 
@@ -104,9 +189,37 @@ Talimat alan aracı, daha önce takas edilmiş fonları iade etmek üzere ödeme
 
 
 ## İlgili mesajlar
-| Mesaj türü | Açıklama | Genel bakış |
-|---|---|---|
-| [`pacs.008.001.13`](/tr/pacs.008.001.13/) | FI'dan FI'ya müşteri kredi transferi | pacs.008 mesajı, bir müşteri adına fon transfer etmek üzere finans kuruluşları arasında iletilen temel ödeme talimatıdır. Bir veya daha fazla kredi transferi işlemi için borçlu, alacaklı, tutar ve havale bilgilerini taşır. |
-| [`pacs.003.001.09`](/tr/pacs.003.001.09/) | FI'dan FI'ya müşteri doğrudan borçlandırması | pacs.003 mesajı, bir müşteri doğrudan borçlandırma talimatını yürütmek üzere finans kuruluşları arasında iletilir. Alacaklının bankasının, alacaklı adına borçlunun bankasından fon tahsil etmesini sağlar. |
-| [`pacs.002.001.12`](/tr/pacs.002.001.12/) | FI'dan FI'ya ödeme durumu raporu | pacs.002 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu bildirmek üzere bir finans kuruluşu tarafından gönderilir. Bir ödeme mesajı içindeki bireysel işlemler için onay, ret veya bekleyen durum bilgisi sağlar. |
+<div class="related-messages-table" tabindex="0" aria-label="İlgili mesajlar">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Mesaj türü</th>
+        <th>Açıklama</th>
+        <th>Genel bakış</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/tr/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">FI&#39;dan FI&#39;ya müşteri kredi transferi</td>
+          <td class="related-messages-table__overview">pacs.008 mesajı, bir müşteri adına fon transfer etmek üzere finans kuruluşları arasında iletilen temel ödeme talimatıdır. Bir veya daha fazla kredi transferi işlemi için borçlu, alacaklı, tutar ve havale bilgilerini taşır.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/tr/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
+          <td class="related-messages-table__name">FI&#39;dan FI&#39;ya müşteri doğrudan borçlandırması</td>
+          <td class="related-messages-table__overview">pacs.003 mesajı, bir müşteri doğrudan borçlandırma talimatını yürütmek üzere finans kuruluşları arasında iletilir. Alacaklının bankasının, alacaklı adına borçlunun bankasından fon tahsil etmesini sağlar.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/tr/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">FI&#39;dan FI&#39;ya ödeme durumu raporu</td>
+          <td class="related-messages-table__overview">pacs.002 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu bildirmek üzere bir finans kuruluşu tarafından gönderilir. Bir ödeme mesajı içindeki bireysel işlemler için onay, ret veya bekleyen durum bilgisi sağlar.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

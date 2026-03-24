@@ -36,13 +36,42 @@ Pesan pacs.004 digunakan untuk mengembalikan transaksi pembayaran yang sebelumny
 - Membawa kode alasan pengembalian terstruktur untuk transparansi regulasi dan operasional
 - Berlaku untuk pengembalian transfer kredit (pacs.008) dan pengembalian debit langsung (pacs.003)
 
-| Elemen data utama | Konteks bisnis |
-|---|---|
-| **GrpHdr** — Group Header dengan identifikasi pesan dan stempel waktu pembuatan | Menangani pengembalian pasca-penyelesaian ketika rekening penerima manfaat tidak dapat dikreditkan |
-| **TxInf** — Informasi Transaksi dengan jumlah pengembalian dan pihak-pihak | Mendukung skenario penarikan kembali di mana pengirim asal meminta pengembalian dana |
-| **OrgnlGrpInf** — Informasi Grup Asli yang menghubungkan ke pesan sumber | Membawa kode alasan pengembalian terstruktur untuk transparansi regulasi dan operasional |
-| **RtrRsnInf** — Informasi Alasan Pengembalian dengan kode alasan terstruktur | Berlaku untuk pengembalian transfer kredit (pacs.008) dan pengembalian debit langsung (pacs.003) |
-| **OrgnlTxRef** — Referensi Transaksi Asli untuk pencocokan dan rekonsiliasi | Agen yang diinstruksikan mengirim pacs.004 kembali melalui rantai pembayaran untuk mengembalikan dana yang sebelumnya telah diselesaikan. Setiap agen dalam rantai memproses pengembalian dan mengkreditkan kembali rekening yang relevan. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Elemen data utama Konteks bisnis">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Elemen data utama</th>
+        <th>Konteks bisnis</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Group Header dengan identifikasi pesan dan stempel waktu pembuatan</td>
+          <td class="operational-matrix-table__right">Menangani pengembalian pasca-penyelesaian ketika rekening penerima manfaat tidak dapat dikreditkan</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**TxInf** — Informasi Transaksi dengan jumlah pengembalian dan pihak-pihak</td>
+          <td class="operational-matrix-table__right">Mendukung skenario penarikan kembali di mana pengirim asal meminta pengembalian dana</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Informasi Grup Asli yang menghubungkan ke pesan sumber</td>
+          <td class="operational-matrix-table__right">Membawa kode alasan pengembalian terstruktur untuk transparansi regulasi dan operasional</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**RtrRsnInf** — Informasi Alasan Pengembalian dengan kode alasan terstruktur</td>
+          <td class="operational-matrix-table__right">Berlaku untuk pengembalian transfer kredit (pacs.008) dan pengembalian debit langsung (pacs.003)</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlTxRef** — Referensi Transaksi Asli untuk pencocokan dan rekonsiliasi</td>
+          <td class="operational-matrix-table__right">Agen yang diinstruksikan mengirim pacs.004 kembali melalui rantai pembayaran untuk mengembalikan dana yang sebelumnya telah diselesaikan. Setiap agen dalam rantai memproses pengembalian dan mengkreditkan kembali rekening yang relevan.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Konteks CBPR+ dan skema
 
@@ -57,10 +86,34 @@ Agen yang diinstruksikan mengirim pacs.004 kembali melalui rantai pembayaran unt
 
 ## Tabel perbedaan versi
 
-| Rentang versi | Mengapa ini penting | Kesimpulan implementasi |
-|---|---|---|
-| pacs.004.001.11 | Implementasi saat ini di pacs008 | Selaras dengan contoh XML saat ini untuk retur pembayaran. |
-| pacs.004.001.12-14 | Revisi katalog berikutnya | Tinjau revisi pesan retur yang lebih baru saat peningkatan skema atau pihak lawan baru masuk dalam cakupan. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabel perbedaan versi">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Rentang versi</th>
+        <th>Mengapa ini penting</th>
+        <th>Kesimpulan implementasi</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.004.001.11</td>
+          <td class="version-diff-table__why">Implementasi saat ini di pacs008</td>
+          <td class="version-diff-table__takeaway">Selaras dengan contoh XML saat ini untuk retur pembayaran.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.004.001.12-14</td>
+          <td class="version-diff-table__why">Revisi katalog berikutnya</td>
+          <td class="version-diff-table__takeaway">Tinjau revisi pesan retur yang lebih baru saat peningkatan skema atau pihak lawan baru masuk dalam cakupan.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Contoh XML beranotasi
 
@@ -87,12 +140,44 @@ Agen yang diinstruksikan mengirim pacs.004 kembali melalui rantai pembayaran unt
 
 ## Bandingkan pacs.004 vs pacs.007
 
-| Dimensi | pacs.004.001.11 | Pesan pembanding |
-|---|---|---|
-| Tujuan utama | Mengembalikan dana yang sudah diselesaikan | Membalik pembayaran yang sebelumnya telah diinstruksikan |
-| Diinisiasi oleh | Pihak penerima / penerima manfaat | Pihak pemberi instruksi asal |
-| Arah alur | Kembali melalui rantai | Maju melalui rantai |
-| Paling cocok untuk | Penanganan pengembalian pasca-penyelesaian | Penanganan pembalikan karena recall, kesalahan, atau penipuan |
+<div class="message-comparison-table" tabindex="0" aria-label="Bandingkan pacs.004 vs pacs.007">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Dimensi</th>
+        <th>pacs.004.001.11</th>
+        <th>Pesan pembanding</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Tujuan utama</td>
+          <td class="message-comparison-table__current">Mengembalikan dana yang sudah diselesaikan</td>
+          <td class="message-comparison-table__other">Membalik pembayaran yang sebelumnya telah diinstruksikan</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Diinisiasi oleh</td>
+          <td class="message-comparison-table__current">Pihak penerima / penerima manfaat</td>
+          <td class="message-comparison-table__other">Pihak pemberi instruksi asal</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Arah alur</td>
+          <td class="message-comparison-table__current">Kembali melalui rantai</td>
+          <td class="message-comparison-table__other">Maju melalui rantai</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Paling cocok untuk</td>
+          <td class="message-comparison-table__current">Penanganan pengembalian pasca-penyelesaian</td>
+          <td class="message-comparison-table__other">Penanganan pembalikan karena recall, kesalahan, atau penipuan</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Referensi primer
 
@@ -104,9 +189,37 @@ Agen yang diinstruksikan mengirim pacs.004 kembali melalui rantai pembayaran unt
 
 
 ## Pesan terkait
-| Jenis pesan | Deskripsi | Ikhtisar |
-|---|---|---|
-| [`pacs.008.001.13`](/id/pacs.008.001.13/) | Transfer Kredit Pelanggan FI ke FI | Pesan pacs.008 adalah instruksi pembayaran inti yang dipertukarkan antara lembaga keuangan untuk mentransfer dana atas nama pelanggan. Pesan ini membawa informasi debitur, kreditur, jumlah, dan remitansi untuk satu atau lebih transaksi transfer kredit. |
-| [`pacs.003.001.09`](/id/pacs.003.001.09/) | Direct Debit Pelanggan FI ke FI | Pesan pacs.003 dipertukarkan antara lembaga keuangan untuk mengeksekusi instruksi debit langsung pelanggan. Pesan ini memungkinkan bank kreditur untuk menagih dana dari bank debitur atas nama kreditur. |
-| [`pacs.002.001.12`](/id/pacs.002.001.12/) | Laporan Status Pembayaran FI ke FI | Pesan pacs.002 dikirim oleh lembaga keuangan untuk melaporkan status instruksi pembayaran yang sebelumnya dikirim. Pesan ini memberikan informasi konfirmasi, penolakan, atau status tertunda untuk transaksi individual dalam pesan pembayaran. |
+<div class="related-messages-table" tabindex="0" aria-label="Pesan terkait">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Jenis pesan</th>
+        <th>Deskripsi</th>
+        <th>Ikhtisar</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/id/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">Transfer Kredit Pelanggan FI ke FI</td>
+          <td class="related-messages-table__overview">Pesan pacs.008 adalah instruksi pembayaran inti yang dipertukarkan antara lembaga keuangan untuk mentransfer dana atas nama pelanggan. Pesan ini membawa informasi debitur, kreditur, jumlah, dan remitansi untuk satu atau lebih transaksi transfer kredit.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/id/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
+          <td class="related-messages-table__name">Direct Debit Pelanggan FI ke FI</td>
+          <td class="related-messages-table__overview">Pesan pacs.003 dipertukarkan antara lembaga keuangan untuk mengeksekusi instruksi debit langsung pelanggan. Pesan ini memungkinkan bank kreditur untuk menagih dana dari bank debitur atas nama kreditur.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/id/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">Laporan Status Pembayaran FI ke FI</td>
+          <td class="related-messages-table__overview">Pesan pacs.002 dikirim oleh lembaga keuangan untuk melaporkan status instruksi pembayaran yang sebelumnya dikirim. Pesan ini memberikan informasi konfirmasi, penolakan, atau status tertunda untuk transaksi individual dalam pesan pembayaran.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

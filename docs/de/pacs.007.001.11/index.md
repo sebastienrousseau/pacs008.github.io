@@ -36,13 +36,42 @@ Die Nachricht pacs.007 wird verwendet, um eine zuvor gesendete Zahlungsanweisung
 - Unterstützt sowohl vollständige als auch teilweise Umkehrung von Originalzahlungsbeträgen
 - Trägt strukturierte Umkehrgrundcodes für die nachgelagerte Verarbeitung
 
-| Wichtige Datenelemente | Geschäftskontext |
-|---|---|
-| **GrpHdr** — Gruppenkopf mit Nachrichtenidentifikation und Erstellungszeitstempel | Wird initiiert, wenn der ursprüngliche Sender einen Fehler vor oder nach der Abwicklung feststellt |
-| **TxInf** — Transaktionsinformationen mit Umkehrbetrag und Parteien | Wird in Betrugsfällen verwendet, bei denen eine schnelle Umkehrung erforderlich ist |
-| **OrgnlGrpInf** — Originalgruppendaten mit Bezug auf die Quellnachricht | Unterstützt sowohl vollständige als auch teilweise Umkehrung von Originalzahlungsbeträgen |
-| **RvslRsnInf** — Umkehrgrundinformationen mit strukturierten Grundcodes | Trägt strukturierte Umkehrgrundcodes für die nachgelagerte Verarbeitung |
-| **OrgnlTxRef** — Originaltransaktionsreferenz für End-to-End-Nachverfolgbarkeit | Der beauftragende Agent (ursprünglicher Sender) sendet pacs.007 durch die Zahlungskette, um eine zuvor beauftragte Zahlung umzukehren. Jeder Agent verarbeitet die Umkehranweisung und passt die Abwicklung entsprechend an. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Wichtige Datenelemente Geschäftskontext">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Wichtige Datenelemente</th>
+        <th>Geschäftskontext</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Gruppenkopf mit Nachrichtenidentifikation und Erstellungszeitstempel</td>
+          <td class="operational-matrix-table__right">Wird initiiert, wenn der ursprüngliche Sender einen Fehler vor oder nach der Abwicklung feststellt</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**TxInf** — Transaktionsinformationen mit Umkehrbetrag und Parteien</td>
+          <td class="operational-matrix-table__right">Wird in Betrugsfällen verwendet, bei denen eine schnelle Umkehrung erforderlich ist</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Originalgruppendaten mit Bezug auf die Quellnachricht</td>
+          <td class="operational-matrix-table__right">Unterstützt sowohl vollständige als auch teilweise Umkehrung von Originalzahlungsbeträgen</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**RvslRsnInf** — Umkehrgrundinformationen mit strukturierten Grundcodes</td>
+          <td class="operational-matrix-table__right">Trägt strukturierte Umkehrgrundcodes für die nachgelagerte Verarbeitung</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlTxRef** — Originaltransaktionsreferenz für End-to-End-Nachverfolgbarkeit</td>
+          <td class="operational-matrix-table__right">Der beauftragende Agent (ursprünglicher Sender) sendet pacs.007 durch die Zahlungskette, um eine zuvor beauftragte Zahlung umzukehren. Jeder Agent verarbeitet die Umkehranweisung und passt die Abwicklung entsprechend an.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## CBPR+- und Schema-Kontext
 
@@ -57,10 +86,34 @@ Der beauftragende Agent (ursprünglicher Sender) sendet pacs.007 durch die Zahlu
 
 ## Tabelle der Versionsunterschiede
 
-| Versionsbereich | Warum es wichtig ist | Praktische Konsequenz |
-|---|---|---|
-| pacs.007.001.11 | Aktuelle Implementierung in pacs008 | Gute Ausgangsbasis für die Modellierung von Stornoabläufen. |
-| pacs.007.001.12-13 | Spätere Katalogversionen | Spätere Versionen auf aktuelle Marktinfrastruktur-Anforderungen prüfen. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabelle der Versionsunterschiede">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Versionsbereich</th>
+        <th>Warum es wichtig ist</th>
+        <th>Praktische Konsequenz</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.007.001.11</td>
+          <td class="version-diff-table__why">Aktuelle Implementierung in pacs008</td>
+          <td class="version-diff-table__takeaway">Gute Ausgangsbasis für die Modellierung von Stornoabläufen.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.007.001.12-13</td>
+          <td class="version-diff-table__why">Spätere Katalogversionen</td>
+          <td class="version-diff-table__takeaway">Spätere Versionen auf aktuelle Marktinfrastruktur-Anforderungen prüfen.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Kommentiertes XML-Beispiel
 
@@ -86,12 +139,44 @@ Der beauftragende Agent (ursprünglicher Sender) sendet pacs.007 durch die Zahlu
 
 ## Vergleich pacs.007 vs pacs.004
 
-| Dimension | pacs.007.001.11 | Vergleichsnachricht |
-|---|---|---|
-| Hauptzweck | Reverse a previously instructed payment | Return settled funds |
-| Initiated by | Original instructing side | Receiving / beneficiary side |
-| Direction of flow | Forward through the chain | Back through the chain |
-| Am besten geeignet für | Abwicklung von Rückabwicklungen wegen Recall, Fehler oder Betrug | Abwicklung von Rückgaben nach dem Settlement |
+<div class="message-comparison-table" tabindex="0" aria-label="Vergleich pacs.007 vs pacs.004">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Dimension</th>
+        <th>pacs.007.001.11</th>
+        <th>Vergleichsnachricht</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Hauptzweck</td>
+          <td class="message-comparison-table__current">Reverse a previously instructed payment</td>
+          <td class="message-comparison-table__other">Return settled funds</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Initiated by</td>
+          <td class="message-comparison-table__current">Original instructing side</td>
+          <td class="message-comparison-table__other">Receiving / beneficiary side</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Direction of flow</td>
+          <td class="message-comparison-table__current">Forward through the chain</td>
+          <td class="message-comparison-table__other">Back through the chain</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Am besten geeignet für</td>
+          <td class="message-comparison-table__current">Abwicklung von Rückabwicklungen wegen Recall, Fehler oder Betrug</td>
+          <td class="message-comparison-table__other">Abwicklung von Rückgaben nach dem Settlement</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Primärquellen
 
@@ -101,9 +186,37 @@ Der beauftragende Agent (ursprünglicher Sender) sendet pacs.007 durch die Zahlu
 
 
 ## Verwandte Nachrichten
-| Nachrichtentyp | Beschreibung | Überblick |
-|---|---|---|
-| [`pacs.008.001.13`](/de/pacs.008.001.13/) | FI-zu-FI-Kundenkredittransfer | Die Nachricht pacs.008 ist die zentrale Zahlungsanweisung, die zwischen Finanzinstituten ausgetauscht wird, um Gelder im Auftrag eines Kunden zu überweisen. Sie enthält Informationen zu Schuldner, Gläubiger, Betrag und Überweisungszweck für eine oder mehrere Überweisungen. |
-| [`pacs.004.001.11`](/de/pacs.004.001.11/) | Zahlungsrückgabe | Die Nachricht pacs.004 wird verwendet, um eine zuvor abgewickelte Zahlungstransaktion zurückzugeben. Sie kehrt den Geldfluss um, wenn eine Zahlung nicht angewendet werden kann, irrtümlich gesendet wurde oder vom Ursprungsinstitut zurückgerufen wird. |
-| [`pacs.002.001.12`](/de/pacs.002.001.12/) | FI-zu-FI-Zahlungsstatusbericht | Die Nachricht pacs.002 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung zu melden. Sie liefert Bestätigungs-, Ablehnungs- oder Statusinformationen für einzelne Transaktionen innerhalb einer Zahlungsnachricht. |
+<div class="related-messages-table" tabindex="0" aria-label="Verwandte Nachrichten">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Nachrichtentyp</th>
+        <th>Beschreibung</th>
+        <th>Überblick</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/de/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">FI-zu-FI-Kundenkredittransfer</td>
+          <td class="related-messages-table__overview">Die Nachricht pacs.008 ist die zentrale Zahlungsanweisung, die zwischen Finanzinstituten ausgetauscht wird, um Gelder im Auftrag eines Kunden zu überweisen. Sie enthält Informationen zu Schuldner, Gläubiger, Betrag und Überweisungszweck für eine oder mehrere Überweisungen.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/de/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
+          <td class="related-messages-table__name">Zahlungsrückgabe</td>
+          <td class="related-messages-table__overview">Die Nachricht pacs.004 wird verwendet, um eine zuvor abgewickelte Zahlungstransaktion zurückzugeben. Sie kehrt den Geldfluss um, wenn eine Zahlung nicht angewendet werden kann, irrtümlich gesendet wurde oder vom Ursprungsinstitut zurückgerufen wird.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/de/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">FI-zu-FI-Zahlungsstatusbericht</td>
+          <td class="related-messages-table__overview">Die Nachricht pacs.002 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung zu melden. Sie liefert Bestätigungs-, Ablehnungs- oder Statusinformationen für einzelne Transaktionen innerhalb einer Zahlungsnachricht.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

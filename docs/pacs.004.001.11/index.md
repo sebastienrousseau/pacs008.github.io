@@ -36,13 +36,42 @@ The pacs.004 message is used to return a previously settled payment transaction.
 - Carries structured return reason codes for regulatory and operational transparency
 - Applies to both credit transfer returns (pacs.008) and direct debit returns (pacs.003)
 
-| Key data elements | Business context |
-|---|---|
-| **GrpHdr** — Group Header with message identification and creation timestamp | Handles post-settlement returns when the beneficiary's account cannot be credited |
-| **TxInf** — Transaction Information with return amount and parties | Supports recall scenarios where the originator requests return of funds |
-| **OrgnlGrpInf** — Original Group Information linking to the source message | Carries structured return reason codes for regulatory and operational transparency |
-| **RtrRsnInf** — Return Reason Information with structured reason codes | Applies to both credit transfer returns (pacs.008) and direct debit returns (pacs.003) |
-| **OrgnlTxRef** — Original Transaction Reference for matching and reconciliation | The instructed agent sends pacs.004 back through the payment chain to return previously settled funds. Each agent in the chain processes the return and credits back the relevant accounts. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Key data elements Business context">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Key data elements</th>
+        <th>Business context</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Group Header with message identification and creation timestamp</td>
+          <td class="operational-matrix-table__right">Handles post-settlement returns when the beneficiary&#39;s account cannot be credited</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**TxInf** — Transaction Information with return amount and parties</td>
+          <td class="operational-matrix-table__right">Supports recall scenarios where the originator requests return of funds</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Original Group Information linking to the source message</td>
+          <td class="operational-matrix-table__right">Carries structured return reason codes for regulatory and operational transparency</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**RtrRsnInf** — Return Reason Information with structured reason codes</td>
+          <td class="operational-matrix-table__right">Applies to both credit transfer returns (pacs.008) and direct debit returns (pacs.003)</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlTxRef** — Original Transaction Reference for matching and reconciliation</td>
+          <td class="operational-matrix-table__right">The instructed agent sends pacs.004 back through the payment chain to return previously settled funds. Each agent in the chain processes the return and credits back the relevant accounts.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## CBPR+ and scheme context
 
@@ -63,10 +92,34 @@ That means this page is useful for understanding the currently implemented versi
 
 ## Version-diff table
 
-| Version range | Why it matters | Implementation takeaway |
-|---|---|---|
-| pacs.004.001.11 | Current implementation in pacs008 | Aligns with current templates for payment returns. |
-| pacs.004.001.12-14 | Later catalogue revisions | Review later return-message revisions when scheme upgrades or new counterparties are in scope. |
+<div class="version-diff-table" tabindex="0" aria-label="Version-diff table">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Version range</th>
+        <th>Why it matters</th>
+        <th>Implementation takeaway</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.004.001.11</td>
+          <td class="version-diff-table__why">Current implementation in pacs008</td>
+          <td class="version-diff-table__takeaway">Aligns with current templates for payment returns.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.004.001.12-14</td>
+          <td class="version-diff-table__why">Later catalogue revisions</td>
+          <td class="version-diff-table__takeaway">Review later return-message revisions when scheme upgrades or new counterparties are in scope.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Scheme-specific notes
 
@@ -130,12 +183,44 @@ No -> Review scheme exception handling before choosing a message.
 
 ## Compare pacs.004 vs pacs.007
 
-| Dimension | pacs.004.001.11 | Comparison message |
-|---|---|---|
-| Primary purpose | Return settled funds | Reverse a previously instructed payment |
-| Initiated by | Receiving / beneficiary side | Original instructing side |
-| Direction of flow | Back through the chain | Forward through the chain |
-| Best fit | Post-settlement return handling | Recall, error, or fraud-driven reversal handling |
+<div class="message-comparison-table" tabindex="0" aria-label="Compare pacs.004 vs pacs.007">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Dimension</th>
+        <th>pacs.004.001.11</th>
+        <th>Comparison message</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Primary purpose</td>
+          <td class="message-comparison-table__current">Return settled funds</td>
+          <td class="message-comparison-table__other">Reverse a previously instructed payment</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Initiated by</td>
+          <td class="message-comparison-table__current">Receiving / beneficiary side</td>
+          <td class="message-comparison-table__other">Original instructing side</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Direction of flow</td>
+          <td class="message-comparison-table__current">Back through the chain</td>
+          <td class="message-comparison-table__other">Forward through the chain</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Best fit</td>
+          <td class="message-comparison-table__current">Post-settlement return handling</td>
+          <td class="message-comparison-table__other">Recall, error, or fraud-driven reversal handling</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Implementation FAQ
 
@@ -157,9 +242,37 @@ Not automatically. The right path depends on scheme rules, settlement stage, and
 
 
 ## Related messages
-| Message type | Description | Overview |
-|---|---|---|
-| [`pacs.008.001.13`](/pacs.008.001.13/) | FI to FI Customer Credit Transfer | The pacs.008 message is the core payment instruction exchanged between financial institutions to transfer funds on behalf of a customer. It carries debtor, creditor, amount, and remittance information for one or more credit transfer transactions. |
-| [`pacs.003.001.09`](/pacs.003.001.09/) | FI to FI Customer Direct Debit | The pacs.003 message is exchanged between financial institutions to execute a customer direct debit instruction. It enables the creditor's bank to collect funds from the debtor's bank on behalf of the creditor. |
-| [`pacs.002.001.12`](/pacs.002.001.12/) | FI to FI Payment Status Report | The pacs.002 message is sent by a financial institution to report the status of a previously sent payment instruction. It provides confirmation, rejection, or pending status information for individual transactions within a payment message. |
+<div class="related-messages-table" tabindex="0" aria-label="Related messages">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Message type</th>
+        <th>Description</th>
+        <th>Overview</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">FI to FI Customer Credit Transfer</td>
+          <td class="related-messages-table__overview">The pacs.008 message is the core payment instruction exchanged between financial institutions to transfer funds on behalf of a customer. It carries debtor, creditor, amount, and remittance information for one or more credit transfer transactions.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
+          <td class="related-messages-table__name">FI to FI Customer Direct Debit</td>
+          <td class="related-messages-table__overview">The pacs.003 message is exchanged between financial institutions to execute a customer direct debit instruction. It enables the creditor&#39;s bank to collect funds from the debtor&#39;s bank on behalf of the creditor.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">FI to FI Payment Status Report</td>
+          <td class="related-messages-table__overview">The pacs.002 message is sent by a financial institution to report the status of a previously sent payment instruction. It provides confirmation, rejection, or pending status information for individual transactions within a payment message.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

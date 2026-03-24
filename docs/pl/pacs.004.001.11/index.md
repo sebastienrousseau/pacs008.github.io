@@ -36,13 +36,42 @@ Komunikat pacs.004 jest używany do zwrotu wcześniej rozliczonej transakcji pł
 - Zawiera strukturyzowane kody przyczyn zwrotu dla przejrzystości regulacyjnej i operacyjnej
 - Ma zastosowanie zarówno do zwrotów poleceń przelewu (pacs.008), jak i zwrotów poleceń zapłaty (pacs.003)
 
-| Kluczowe elementy danych | Kontekst biznesowy |
-|---|---|
-| **GrpHdr** — Nagłówek grupy z identyfikacją komunikatu i znacznikiem czasu utworzenia | Obsługuje zwroty po rozrachunku, gdy rachunek beneficjenta nie może zostać uznany |
-| **TxInf** — Informacje o transakcji z kwotą zwrotu i stronami | Obsługuje scenariusze przywołania, w których zleceniodawca żąda zwrotu środków |
-| **OrgnlGrpInf** — Informacje o oryginalnej grupie z odniesieniem do komunikatu źródłowego | Zawiera strukturyzowane kody przyczyn zwrotu dla przejrzystości regulacyjnej i operacyjnej |
-| **RtrRsnInf** — Informacje o przyczynie zwrotu ze strukturyzowanymi kodami przyczyn | Ma zastosowanie zarówno do zwrotów poleceń przelewu (pacs.008), jak i zwrotów poleceń zapłaty (pacs.003) |
-| **OrgnlTxRef** — Referencja oryginalnej transakcji do dopasowania i uzgadniania | Agent zlecony wysyła pacs.004 wstecz przez łańcuch płatniczy w celu zwrotu wcześniej rozliczonych środków. Każdy agent w łańcuchu przetwarza zwrot i ponownie uznaje odpowiednie rachunki. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Kluczowe elementy danych Kontekst biznesowy">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Kluczowe elementy danych</th>
+        <th>Kontekst biznesowy</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Nagłówek grupy z identyfikacją komunikatu i znacznikiem czasu utworzenia</td>
+          <td class="operational-matrix-table__right">Obsługuje zwroty po rozrachunku, gdy rachunek beneficjenta nie może zostać uznany</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**TxInf** — Informacje o transakcji z kwotą zwrotu i stronami</td>
+          <td class="operational-matrix-table__right">Obsługuje scenariusze przywołania, w których zleceniodawca żąda zwrotu środków</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Informacje o oryginalnej grupie z odniesieniem do komunikatu źródłowego</td>
+          <td class="operational-matrix-table__right">Zawiera strukturyzowane kody przyczyn zwrotu dla przejrzystości regulacyjnej i operacyjnej</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**RtrRsnInf** — Informacje o przyczynie zwrotu ze strukturyzowanymi kodami przyczyn</td>
+          <td class="operational-matrix-table__right">Ma zastosowanie zarówno do zwrotów poleceń przelewu (pacs.008), jak i zwrotów poleceń zapłaty (pacs.003)</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlTxRef** — Referencja oryginalnej transakcji do dopasowania i uzgadniania</td>
+          <td class="operational-matrix-table__right">Agent zlecony wysyła pacs.004 wstecz przez łańcuch płatniczy w celu zwrotu wcześniej rozliczonych środków. Każdy agent w łańcuchu przetwarza zwrot i ponownie uznaje odpowiednie rachunki.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Kontekst CBPR+ i schematy
 
@@ -57,10 +86,34 @@ Agent zlecony wysyła pacs.004 wstecz przez łańcuch płatniczy w celu zwrotu w
 
 ## Tabela różnic wersji
 
-| Zakres wersji | Dlaczego to ważne | Wniosek wdrożeniowy |
-|---|---|---|
-| pacs.004.001.11 | Bieżąca implementacja w pacs008 | Jest zgodne z bieżącymi szablonami zwrotów płatności. |
-| pacs.004.001.12-14 | Późniejsze rewizje katalogu | Sprawdź późniejsze rewizje komunikatów zwrotnych, gdy w zakresie są aktualizacje schematu lub nowi kontrahenci. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabela różnic wersji">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Zakres wersji</th>
+        <th>Dlaczego to ważne</th>
+        <th>Wniosek wdrożeniowy</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.004.001.11</td>
+          <td class="version-diff-table__why">Bieżąca implementacja w pacs008</td>
+          <td class="version-diff-table__takeaway">Jest zgodne z bieżącymi szablonami zwrotów płatności.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.004.001.12-14</td>
+          <td class="version-diff-table__why">Późniejsze rewizje katalogu</td>
+          <td class="version-diff-table__takeaway">Sprawdź późniejsze rewizje komunikatów zwrotnych, gdy w zakresie są aktualizacje schematu lub nowi kontrahenci.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Przykład XML z komentarzami
 
@@ -87,12 +140,44 @@ Agent zlecony wysyła pacs.004 wstecz przez łańcuch płatniczy w celu zwrotu w
 
 ## Porównanie pacs.004 vs pacs.007
 
-| Wymiar | pacs.004.001.11 | Wiadomość porównawcza |
-|---|---|---|
-| Główny cel | Return settled funds | Reverse a previously instructed payment |
-| Initiated by | Receiving / beneficiary side | Original instructing side |
-| Direction of flow | Back through the chain | Forward through the chain |
-| Najlepiej nadaje się do | Obsługa zwrotu po rozrachunku | Obsługa odwrócenia z powodu recall, błędu lub oszustwa |
+<div class="message-comparison-table" tabindex="0" aria-label="Porównanie pacs.004 vs pacs.007">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Wymiar</th>
+        <th>pacs.004.001.11</th>
+        <th>Wiadomość porównawcza</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Główny cel</td>
+          <td class="message-comparison-table__current">Return settled funds</td>
+          <td class="message-comparison-table__other">Reverse a previously instructed payment</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Initiated by</td>
+          <td class="message-comparison-table__current">Receiving / beneficiary side</td>
+          <td class="message-comparison-table__other">Original instructing side</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Direction of flow</td>
+          <td class="message-comparison-table__current">Back through the chain</td>
+          <td class="message-comparison-table__other">Forward through the chain</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Najlepiej nadaje się do</td>
+          <td class="message-comparison-table__current">Obsługa zwrotu po rozrachunku</td>
+          <td class="message-comparison-table__other">Obsługa odwrócenia z powodu recall, błędu lub oszustwa</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Źródła podstawowe
 
@@ -104,9 +189,37 @@ Agent zlecony wysyła pacs.004 wstecz przez łańcuch płatniczy w celu zwrotu w
 
 
 ## Powiązane wiadomości
-| Typ wiadomości | Opis | Przegląd |
-|---|---|---|
-| [`pacs.008.001.13`](/pl/pacs.008.001.13/) | Przelew kredytowy klienta FI-do-FI | Komunikat pacs.008 jest podstawową instrukcją płatniczą wymienianą między instytucjami finansowymi w celu przekazania środków w imieniu klienta. Zawiera informacje o dłużniku, wierzycielu, kwocie i danych przekazu dla jednej lub więcej transakcji polecenia przelewu. |
-| [`pacs.003.001.09`](/pl/pacs.003.001.09/) | Polecenie zapłaty klienta FI-do-FI | Komunikat pacs.003 jest wymieniany między instytucjami finansowymi w celu realizacji instrukcji polecenia zapłaty klienta. Umożliwia bankowi wierzyciela pobranie środków z banku dłużnika w imieniu wierzyciela. |
-| [`pacs.002.001.12`](/pl/pacs.002.001.12/) | Raport statusu płatności FI-do-FI | Komunikat pacs.002 jest wysyłany przez instytucję finansową w celu raportowania statusu wcześniej wysłanej instrukcji płatniczej. Dostarcza informacje o potwierdzeniu, odrzuceniu lub statusie oczekującym dla poszczególnych transakcji w ramach komunikatu płatniczego. |
+<div class="related-messages-table" tabindex="0" aria-label="Powiązane wiadomości">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Typ wiadomości</th>
+        <th>Opis</th>
+        <th>Przegląd</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pl/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">Przelew kredytowy klienta FI-do-FI</td>
+          <td class="related-messages-table__overview">Komunikat pacs.008 jest podstawową instrukcją płatniczą wymienianą między instytucjami finansowymi w celu przekazania środków w imieniu klienta. Zawiera informacje o dłużniku, wierzycielu, kwocie i danych przekazu dla jednej lub więcej transakcji polecenia przelewu.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pl/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
+          <td class="related-messages-table__name">Polecenie zapłaty klienta FI-do-FI</td>
+          <td class="related-messages-table__overview">Komunikat pacs.003 jest wymieniany między instytucjami finansowymi w celu realizacji instrukcji polecenia zapłaty klienta. Umożliwia bankowi wierzyciela pobranie środków z banku dłużnika w imieniu wierzyciela.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pl/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">Raport statusu płatności FI-do-FI</td>
+          <td class="related-messages-table__overview">Komunikat pacs.002 jest wysyłany przez instytucję finansową w celu raportowania statusu wcześniej wysłanej instrukcji płatniczej. Dostarcza informacje o potwierdzeniu, odrzuceniu lub statusie oczekującym dla poszczególnych transakcji w ramach komunikatu płatniczego.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

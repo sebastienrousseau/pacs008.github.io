@@ -36,13 +36,42 @@ Het pacs.007-bericht wordt gebruikt om een eerder verzonden betalingsinstructie 
 - Ondersteunt zowel volledige als gedeeltelijke stornering van oorspronkelijke betalingsbedragen
 - Bevat gestructureerde storneringsredencodes voor verdere verwerking in de keten
 
-| Belangrijke gegevenselementen | Zakelijke context |
-|---|---|
-| **GrpHdr** — Groepskoptekst met berichtidentificatie en aanmaaktijdstempel | Geïnitieerd wanneer de oorspronkelijke verzender een fout constateert vóór of na afwikkeling |
-| **TxInf** — Transactie-informatie met storneringsbedrag en partijen | Gebruikt bij fraudescenario's waarbij snelle stornering vereist is |
-| **OrgnlGrpInf** — Oorspronkelijke groepsinformatie met verwijzing naar het bronbericht | Ondersteunt zowel volledige als gedeeltelijke stornering van oorspronkelijke betalingsbedragen |
-| **RvslRsnInf** — Storneringsredeninformatie met gestructureerde redencodes | Bevat gestructureerde storneringsredencodes voor verdere verwerking in de keten |
-| **OrgnlTxRef** — Oorspronkelijke transactiereferentie voor end-to-end traceerbaarheid | De opdrachtgevende agent (oorspronkelijke verzender) stuurt pacs.007 voorwaarts door de betalingsketen om een eerder gegeven betalingsinstructie te storneren. Elke agent verwerkt de storneringsinstructie en past de afwikkeling dienovereenkomstig aan. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Belangrijke gegevenselementen Zakelijke context">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Belangrijke gegevenselementen</th>
+        <th>Zakelijke context</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Groepskoptekst met berichtidentificatie en aanmaaktijdstempel</td>
+          <td class="operational-matrix-table__right">Geïnitieerd wanneer de oorspronkelijke verzender een fout constateert vóór of na afwikkeling</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**TxInf** — Transactie-informatie met storneringsbedrag en partijen</td>
+          <td class="operational-matrix-table__right">Gebruikt bij fraudescenario&#39;s waarbij snelle stornering vereist is</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Oorspronkelijke groepsinformatie met verwijzing naar het bronbericht</td>
+          <td class="operational-matrix-table__right">Ondersteunt zowel volledige als gedeeltelijke stornering van oorspronkelijke betalingsbedragen</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**RvslRsnInf** — Storneringsredeninformatie met gestructureerde redencodes</td>
+          <td class="operational-matrix-table__right">Bevat gestructureerde storneringsredencodes voor verdere verwerking in de keten</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlTxRef** — Oorspronkelijke transactiereferentie voor end-to-end traceerbaarheid</td>
+          <td class="operational-matrix-table__right">De opdrachtgevende agent (oorspronkelijke verzender) stuurt pacs.007 voorwaarts door de betalingsketen om een eerder gegeven betalingsinstructie te storneren. Elke agent verwerkt de storneringsinstructie en past de afwikkeling dienovereenkomstig aan.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## CBPR+- en schema-context
 
@@ -57,10 +86,34 @@ De opdrachtgevende agent (oorspronkelijke verzender) stuurt pacs.007 voorwaarts 
 
 ## Tabel met versieverschillen
 
-| Versiebereik | Waarom dit telt | Implementatieconclusie |
-|---|---|---|
-| pacs.007.001.11 | Huidige implementatie in pacs008 | Goede basis voor het modelleren van terugboekingsprocessen. |
-| pacs.007.001.12-13 | Latere catalogusrevisies | Check later revisions for current market-infrastructure alignment. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabel met versieverschillen">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Versiebereik</th>
+        <th>Waarom dit telt</th>
+        <th>Implementatieconclusie</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.007.001.11</td>
+          <td class="version-diff-table__why">Huidige implementatie in pacs008</td>
+          <td class="version-diff-table__takeaway">Goede basis voor het modelleren van terugboekingsprocessen.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.007.001.12-13</td>
+          <td class="version-diff-table__why">Latere catalogusrevisies</td>
+          <td class="version-diff-table__takeaway">Check later revisions for current market-infrastructure alignment.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Uitgewerkt XML-voorbeeld
 
@@ -86,12 +139,44 @@ De opdrachtgevende agent (oorspronkelijke verzender) stuurt pacs.007 voorwaarts 
 
 ## Vergelijk pacs.007 vs pacs.004
 
-| Dimensie | pacs.007.001.11 | Vergelijkingsbericht |
-|---|---|---|
-| Primair doel | Reverse a previously instructed payment | Return settled funds |
-| Initiated by | Original instructing side | Receiving / beneficiary side |
-| Direction of flow | Forward through the chain | Back through the chain |
-| Het meest geschikt voor | Afhandeling van terugboekingen door recall, fout of fraude | Afhandeling van retouren na afwikkeling |
+<div class="message-comparison-table" tabindex="0" aria-label="Vergelijk pacs.007 vs pacs.004">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Dimensie</th>
+        <th>pacs.007.001.11</th>
+        <th>Vergelijkingsbericht</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Primair doel</td>
+          <td class="message-comparison-table__current">Reverse a previously instructed payment</td>
+          <td class="message-comparison-table__other">Return settled funds</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Initiated by</td>
+          <td class="message-comparison-table__current">Original instructing side</td>
+          <td class="message-comparison-table__other">Receiving / beneficiary side</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Direction of flow</td>
+          <td class="message-comparison-table__current">Forward through the chain</td>
+          <td class="message-comparison-table__other">Back through the chain</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Het meest geschikt voor</td>
+          <td class="message-comparison-table__current">Afhandeling van terugboekingen door recall, fout of fraude</td>
+          <td class="message-comparison-table__other">Afhandeling van retouren na afwikkeling</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Primaire referenties
 
@@ -101,9 +186,37 @@ De opdrachtgevende agent (oorspronkelijke verzender) stuurt pacs.007 voorwaarts 
 
 
 ## Gerelateerde berichten
-| Berichttype | Beschrijving | Overzicht |
-|---|---|---|
-| [`pacs.008.001.13`](/nl/pacs.008.001.13/) | FI-naar-FI-klantkredietoverboeking | Het pacs.008-bericht is de kernbetalingsinstructie die wordt uitgewisseld tussen financiële instellingen om namens een klant gelden over te maken. Het bevat informatie over debiteur, crediteur, bedrag en betalingskenmerken voor een of meer overboekingstransacties. |
-| [`pacs.004.001.11`](/nl/pacs.004.001.11/) | Betalingsretour | Het pacs.004-bericht wordt gebruikt om een eerder afgewikkelde betalingstransactie te retourneren. Het keert de geldstroom om wanneer een betaling niet kan worden toegepast, per abuis is verzonden of door de opdrachtgevende instelling wordt teruggevorderd. |
-| [`pacs.002.001.12`](/nl/pacs.002.001.12/) | FI-naar-FI-betalingsstatusrapport | Het pacs.002-bericht wordt door een financiële instelling verzonden om de status te rapporteren van een eerder verzonden betalingsinstructie. Het biedt bevestigings-, afwijzings- of hangende statusinformatie voor individuele transacties binnen een betalingsbericht. |
+<div class="related-messages-table" tabindex="0" aria-label="Gerelateerde berichten">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Berichttype</th>
+        <th>Beschrijving</th>
+        <th>Overzicht</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/nl/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">FI-naar-FI-klantkredietoverboeking</td>
+          <td class="related-messages-table__overview">Het pacs.008-bericht is de kernbetalingsinstructie die wordt uitgewisseld tussen financiële instellingen om namens een klant gelden over te maken. Het bevat informatie over debiteur, crediteur, bedrag en betalingskenmerken voor een of meer overboekingstransacties.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/nl/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
+          <td class="related-messages-table__name">Betalingsretour</td>
+          <td class="related-messages-table__overview">Het pacs.004-bericht wordt gebruikt om een eerder afgewikkelde betalingstransactie te retourneren. Het keert de geldstroom om wanneer een betaling niet kan worden toegepast, per abuis is verzonden of door de opdrachtgevende instelling wordt teruggevorderd.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/nl/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">FI-naar-FI-betalingsstatusrapport</td>
+          <td class="related-messages-table__overview">Het pacs.002-bericht wordt door een financiële instelling verzonden om de status te rapporteren van een eerder verzonden betalingsinstructie. Het biedt bevestigings-, afwijzings- of hangende statusinformatie voor individuele transacties binnen een betalingsbericht.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

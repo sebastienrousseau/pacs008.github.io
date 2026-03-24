@@ -36,13 +36,42 @@ image: /logo.svg
 - משלימה את pacs.002 ביוזמת תקשורת סטטוס במקום המתנה
 - משמשת בתהליכי טיפול בחריגים וניטור SLA
 
-| אלמנטי נתונים מרכזיים | הקשר עסקי |
-|---|---|
-| **GrpHdr** — כותרת קבוצה עם זיהוי הודעה וחותמת זמן יצירה | מאפשרת בירור סטטוס יזום עבור הוראות תשלום בתהליך |
-| **TxInf** — מידע עסקה המזהה את התשלום לבירור | תומכת בצוותי תפעול החוקרים תשלומים מעוכבים או חסרים |
-| **OrgnlGrpInf** — מידע על הקבוצה המקורית המפנה להודעת המקור | משלימה את pacs.002 ביוזמת תקשורת סטטוס במקום המתנה |
-| **OrgnlInstrId** — מזהה ההוראה המקורית מהתשלום המקורי | משמשת בתהליכי טיפול בחריגים וניטור SLA |
-| **OrgnlEndToEndId** — מזהה מקצה לקצה מקורי לעקיבות | הסוכן המורה שולח pacs.028 לסוכן מקבל ההוראות לבקשת סטטוס של תשלום ספציפי. הסוכן מקבל ההוראות משיב עם pacs.002 המכילה את סטטוס העיבוד הנוכחי. |
+<div class="operational-matrix-table" tabindex="0" aria-label="אלמנטי נתונים מרכזיים הקשר עסקי">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>אלמנטי נתונים מרכזיים</th>
+        <th>הקשר עסקי</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — כותרת קבוצה עם זיהוי הודעה וחותמת זמן יצירה</td>
+          <td class="operational-matrix-table__right">מאפשרת בירור סטטוס יזום עבור הוראות תשלום בתהליך</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**TxInf** — מידע עסקה המזהה את התשלום לבירור</td>
+          <td class="operational-matrix-table__right">תומכת בצוותי תפעול החוקרים תשלומים מעוכבים או חסרים</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlGrpInf** — מידע על הקבוצה המקורית המפנה להודעת המקור</td>
+          <td class="operational-matrix-table__right">משלימה את pacs.002 ביוזמת תקשורת סטטוס במקום המתנה</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlInstrId** — מזהה ההוראה המקורית מהתשלום המקורי</td>
+          <td class="operational-matrix-table__right">משמשת בתהליכי טיפול בחריגים וניטור SLA</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlEndToEndId** — מזהה מקצה לקצה מקורי לעקיבות</td>
+          <td class="operational-matrix-table__right">הסוכן המורה שולח pacs.028 לסוכן מקבל ההוראות לבקשת סטטוס של תשלום ספציפי. הסוכן מקבל ההוראות משיב עם pacs.002 המכילה את סטטוס העיבוד הנוכחי.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## הקשר CBPR+ וסכמות
 
@@ -57,10 +86,34 @@ image: /logo.svg
 
 ## טבלת הבדלי גרסאות
 
-| טווח גרסאות | למה זה חשוב | לקח יישומי |
-|---|---|---|
-| pacs.028.001.05 | המימוש הנוכחי ב-pacs008 | מתאים למידול הנוכחי של בקשות סטטוס. |
-| pacs.028.001.06 | גרסת קטלוג מאוחרת יותר | בדקו את גרסת הקטלוג החדשה יותר לצורך תכנון אינטראופרביליות עתידי. |
+<div class="version-diff-table" tabindex="0" aria-label="טבלת הבדלי גרסאות">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>טווח גרסאות</th>
+        <th>למה זה חשוב</th>
+        <th>לקח יישומי</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.028.001.05</td>
+          <td class="version-diff-table__why">המימוש הנוכחי ב-pacs008</td>
+          <td class="version-diff-table__takeaway">מתאים למידול הנוכחי של בקשות סטטוס.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.028.001.06</td>
+          <td class="version-diff-table__why">גרסת קטלוג מאוחרת יותר</td>
+          <td class="version-diff-table__takeaway">בדקו את גרסת הקטלוג החדשה יותר לצורך תכנון אינטראופרביליות עתידי.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## דוגמת XML עם הערות
 
@@ -84,12 +137,44 @@ image: /logo.svg
 
 ## השוואה pacs.028 vs pacs.002
 
-| ממד | pacs.028.001.05 | הודעת השוואה |
-|---|---|---|
-| מטרה עיקרית | בקשת סטטוס | דיווח סטטוס |
-| מי מתחיל את האינטראקציה | המוסד שמבקש סטטוס | המוסד ששולח את הסטטוס |
-| עמדה תפעולית | בירור מונע חריגה | דיווח מונע אירוע |
-| הנחה שגויה שיש להימנע ממנה | שיש לשלוח אותו באופן שגרתי עבור כל תשלום | שהוא מבטל את הצורך בניהול מקרים פרואקטיבי |
+<div class="message-comparison-table" tabindex="0" aria-label="השוואה pacs.028 vs pacs.002">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>ממד</th>
+        <th>pacs.028.001.05</th>
+        <th>הודעת השוואה</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">מטרה עיקרית</td>
+          <td class="message-comparison-table__current">בקשת סטטוס</td>
+          <td class="message-comparison-table__other">דיווח סטטוס</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">מי מתחיל את האינטראקציה</td>
+          <td class="message-comparison-table__current">המוסד שמבקש סטטוס</td>
+          <td class="message-comparison-table__other">המוסד ששולח את הסטטוס</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">עמדה תפעולית</td>
+          <td class="message-comparison-table__current">בירור מונע חריגה</td>
+          <td class="message-comparison-table__other">דיווח מונע אירוע</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">הנחה שגויה שיש להימנע ממנה</td>
+          <td class="message-comparison-table__current">שיש לשלוח אותו באופן שגרתי עבור כל תשלום</td>
+          <td class="message-comparison-table__other">שהוא מבטל את הצורך בניהול מקרים פרואקטיבי</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## מקורות ראשיים
 
@@ -99,9 +184,37 @@ image: /logo.svg
 
 
 ## הודעות קשורות
-| סוג הודעה | תיאור | סקירה |
-|---|---|---|
-| [`pacs.002.001.12`](/he/pacs.002.001.12/) | דוח סטטוס תשלום בין מוסדות פיננסיים | הודעת pacs.002 נשלחת על ידי מוסד פיננסי לדיווח על מצב הוראת תשלום שנשלחה בעבר. היא מספקת מידע על אישור, דחייה או סטטוס ממתין עבור עסקאות בודדות בתוך הודעת תשלום. |
-| [`pacs.008.001.13`](/he/pacs.008.001.13/) | העברת אשראי ללקוח בין מוסדות פיננסיים | הודעת pacs.008 היא הוראת התשלום המרכזית המוחלפת בין מוסדות פיננסיים להעברת כספים בשם לקוח. היא נושאת מידע על החייב, הנושה, הסכום ופרטי ההעברה עבור עסקת העברת זכות אחת או יותר. |
-| [`pacs.009.001.10`](/he/pacs.009.001.10/) | העברת אשראי בין מוסדות פיננסיים | הודעת pacs.009 משמשת להעברות זכות בין מוסדות פיננסיים כאשר ההעברה מבוצעת בשם המוסד עצמו ולא בשם לקוח. היא תומכת במימון בין-בנקאי, תשלומי כיסוי וניהול נזילות. |
+<div class="related-messages-table" tabindex="0" aria-label="הודעות קשורות">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>סוג הודעה</th>
+        <th>תיאור</th>
+        <th>סקירה</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/he/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">דוח סטטוס תשלום בין מוסדות פיננסיים</td>
+          <td class="related-messages-table__overview">הודעת pacs.002 נשלחת על ידי מוסד פיננסי לדיווח על מצב הוראת תשלום שנשלחה בעבר. היא מספקת מידע על אישור, דחייה או סטטוס ממתין עבור עסקאות בודדות בתוך הודעת תשלום.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/he/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">העברת אשראי ללקוח בין מוסדות פיננסיים</td>
+          <td class="related-messages-table__overview">הודעת pacs.008 היא הוראת התשלום המרכזית המוחלפת בין מוסדות פיננסיים להעברת כספים בשם לקוח. היא נושאת מידע על החייב, הנושה, הסכום ופרטי ההעברה עבור עסקת העברת זכות אחת או יותר.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/he/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">העברת אשראי בין מוסדות פיננסיים</td>
+          <td class="related-messages-table__overview">הודעת pacs.009 משמשת להעברות זכות בין מוסדות פיננסיים כאשר ההעברה מבוצעת בשם המוסד עצמו ולא בשם לקוח. היא תומכת במימון בין-בנקאי, תשלומי כיסוי וניהול נזילות.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

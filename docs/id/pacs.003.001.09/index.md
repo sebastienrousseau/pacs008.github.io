@@ -36,13 +36,42 @@ Pesan pacs.003 dipertukarkan antara lembaga keuangan untuk mengeksekusi instruks
 - Memerlukan referensi mandat yang valid antara debitur dan kreditur
 - Memungkinkan penagihan massal beberapa instruksi debit langsung dalam satu pesan
 
-| Elemen data utama | Konteks bisnis |
-|---|---|
-| **GrpHdr** — Group Header dengan identifikasi pesan dan informasi penyelesaian | Mendukung skema debit langsung SEPA Core dan B2B |
-| **DrctDbtTxInf** — Informasi Transaksi Debit Langsung dengan jumlah dan pihak-pihak | Digunakan untuk penagihan pembayaran berulang seperti langganan, tagihan utilitas, dan pembayaran cicilan pinjaman |
-| **Cdtr** — Identifikasi kreditur dan rincian rekening | Memerlukan referensi mandat yang valid antara debitur dan kreditur |
-| **CdtrAgt** — Identifikasi Agen Kreditur (lembaga penagih) | Memungkinkan penagihan massal beberapa instruksi debit langsung dalam satu pesan |
-| **DbtrAgt** — Identifikasi Agen Debitur (lembaga pembayar) | Agen kreditur menginisiasi pacs.003 menuju agen debitur untuk menagih dana. Agen debitur memvalidasi mandat, memeriksa cakupan rekening, dan menyelesaikan atau mengembalikan transaksi. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Elemen data utama Konteks bisnis">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Elemen data utama</th>
+        <th>Konteks bisnis</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Group Header dengan identifikasi pesan dan informasi penyelesaian</td>
+          <td class="operational-matrix-table__right">Mendukung skema debit langsung SEPA Core dan B2B</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Informasi Transaksi Debit Langsung dengan jumlah dan pihak-pihak</td>
+          <td class="operational-matrix-table__right">Digunakan untuk penagihan pembayaran berulang seperti langganan, tagihan utilitas, dan pembayaran cicilan pinjaman</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr** — Identifikasi kreditur dan rincian rekening</td>
+          <td class="operational-matrix-table__right">Memerlukan referensi mandat yang valid antara debitur dan kreditur</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**CdtrAgt** — Identifikasi Agen Kreditur (lembaga penagih)</td>
+          <td class="operational-matrix-table__right">Memungkinkan penagihan massal beberapa instruksi debit langsung dalam satu pesan</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**DbtrAgt** — Identifikasi Agen Debitur (lembaga pembayar)</td>
+          <td class="operational-matrix-table__right">Agen kreditur menginisiasi pacs.003 menuju agen debitur untuk menagih dana. Agen debitur memvalidasi mandat, memeriksa cakupan rekening, dan menyelesaikan atau mengembalikan transaksi.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Konteks CBPR+ dan skema
 
@@ -57,10 +86,34 @@ Agen kreditur menginisiasi pacs.003 menuju agen debitur untuk menagih dana. Agen
 
 ## Tabel perbedaan versi
 
-| Rentang versi | Mengapa ini penting | Kesimpulan implementasi |
-|---|---|---|
-| pacs.003.001.09 | Implementasi saat ini di pacs008 | Berguna untuk pemodelan referensi debit langsung dalam proyek saat ini. |
-| pacs.003.001.10-11 | Revisi katalog berikutnya | Periksa revisi yang lebih baru untuk pembaruan mandat, status, dan interoperabilitas sebelum penggunaan pada implementasi baru. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabel perbedaan versi">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Rentang versi</th>
+        <th>Mengapa ini penting</th>
+        <th>Kesimpulan implementasi</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.003.001.09</td>
+          <td class="version-diff-table__why">Implementasi saat ini di pacs008</td>
+          <td class="version-diff-table__takeaway">Berguna untuk pemodelan referensi debit langsung dalam proyek saat ini.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.003.001.10-11</td>
+          <td class="version-diff-table__why">Revisi katalog berikutnya</td>
+          <td class="version-diff-table__takeaway">Periksa revisi yang lebih baru untuk pembaruan mandat, status, dan interoperabilitas sebelum penggunaan pada implementasi baru.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Contoh XML beranotasi
 
@@ -92,9 +145,37 @@ Agen kreditur menginisiasi pacs.003 menuju agen debitur untuk menagih dana. Agen
 
 
 ## Pesan terkait
-| Jenis pesan | Deskripsi | Ikhtisar |
-|---|---|---|
-| [`pacs.004.001.11`](/id/pacs.004.001.11/) | Retur Pembayaran | Pesan pacs.004 digunakan untuk mengembalikan transaksi pembayaran yang sebelumnya telah diselesaikan. Pesan ini membalikkan aliran dana ketika pembayaran tidak dapat diterapkan, dikirim secara keliru, atau sedang ditarik kembali oleh lembaga asal. |
-| [`pacs.007.001.11`](/id/pacs.007.001.11/) | Pembalikan Pembayaran FI ke FI | Pesan pacs.007 digunakan untuk membalikkan instruksi pembayaran yang sebelumnya dikirim yang belum diselesaikan atau untuk meminta pembalikan pembayaran yang telah diselesaikan. Berbeda dengan pacs.004 (pengembalian), pesan ini diinisiasi oleh agen yang memberi instruksi asli. |
-| [`pacs.002.001.12`](/id/pacs.002.001.12/) | Laporan Status Pembayaran FI ke FI | Pesan pacs.002 dikirim oleh lembaga keuangan untuk melaporkan status instruksi pembayaran yang sebelumnya dikirim. Pesan ini memberikan informasi konfirmasi, penolakan, atau status tertunda untuk transaksi individual dalam pesan pembayaran. |
+<div class="related-messages-table" tabindex="0" aria-label="Pesan terkait">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Jenis pesan</th>
+        <th>Deskripsi</th>
+        <th>Ikhtisar</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/id/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
+          <td class="related-messages-table__name">Retur Pembayaran</td>
+          <td class="related-messages-table__overview">Pesan pacs.004 digunakan untuk mengembalikan transaksi pembayaran yang sebelumnya telah diselesaikan. Pesan ini membalikkan aliran dana ketika pembayaran tidak dapat diterapkan, dikirim secara keliru, atau sedang ditarik kembali oleh lembaga asal.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/id/pacs.007.001.11/"><code>pacs.007.001.11</code></a></td>
+          <td class="related-messages-table__name">Pembalikan Pembayaran FI ke FI</td>
+          <td class="related-messages-table__overview">Pesan pacs.007 digunakan untuk membalikkan instruksi pembayaran yang sebelumnya dikirim yang belum diselesaikan atau untuk meminta pembalikan pembayaran yang telah diselesaikan. Berbeda dengan pacs.004 (pengembalian), pesan ini diinisiasi oleh agen yang memberi instruksi asli.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/id/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">Laporan Status Pembayaran FI ke FI</td>
+          <td class="related-messages-table__overview">Pesan pacs.002 dikirim oleh lembaga keuangan untuk melaporkan status instruksi pembayaran yang sebelumnya dikirim. Pesan ini memberikan informasi konfirmasi, penolakan, atau status tertunda untuk transaksi individual dalam pesan pembayaran.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

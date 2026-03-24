@@ -36,13 +36,42 @@ Die Nachricht pacs.008 ist die zentrale Zahlungsanweisung, die zwischen Finanzin
 - Trägt strukturierte Überweisungsinformationen für automatische Abstimmung
 - Unterstützt serielle, Deckungs- und Direktabwicklungsmethoden für mehrstufige Zahlungsketten
 
-| Wichtige Datenelemente | Geschäftskontext |
-|---|---|
-| **GrpHdr** — Gruppenkopf mit Nachrichten-ID, Erstellungsdatum, Transaktionsanzahl und Abwicklungsinformationen | Die primäre Nachricht für kundeninitiierte grenzüberschreitende und inländische Überweisungen |
-| **CdtTrfTxInf** — Überweisungstransaktionsinformationen mit Betrag, Gebühren und Zweck | Wird in SEPA SCT, SEPA Instant, CBPR+ und nationalen Clearingsystemen verwendet |
-| **Dbtr / DbtrAgt** — Identifikation und Kontodaten von Schuldner und Schuldneragent | Trägt strukturierte Überweisungsinformationen für automatische Abstimmung |
-| **Cdtr / CdtrAgt** — Identifikation und Kontodaten von Gläubiger und Gläubigeragent | Unterstützt serielle, Deckungs- und Direktabwicklungsmethoden für mehrstufige Zahlungsketten |
-| **RmtInf** — Überweisungsinformationen für strukturierte oder unstrukturierte Zahlungsreferenzen | Der Schuldneragent erstellt einen pacs.008 und sendet ihn an den Gläubigeragent (direkt oder über Vermittler). Jeder Agent in der Kette validiert, ergänzt und leitet die Anweisung weiter, bis der Gläubigeragent das Konto des Begünstigten gutschreibt. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Wichtige Datenelemente Geschäftskontext">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Wichtige Datenelemente</th>
+        <th>Geschäftskontext</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Gruppenkopf mit Nachrichten-ID, Erstellungsdatum, Transaktionsanzahl und Abwicklungsinformationen</td>
+          <td class="operational-matrix-table__right">Die primäre Nachricht für kundeninitiierte grenzüberschreitende und inländische Überweisungen</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Überweisungstransaktionsinformationen mit Betrag, Gebühren und Zweck</td>
+          <td class="operational-matrix-table__right">Wird in SEPA SCT, SEPA Instant, CBPR+ und nationalen Clearingsystemen verwendet</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identifikation und Kontodaten von Schuldner und Schuldneragent</td>
+          <td class="operational-matrix-table__right">Trägt strukturierte Überweisungsinformationen für automatische Abstimmung</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identifikation und Kontodaten von Gläubiger und Gläubigeragent</td>
+          <td class="operational-matrix-table__right">Unterstützt serielle, Deckungs- und Direktabwicklungsmethoden für mehrstufige Zahlungsketten</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**RmtInf** — Überweisungsinformationen für strukturierte oder unstrukturierte Zahlungsreferenzen</td>
+          <td class="operational-matrix-table__right">Der Schuldneragent erstellt einen pacs.008 und sendet ihn an den Gläubigeragent (direkt oder über Vermittler). Jeder Agent in der Kette validiert, ergänzt und leitet die Anweisung weiter, bis der Gläubigeragent das Konto des Begünstigten gutschreibt.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## CBPR+- und Schema-Kontext
 
@@ -57,11 +86,39 @@ Der Schuldneragent erstellt einen pacs.008 und sendet ihn an den Gläubigeragent
 
 ## Tabelle der Versionsunterschiede
 
-| Versionsbereich | Warum es wichtig ist | Praktische Konsequenz |
-|---|---|---|
-| pacs.008.001.01-07 | Frühe Versionen | Vor allem für die Analyse von Alt-Migrationen und den Versionsverlauf relevant. |
-| pacs.008.001.08-12 | Moderne Vorversionen | Diese Versionen treten am ehesten in jüngeren Migrations- oder Koexistenzprojekten auf. |
-| pacs.008.001.13 | Aktuelle Katalogversion | Für die Planung mit der aktuellen Version geeignet, wobei Schema-Vorgaben und Gegenparteibereitschaft weiterhin geprüft werden sollten. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabelle der Versionsunterschiede">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Versionsbereich</th>
+        <th>Warum es wichtig ist</th>
+        <th>Praktische Konsequenz</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.01-07</td>
+          <td class="version-diff-table__why">Frühe Versionen</td>
+          <td class="version-diff-table__takeaway">Vor allem für die Analyse von Alt-Migrationen und den Versionsverlauf relevant.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.08-12</td>
+          <td class="version-diff-table__why">Moderne Vorversionen</td>
+          <td class="version-diff-table__takeaway">Diese Versionen treten am ehesten in jüngeren Migrations- oder Koexistenzprojekten auf.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.13</td>
+          <td class="version-diff-table__why">Aktuelle Katalogversion</td>
+          <td class="version-diff-table__takeaway">Für die Planung mit der aktuellen Version geeignet, wobei Schema-Vorgaben und Gegenparteibereitschaft weiterhin geprüft werden sollten.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Kommentiertes XML-Beispiel
 
@@ -93,12 +150,44 @@ Der Schuldneragent erstellt einen pacs.008 und sendet ihn an den Gläubigeragent
 
 ## Vergleich pacs.008 vs pacs.009
 
-| Dimension | pacs.008.001.13 | Vergleichsnachricht |
-|---|---|---|
-| Hauptzweck | Kundenkredittransfer | Instituts-Eigengeschäftstransfer oder Cover-Leg |
-| Fachlicher Verantwortungsbereich | Kundenzahlungsbetrieb | Treasury-, Korrespondenz- und Liquiditätsbetrieb |
-| Typische Kombinationen | pacs.002, pacs.004, pacs.007, pacs.028 | pacs.002, pacs.004, and sometimes linked pacs.008 flows |
-| Zu vermeidende Fehlannahme | Dass alle Bank-zu-Bank-Transfers hier eingeordnet werden sollten | Dass diese Nachricht Kundenkredittransfer-Anweisungen ersetzen kann |
+<div class="message-comparison-table" tabindex="0" aria-label="Vergleich pacs.008 vs pacs.009">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Dimension</th>
+        <th>pacs.008.001.13</th>
+        <th>Vergleichsnachricht</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Hauptzweck</td>
+          <td class="message-comparison-table__current">Kundenkredittransfer</td>
+          <td class="message-comparison-table__other">Instituts-Eigengeschäftstransfer oder Cover-Leg</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Fachlicher Verantwortungsbereich</td>
+          <td class="message-comparison-table__current">Kundenzahlungsbetrieb</td>
+          <td class="message-comparison-table__other">Treasury-, Korrespondenz- und Liquiditätsbetrieb</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Typische Kombinationen</td>
+          <td class="message-comparison-table__current">pacs.002, pacs.004, pacs.007, pacs.028</td>
+          <td class="message-comparison-table__other">pacs.002, pacs.004, and sometimes linked pacs.008 flows</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Zu vermeidende Fehlannahme</td>
+          <td class="message-comparison-table__current">Dass alle Bank-zu-Bank-Transfers hier eingeordnet werden sollten</td>
+          <td class="message-comparison-table__other">Dass diese Nachricht Kundenkredittransfer-Anweisungen ersetzen kann</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Primärquellen
 
@@ -132,9 +221,37 @@ Der Schuldneragent erstellt einen pacs.008 und sendet ihn an den Gläubigeragent
 | `pacs.008.001.13` | **Current** |
 
 ## Verwandte Nachrichten
-| Nachrichtentyp | Beschreibung | Überblick |
-|---|---|---|
-| [`pacs.002.001.12`](/de/pacs.002.001.12/) | FI-zu-FI-Zahlungsstatusbericht | Die Nachricht pacs.002 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung zu melden. Sie liefert Bestätigungs-, Ablehnungs- oder Statusinformationen für einzelne Transaktionen innerhalb einer Zahlungsnachricht. |
-| [`pacs.004.001.11`](/de/pacs.004.001.11/) | Zahlungsrückgabe | Die Nachricht pacs.004 wird verwendet, um eine zuvor abgewickelte Zahlungstransaktion zurückzugeben. Sie kehrt den Geldfluss um, wenn eine Zahlung nicht angewendet werden kann, irrtümlich gesendet wurde oder vom Ursprungsinstitut zurückgerufen wird. |
-| [`pacs.009.001.10`](/de/pacs.009.001.10/) | Kredittransfer zwischen Finanzinstituten | Die Nachricht pacs.009 wird für Überweisungen zwischen Finanzinstituten verwendet, bei denen die Überweisung auf eigene Rechnung des Instituts erfolgt. Sie unterstützt Interbankenfinanzierung, Deckungszahlungen und Liquiditätsmanagement. |
+<div class="related-messages-table" tabindex="0" aria-label="Verwandte Nachrichten">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Nachrichtentyp</th>
+        <th>Beschreibung</th>
+        <th>Überblick</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/de/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">FI-zu-FI-Zahlungsstatusbericht</td>
+          <td class="related-messages-table__overview">Die Nachricht pacs.002 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung zu melden. Sie liefert Bestätigungs-, Ablehnungs- oder Statusinformationen für einzelne Transaktionen innerhalb einer Zahlungsnachricht.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/de/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
+          <td class="related-messages-table__name">Zahlungsrückgabe</td>
+          <td class="related-messages-table__overview">Die Nachricht pacs.004 wird verwendet, um eine zuvor abgewickelte Zahlungstransaktion zurückzugeben. Sie kehrt den Geldfluss um, wenn eine Zahlung nicht angewendet werden kann, irrtümlich gesendet wurde oder vom Ursprungsinstitut zurückgerufen wird.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/de/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">Kredittransfer zwischen Finanzinstituten</td>
+          <td class="related-messages-table__overview">Die Nachricht pacs.009 wird für Überweisungen zwischen Finanzinstituten verwendet, bei denen die Überweisung auf eigene Rechnung des Instituts erfolgt. Sie unterstützt Interbankenfinanzierung, Deckungszahlungen und Liquiditätsmanagement.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

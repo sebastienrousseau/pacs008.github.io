@@ -36,13 +36,42 @@ A mensagem pacs.010 é utilizada entre instituições financeiras para transaç�
 - Requer acordos bilaterais pré-estabelecidos entre as instituições participantes
 - Essencial para a gestão de caixa institucional e ciclos de liquidação interbancária
 
-| Elementos de dados principais | Contexto de negócio |
-|---|---|
-| **GrpHdr** — Cabeçalho de grupo com identificação da mensagem e informações de liquidação | Suporta a cobrança interbancária por débito direto entre instituições financeiras |
-| **DrctDbtTxInf** — Informações da transação de débito direto com valor de cobrança | Utilizado para cobrança de taxas, chamadas de margem e obrigações de liquidação institucional |
-| **Cdtr / CdtrAgt** — Identificação da instituição credora e de seu agente | Requer acordos bilaterais pré-estabelecidos entre as instituições participantes |
-| **Dbtr / DbtrAgt** — Identificação da instituição devedora e de seu agente | Essencial para a gestão de caixa institucional e ciclos de liquidação interbancária |
-| **IntrBkSttlmAmt** — Valor de liquidação interbancária na moeda de liquidação | A instituição credora envia pacs.010 à instituição devedora para coletar fundos com base em um acordo pré-estabelecido. A instituição devedora valida a solicitação e liquida ou rejeita o débito direto. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Elementos de dados principais Contexto de negócio">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Elementos de dados principais</th>
+        <th>Contexto de negócio</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Cabeçalho de grupo com identificação da mensagem e informações de liquidação</td>
+          <td class="operational-matrix-table__right">Suporta a cobrança interbancária por débito direto entre instituições financeiras</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Informações da transação de débito direto com valor de cobrança</td>
+          <td class="operational-matrix-table__right">Utilizado para cobrança de taxas, chamadas de margem e obrigações de liquidação institucional</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identificação da instituição credora e de seu agente</td>
+          <td class="operational-matrix-table__right">Requer acordos bilaterais pré-estabelecidos entre as instituições participantes</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identificação da instituição devedora e de seu agente</td>
+          <td class="operational-matrix-table__right">Essencial para a gestão de caixa institucional e ciclos de liquidação interbancária</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Valor de liquidação interbancária na moeda de liquidação</td>
+          <td class="operational-matrix-table__right">A instituição credora envia pacs.010 à instituição devedora para coletar fundos com base em um acordo pré-estabelecido. A instituição devedora valida a solicitação e liquida ou rejeita o débito direto.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Contexto CBPR+ e esquemas
 
@@ -57,10 +86,34 @@ A instituição credora envia pacs.010 à instituição devedora para coletar fu
 
 ## Tabela de diferenças de versão
 
-| Faixa de versão | Por que importa | Implicação de implementação |
-|---|---|---|
-| pacs.010.001.05 | Implementação atual no pacs008 | Ponto de referência para o suporte a débitos diretos entre instituições no projeto atual. |
-| pacs.010.001.06 | Revisão posterior do catálogo | Review before adopting newer infrastructure requirements. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabela de diferenças de versão">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Faixa de versão</th>
+        <th>Por que importa</th>
+        <th>Implicação de implementação</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.010.001.05</td>
+          <td class="version-diff-table__why">Implementação atual no pacs008</td>
+          <td class="version-diff-table__takeaway">Ponto de referência para o suporte a débitos diretos entre instituições no projeto atual.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.010.001.06</td>
+          <td class="version-diff-table__why">Revisão posterior do catálogo</td>
+          <td class="version-diff-table__takeaway">Review before adopting newer infrastructure requirements.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Exemplo XML comentado
 
@@ -92,9 +145,37 @@ A instituição credora envia pacs.010 à instituição devedora para coletar fu
 
 
 ## Mensagens relacionadas
-| Tipo de mensagem | Descrição | Visão geral |
-|---|---|---|
-| [`pacs.009.001.10`](/pt/pacs.009.001.10/) | Transferência de crédito entre instituições financeiras | A mensagem pacs.009 é utilizada para transferências de crédito entre instituições financeiras onde a transferência ocorre por conta própria da instituição e não em nome de um cliente. Suporta financiamento interbancário, pagamentos de cobertura e gestão de liquidez. |
-| [`pacs.002.001.12`](/pt/pacs.002.001.12/) | Relatório de status de pagamento FI a FI | A mensagem pacs.002 é enviada por uma instituição financeira para reportar o status de uma instrução de pagamento enviada anteriormente. Fornece informações de confirmação, rejeição ou status pendente para transações individuais dentro de uma mensagem de pagamento. |
-| [`pacs.003.001.09`](/pt/pacs.003.001.09/) | Débito direto de cliente FI a FI | A mensagem pacs.003 é trocada entre instituições financeiras para executar uma instrução de débito direto do cliente. Permite que o banco do credor colete fundos do banco do devedor em nome do credor. |
+<div class="related-messages-table" tabindex="0" aria-label="Mensagens relacionadas">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Tipo de mensagem</th>
+        <th>Descrição</th>
+        <th>Visão geral</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pt/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">Transferência de crédito entre instituições financeiras</td>
+          <td class="related-messages-table__overview">A mensagem pacs.009 é utilizada para transferências de crédito entre instituições financeiras onde a transferência ocorre por conta própria da instituição e não em nome de um cliente. Suporta financiamento interbancário, pagamentos de cobertura e gestão de liquidez.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pt/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">Relatório de status de pagamento FI a FI</td>
+          <td class="related-messages-table__overview">A mensagem pacs.002 é enviada por uma instituição financeira para reportar o status de uma instrução de pagamento enviada anteriormente. Fornece informações de confirmação, rejeição ou status pendente para transações individuais dentro de uma mensagem de pagamento.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pt/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
+          <td class="related-messages-table__name">Débito direto de cliente FI a FI</td>
+          <td class="related-messages-table__overview">A mensagem pacs.003 é trocada entre instituições financeiras para executar uma instrução de débito direto do cliente. Permite que o banco do credor colete fundos do banco do devedor em nome do credor.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

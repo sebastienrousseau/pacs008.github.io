@@ -36,13 +36,42 @@ image: /logo.svg
 - تحمل معلومات تحويل منظمة لدعم المصالحة المباشرة
 - تدعم طرق التسوية التسلسلية والتغطية والمباشرة لسلاسل الدفع متعددة المراحل
 
-| عناصر البيانات الرئيسية | السياق التجاري |
-|---|---|
-| **GrpHdr** — رأس المجموعة مع معرف الرسالة وتاريخ الإنشاء وعدد المعاملات ومعلومات التسوية | الرسالة الأساسية للتحويلات عبر الحدود والمحلية التي يبدؤها العملاء |
-| **CdtTrfTxInf** — معلومات معاملة التحويل مع المبلغ والرسوم والغرض | تُستخدم عبر SEPA SCT و SEPA Instant و CBPR+ وأنظمة المقاصة الوطنية |
-| **Dbtr / DbtrAgt** — تعريف وتفاصيل حساب المدين ووكيله | تحمل معلومات تحويل منظمة لدعم المصالحة المباشرة |
-| **Cdtr / CdtrAgt** — تعريف وتفاصيل حساب الدائن ووكيله | تدعم طرق التسوية التسلسلية والتغطية والمباشرة لسلاسل الدفع متعددة المراحل |
-| **RmtInf** — معلومات التحويل لمراجع الدفع المنظمة أو غير المنظمة | ينشئ وكيل المدين pacs.008 ويرسله إلى وكيل الدائن (مباشرة أو عبر وسطاء). يتحقق كل وكيل في السلسلة ويثري ويمرر التعليمات حتى يقيد وكيل الدائن المبلغ في حساب المستفيد. |
+<div class="operational-matrix-table" tabindex="0" aria-label="عناصر البيانات الرئيسية السياق التجاري">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>عناصر البيانات الرئيسية</th>
+        <th>السياق التجاري</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — رأس المجموعة مع معرف الرسالة وتاريخ الإنشاء وعدد المعاملات ومعلومات التسوية</td>
+          <td class="operational-matrix-table__right">الرسالة الأساسية للتحويلات عبر الحدود والمحلية التي يبدؤها العملاء</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**CdtTrfTxInf** — معلومات معاملة التحويل مع المبلغ والرسوم والغرض</td>
+          <td class="operational-matrix-table__right">تُستخدم عبر SEPA SCT و SEPA Instant و CBPR+ وأنظمة المقاصة الوطنية</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — تعريف وتفاصيل حساب المدين ووكيله</td>
+          <td class="operational-matrix-table__right">تحمل معلومات تحويل منظمة لدعم المصالحة المباشرة</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — تعريف وتفاصيل حساب الدائن ووكيله</td>
+          <td class="operational-matrix-table__right">تدعم طرق التسوية التسلسلية والتغطية والمباشرة لسلاسل الدفع متعددة المراحل</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**RmtInf** — معلومات التحويل لمراجع الدفع المنظمة أو غير المنظمة</td>
+          <td class="operational-matrix-table__right">ينشئ وكيل المدين pacs.008 ويرسله إلى وكيل الدائن (مباشرة أو عبر وسطاء). يتحقق كل وكيل في السلسلة ويثري ويمرر التعليمات حتى يقيد وكيل الدائن المبلغ في حساب المستفيد.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## سياق CBPR+ والأنظمة
 
@@ -57,11 +86,39 @@ image: /logo.svg
 
 ## جدول فروق الإصدارات
 
-| نطاق الإصدار | لماذا يهم | الخلاصة التنفيذية |
-|---|---|---|
-| pacs.008.001.01-07 | الإصدارات المبكرة | مفيد بشكل أساسي لتحليل الترحيل من الأنظمة القديمة وفهم سياق تاريخ الإصدارات. |
-| pacs.008.001.08-12 | الإصدارات الحديثة السابقة للإصدار الحالي | هذه هي الإصدارات الأكثر احتمالاً للظهور في مشاريع الترحيل أو التعايش الحديثة. |
-| pacs.008.001.13 | إصدار الكتالوج الحالي | استخدم ذلك للتخطيط للإصدار الحالي مع الاستمرار في التحقق من إرشادات استخدام المخطط وجاهزية الأطراف المقابلة. |
+<div class="version-diff-table" tabindex="0" aria-label="جدول فروق الإصدارات">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>نطاق الإصدار</th>
+        <th>لماذا يهم</th>
+        <th>الخلاصة التنفيذية</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.01-07</td>
+          <td class="version-diff-table__why">الإصدارات المبكرة</td>
+          <td class="version-diff-table__takeaway">مفيد بشكل أساسي لتحليل الترحيل من الأنظمة القديمة وفهم سياق تاريخ الإصدارات.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.08-12</td>
+          <td class="version-diff-table__why">الإصدارات الحديثة السابقة للإصدار الحالي</td>
+          <td class="version-diff-table__takeaway">هذه هي الإصدارات الأكثر احتمالاً للظهور في مشاريع الترحيل أو التعايش الحديثة.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.13</td>
+          <td class="version-diff-table__why">إصدار الكتالوج الحالي</td>
+          <td class="version-diff-table__takeaway">استخدم ذلك للتخطيط للإصدار الحالي مع الاستمرار في التحقق من إرشادات استخدام المخطط وجاهزية الأطراف المقابلة.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## مثال XML مشروح
 
@@ -93,12 +150,44 @@ image: /logo.svg
 
 ## مقارنة pacs.008 vs pacs.009
 
-| البعد | pacs.008.001.13 | رسالة المقارنة |
-|---|---|---|
-| الغرض الأساسي | تحويل ائتماني للعميل | تحويل ائتماني لحساب المؤسسة نفسها أو مرحلة تغطية |
-| المالك التشغيلي | عمليات مدفوعات العملاء | عمليات الخزانة / المراسلة / التمويل |
-| الاقترانات المعتادة | pacs.002, pacs.004, pacs.007, pacs.028 | تدفقات pacs.002 وpacs.004 وأحياناً تدفقات pacs.008 المرتبطة |
-| افتراض خاطئ يجب تجنبه | أن جميع التحويلات بين البنوك تندرج هنا | أنه يمكنه أن يحل محل تعليمات التحويل الائتماني الخاصة بالعملاء |
+<div class="message-comparison-table" tabindex="0" aria-label="مقارنة pacs.008 vs pacs.009">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>البعد</th>
+        <th>pacs.008.001.13</th>
+        <th>رسالة المقارنة</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">الغرض الأساسي</td>
+          <td class="message-comparison-table__current">تحويل ائتماني للعميل</td>
+          <td class="message-comparison-table__other">تحويل ائتماني لحساب المؤسسة نفسها أو مرحلة تغطية</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">المالك التشغيلي</td>
+          <td class="message-comparison-table__current">عمليات مدفوعات العملاء</td>
+          <td class="message-comparison-table__other">عمليات الخزانة / المراسلة / التمويل</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">الاقترانات المعتادة</td>
+          <td class="message-comparison-table__current">pacs.002, pacs.004, pacs.007, pacs.028</td>
+          <td class="message-comparison-table__other">تدفقات pacs.002 وpacs.004 وأحياناً تدفقات pacs.008 المرتبطة</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">افتراض خاطئ يجب تجنبه</td>
+          <td class="message-comparison-table__current">أن جميع التحويلات بين البنوك تندرج هنا</td>
+          <td class="message-comparison-table__other">أنه يمكنه أن يحل محل تعليمات التحويل الائتماني الخاصة بالعملاء</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## المراجع الأساسية
 
@@ -132,9 +221,37 @@ image: /logo.svg
 | `pacs.008.001.13` | **الحالي** |
 
 ## الرسائل ذات الصلة
-| نوع الرسالة | الوصف | نظرة عامة |
-|---|---|---|
-| [`pacs.002.001.12`](/ar/pacs.002.001.12/) | تقرير حالة الدفع من مؤسسة مالية إلى مؤسسة مالية | يُرسل رسالة pacs.002 من مؤسسة مالية للإبلاغ عن حالة تعليمات الدفع المرسلة سابقاً. يوفر تأكيداً أو رفضاً أو معلومات حالة معلقة للمعاملات الفردية ضمن رسالة الدفع. |
-| [`pacs.004.001.11`](/ar/pacs.004.001.11/) | إرجاع المدفوعات | يُستخدم رسالة pacs.004 لإرجاع معاملة دفع تمت تسويتها سابقاً. يعكس تدفق الأموال عندما لا يمكن تطبيق الدفع أو تم إرساله بالخطأ أو يتم استرداده من المؤسسة المنشئة. |
-| [`pacs.009.001.10`](/ar/pacs.009.001.10/) | تحويل ائتماني بين المؤسسات المالية | يُستخدم رسالة pacs.009 للتحويلات بين المؤسسات المالية عندما يكون التحويل لحساب المؤسسة الخاص وليس نيابة عن عميل. يدعم التمويل بين البنوك ومدفوعات التغطية وإدارة السيولة. |
+<div class="related-messages-table" tabindex="0" aria-label="الرسائل ذات الصلة">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>نوع الرسالة</th>
+        <th>الوصف</th>
+        <th>نظرة عامة</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/ar/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">تقرير حالة الدفع من مؤسسة مالية إلى مؤسسة مالية</td>
+          <td class="related-messages-table__overview">يُرسل رسالة pacs.002 من مؤسسة مالية للإبلاغ عن حالة تعليمات الدفع المرسلة سابقاً. يوفر تأكيداً أو رفضاً أو معلومات حالة معلقة للمعاملات الفردية ضمن رسالة الدفع.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/ar/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
+          <td class="related-messages-table__name">إرجاع المدفوعات</td>
+          <td class="related-messages-table__overview">يُستخدم رسالة pacs.004 لإرجاع معاملة دفع تمت تسويتها سابقاً. يعكس تدفق الأموال عندما لا يمكن تطبيق الدفع أو تم إرساله بالخطأ أو يتم استرداده من المؤسسة المنشئة.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/ar/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">تحويل ائتماني بين المؤسسات المالية</td>
+          <td class="related-messages-table__overview">يُستخدم رسالة pacs.009 للتحويلات بين المؤسسات المالية عندما يكون التحويل لحساب المؤسسة الخاص وليس نيابة عن عميل. يدعم التمويل بين البنوك ومدفوعات التغطية وإدارة السيولة.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

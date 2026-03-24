@@ -36,13 +36,42 @@ Mesajul pacs.008 este instrucțiunea de plată principală schimbată între ins
 - Conține informații de remitere structurate pentru a susține reconcilierea automată
 - Suportă metode de decontare serială, prin acoperire și directă pentru lanțuri de plăți cu mai multe etape
 
-| Elemente de date cheie | Context de afaceri |
-|---|---|
-| **GrpHdr** — Antet de grup cu ID-ul mesajului, data creării, numărul de tranzacții și informații de decontare | Mesajul principal pentru transferurile de credit transfrontaliere și interne inițiate de client |
-| **CdtTrfTxInf** — Informații privind tranzacția de transfer de credit cu sumă, comisioane și scop | Utilizat în SEPA SCT, SEPA Instant, CBPR+ și sistemele de compensare naționale |
-| **Dbtr / DbtrAgt** — Identificarea debitorului și a agentului debitorului cu detaliile contului | Conține informații de remitere structurate pentru a susține reconcilierea automată |
-| **Cdtr / CdtrAgt** — Identificarea creditorului și a agentului creditorului cu detaliile contului | Suportă metode de decontare serială, prin acoperire și directă pentru lanțuri de plăți cu mai multe etape |
-| **RmtInf** — Informații de remitere pentru referințe de plată structurate sau nestructurate | Agentul debitorului creează un pacs.008 și îl trimite agentului creditorului (direct sau prin intermediari). Fiecare agent din lanț validează, îmbogățește și transmite instrucțiunea până când agentul creditorului creditează contul beneficiarului. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Elemente de date cheie Context de afaceri">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Elemente de date cheie</th>
+        <th>Context de afaceri</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Antet de grup cu ID-ul mesajului, data creării, numărul de tranzacții și informații de decontare</td>
+          <td class="operational-matrix-table__right">Mesajul principal pentru transferurile de credit transfrontaliere și interne inițiate de client</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Informații privind tranzacția de transfer de credit cu sumă, comisioane și scop</td>
+          <td class="operational-matrix-table__right">Utilizat în SEPA SCT, SEPA Instant, CBPR+ și sistemele de compensare naționale</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identificarea debitorului și a agentului debitorului cu detaliile contului</td>
+          <td class="operational-matrix-table__right">Conține informații de remitere structurate pentru a susține reconcilierea automată</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identificarea creditorului și a agentului creditorului cu detaliile contului</td>
+          <td class="operational-matrix-table__right">Suportă metode de decontare serială, prin acoperire și directă pentru lanțuri de plăți cu mai multe etape</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**RmtInf** — Informații de remitere pentru referințe de plată structurate sau nestructurate</td>
+          <td class="operational-matrix-table__right">Agentul debitorului creează un pacs.008 și îl trimite agentului creditorului (direct sau prin intermediari). Fiecare agent din lanț validează, îmbogățește și transmite instrucțiunea până când agentul creditorului creditează contul beneficiarului.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Context CBPR+ și scheme de plată
 
@@ -57,11 +86,39 @@ Agentul debitorului creează un pacs.008 și îl trimite agentului creditorului 
 
 ## Tabelul diferențelor de versiune
 
-| Interval de versiuni | De ce contează | Concluzie de implementare |
-|---|---|---|
-| pacs.008.001.01-07 | Revizii timpurii | Util mai ales pentru analiza migrării din sisteme vechi și pentru contextul istoric al versiunilor. |
-| pacs.008.001.08-12 | Revizii moderne anterioare celei curente | Acestea sunt reviziile care apar cel mai probabil în proiecte recente de migrare sau coexistență. |
-| pacs.008.001.13 | Revizia curentă a catalogului | Folosește această versiune pentru planificarea implementării curente, verificând în continuare regulile schemei și pregătirea contrapărților. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabelul diferențelor de versiune">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Interval de versiuni</th>
+        <th>De ce contează</th>
+        <th>Concluzie de implementare</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.01-07</td>
+          <td class="version-diff-table__why">Revizii timpurii</td>
+          <td class="version-diff-table__takeaway">Util mai ales pentru analiza migrării din sisteme vechi și pentru contextul istoric al versiunilor.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.08-12</td>
+          <td class="version-diff-table__why">Revizii moderne anterioare celei curente</td>
+          <td class="version-diff-table__takeaway">Acestea sunt reviziile care apar cel mai probabil în proiecte recente de migrare sau coexistență.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.13</td>
+          <td class="version-diff-table__why">Revizia curentă a catalogului</td>
+          <td class="version-diff-table__takeaway">Folosește această versiune pentru planificarea implementării curente, verificând în continuare regulile schemei și pregătirea contrapărților.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Exemplu XML comentat
 
@@ -93,12 +150,44 @@ Agentul debitorului creează un pacs.008 și îl trimite agentului creditorului 
 
 ## Compară pacs.008 vs pacs.009
 
-| Dimensiune | pacs.008.001.13 | Mesaj de comparație |
-|---|---|---|
-| Scop principal | Transfer de credit al clientului | Transfer de credit în cont propriu al instituției sau etapă de acoperire |
-| Responsabil de business | Operațiuni de plăți ale clienților | Operațiuni de trezorerie / corespondent / finanțare |
-| Asocieri tipice | pacs.002, pacs.004, pacs.007, pacs.028 | pacs.002, pacs.004 și uneori fluxuri pacs.008 asociate |
-| Presupunere greșită de evitat | Că toate transferurile bancă-la-bancă aparțin aici | Că poate înlocui instrucțiunile de transfer de credit ale clientului |
+<div class="message-comparison-table" tabindex="0" aria-label="Compară pacs.008 vs pacs.009">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Dimensiune</th>
+        <th>pacs.008.001.13</th>
+        <th>Mesaj de comparație</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Scop principal</td>
+          <td class="message-comparison-table__current">Transfer de credit al clientului</td>
+          <td class="message-comparison-table__other">Transfer de credit în cont propriu al instituției sau etapă de acoperire</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Responsabil de business</td>
+          <td class="message-comparison-table__current">Operațiuni de plăți ale clienților</td>
+          <td class="message-comparison-table__other">Operațiuni de trezorerie / corespondent / finanțare</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Asocieri tipice</td>
+          <td class="message-comparison-table__current">pacs.002, pacs.004, pacs.007, pacs.028</td>
+          <td class="message-comparison-table__other">pacs.002, pacs.004 și uneori fluxuri pacs.008 asociate</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Presupunere greșită de evitat</td>
+          <td class="message-comparison-table__current">Că toate transferurile bancă-la-bancă aparțin aici</td>
+          <td class="message-comparison-table__other">Că poate înlocui instrucțiunile de transfer de credit ale clientului</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Referințe primare
 
@@ -132,9 +221,37 @@ Agentul debitorului creează un pacs.008 și îl trimite agentului creditorului 
 | `pacs.008.001.13` | **Curentă** |
 
 ## Mesaje conexe
-| Tip de mesaj | Descriere | Prezentare generală |
-|---|---|---|
-| [`pacs.002.001.12`](/ro/pacs.002.001.12/) | Raport de stare a plății FI-la-FI | Mesajul pacs.002 este trimis de o instituție financiară pentru a raporta statusul unei instrucțiuni de plată trimise anterior. Furnizează informații de confirmare, respingere sau status în așteptare pentru tranzacțiile individuale din cadrul unui mesaj de plată. |
-| [`pacs.004.001.11`](/ro/pacs.004.001.11/) | Retur de plată | Mesajul pacs.004 este utilizat pentru returnarea unei tranzacții de plată decontate anterior. Inversează fluxul de fonduri atunci când o plată nu poate fi aplicată, a fost trimisă din eroare sau este reclamată de instituția inițiatoare. |
-| [`pacs.009.001.10`](/ro/pacs.009.001.10/) | Transfer de credit între instituții financiare | Mesajul pacs.009 este utilizat pentru transferuri de credit între instituții financiare în care transferul se face în cont propriu al instituției și nu în numele unui client. Suportă finanțarea interbancară, plățile de acoperire și gestionarea lichidității. |
+<div class="related-messages-table" tabindex="0" aria-label="Mesaje conexe">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Tip de mesaj</th>
+        <th>Descriere</th>
+        <th>Prezentare generală</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/ro/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">Raport de stare a plății FI-la-FI</td>
+          <td class="related-messages-table__overview">Mesajul pacs.002 este trimis de o instituție financiară pentru a raporta statusul unei instrucțiuni de plată trimise anterior. Furnizează informații de confirmare, respingere sau status în așteptare pentru tranzacțiile individuale din cadrul unui mesaj de plată.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/ro/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
+          <td class="related-messages-table__name">Retur de plată</td>
+          <td class="related-messages-table__overview">Mesajul pacs.004 este utilizat pentru returnarea unei tranzacții de plată decontate anterior. Inversează fluxul de fonduri atunci când o plată nu poate fi aplicată, a fost trimisă din eroare sau este reclamată de instituția inițiatoare.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/ro/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">Transfer de credit între instituții financiare</td>
+          <td class="related-messages-table__overview">Mesajul pacs.009 este utilizat pentru transferuri de credit între instituții financiare în care transferul se face în cont propriu al instituției și nu în numele unui client. Suportă finanțarea interbancară, plățile de acoperire și gestionarea lichidității.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

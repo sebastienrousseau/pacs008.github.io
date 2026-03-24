@@ -36,13 +36,42 @@ image: /logo.svg
 - Содержит структурированные коды причин возврата для регуляторной и операционной прозрачности
 - Применяется как к возвратам кредитовых переводов (pacs.008), так и к возвратам прямых дебетований (pacs.003)
 
-| Ключевые элементы данных | Бизнес-контекст |
-|---|---|
-| **GrpHdr** — Заголовок группы с идентификацией сообщения и меткой времени создания | Обрабатывает возвраты после расчёта, когда счёт бенефициара не может быть кредитован |
-| **TxInf** — Информация о транзакции с суммой возврата и сторонами | Поддерживает сценарии отзыва, когда отправитель запрашивает возврат средств |
-| **OrgnlGrpInf** — Информация об исходной группе, связывающая с исходным сообщением | Содержит структурированные коды причин возврата для регуляторной и операционной прозрачности |
-| **RtrRsnInf** — Информация о причине возврата со структурированными кодами причин | Применяется как к возвратам кредитовых переводов (pacs.008), так и к возвратам прямых дебетований (pacs.003) |
-| **OrgnlTxRef** — Ссылка на исходную транзакцию для сопоставления и сверки | Инструктируемый агент отправляет pacs.004 обратно по платёжной цепочке для возврата ранее рассчитанных средств. Каждый агент в цепочке обрабатывает возврат и кредитует соответствующие счета. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Ключевые элементы данных Бизнес-контекст">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Ключевые элементы данных</th>
+        <th>Бизнес-контекст</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Заголовок группы с идентификацией сообщения и меткой времени создания</td>
+          <td class="operational-matrix-table__right">Обрабатывает возвраты после расчёта, когда счёт бенефициара не может быть кредитован</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**TxInf** — Информация о транзакции с суммой возврата и сторонами</td>
+          <td class="operational-matrix-table__right">Поддерживает сценарии отзыва, когда отправитель запрашивает возврат средств</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Информация об исходной группе, связывающая с исходным сообщением</td>
+          <td class="operational-matrix-table__right">Содержит структурированные коды причин возврата для регуляторной и операционной прозрачности</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**RtrRsnInf** — Информация о причине возврата со структурированными кодами причин</td>
+          <td class="operational-matrix-table__right">Применяется как к возвратам кредитовых переводов (pacs.008), так и к возвратам прямых дебетований (pacs.003)</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlTxRef** — Ссылка на исходную транзакцию для сопоставления и сверки</td>
+          <td class="operational-matrix-table__right">Инструктируемый агент отправляет pacs.004 обратно по платёжной цепочке для возврата ранее рассчитанных средств. Каждый агент в цепочке обрабатывает возврат и кредитует соответствующие счета.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Контекст CBPR+ и схем
 
@@ -57,10 +86,34 @@ image: /logo.svg
 
 ## Таблица отличий версий
 
-| Диапазон версий | Почему это важно | Практический вывод |
-|---|---|---|
-| pacs.004.001.11 | Текущая реализация в pacs008 | Соответствует текущим шаблонам для возвратов платежей. |
-| pacs.004.001.12-14 | Более поздние ревизии каталога | Проверьте более поздние ревизии сообщений возврата, если в объём работ входят обновления схемы или новые контрагенты. |
+<div class="version-diff-table" tabindex="0" aria-label="Таблица отличий версий">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Диапазон версий</th>
+        <th>Почему это важно</th>
+        <th>Практический вывод</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.004.001.11</td>
+          <td class="version-diff-table__why">Текущая реализация в pacs008</td>
+          <td class="version-diff-table__takeaway">Соответствует текущим шаблонам для возвратов платежей.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.004.001.12-14</td>
+          <td class="version-diff-table__why">Более поздние ревизии каталога</td>
+          <td class="version-diff-table__takeaway">Проверьте более поздние ревизии сообщений возврата, если в объём работ входят обновления схемы или новые контрагенты.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Прокомментированный XML-пример
 
@@ -87,12 +140,44 @@ image: /logo.svg
 
 ## Сравнение pacs.004 vs pacs.007
 
-| Измерение | pacs.004.001.11 | Сообщение для сравнения |
-|---|---|---|
-| Основное назначение | Return settled funds | Reverse a previously instructed payment |
-| Initiated by | Receiving / beneficiary side | Original instructing side |
-| Direction of flow | Back through the chain | Forward through the chain |
-| Лучше всего подходит для | Обработка возвратов после расчёта | Обработка сторнирований по отзыву, ошибке или мошенничеству |
+<div class="message-comparison-table" tabindex="0" aria-label="Сравнение pacs.004 vs pacs.007">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Измерение</th>
+        <th>pacs.004.001.11</th>
+        <th>Сообщение для сравнения</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Основное назначение</td>
+          <td class="message-comparison-table__current">Return settled funds</td>
+          <td class="message-comparison-table__other">Reverse a previously instructed payment</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Initiated by</td>
+          <td class="message-comparison-table__current">Receiving / beneficiary side</td>
+          <td class="message-comparison-table__other">Original instructing side</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Direction of flow</td>
+          <td class="message-comparison-table__current">Back through the chain</td>
+          <td class="message-comparison-table__other">Forward through the chain</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Лучше всего подходит для</td>
+          <td class="message-comparison-table__current">Обработка возвратов после расчёта</td>
+          <td class="message-comparison-table__other">Обработка сторнирований по отзыву, ошибке или мошенничеству</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Первичные источники
 
@@ -104,9 +189,37 @@ image: /logo.svg
 
 
 ## Связанные сообщения
-| Тип сообщения | Описание | Обзор |
-|---|---|---|
-| [`pacs.008.001.13`](/ru/pacs.008.001.13/) | Клиентский кредитовый перевод между финансовыми учреждениями | Сообщение pacs.008 является основным платёжным поручением, передаваемым между финансовыми учреждениями для перевода средств от имени клиента. Оно содержит информацию о дебиторе, кредиторе, сумме и реквизитах перевода для одной или нескольких транзакций кредитового перевода. |
-| [`pacs.003.001.09`](/ru/pacs.003.001.09/) | Клиентское прямое дебетование между финансовыми учреждениями | Сообщение pacs.003 передаётся между финансовыми учреждениями для исполнения поручения клиента на прямое дебетование. Оно позволяет банку кредитора взыскивать средства с банка дебитора от имени кредитора. |
-| [`pacs.002.001.12`](/ru/pacs.002.001.12/) | Отчёт о статусе платежа между финансовыми учреждениями | Сообщение pacs.002 отправляется финансовым учреждением для отчёта о статусе ранее направленного платёжного поручения. Оно предоставляет информацию о подтверждении, отклонении или статусе ожидания для отдельных транзакций в рамках платёжного сообщения. |
+<div class="related-messages-table" tabindex="0" aria-label="Связанные сообщения">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Тип сообщения</th>
+        <th>Описание</th>
+        <th>Обзор</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/ru/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">Клиентский кредитовый перевод между финансовыми учреждениями</td>
+          <td class="related-messages-table__overview">Сообщение pacs.008 является основным платёжным поручением, передаваемым между финансовыми учреждениями для перевода средств от имени клиента. Оно содержит информацию о дебиторе, кредиторе, сумме и реквизитах перевода для одной или нескольких транзакций кредитового перевода.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/ru/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
+          <td class="related-messages-table__name">Клиентское прямое дебетование между финансовыми учреждениями</td>
+          <td class="related-messages-table__overview">Сообщение pacs.003 передаётся между финансовыми учреждениями для исполнения поручения клиента на прямое дебетование. Оно позволяет банку кредитора взыскивать средства с банка дебитора от имени кредитора.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/ru/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">Отчёт о статусе платежа между финансовыми учреждениями</td>
+          <td class="related-messages-table__overview">Сообщение pacs.002 отправляется финансовым учреждением для отчёта о статусе ранее направленного платёжного поручения. Оно предоставляет информацию о подтверждении, отклонении или статусе ожидания для отдельных транзакций в рамках платёжного сообщения.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

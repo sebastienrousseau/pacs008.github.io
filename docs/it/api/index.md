@@ -41,16 +41,54 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 
 ### Endpoint
 
-| Endpoint | Descrizione |
-|---|---|
-| `GET /health` | Health check — restituisce lo stato del servizio |
-| `POST /validate` | Valida i dati di pagamento rispetto allo schema senza generare XML |
-| `POST /generate` | Genera XML in modo sincrono e restituisce il file |
-| `POST /generate/async` | Invia un job di generazione asincrono |
-| `GET /status/{job_id}` | Interroga lo stato del job tramite ID |
-| `GET /download/{job_id}` | Scarica l'XML generato al completamento del job |
-| `DELETE /jobs/{job_id}` | Annullare un job in attesa o in esecuzione |
-| `GET /docs` | Swagger UI interattiva per esplorare e testare tutti gli endpoint |
+<div class="api-endpoints-table" tabindex="0" aria-label="Endpoint">
+  <table>
+    <colgroup>
+      <col class="api-endpoints-table__col-endpoint">
+      <col class="api-endpoints-table__col-desc">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Endpoint</th>
+        <th>Descrizione</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /health</code></td>
+          <td class="api-endpoints-table__desc">Health check — restituisce lo stato del servizio</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /validate</code></td>
+          <td class="api-endpoints-table__desc">Valida i dati di pagamento rispetto allo schema senza generare XML</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate</code></td>
+          <td class="api-endpoints-table__desc">Genera XML in modo sincrono e restituisce il file</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate/async</code></td>
+          <td class="api-endpoints-table__desc">Invia un job di generazione asincrono</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /status/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Interroga lo stato del job tramite ID</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /download/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Scarica l&#39;XML generato al completamento del job</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>DELETE /jobs/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Annullare un job in attesa o in esecuzione</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /docs</code></td>
+          <td class="api-endpoints-table__desc">Swagger UI interattiva per esplorare e testare tutti gli endpoint</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 - [`pacs.002.001.12`](/it/pacs.002.001.12/) — Rapporto di stato del pagamento tra istituzioni finanziarie
 - [`pacs.003.001.09`](/it/pacs.003.001.09/) — Addebito diretto cliente tra istituzioni finanziarie
@@ -316,26 +354,118 @@ print(report.is_valid, report.errors)
 
 Ogni record di pagamento deve includere i seguenti campi. I campi specifici per versione sono indicati ove applicabile.
 
-| Campo | Descrizione | Vincolo |
-|---|---|---|
-| `msg_id` | Identificatore del messaggio | Max 35 caratteri |
-| `creation_date_time` | Timestamp di creazione | Formato ISO 8601 |
-| `nb_of_txs` | Numero di transazioni | Numero intero positivo |
-| `settlement_method` | Metodo di regolamento | CLRG, INDA, COVE o INGA |
-| `end_to_end_id` | Identificatore end-to-end | Max 35 caratteri |
-| `interbank_settlement_amount` | Importo di regolamento interbancario | Decimale, es. `25000.00` |
-| `interbank_settlement_currency` | Valuta di regolamento | Codice ISO 4217 |
-| `charge_bearer` | Portatore delle commissioni | DEBT, CRED, SHAR o SLEV |
-| `debtor_name` | Nome del debitore | Max 140 caratteri |
-| `debtor_agent_bic` | BIC dell'agente debitore | 8 o 11 caratteri |
-| `creditor_agent_bic` | BIC dell'agente creditore | 8 o 11 caratteri |
-| `creditor_name` | Nome del creditore | Max 140 caratteri |
+<div class="api-fields-table" tabindex="0" aria-label="Campi dati obbligatori">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Campo</th>
+        <th>Descrizione</th>
+        <th>Vincolo</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>msg_id</code></td>
+          <td class="api-fields-table__desc">Identificatore del messaggio</td>
+          <td class="api-fields-table__constraint">Max 35 caratteri</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creation_date_time</code></td>
+          <td class="api-fields-table__desc">Timestamp di creazione</td>
+          <td class="api-fields-table__constraint">Formato ISO 8601</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>nb_of_txs</code></td>
+          <td class="api-fields-table__desc">Numero di transazioni</td>
+          <td class="api-fields-table__constraint">Numero intero positivo</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>settlement_method</code></td>
+          <td class="api-fields-table__desc">Metodo di regolamento</td>
+          <td class="api-fields-table__constraint">CLRG, INDA, COVE o INGA</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>end_to_end_id</code></td>
+          <td class="api-fields-table__desc">Identificatore end-to-end</td>
+          <td class="api-fields-table__constraint">Max 35 caratteri</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_amount</code></td>
+          <td class="api-fields-table__desc">Importo di regolamento interbancario</td>
+          <td class="api-fields-table__constraint">Decimale, es. `25000.00`</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_currency</code></td>
+          <td class="api-fields-table__desc">Valuta di regolamento</td>
+          <td class="api-fields-table__constraint">Codice ISO 4217</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>charge_bearer</code></td>
+          <td class="api-fields-table__desc">Portatore delle commissioni</td>
+          <td class="api-fields-table__constraint">DEBT, CRED, SHAR o SLEV</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_name</code></td>
+          <td class="api-fields-table__desc">Nome del debitore</td>
+          <td class="api-fields-table__constraint">Max 140 caratteri</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_agent_bic</code></td>
+          <td class="api-fields-table__desc">BIC dell&#39;agente debitore</td>
+          <td class="api-fields-table__constraint">8 o 11 caratteri</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_agent_bic</code></td>
+          <td class="api-fields-table__desc">BIC dell&#39;agente creditore</td>
+          <td class="api-fields-table__constraint">8 o 11 caratteri</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_name</code></td>
+          <td class="api-fields-table__desc">Nome del creditore</td>
+          <td class="api-fields-table__constraint">Max 140 caratteri</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ### Campi specifici per versione
 
-| Campo | Descrizione | Vincolo |
-|---|---|---|
-| `uetr` | Riferimento univoco di transazione end-to-end | Formato UUID — disponibile dalla v08 |
-| `mandate_id` | Identificatore del mandato | Disponibile dalla v10 |
-| `expiry_date_time` | Timestamp di scadenza del messaggio | Disponibile nella v13 |
+<div class="api-fields-table api-fields-table--versioned" tabindex="0" aria-label="Campi specifici per versione">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Campo</th>
+        <th>Descrizione</th>
+        <th>Vincolo</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>uetr</code></td>
+          <td class="api-fields-table__desc">Riferimento univoco di transazione end-to-end</td>
+          <td class="api-fields-table__constraint">Formato UUID — disponibile dalla v08</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>mandate_id</code></td>
+          <td class="api-fields-table__desc">Identificatore del mandato</td>
+          <td class="api-fields-table__constraint">Disponibile dalla v10</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>expiry_date_time</code></td>
+          <td class="api-fields-table__desc">Timestamp di scadenza del messaggio</td>
+          <td class="api-fields-table__constraint">Disponibile nella v13</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

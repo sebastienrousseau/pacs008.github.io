@@ -36,13 +36,42 @@ Le message pacs.003 est échangé entre institutions financières pour exécuter
 - Nécessite une référence de mandat valide entre débiteur et créancier
 - Permet la collecte en masse de plusieurs instructions de prélèvement dans un seul message
 
-| Éléments de données clés | Contexte métier |
-|---|---|
-| **GrpHdr** — En-tête de groupe avec identification du message et informations de règlement | Prend en charge les schémas SEPA Core et B2B de prélèvement |
-| **DrctDbtTxInf** — Informations de transaction de prélèvement avec montant et parties | Utilisé pour la collecte de paiements récurrents tels que les abonnements, factures et remboursements de prêts |
-| **Cdtr** — Identification et coordonnées du compte du créancier | Nécessite une référence de mandat valide entre débiteur et créancier |
-| **CdtrAgt** — Identification de l'agent du créancier (institution collectrice) | Permet la collecte en masse de plusieurs instructions de prélèvement dans un seul message |
-| **DbtrAgt** — Identification de l'agent du débiteur (institution payeuse) | L'agent du créancier initie pacs.003 vers l'agent du débiteur pour collecter des fonds. L'agent du débiteur valide le mandat, vérifie la couverture du compte et règle ou retourne la transaction. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Éléments de données clés Contexte métier">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Éléments de données clés</th>
+        <th>Contexte métier</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — En-tête de groupe avec identification du message et informations de règlement</td>
+          <td class="operational-matrix-table__right">Prend en charge les schémas SEPA Core et B2B de prélèvement</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Informations de transaction de prélèvement avec montant et parties</td>
+          <td class="operational-matrix-table__right">Utilisé pour la collecte de paiements récurrents tels que les abonnements, factures et remboursements de prêts</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr** — Identification et coordonnées du compte du créancier</td>
+          <td class="operational-matrix-table__right">Nécessite une référence de mandat valide entre débiteur et créancier</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**CdtrAgt** — Identification de l&#39;agent du créancier (institution collectrice)</td>
+          <td class="operational-matrix-table__right">Permet la collecte en masse de plusieurs instructions de prélèvement dans un seul message</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**DbtrAgt** — Identification de l&#39;agent du débiteur (institution payeuse)</td>
+          <td class="operational-matrix-table__right">L&#39;agent du créancier initie pacs.003 vers l&#39;agent du débiteur pour collecter des fonds. L&#39;agent du débiteur valide le mandat, vérifie la couverture du compte et règle ou retourne la transaction.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Contexte CBPR+ et schémas
 
@@ -57,10 +86,34 @@ L'agent du créancier initie pacs.003 vers l'agent du débiteur pour collecter d
 
 ## Tableau des écarts de version
 
-| Plage de versions | Pourquoi c'est important | Conséquence pratique |
-|---|---|---|
-| pacs.003.001.09 | Implémentation actuelle dans pacs008 | Utile pour la modélisation de références de prélèvement dans le projet actuel. |
-| pacs.003.001.10-11 | Révisions ultérieures du catalogue | Examinez les révisions ultérieures pour les évolutions de mandat, de statut et d'interopérabilité avant toute nouvelle mise en oeuvre. |
+<div class="version-diff-table" tabindex="0" aria-label="Tableau des écarts de version">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Plage de versions</th>
+        <th>Pourquoi c&#39;est important</th>
+        <th>Conséquence pratique</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.003.001.09</td>
+          <td class="version-diff-table__why">Implémentation actuelle dans pacs008</td>
+          <td class="version-diff-table__takeaway">Utile pour la modélisation de références de prélèvement dans le projet actuel.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.003.001.10-11</td>
+          <td class="version-diff-table__why">Révisions ultérieures du catalogue</td>
+          <td class="version-diff-table__takeaway">Examinez les révisions ultérieures pour les évolutions de mandat, de statut et d&#39;interopérabilité avant toute nouvelle mise en oeuvre.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Exemple XML commenté
 
@@ -92,9 +145,37 @@ L'agent du créancier initie pacs.003 vers l'agent du débiteur pour collecter d
 
 
 ## Messages associés
-| Type de message | Description | Présentation |
-|---|---|---|
-| [`pacs.004.001.11`](/fr/pacs.004.001.11/) | Retour de paiement | Le message pacs.004 est utilisé pour retourner une transaction de paiement précédemment réglée. Il inverse le flux de fonds lorsqu'un paiement ne peut être appliqué, a été envoyé par erreur ou fait l'objet d'un rappel par l'institution d'origine. |
-| [`pacs.007.001.11`](/fr/pacs.007.001.11/) | Annulation de paiement FI à FI | Le message pacs.007 est utilisé pour annuler une instruction de paiement précédemment envoyée qui n'a pas encore été réglée ou pour demander l'annulation d'un paiement réglé. Contrairement au pacs.004 (retour), il est initié par l'agent instructeur d'origine. |
-| [`pacs.002.001.12`](/fr/pacs.002.001.12/) | Rapport de statut de paiement FI à FI | Le message pacs.002 est envoyé par une institution financière pour rapporter le statut d'une instruction de paiement précédemment envoyée. Il fournit une confirmation, un rejet ou un statut en attente pour les transactions individuelles au sein d'un message de paiement. |
+<div class="related-messages-table" tabindex="0" aria-label="Messages associés">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Type de message</th>
+        <th>Description</th>
+        <th>Présentation</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/fr/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
+          <td class="related-messages-table__name">Retour de paiement</td>
+          <td class="related-messages-table__overview">Le message pacs.004 est utilisé pour retourner une transaction de paiement précédemment réglée. Il inverse le flux de fonds lorsqu&#39;un paiement ne peut être appliqué, a été envoyé par erreur ou fait l&#39;objet d&#39;un rappel par l&#39;institution d&#39;origine.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/fr/pacs.007.001.11/"><code>pacs.007.001.11</code></a></td>
+          <td class="related-messages-table__name">Annulation de paiement FI à FI</td>
+          <td class="related-messages-table__overview">Le message pacs.007 est utilisé pour annuler une instruction de paiement précédemment envoyée qui n&#39;a pas encore été réglée ou pour demander l&#39;annulation d&#39;un paiement réglé. Contrairement au pacs.004 (retour), il est initié par l&#39;agent instructeur d&#39;origine.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/fr/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">Rapport de statut de paiement FI à FI</td>
+          <td class="related-messages-table__overview">Le message pacs.002 est envoyé par une institution financière pour rapporter le statut d&#39;une instruction de paiement précédemment envoyée. Il fournit une confirmation, un rejet ou un statut en attente pour les transactions individuelles au sein d&#39;un message de paiement.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

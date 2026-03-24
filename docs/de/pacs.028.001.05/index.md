@@ -36,13 +36,42 @@ Die Nachricht pacs.028 wird von einem Finanzinstitut gesendet, um den Status ein
 - Ergänzt pacs.002, indem Statuskommunikation initiiert statt abgewartet wird
 - Wird in Ausnahmebehandlungs- und SLA-Überwachungs-Workflows eingesetzt
 
-| Wichtige Datenelemente | Geschäftskontext |
-|---|---|
-| **GrpHdr** — Gruppenkopf mit Nachrichtenidentifikation und Erstellungszeitstempel | Ermöglicht proaktive Statusabfragen für in Bearbeitung befindliche Zahlungsanweisungen |
-| **TxInf** — Transaktionsinformationen zur Identifizierung der abzufragenden Zahlung | Unterstützt Betriebsteams bei der Untersuchung verzögerter oder fehlender Zahlungen |
-| **OrgnlGrpInf** — Originalgruppendaten mit Bezug auf die Quellnachricht | Ergänzt pacs.002, indem Statuskommunikation initiiert statt abgewartet wird |
-| **OrgnlInstrId** — Originalanweisungskennung aus der Quellzahlung | Wird in Ausnahmebehandlungs- und SLA-Überwachungs-Workflows eingesetzt |
-| **OrgnlEndToEndId** — Originale End-to-End-Kennung für die Nachverfolgbarkeit | Der beauftragende Agent sendet pacs.028 an den beauftragten Agent, um den Status einer bestimmten Zahlung abzufragen. Der beauftragte Agent antwortet mit einem pacs.002 mit dem aktuellen Verarbeitungsstatus. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Wichtige Datenelemente Geschäftskontext">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Wichtige Datenelemente</th>
+        <th>Geschäftskontext</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Gruppenkopf mit Nachrichtenidentifikation und Erstellungszeitstempel</td>
+          <td class="operational-matrix-table__right">Ermöglicht proaktive Statusabfragen für in Bearbeitung befindliche Zahlungsanweisungen</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**TxInf** — Transaktionsinformationen zur Identifizierung der abzufragenden Zahlung</td>
+          <td class="operational-matrix-table__right">Unterstützt Betriebsteams bei der Untersuchung verzögerter oder fehlender Zahlungen</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Originalgruppendaten mit Bezug auf die Quellnachricht</td>
+          <td class="operational-matrix-table__right">Ergänzt pacs.002, indem Statuskommunikation initiiert statt abgewartet wird</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlInstrId** — Originalanweisungskennung aus der Quellzahlung</td>
+          <td class="operational-matrix-table__right">Wird in Ausnahmebehandlungs- und SLA-Überwachungs-Workflows eingesetzt</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlEndToEndId** — Originale End-to-End-Kennung für die Nachverfolgbarkeit</td>
+          <td class="operational-matrix-table__right">Der beauftragende Agent sendet pacs.028 an den beauftragten Agent, um den Status einer bestimmten Zahlung abzufragen. Der beauftragte Agent antwortet mit einem pacs.002 mit dem aktuellen Verarbeitungsstatus.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## CBPR+- und Schema-Kontext
 
@@ -57,10 +86,34 @@ Der beauftragende Agent sendet pacs.028 an den beauftragten Agent, um den Status
 
 ## Tabelle der Versionsunterschiede
 
-| Versionsbereich | Warum es wichtig ist | Praktische Konsequenz |
-|---|---|---|
-| pacs.028.001.05 | Aktuelle Implementierung in pacs008 | Geeignet für die aktuelle Modellierung von Statusanfragen. |
-| pacs.028.001.06 | Spätere Katalogversion | Neuere Katalogversionen für die zukünftige Interoperabilitätsplanung prüfen. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabelle der Versionsunterschiede">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Versionsbereich</th>
+        <th>Warum es wichtig ist</th>
+        <th>Praktische Konsequenz</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.028.001.05</td>
+          <td class="version-diff-table__why">Aktuelle Implementierung in pacs008</td>
+          <td class="version-diff-table__takeaway">Geeignet für die aktuelle Modellierung von Statusanfragen.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.028.001.06</td>
+          <td class="version-diff-table__why">Spätere Katalogversion</td>
+          <td class="version-diff-table__takeaway">Neuere Katalogversionen für die zukünftige Interoperabilitätsplanung prüfen.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Kommentiertes XML-Beispiel
 
@@ -84,12 +137,44 @@ Der beauftragende Agent sendet pacs.028 an den beauftragten Agent, um den Status
 
 ## Vergleich pacs.028 vs pacs.002
 
-| Dimension | pacs.028.001.05 | Vergleichsnachricht |
-|---|---|---|
-| Hauptzweck | Status anfragen | Status melden |
-| Wer die Interaktion startet | Das Institut, das den Status anfragt | Das Institut, das den Status sendet |
-| Operative Einordnung | Ausnahmegetriebene Anfrage | Ereignisgesteuerte Statusmeldung |
-| Zu vermeidende Fehlannahme | Dass sie routinemäßig für jede Zahlung gesendet werden sollte | Dass dadurch proaktives Fallmanagement überflüssig wird |
+<div class="message-comparison-table" tabindex="0" aria-label="Vergleich pacs.028 vs pacs.002">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Dimension</th>
+        <th>pacs.028.001.05</th>
+        <th>Vergleichsnachricht</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Hauptzweck</td>
+          <td class="message-comparison-table__current">Status anfragen</td>
+          <td class="message-comparison-table__other">Status melden</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Wer die Interaktion startet</td>
+          <td class="message-comparison-table__current">Das Institut, das den Status anfragt</td>
+          <td class="message-comparison-table__other">Das Institut, das den Status sendet</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Operative Einordnung</td>
+          <td class="message-comparison-table__current">Ausnahmegetriebene Anfrage</td>
+          <td class="message-comparison-table__other">Ereignisgesteuerte Statusmeldung</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Zu vermeidende Fehlannahme</td>
+          <td class="message-comparison-table__current">Dass sie routinemäßig für jede Zahlung gesendet werden sollte</td>
+          <td class="message-comparison-table__other">Dass dadurch proaktives Fallmanagement überflüssig wird</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Primärquellen
 
@@ -99,9 +184,37 @@ Der beauftragende Agent sendet pacs.028 an den beauftragten Agent, um den Status
 
 
 ## Verwandte Nachrichten
-| Nachrichtentyp | Beschreibung | Überblick |
-|---|---|---|
-| [`pacs.002.001.12`](/de/pacs.002.001.12/) | FI-zu-FI-Zahlungsstatusbericht | Die Nachricht pacs.002 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung zu melden. Sie liefert Bestätigungs-, Ablehnungs- oder Statusinformationen für einzelne Transaktionen innerhalb einer Zahlungsnachricht. |
-| [`pacs.008.001.13`](/de/pacs.008.001.13/) | FI-zu-FI-Kundenkredittransfer | Die Nachricht pacs.008 ist die zentrale Zahlungsanweisung, die zwischen Finanzinstituten ausgetauscht wird, um Gelder im Auftrag eines Kunden zu überweisen. Sie enthält Informationen zu Schuldner, Gläubiger, Betrag und Überweisungszweck für eine oder mehrere Überweisungen. |
-| [`pacs.009.001.10`](/de/pacs.009.001.10/) | Kredittransfer zwischen Finanzinstituten | Die Nachricht pacs.009 wird für Überweisungen zwischen Finanzinstituten verwendet, bei denen die Überweisung auf eigene Rechnung des Instituts erfolgt. Sie unterstützt Interbankenfinanzierung, Deckungszahlungen und Liquiditätsmanagement. |
+<div class="related-messages-table" tabindex="0" aria-label="Verwandte Nachrichten">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Nachrichtentyp</th>
+        <th>Beschreibung</th>
+        <th>Überblick</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/de/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">FI-zu-FI-Zahlungsstatusbericht</td>
+          <td class="related-messages-table__overview">Die Nachricht pacs.002 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung zu melden. Sie liefert Bestätigungs-, Ablehnungs- oder Statusinformationen für einzelne Transaktionen innerhalb einer Zahlungsnachricht.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/de/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">FI-zu-FI-Kundenkredittransfer</td>
+          <td class="related-messages-table__overview">Die Nachricht pacs.008 ist die zentrale Zahlungsanweisung, die zwischen Finanzinstituten ausgetauscht wird, um Gelder im Auftrag eines Kunden zu überweisen. Sie enthält Informationen zu Schuldner, Gläubiger, Betrag und Überweisungszweck für eine oder mehrere Überweisungen.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/de/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">Kredittransfer zwischen Finanzinstituten</td>
+          <td class="related-messages-table__overview">Die Nachricht pacs.009 wird für Überweisungen zwischen Finanzinstituten verwendet, bei denen die Überweisung auf eigene Rechnung des Instituts erfolgt. Sie unterstützt Interbankenfinanzierung, Deckungszahlungen und Liquiditätsmanagement.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

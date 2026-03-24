@@ -41,16 +41,54 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 
 ### 엔드포인트
 
-| Endpoint | 설명 |
-|---|---|
-| `GET /health` | 헬스 체크 — 서비스 상태를 반환합니다 |
-| `POST /validate` | XML을 생성하지 않고 스키마에 대해 결제 데이터를 유효성 검사합니다 |
-| `POST /generate` | XML을 동기적으로 생성하고 파일을 반환합니다 |
-| `POST /generate/async` | 비동기 생성 작업을 제출합니다 |
-| `GET /status/{job_id}` | ID로 작업 상태를 폴링합니다 |
-| `GET /download/{job_id}` | 작업이 완료되면 생성된 XML을 다운로드합니다 |
-| `DELETE /jobs/{job_id}` | 대기 중이거나 실행 중인 작업 취소 |
-| `GET /docs` | 모든 엔드포인트를 탐색하고 테스트하기 위한 인터랙티브 Swagger UI |
+<div class="api-endpoints-table" tabindex="0" aria-label="엔드포인트">
+  <table>
+    <colgroup>
+      <col class="api-endpoints-table__col-endpoint">
+      <col class="api-endpoints-table__col-desc">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Endpoint</th>
+        <th>설명</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /health</code></td>
+          <td class="api-endpoints-table__desc">헬스 체크 — 서비스 상태를 반환합니다</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /validate</code></td>
+          <td class="api-endpoints-table__desc">XML을 생성하지 않고 스키마에 대해 결제 데이터를 유효성 검사합니다</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate</code></td>
+          <td class="api-endpoints-table__desc">XML을 동기적으로 생성하고 파일을 반환합니다</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate/async</code></td>
+          <td class="api-endpoints-table__desc">비동기 생성 작업을 제출합니다</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /status/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">ID로 작업 상태를 폴링합니다</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /download/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">작업이 완료되면 생성된 XML을 다운로드합니다</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>DELETE /jobs/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">대기 중이거나 실행 중인 작업 취소</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /docs</code></td>
+          <td class="api-endpoints-table__desc">모든 엔드포인트를 탐색하고 테스트하기 위한 인터랙티브 Swagger UI</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 - [`pacs.002.001.12`](/ko/pacs.002.001.12/) — 금융기관 간 지급 상태 보고
 - [`pacs.003.001.09`](/ko/pacs.003.001.09/) — 금융기관 간 고객 직접출금
@@ -316,26 +354,118 @@ print(report.is_valid, report.errors)
 
 모든 결제 레코드는 다음 필드를 포함해야 합니다. 버전별 필드는 해당 위치에 명시되어 있습니다.
 
-| 필드 | 설명 | 제약 |
-|---|---|---|
-| `msg_id` | 메시지 식별자 | 최대 35자 |
-| `creation_date_time` | 생성 타임스탬프 | ISO 8601 형식 |
-| `nb_of_txs` | 거래 건수 | 양의 정수 |
-| `settlement_method` | 결제 방법 | CLRG, INDA, COVE 또는 INGA |
-| `end_to_end_id` | 종단 간 식별자 | 최대 35자 |
-| `interbank_settlement_amount` | 은행 간 결제 금액 | 소수점, 예: `25000.00` |
-| `interbank_settlement_currency` | 결제 통화 | ISO 4217 코드 |
-| `charge_bearer` | 수수료 부담자 | DEBT, CRED, SHAR 또는 SLEV |
-| `debtor_name` | 채무자 이름 | 최대 140자 |
-| `debtor_agent_bic` | 채무자 에이전트 BIC | 8 또는 11자 |
-| `creditor_agent_bic` | 채권자 에이전트 BIC | 8 또는 11자 |
-| `creditor_name` | 채권자 이름 | 최대 140자 |
+<div class="api-fields-table" tabindex="0" aria-label="필수 데이터 필드">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>필드</th>
+        <th>설명</th>
+        <th>제약</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>msg_id</code></td>
+          <td class="api-fields-table__desc">메시지 식별자</td>
+          <td class="api-fields-table__constraint">최대 35자</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creation_date_time</code></td>
+          <td class="api-fields-table__desc">생성 타임스탬프</td>
+          <td class="api-fields-table__constraint">ISO 8601 형식</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>nb_of_txs</code></td>
+          <td class="api-fields-table__desc">거래 건수</td>
+          <td class="api-fields-table__constraint">양의 정수</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>settlement_method</code></td>
+          <td class="api-fields-table__desc">결제 방법</td>
+          <td class="api-fields-table__constraint">CLRG, INDA, COVE 또는 INGA</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>end_to_end_id</code></td>
+          <td class="api-fields-table__desc">종단 간 식별자</td>
+          <td class="api-fields-table__constraint">최대 35자</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_amount</code></td>
+          <td class="api-fields-table__desc">은행 간 결제 금액</td>
+          <td class="api-fields-table__constraint">소수점, 예: `25000.00`</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_currency</code></td>
+          <td class="api-fields-table__desc">결제 통화</td>
+          <td class="api-fields-table__constraint">ISO 4217 코드</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>charge_bearer</code></td>
+          <td class="api-fields-table__desc">수수료 부담자</td>
+          <td class="api-fields-table__constraint">DEBT, CRED, SHAR 또는 SLEV</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_name</code></td>
+          <td class="api-fields-table__desc">채무자 이름</td>
+          <td class="api-fields-table__constraint">최대 140자</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_agent_bic</code></td>
+          <td class="api-fields-table__desc">채무자 에이전트 BIC</td>
+          <td class="api-fields-table__constraint">8 또는 11자</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_agent_bic</code></td>
+          <td class="api-fields-table__desc">채권자 에이전트 BIC</td>
+          <td class="api-fields-table__constraint">8 또는 11자</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_name</code></td>
+          <td class="api-fields-table__desc">채권자 이름</td>
+          <td class="api-fields-table__constraint">최대 140자</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ### 버전별 필드
 
-| 필드 | 설명 | 제약 |
-|---|---|---|
-| `uetr` | 고유 종단 간 거래 참조 | UUID 형식 — v08부터 사용 가능 |
-| `mandate_id` | 위임 식별자 | v10부터 사용 가능 |
-| `expiry_date_time` | 메시지 만료 타임스탬프 | v13에서 사용 가능 |
+<div class="api-fields-table api-fields-table--versioned" tabindex="0" aria-label="버전별 필드">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>필드</th>
+        <th>설명</th>
+        <th>제약</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>uetr</code></td>
+          <td class="api-fields-table__desc">고유 종단 간 거래 참조</td>
+          <td class="api-fields-table__constraint">UUID 형식 — v08부터 사용 가능</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>mandate_id</code></td>
+          <td class="api-fields-table__desc">위임 식별자</td>
+          <td class="api-fields-table__constraint">v10부터 사용 가능</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>expiry_date_time</code></td>
+          <td class="api-fields-table__desc">메시지 만료 타임스탬프</td>
+          <td class="api-fields-table__constraint">v13에서 사용 가능</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

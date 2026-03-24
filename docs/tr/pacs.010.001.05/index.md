@@ -36,13 +36,42 @@ pacs.010 mesajı, kuruluşun kendi hesabındaki doğrudan borçlandırma işleml
 - Katılımcı kuruluşlar arasında önceden üzerinde anlaşılmış ikili düzenlemeler gerektirir
 - Kurumsal nakit yönetimi ve bankalar arası takas döngüleri için kritik öneme sahiptir
 
-| Temel veri öğeleri | İş bağlamı |
-|---|---|
-| **GrpHdr** — Mesaj tanımlama ve takas bilgisi içeren Grup Başlığı | Finans kuruluşları arasında bankalar arası doğrudan borçlandırma tahsilatını destekler |
-| **DrctDbtTxInf** — Tahsilat tutarı içeren Doğrudan Borçlandırma İşlem Bilgisi | Ücret tahsilatı, teminat tamamlama çağrıları ve kurumsal takas yükümlülükleri için kullanılır |
-| **Cdtr / CdtrAgt** — Alacaklı kuruluş ve aracısının kimlik bilgileri | Katılımcı kuruluşlar arasında önceden üzerinde anlaşılmış ikili düzenlemeler gerektirir |
-| **Dbtr / DbtrAgt** — Borçlu kuruluş ve aracısının kimlik bilgileri | Kurumsal nakit yönetimi ve bankalar arası takas döngüleri için kritik öneme sahiptir |
-| **IntrBkSttlmAmt** — Takas para birimi cinsinden Bankalar Arası Takas Tutarı | Alacaklı kuruluş, önceden üzerinde anlaşılmış bir düzenleme kapsamında fon tahsil etmek üzere borçlu kuruluşa pacs.010 gönderir. Borçlu kuruluş talebi doğrular ve doğrudan borçlandırmayı takas eder veya reddeder. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Temel veri öğeleri İş bağlamı">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Temel veri öğeleri</th>
+        <th>İş bağlamı</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Mesaj tanımlama ve takas bilgisi içeren Grup Başlığı</td>
+          <td class="operational-matrix-table__right">Finans kuruluşları arasında bankalar arası doğrudan borçlandırma tahsilatını destekler</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Tahsilat tutarı içeren Doğrudan Borçlandırma İşlem Bilgisi</td>
+          <td class="operational-matrix-table__right">Ücret tahsilatı, teminat tamamlama çağrıları ve kurumsal takas yükümlülükleri için kullanılır</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Alacaklı kuruluş ve aracısının kimlik bilgileri</td>
+          <td class="operational-matrix-table__right">Katılımcı kuruluşlar arasında önceden üzerinde anlaşılmış ikili düzenlemeler gerektirir</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Borçlu kuruluş ve aracısının kimlik bilgileri</td>
+          <td class="operational-matrix-table__right">Kurumsal nakit yönetimi ve bankalar arası takas döngüleri için kritik öneme sahiptir</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Takas para birimi cinsinden Bankalar Arası Takas Tutarı</td>
+          <td class="operational-matrix-table__right">Alacaklı kuruluş, önceden üzerinde anlaşılmış bir düzenleme kapsamında fon tahsil etmek üzere borçlu kuruluşa pacs.010 gönderir. Borçlu kuruluş talebi doğrular ve doğrudan borçlandırmayı takas eder veya reddeder.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## CBPR+ ve şema bağlamı
 
@@ -57,10 +86,34 @@ Alacaklı kuruluş, önceden üzerinde anlaşılmış bir düzenleme kapsamında
 
 ## Sürüm fark tablosu
 
-| Sürüm aralığı | Neden önemli | Uygulama çıkarımı |
-|---|---|---|
-| pacs.010.001.05 | pacs008 içindeki mevcut uygulama | Mevcut projede kurumlar arası doğrudan borçlandırma desteği için referans noktasıdır. |
-| pacs.010.001.06 | Daha sonraki katalog sürümü | Daha yeni altyapı gereksinimlerini benimsemeden önce gözden geçirin. |
+<div class="version-diff-table" tabindex="0" aria-label="Sürüm fark tablosu">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Sürüm aralığı</th>
+        <th>Neden önemli</th>
+        <th>Uygulama çıkarımı</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.010.001.05</td>
+          <td class="version-diff-table__why">pacs008 içindeki mevcut uygulama</td>
+          <td class="version-diff-table__takeaway">Mevcut projede kurumlar arası doğrudan borçlandırma desteği için referans noktasıdır.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.010.001.06</td>
+          <td class="version-diff-table__why">Daha sonraki katalog sürümü</td>
+          <td class="version-diff-table__takeaway">Daha yeni altyapı gereksinimlerini benimsemeden önce gözden geçirin.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Açıklamalı XML örneği
 
@@ -92,9 +145,37 @@ Alacaklı kuruluş, önceden üzerinde anlaşılmış bir düzenleme kapsamında
 
 
 ## İlgili mesajlar
-| Mesaj türü | Açıklama | Genel bakış |
-|---|---|---|
-| [`pacs.009.001.10`](/tr/pacs.009.001.10/) | Finansal kuruluşlar arası kredi transferi | pacs.009 mesajı, transferin bir müşteri adına değil kurumun kendi adına gerçekleştirildiği durumlarda finans kuruluşları arasında kredi transferleri için kullanılır. Bankalar arası fonlama, teminat ödemeleri ve likidite yönetimini destekler. |
-| [`pacs.002.001.12`](/tr/pacs.002.001.12/) | FI'dan FI'ya ödeme durumu raporu | pacs.002 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu bildirmek üzere bir finans kuruluşu tarafından gönderilir. Bir ödeme mesajı içindeki bireysel işlemler için onay, ret veya bekleyen durum bilgisi sağlar. |
-| [`pacs.003.001.09`](/tr/pacs.003.001.09/) | FI'dan FI'ya müşteri doğrudan borçlandırması | pacs.003 mesajı, bir müşteri doğrudan borçlandırma talimatını yürütmek üzere finans kuruluşları arasında iletilir. Alacaklının bankasının, alacaklı adına borçlunun bankasından fon tahsil etmesini sağlar. |
+<div class="related-messages-table" tabindex="0" aria-label="İlgili mesajlar">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Mesaj türü</th>
+        <th>Açıklama</th>
+        <th>Genel bakış</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/tr/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">Finansal kuruluşlar arası kredi transferi</td>
+          <td class="related-messages-table__overview">pacs.009 mesajı, transferin bir müşteri adına değil kurumun kendi adına gerçekleştirildiği durumlarda finans kuruluşları arasında kredi transferleri için kullanılır. Bankalar arası fonlama, teminat ödemeleri ve likidite yönetimini destekler.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/tr/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">FI&#39;dan FI&#39;ya ödeme durumu raporu</td>
+          <td class="related-messages-table__overview">pacs.002 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu bildirmek üzere bir finans kuruluşu tarafından gönderilir. Bir ödeme mesajı içindeki bireysel işlemler için onay, ret veya bekleyen durum bilgisi sağlar.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/tr/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
+          <td class="related-messages-table__name">FI&#39;dan FI&#39;ya müşteri doğrudan borçlandırması</td>
+          <td class="related-messages-table__overview">pacs.003 mesajı, bir müşteri doğrudan borçlandırma talimatını yürütmek üzere finans kuruluşları arasında iletilir. Alacaklının bankasının, alacaklı adına borçlunun bankasından fon tahsil etmesini sağlar.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

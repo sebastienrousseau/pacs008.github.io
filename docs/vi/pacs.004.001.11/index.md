@@ -36,13 +36,42 @@ Thông điệp pacs.004 được sử dụng để hoàn trả giao dịch thanh
 - Mang mã lý do hoàn trả có cấu trúc để đảm bảo minh bạch về quy định và vận hành
 - Áp dụng cho cả hoàn trả chuyển khoản tín dụng (pacs.008) và hoàn trả ghi nợ trực tiếp (pacs.003)
 
-| Yếu tố dữ liệu chính | Bối cảnh kinh doanh |
-|---|---|
-| **GrpHdr** — Tiêu đề nhóm với mã nhận dạng thông điệp và dấu thời gian tạo | Xử lý hoàn trả sau quyết toán khi tài khoản người thụ hưởng không thể ghi có |
-| **TxInf** — Thông tin giao dịch với số tiền hoàn trả và các bên | Hỗ trợ các tình huống thu hồi khi bên gửi gốc yêu cầu hoàn trả tiền |
-| **OrgnlGrpInf** — Thông tin nhóm gốc liên kết đến thông điệp nguồn | Mang mã lý do hoàn trả có cấu trúc để đảm bảo minh bạch về quy định và vận hành |
-| **RtrRsnInf** — Thông tin lý do hoàn trả với mã lý do có cấu trúc | Áp dụng cho cả hoàn trả chuyển khoản tín dụng (pacs.008) và hoàn trả ghi nợ trực tiếp (pacs.003) |
-| **OrgnlTxRef** — Tham chiếu giao dịch gốc để đối chiếu và khớp lệnh | Đại lý nhận lệnh gửi pacs.004 ngược lại qua chuỗi thanh toán để hoàn trả tiền đã quyết toán trước đó. Mỗi đại lý trong chuỗi xử lý hoàn trả và ghi có lại vào tài khoản liên quan. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Yếu tố dữ liệu chính Bối cảnh kinh doanh">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Yếu tố dữ liệu chính</th>
+        <th>Bối cảnh kinh doanh</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Tiêu đề nhóm với mã nhận dạng thông điệp và dấu thời gian tạo</td>
+          <td class="operational-matrix-table__right">Xử lý hoàn trả sau quyết toán khi tài khoản người thụ hưởng không thể ghi có</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**TxInf** — Thông tin giao dịch với số tiền hoàn trả và các bên</td>
+          <td class="operational-matrix-table__right">Hỗ trợ các tình huống thu hồi khi bên gửi gốc yêu cầu hoàn trả tiền</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Thông tin nhóm gốc liên kết đến thông điệp nguồn</td>
+          <td class="operational-matrix-table__right">Mang mã lý do hoàn trả có cấu trúc để đảm bảo minh bạch về quy định và vận hành</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**RtrRsnInf** — Thông tin lý do hoàn trả với mã lý do có cấu trúc</td>
+          <td class="operational-matrix-table__right">Áp dụng cho cả hoàn trả chuyển khoản tín dụng (pacs.008) và hoàn trả ghi nợ trực tiếp (pacs.003)</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlTxRef** — Tham chiếu giao dịch gốc để đối chiếu và khớp lệnh</td>
+          <td class="operational-matrix-table__right">Đại lý nhận lệnh gửi pacs.004 ngược lại qua chuỗi thanh toán để hoàn trả tiền đã quyết toán trước đó. Mỗi đại lý trong chuỗi xử lý hoàn trả và ghi có lại vào tài khoản liên quan.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Bối cảnh CBPR+ và lược đồ
 
@@ -57,10 +86,34 @@ Thông điệp pacs.004 được sử dụng để hoàn trả giao dịch thanh
 
 ## Bảng khác biệt phiên bản
 
-| Phạm vi phiên bản | Vì sao điều này quan trọng | Kết luận triển khai |
-|---|---|---|
-| pacs.004.001.11 | Triển khai hiện tại trong pacs008 | Phù hợp với các mẫu hiện tại cho thông điệp hoàn trả thanh toán. |
-| pacs.004.001.12-14 | Các bản sửa đổi danh mục về sau | Hãy xem các bản sửa đổi thông điệp hoàn trả về sau khi phạm vi bao gồm nâng cấp lược đồ hoặc đối tác mới. |
+<div class="version-diff-table" tabindex="0" aria-label="Bảng khác biệt phiên bản">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Phạm vi phiên bản</th>
+        <th>Vì sao điều này quan trọng</th>
+        <th>Kết luận triển khai</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.004.001.11</td>
+          <td class="version-diff-table__why">Triển khai hiện tại trong pacs008</td>
+          <td class="version-diff-table__takeaway">Phù hợp với các mẫu hiện tại cho thông điệp hoàn trả thanh toán.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.004.001.12-14</td>
+          <td class="version-diff-table__why">Các bản sửa đổi danh mục về sau</td>
+          <td class="version-diff-table__takeaway">Hãy xem các bản sửa đổi thông điệp hoàn trả về sau khi phạm vi bao gồm nâng cấp lược đồ hoặc đối tác mới.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Ví dụ XML có chú thích
 
@@ -87,12 +140,44 @@ Thông điệp pacs.004 được sử dụng để hoàn trả giao dịch thanh
 
 ## So sánh pacs.004 vs pacs.007
 
-| Khía cạnh | pacs.004.001.11 | Thông điệp so sánh |
-|---|---|---|
-| Mục đích chính | Hoàn trả các khoản tiền đã được thanh toán | Đảo ngược một khoản thanh toán đã được chỉ thị trước đó |
-| Được khởi tạo bởi | Phía nhận / thụ hưởng | Phía ra chỉ thị ban đầu |
-| Hướng luồng | Đi ngược qua chuỗi | Đi xuôi qua chuỗi |
-| Phù hợp nhất với | Xử lý hoàn trả sau khi thanh toán | Xử lý hoàn tác do recall, lỗi hoặc gian lận |
+<div class="message-comparison-table" tabindex="0" aria-label="So sánh pacs.004 vs pacs.007">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Khía cạnh</th>
+        <th>pacs.004.001.11</th>
+        <th>Thông điệp so sánh</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Mục đích chính</td>
+          <td class="message-comparison-table__current">Hoàn trả các khoản tiền đã được thanh toán</td>
+          <td class="message-comparison-table__other">Đảo ngược một khoản thanh toán đã được chỉ thị trước đó</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Được khởi tạo bởi</td>
+          <td class="message-comparison-table__current">Phía nhận / thụ hưởng</td>
+          <td class="message-comparison-table__other">Phía ra chỉ thị ban đầu</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Hướng luồng</td>
+          <td class="message-comparison-table__current">Đi ngược qua chuỗi</td>
+          <td class="message-comparison-table__other">Đi xuôi qua chuỗi</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Phù hợp nhất với</td>
+          <td class="message-comparison-table__current">Xử lý hoàn trả sau khi thanh toán</td>
+          <td class="message-comparison-table__other">Xử lý hoàn tác do recall, lỗi hoặc gian lận</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Tài liệu tham chiếu gốc
 
@@ -104,9 +189,37 @@ Thông điệp pacs.004 được sử dụng để hoàn trả giao dịch thanh
 
 
 ## Thông điệp liên quan
-| Loại thông điệp | Mô tả | Tổng quan |
-|---|---|---|
-| [`pacs.008.001.13`](/vi/pacs.008.001.13/) | Chuyển khoản tín dụng khách hàng giữa các tổ chức tài chính | Thông điệp pacs.008 là lệnh thanh toán cốt lõi được trao đổi giữa các tổ chức tài chính để chuyển tiền thay mặt khách hàng. Thông điệp này mang thông tin con nợ, chủ nợ, số tiền và thông tin chuyển tiền cho một hoặc nhiều giao dịch chuyển khoản tín dụng. |
-| [`pacs.003.001.09`](/vi/pacs.003.001.09/) | Ghi nợ trực tiếp khách hàng giữa các tổ chức tài chính | Thông điệp pacs.003 được trao đổi giữa các tổ chức tài chính để thực hiện lệnh ghi nợ trực tiếp của khách hàng. Thông điệp này cho phép ngân hàng của chủ nợ thu tiền từ ngân hàng của con nợ thay mặt cho chủ nợ. |
-| [`pacs.002.001.12`](/vi/pacs.002.001.12/) | Báo cáo trạng thái thanh toán giữa các tổ chức tài chính | Thông điệp pacs.002 được gửi bởi tổ chức tài chính để báo cáo trạng thái của lệnh thanh toán đã gửi trước đó. Thông điệp này cung cấp thông tin xác nhận, từ chối hoặc trạng thái đang chờ xử lý cho các giao dịch riêng lẻ trong thông điệp thanh toán. |
+<div class="related-messages-table" tabindex="0" aria-label="Thông điệp liên quan">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Loại thông điệp</th>
+        <th>Mô tả</th>
+        <th>Tổng quan</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/vi/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">Chuyển khoản tín dụng khách hàng giữa các tổ chức tài chính</td>
+          <td class="related-messages-table__overview">Thông điệp pacs.008 là lệnh thanh toán cốt lõi được trao đổi giữa các tổ chức tài chính để chuyển tiền thay mặt khách hàng. Thông điệp này mang thông tin con nợ, chủ nợ, số tiền và thông tin chuyển tiền cho một hoặc nhiều giao dịch chuyển khoản tín dụng.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/vi/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
+          <td class="related-messages-table__name">Ghi nợ trực tiếp khách hàng giữa các tổ chức tài chính</td>
+          <td class="related-messages-table__overview">Thông điệp pacs.003 được trao đổi giữa các tổ chức tài chính để thực hiện lệnh ghi nợ trực tiếp của khách hàng. Thông điệp này cho phép ngân hàng của chủ nợ thu tiền từ ngân hàng của con nợ thay mặt cho chủ nợ.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/vi/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">Báo cáo trạng thái thanh toán giữa các tổ chức tài chính</td>
+          <td class="related-messages-table__overview">Thông điệp pacs.002 được gửi bởi tổ chức tài chính để báo cáo trạng thái của lệnh thanh toán đã gửi trước đó. Thông điệp này cung cấp thông tin xác nhận, từ chối hoặc trạng thái đang chờ xử lý cho các giao dịch riêng lẻ trong thông điệp thanh toán.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

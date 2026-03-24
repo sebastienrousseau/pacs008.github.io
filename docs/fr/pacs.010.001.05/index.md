@@ -36,13 +36,42 @@ Le message pacs.010 est utilisé entre institutions financières pour les transa
 - Nécessite des arrangements bilatéraux préétablis entre institutions participantes
 - Essentiel pour la gestion de trésorerie institutionnelle et les cycles de règlement interbancaire
 
-| Éléments de données clés | Contexte métier |
-|---|---|
-| **GrpHdr** — En-tête de groupe avec identification du message et informations de règlement | Prend en charge la collecte de prélèvement interbancaire entre institutions financières |
-| **DrctDbtTxInf** — Informations de transaction de prélèvement avec montant de collecte | Utilisé pour la collecte de frais, les appels de marge et les obligations de règlement institutionnel |
-| **Cdtr / CdtrAgt** — Institution créancière et identification de son agent | Nécessite des arrangements bilatéraux préétablis entre institutions participantes |
-| **Dbtr / DbtrAgt** — Institution débitrice et identification de son agent | Essentiel pour la gestion de trésorerie institutionnelle et les cycles de règlement interbancaire |
-| **IntrBkSttlmAmt** — Montant de règlement interbancaire dans la devise de règlement | L'institution créancière envoie pacs.010 à l'institution débitrice pour collecter des fonds selon un accord préétabli. L'institution débitrice valide la demande et règle ou rejette le prélèvement. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Éléments de données clés Contexte métier">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Éléments de données clés</th>
+        <th>Contexte métier</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — En-tête de groupe avec identification du message et informations de règlement</td>
+          <td class="operational-matrix-table__right">Prend en charge la collecte de prélèvement interbancaire entre institutions financières</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Informations de transaction de prélèvement avec montant de collecte</td>
+          <td class="operational-matrix-table__right">Utilisé pour la collecte de frais, les appels de marge et les obligations de règlement institutionnel</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Institution créancière et identification de son agent</td>
+          <td class="operational-matrix-table__right">Nécessite des arrangements bilatéraux préétablis entre institutions participantes</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Institution débitrice et identification de son agent</td>
+          <td class="operational-matrix-table__right">Essentiel pour la gestion de trésorerie institutionnelle et les cycles de règlement interbancaire</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Montant de règlement interbancaire dans la devise de règlement</td>
+          <td class="operational-matrix-table__right">L&#39;institution créancière envoie pacs.010 à l&#39;institution débitrice pour collecter des fonds selon un accord préétabli. L&#39;institution débitrice valide la demande et règle ou rejette le prélèvement.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Contexte CBPR+ et schémas
 
@@ -57,10 +86,34 @@ L'institution créancière envoie pacs.010 à l'institution débitrice pour coll
 
 ## Tableau des écarts de version
 
-| Plage de versions | Pourquoi c'est important | Conséquence pratique |
-|---|---|---|
-| pacs.010.001.05 | Implémentation actuelle dans pacs008 | Point de référence pour la prise en charge des prélèvements d'institution dans le projet actuel. |
-| pacs.010.001.06 | Révision ultérieure du catalogue | Review before adopting newer infrastructure requirements. |
+<div class="version-diff-table" tabindex="0" aria-label="Tableau des écarts de version">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Plage de versions</th>
+        <th>Pourquoi c&#39;est important</th>
+        <th>Conséquence pratique</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.010.001.05</td>
+          <td class="version-diff-table__why">Implémentation actuelle dans pacs008</td>
+          <td class="version-diff-table__takeaway">Point de référence pour la prise en charge des prélèvements d&#39;institution dans le projet actuel.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.010.001.06</td>
+          <td class="version-diff-table__why">Révision ultérieure du catalogue</td>
+          <td class="version-diff-table__takeaway">Review before adopting newer infrastructure requirements.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Exemple XML commenté
 
@@ -92,9 +145,37 @@ L'institution créancière envoie pacs.010 à l'institution débitrice pour coll
 
 
 ## Messages associés
-| Type de message | Description | Présentation |
-|---|---|---|
-| [`pacs.009.001.10`](/fr/pacs.009.001.10/) | Virement entre institutions financières | Le message pacs.009 est utilisé pour les virements entre institutions financières lorsque le transfert est pour le compte propre de l'institution plutôt que pour un client. Il prend en charge le financement interbancaire, les paiements de couverture et la gestion de liquidité. |
-| [`pacs.002.001.12`](/fr/pacs.002.001.12/) | Rapport de statut de paiement FI à FI | Le message pacs.002 est envoyé par une institution financière pour rapporter le statut d'une instruction de paiement précédemment envoyée. Il fournit une confirmation, un rejet ou un statut en attente pour les transactions individuelles au sein d'un message de paiement. |
-| [`pacs.003.001.09`](/fr/pacs.003.001.09/) | Prélèvement client FI à FI | Le message pacs.003 est échangé entre institutions financières pour exécuter une instruction de prélèvement client. Il permet à la banque du créancier de collecter des fonds auprès de la banque du débiteur au nom du créancier. |
+<div class="related-messages-table" tabindex="0" aria-label="Messages associés">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Type de message</th>
+        <th>Description</th>
+        <th>Présentation</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/fr/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">Virement entre institutions financières</td>
+          <td class="related-messages-table__overview">Le message pacs.009 est utilisé pour les virements entre institutions financières lorsque le transfert est pour le compte propre de l&#39;institution plutôt que pour un client. Il prend en charge le financement interbancaire, les paiements de couverture et la gestion de liquidité.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/fr/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">Rapport de statut de paiement FI à FI</td>
+          <td class="related-messages-table__overview">Le message pacs.002 est envoyé par une institution financière pour rapporter le statut d&#39;une instruction de paiement précédemment envoyée. Il fournit une confirmation, un rejet ou un statut en attente pour les transactions individuelles au sein d&#39;un message de paiement.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/fr/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
+          <td class="related-messages-table__name">Prélèvement client FI à FI</td>
+          <td class="related-messages-table__overview">Le message pacs.003 est échangé entre institutions financières pour exécuter une instruction de prélèvement client. Il permet à la banque du créancier de collecter des fonds auprès de la banque du débiteur au nom du créancier.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

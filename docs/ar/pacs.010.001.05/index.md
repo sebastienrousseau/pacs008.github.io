@@ -36,13 +36,42 @@ image: /logo.svg
 - يتطلب ترتيبات ثنائية متفق عليها مسبقاً بين المؤسسات المشاركة
 - حاسم لإدارة النقد المؤسسي ودورات التسوية بين البنوك
 
-| عناصر البيانات الرئيسية | السياق التجاري |
-|---|---|
-| **GrpHdr** — رأس المجموعة مع تعريف الرسالة ومعلومات التسوية | يدعم تحصيل الخصم المباشر بين المؤسسات المالية |
-| **DrctDbtTxInf** — معلومات معاملة الخصم المباشر مع مبلغ التحصيل | يُستخدم لتحصيل الرسوم ونداءات الهامش والتزامات التسوية المؤسسية |
-| **Cdtr / CdtrAgt** — المؤسسة الدائنة وتعريف وكيلها | يتطلب ترتيبات ثنائية متفق عليها مسبقاً بين المؤسسات المشاركة |
-| **Dbtr / DbtrAgt** — المؤسسة المدينة وتعريف وكيلها | حاسم لإدارة النقد المؤسسي ودورات التسوية بين البنوك |
-| **IntrBkSttlmAmt** — مبلغ التسوية بين البنوك بعملة التسوية | ترسل المؤسسة الدائنة pacs.010 إلى المؤسسة المدينة لتحصيل الأموال وفق ترتيب متفق عليه مسبقاً. تتحقق المؤسسة المدينة من الطلب وتسوّي أو ترفض الخصم المباشر. |
+<div class="operational-matrix-table" tabindex="0" aria-label="عناصر البيانات الرئيسية السياق التجاري">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>عناصر البيانات الرئيسية</th>
+        <th>السياق التجاري</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — رأس المجموعة مع تعريف الرسالة ومعلومات التسوية</td>
+          <td class="operational-matrix-table__right">يدعم تحصيل الخصم المباشر بين المؤسسات المالية</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**DrctDbtTxInf** — معلومات معاملة الخصم المباشر مع مبلغ التحصيل</td>
+          <td class="operational-matrix-table__right">يُستخدم لتحصيل الرسوم ونداءات الهامش والتزامات التسوية المؤسسية</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — المؤسسة الدائنة وتعريف وكيلها</td>
+          <td class="operational-matrix-table__right">يتطلب ترتيبات ثنائية متفق عليها مسبقاً بين المؤسسات المشاركة</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — المؤسسة المدينة وتعريف وكيلها</td>
+          <td class="operational-matrix-table__right">حاسم لإدارة النقد المؤسسي ودورات التسوية بين البنوك</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — مبلغ التسوية بين البنوك بعملة التسوية</td>
+          <td class="operational-matrix-table__right">ترسل المؤسسة الدائنة pacs.010 إلى المؤسسة المدينة لتحصيل الأموال وفق ترتيب متفق عليه مسبقاً. تتحقق المؤسسة المدينة من الطلب وتسوّي أو ترفض الخصم المباشر.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## سياق CBPR+ والأنظمة
 
@@ -57,10 +86,34 @@ image: /logo.svg
 
 ## جدول فروق الإصدارات
 
-| نطاق الإصدار | لماذا يهم | الخلاصة التنفيذية |
-|---|---|---|
-| pacs.010.001.05 | التنفيذ الحالي في pacs008 | يمثّل نقطة مرجعية لدعم الخصم المباشر بين المؤسسات في المشروع الحالي. |
-| pacs.010.001.06 | إصدار الكتالوج اللاحق | راجع ذلك قبل اعتماد متطلبات البنية التحتية الأحدث. |
+<div class="version-diff-table" tabindex="0" aria-label="جدول فروق الإصدارات">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>نطاق الإصدار</th>
+        <th>لماذا يهم</th>
+        <th>الخلاصة التنفيذية</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.010.001.05</td>
+          <td class="version-diff-table__why">التنفيذ الحالي في pacs008</td>
+          <td class="version-diff-table__takeaway">يمثّل نقطة مرجعية لدعم الخصم المباشر بين المؤسسات في المشروع الحالي.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.010.001.06</td>
+          <td class="version-diff-table__why">إصدار الكتالوج اللاحق</td>
+          <td class="version-diff-table__takeaway">راجع ذلك قبل اعتماد متطلبات البنية التحتية الأحدث.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## مثال XML مشروح
 
@@ -92,9 +145,37 @@ image: /logo.svg
 
 
 ## الرسائل ذات الصلة
-| نوع الرسالة | الوصف | نظرة عامة |
-|---|---|---|
-| [`pacs.009.001.10`](/ar/pacs.009.001.10/) | تحويل ائتماني بين المؤسسات المالية | يُستخدم رسالة pacs.009 للتحويلات بين المؤسسات المالية عندما يكون التحويل لحساب المؤسسة الخاص وليس نيابة عن عميل. يدعم التمويل بين البنوك ومدفوعات التغطية وإدارة السيولة. |
-| [`pacs.002.001.12`](/ar/pacs.002.001.12/) | تقرير حالة الدفع من مؤسسة مالية إلى مؤسسة مالية | يُرسل رسالة pacs.002 من مؤسسة مالية للإبلاغ عن حالة تعليمات الدفع المرسلة سابقاً. يوفر تأكيداً أو رفضاً أو معلومات حالة معلقة للمعاملات الفردية ضمن رسالة الدفع. |
-| [`pacs.003.001.09`](/ar/pacs.003.001.09/) | خصم مباشر للعميل من مؤسسة مالية إلى مؤسسة مالية | يتم تبادل رسالة pacs.003 بين المؤسسات المالية لتنفيذ تعليمات الخصم المباشر للعميل. يمكّن بنك الدائن من تحصيل الأموال من بنك المدين نيابة عن الدائن. |
+<div class="related-messages-table" tabindex="0" aria-label="الرسائل ذات الصلة">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>نوع الرسالة</th>
+        <th>الوصف</th>
+        <th>نظرة عامة</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/ar/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">تحويل ائتماني بين المؤسسات المالية</td>
+          <td class="related-messages-table__overview">يُستخدم رسالة pacs.009 للتحويلات بين المؤسسات المالية عندما يكون التحويل لحساب المؤسسة الخاص وليس نيابة عن عميل. يدعم التمويل بين البنوك ومدفوعات التغطية وإدارة السيولة.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/ar/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">تقرير حالة الدفع من مؤسسة مالية إلى مؤسسة مالية</td>
+          <td class="related-messages-table__overview">يُرسل رسالة pacs.002 من مؤسسة مالية للإبلاغ عن حالة تعليمات الدفع المرسلة سابقاً. يوفر تأكيداً أو رفضاً أو معلومات حالة معلقة للمعاملات الفردية ضمن رسالة الدفع.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/ar/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
+          <td class="related-messages-table__name">خصم مباشر للعميل من مؤسسة مالية إلى مؤسسة مالية</td>
+          <td class="related-messages-table__overview">يتم تبادل رسالة pacs.003 بين المؤسسات المالية لتنفيذ تعليمات الخصم المباشر للعميل. يمكّن بنك الدائن من تحصيل الأموال من بنك المدين نيابة عن الدائن.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

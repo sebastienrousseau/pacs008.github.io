@@ -36,13 +36,42 @@ Pesan pacs.009 digunakan untuk transfer kredit antara lembaga keuangan di mana t
 - Membawa kaki cover dari transfer kredit pelanggan yang diselesaikan melalui metode cover
 - Memungkinkan operasi perbendaharaan dan pendanaan antara lembaga keuangan
 
-| Elemen data utama | Konteks bisnis |
-|---|---|
-| **GrpHdr** — Group Header dengan identifikasi pesan dan informasi penyelesaian | Digunakan untuk transfer rekening sendiri bank-ke-bank dan pembayaran cover |
-| **CdtTrfTxInf** — Informasi Transaksi Transfer Kredit dengan jumlah penyelesaian antarbank | Mendukung manajemen likuiditas antara mitra perbankan koresponden |
-| **Dbtr / DbtrAgt** — Identifikasi lembaga debitur dan agennya | Membawa kaki cover dari transfer kredit pelanggan yang diselesaikan melalui metode cover |
-| **Cdtr / CdtrAgt** — Identifikasi lembaga kreditur dan agennya | Memungkinkan operasi perbendaharaan dan pendanaan antara lembaga keuangan |
-| **IntrBkSttlmAmt** — Jumlah Penyelesaian Antarbank dalam mata uang penyelesaian | Lembaga debitur mengirim pacs.009 ke lembaga kreditur untuk mentransfer dananya sendiri. Untuk pembayaran metode cover, pacs.009 menyediakan kaki pendanaan sementara pacs.008 membawa instruksi pelanggan melalui jalur terpisah. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Elemen data utama Konteks bisnis">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Elemen data utama</th>
+        <th>Konteks bisnis</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Group Header dengan identifikasi pesan dan informasi penyelesaian</td>
+          <td class="operational-matrix-table__right">Digunakan untuk transfer rekening sendiri bank-ke-bank dan pembayaran cover</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Informasi Transaksi Transfer Kredit dengan jumlah penyelesaian antarbank</td>
+          <td class="operational-matrix-table__right">Mendukung manajemen likuiditas antara mitra perbankan koresponden</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identifikasi lembaga debitur dan agennya</td>
+          <td class="operational-matrix-table__right">Membawa kaki cover dari transfer kredit pelanggan yang diselesaikan melalui metode cover</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identifikasi lembaga kreditur dan agennya</td>
+          <td class="operational-matrix-table__right">Memungkinkan operasi perbendaharaan dan pendanaan antara lembaga keuangan</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Jumlah Penyelesaian Antarbank dalam mata uang penyelesaian</td>
+          <td class="operational-matrix-table__right">Lembaga debitur mengirim pacs.009 ke lembaga kreditur untuk mentransfer dananya sendiri. Untuk pembayaran metode cover, pacs.009 menyediakan kaki pendanaan sementara pacs.008 membawa instruksi pelanggan melalui jalur terpisah.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Konteks CBPR+ dan skema
 
@@ -57,10 +86,34 @@ Lembaga debitur mengirim pacs.009 ke lembaga kreditur untuk mentransfer dananya 
 
 ## Tabel perbedaan versi
 
-| Rentang versi | Mengapa ini penting | Kesimpulan implementasi |
-|---|---|---|
-| pacs.009.001.10 | Implementasi saat ini di pacs008 | Sesuai dengan dukungan proyek saat ini untuk alur transfer kredit FI. |
-| pacs.009.001.11-12 | Revisi katalog berikutnya | Penting untuk perencanaan peta jalan dalam lingkungan perbankan koresponden dan pembayaran penutup. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabel perbedaan versi">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Rentang versi</th>
+        <th>Mengapa ini penting</th>
+        <th>Kesimpulan implementasi</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.009.001.10</td>
+          <td class="version-diff-table__why">Implementasi saat ini di pacs008</td>
+          <td class="version-diff-table__takeaway">Sesuai dengan dukungan proyek saat ini untuk alur transfer kredit FI.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.009.001.11-12</td>
+          <td class="version-diff-table__why">Revisi katalog berikutnya</td>
+          <td class="version-diff-table__takeaway">Penting untuk perencanaan peta jalan dalam lingkungan perbankan koresponden dan pembayaran penutup.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Contoh XML beranotasi
 
@@ -86,12 +139,44 @@ Lembaga debitur mengirim pacs.009 ke lembaga kreditur untuk mentransfer dananya 
 
 ## Bandingkan pacs.009 vs pacs.008
 
-| Dimensi | pacs.009.001.10 | Pesan pembanding |
-|---|---|---|
-| Tujuan utama | Transfer kredit rekening milik institusi sendiri atau tahap penutup pendanaan | Transfer kredit nasabah |
-| Pemilik bisnis | Operasi tresuri / perbankan koresponden / pendanaan | Operasi pembayaran nasabah |
-| Pasangan umum | aliran pacs.002, pacs.004, dan pacs.008 yang terkait | pacs.002, pacs.004, pacs.007, pacs.028 |
-| Asumsi keliru yang harus dihindari | Bahwa ini sekadar pacs.008 yang lebih teknis | Bahwa pesan ini dapat menangani alur pendanaan antar lembaga dengan jelas |
+<div class="message-comparison-table" tabindex="0" aria-label="Bandingkan pacs.009 vs pacs.008">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Dimensi</th>
+        <th>pacs.009.001.10</th>
+        <th>Pesan pembanding</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Tujuan utama</td>
+          <td class="message-comparison-table__current">Transfer kredit rekening milik institusi sendiri atau tahap penutup pendanaan</td>
+          <td class="message-comparison-table__other">Transfer kredit nasabah</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Pemilik bisnis</td>
+          <td class="message-comparison-table__current">Operasi tresuri / perbankan koresponden / pendanaan</td>
+          <td class="message-comparison-table__other">Operasi pembayaran nasabah</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Pasangan umum</td>
+          <td class="message-comparison-table__current">aliran pacs.002, pacs.004, dan pacs.008 yang terkait</td>
+          <td class="message-comparison-table__other">pacs.002, pacs.004, pacs.007, pacs.028</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Asumsi keliru yang harus dihindari</td>
+          <td class="message-comparison-table__current">Bahwa ini sekadar pacs.008 yang lebih teknis</td>
+          <td class="message-comparison-table__other">Bahwa pesan ini dapat menangani alur pendanaan antar lembaga dengan jelas</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Referensi primer
 
@@ -103,9 +188,37 @@ Lembaga debitur mengirim pacs.009 ke lembaga kreditur untuk mentransfer dananya 
 
 
 ## Pesan terkait
-| Jenis pesan | Deskripsi | Ikhtisar |
-|---|---|---|
-| [`pacs.008.001.13`](/id/pacs.008.001.13/) | Transfer Kredit Pelanggan FI ke FI | Pesan pacs.008 adalah instruksi pembayaran inti yang dipertukarkan antara lembaga keuangan untuk mentransfer dana atas nama pelanggan. Pesan ini membawa informasi debitur, kreditur, jumlah, dan remitansi untuk satu atau lebih transaksi transfer kredit. |
-| [`pacs.002.001.12`](/id/pacs.002.001.12/) | Laporan Status Pembayaran FI ke FI | Pesan pacs.002 dikirim oleh lembaga keuangan untuk melaporkan status instruksi pembayaran yang sebelumnya dikirim. Pesan ini memberikan informasi konfirmasi, penolakan, atau status tertunda untuk transaksi individual dalam pesan pembayaran. |
-| [`pacs.010.001.05`](/id/pacs.010.001.05/) | Direct Debit Antar Lembaga Keuangan | Pesan pacs.010 digunakan antara lembaga keuangan untuk transaksi debit langsung pada rekening lembaga itu sendiri. Pesan ini memungkinkan satu lembaga untuk menagih dana langsung dari rekening lembaga lain. |
+<div class="related-messages-table" tabindex="0" aria-label="Pesan terkait">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Jenis pesan</th>
+        <th>Deskripsi</th>
+        <th>Ikhtisar</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/id/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">Transfer Kredit Pelanggan FI ke FI</td>
+          <td class="related-messages-table__overview">Pesan pacs.008 adalah instruksi pembayaran inti yang dipertukarkan antara lembaga keuangan untuk mentransfer dana atas nama pelanggan. Pesan ini membawa informasi debitur, kreditur, jumlah, dan remitansi untuk satu atau lebih transaksi transfer kredit.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/id/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">Laporan Status Pembayaran FI ke FI</td>
+          <td class="related-messages-table__overview">Pesan pacs.002 dikirim oleh lembaga keuangan untuk melaporkan status instruksi pembayaran yang sebelumnya dikirim. Pesan ini memberikan informasi konfirmasi, penolakan, atau status tertunda untuk transaksi individual dalam pesan pembayaran.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/id/pacs.010.001.05/"><code>pacs.010.001.05</code></a></td>
+          <td class="related-messages-table__name">Direct Debit Antar Lembaga Keuangan</td>
+          <td class="related-messages-table__overview">Pesan pacs.010 digunakan antara lembaga keuangan untuk transaksi debit langsung pada rekening lembaga itu sendiri. Pesan ini memungkinkan satu lembaga untuk menagih dana langsung dari rekening lembaga lain.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

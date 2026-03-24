@@ -41,16 +41,54 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 
 ### נקודות קצה
 
-| Endpoint | תיאור |
-|---|---|
-| `GET /health` | בדיקת תקינות — מחזיר את סטטוס השירות |
-| `POST /validate` | אימות נתוני תשלום מול הסכמה ללא יצירת XML |
-| `POST /generate` | יצירת XML באופן סינכרוני והחזרת הקובץ |
-| `POST /generate/async` | שליחת משימת יצירה א-סינכרונית |
-| `GET /status/{job_id}` | סקר סטטוס המשימה לפי מזהה |
-| `GET /download/{job_id}` | הורדת ה-XML שנוצר לאחר השלמת המשימה |
-| `DELETE /jobs/{job_id}` | ביטול משימה ממתינה או פעילה |
-| `GET /docs` | ממשק Swagger UI אינטראקטיבי לחקירה ובדיקת כל נקודות הקצה |
+<div class="api-endpoints-table" tabindex="0" aria-label="נקודות קצה">
+  <table>
+    <colgroup>
+      <col class="api-endpoints-table__col-endpoint">
+      <col class="api-endpoints-table__col-desc">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Endpoint</th>
+        <th>תיאור</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /health</code></td>
+          <td class="api-endpoints-table__desc">בדיקת תקינות — מחזיר את סטטוס השירות</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /validate</code></td>
+          <td class="api-endpoints-table__desc">אימות נתוני תשלום מול הסכמה ללא יצירת XML</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate</code></td>
+          <td class="api-endpoints-table__desc">יצירת XML באופן סינכרוני והחזרת הקובץ</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate/async</code></td>
+          <td class="api-endpoints-table__desc">שליחת משימת יצירה א-סינכרונית</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /status/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">סקר סטטוס המשימה לפי מזהה</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /download/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">הורדת ה-XML שנוצר לאחר השלמת המשימה</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>DELETE /jobs/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">ביטול משימה ממתינה או פעילה</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /docs</code></td>
+          <td class="api-endpoints-table__desc">ממשק Swagger UI אינטראקטיבי לחקירה ובדיקת כל נקודות הקצה</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 - [`pacs.002.001.12`](/he/pacs.002.001.12/) — דוח סטטוס תשלום בין מוסדות פיננסיים
 - [`pacs.003.001.09`](/he/pacs.003.001.09/) — חיוב ישיר ללקוח בין מוסדות פיננסיים
@@ -316,26 +354,118 @@ print(report.is_valid, report.errors)
 
 כל רשומת תשלום חייבת לכלול את השדות הבאים. שדות ספציפיים לגרסה מצוינים בהתאם.
 
-| שדה | תיאור | אילוץ |
-|---|---|---|
-| `msg_id` | מזהה הודעה | מקסימום 35 תווים |
-| `creation_date_time` | חותמת זמן יצירה | פורמט ISO 8601 |
-| `nb_of_txs` | מספר עסקאות | מספר שלם חיובי |
-| `settlement_method` | שיטת סליקה | CLRG ,INDA ,COVE או INGA |
-| `end_to_end_id` | מזהה קצה לקצה | מקסימום 35 תווים |
-| `interbank_settlement_amount` | סכום סליקה בין-בנקאי | עשרוני, למשל `25000.00` |
-| `interbank_settlement_currency` | מטבע סליקה | קוד ISO 4217 |
-| `charge_bearer` | נושא העמלות | DEBT ,CRED ,SHAR או SLEV |
-| `debtor_name` | שם החייב | מקסימום 140 תווים |
-| `debtor_agent_bic` | BIC של סוכן החייב | 8 או 11 תווים |
-| `creditor_agent_bic` | BIC של סוכן הנושה | 8 או 11 תווים |
-| `creditor_name` | שם הנושה | מקסימום 140 תווים |
+<div class="api-fields-table" tabindex="0" aria-label="שדות נתונים נדרשים">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>שדה</th>
+        <th>תיאור</th>
+        <th>אילוץ</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>msg_id</code></td>
+          <td class="api-fields-table__desc">מזהה הודעה</td>
+          <td class="api-fields-table__constraint">מקסימום 35 תווים</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creation_date_time</code></td>
+          <td class="api-fields-table__desc">חותמת זמן יצירה</td>
+          <td class="api-fields-table__constraint">פורמט ISO 8601</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>nb_of_txs</code></td>
+          <td class="api-fields-table__desc">מספר עסקאות</td>
+          <td class="api-fields-table__constraint">מספר שלם חיובי</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>settlement_method</code></td>
+          <td class="api-fields-table__desc">שיטת סליקה</td>
+          <td class="api-fields-table__constraint">CLRG ,INDA ,COVE או INGA</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>end_to_end_id</code></td>
+          <td class="api-fields-table__desc">מזהה קצה לקצה</td>
+          <td class="api-fields-table__constraint">מקסימום 35 תווים</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_amount</code></td>
+          <td class="api-fields-table__desc">סכום סליקה בין-בנקאי</td>
+          <td class="api-fields-table__constraint">עשרוני, למשל `25000.00`</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_currency</code></td>
+          <td class="api-fields-table__desc">מטבע סליקה</td>
+          <td class="api-fields-table__constraint">קוד ISO 4217</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>charge_bearer</code></td>
+          <td class="api-fields-table__desc">נושא העמלות</td>
+          <td class="api-fields-table__constraint">DEBT ,CRED ,SHAR או SLEV</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_name</code></td>
+          <td class="api-fields-table__desc">שם החייב</td>
+          <td class="api-fields-table__constraint">מקסימום 140 תווים</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_agent_bic</code></td>
+          <td class="api-fields-table__desc">BIC של סוכן החייב</td>
+          <td class="api-fields-table__constraint">8 או 11 תווים</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_agent_bic</code></td>
+          <td class="api-fields-table__desc">BIC של סוכן הנושה</td>
+          <td class="api-fields-table__constraint">8 או 11 תווים</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_name</code></td>
+          <td class="api-fields-table__desc">שם הנושה</td>
+          <td class="api-fields-table__constraint">מקסימום 140 תווים</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ### שדות ספציפיים לגרסה
 
-| שדה | תיאור | אילוץ |
-|---|---|---|
-| `uetr` | מזהה עסקה ייחודי קצה לקצה | פורמט UUID — זמין מגרסה v08 |
-| `mandate_id` | מזהה הרשאה | זמין מגרסה v10 |
-| `expiry_date_time` | חותמת זמן תפוגת הודעה | זמין בגרסה v13 |
+<div class="api-fields-table api-fields-table--versioned" tabindex="0" aria-label="שדות ספציפיים לגרסה">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>שדה</th>
+        <th>תיאור</th>
+        <th>אילוץ</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>uetr</code></td>
+          <td class="api-fields-table__desc">מזהה עסקה ייחודי קצה לקצה</td>
+          <td class="api-fields-table__constraint">פורמט UUID — זמין מגרסה v08</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>mandate_id</code></td>
+          <td class="api-fields-table__desc">מזהה הרשאה</td>
+          <td class="api-fields-table__constraint">זמין מגרסה v10</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>expiry_date_time</code></td>
+          <td class="api-fields-table__desc">חותמת זמן תפוגת הודעה</td>
+          <td class="api-fields-table__constraint">זמין בגרסה v13</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

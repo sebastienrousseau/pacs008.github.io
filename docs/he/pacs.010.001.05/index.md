@@ -36,13 +36,42 @@ image: /logo.svg
 - דורשת הסדרים דו-צדדיים מוסכמים מראש בין מוסדות משתתפים
 - קריטית לניהול מזומנים מוסדי ומחזורי סליקה בין-בנקאיים
 
-| אלמנטי נתונים מרכזיים | הקשר עסקי |
-|---|---|
-| **GrpHdr** — כותרת קבוצה עם זיהוי הודעה ומידע סליקה | תומכת בגביית חיוב ישיר בין-בנקאי בין מוסדות פיננסיים |
-| **DrctDbtTxInf** — מידע עסקת חיוב ישיר עם סכום הגבייה | משמשת לגביית עמלות, דרישות מרווח והתחייבויות סליקה מוסדיות |
-| **Cdtr / CdtrAgt** — זיהוי מוסד הנושה וסוכנו | דורשת הסדרים דו-צדדיים מוסכמים מראש בין מוסדות משתתפים |
-| **Dbtr / DbtrAgt** — זיהוי מוסד החייב וסוכנו | קריטית לניהול מזומנים מוסדי ומחזורי סליקה בין-בנקאיים |
-| **IntrBkSttlmAmt** — סכום סליקה בין-בנקאי במטבע הסליקה | מוסד הנושה שולח pacs.010 למוסד החייב לגביית כספים תחת הסדר מוסכם מראש. מוסד החייב מאמת את הבקשה ומסלק או דוחה את החיוב הישיר. |
+<div class="operational-matrix-table" tabindex="0" aria-label="אלמנטי נתונים מרכזיים הקשר עסקי">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>אלמנטי נתונים מרכזיים</th>
+        <th>הקשר עסקי</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — כותרת קבוצה עם זיהוי הודעה ומידע סליקה</td>
+          <td class="operational-matrix-table__right">תומכת בגביית חיוב ישיר בין-בנקאי בין מוסדות פיננסיים</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**DrctDbtTxInf** — מידע עסקת חיוב ישיר עם סכום הגבייה</td>
+          <td class="operational-matrix-table__right">משמשת לגביית עמלות, דרישות מרווח והתחייבויות סליקה מוסדיות</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — זיהוי מוסד הנושה וסוכנו</td>
+          <td class="operational-matrix-table__right">דורשת הסדרים דו-צדדיים מוסכמים מראש בין מוסדות משתתפים</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — זיהוי מוסד החייב וסוכנו</td>
+          <td class="operational-matrix-table__right">קריטית לניהול מזומנים מוסדי ומחזורי סליקה בין-בנקאיים</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — סכום סליקה בין-בנקאי במטבע הסליקה</td>
+          <td class="operational-matrix-table__right">מוסד הנושה שולח pacs.010 למוסד החייב לגביית כספים תחת הסדר מוסכם מראש. מוסד החייב מאמת את הבקשה ומסלק או דוחה את החיוב הישיר.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## הקשר CBPR+ וסכמות
 
@@ -57,10 +86,34 @@ image: /logo.svg
 
 ## טבלת הבדלי גרסאות
 
-| טווח גרסאות | למה זה חשוב | לקח יישומי |
-|---|---|---|
-| pacs.010.001.05 | המימוש הנוכחי ב-pacs008 | מהווה נקודת ייחוס לתמיכה בחיוב ישיר בין מוסדות בפרויקט הנוכחי. |
-| pacs.010.001.06 | גרסת קטלוג מאוחרת יותר | בדקו זאת לפני אימוץ דרישות תשתית חדשות יותר. |
+<div class="version-diff-table" tabindex="0" aria-label="טבלת הבדלי גרסאות">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>טווח גרסאות</th>
+        <th>למה זה חשוב</th>
+        <th>לקח יישומי</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.010.001.05</td>
+          <td class="version-diff-table__why">המימוש הנוכחי ב-pacs008</td>
+          <td class="version-diff-table__takeaway">מהווה נקודת ייחוס לתמיכה בחיוב ישיר בין מוסדות בפרויקט הנוכחי.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.010.001.06</td>
+          <td class="version-diff-table__why">גרסת קטלוג מאוחרת יותר</td>
+          <td class="version-diff-table__takeaway">בדקו זאת לפני אימוץ דרישות תשתית חדשות יותר.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## דוגמת XML עם הערות
 
@@ -92,9 +145,37 @@ image: /logo.svg
 
 
 ## הודעות קשורות
-| סוג הודעה | תיאור | סקירה |
-|---|---|---|
-| [`pacs.009.001.10`](/he/pacs.009.001.10/) | העברת אשראי בין מוסדות פיננסיים | הודעת pacs.009 משמשת להעברות זכות בין מוסדות פיננסיים כאשר ההעברה מבוצעת בשם המוסד עצמו ולא בשם לקוח. היא תומכת במימון בין-בנקאי, תשלומי כיסוי וניהול נזילות. |
-| [`pacs.002.001.12`](/he/pacs.002.001.12/) | דוח סטטוס תשלום בין מוסדות פיננסיים | הודעת pacs.002 נשלחת על ידי מוסד פיננסי לדיווח על מצב הוראת תשלום שנשלחה בעבר. היא מספקת מידע על אישור, דחייה או סטטוס ממתין עבור עסקאות בודדות בתוך הודעת תשלום. |
-| [`pacs.003.001.09`](/he/pacs.003.001.09/) | חיוב ישיר ללקוח בין מוסדות פיננסיים | הודעת pacs.003 מוחלפת בין מוסדות פיננסיים לביצוע הוראת חיוב ישיר של לקוח. היא מאפשרת לבנק הנושה לגבות כספים מבנק החייב בשם הנושה. |
+<div class="related-messages-table" tabindex="0" aria-label="הודעות קשורות">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>סוג הודעה</th>
+        <th>תיאור</th>
+        <th>סקירה</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/he/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">העברת אשראי בין מוסדות פיננסיים</td>
+          <td class="related-messages-table__overview">הודעת pacs.009 משמשת להעברות זכות בין מוסדות פיננסיים כאשר ההעברה מבוצעת בשם המוסד עצמו ולא בשם לקוח. היא תומכת במימון בין-בנקאי, תשלומי כיסוי וניהול נזילות.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/he/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">דוח סטטוס תשלום בין מוסדות פיננסיים</td>
+          <td class="related-messages-table__overview">הודעת pacs.002 נשלחת על ידי מוסד פיננסי לדיווח על מצב הוראת תשלום שנשלחה בעבר. היא מספקת מידע על אישור, דחייה או סטטוס ממתין עבור עסקאות בודדות בתוך הודעת תשלום.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/he/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
+          <td class="related-messages-table__name">חיוב ישיר ללקוח בין מוסדות פיננסיים</td>
+          <td class="related-messages-table__overview">הודעת pacs.003 מוחלפת בין מוסדות פיננסיים לביצוע הוראת חיוב ישיר של לקוח. היא מאפשרת לבנק הנושה לגבות כספים מבנק החייב בשם הנושה.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

@@ -36,13 +36,42 @@ Het pacs.008-bericht is de kernbetalingsinstructie die wordt uitgewisseld tussen
 - Bevat gestructureerde betalingskenmerkinformatie ter ondersteuning van geautomatiseerde reconciliatie
 - Ondersteunt seriële, dekkings- en directe afwikkelingsmethoden voor betalingsketens met meerdere schakels
 
-| Belangrijke gegevenselementen | Zakelijke context |
-|---|---|
-| **GrpHdr** — Groepskoptekst met bericht-ID, aanmaakdatum, aantal transacties en afwikkelingsinformatie | Het primaire bericht voor door klanten geïnitieerde grensoverschrijdende en binnenlandse overboekingen |
-| **CdtTrfTxInf** — Overboekingstransactie-informatie met bedrag, kosten en doel | Gebruikt in SEPA SCT, SEPA Instant, CBPR+ en nationale verrekeningssystemen |
-| **Dbtr / DbtrAgt** — Identificatie van debiteur en debiteuragent met rekeninggegevens | Bevat gestructureerde betalingskenmerkinformatie ter ondersteuning van geautomatiseerde reconciliatie |
-| **Cdtr / CdtrAgt** — Identificatie van crediteur en crediteuragent met rekeninggegevens | Ondersteunt seriële, dekkings- en directe afwikkelingsmethoden voor betalingsketens met meerdere schakels |
-| **RmtInf** — Betalingskenmerkinformatie voor gestructureerde of ongestructureerde betalingsreferenties | De debiteuragent maakt een pacs.008 aan en stuurt dit naar de crediteuragent (rechtstreeks of via tussenpersonen). Elke agent in de keten valideert, verrijkt en stuurt de instructie door totdat de crediteuragent de rekening van de begunstigde crediteert. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Belangrijke gegevenselementen Zakelijke context">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Belangrijke gegevenselementen</th>
+        <th>Zakelijke context</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Groepskoptekst met bericht-ID, aanmaakdatum, aantal transacties en afwikkelingsinformatie</td>
+          <td class="operational-matrix-table__right">Het primaire bericht voor door klanten geïnitieerde grensoverschrijdende en binnenlandse overboekingen</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Overboekingstransactie-informatie met bedrag, kosten en doel</td>
+          <td class="operational-matrix-table__right">Gebruikt in SEPA SCT, SEPA Instant, CBPR+ en nationale verrekeningssystemen</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identificatie van debiteur en debiteuragent met rekeninggegevens</td>
+          <td class="operational-matrix-table__right">Bevat gestructureerde betalingskenmerkinformatie ter ondersteuning van geautomatiseerde reconciliatie</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identificatie van crediteur en crediteuragent met rekeninggegevens</td>
+          <td class="operational-matrix-table__right">Ondersteunt seriële, dekkings- en directe afwikkelingsmethoden voor betalingsketens met meerdere schakels</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**RmtInf** — Betalingskenmerkinformatie voor gestructureerde of ongestructureerde betalingsreferenties</td>
+          <td class="operational-matrix-table__right">De debiteuragent maakt een pacs.008 aan en stuurt dit naar de crediteuragent (rechtstreeks of via tussenpersonen). Elke agent in de keten valideert, verrijkt en stuurt de instructie door totdat de crediteuragent de rekening van de begunstigde crediteert.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## CBPR+- en schema-context
 
@@ -57,11 +86,39 @@ De debiteuragent maakt een pacs.008 aan en stuurt dit naar de crediteuragent (re
 
 ## Tabel met versieverschillen
 
-| Versiebereik | Waarom dit telt | Implementatieconclusie |
-|---|---|---|
-| pacs.008.001.01-07 | Vroege revisies | Vooral nuttig voor analyse van migraties vanuit oudere omgevingen en voor versiehistorische context. |
-| pacs.008.001.08-12 | Moderne revisies vóór de huidige | Dit zijn de revisies die het meest waarschijnlijk voorkomen in recente migratie- of co-existentieprojecten. |
-| pacs.008.001.13 | Huidige catalogusrevisie | Gebruik dit voor planning rond de huidige versie, terwijl schemaregels en gereedheid van tegenpartijen nog steeds gevalideerd moeten worden. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabel met versieverschillen">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Versiebereik</th>
+        <th>Waarom dit telt</th>
+        <th>Implementatieconclusie</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.01-07</td>
+          <td class="version-diff-table__why">Vroege revisies</td>
+          <td class="version-diff-table__takeaway">Vooral nuttig voor analyse van migraties vanuit oudere omgevingen en voor versiehistorische context.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.08-12</td>
+          <td class="version-diff-table__why">Moderne revisies vóór de huidige</td>
+          <td class="version-diff-table__takeaway">Dit zijn de revisies die het meest waarschijnlijk voorkomen in recente migratie- of co-existentieprojecten.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.13</td>
+          <td class="version-diff-table__why">Huidige catalogusrevisie</td>
+          <td class="version-diff-table__takeaway">Gebruik dit voor planning rond de huidige versie, terwijl schemaregels en gereedheid van tegenpartijen nog steeds gevalideerd moeten worden.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Uitgewerkt XML-voorbeeld
 
@@ -93,12 +150,44 @@ De debiteuragent maakt een pacs.008 aan en stuurt dit naar de crediteuragent (re
 
 ## Vergelijk pacs.008 vs pacs.009
 
-| Dimensie | pacs.008.001.13 | Vergelijkingsbericht |
-|---|---|---|
-| Primair doel | Klantcredittransfer | Credittransfer op eigen rekening van de instelling of dekkingsstap |
-| Zakelijke eigenaar | Klantbetalingsoperaties | Treasury-, correspondent- en financieringsoperaties |
-| Typische combinaties | pacs.002, pacs.004, pacs.007, pacs.028 | pacs.002, pacs.004, and sometimes linked pacs.008 flows |
-| Te vermijden misvatting | Dat alle bank-naar-banktransfers hieronder vallen | Dat dit klantinstructies voor credittransfers kan vervangen |
+<div class="message-comparison-table" tabindex="0" aria-label="Vergelijk pacs.008 vs pacs.009">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Dimensie</th>
+        <th>pacs.008.001.13</th>
+        <th>Vergelijkingsbericht</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Primair doel</td>
+          <td class="message-comparison-table__current">Klantcredittransfer</td>
+          <td class="message-comparison-table__other">Credittransfer op eigen rekening van de instelling of dekkingsstap</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Zakelijke eigenaar</td>
+          <td class="message-comparison-table__current">Klantbetalingsoperaties</td>
+          <td class="message-comparison-table__other">Treasury-, correspondent- en financieringsoperaties</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Typische combinaties</td>
+          <td class="message-comparison-table__current">pacs.002, pacs.004, pacs.007, pacs.028</td>
+          <td class="message-comparison-table__other">pacs.002, pacs.004, and sometimes linked pacs.008 flows</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Te vermijden misvatting</td>
+          <td class="message-comparison-table__current">Dat alle bank-naar-banktransfers hieronder vallen</td>
+          <td class="message-comparison-table__other">Dat dit klantinstructies voor credittransfers kan vervangen</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Primaire referenties
 
@@ -132,9 +221,37 @@ De debiteuragent maakt een pacs.008 aan en stuurt dit naar de crediteuragent (re
 | `pacs.008.001.13` | **Current** |
 
 ## Gerelateerde berichten
-| Berichttype | Beschrijving | Overzicht |
-|---|---|---|
-| [`pacs.002.001.12`](/nl/pacs.002.001.12/) | FI-naar-FI-betalingsstatusrapport | Het pacs.002-bericht wordt door een financiële instelling verzonden om de status te rapporteren van een eerder verzonden betalingsinstructie. Het biedt bevestigings-, afwijzings- of hangende statusinformatie voor individuele transacties binnen een betalingsbericht. |
-| [`pacs.004.001.11`](/nl/pacs.004.001.11/) | Betalingsretour | Het pacs.004-bericht wordt gebruikt om een eerder afgewikkelde betalingstransactie te retourneren. Het keert de geldstroom om wanneer een betaling niet kan worden toegepast, per abuis is verzonden of door de opdrachtgevende instelling wordt teruggevorderd. |
-| [`pacs.009.001.10`](/nl/pacs.009.001.10/) | Kredietoverboeking tussen financiële instellingen | Het pacs.009-bericht wordt gebruikt voor overboekingen tussen financiële instellingen waarbij de overboeking voor eigen rekening van de instelling plaatsvindt en niet namens een klant. Het ondersteunt interbancaire financiering, dekkingsbetalingen en liquiditeitsbeheer. |
+<div class="related-messages-table" tabindex="0" aria-label="Gerelateerde berichten">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Berichttype</th>
+        <th>Beschrijving</th>
+        <th>Overzicht</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/nl/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">FI-naar-FI-betalingsstatusrapport</td>
+          <td class="related-messages-table__overview">Het pacs.002-bericht wordt door een financiële instelling verzonden om de status te rapporteren van een eerder verzonden betalingsinstructie. Het biedt bevestigings-, afwijzings- of hangende statusinformatie voor individuele transacties binnen een betalingsbericht.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/nl/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
+          <td class="related-messages-table__name">Betalingsretour</td>
+          <td class="related-messages-table__overview">Het pacs.004-bericht wordt gebruikt om een eerder afgewikkelde betalingstransactie te retourneren. Het keert de geldstroom om wanneer een betaling niet kan worden toegepast, per abuis is verzonden of door de opdrachtgevende instelling wordt teruggevorderd.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/nl/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">Kredietoverboeking tussen financiële instellingen</td>
+          <td class="related-messages-table__overview">Het pacs.009-bericht wordt gebruikt voor overboekingen tussen financiële instellingen waarbij de overboeking voor eigen rekening van de instelling plaatsvindt en niet namens een klant. Het ondersteunt interbancaire financiering, dekkingsbetalingen en liquiditeitsbeheer.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

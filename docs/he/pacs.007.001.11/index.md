@@ -36,13 +36,42 @@ image: /logo.svg
 - תומכת בביטול מלא וחלקי של סכומי התשלום המקוריים
 - נושאת קודי סיבת ביטול מובנים לעיבוד במורד השרשרת
 
-| אלמנטי נתונים מרכזיים | הקשר עסקי |
-|---|---|
-| **GrpHdr** — כותרת קבוצה עם זיהוי הודעה וחותמת זמן יצירה | מיוזמת כאשר השולח המקורי מזהה שגיאה לפני או אחרי סליקה |
-| **TxInf** — מידע עסקה עם סכום הביטול והצדדים | משמשת בתרחישי הונאה כאשר נדרש ביטול מהיר |
-| **OrgnlGrpInf** — מידע על הקבוצה המקורית המפנה להודעת המקור | תומכת בביטול מלא וחלקי של סכומי התשלום המקוריים |
-| **RvslRsnInf** — מידע על סיבת הביטול עם קודי סיבה מובנים | נושאת קודי סיבת ביטול מובנים לעיבוד במורד השרשרת |
-| **OrgnlTxRef** — הפניה לעסקה המקורית לעקיבות מקצה לקצה | הסוכן המורה (השולח המקורי) שולח pacs.007 קדימה דרך שרשרת התשלום לביטול תשלום שהוזמן בעבר. כל סוכן מעבד את הוראת הביטול ומתאים את הסליקה בהתאם. |
+<div class="operational-matrix-table" tabindex="0" aria-label="אלמנטי נתונים מרכזיים הקשר עסקי">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>אלמנטי נתונים מרכזיים</th>
+        <th>הקשר עסקי</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — כותרת קבוצה עם זיהוי הודעה וחותמת זמן יצירה</td>
+          <td class="operational-matrix-table__right">מיוזמת כאשר השולח המקורי מזהה שגיאה לפני או אחרי סליקה</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**TxInf** — מידע עסקה עם סכום הביטול והצדדים</td>
+          <td class="operational-matrix-table__right">משמשת בתרחישי הונאה כאשר נדרש ביטול מהיר</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlGrpInf** — מידע על הקבוצה המקורית המפנה להודעת המקור</td>
+          <td class="operational-matrix-table__right">תומכת בביטול מלא וחלקי של סכומי התשלום המקוריים</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**RvslRsnInf** — מידע על סיבת הביטול עם קודי סיבה מובנים</td>
+          <td class="operational-matrix-table__right">נושאת קודי סיבת ביטול מובנים לעיבוד במורד השרשרת</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlTxRef** — הפניה לעסקה המקורית לעקיבות מקצה לקצה</td>
+          <td class="operational-matrix-table__right">הסוכן המורה (השולח המקורי) שולח pacs.007 קדימה דרך שרשרת התשלום לביטול תשלום שהוזמן בעבר. כל סוכן מעבד את הוראת הביטול ומתאים את הסליקה בהתאם.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## הקשר CBPR+ וסכמות
 
@@ -57,10 +86,34 @@ image: /logo.svg
 
 ## טבלת הבדלי גרסאות
 
-| טווח גרסאות | למה זה חשוב | לקח יישומי |
-|---|---|---|
-| pacs.007.001.11 | המימוש הנוכחי ב-pacs008 | בסיס טוב למידול תהליכי היפוך. |
-| pacs.007.001.12-13 | גרסאות קטלוג מאוחרות יותר | בדקו גרסאות מאוחרות יותר לצורך התאמה לתשתית השוק הנוכחית. |
+<div class="version-diff-table" tabindex="0" aria-label="טבלת הבדלי גרסאות">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>טווח גרסאות</th>
+        <th>למה זה חשוב</th>
+        <th>לקח יישומי</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.007.001.11</td>
+          <td class="version-diff-table__why">המימוש הנוכחי ב-pacs008</td>
+          <td class="version-diff-table__takeaway">בסיס טוב למידול תהליכי היפוך.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.007.001.12-13</td>
+          <td class="version-diff-table__why">גרסאות קטלוג מאוחרות יותר</td>
+          <td class="version-diff-table__takeaway">בדקו גרסאות מאוחרות יותר לצורך התאמה לתשתית השוק הנוכחית.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## דוגמת XML עם הערות
 
@@ -86,12 +139,44 @@ image: /logo.svg
 
 ## השוואה pacs.007 vs pacs.004
 
-| ממד | pacs.007.001.11 | הודעת השוואה |
-|---|---|---|
-| מטרה עיקרית | היפוך של תשלום שנשלח קודם לכן | החזרת כספים שסולקו |
-| מופעל על ידי | הצד המקורי שנתן את ההוראה | צד המקבל / המוטב |
-| כיוון הזרימה | קדימה לאורך השרשרת | בחזרה לאורך השרשרת |
-| המתאים ביותר | טיפול בהיפוך הנובע מהחזרה, מטעות או מהונאה | טיפול בהחזרה לאחר הסליקה |
+<div class="message-comparison-table" tabindex="0" aria-label="השוואה pacs.007 vs pacs.004">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>ממד</th>
+        <th>pacs.007.001.11</th>
+        <th>הודעת השוואה</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">מטרה עיקרית</td>
+          <td class="message-comparison-table__current">היפוך של תשלום שנשלח קודם לכן</td>
+          <td class="message-comparison-table__other">החזרת כספים שסולקו</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">מופעל על ידי</td>
+          <td class="message-comparison-table__current">הצד המקורי שנתן את ההוראה</td>
+          <td class="message-comparison-table__other">צד המקבל / המוטב</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">כיוון הזרימה</td>
+          <td class="message-comparison-table__current">קדימה לאורך השרשרת</td>
+          <td class="message-comparison-table__other">בחזרה לאורך השרשרת</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">המתאים ביותר</td>
+          <td class="message-comparison-table__current">טיפול בהיפוך הנובע מהחזרה, מטעות או מהונאה</td>
+          <td class="message-comparison-table__other">טיפול בהחזרה לאחר הסליקה</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## מקורות ראשיים
 
@@ -101,9 +186,37 @@ image: /logo.svg
 
 
 ## הודעות קשורות
-| סוג הודעה | תיאור | סקירה |
-|---|---|---|
-| [`pacs.008.001.13`](/he/pacs.008.001.13/) | העברת אשראי ללקוח בין מוסדות פיננסיים | הודעת pacs.008 היא הוראת התשלום המרכזית המוחלפת בין מוסדות פיננסיים להעברת כספים בשם לקוח. היא נושאת מידע על החייב, הנושה, הסכום ופרטי ההעברה עבור עסקת העברת זכות אחת או יותר. |
-| [`pacs.004.001.11`](/he/pacs.004.001.11/) | החזר תשלום | הודעת pacs.004 משמשת להחזרת עסקת תשלום שנסלקה בעבר. היא הופכת את זרימת הכספים כאשר תשלום אינו ניתן להחלה, נשלח בטעות או מוחזר על ידי המוסד המקורי. |
-| [`pacs.002.001.12`](/he/pacs.002.001.12/) | דוח סטטוס תשלום בין מוסדות פיננסיים | הודעת pacs.002 נשלחת על ידי מוסד פיננסי לדיווח על מצב הוראת תשלום שנשלחה בעבר. היא מספקת מידע על אישור, דחייה או סטטוס ממתין עבור עסקאות בודדות בתוך הודעת תשלום. |
+<div class="related-messages-table" tabindex="0" aria-label="הודעות קשורות">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>סוג הודעה</th>
+        <th>תיאור</th>
+        <th>סקירה</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/he/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">העברת אשראי ללקוח בין מוסדות פיננסיים</td>
+          <td class="related-messages-table__overview">הודעת pacs.008 היא הוראת התשלום המרכזית המוחלפת בין מוסדות פיננסיים להעברת כספים בשם לקוח. היא נושאת מידע על החייב, הנושה, הסכום ופרטי ההעברה עבור עסקת העברת זכות אחת או יותר.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/he/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
+          <td class="related-messages-table__name">החזר תשלום</td>
+          <td class="related-messages-table__overview">הודעת pacs.004 משמשת להחזרת עסקת תשלום שנסלקה בעבר. היא הופכת את זרימת הכספים כאשר תשלום אינו ניתן להחלה, נשלח בטעות או מוחזר על ידי המוסד המקורי.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/he/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">דוח סטטוס תשלום בין מוסדות פיננסיים</td>
+          <td class="related-messages-table__overview">הודעת pacs.002 נשלחת על ידי מוסד פיננסי לדיווח על מצב הוראת תשלום שנשלחה בעבר. היא מספקת מידע על אישור, דחייה או סטטוס ממתין עבור עסקאות בודדות בתוך הודעת תשלום.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

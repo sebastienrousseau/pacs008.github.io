@@ -36,13 +36,42 @@ Le message pacs.008 est l'instruction de paiement centrale échangée entre inst
 - Porte des informations de remise structurées pour la réconciliation automatique
 - Prend en charge les méthodes de règlement série, couverture et directe pour les chaînes de paiement multi-étapes
 
-| Éléments de données clés | Contexte métier |
-|---|---|
-| **GrpHdr** — En-tête de groupe avec ID de message, date de création, nombre de transactions et informations de règlement | Le message principal pour les virements transfrontaliers et nationaux initiés par les clients |
-| **CdtTrfTxInf** — Informations de transaction de virement avec montant, frais et objet | Utilisé dans SEPA SCT, SEPA Instant, CBPR+ et les systèmes de compensation nationaux |
-| **Dbtr / DbtrAgt** — Identification et coordonnées du compte du débiteur et de son agent | Porte des informations de remise structurées pour la réconciliation automatique |
-| **Cdtr / CdtrAgt** — Identification et coordonnées du compte du créancier et de son agent | Prend en charge les méthodes de règlement série, couverture et directe pour les chaînes de paiement multi-étapes |
-| **RmtInf** — Informations de remise pour les références de paiement structurées ou non structurées | L'agent du débiteur crée un pacs.008 et l'envoie à l'agent du créancier (directement ou via des intermédiaires). Chaque agent de la chaîne valide, enrichit et transmet l'instruction jusqu'à ce que l'agent du créancier crédite le compte du bénéficiaire. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Éléments de données clés Contexte métier">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Éléments de données clés</th>
+        <th>Contexte métier</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — En-tête de groupe avec ID de message, date de création, nombre de transactions et informations de règlement</td>
+          <td class="operational-matrix-table__right">Le message principal pour les virements transfrontaliers et nationaux initiés par les clients</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Informations de transaction de virement avec montant, frais et objet</td>
+          <td class="operational-matrix-table__right">Utilisé dans SEPA SCT, SEPA Instant, CBPR+ et les systèmes de compensation nationaux</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identification et coordonnées du compte du débiteur et de son agent</td>
+          <td class="operational-matrix-table__right">Porte des informations de remise structurées pour la réconciliation automatique</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identification et coordonnées du compte du créancier et de son agent</td>
+          <td class="operational-matrix-table__right">Prend en charge les méthodes de règlement série, couverture et directe pour les chaînes de paiement multi-étapes</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**RmtInf** — Informations de remise pour les références de paiement structurées ou non structurées</td>
+          <td class="operational-matrix-table__right">L&#39;agent du débiteur crée un pacs.008 et l&#39;envoie à l&#39;agent du créancier (directement ou via des intermédiaires). Chaque agent de la chaîne valide, enrichit et transmet l&#39;instruction jusqu&#39;à ce que l&#39;agent du créancier crédite le compte du bénéficiaire.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Contexte CBPR+ et schémas
 
@@ -57,11 +86,39 @@ L'agent du débiteur crée un pacs.008 et l'envoie à l'agent du créancier (dir
 
 ## Tableau des écarts de version
 
-| Plage de versions | Pourquoi c'est important | Conséquence pratique |
-|---|---|---|
-| pacs.008.001.01-07 | Révisions initiales | Utile surtout pour l'analyse des migrations historiques et du contexte d'évolution des versions. |
-| pacs.008.001.08-12 | Révisions modernes avant la version actuelle | Ce sont les révisions les plus susceptibles d'apparaître dans les projets récents de migration ou de coexistence. |
-| pacs.008.001.13 | Révision actuelle du catalogue | À utiliser pour planifier autour de la version actuelle, tout en vérifiant les règles de schéma et la préparation des contreparties. |
+<div class="version-diff-table" tabindex="0" aria-label="Tableau des écarts de version">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Plage de versions</th>
+        <th>Pourquoi c&#39;est important</th>
+        <th>Conséquence pratique</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.01-07</td>
+          <td class="version-diff-table__why">Révisions initiales</td>
+          <td class="version-diff-table__takeaway">Utile surtout pour l&#39;analyse des migrations historiques et du contexte d&#39;évolution des versions.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.08-12</td>
+          <td class="version-diff-table__why">Révisions modernes avant la version actuelle</td>
+          <td class="version-diff-table__takeaway">Ce sont les révisions les plus susceptibles d&#39;apparaître dans les projets récents de migration ou de coexistence.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.13</td>
+          <td class="version-diff-table__why">Révision actuelle du catalogue</td>
+          <td class="version-diff-table__takeaway">À utiliser pour planifier autour de la version actuelle, tout en vérifiant les règles de schéma et la préparation des contreparties.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Exemple XML commenté
 
@@ -93,12 +150,44 @@ L'agent du débiteur crée un pacs.008 et l'envoie à l'agent du créancier (dir
 
 ## Comparer pacs.008 vs pacs.009
 
-| Dimension | pacs.008.001.13 | Message de comparaison |
-|---|---|---|
-| Objectif principal | Virement client | Virement sur compte propre d'institution ou jambe de couverture |
-| Responsable métier | Opérations de paiements clients | Opérations de trésorerie, de correspondance et de liquidité |
-| Associations typiques | pacs.002, pacs.004, pacs.007, pacs.028 | pacs.002, pacs.004, and sometimes linked pacs.008 flows |
-| Hypothèse erronée à éviter | That all bank-to-bank transfers belong here | That it can replace customer credit-transfer instructions |
+<div class="message-comparison-table" tabindex="0" aria-label="Comparer pacs.008 vs pacs.009">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Dimension</th>
+        <th>pacs.008.001.13</th>
+        <th>Message de comparaison</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Objectif principal</td>
+          <td class="message-comparison-table__current">Virement client</td>
+          <td class="message-comparison-table__other">Virement sur compte propre d&#39;institution ou jambe de couverture</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Responsable métier</td>
+          <td class="message-comparison-table__current">Opérations de paiements clients</td>
+          <td class="message-comparison-table__other">Opérations de trésorerie, de correspondance et de liquidité</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Associations typiques</td>
+          <td class="message-comparison-table__current">pacs.002, pacs.004, pacs.007, pacs.028</td>
+          <td class="message-comparison-table__other">pacs.002, pacs.004, and sometimes linked pacs.008 flows</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Hypothèse erronée à éviter</td>
+          <td class="message-comparison-table__current">That all bank-to-bank transfers belong here</td>
+          <td class="message-comparison-table__other">That it can replace customer credit-transfer instructions</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Références primaires
 
@@ -132,9 +221,37 @@ L'agent du débiteur crée un pacs.008 et l'envoie à l'agent du créancier (dir
 | `pacs.008.001.13` | **Current** |
 
 ## Messages associés
-| Type de message | Description | Présentation |
-|---|---|---|
-| [`pacs.002.001.12`](/fr/pacs.002.001.12/) | Rapport de statut de paiement FI à FI | Le message pacs.002 est envoyé par une institution financière pour rapporter le statut d'une instruction de paiement précédemment envoyée. Il fournit une confirmation, un rejet ou un statut en attente pour les transactions individuelles au sein d'un message de paiement. |
-| [`pacs.004.001.11`](/fr/pacs.004.001.11/) | Retour de paiement | Le message pacs.004 est utilisé pour retourner une transaction de paiement précédemment réglée. Il inverse le flux de fonds lorsqu'un paiement ne peut être appliqué, a été envoyé par erreur ou fait l'objet d'un rappel par l'institution d'origine. |
-| [`pacs.009.001.10`](/fr/pacs.009.001.10/) | Virement entre institutions financières | Le message pacs.009 est utilisé pour les virements entre institutions financières lorsque le transfert est pour le compte propre de l'institution plutôt que pour un client. Il prend en charge le financement interbancaire, les paiements de couverture et la gestion de liquidité. |
+<div class="related-messages-table" tabindex="0" aria-label="Messages associés">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Type de message</th>
+        <th>Description</th>
+        <th>Présentation</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/fr/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">Rapport de statut de paiement FI à FI</td>
+          <td class="related-messages-table__overview">Le message pacs.002 est envoyé par une institution financière pour rapporter le statut d&#39;une instruction de paiement précédemment envoyée. Il fournit une confirmation, un rejet ou un statut en attente pour les transactions individuelles au sein d&#39;un message de paiement.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/fr/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
+          <td class="related-messages-table__name">Retour de paiement</td>
+          <td class="related-messages-table__overview">Le message pacs.004 est utilisé pour retourner une transaction de paiement précédemment réglée. Il inverse le flux de fonds lorsqu&#39;un paiement ne peut être appliqué, a été envoyé par erreur ou fait l&#39;objet d&#39;un rappel par l&#39;institution d&#39;origine.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/fr/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">Virement entre institutions financières</td>
+          <td class="related-messages-table__overview">Le message pacs.009 est utilisé pour les virements entre institutions financières lorsque le transfert est pour le compte propre de l&#39;institution plutôt que pour un client. Il prend en charge le financement interbancaire, les paiements de couverture et la gestion de liquidité.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

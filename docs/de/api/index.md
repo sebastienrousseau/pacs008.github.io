@@ -41,16 +41,54 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 
 ### Endpunkte
 
-| Endpoint | Beschreibung |
-|---|---|
-| `GET /health` | Integritätsprüfung — gibt den Dienststatus zurück |
-| `POST /validate` | Zahlungsdaten gegen das Schema validieren, ohne XML zu generieren |
-| `POST /generate` | XML synchron generieren und die Datei zurückgeben |
-| `POST /generate/async` | Einen asynchronen Generierungsauftrag einreichen |
-| `GET /status/{job_id}` | Auftragsstatus anhand der ID abfragen |
-| `GET /download/{job_id}` | Das generierte XML herunterladen, sobald der Auftrag abgeschlossen ist |
-| `DELETE /jobs/{job_id}` | Einen ausstehenden oder laufenden Job abbrechen |
-| `GET /docs` | Interaktive Swagger UI zum Erkunden und Testen aller Endpunkte |
+<div class="api-endpoints-table" tabindex="0" aria-label="Endpunkte">
+  <table>
+    <colgroup>
+      <col class="api-endpoints-table__col-endpoint">
+      <col class="api-endpoints-table__col-desc">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Endpoint</th>
+        <th>Beschreibung</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /health</code></td>
+          <td class="api-endpoints-table__desc">Integritätsprüfung — gibt den Dienststatus zurück</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /validate</code></td>
+          <td class="api-endpoints-table__desc">Zahlungsdaten gegen das Schema validieren, ohne XML zu generieren</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate</code></td>
+          <td class="api-endpoints-table__desc">XML synchron generieren und die Datei zurückgeben</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate/async</code></td>
+          <td class="api-endpoints-table__desc">Einen asynchronen Generierungsauftrag einreichen</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /status/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Auftragsstatus anhand der ID abfragen</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /download/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Das generierte XML herunterladen, sobald der Auftrag abgeschlossen ist</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>DELETE /jobs/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Einen ausstehenden oder laufenden Job abbrechen</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /docs</code></td>
+          <td class="api-endpoints-table__desc">Interaktive Swagger UI zum Erkunden und Testen aller Endpunkte</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 - [`pacs.002.001.12`](/de/pacs.002.001.12/) — FI-zu-FI-Zahlungsstatusbericht
 - [`pacs.003.001.09`](/de/pacs.003.001.09/) — FI-zu-FI-Kundenlastschrift
@@ -316,26 +354,118 @@ print(report.is_valid, report.errors)
 
 Jeder Zahlungsdatensatz muss die folgenden Felder enthalten. Versionsspezifische Felder sind entsprechend gekennzeichnet.
 
-| Feld | Beschreibung | Einschränkung |
-|---|---|---|
-| `msg_id` | Nachrichtenkennung | Maximal 35 Zeichen |
-| `creation_date_time` | Erstellungszeitstempel | ISO 8601-Format |
-| `nb_of_txs` | Anzahl der Transaktionen | Positive ganze Zahl |
-| `settlement_method` | Abrechnungsmethode | CLRG, INDA, COVE oder INGA |
-| `end_to_end_id` | End-to-End-Kennung | Maximal 35 Zeichen |
-| `interbank_settlement_amount` | Interbanken-Abrechnungsbetrag | Dezimalzahl, z.B. `25000.00` |
-| `interbank_settlement_currency` | Abrechnungswährung | ISO 4217-Code |
-| `charge_bearer` | Kostenträger | DEBT, CRED, SHAR oder SLEV |
-| `debtor_name` | Name des Schuldners | Maximal 140 Zeichen |
-| `debtor_agent_bic` | BIC des Schuldner-Agenten | 8 oder 11 Zeichen |
-| `creditor_agent_bic` | BIC des Gläubiger-Agenten | 8 oder 11 Zeichen |
-| `creditor_name` | Name des Gläubigers | Maximal 140 Zeichen |
+<div class="api-fields-table" tabindex="0" aria-label="Erforderliche Datenfelder">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Feld</th>
+        <th>Beschreibung</th>
+        <th>Einschränkung</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>msg_id</code></td>
+          <td class="api-fields-table__desc">Nachrichtenkennung</td>
+          <td class="api-fields-table__constraint">Maximal 35 Zeichen</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creation_date_time</code></td>
+          <td class="api-fields-table__desc">Erstellungszeitstempel</td>
+          <td class="api-fields-table__constraint">ISO 8601-Format</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>nb_of_txs</code></td>
+          <td class="api-fields-table__desc">Anzahl der Transaktionen</td>
+          <td class="api-fields-table__constraint">Positive ganze Zahl</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>settlement_method</code></td>
+          <td class="api-fields-table__desc">Abrechnungsmethode</td>
+          <td class="api-fields-table__constraint">CLRG, INDA, COVE oder INGA</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>end_to_end_id</code></td>
+          <td class="api-fields-table__desc">End-to-End-Kennung</td>
+          <td class="api-fields-table__constraint">Maximal 35 Zeichen</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_amount</code></td>
+          <td class="api-fields-table__desc">Interbanken-Abrechnungsbetrag</td>
+          <td class="api-fields-table__constraint">Dezimalzahl, z.B. `25000.00`</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_currency</code></td>
+          <td class="api-fields-table__desc">Abrechnungswährung</td>
+          <td class="api-fields-table__constraint">ISO 4217-Code</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>charge_bearer</code></td>
+          <td class="api-fields-table__desc">Kostenträger</td>
+          <td class="api-fields-table__constraint">DEBT, CRED, SHAR oder SLEV</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_name</code></td>
+          <td class="api-fields-table__desc">Name des Schuldners</td>
+          <td class="api-fields-table__constraint">Maximal 140 Zeichen</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_agent_bic</code></td>
+          <td class="api-fields-table__desc">BIC des Schuldner-Agenten</td>
+          <td class="api-fields-table__constraint">8 oder 11 Zeichen</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_agent_bic</code></td>
+          <td class="api-fields-table__desc">BIC des Gläubiger-Agenten</td>
+          <td class="api-fields-table__constraint">8 oder 11 Zeichen</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_name</code></td>
+          <td class="api-fields-table__desc">Name des Gläubigers</td>
+          <td class="api-fields-table__constraint">Maximal 140 Zeichen</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ### Versionsspezifische Felder
 
-| Feld | Beschreibung | Einschränkung |
-|---|---|---|
-| `uetr` | Eindeutige End-to-End-Transaktionsreferenz | UUID-Format — verfügbar ab v08 |
-| `mandate_id` | Mandatskennung | Verfügbar ab v10 |
-| `expiry_date_time` | Ablaufzeitstempel der Nachricht | Verfügbar in v13 |
+<div class="api-fields-table api-fields-table--versioned" tabindex="0" aria-label="Versionsspezifische Felder">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Feld</th>
+        <th>Beschreibung</th>
+        <th>Einschränkung</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>uetr</code></td>
+          <td class="api-fields-table__desc">Eindeutige End-to-End-Transaktionsreferenz</td>
+          <td class="api-fields-table__constraint">UUID-Format — verfügbar ab v08</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>mandate_id</code></td>
+          <td class="api-fields-table__desc">Mandatskennung</td>
+          <td class="api-fields-table__constraint">Verfügbar ab v10</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>expiry_date_time</code></td>
+          <td class="api-fields-table__desc">Ablaufzeitstempel der Nachricht</td>
+          <td class="api-fields-table__constraint">Verfügbar in v13</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

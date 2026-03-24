@@ -41,16 +41,54 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 
 ### Eindpunten
 
-| Endpoint | Beschrijving |
-|---|---|
-| `GET /health` | Health check — geeft de servicestatus terug |
-| `POST /validate` | Valideer betalingsgegevens tegen het schema zonder XML te genereren |
-| `POST /generate` | Genereer XML synchroon en retourneer het bestand |
-| `POST /generate/async` | Dien een asynchrone generatietaak in |
-| `GET /status/{job_id}` | Peil de taakstatus op ID |
-| `GET /download/{job_id}` | Download de gegenereerde XML zodra de taak voltooid is |
-| `DELETE /jobs/{job_id}` | Een wachtende of lopende taak annuleren |
-| `GET /docs` | Interactieve Swagger UI voor het verkennen en testen van alle eindpunten |
+<div class="api-endpoints-table" tabindex="0" aria-label="Eindpunten">
+  <table>
+    <colgroup>
+      <col class="api-endpoints-table__col-endpoint">
+      <col class="api-endpoints-table__col-desc">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Endpoint</th>
+        <th>Beschrijving</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /health</code></td>
+          <td class="api-endpoints-table__desc">Health check — geeft de servicestatus terug</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /validate</code></td>
+          <td class="api-endpoints-table__desc">Valideer betalingsgegevens tegen het schema zonder XML te genereren</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate</code></td>
+          <td class="api-endpoints-table__desc">Genereer XML synchroon en retourneer het bestand</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate/async</code></td>
+          <td class="api-endpoints-table__desc">Dien een asynchrone generatietaak in</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /status/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Peil de taakstatus op ID</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /download/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Download de gegenereerde XML zodra de taak voltooid is</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>DELETE /jobs/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Een wachtende of lopende taak annuleren</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /docs</code></td>
+          <td class="api-endpoints-table__desc">Interactieve Swagger UI voor het verkennen en testen van alle eindpunten</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 - [`pacs.002.001.12`](/nl/pacs.002.001.12/) — FI-naar-FI-betalingsstatusrapport
 - [`pacs.003.001.09`](/nl/pacs.003.001.09/) — FI-naar-FI-klantincasso
@@ -316,26 +354,118 @@ print(report.is_valid, report.errors)
 
 Elk betalingsrecord moet de volgende velden bevatten. Versiespecifieke velden zijn aangegeven waar van toepassing.
 
-| Veld | Beschrijving | Beperking |
-|---|---|---|
-| `msg_id` | Berichtidentificatie | Max. 35 tekens |
-| `creation_date_time` | Aanmaaktijdstempel | ISO 8601-formaat |
-| `nb_of_txs` | Aantal transacties | Positief geheel getal |
-| `settlement_method` | Verrekeningmethode | CLRG, INDA, COVE of INGA |
-| `end_to_end_id` | End-to-end-identificatie | Max. 35 tekens |
-| `interbank_settlement_amount` | Interbancair verrekeningsbedrag | Decimaal, bijv. `25000.00` |
-| `interbank_settlement_currency` | Verrekeningsvaluta | ISO 4217-code |
-| `charge_bearer` | Kostendrager | DEBT, CRED, SHAR of SLEV |
-| `debtor_name` | Naam debiteur | Max. 140 tekens |
-| `debtor_agent_bic` | BIC debiteuragent | 8 of 11 tekens |
-| `creditor_agent_bic` | BIC crediteuragent | 8 of 11 tekens |
-| `creditor_name` | Naam crediteur | Max. 140 tekens |
+<div class="api-fields-table" tabindex="0" aria-label="Verplichte gegevensvelden">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Veld</th>
+        <th>Beschrijving</th>
+        <th>Beperking</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>msg_id</code></td>
+          <td class="api-fields-table__desc">Berichtidentificatie</td>
+          <td class="api-fields-table__constraint">Max. 35 tekens</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creation_date_time</code></td>
+          <td class="api-fields-table__desc">Aanmaaktijdstempel</td>
+          <td class="api-fields-table__constraint">ISO 8601-formaat</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>nb_of_txs</code></td>
+          <td class="api-fields-table__desc">Aantal transacties</td>
+          <td class="api-fields-table__constraint">Positief geheel getal</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>settlement_method</code></td>
+          <td class="api-fields-table__desc">Verrekeningmethode</td>
+          <td class="api-fields-table__constraint">CLRG, INDA, COVE of INGA</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>end_to_end_id</code></td>
+          <td class="api-fields-table__desc">End-to-end-identificatie</td>
+          <td class="api-fields-table__constraint">Max. 35 tekens</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_amount</code></td>
+          <td class="api-fields-table__desc">Interbancair verrekeningsbedrag</td>
+          <td class="api-fields-table__constraint">Decimaal, bijv. `25000.00`</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_currency</code></td>
+          <td class="api-fields-table__desc">Verrekeningsvaluta</td>
+          <td class="api-fields-table__constraint">ISO 4217-code</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>charge_bearer</code></td>
+          <td class="api-fields-table__desc">Kostendrager</td>
+          <td class="api-fields-table__constraint">DEBT, CRED, SHAR of SLEV</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_name</code></td>
+          <td class="api-fields-table__desc">Naam debiteur</td>
+          <td class="api-fields-table__constraint">Max. 140 tekens</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_agent_bic</code></td>
+          <td class="api-fields-table__desc">BIC debiteuragent</td>
+          <td class="api-fields-table__constraint">8 of 11 tekens</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_agent_bic</code></td>
+          <td class="api-fields-table__desc">BIC crediteuragent</td>
+          <td class="api-fields-table__constraint">8 of 11 tekens</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_name</code></td>
+          <td class="api-fields-table__desc">Naam crediteur</td>
+          <td class="api-fields-table__constraint">Max. 140 tekens</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ### Versiespecifieke velden
 
-| Veld | Beschrijving | Beperking |
-|---|---|---|
-| `uetr` | Unieke end-to-end transactiereferentie | UUID-formaat — beschikbaar vanaf v08 |
-| `mandate_id` | Machtigingsidentificatie | Beschikbaar vanaf v10 |
-| `expiry_date_time` | Tijdstempel vervaldatum bericht | Beschikbaar in v13 |
+<div class="api-fields-table api-fields-table--versioned" tabindex="0" aria-label="Versiespecifieke velden">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Veld</th>
+        <th>Beschrijving</th>
+        <th>Beperking</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>uetr</code></td>
+          <td class="api-fields-table__desc">Unieke end-to-end transactiereferentie</td>
+          <td class="api-fields-table__constraint">UUID-formaat — beschikbaar vanaf v08</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>mandate_id</code></td>
+          <td class="api-fields-table__desc">Machtigingsidentificatie</td>
+          <td class="api-fields-table__constraint">Beschikbaar vanaf v10</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>expiry_date_time</code></td>
+          <td class="api-fields-table__desc">Tijdstempel vervaldatum bericht</td>
+          <td class="api-fields-table__constraint">Beschikbaar in v13</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

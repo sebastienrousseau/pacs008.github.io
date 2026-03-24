@@ -36,13 +36,42 @@ image: /logo.svg
 - يحمل ساق التغطية لتحويلات العملاء المسوّاة بطريقة التغطية
 - يمكّن عمليات الخزينة والتمويل بين المؤسسات المالية
 
-| عناصر البيانات الرئيسية | السياق التجاري |
-|---|---|
-| **GrpHdr** — رأس المجموعة مع تعريف الرسالة ومعلومات التسوية | يُستخدم لتحويلات الحساب الخاص بين البنوك ومدفوعات التغطية |
-| **CdtTrfTxInf** — معلومات معاملة التحويل مع مبلغ التسوية بين البنوك | يدعم إدارة السيولة بين شركاء البنوك المراسلة |
-| **Dbtr / DbtrAgt** — المؤسسة المدينة وتعريف وكيلها | يحمل ساق التغطية لتحويلات العملاء المسوّاة بطريقة التغطية |
-| **Cdtr / CdtrAgt** — المؤسسة الدائنة وتعريف وكيلها | يمكّن عمليات الخزينة والتمويل بين المؤسسات المالية |
-| **IntrBkSttlmAmt** — مبلغ التسوية بين البنوك بعملة التسوية | ترسل المؤسسة المدينة pacs.009 إلى المؤسسة الدائنة لتحويل أموالها الخاصة. لمدفوعات التغطية، يوفر pacs.009 ساق التمويل بينما يحمل pacs.008 تعليمات العميل عبر مسار منفصل. |
+<div class="operational-matrix-table" tabindex="0" aria-label="عناصر البيانات الرئيسية السياق التجاري">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>عناصر البيانات الرئيسية</th>
+        <th>السياق التجاري</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — رأس المجموعة مع تعريف الرسالة ومعلومات التسوية</td>
+          <td class="operational-matrix-table__right">يُستخدم لتحويلات الحساب الخاص بين البنوك ومدفوعات التغطية</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**CdtTrfTxInf** — معلومات معاملة التحويل مع مبلغ التسوية بين البنوك</td>
+          <td class="operational-matrix-table__right">يدعم إدارة السيولة بين شركاء البنوك المراسلة</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — المؤسسة المدينة وتعريف وكيلها</td>
+          <td class="operational-matrix-table__right">يحمل ساق التغطية لتحويلات العملاء المسوّاة بطريقة التغطية</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — المؤسسة الدائنة وتعريف وكيلها</td>
+          <td class="operational-matrix-table__right">يمكّن عمليات الخزينة والتمويل بين المؤسسات المالية</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — مبلغ التسوية بين البنوك بعملة التسوية</td>
+          <td class="operational-matrix-table__right">ترسل المؤسسة المدينة pacs.009 إلى المؤسسة الدائنة لتحويل أموالها الخاصة. لمدفوعات التغطية، يوفر pacs.009 ساق التمويل بينما يحمل pacs.008 تعليمات العميل عبر مسار منفصل.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## سياق CBPR+ والأنظمة
 
@@ -57,10 +86,34 @@ image: /logo.svg
 
 ## جدول فروق الإصدارات
 
-| نطاق الإصدار | لماذا يهم | الخلاصة التنفيذية |
-|---|---|---|
-| pacs.009.001.10 | التنفيذ الحالي في pacs008 | يتوافق مع مستوى الدعم الحالي في المشروع لتدفّقات تحويل الائتمان بين المؤسسات المالية. |
-| pacs.009.001.11-12 | إصدارات الكتالوج اللاحقة | مهم لتخطيط خارطة الطريق في بيئات المراسلة المصرفية ودفعات التغطية. |
+<div class="version-diff-table" tabindex="0" aria-label="جدول فروق الإصدارات">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>نطاق الإصدار</th>
+        <th>لماذا يهم</th>
+        <th>الخلاصة التنفيذية</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.009.001.10</td>
+          <td class="version-diff-table__why">التنفيذ الحالي في pacs008</td>
+          <td class="version-diff-table__takeaway">يتوافق مع مستوى الدعم الحالي في المشروع لتدفّقات تحويل الائتمان بين المؤسسات المالية.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.009.001.11-12</td>
+          <td class="version-diff-table__why">إصدارات الكتالوج اللاحقة</td>
+          <td class="version-diff-table__takeaway">مهم لتخطيط خارطة الطريق في بيئات المراسلة المصرفية ودفعات التغطية.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## مثال XML مشروح
 
@@ -86,12 +139,44 @@ image: /logo.svg
 
 ## مقارنة pacs.009 vs pacs.008
 
-| البعد | pacs.009.001.10 | رسالة المقارنة |
-|---|---|---|
-| الغرض الأساسي | تحويل ائتماني لحساب المؤسسة نفسها أو مرحلة تغطية | تحويل ائتماني للعميل |
-| المالك التشغيلي | عمليات الخزانة / المراسلة / التمويل | عمليات مدفوعات العملاء |
-| الاقترانات المعتادة | تدفقات pacs.002 وpacs.004 وتدفقات pacs.008 المرتبطة | pacs.002, pacs.004, pacs.007, pacs.028 |
-| افتراض خاطئ يجب تجنبه | أنه مجرد pacs.008 أكثر تقنية | أنه يمكنه حمل تدفقات تمويل المؤسسات بسلاسة |
+<div class="message-comparison-table" tabindex="0" aria-label="مقارنة pacs.009 vs pacs.008">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>البعد</th>
+        <th>pacs.009.001.10</th>
+        <th>رسالة المقارنة</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">الغرض الأساسي</td>
+          <td class="message-comparison-table__current">تحويل ائتماني لحساب المؤسسة نفسها أو مرحلة تغطية</td>
+          <td class="message-comparison-table__other">تحويل ائتماني للعميل</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">المالك التشغيلي</td>
+          <td class="message-comparison-table__current">عمليات الخزانة / المراسلة / التمويل</td>
+          <td class="message-comparison-table__other">عمليات مدفوعات العملاء</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">الاقترانات المعتادة</td>
+          <td class="message-comparison-table__current">تدفقات pacs.002 وpacs.004 وتدفقات pacs.008 المرتبطة</td>
+          <td class="message-comparison-table__other">pacs.002, pacs.004, pacs.007, pacs.028</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">افتراض خاطئ يجب تجنبه</td>
+          <td class="message-comparison-table__current">أنه مجرد pacs.008 أكثر تقنية</td>
+          <td class="message-comparison-table__other">أنه يمكنه حمل تدفقات تمويل المؤسسات بسلاسة</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## المراجع الأساسية
 
@@ -103,9 +188,37 @@ image: /logo.svg
 
 
 ## الرسائل ذات الصلة
-| نوع الرسالة | الوصف | نظرة عامة |
-|---|---|---|
-| [`pacs.008.001.13`](/ar/pacs.008.001.13/) | تحويل ائتماني للعميل من مؤسسة مالية إلى مؤسسة مالية | رسالة pacs.008 هي تعليمات الدفع الأساسية المتبادلة بين المؤسسات المالية لتحويل الأموال نيابة عن العميل. تحمل معلومات المدين والدائن والمبلغ والتحويل لمعاملة واحدة أو أكثر. |
-| [`pacs.002.001.12`](/ar/pacs.002.001.12/) | تقرير حالة الدفع من مؤسسة مالية إلى مؤسسة مالية | يُرسل رسالة pacs.002 من مؤسسة مالية للإبلاغ عن حالة تعليمات الدفع المرسلة سابقاً. يوفر تأكيداً أو رفضاً أو معلومات حالة معلقة للمعاملات الفردية ضمن رسالة الدفع. |
-| [`pacs.010.001.05`](/ar/pacs.010.001.05/) | خصم مباشر بين المؤسسات المالية | يُستخدم رسالة pacs.010 بين المؤسسات المالية لمعاملات الخصم المباشر على الحساب الخاص للمؤسسة. يمكّن مؤسسة من تحصيل الأموال مباشرة من حساب مؤسسة أخرى. |
+<div class="related-messages-table" tabindex="0" aria-label="الرسائل ذات الصلة">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>نوع الرسالة</th>
+        <th>الوصف</th>
+        <th>نظرة عامة</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/ar/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">تحويل ائتماني للعميل من مؤسسة مالية إلى مؤسسة مالية</td>
+          <td class="related-messages-table__overview">رسالة pacs.008 هي تعليمات الدفع الأساسية المتبادلة بين المؤسسات المالية لتحويل الأموال نيابة عن العميل. تحمل معلومات المدين والدائن والمبلغ والتحويل لمعاملة واحدة أو أكثر.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/ar/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">تقرير حالة الدفع من مؤسسة مالية إلى مؤسسة مالية</td>
+          <td class="related-messages-table__overview">يُرسل رسالة pacs.002 من مؤسسة مالية للإبلاغ عن حالة تعليمات الدفع المرسلة سابقاً. يوفر تأكيداً أو رفضاً أو معلومات حالة معلقة للمعاملات الفردية ضمن رسالة الدفع.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/ar/pacs.010.001.05/"><code>pacs.010.001.05</code></a></td>
+          <td class="related-messages-table__name">خصم مباشر بين المؤسسات المالية</td>
+          <td class="related-messages-table__overview">يُستخدم رسالة pacs.010 بين المؤسسات المالية لمعاملات الخصم المباشر على الحساب الخاص للمؤسسة. يمكّن مؤسسة من تحصيل الأموال مباشرة من حساب مؤسسة أخرى.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

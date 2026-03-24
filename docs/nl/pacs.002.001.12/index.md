@@ -36,13 +36,42 @@ Het pacs.002-bericht wordt door een financiële instelling verzonden om de statu
 - Vereist in CBPR+-stromen om verwerking van pacs.008- en pacs.009-berichten te bevestigen
 - Ondersteunt zowel statusrapportage op groepsniveau als op individueel transactieniveau
 
-| Belangrijke gegevenselementen | Zakelijke context |
-|---|---|
-| **GrpHdr** — Groepskoptekst met berichtidentificatie en aanmaaktijdstempel | Gebruikt om afwikkeling te bevestigen of afwijzing te rapporteren van overboekingen, incasso's en betalingsretourzendingen |
-| **OrgnlGrpInfAndSts** — Oorspronkelijke groepsinformatie en status voor rapportage op groepsniveau | Maakt reconciliatie mogelijk tussen opdrachtgevende en opdrachthebbende agenten |
-| **TxInfAndSts** — Transactie-informatie en status voor individuele transactieresultaten | Vereist in CBPR+-stromen om verwerking van pacs.008- en pacs.009-berichten te bevestigen |
-| **StsRsnInf** — Statusredeninformatie met gestructureerde redencodes | Ondersteunt zowel statusrapportage op groepsniveau als op individueel transactieniveau |
-| **OrgnlTxRef** — Oorspronkelijke transactiereferentie die terugverwijst naar de broninstructie | De opdrachthebbende agent (ontvanger) stuurt pacs.002 terug naar de opdrachtgevende agent (verzender) om acceptatie, afwikkeling of afwijzing te bevestigen van een ontvangen betalingsinstructie zoals pacs.008 of pacs.009. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Belangrijke gegevenselementen Zakelijke context">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Belangrijke gegevenselementen</th>
+        <th>Zakelijke context</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Groepskoptekst met berichtidentificatie en aanmaaktijdstempel</td>
+          <td class="operational-matrix-table__right">Gebruikt om afwikkeling te bevestigen of afwijzing te rapporteren van overboekingen, incasso&#39;s en betalingsretourzendingen</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlGrpInfAndSts** — Oorspronkelijke groepsinformatie en status voor rapportage op groepsniveau</td>
+          <td class="operational-matrix-table__right">Maakt reconciliatie mogelijk tussen opdrachtgevende en opdrachthebbende agenten</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**TxInfAndSts** — Transactie-informatie en status voor individuele transactieresultaten</td>
+          <td class="operational-matrix-table__right">Vereist in CBPR+-stromen om verwerking van pacs.008- en pacs.009-berichten te bevestigen</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**StsRsnInf** — Statusredeninformatie met gestructureerde redencodes</td>
+          <td class="operational-matrix-table__right">Ondersteunt zowel statusrapportage op groepsniveau als op individueel transactieniveau</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlTxRef** — Oorspronkelijke transactiereferentie die terugverwijst naar de broninstructie</td>
+          <td class="operational-matrix-table__right">De opdrachthebbende agent (ontvanger) stuurt pacs.002 terug naar de opdrachtgevende agent (verzender) om acceptatie, afwikkeling of afwijzing te bevestigen van een ontvangen betalingsinstructie zoals pacs.008 of pacs.009.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## CBPR+- en schema-context
 
@@ -57,10 +86,34 @@ De opdrachthebbende agent (ontvanger) stuurt pacs.002 terug naar de opdrachtgeve
 
 ## Tabel met versieverschillen
 
-| Versiebereik | Waarom dit telt | Implementatieconclusie |
-|---|---|---|
-| pacs.002.001.12 | Huidige implementatie in pacs008 | Gebruik dit wanneer u moet aansluiten op de momenteel ondersteunde projectmodellen en validatie-artefacten. |
-| pacs.002.001.13-15 | Latere catalogusrevisies | Bekijk latere ISO-revisies voordat u nieuw interoperabiliteitswerk start of nieuwe infrastructuren aansluit. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabel met versieverschillen">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Versiebereik</th>
+        <th>Waarom dit telt</th>
+        <th>Implementatieconclusie</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.002.001.12</td>
+          <td class="version-diff-table__why">Huidige implementatie in pacs008</td>
+          <td class="version-diff-table__takeaway">Gebruik dit wanneer u moet aansluiten op de momenteel ondersteunde projectmodellen en validatie-artefacten.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.002.001.13-15</td>
+          <td class="version-diff-table__why">Latere catalogusrevisies</td>
+          <td class="version-diff-table__takeaway">Bekijk latere ISO-revisies voordat u nieuw interoperabiliteitswerk start of nieuwe infrastructuren aansluit.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Uitgewerkt XML-voorbeeld
 
@@ -89,12 +142,44 @@ De opdrachthebbende agent (ontvanger) stuurt pacs.002 terug naar de opdrachtgeve
 
 ## Vergelijk pacs.002 vs pacs.028
 
-| Dimensie | pacs.002.001.12 | Vergelijkingsbericht |
-|---|---|---|
-| Primair doel | Report status | Request status |
-| Wie de interactie start | De instelling die de status verzendt | De instelling die om status vraagt |
-| Operationele invalshoek | Event-driven reporting | Navraag op basis van uitzonderingen |
-| Te vermijden misvatting | Dat statusrapportage onderzoekswerkstromen vervangt | Dat elke betaling een expliciet statusverzoek nodig heeft |
+<div class="message-comparison-table" tabindex="0" aria-label="Vergelijk pacs.002 vs pacs.028">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Dimensie</th>
+        <th>pacs.002.001.12</th>
+        <th>Vergelijkingsbericht</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Primair doel</td>
+          <td class="message-comparison-table__current">Report status</td>
+          <td class="message-comparison-table__other">Request status</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Wie de interactie start</td>
+          <td class="message-comparison-table__current">De instelling die de status verzendt</td>
+          <td class="message-comparison-table__other">De instelling die om status vraagt</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Operationele invalshoek</td>
+          <td class="message-comparison-table__current">Event-driven reporting</td>
+          <td class="message-comparison-table__other">Navraag op basis van uitzonderingen</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Te vermijden misvatting</td>
+          <td class="message-comparison-table__current">Dat statusrapportage onderzoekswerkstromen vervangt</td>
+          <td class="message-comparison-table__other">Dat elke betaling een expliciet statusverzoek nodig heeft</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Primaire referenties
 
@@ -106,9 +191,37 @@ De opdrachthebbende agent (ontvanger) stuurt pacs.002 terug naar de opdrachtgeve
 
 
 ## Gerelateerde berichten
-| Berichttype | Beschrijving | Overzicht |
-|---|---|---|
-| [`pacs.008.001.13`](/nl/pacs.008.001.13/) | FI-naar-FI-klantkredietoverboeking | Het pacs.008-bericht is de kernbetalingsinstructie die wordt uitgewisseld tussen financiële instellingen om namens een klant gelden over te maken. Het bevat informatie over debiteur, crediteur, bedrag en betalingskenmerken voor een of meer overboekingstransacties. |
-| [`pacs.009.001.10`](/nl/pacs.009.001.10/) | Kredietoverboeking tussen financiële instellingen | Het pacs.009-bericht wordt gebruikt voor overboekingen tussen financiële instellingen waarbij de overboeking voor eigen rekening van de instelling plaatsvindt en niet namens een klant. Het ondersteunt interbancaire financiering, dekkingsbetalingen en liquiditeitsbeheer. |
-| [`pacs.028.001.05`](/nl/pacs.028.001.05/) | FI-naar-FI-aanvraag betalingsstatus | Het pacs.028-bericht wordt door een financiële instelling verzonden om de status op te vragen van een eerder verzonden betalingsinstructie. Het maakt proactieve tracking van betalingsverwerking mogelijk zonder te wachten op een ongevraagd statusrapport. |
+<div class="related-messages-table" tabindex="0" aria-label="Gerelateerde berichten">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Berichttype</th>
+        <th>Beschrijving</th>
+        <th>Overzicht</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/nl/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">FI-naar-FI-klantkredietoverboeking</td>
+          <td class="related-messages-table__overview">Het pacs.008-bericht is de kernbetalingsinstructie die wordt uitgewisseld tussen financiële instellingen om namens een klant gelden over te maken. Het bevat informatie over debiteur, crediteur, bedrag en betalingskenmerken voor een of meer overboekingstransacties.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/nl/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">Kredietoverboeking tussen financiële instellingen</td>
+          <td class="related-messages-table__overview">Het pacs.009-bericht wordt gebruikt voor overboekingen tussen financiële instellingen waarbij de overboeking voor eigen rekening van de instelling plaatsvindt en niet namens een klant. Het ondersteunt interbancaire financiering, dekkingsbetalingen en liquiditeitsbeheer.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/nl/pacs.028.001.05/"><code>pacs.028.001.05</code></a></td>
+          <td class="related-messages-table__name">FI-naar-FI-aanvraag betalingsstatus</td>
+          <td class="related-messages-table__overview">Het pacs.028-bericht wordt door een financiële instelling verzonden om de status op te vragen van een eerder verzonden betalingsinstructie. Het maakt proactieve tracking van betalingsverwerking mogelijk zonder te wachten op een ongevraagd statusrapport.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

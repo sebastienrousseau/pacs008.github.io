@@ -41,16 +41,54 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 
 ### 端点
 
-| Endpoint | 说明 |
-|---|---|
-| `GET /health` | 健康检查 — 返回服务状态 |
-| `POST /validate` | 根据模式验证支付数据，无需生成 XML |
-| `POST /generate` | 同步生成 XML 并返回文件 |
-| `POST /generate/async` | 提交异步生成任务 |
-| `GET /status/{job_id}` | 按 ID 轮询任务状态 |
-| `GET /download/{job_id}` | 任务完成后下载生成的 XML |
-| `DELETE /jobs/{job_id}` | 取消待处理或正在运行的作业 |
-| `GET /docs` | 用于探索和测试所有端点的交互式 Swagger UI |
+<div class="api-endpoints-table" tabindex="0" aria-label="端点">
+  <table>
+    <colgroup>
+      <col class="api-endpoints-table__col-endpoint">
+      <col class="api-endpoints-table__col-desc">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Endpoint</th>
+        <th>说明</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /health</code></td>
+          <td class="api-endpoints-table__desc">健康检查 — 返回服务状态</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /validate</code></td>
+          <td class="api-endpoints-table__desc">根据模式验证支付数据，无需生成 XML</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate</code></td>
+          <td class="api-endpoints-table__desc">同步生成 XML 并返回文件</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate/async</code></td>
+          <td class="api-endpoints-table__desc">提交异步生成任务</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /status/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">按 ID 轮询任务状态</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /download/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">任务完成后下载生成的 XML</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>DELETE /jobs/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">取消待处理或正在运行的作业</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /docs</code></td>
+          <td class="api-endpoints-table__desc">用于探索和测试所有端点的交互式 Swagger UI</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 - [`pacs.002.001.12`](/zh/pacs.002.001.12/) — 金融机构间支付状态报告
 - [`pacs.003.001.09`](/zh/pacs.003.001.09/) — 金融机构间客户直接借记
@@ -316,26 +354,118 @@ print(report.is_valid, report.errors)
 
 每条支付记录必须包含以下字段。版本特定字段在适用处有说明。
 
-| 字段 | 说明 | 约束 |
-|---|---|---|
-| `msg_id` | 报文标识符 | 最多 35 个字符 |
-| `creation_date_time` | 创建时间戳 | ISO 8601 格式 |
-| `nb_of_txs` | 交易数量 | 正整数 |
-| `settlement_method` | 清算方式 | CLRG、INDA、COVE 或 INGA |
-| `end_to_end_id` | 端到端标识符 | 最多 35 个字符 |
-| `interbank_settlement_amount` | 银行间清算金额 | 小数，例如 `25000.00` |
-| `interbank_settlement_currency` | 清算货币 | ISO 4217 代码 |
-| `charge_bearer` | 费用承担方 | DEBT、CRED、SHAR 或 SLEV |
-| `debtor_name` | 付款方名称 | 最多 140 个字符 |
-| `debtor_agent_bic` | 付款方代理 BIC | 8 或 11 个字符 |
-| `creditor_agent_bic` | 收款方代理 BIC | 8 或 11 个字符 |
-| `creditor_name` | 收款方名称 | 最多 140 个字符 |
+<div class="api-fields-table" tabindex="0" aria-label="必填数据字段">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>字段</th>
+        <th>说明</th>
+        <th>约束</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>msg_id</code></td>
+          <td class="api-fields-table__desc">报文标识符</td>
+          <td class="api-fields-table__constraint">最多 35 个字符</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creation_date_time</code></td>
+          <td class="api-fields-table__desc">创建时间戳</td>
+          <td class="api-fields-table__constraint">ISO 8601 格式</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>nb_of_txs</code></td>
+          <td class="api-fields-table__desc">交易数量</td>
+          <td class="api-fields-table__constraint">正整数</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>settlement_method</code></td>
+          <td class="api-fields-table__desc">清算方式</td>
+          <td class="api-fields-table__constraint">CLRG、INDA、COVE 或 INGA</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>end_to_end_id</code></td>
+          <td class="api-fields-table__desc">端到端标识符</td>
+          <td class="api-fields-table__constraint">最多 35 个字符</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_amount</code></td>
+          <td class="api-fields-table__desc">银行间清算金额</td>
+          <td class="api-fields-table__constraint">小数，例如 `25000.00`</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_currency</code></td>
+          <td class="api-fields-table__desc">清算货币</td>
+          <td class="api-fields-table__constraint">ISO 4217 代码</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>charge_bearer</code></td>
+          <td class="api-fields-table__desc">费用承担方</td>
+          <td class="api-fields-table__constraint">DEBT、CRED、SHAR 或 SLEV</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_name</code></td>
+          <td class="api-fields-table__desc">付款方名称</td>
+          <td class="api-fields-table__constraint">最多 140 个字符</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_agent_bic</code></td>
+          <td class="api-fields-table__desc">付款方代理 BIC</td>
+          <td class="api-fields-table__constraint">8 或 11 个字符</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_agent_bic</code></td>
+          <td class="api-fields-table__desc">收款方代理 BIC</td>
+          <td class="api-fields-table__constraint">8 或 11 个字符</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_name</code></td>
+          <td class="api-fields-table__desc">收款方名称</td>
+          <td class="api-fields-table__constraint">最多 140 个字符</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ### 版本特定字段
 
-| 字段 | 说明 | 约束 |
-|---|---|---|
-| `uetr` | 唯一端到端交易参考 | UUID 格式 — 从 v08 起可用 |
-| `mandate_id` | 授权标识符 | 从 v10 起可用 |
-| `expiry_date_time` | 报文到期时间戳 | 在 v13 中可用 |
+<div class="api-fields-table api-fields-table--versioned" tabindex="0" aria-label="版本特定字段">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>字段</th>
+        <th>说明</th>
+        <th>约束</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>uetr</code></td>
+          <td class="api-fields-table__desc">唯一端到端交易参考</td>
+          <td class="api-fields-table__constraint">UUID 格式 — 从 v08 起可用</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>mandate_id</code></td>
+          <td class="api-fields-table__desc">授权标识符</td>
+          <td class="api-fields-table__constraint">从 v10 起可用</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>expiry_date_time</code></td>
+          <td class="api-fields-table__desc">报文到期时间戳</td>
+          <td class="api-fields-table__constraint">在 v13 中可用</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

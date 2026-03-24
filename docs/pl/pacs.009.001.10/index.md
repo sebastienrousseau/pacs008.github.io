@@ -36,13 +36,42 @@ Komunikat pacs.009 jest używany do poleceń przelewu między instytucjami finan
 - Zawiera etap pokrycia poleceń przelewu klientów rozliczanych metodą pokrycia
 - Umożliwia operacje skarbowe i finansowe między instytucjami finansowymi
 
-| Kluczowe elementy danych | Kontekst biznesowy |
-|---|---|
-| **GrpHdr** — Nagłówek grupy z identyfikacją komunikatu i informacjami o rozrachunku | Używany do międzybankowych przelewów na rachunek własny i płatności pokrycia |
-| **CdtTrfTxInf** — Informacje o transakcji polecenia przelewu z kwotą rozrachunku międzybankowego | Obsługuje zarządzanie płynnością między partnerami bankowości korespondencyjnej |
-| **Dbtr / DbtrAgt** — Identyfikacja instytucji dłużnika i jej agenta | Zawiera etap pokrycia poleceń przelewu klientów rozliczanych metodą pokrycia |
-| **Cdtr / CdtrAgt** — Identyfikacja instytucji wierzyciela i jej agenta | Umożliwia operacje skarbowe i finansowe między instytucjami finansowymi |
-| **IntrBkSttlmAmt** — Kwota rozrachunku międzybankowego w walucie rozrachunku | Instytucja dłużnika wysyła pacs.009 do instytucji wierzyciela w celu przekazania własnych środków. W przypadku płatności metodą pokrycia pacs.009 zapewnia etap finansowania, podczas gdy pacs.008 przenosi instrukcję klienta odrębną ścieżką. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Kluczowe elementy danych Kontekst biznesowy">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Kluczowe elementy danych</th>
+        <th>Kontekst biznesowy</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Nagłówek grupy z identyfikacją komunikatu i informacjami o rozrachunku</td>
+          <td class="operational-matrix-table__right">Używany do międzybankowych przelewów na rachunek własny i płatności pokrycia</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Informacje o transakcji polecenia przelewu z kwotą rozrachunku międzybankowego</td>
+          <td class="operational-matrix-table__right">Obsługuje zarządzanie płynnością między partnerami bankowości korespondencyjnej</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identyfikacja instytucji dłużnika i jej agenta</td>
+          <td class="operational-matrix-table__right">Zawiera etap pokrycia poleceń przelewu klientów rozliczanych metodą pokrycia</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identyfikacja instytucji wierzyciela i jej agenta</td>
+          <td class="operational-matrix-table__right">Umożliwia operacje skarbowe i finansowe między instytucjami finansowymi</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Kwota rozrachunku międzybankowego w walucie rozrachunku</td>
+          <td class="operational-matrix-table__right">Instytucja dłużnika wysyła pacs.009 do instytucji wierzyciela w celu przekazania własnych środków. W przypadku płatności metodą pokrycia pacs.009 zapewnia etap finansowania, podczas gdy pacs.008 przenosi instrukcję klienta odrębną ścieżką.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Kontekst CBPR+ i schematy
 
@@ -57,10 +86,34 @@ Instytucja dłużnika wysyła pacs.009 do instytucji wierzyciela w celu przekaza
 
 ## Tabela różnic wersji
 
-| Zakres wersji | Dlaczego to ważne | Wniosek wdrożeniowy |
-|---|---|---|
-| pacs.009.001.10 | Bieżąca implementacja w pacs008 | Odpowiada bieżącemu wsparciu projektu dla przepływów przelewów kredytowych FI. |
-| pacs.009.001.11-12 | Późniejsze rewizje katalogu | Ważne dla planowania mapy drogowej w środowiskach bankowości korespondencyjnej i płatności pokryciowych. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabela różnic wersji">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Zakres wersji</th>
+        <th>Dlaczego to ważne</th>
+        <th>Wniosek wdrożeniowy</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.009.001.10</td>
+          <td class="version-diff-table__why">Bieżąca implementacja w pacs008</td>
+          <td class="version-diff-table__takeaway">Odpowiada bieżącemu wsparciu projektu dla przepływów przelewów kredytowych FI.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.009.001.11-12</td>
+          <td class="version-diff-table__why">Późniejsze rewizje katalogu</td>
+          <td class="version-diff-table__takeaway">Ważne dla planowania mapy drogowej w środowiskach bankowości korespondencyjnej i płatności pokryciowych.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Przykład XML z komentarzami
 
@@ -86,12 +139,44 @@ Instytucja dłużnika wysyła pacs.009 do instytucji wierzyciela w celu przekaza
 
 ## Porównanie pacs.009 vs pacs.008
 
-| Wymiar | pacs.009.001.10 | Wiadomość porównawcza |
-|---|---|---|
-| Główny cel | Przelew kredytowy na rachunek własny instytucji lub etap pokrycia | Kliencki przelew kredytowy |
-| Właściciel biznesowy | Operacje skarbowe / korespondencyjne / finansowania | Operacje płatności klientów |
-| Typowe powiązania | pacs.002, pacs.004 i powiązane przepływy pacs.008 | pacs.002, pacs.004, pacs.007, pacs.028 |
-| Błędne założenie, którego należy unikać | Że to po prostu bardziej techniczny pacs.008 | Że może bezproblemowo przenosić przepływy finansowania instytucji |
+<div class="message-comparison-table" tabindex="0" aria-label="Porównanie pacs.009 vs pacs.008">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Wymiar</th>
+        <th>pacs.009.001.10</th>
+        <th>Wiadomość porównawcza</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Główny cel</td>
+          <td class="message-comparison-table__current">Przelew kredytowy na rachunek własny instytucji lub etap pokrycia</td>
+          <td class="message-comparison-table__other">Kliencki przelew kredytowy</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Właściciel biznesowy</td>
+          <td class="message-comparison-table__current">Operacje skarbowe / korespondencyjne / finansowania</td>
+          <td class="message-comparison-table__other">Operacje płatności klientów</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Typowe powiązania</td>
+          <td class="message-comparison-table__current">pacs.002, pacs.004 i powiązane przepływy pacs.008</td>
+          <td class="message-comparison-table__other">pacs.002, pacs.004, pacs.007, pacs.028</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Błędne założenie, którego należy unikać</td>
+          <td class="message-comparison-table__current">Że to po prostu bardziej techniczny pacs.008</td>
+          <td class="message-comparison-table__other">Że może bezproblemowo przenosić przepływy finansowania instytucji</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Źródła podstawowe
 
@@ -103,9 +188,37 @@ Instytucja dłużnika wysyła pacs.009 do instytucji wierzyciela w celu przekaza
 
 
 ## Powiązane wiadomości
-| Typ wiadomości | Opis | Przegląd |
-|---|---|---|
-| [`pacs.008.001.13`](/pl/pacs.008.001.13/) | Przelew kredytowy klienta FI-do-FI | Komunikat pacs.008 jest podstawową instrukcją płatniczą wymienianą między instytucjami finansowymi w celu przekazania środków w imieniu klienta. Zawiera informacje o dłużniku, wierzycielu, kwocie i danych przekazu dla jednej lub więcej transakcji polecenia przelewu. |
-| [`pacs.002.001.12`](/pl/pacs.002.001.12/) | Raport statusu płatności FI-do-FI | Komunikat pacs.002 jest wysyłany przez instytucję finansową w celu raportowania statusu wcześniej wysłanej instrukcji płatniczej. Dostarcza informacje o potwierdzeniu, odrzuceniu lub statusie oczekującym dla poszczególnych transakcji w ramach komunikatu płatniczego. |
-| [`pacs.010.001.05`](/pl/pacs.010.001.05/) | Polecenie zapłaty między instytucjami finansowymi | Komunikat pacs.010 jest używany między instytucjami finansowymi do transakcji poleceń zapłaty na rachunek własny instytucji. Umożliwia jednej instytucji pobranie środków bezpośrednio z rachunku innej instytucji. |
+<div class="related-messages-table" tabindex="0" aria-label="Powiązane wiadomości">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Typ wiadomości</th>
+        <th>Opis</th>
+        <th>Przegląd</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pl/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">Przelew kredytowy klienta FI-do-FI</td>
+          <td class="related-messages-table__overview">Komunikat pacs.008 jest podstawową instrukcją płatniczą wymienianą między instytucjami finansowymi w celu przekazania środków w imieniu klienta. Zawiera informacje o dłużniku, wierzycielu, kwocie i danych przekazu dla jednej lub więcej transakcji polecenia przelewu.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pl/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">Raport statusu płatności FI-do-FI</td>
+          <td class="related-messages-table__overview">Komunikat pacs.002 jest wysyłany przez instytucję finansową w celu raportowania statusu wcześniej wysłanej instrukcji płatniczej. Dostarcza informacje o potwierdzeniu, odrzuceniu lub statusie oczekującym dla poszczególnych transakcji w ramach komunikatu płatniczego.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pl/pacs.010.001.05/"><code>pacs.010.001.05</code></a></td>
+          <td class="related-messages-table__name">Polecenie zapłaty między instytucjami finansowymi</td>
+          <td class="related-messages-table__overview">Komunikat pacs.010 jest używany między instytucjami finansowymi do transakcji poleceń zapłaty na rachunek własny instytucji. Umożliwia jednej instytucji pobranie środków bezpośrednio z rachunku innej instytucji.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

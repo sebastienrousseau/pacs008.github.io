@@ -36,13 +36,42 @@ Il messaggio pacs.004 viene utilizzato per restituire una transazione di pagamen
 - Trasporta codici motivo di restituzione strutturati per la trasparenza normativa e operativa
 - Si applica sia alle restituzioni di bonifici (pacs.008) che alle restituzioni di addebiti diretti (pacs.003)
 
-| Elementi di dati chiave | Contesto di business |
-|---|---|
-| **GrpHdr** — Intestazione di gruppo con identificazione del messaggio e marca temporale di creazione | Gestisce le restituzioni post-regolamento quando il conto del beneficiario non può essere accreditato |
-| **TxInf** — Informazioni sulla transazione con importo della restituzione e parti coinvolte | Supporta scenari di richiamo in cui l'ordinante richiede la restituzione dei fondi |
-| **OrgnlGrpInf** — Informazioni sul gruppo originale con collegamento al messaggio di origine | Trasporta codici motivo di restituzione strutturati per la trasparenza normativa e operativa |
-| **RtrRsnInf** — Informazioni sul motivo della restituzione con codici motivo strutturati | Si applica sia alle restituzioni di bonifici (pacs.008) che alle restituzioni di addebiti diretti (pacs.003) |
-| **OrgnlTxRef** — Riferimento alla transazione originale per abbinamento e riconciliazione | L'agente incaricato invia pacs.004 attraverso la catena di pagamento per restituire fondi precedentemente regolati. Ogni agente nella catena elabora la restituzione e riaccredita i conti pertinenti. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Elementi di dati chiave Contesto di business">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Elementi di dati chiave</th>
+        <th>Contesto di business</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Intestazione di gruppo con identificazione del messaggio e marca temporale di creazione</td>
+          <td class="operational-matrix-table__right">Gestisce le restituzioni post-regolamento quando il conto del beneficiario non può essere accreditato</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**TxInf** — Informazioni sulla transazione con importo della restituzione e parti coinvolte</td>
+          <td class="operational-matrix-table__right">Supporta scenari di richiamo in cui l&#39;ordinante richiede la restituzione dei fondi</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Informazioni sul gruppo originale con collegamento al messaggio di origine</td>
+          <td class="operational-matrix-table__right">Trasporta codici motivo di restituzione strutturati per la trasparenza normativa e operativa</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**RtrRsnInf** — Informazioni sul motivo della restituzione con codici motivo strutturati</td>
+          <td class="operational-matrix-table__right">Si applica sia alle restituzioni di bonifici (pacs.008) che alle restituzioni di addebiti diretti (pacs.003)</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlTxRef** — Riferimento alla transazione originale per abbinamento e riconciliazione</td>
+          <td class="operational-matrix-table__right">L&#39;agente incaricato invia pacs.004 attraverso la catena di pagamento per restituire fondi precedentemente regolati. Ogni agente nella catena elabora la restituzione e riaccredita i conti pertinenti.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Contesto CBPR+ e schemi
 
@@ -57,10 +86,34 @@ L'agente incaricato invia pacs.004 attraverso la catena di pagamento per restitu
 
 ## Tabella delle differenze di versione
 
-| Intervallo di versione | Perché conta | Implicazione implementativa |
-|---|---|---|
-| pacs.004.001.11 | Implementazione attuale in pacs008 | Si allinea ai modelli attuali per i messaggi di ritorno del pagamento. |
-| pacs.004.001.12-14 | Revisioni successive del catalogo | Rivedi le revisioni successive dei messaggi di ritorno quando aggiornamenti di schema o nuove controparti rientrano nell'ambito. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabella delle differenze di versione">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Intervallo di versione</th>
+        <th>Perché conta</th>
+        <th>Implicazione implementativa</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.004.001.11</td>
+          <td class="version-diff-table__why">Implementazione attuale in pacs008</td>
+          <td class="version-diff-table__takeaway">Si allinea ai modelli attuali per i messaggi di ritorno del pagamento.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.004.001.12-14</td>
+          <td class="version-diff-table__why">Revisioni successive del catalogo</td>
+          <td class="version-diff-table__takeaway">Rivedi le revisioni successive dei messaggi di ritorno quando aggiornamenti di schema o nuove controparti rientrano nell&#39;ambito.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Esempio XML commentato
 
@@ -87,12 +140,44 @@ L'agente incaricato invia pacs.004 attraverso la catena di pagamento per restitu
 
 ## Confrontare pacs.004 vs pacs.007
 
-| Dimensione | pacs.004.001.11 | Messaggio di confronto |
-|---|---|---|
-| Scopo principale | Return settled funds | Reverse a previously instructed payment |
-| Initiated by | Receiving / beneficiary side | Original instructing side |
-| Direction of flow | Back through the chain | Forward through the chain |
-| Più adatto a | Gestione dei resi dopo il regolamento | Gestione delle inversioni dovute a recall, errore o frode |
+<div class="message-comparison-table" tabindex="0" aria-label="Confrontare pacs.004 vs pacs.007">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Dimensione</th>
+        <th>pacs.004.001.11</th>
+        <th>Messaggio di confronto</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Scopo principale</td>
+          <td class="message-comparison-table__current">Return settled funds</td>
+          <td class="message-comparison-table__other">Reverse a previously instructed payment</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Initiated by</td>
+          <td class="message-comparison-table__current">Receiving / beneficiary side</td>
+          <td class="message-comparison-table__other">Original instructing side</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Direction of flow</td>
+          <td class="message-comparison-table__current">Back through the chain</td>
+          <td class="message-comparison-table__other">Forward through the chain</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Più adatto a</td>
+          <td class="message-comparison-table__current">Gestione dei resi dopo il regolamento</td>
+          <td class="message-comparison-table__other">Gestione delle inversioni dovute a recall, errore o frode</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Riferimenti primari
 
@@ -104,9 +189,37 @@ L'agente incaricato invia pacs.004 attraverso la catena di pagamento per restitu
 
 
 ## Messaggi correlati
-| Tipo di messaggio | Descrizione | Panoramica |
-|---|---|---|
-| [`pacs.008.001.13`](/it/pacs.008.001.13/) | Bonifico cliente tra istituzioni finanziarie | Il messaggio pacs.008 è l'istruzione di pagamento principale scambiata tra istituti finanziari per trasferire fondi per conto di un cliente. Contiene informazioni su debitore, creditore, importo e dettagli di rimessa per una o più transazioni di bonifico. |
-| [`pacs.003.001.09`](/it/pacs.003.001.09/) | Addebito diretto cliente tra istituzioni finanziarie | Il messaggio pacs.003 viene scambiato tra istituti finanziari per eseguire un'istruzione di addebito diretto del cliente. Consente alla banca del creditore di raccogliere fondi dalla banca del debitore per conto del creditore. |
-| [`pacs.002.001.12`](/it/pacs.002.001.12/) | Rapporto di stato del pagamento tra istituzioni finanziarie | Il messaggio pacs.002 viene inviato da un istituto finanziario per comunicare lo stato di un'istruzione di pagamento precedentemente inviata. Fornisce informazioni di conferma, rifiuto o stato in sospeso per le singole transazioni all'interno di un messaggio di pagamento. |
+<div class="related-messages-table" tabindex="0" aria-label="Messaggi correlati">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Tipo di messaggio</th>
+        <th>Descrizione</th>
+        <th>Panoramica</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/it/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">Bonifico cliente tra istituzioni finanziarie</td>
+          <td class="related-messages-table__overview">Il messaggio pacs.008 è l&#39;istruzione di pagamento principale scambiata tra istituti finanziari per trasferire fondi per conto di un cliente. Contiene informazioni su debitore, creditore, importo e dettagli di rimessa per una o più transazioni di bonifico.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/it/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
+          <td class="related-messages-table__name">Addebito diretto cliente tra istituzioni finanziarie</td>
+          <td class="related-messages-table__overview">Il messaggio pacs.003 viene scambiato tra istituti finanziari per eseguire un&#39;istruzione di addebito diretto del cliente. Consente alla banca del creditore di raccogliere fondi dalla banca del debitore per conto del creditore.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/it/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">Rapporto di stato del pagamento tra istituzioni finanziarie</td>
+          <td class="related-messages-table__overview">Il messaggio pacs.002 viene inviato da un istituto finanziario per comunicare lo stato di un&#39;istruzione di pagamento precedentemente inviata. Fornisce informazioni di conferma, rifiuto o stato in sospeso per le singole transazioni all&#39;interno di un messaggio di pagamento.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

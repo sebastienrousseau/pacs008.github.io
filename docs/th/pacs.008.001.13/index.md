@@ -36,13 +36,42 @@ image: /logo.svg
 - มีข้อมูลการโอนเงินแบบมีโครงสร้างเพื่อรองรับการกระทบยอดอัตโนมัติ
 - รองรับวิธีการชำระบัญชีแบบอนุกรม แบบ cover และแบบตรงสำหรับสายการชำระเงินหลายขา
 
-| องค์ประกอบข้อมูลหลัก | บริบทธุรกิจ |
-|---|---|
-| **GrpHdr** — Group Header พร้อม ID ข้อความ วันที่สร้าง จำนวนธุรกรรม และข้อมูลการชำระบัญชี | ข้อความหลักสำหรับการโอนเครดิตข้ามพรมแดนและภายในประเทศที่ริเริ่มโดยลูกค้า |
-| **CdtTrfTxInf** — ข้อมูลธุรกรรมโอนเครดิตพร้อมจำนวนเงิน ค่าธรรมเนียม และวัตถุประสงค์ | ใช้ทั่วทั้ง SEPA SCT, SEPA Instant, CBPR+ และระบบหักบัญชีแห่งชาติ |
-| **Dbtr / DbtrAgt** — การระบุตัวตนและรายละเอียดบัญชีของลูกหนี้และตัวแทนลูกหนี้ | มีข้อมูลการโอนเงินแบบมีโครงสร้างเพื่อรองรับการกระทบยอดอัตโนมัติ |
-| **Cdtr / CdtrAgt** — การระบุตัวตนและรายละเอียดบัญชีของเจ้าหนี้และตัวแทนเจ้าหนี้ | รองรับวิธีการชำระบัญชีแบบอนุกรม แบบ cover และแบบตรงสำหรับสายการชำระเงินหลายขา |
-| **RmtInf** — ข้อมูลการโอนเงินสำหรับการอ้างอิงการชำระเงินแบบมีโครงสร้างหรือไม่มีโครงสร้าง | ตัวแทนลูกหนี้สร้าง pacs.008 และส่งไปยังตัวแทนเจ้าหนี้ (โดยตรงหรือผ่านตัวกลาง) ตัวแทนแต่ละรายในสายตรวจสอบ เพิ่มข้อมูล และส่งต่อคำสั่งจนกว่าตัวแทนเจ้าหนี้จะเครดิตเข้าบัญชีผู้รับผลประโยชน์ |
+<div class="operational-matrix-table" tabindex="0" aria-label="องค์ประกอบข้อมูลหลัก บริบทธุรกิจ">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>องค์ประกอบข้อมูลหลัก</th>
+        <th>บริบทธุรกิจ</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Group Header พร้อม ID ข้อความ วันที่สร้าง จำนวนธุรกรรม และข้อมูลการชำระบัญชี</td>
+          <td class="operational-matrix-table__right">ข้อความหลักสำหรับการโอนเครดิตข้ามพรมแดนและภายในประเทศที่ริเริ่มโดยลูกค้า</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**CdtTrfTxInf** — ข้อมูลธุรกรรมโอนเครดิตพร้อมจำนวนเงิน ค่าธรรมเนียม และวัตถุประสงค์</td>
+          <td class="operational-matrix-table__right">ใช้ทั่วทั้ง SEPA SCT, SEPA Instant, CBPR+ และระบบหักบัญชีแห่งชาติ</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — การระบุตัวตนและรายละเอียดบัญชีของลูกหนี้และตัวแทนลูกหนี้</td>
+          <td class="operational-matrix-table__right">มีข้อมูลการโอนเงินแบบมีโครงสร้างเพื่อรองรับการกระทบยอดอัตโนมัติ</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — การระบุตัวตนและรายละเอียดบัญชีของเจ้าหนี้และตัวแทนเจ้าหนี้</td>
+          <td class="operational-matrix-table__right">รองรับวิธีการชำระบัญชีแบบอนุกรม แบบ cover และแบบตรงสำหรับสายการชำระเงินหลายขา</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**RmtInf** — ข้อมูลการโอนเงินสำหรับการอ้างอิงการชำระเงินแบบมีโครงสร้างหรือไม่มีโครงสร้าง</td>
+          <td class="operational-matrix-table__right">ตัวแทนลูกหนี้สร้าง pacs.008 และส่งไปยังตัวแทนเจ้าหนี้ (โดยตรงหรือผ่านตัวกลาง) ตัวแทนแต่ละรายในสายตรวจสอบ เพิ่มข้อมูล และส่งต่อคำสั่งจนกว่าตัวแทนเจ้าหนี้จะเครดิตเข้าบัญชีผู้รับผลประโยชน์</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## บริบท CBPR+ และรูปแบบ
 
@@ -57,11 +86,39 @@ image: /logo.svg
 
 ## ตารางความแตกต่างของเวอร์ชัน
 
-| ช่วงเวอร์ชัน | เหตุใดจึงสำคัญ | ข้อสรุปเชิงปฏิบัติ |
-|---|---|---|
-| pacs.008.001.01-07 | รุ่นแก้ไขระยะแรก | มีประโยชน์หลักสำหรับการวิเคราะห์การย้ายระบบเดิมและบริบทของประวัติเวอร์ชัน |
-| pacs.008.001.08-12 | รุ่นแก้ไขสมัยใหม่ก่อนรุ่นปัจจุบัน | นี่คือรุ่นแก้ไขที่มีแนวโน้มจะพบมากที่สุดในโครงการย้ายระบบหรือการอยู่ร่วมกันล่าสุด |
-| pacs.008.001.13 | รุ่นแก้ไขแค็ตตาล็อกปัจจุบัน | ใช้สิ่งนี้สำหรับการวางแผนเวอร์ชันปัจจุบัน โดยยังต้องตรวจสอบแนวทางการใช้งานของสคีมและความพร้อมของคู่สัญญาต่อไป |
+<div class="version-diff-table" tabindex="0" aria-label="ตารางความแตกต่างของเวอร์ชัน">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>ช่วงเวอร์ชัน</th>
+        <th>เหตุใดจึงสำคัญ</th>
+        <th>ข้อสรุปเชิงปฏิบัติ</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.01-07</td>
+          <td class="version-diff-table__why">รุ่นแก้ไขระยะแรก</td>
+          <td class="version-diff-table__takeaway">มีประโยชน์หลักสำหรับการวิเคราะห์การย้ายระบบเดิมและบริบทของประวัติเวอร์ชัน</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.08-12</td>
+          <td class="version-diff-table__why">รุ่นแก้ไขสมัยใหม่ก่อนรุ่นปัจจุบัน</td>
+          <td class="version-diff-table__takeaway">นี่คือรุ่นแก้ไขที่มีแนวโน้มจะพบมากที่สุดในโครงการย้ายระบบหรือการอยู่ร่วมกันล่าสุด</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.13</td>
+          <td class="version-diff-table__why">รุ่นแก้ไขแค็ตตาล็อกปัจจุบัน</td>
+          <td class="version-diff-table__takeaway">ใช้สิ่งนี้สำหรับการวางแผนเวอร์ชันปัจจุบัน โดยยังต้องตรวจสอบแนวทางการใช้งานของสคีมและความพร้อมของคู่สัญญาต่อไป</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## ตัวอย่าง XML พร้อมคำอธิบาย
 
@@ -93,12 +150,44 @@ image: /logo.svg
 
 ## เปรียบเทียบ pacs.008 vs pacs.009
 
-| มิติ | pacs.008.001.13 | ข้อความเปรียบเทียบ |
-|---|---|---|
-| วัตถุประสงค์หลัก | การโอนเครดิตของลูกค้า | การโอนเครดิตในบัญชีของสถาบันเองหรือช่วงการชำระเงินเพื่อคุ้มกัน |
-| ผู้รับผิดชอบทางธุรกิจ | งานปฏิบัติการชำระเงินของลูกค้า | งานคลังเงิน / ธนาคารตัวแทน / การจัดหาเงินทุน |
-| การจับคู่ที่พบบ่อย | pacs.002, pacs.004, pacs.007, pacs.028 | กระบวนการ pacs.002, pacs.004 และบางครั้งรวมถึง pacs.008 ที่เชื่อมโยงกัน |
-| ข้อสมมติที่ควรหลีกเลี่ยง | การที่การโอนระหว่างธนาคารทั้งหมดอยู่ในหมวดนี้ | การที่มันสามารถแทนคำสั่งโอนเครดิตของลูกค้าได้ |
+<div class="message-comparison-table" tabindex="0" aria-label="เปรียบเทียบ pacs.008 vs pacs.009">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>มิติ</th>
+        <th>pacs.008.001.13</th>
+        <th>ข้อความเปรียบเทียบ</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">วัตถุประสงค์หลัก</td>
+          <td class="message-comparison-table__current">การโอนเครดิตของลูกค้า</td>
+          <td class="message-comparison-table__other">การโอนเครดิตในบัญชีของสถาบันเองหรือช่วงการชำระเงินเพื่อคุ้มกัน</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">ผู้รับผิดชอบทางธุรกิจ</td>
+          <td class="message-comparison-table__current">งานปฏิบัติการชำระเงินของลูกค้า</td>
+          <td class="message-comparison-table__other">งานคลังเงิน / ธนาคารตัวแทน / การจัดหาเงินทุน</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">การจับคู่ที่พบบ่อย</td>
+          <td class="message-comparison-table__current">pacs.002, pacs.004, pacs.007, pacs.028</td>
+          <td class="message-comparison-table__other">กระบวนการ pacs.002, pacs.004 และบางครั้งรวมถึง pacs.008 ที่เชื่อมโยงกัน</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">ข้อสมมติที่ควรหลีกเลี่ยง</td>
+          <td class="message-comparison-table__current">การที่การโอนระหว่างธนาคารทั้งหมดอยู่ในหมวดนี้</td>
+          <td class="message-comparison-table__other">การที่มันสามารถแทนคำสั่งโอนเครดิตของลูกค้าได้</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## เอกสารอ้างอิงหลัก
 
@@ -132,9 +221,37 @@ image: /logo.svg
 | `pacs.008.001.13` | **ปัจจุบัน** |
 
 ## ข้อความที่เกี่ยวข้อง
-| ประเภทข้อความ | คำอธิบาย | ภาพรวม |
-|---|---|---|
-| [`pacs.002.001.12`](/th/pacs.002.001.12/) | รายงานสถานะการชำระเงินระหว่างสถาบันการเงิน | ข้อความ pacs.002 ถูกส่งโดยสถาบันการเงินเพื่อรายงานสถานะของคำสั่งชำระเงินที่ส่งไปก่อนหน้านี้ โดยให้ข้อมูลยืนยัน ปฏิเสธ หรือสถานะรอดำเนินการสำหรับธุรกรรมแต่ละรายการภายในข้อความการชำระเงิน |
-| [`pacs.004.001.11`](/th/pacs.004.001.11/) | การคืนเงินชำระ | ข้อความ pacs.004 ใช้เพื่อส่งคืนธุรกรรมการชำระเงินที่ชำระบัญชีแล้วก่อนหน้านี้ โดยย้อนกลับกระแสเงินทุนเมื่อไม่สามารถนำเงินไปใช้ได้ ส่งผิดพลาด หรือถูกเรียกคืนโดยสถาบันต้นทาง |
-| [`pacs.009.001.10`](/th/pacs.009.001.10/) | การโอนเครดิตระหว่างสถาบันการเงิน | ข้อความ pacs.009 ใช้สำหรับการโอนเครดิตระหว่างสถาบันการเงินโดยที่การโอนเป็นในนามของสถาบันเอง ไม่ใช่ในนามของลูกค้า รองรับการจัดหาเงินทุนระหว่างธนาคาร การชำระเงินแบบ cover และการจัดการสภาพคล่อง |
+<div class="related-messages-table" tabindex="0" aria-label="ข้อความที่เกี่ยวข้อง">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>ประเภทข้อความ</th>
+        <th>คำอธิบาย</th>
+        <th>ภาพรวม</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/th/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">รายงานสถานะการชำระเงินระหว่างสถาบันการเงิน</td>
+          <td class="related-messages-table__overview">ข้อความ pacs.002 ถูกส่งโดยสถาบันการเงินเพื่อรายงานสถานะของคำสั่งชำระเงินที่ส่งไปก่อนหน้านี้ โดยให้ข้อมูลยืนยัน ปฏิเสธ หรือสถานะรอดำเนินการสำหรับธุรกรรมแต่ละรายการภายในข้อความการชำระเงิน</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/th/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
+          <td class="related-messages-table__name">การคืนเงินชำระ</td>
+          <td class="related-messages-table__overview">ข้อความ pacs.004 ใช้เพื่อส่งคืนธุรกรรมการชำระเงินที่ชำระบัญชีแล้วก่อนหน้านี้ โดยย้อนกลับกระแสเงินทุนเมื่อไม่สามารถนำเงินไปใช้ได้ ส่งผิดพลาด หรือถูกเรียกคืนโดยสถาบันต้นทาง</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/th/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">การโอนเครดิตระหว่างสถาบันการเงิน</td>
+          <td class="related-messages-table__overview">ข้อความ pacs.009 ใช้สำหรับการโอนเครดิตระหว่างสถาบันการเงินโดยที่การโอนเป็นในนามของสถาบันเอง ไม่ใช่ในนามของลูกค้า รองรับการจัดหาเงินทุนระหว่างธนาคาร การชำระเงินแบบ cover และการจัดการสภาพคล่อง</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

@@ -36,13 +36,42 @@ Komunikat pacs.010 jest używany między instytucjami finansowymi do transakcji 
 - Wymaga wcześniej uzgodnionych dwustronnych ustaleń między uczestniczącymi instytucjami
 - Kluczowy dla instytucjonalnego zarządzania gotówką i międzybankowych cykli rozrachunkowych
 
-| Kluczowe elementy danych | Kontekst biznesowy |
-|---|---|
-| **GrpHdr** — Nagłówek grupy z identyfikacją komunikatu i informacjami o rozrachunku | Obsługuje międzybankowe inkaso poleceń zapłaty między instytucjami finansowymi |
-| **DrctDbtTxInf** — Informacje o transakcji polecenia zapłaty z kwotą inkasa | Używany do inkasa opłat, wezwań do uzupełnienia depozytu zabezpieczającego i zobowiązań rozrachunkowych instytucji |
-| **Cdtr / CdtrAgt** — Identyfikacja instytucji wierzyciela i jej agenta | Wymaga wcześniej uzgodnionych dwustronnych ustaleń między uczestniczącymi instytucjami |
-| **Dbtr / DbtrAgt** — Identyfikacja instytucji dłużnika i jej agenta | Kluczowy dla instytucjonalnego zarządzania gotówką i międzybankowych cykli rozrachunkowych |
-| **IntrBkSttlmAmt** — Kwota rozrachunku międzybankowego w walucie rozrachunku | Instytucja wierzyciela wysyła pacs.010 do instytucji dłużnika w celu pobrania środków na podstawie wcześniej uzgodnionych ustaleń. Instytucja dłużnika waliduje żądanie i dokonuje rozrachunku lub odrzuca polecenie zapłaty. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Kluczowe elementy danych Kontekst biznesowy">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Kluczowe elementy danych</th>
+        <th>Kontekst biznesowy</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Nagłówek grupy z identyfikacją komunikatu i informacjami o rozrachunku</td>
+          <td class="operational-matrix-table__right">Obsługuje międzybankowe inkaso poleceń zapłaty między instytucjami finansowymi</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Informacje o transakcji polecenia zapłaty z kwotą inkasa</td>
+          <td class="operational-matrix-table__right">Używany do inkasa opłat, wezwań do uzupełnienia depozytu zabezpieczającego i zobowiązań rozrachunkowych instytucji</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identyfikacja instytucji wierzyciela i jej agenta</td>
+          <td class="operational-matrix-table__right">Wymaga wcześniej uzgodnionych dwustronnych ustaleń między uczestniczącymi instytucjami</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identyfikacja instytucji dłużnika i jej agenta</td>
+          <td class="operational-matrix-table__right">Kluczowy dla instytucjonalnego zarządzania gotówką i międzybankowych cykli rozrachunkowych</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Kwota rozrachunku międzybankowego w walucie rozrachunku</td>
+          <td class="operational-matrix-table__right">Instytucja wierzyciela wysyła pacs.010 do instytucji dłużnika w celu pobrania środków na podstawie wcześniej uzgodnionych ustaleń. Instytucja dłużnika waliduje żądanie i dokonuje rozrachunku lub odrzuca polecenie zapłaty.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Kontekst CBPR+ i schematy
 
@@ -57,10 +86,34 @@ Instytucja wierzyciela wysyła pacs.010 do instytucji dłużnika w celu pobrania
 
 ## Tabela różnic wersji
 
-| Zakres wersji | Dlaczego to ważne | Wniosek wdrożeniowy |
-|---|---|---|
-| pacs.010.001.05 | Bieżąca implementacja w pacs008 | Punkt odniesienia dla obsługi polecenia zapłaty między instytucjami w bieżącym projekcie. |
-| pacs.010.001.06 | Późniejsza rewizja katalogu | Sprawdź to przed przyjęciem nowszych wymagań infrastrukturalnych. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabela różnic wersji">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Zakres wersji</th>
+        <th>Dlaczego to ważne</th>
+        <th>Wniosek wdrożeniowy</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.010.001.05</td>
+          <td class="version-diff-table__why">Bieżąca implementacja w pacs008</td>
+          <td class="version-diff-table__takeaway">Punkt odniesienia dla obsługi polecenia zapłaty między instytucjami w bieżącym projekcie.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.010.001.06</td>
+          <td class="version-diff-table__why">Późniejsza rewizja katalogu</td>
+          <td class="version-diff-table__takeaway">Sprawdź to przed przyjęciem nowszych wymagań infrastrukturalnych.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Przykład XML z komentarzami
 
@@ -92,9 +145,37 @@ Instytucja wierzyciela wysyła pacs.010 do instytucji dłużnika w celu pobrania
 
 
 ## Powiązane wiadomości
-| Typ wiadomości | Opis | Przegląd |
-|---|---|---|
-| [`pacs.009.001.10`](/pl/pacs.009.001.10/) | Przelew kredytowy między instytucjami finansowymi | Komunikat pacs.009 jest używany do poleceń przelewu między instytucjami finansowymi, w których transfer odbywa się na rachunek własny instytucji, a nie w imieniu klienta. Obsługuje finansowanie międzybankowe, płatności pokrycia i zarządzanie płynnością. |
-| [`pacs.002.001.12`](/pl/pacs.002.001.12/) | Raport statusu płatności FI-do-FI | Komunikat pacs.002 jest wysyłany przez instytucję finansową w celu raportowania statusu wcześniej wysłanej instrukcji płatniczej. Dostarcza informacje o potwierdzeniu, odrzuceniu lub statusie oczekującym dla poszczególnych transakcji w ramach komunikatu płatniczego. |
-| [`pacs.003.001.09`](/pl/pacs.003.001.09/) | Polecenie zapłaty klienta FI-do-FI | Komunikat pacs.003 jest wymieniany między instytucjami finansowymi w celu realizacji instrukcji polecenia zapłaty klienta. Umożliwia bankowi wierzyciela pobranie środków z banku dłużnika w imieniu wierzyciela. |
+<div class="related-messages-table" tabindex="0" aria-label="Powiązane wiadomości">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Typ wiadomości</th>
+        <th>Opis</th>
+        <th>Przegląd</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pl/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">Przelew kredytowy między instytucjami finansowymi</td>
+          <td class="related-messages-table__overview">Komunikat pacs.009 jest używany do poleceń przelewu między instytucjami finansowymi, w których transfer odbywa się na rachunek własny instytucji, a nie w imieniu klienta. Obsługuje finansowanie międzybankowe, płatności pokrycia i zarządzanie płynnością.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pl/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">Raport statusu płatności FI-do-FI</td>
+          <td class="related-messages-table__overview">Komunikat pacs.002 jest wysyłany przez instytucję finansową w celu raportowania statusu wcześniej wysłanej instrukcji płatniczej. Dostarcza informacje o potwierdzeniu, odrzuceniu lub statusie oczekującym dla poszczególnych transakcji w ramach komunikatu płatniczego.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pl/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
+          <td class="related-messages-table__name">Polecenie zapłaty klienta FI-do-FI</td>
+          <td class="related-messages-table__overview">Komunikat pacs.003 jest wymieniany między instytucjami finansowymi w celu realizacji instrukcji polecenia zapłaty klienta. Umożliwia bankowi wierzyciela pobranie środków z banku dłużnika w imieniu wierzyciela.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

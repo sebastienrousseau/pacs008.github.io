@@ -36,13 +36,42 @@ pacs.007 संदेश का उपयोग पहले भेजे गए
 - मूल भुगतान राशि के पूर्ण और आंशिक दोनों प्रत्यावर्तन का समर्थन करता है
 - डाउनस्ट्रीम प्रसंस्करण के लिए संरचित प्रत्यावर्तन कारण कोड वहन करता है
 
-| प्रमुख डेटा तत्व | व्यावसायिक संदर्भ |
-|---|---|
-| **GrpHdr** — संदेश पहचान और निर्माण टाइमस्टैम्प के साथ ग्रुप हेडर | जब मूल प्रेषक निपटान से पहले या बाद में त्रुटि की पहचान करता है तब आरंभ किया जाता है |
-| **TxInf** — प्रत्यावर्तन राशि और पक्षों के साथ लेनदेन सूचना | धोखाधड़ी परिदृश्यों में उपयोग किया जाता है जहां तीव्र प्रत्यावर्तन आवश्यक है |
-| **OrgnlGrpInf** — स्रोत संदेश का संदर्भ देने वाली मूल समूह सूचना | मूल भुगतान राशि के पूर्ण और आंशिक दोनों प्रत्यावर्तन का समर्थन करता है |
-| **RvslRsnInf** — संरचित कारण कोड के साथ प्रत्यावर्तन कारण सूचना | डाउनस्ट्रीम प्रसंस्करण के लिए संरचित प्रत्यावर्तन कारण कोड वहन करता है |
-| **OrgnlTxRef** — एंड-टू-एंड अनुरेखणीयता के लिए मूल लेनदेन संदर्भ | निर्देश देने वाला एजेंट (मूल प्रेषक) पहले निर्देशित भुगतान को उलटने के लिए भुगतान शृंखला के माध्यम से आगे pacs.007 भेजता है। प्रत्येक एजेंट प्रत्यावर्तन निर्देश को संसाधित करता है और तदनुसार निपटान समायोजित करता है। |
+<div class="operational-matrix-table" tabindex="0" aria-label="प्रमुख डेटा तत्व व्यावसायिक संदर्भ">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>प्रमुख डेटा तत्व</th>
+        <th>व्यावसायिक संदर्भ</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — संदेश पहचान और निर्माण टाइमस्टैम्प के साथ ग्रुप हेडर</td>
+          <td class="operational-matrix-table__right">जब मूल प्रेषक निपटान से पहले या बाद में त्रुटि की पहचान करता है तब आरंभ किया जाता है</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**TxInf** — प्रत्यावर्तन राशि और पक्षों के साथ लेनदेन सूचना</td>
+          <td class="operational-matrix-table__right">धोखाधड़ी परिदृश्यों में उपयोग किया जाता है जहां तीव्र प्रत्यावर्तन आवश्यक है</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlGrpInf** — स्रोत संदेश का संदर्भ देने वाली मूल समूह सूचना</td>
+          <td class="operational-matrix-table__right">मूल भुगतान राशि के पूर्ण और आंशिक दोनों प्रत्यावर्तन का समर्थन करता है</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**RvslRsnInf** — संरचित कारण कोड के साथ प्रत्यावर्तन कारण सूचना</td>
+          <td class="operational-matrix-table__right">डाउनस्ट्रीम प्रसंस्करण के लिए संरचित प्रत्यावर्तन कारण कोड वहन करता है</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlTxRef** — एंड-टू-एंड अनुरेखणीयता के लिए मूल लेनदेन संदर्भ</td>
+          <td class="operational-matrix-table__right">निर्देश देने वाला एजेंट (मूल प्रेषक) पहले निर्देशित भुगतान को उलटने के लिए भुगतान शृंखला के माध्यम से आगे pacs.007 भेजता है। प्रत्येक एजेंट प्रत्यावर्तन निर्देश को संसाधित करता है और तदनुसार निपटान समायोजित करता है।</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## CBPR+ और स्कीमा संदर्भ
 
@@ -57,10 +86,34 @@ pacs.007 संदेश का उपयोग पहले भेजे गए
 
 ## संस्करण अंतर तालिका
 
-| संस्करण सीमा | यह क्यों महत्वपूर्ण है | कार्यान्वयन निष्कर्ष |
-|---|---|---|
-| pacs.007.001.11 | pacs008 में वर्तमान कार्यान्वयन | यह प्रत्यावर्तन प्रक्रिया मॉडलिंग के लिए एक अच्छा आधार है। |
-| pacs.007.001.12-13 | बाद के कैटलॉग संस्करण | वर्तमान बाजार अवसंरचना के साथ मेल के लिए बाद के संशोधन जाँचें। |
+<div class="version-diff-table" tabindex="0" aria-label="संस्करण अंतर तालिका">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>संस्करण सीमा</th>
+        <th>यह क्यों महत्वपूर्ण है</th>
+        <th>कार्यान्वयन निष्कर्ष</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.007.001.11</td>
+          <td class="version-diff-table__why">pacs008 में वर्तमान कार्यान्वयन</td>
+          <td class="version-diff-table__takeaway">यह प्रत्यावर्तन प्रक्रिया मॉडलिंग के लिए एक अच्छा आधार है।</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.007.001.12-13</td>
+          <td class="version-diff-table__why">बाद के कैटलॉग संस्करण</td>
+          <td class="version-diff-table__takeaway">वर्तमान बाजार अवसंरचना के साथ मेल के लिए बाद के संशोधन जाँचें।</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## टिप्पणीयुक्त XML उदाहरण
 
@@ -86,12 +139,44 @@ pacs.007 संदेश का उपयोग पहले भेजे गए
 
 ## तुलना pacs.007 vs pacs.004
 
-| आयाम | pacs.007.001.11 | तुलनात्मक संदेश |
-|---|---|---|
-| मुख्य उद्देश्य | पहले से निर्देशित भुगतान को उलटना | निपटाए गए धन को लौटाना |
-| आरंभकर्ता | मूल निर्देश देने वाला पक्ष | प्राप्तकर्ता / लाभार्थी पक्ष |
-| प्रवाह की दिशा | श्रृंखला में आगे की ओर | श्रृंखला में पीछे की ओर |
-| सबसे उपयुक्त उपयोग | रीकॉल, त्रुटि या धोखाधड़ी-प्रेरित प्रत्यावर्तन प्रबंधन | निपटान के बाद वापसी प्रबंधन |
+<div class="message-comparison-table" tabindex="0" aria-label="तुलना pacs.007 vs pacs.004">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>आयाम</th>
+        <th>pacs.007.001.11</th>
+        <th>तुलनात्मक संदेश</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">मुख्य उद्देश्य</td>
+          <td class="message-comparison-table__current">पहले से निर्देशित भुगतान को उलटना</td>
+          <td class="message-comparison-table__other">निपटाए गए धन को लौटाना</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">आरंभकर्ता</td>
+          <td class="message-comparison-table__current">मूल निर्देश देने वाला पक्ष</td>
+          <td class="message-comparison-table__other">प्राप्तकर्ता / लाभार्थी पक्ष</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">प्रवाह की दिशा</td>
+          <td class="message-comparison-table__current">श्रृंखला में आगे की ओर</td>
+          <td class="message-comparison-table__other">श्रृंखला में पीछे की ओर</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">सबसे उपयुक्त उपयोग</td>
+          <td class="message-comparison-table__current">रीकॉल, त्रुटि या धोखाधड़ी-प्रेरित प्रत्यावर्तन प्रबंधन</td>
+          <td class="message-comparison-table__other">निपटान के बाद वापसी प्रबंधन</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## प्राथमिक संदर्भ
 
@@ -101,9 +186,37 @@ pacs.007 संदेश का उपयोग पहले भेजे गए
 
 
 ## संबंधित संदेश
-| संदेश प्रकार | विवरण | अवलोकन |
-|---|---|---|
-| [`pacs.008.001.13`](/hi/pacs.008.001.13/) | FI-से-FI ग्राहक क्रेडिट ट्रांसफर | pacs.008 संदेश वित्तीय संस्थानों के बीच ग्राहक की ओर से धन हस्तांतरित करने के लिए आदान-प्रदान किया जाने वाला मुख्य भुगतान निर्देश है। यह एक या अधिक क्रेडिट ट्रांसफर लेनदेन के लिए ऋणी, लेनदार, राशि और प्रेषण सूचना वहन करता है। |
-| [`pacs.004.001.11`](/hi/pacs.004.001.11/) | भुगतान वापसी | pacs.004 संदेश का उपयोग पहले से निपटाए गए भुगतान लेनदेन को वापस करने के लिए किया जाता है। यह धन के प्रवाह को उलट देता है जब कोई भुगतान लागू नहीं हो सकता, गलती से भेजा गया हो, या मूल संस्थान द्वारा वापस बुलाया जा रहा हो। |
-| [`pacs.002.001.12`](/hi/pacs.002.001.12/) | FI-से-FI भुगतान स्थिति रिपोर्ट | pacs.002 संदेश एक वित्तीय संस्थान द्वारा पहले भेजे गए भुगतान निर्देश की स्थिति रिपोर्ट करने के लिए भेजा जाता है। यह भुगतान संदेश के भीतर व्यक्तिगत लेनदेन के लिए पुष्टि, अस्वीकृति या लंबित स्थिति की जानकारी प्रदान करता है। |
+<div class="related-messages-table" tabindex="0" aria-label="संबंधित संदेश">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>संदेश प्रकार</th>
+        <th>विवरण</th>
+        <th>अवलोकन</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/hi/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">FI-से-FI ग्राहक क्रेडिट ट्रांसफर</td>
+          <td class="related-messages-table__overview">pacs.008 संदेश वित्तीय संस्थानों के बीच ग्राहक की ओर से धन हस्तांतरित करने के लिए आदान-प्रदान किया जाने वाला मुख्य भुगतान निर्देश है। यह एक या अधिक क्रेडिट ट्रांसफर लेनदेन के लिए ऋणी, लेनदार, राशि और प्रेषण सूचना वहन करता है।</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/hi/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
+          <td class="related-messages-table__name">भुगतान वापसी</td>
+          <td class="related-messages-table__overview">pacs.004 संदेश का उपयोग पहले से निपटाए गए भुगतान लेनदेन को वापस करने के लिए किया जाता है। यह धन के प्रवाह को उलट देता है जब कोई भुगतान लागू नहीं हो सकता, गलती से भेजा गया हो, या मूल संस्थान द्वारा वापस बुलाया जा रहा हो।</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/hi/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">FI-से-FI भुगतान स्थिति रिपोर्ट</td>
+          <td class="related-messages-table__overview">pacs.002 संदेश एक वित्तीय संस्थान द्वारा पहले भेजे गए भुगतान निर्देश की स्थिति रिपोर्ट करने के लिए भेजा जाता है। यह भुगतान संदेश के भीतर व्यक्तिगत लेनदेन के लिए पुष्टि, अस्वीकृति या लंबित स्थिति की जानकारी प्रदान करता है।</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

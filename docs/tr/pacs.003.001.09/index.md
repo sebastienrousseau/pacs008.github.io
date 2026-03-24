@@ -36,13 +36,42 @@ pacs.003 mesajı, bir müşteri doğrudan borçlandırma talimatını yürütmek
 - Borçlu ile alacaklı arasında geçerli bir yetki referansı gerektirir
 - Tek bir mesajda birden fazla doğrudan borçlandırma talimatının toplu tahsilatını sağlar
 
-| Temel veri öğeleri | İş bağlamı |
-|---|---|
-| **GrpHdr** — Mesaj tanımlama ve takas bilgisi içeren Grup Başlığı | SEPA Core ve B2B doğrudan borçlandırma şemalarını destekler |
-| **DrctDbtTxInf** — Tutar ve tarafları içeren Doğrudan Borçlandırma İşlem Bilgisi | Abonelikler, fatura ödemeleri ve kredi geri ödemeleri gibi tekrarlayan ödeme tahsilatı için kullanılır |
-| **Cdtr** — Alacaklı kimlik bilgileri ve hesap detayları | Borçlu ile alacaklı arasında geçerli bir yetki referansı gerektirir |
-| **CdtrAgt** — Alacaklı Aracısı (tahsilat kuruluşu) kimlik bilgileri | Tek bir mesajda birden fazla doğrudan borçlandırma talimatının toplu tahsilatını sağlar |
-| **DbtrAgt** — Borçlu Aracısı (ödeme kuruluşu) kimlik bilgileri | Alacaklı aracı, fon tahsil etmek üzere borçlu aracıya pacs.003 başlatır. Borçlu aracı yetkiyi doğrular, hesap bakiyesini kontrol eder ve işlemi takas eder veya iade eder. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Temel veri öğeleri İş bağlamı">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Temel veri öğeleri</th>
+        <th>İş bağlamı</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Mesaj tanımlama ve takas bilgisi içeren Grup Başlığı</td>
+          <td class="operational-matrix-table__right">SEPA Core ve B2B doğrudan borçlandırma şemalarını destekler</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Tutar ve tarafları içeren Doğrudan Borçlandırma İşlem Bilgisi</td>
+          <td class="operational-matrix-table__right">Abonelikler, fatura ödemeleri ve kredi geri ödemeleri gibi tekrarlayan ödeme tahsilatı için kullanılır</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr** — Alacaklı kimlik bilgileri ve hesap detayları</td>
+          <td class="operational-matrix-table__right">Borçlu ile alacaklı arasında geçerli bir yetki referansı gerektirir</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**CdtrAgt** — Alacaklı Aracısı (tahsilat kuruluşu) kimlik bilgileri</td>
+          <td class="operational-matrix-table__right">Tek bir mesajda birden fazla doğrudan borçlandırma talimatının toplu tahsilatını sağlar</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**DbtrAgt** — Borçlu Aracısı (ödeme kuruluşu) kimlik bilgileri</td>
+          <td class="operational-matrix-table__right">Alacaklı aracı, fon tahsil etmek üzere borçlu aracıya pacs.003 başlatır. Borçlu aracı yetkiyi doğrular, hesap bakiyesini kontrol eder ve işlemi takas eder veya iade eder.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## CBPR+ ve şema bağlamı
 
@@ -57,10 +86,34 @@ Alacaklı aracı, fon tahsil etmek üzere borçlu aracıya pacs.003 başlatır. 
 
 ## Sürüm fark tablosu
 
-| Sürüm aralığı | Neden önemli | Uygulama çıkarımı |
-|---|---|---|
-| pacs.003.001.09 | pacs008 içindeki mevcut uygulama | Mevcut projede doğrudan borçlandırma referanslarının modellenmesi için faydalıdır. |
-| pacs.003.001.10-11 | Daha sonraki katalog sürümleri | Yeni bir uygulamaya başlamadan önce yetki, durum ve birlikte çalışabilirlik güncellemeleri için sonraki sürümleri inceleyin. |
+<div class="version-diff-table" tabindex="0" aria-label="Sürüm fark tablosu">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Sürüm aralığı</th>
+        <th>Neden önemli</th>
+        <th>Uygulama çıkarımı</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.003.001.09</td>
+          <td class="version-diff-table__why">pacs008 içindeki mevcut uygulama</td>
+          <td class="version-diff-table__takeaway">Mevcut projede doğrudan borçlandırma referanslarının modellenmesi için faydalıdır.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.003.001.10-11</td>
+          <td class="version-diff-table__why">Daha sonraki katalog sürümleri</td>
+          <td class="version-diff-table__takeaway">Yeni bir uygulamaya başlamadan önce yetki, durum ve birlikte çalışabilirlik güncellemeleri için sonraki sürümleri inceleyin.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Açıklamalı XML örneği
 
@@ -92,9 +145,37 @@ Alacaklı aracı, fon tahsil etmek üzere borçlu aracıya pacs.003 başlatır. 
 
 
 ## İlgili mesajlar
-| Mesaj türü | Açıklama | Genel bakış |
-|---|---|---|
-| [`pacs.004.001.11`](/tr/pacs.004.001.11/) | Ödeme iadesi | pacs.004 mesajı, daha önce takas edilmiş bir ödeme işlemini iade etmek için kullanılır. Bir ödeme uygulanamadığında, hatalı gönderildiğinde veya kaynak kuruluş tarafından geri çağrıldığında fon akışını tersine çevirir. |
-| [`pacs.007.001.11`](/tr/pacs.007.001.11/) | FI'dan FI'ya ödeme geri alma mesajı | pacs.007 mesajı, henüz takas edilmemiş daha önce gönderilmiş bir ödeme talimatını tersine çevirmek veya takas edilmiş bir ödemenin tersine çevrilmesini talep etmek için kullanılır. pacs.004'ten (iade) farklı olarak, orijinal talimat veren aracı tarafından başlatılır. |
-| [`pacs.002.001.12`](/tr/pacs.002.001.12/) | FI'dan FI'ya ödeme durumu raporu | pacs.002 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu bildirmek üzere bir finans kuruluşu tarafından gönderilir. Bir ödeme mesajı içindeki bireysel işlemler için onay, ret veya bekleyen durum bilgisi sağlar. |
+<div class="related-messages-table" tabindex="0" aria-label="İlgili mesajlar">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Mesaj türü</th>
+        <th>Açıklama</th>
+        <th>Genel bakış</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/tr/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
+          <td class="related-messages-table__name">Ödeme iadesi</td>
+          <td class="related-messages-table__overview">pacs.004 mesajı, daha önce takas edilmiş bir ödeme işlemini iade etmek için kullanılır. Bir ödeme uygulanamadığında, hatalı gönderildiğinde veya kaynak kuruluş tarafından geri çağrıldığında fon akışını tersine çevirir.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/tr/pacs.007.001.11/"><code>pacs.007.001.11</code></a></td>
+          <td class="related-messages-table__name">FI&#39;dan FI&#39;ya ödeme geri alma mesajı</td>
+          <td class="related-messages-table__overview">pacs.007 mesajı, henüz takas edilmemiş daha önce gönderilmiş bir ödeme talimatını tersine çevirmek veya takas edilmiş bir ödemenin tersine çevrilmesini talep etmek için kullanılır. pacs.004&#39;ten (iade) farklı olarak, orijinal talimat veren aracı tarafından başlatılır.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/tr/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">FI&#39;dan FI&#39;ya ödeme durumu raporu</td>
+          <td class="related-messages-table__overview">pacs.002 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu bildirmek üzere bir finans kuruluşu tarafından gönderilir. Bir ödeme mesajı içindeki bireysel işlemler için onay, ret veya bekleyen durum bilgisi sağlar.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

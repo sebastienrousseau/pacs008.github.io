@@ -36,13 +36,42 @@ pacs.002 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu bil
 - pacs.008 ve pacs.009 mesajlarının işlendiğini onaylamak için CBPR+ akışlarında gereklidir
 - Hem toplu grup düzeyinde hem de bireysel işlem düzeyinde durum raporlamasını destekler
 
-| Temel veri öğeleri | İş bağlamı |
-|---|---|
-| **GrpHdr** — Mesaj tanımlama ve oluşturma zaman damgası içeren Grup Başlığı | Kredi transferlerinin, doğrudan borçlandırmaların ve ödeme iadelerinin takas onayı veya ret bildirimi için kullanılır |
-| **OrgnlGrpInfAndSts** — Toplu düzeyde raporlama için Orijinal Grup Bilgisi ve Durumu | Talimat veren ve talimat alan aracılar arasında mutabakatı sağlar |
-| **TxInfAndSts** — Bireysel işlem sonuçları için İşlem Bilgisi ve Durumu | pacs.008 ve pacs.009 mesajlarının işlendiğini onaylamak için CBPR+ akışlarında gereklidir |
-| **StsRsnInf** — Yapılandırılmış neden kodları içeren Durum Nedeni Bilgisi | Hem toplu grup düzeyinde hem de bireysel işlem düzeyinde durum raporlamasını destekler |
-| **OrgnlTxRef** — Kaynak talimata geri bağlayan Orijinal İşlem Referansı | Talimat alan aracı (alıcı), pacs.008 veya pacs.009 gibi alınan bir ödeme talimatının kabulünü, takasını veya reddini onaylamak üzere talimat veren aracıya (gönderici) pacs.002 gönderir. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Temel veri öğeleri İş bağlamı">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Temel veri öğeleri</th>
+        <th>İş bağlamı</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Mesaj tanımlama ve oluşturma zaman damgası içeren Grup Başlığı</td>
+          <td class="operational-matrix-table__right">Kredi transferlerinin, doğrudan borçlandırmaların ve ödeme iadelerinin takas onayı veya ret bildirimi için kullanılır</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlGrpInfAndSts** — Toplu düzeyde raporlama için Orijinal Grup Bilgisi ve Durumu</td>
+          <td class="operational-matrix-table__right">Talimat veren ve talimat alan aracılar arasında mutabakatı sağlar</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**TxInfAndSts** — Bireysel işlem sonuçları için İşlem Bilgisi ve Durumu</td>
+          <td class="operational-matrix-table__right">pacs.008 ve pacs.009 mesajlarının işlendiğini onaylamak için CBPR+ akışlarında gereklidir</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**StsRsnInf** — Yapılandırılmış neden kodları içeren Durum Nedeni Bilgisi</td>
+          <td class="operational-matrix-table__right">Hem toplu grup düzeyinde hem de bireysel işlem düzeyinde durum raporlamasını destekler</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlTxRef** — Kaynak talimata geri bağlayan Orijinal İşlem Referansı</td>
+          <td class="operational-matrix-table__right">Talimat alan aracı (alıcı), pacs.008 veya pacs.009 gibi alınan bir ödeme talimatının kabulünü, takasını veya reddini onaylamak üzere talimat veren aracıya (gönderici) pacs.002 gönderir.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## CBPR+ ve şema bağlamı
 
@@ -57,10 +86,34 @@ Talimat alan aracı (alıcı), pacs.008 veya pacs.009 gibi alınan bir ödeme ta
 
 ## Sürüm fark tablosu
 
-| Sürüm aralığı | Neden önemli | Uygulama çıkarımı |
-|---|---|---|
-| pacs.002.001.12 | pacs008 içindeki mevcut uygulama | Bunu mevcut proje şablonları ve doğrulama varlıklarıyla uyum sağlarken kullanın. |
-| pacs.002.001.13-15 | Daha sonraki katalog sürümleri | Yeni birlikte çalışabilirlik çalışmaları başlamadan veya yeni altyapılar eklenmeden önce sonraki ISO sürümlerini gözden geçirin. |
+<div class="version-diff-table" tabindex="0" aria-label="Sürüm fark tablosu">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Sürüm aralığı</th>
+        <th>Neden önemli</th>
+        <th>Uygulama çıkarımı</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.002.001.12</td>
+          <td class="version-diff-table__why">pacs008 içindeki mevcut uygulama</td>
+          <td class="version-diff-table__takeaway">Bunu mevcut proje şablonları ve doğrulama varlıklarıyla uyum sağlarken kullanın.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.002.001.13-15</td>
+          <td class="version-diff-table__why">Daha sonraki katalog sürümleri</td>
+          <td class="version-diff-table__takeaway">Yeni birlikte çalışabilirlik çalışmaları başlamadan veya yeni altyapılar eklenmeden önce sonraki ISO sürümlerini gözden geçirin.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Açıklamalı XML örneği
 
@@ -89,12 +142,44 @@ Talimat alan aracı (alıcı), pacs.008 veya pacs.009 gibi alınan bir ödeme ta
 
 ## Karşılaştır pacs.002 vs pacs.028
 
-| Boyut | pacs.002.001.12 | Karşılaştırma mesajı |
-|---|---|---|
-| Temel amaç | Durum bildir | Durum iste |
-| Etkileşimi kim başlatır | Durumu gönderen kurum | Durumu soran kurum |
-| Operasyonel duruş | Olay güdümlü raporlama | İstisna güdümlü sorgu |
-| Kaçınılması gereken yanlış varsayım | Durum raporlamasının inceleme ve araştırma iş akışlarının yerini aldığı | Her ödemenin açık bir durum isteğine ihtiyaç duyduğu |
+<div class="message-comparison-table" tabindex="0" aria-label="Karşılaştır pacs.002 vs pacs.028">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Boyut</th>
+        <th>pacs.002.001.12</th>
+        <th>Karşılaştırma mesajı</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Temel amaç</td>
+          <td class="message-comparison-table__current">Durum bildir</td>
+          <td class="message-comparison-table__other">Durum iste</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Etkileşimi kim başlatır</td>
+          <td class="message-comparison-table__current">Durumu gönderen kurum</td>
+          <td class="message-comparison-table__other">Durumu soran kurum</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Operasyonel duruş</td>
+          <td class="message-comparison-table__current">Olay güdümlü raporlama</td>
+          <td class="message-comparison-table__other">İstisna güdümlü sorgu</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Kaçınılması gereken yanlış varsayım</td>
+          <td class="message-comparison-table__current">Durum raporlamasının inceleme ve araştırma iş akışlarının yerini aldığı</td>
+          <td class="message-comparison-table__other">Her ödemenin açık bir durum isteğine ihtiyaç duyduğu</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Birincil referanslar
 
@@ -106,9 +191,37 @@ Talimat alan aracı (alıcı), pacs.008 veya pacs.009 gibi alınan bir ödeme ta
 
 
 ## İlgili mesajlar
-| Mesaj türü | Açıklama | Genel bakış |
-|---|---|---|
-| [`pacs.008.001.13`](/tr/pacs.008.001.13/) | FI'dan FI'ya müşteri kredi transferi | pacs.008 mesajı, bir müşteri adına fon transfer etmek üzere finans kuruluşları arasında iletilen temel ödeme talimatıdır. Bir veya daha fazla kredi transferi işlemi için borçlu, alacaklı, tutar ve havale bilgilerini taşır. |
-| [`pacs.009.001.10`](/tr/pacs.009.001.10/) | Finansal kuruluşlar arası kredi transferi | pacs.009 mesajı, transferin bir müşteri adına değil kurumun kendi adına gerçekleştirildiği durumlarda finans kuruluşları arasında kredi transferleri için kullanılır. Bankalar arası fonlama, teminat ödemeleri ve likidite yönetimini destekler. |
-| [`pacs.028.001.05`](/tr/pacs.028.001.05/) | FI'dan FI'ya ödeme durumu talebi | pacs.028 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu talep etmek üzere bir finans kuruluşu tarafından gönderilir. İstenmeyen bir durum raporu beklemeden ödeme işleme sürecinin proaktif takibini sağlar. |
+<div class="related-messages-table" tabindex="0" aria-label="İlgili mesajlar">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Mesaj türü</th>
+        <th>Açıklama</th>
+        <th>Genel bakış</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/tr/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">FI&#39;dan FI&#39;ya müşteri kredi transferi</td>
+          <td class="related-messages-table__overview">pacs.008 mesajı, bir müşteri adına fon transfer etmek üzere finans kuruluşları arasında iletilen temel ödeme talimatıdır. Bir veya daha fazla kredi transferi işlemi için borçlu, alacaklı, tutar ve havale bilgilerini taşır.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/tr/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">Finansal kuruluşlar arası kredi transferi</td>
+          <td class="related-messages-table__overview">pacs.009 mesajı, transferin bir müşteri adına değil kurumun kendi adına gerçekleştirildiği durumlarda finans kuruluşları arasında kredi transferleri için kullanılır. Bankalar arası fonlama, teminat ödemeleri ve likidite yönetimini destekler.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/tr/pacs.028.001.05/"><code>pacs.028.001.05</code></a></td>
+          <td class="related-messages-table__name">FI&#39;dan FI&#39;ya ödeme durumu talebi</td>
+          <td class="related-messages-table__overview">pacs.028 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu talep etmek üzere bir finans kuruluşu tarafından gönderilir. İstenmeyen bir durum raporu beklemeden ödeme işleme sürecinin proaktif takibini sağlar.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

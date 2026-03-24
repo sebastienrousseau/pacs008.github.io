@@ -36,13 +36,42 @@ image: /logo.svg
 - รองรับการย้อนกลับทั้งเต็มจำนวนและบางส่วนของจำนวนเงินชำระเดิม
 - มีรหัสเหตุผลการย้อนกลับที่มีโครงสร้างสำหรับการประมวลผลปลายทาง
 
-| องค์ประกอบข้อมูลหลัก | บริบทธุรกิจ |
-|---|---|
-| **GrpHdr** — Group Header พร้อมรหัสระบุข้อความและประทับเวลาการสร้าง | ริเริ่มเมื่อผู้ส่งต้นฉบับระบุข้อผิดพลาดก่อนหรือหลังการชำระบัญชี |
-| **TxInf** — ข้อมูลธุรกรรมพร้อมจำนวนเงินย้อนกลับและคู่สัญญา | ใช้ในสถานการณ์การฉ้อโกงที่ต้องการการย้อนกลับอย่างรวดเร็ว |
-| **OrgnlGrpInf** — ข้อมูลกลุ่มต้นฉบับที่อ้างอิงข้อความต้นทาง | รองรับการย้อนกลับทั้งเต็มจำนวนและบางส่วนของจำนวนเงินชำระเดิม |
-| **RvslRsnInf** — ข้อมูลเหตุผลการย้อนกลับพร้อมรหัสเหตุผลที่มีโครงสร้าง | มีรหัสเหตุผลการย้อนกลับที่มีโครงสร้างสำหรับการประมวลผลปลายทาง |
-| **OrgnlTxRef** — การอ้างอิงธุรกรรมต้นฉบับสำหรับการตรวจสอบย้อนกลับแบบครบวงจร | ตัวแทนผู้สั่ง (ผู้ส่งต้นฉบับ) ส่ง pacs.007 ไปข้างหน้าผ่านสายการชำระเงินเพื่อย้อนกลับการชำระเงินที่สั่งไว้ก่อนหน้านี้ ตัวแทนแต่ละรายประมวลผลคำสั่งย้อนกลับและปรับการชำระบัญชีตามความเหมาะสม |
+<div class="operational-matrix-table" tabindex="0" aria-label="องค์ประกอบข้อมูลหลัก บริบทธุรกิจ">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>องค์ประกอบข้อมูลหลัก</th>
+        <th>บริบทธุรกิจ</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Group Header พร้อมรหัสระบุข้อความและประทับเวลาการสร้าง</td>
+          <td class="operational-matrix-table__right">ริเริ่มเมื่อผู้ส่งต้นฉบับระบุข้อผิดพลาดก่อนหรือหลังการชำระบัญชี</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**TxInf** — ข้อมูลธุรกรรมพร้อมจำนวนเงินย้อนกลับและคู่สัญญา</td>
+          <td class="operational-matrix-table__right">ใช้ในสถานการณ์การฉ้อโกงที่ต้องการการย้อนกลับอย่างรวดเร็ว</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlGrpInf** — ข้อมูลกลุ่มต้นฉบับที่อ้างอิงข้อความต้นทาง</td>
+          <td class="operational-matrix-table__right">รองรับการย้อนกลับทั้งเต็มจำนวนและบางส่วนของจำนวนเงินชำระเดิม</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**RvslRsnInf** — ข้อมูลเหตุผลการย้อนกลับพร้อมรหัสเหตุผลที่มีโครงสร้าง</td>
+          <td class="operational-matrix-table__right">มีรหัสเหตุผลการย้อนกลับที่มีโครงสร้างสำหรับการประมวลผลปลายทาง</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlTxRef** — การอ้างอิงธุรกรรมต้นฉบับสำหรับการตรวจสอบย้อนกลับแบบครบวงจร</td>
+          <td class="operational-matrix-table__right">ตัวแทนผู้สั่ง (ผู้ส่งต้นฉบับ) ส่ง pacs.007 ไปข้างหน้าผ่านสายการชำระเงินเพื่อย้อนกลับการชำระเงินที่สั่งไว้ก่อนหน้านี้ ตัวแทนแต่ละรายประมวลผลคำสั่งย้อนกลับและปรับการชำระบัญชีตามความเหมาะสม</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## บริบท CBPR+ และรูปแบบ
 
@@ -57,10 +86,34 @@ image: /logo.svg
 
 ## ตารางความแตกต่างของเวอร์ชัน
 
-| ช่วงเวอร์ชัน | เหตุใดจึงสำคัญ | ข้อสรุปเชิงปฏิบัติ |
-|---|---|---|
-| pacs.007.001.11 | การติดตั้งใช้งานปัจจุบันใน pacs008 | เป็นพื้นฐานที่ดีสำหรับการออกแบบกระบวนการกลับรายการ |
-| pacs.007.001.12-13 | รุ่นแก้ไขแค็ตตาล็อกที่ใหม่กว่า | ตรวจสอบรุ่นแก้ไขที่ใหม่กว่าสำหรับความสอดคล้องกับโครงสร้างพื้นฐานตลาดปัจจุบัน |
+<div class="version-diff-table" tabindex="0" aria-label="ตารางความแตกต่างของเวอร์ชัน">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>ช่วงเวอร์ชัน</th>
+        <th>เหตุใดจึงสำคัญ</th>
+        <th>ข้อสรุปเชิงปฏิบัติ</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.007.001.11</td>
+          <td class="version-diff-table__why">การติดตั้งใช้งานปัจจุบันใน pacs008</td>
+          <td class="version-diff-table__takeaway">เป็นพื้นฐานที่ดีสำหรับการออกแบบกระบวนการกลับรายการ</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.007.001.12-13</td>
+          <td class="version-diff-table__why">รุ่นแก้ไขแค็ตตาล็อกที่ใหม่กว่า</td>
+          <td class="version-diff-table__takeaway">ตรวจสอบรุ่นแก้ไขที่ใหม่กว่าสำหรับความสอดคล้องกับโครงสร้างพื้นฐานตลาดปัจจุบัน</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## ตัวอย่าง XML พร้อมคำอธิบาย
 
@@ -86,12 +139,44 @@ image: /logo.svg
 
 ## เปรียบเทียบ pacs.007 vs pacs.004
 
-| มิติ | pacs.007.001.11 | ข้อความเปรียบเทียบ |
-|---|---|---|
-| วัตถุประสงค์หลัก | Reverse a previously instructed payment | Return settled funds |
-| Initiated by | Original instructing side | Receiving / beneficiary side |
-| Direction of flow | Forward through the chain | Back through the chain |
-| เหมาะที่สุดสำหรับ | การจัดการการย้อนกลับจากการเรียกคืน ข้อผิดพลาด หรือการทุจริต | การจัดการการคืนเงินหลังการชำระบัญชี |
+<div class="message-comparison-table" tabindex="0" aria-label="เปรียบเทียบ pacs.007 vs pacs.004">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>มิติ</th>
+        <th>pacs.007.001.11</th>
+        <th>ข้อความเปรียบเทียบ</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">วัตถุประสงค์หลัก</td>
+          <td class="message-comparison-table__current">Reverse a previously instructed payment</td>
+          <td class="message-comparison-table__other">Return settled funds</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Initiated by</td>
+          <td class="message-comparison-table__current">Original instructing side</td>
+          <td class="message-comparison-table__other">Receiving / beneficiary side</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Direction of flow</td>
+          <td class="message-comparison-table__current">Forward through the chain</td>
+          <td class="message-comparison-table__other">Back through the chain</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">เหมาะที่สุดสำหรับ</td>
+          <td class="message-comparison-table__current">การจัดการการย้อนกลับจากการเรียกคืน ข้อผิดพลาด หรือการทุจริต</td>
+          <td class="message-comparison-table__other">การจัดการการคืนเงินหลังการชำระบัญชี</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## เอกสารอ้างอิงหลัก
 
@@ -101,9 +186,37 @@ image: /logo.svg
 
 
 ## ข้อความที่เกี่ยวข้อง
-| ประเภทข้อความ | คำอธิบาย | ภาพรวม |
-|---|---|---|
-| [`pacs.008.001.13`](/th/pacs.008.001.13/) | การโอนเครดิตลูกค้าระหว่างสถาบันการเงิน | ข้อความ pacs.008 เป็นคำสั่งชำระเงินหลักที่แลกเปลี่ยนระหว่างสถาบันการเงินเพื่อโอนเงินในนามของลูกค้า โดยมีข้อมูลลูกหนี้ เจ้าหนี้ จำนวนเงิน และข้อมูลการโอนเงินสำหรับธุรกรรมโอนเครดิตหนึ่งรายการหรือมากกว่า |
-| [`pacs.004.001.11`](/th/pacs.004.001.11/) | การคืนเงินชำระ | ข้อความ pacs.004 ใช้เพื่อส่งคืนธุรกรรมการชำระเงินที่ชำระบัญชีแล้วก่อนหน้านี้ โดยย้อนกลับกระแสเงินทุนเมื่อไม่สามารถนำเงินไปใช้ได้ ส่งผิดพลาด หรือถูกเรียกคืนโดยสถาบันต้นทาง |
-| [`pacs.002.001.12`](/th/pacs.002.001.12/) | รายงานสถานะการชำระเงินระหว่างสถาบันการเงิน | ข้อความ pacs.002 ถูกส่งโดยสถาบันการเงินเพื่อรายงานสถานะของคำสั่งชำระเงินที่ส่งไปก่อนหน้านี้ โดยให้ข้อมูลยืนยัน ปฏิเสธ หรือสถานะรอดำเนินการสำหรับธุรกรรมแต่ละรายการภายในข้อความการชำระเงิน |
+<div class="related-messages-table" tabindex="0" aria-label="ข้อความที่เกี่ยวข้อง">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>ประเภทข้อความ</th>
+        <th>คำอธิบาย</th>
+        <th>ภาพรวม</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/th/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">การโอนเครดิตลูกค้าระหว่างสถาบันการเงิน</td>
+          <td class="related-messages-table__overview">ข้อความ pacs.008 เป็นคำสั่งชำระเงินหลักที่แลกเปลี่ยนระหว่างสถาบันการเงินเพื่อโอนเงินในนามของลูกค้า โดยมีข้อมูลลูกหนี้ เจ้าหนี้ จำนวนเงิน และข้อมูลการโอนเงินสำหรับธุรกรรมโอนเครดิตหนึ่งรายการหรือมากกว่า</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/th/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
+          <td class="related-messages-table__name">การคืนเงินชำระ</td>
+          <td class="related-messages-table__overview">ข้อความ pacs.004 ใช้เพื่อส่งคืนธุรกรรมการชำระเงินที่ชำระบัญชีแล้วก่อนหน้านี้ โดยย้อนกลับกระแสเงินทุนเมื่อไม่สามารถนำเงินไปใช้ได้ ส่งผิดพลาด หรือถูกเรียกคืนโดยสถาบันต้นทาง</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/th/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">รายงานสถานะการชำระเงินระหว่างสถาบันการเงิน</td>
+          <td class="related-messages-table__overview">ข้อความ pacs.002 ถูกส่งโดยสถาบันการเงินเพื่อรายงานสถานะของคำสั่งชำระเงินที่ส่งไปก่อนหน้านี้ โดยให้ข้อมูลยืนยัน ปฏิเสธ หรือสถานะรอดำเนินการสำหรับธุรกรรมแต่ละรายการภายในข้อความการชำระเงิน</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

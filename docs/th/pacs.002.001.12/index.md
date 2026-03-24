@@ -36,13 +36,42 @@ image: /logo.svg
 - จำเป็นในขั้นตอน CBPR+ เพื่อตอบรับการประมวลผลข้อความ pacs.008 และ pacs.009
 - รองรับการรายงานสถานะทั้งระดับกลุ่มและระดับธุรกรรมแต่ละรายการ
 
-| องค์ประกอบข้อมูลหลัก | บริบทธุรกิจ |
-|---|---|
-| **GrpHdr** — Group Header พร้อมรหัสระบุข้อความและประทับเวลาการสร้าง | ใช้เพื่อยืนยันการชำระบัญชีหรือรายงานการปฏิเสธของการโอนเครดิต การหักบัญชีโดยตรง และการคืนเงิน |
-| **OrgnlGrpInfAndSts** — ข้อมูลกลุ่มต้นฉบับและสถานะสำหรับการรายงานระดับกลุ่ม | เปิดใช้งานการกระทบยอดระหว่างตัวแทนผู้สั่งและตัวแทนผู้รับคำสั่ง |
-| **TxInfAndSts** — ข้อมูลธุรกรรมและสถานะสำหรับผลลัพธ์ธุรกรรมแต่ละรายการ | จำเป็นในขั้นตอน CBPR+ เพื่อตอบรับการประมวลผลข้อความ pacs.008 และ pacs.009 |
-| **StsRsnInf** — ข้อมูลเหตุผลสถานะพร้อมรหัสเหตุผลที่มีโครงสร้าง | รองรับการรายงานสถานะทั้งระดับกลุ่มและระดับธุรกรรมแต่ละรายการ |
-| **OrgnlTxRef** — การอ้างอิงธุรกรรมต้นฉบับที่เชื่อมโยงกลับไปยังคำสั่งต้นทาง | ตัวแทนผู้รับคำสั่ง (ผู้รับ) ส่ง pacs.002 กลับไปยังตัวแทนผู้สั่ง (ผู้ส่ง) เพื่อยืนยันการรับ การชำระบัญชี หรือการปฏิเสธคำสั่งชำระเงินที่ได้รับ เช่น pacs.008 หรือ pacs.009 |
+<div class="operational-matrix-table" tabindex="0" aria-label="องค์ประกอบข้อมูลหลัก บริบทธุรกิจ">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>องค์ประกอบข้อมูลหลัก</th>
+        <th>บริบทธุรกิจ</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Group Header พร้อมรหัสระบุข้อความและประทับเวลาการสร้าง</td>
+          <td class="operational-matrix-table__right">ใช้เพื่อยืนยันการชำระบัญชีหรือรายงานการปฏิเสธของการโอนเครดิต การหักบัญชีโดยตรง และการคืนเงิน</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlGrpInfAndSts** — ข้อมูลกลุ่มต้นฉบับและสถานะสำหรับการรายงานระดับกลุ่ม</td>
+          <td class="operational-matrix-table__right">เปิดใช้งานการกระทบยอดระหว่างตัวแทนผู้สั่งและตัวแทนผู้รับคำสั่ง</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**TxInfAndSts** — ข้อมูลธุรกรรมและสถานะสำหรับผลลัพธ์ธุรกรรมแต่ละรายการ</td>
+          <td class="operational-matrix-table__right">จำเป็นในขั้นตอน CBPR+ เพื่อตอบรับการประมวลผลข้อความ pacs.008 และ pacs.009</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**StsRsnInf** — ข้อมูลเหตุผลสถานะพร้อมรหัสเหตุผลที่มีโครงสร้าง</td>
+          <td class="operational-matrix-table__right">รองรับการรายงานสถานะทั้งระดับกลุ่มและระดับธุรกรรมแต่ละรายการ</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlTxRef** — การอ้างอิงธุรกรรมต้นฉบับที่เชื่อมโยงกลับไปยังคำสั่งต้นทาง</td>
+          <td class="operational-matrix-table__right">ตัวแทนผู้รับคำสั่ง (ผู้รับ) ส่ง pacs.002 กลับไปยังตัวแทนผู้สั่ง (ผู้ส่ง) เพื่อยืนยันการรับ การชำระบัญชี หรือการปฏิเสธคำสั่งชำระเงินที่ได้รับ เช่น pacs.008 หรือ pacs.009</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## บริบท CBPR+ และรูปแบบ
 
@@ -57,10 +86,34 @@ image: /logo.svg
 
 ## ตารางความแตกต่างของเวอร์ชัน
 
-| ช่วงเวอร์ชัน | เหตุใดจึงสำคัญ | ข้อสรุปเชิงปฏิบัติ |
-|---|---|---|
-| pacs.002.001.12 | การติดตั้งใช้งานปัจจุบันใน pacs008 | ใช้สิ่งนี้เมื่อจำเป็นต้องสอดคล้องกับแม่แบบและทรัพยากรการตรวจสอบปัจจุบันของโครงการ |
-| pacs.002.001.13-15 | รุ่นแก้ไขแค็ตตาล็อกที่ใหม่กว่า | ตรวจสอบรุ่นแก้ไข ISO ที่ใหม่กว่าก่อนเริ่มงานด้าน interoperability ใหม่หรือเชื่อมต่อโครงสร้างพื้นฐานใหม่ |
+<div class="version-diff-table" tabindex="0" aria-label="ตารางความแตกต่างของเวอร์ชัน">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>ช่วงเวอร์ชัน</th>
+        <th>เหตุใดจึงสำคัญ</th>
+        <th>ข้อสรุปเชิงปฏิบัติ</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.002.001.12</td>
+          <td class="version-diff-table__why">การติดตั้งใช้งานปัจจุบันใน pacs008</td>
+          <td class="version-diff-table__takeaway">ใช้สิ่งนี้เมื่อจำเป็นต้องสอดคล้องกับแม่แบบและทรัพยากรการตรวจสอบปัจจุบันของโครงการ</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.002.001.13-15</td>
+          <td class="version-diff-table__why">รุ่นแก้ไขแค็ตตาล็อกที่ใหม่กว่า</td>
+          <td class="version-diff-table__takeaway">ตรวจสอบรุ่นแก้ไข ISO ที่ใหม่กว่าก่อนเริ่มงานด้าน interoperability ใหม่หรือเชื่อมต่อโครงสร้างพื้นฐานใหม่</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## ตัวอย่าง XML พร้อมคำอธิบาย
 
@@ -89,12 +142,44 @@ image: /logo.svg
 
 ## เปรียบเทียบ pacs.002 vs pacs.028
 
-| มิติ | pacs.002.001.12 | ข้อความเปรียบเทียบ |
-|---|---|---|
-| วัตถุประสงค์หลัก | รายงานสถานะ | ขอสถานะ |
-| ใครเป็นผู้เริ่มการโต้ตอบ | สถาบันที่ส่งสถานะ | สถาบันที่ร้องขอสถานะ |
-| ลักษณะเชิงปฏิบัติการ | การรายงานตามเหตุการณ์ | การสอบถามเมื่อเกิดข้อยกเว้น |
-| ข้อสมมติที่ควรหลีกเลี่ยง | การที่การรายงานสถานะแทนที่กระบวนการสืบค้นและตรวจสอบ | การที่ทุกการชำระเงินต้องมีคำขอสถานะแบบชัดเจน |
+<div class="message-comparison-table" tabindex="0" aria-label="เปรียบเทียบ pacs.002 vs pacs.028">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>มิติ</th>
+        <th>pacs.002.001.12</th>
+        <th>ข้อความเปรียบเทียบ</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">วัตถุประสงค์หลัก</td>
+          <td class="message-comparison-table__current">รายงานสถานะ</td>
+          <td class="message-comparison-table__other">ขอสถานะ</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">ใครเป็นผู้เริ่มการโต้ตอบ</td>
+          <td class="message-comparison-table__current">สถาบันที่ส่งสถานะ</td>
+          <td class="message-comparison-table__other">สถาบันที่ร้องขอสถานะ</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">ลักษณะเชิงปฏิบัติการ</td>
+          <td class="message-comparison-table__current">การรายงานตามเหตุการณ์</td>
+          <td class="message-comparison-table__other">การสอบถามเมื่อเกิดข้อยกเว้น</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">ข้อสมมติที่ควรหลีกเลี่ยง</td>
+          <td class="message-comparison-table__current">การที่การรายงานสถานะแทนที่กระบวนการสืบค้นและตรวจสอบ</td>
+          <td class="message-comparison-table__other">การที่ทุกการชำระเงินต้องมีคำขอสถานะแบบชัดเจน</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## เอกสารอ้างอิงหลัก
 
@@ -106,9 +191,37 @@ image: /logo.svg
 
 
 ## ข้อความที่เกี่ยวข้อง
-| ประเภทข้อความ | คำอธิบาย | ภาพรวม |
-|---|---|---|
-| [`pacs.008.001.13`](/th/pacs.008.001.13/) | การโอนเครดิตลูกค้าระหว่างสถาบันการเงิน | ข้อความ pacs.008 เป็นคำสั่งชำระเงินหลักที่แลกเปลี่ยนระหว่างสถาบันการเงินเพื่อโอนเงินในนามของลูกค้า โดยมีข้อมูลลูกหนี้ เจ้าหนี้ จำนวนเงิน และข้อมูลการโอนเงินสำหรับธุรกรรมโอนเครดิตหนึ่งรายการหรือมากกว่า |
-| [`pacs.009.001.10`](/th/pacs.009.001.10/) | การโอนเครดิตระหว่างสถาบันการเงิน | ข้อความ pacs.009 ใช้สำหรับการโอนเครดิตระหว่างสถาบันการเงินโดยที่การโอนเป็นในนามของสถาบันเอง ไม่ใช่ในนามของลูกค้า รองรับการจัดหาเงินทุนระหว่างธนาคาร การชำระเงินแบบ cover และการจัดการสภาพคล่อง |
-| [`pacs.028.001.05`](/th/pacs.028.001.05/) | คำขอสถานะการชำระเงินระหว่างสถาบันการเงิน | ข้อความ pacs.028 ถูกส่งโดยสถาบันการเงินเพื่อร้องขอสถานะของคำสั่งชำระเงินที่ส่งไปก่อนหน้านี้ ช่วยให้สามารถติดตามการประมวลผลการชำระเงินเชิงรุกโดยไม่ต้องรอรายงานสถานะที่ไม่ได้ร้องขอ |
+<div class="related-messages-table" tabindex="0" aria-label="ข้อความที่เกี่ยวข้อง">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>ประเภทข้อความ</th>
+        <th>คำอธิบาย</th>
+        <th>ภาพรวม</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/th/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">การโอนเครดิตลูกค้าระหว่างสถาบันการเงิน</td>
+          <td class="related-messages-table__overview">ข้อความ pacs.008 เป็นคำสั่งชำระเงินหลักที่แลกเปลี่ยนระหว่างสถาบันการเงินเพื่อโอนเงินในนามของลูกค้า โดยมีข้อมูลลูกหนี้ เจ้าหนี้ จำนวนเงิน และข้อมูลการโอนเงินสำหรับธุรกรรมโอนเครดิตหนึ่งรายการหรือมากกว่า</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/th/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">การโอนเครดิตระหว่างสถาบันการเงิน</td>
+          <td class="related-messages-table__overview">ข้อความ pacs.009 ใช้สำหรับการโอนเครดิตระหว่างสถาบันการเงินโดยที่การโอนเป็นในนามของสถาบันเอง ไม่ใช่ในนามของลูกค้า รองรับการจัดหาเงินทุนระหว่างธนาคาร การชำระเงินแบบ cover และการจัดการสภาพคล่อง</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/th/pacs.028.001.05/"><code>pacs.028.001.05</code></a></td>
+          <td class="related-messages-table__name">คำขอสถานะการชำระเงินระหว่างสถาบันการเงิน</td>
+          <td class="related-messages-table__overview">ข้อความ pacs.028 ถูกส่งโดยสถาบันการเงินเพื่อร้องขอสถานะของคำสั่งชำระเงินที่ส่งไปก่อนหน้านี้ ช่วยให้สามารถติดตามการประมวลผลการชำระเงินเชิงรุกโดยไม่ต้องรอรายงานสถานะที่ไม่ได้ร้องขอ</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

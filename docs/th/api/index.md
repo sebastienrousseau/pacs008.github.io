@@ -41,16 +41,54 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 
 ### Endpoints
 
-| Endpoint | คำอธิบาย |
-|---|---|
-| `GET /health` | ตรวจสอบสถานะ — คืนค่าสถานะบริการ |
-| `POST /validate` | ตรวจสอบข้อมูลการชำระเงินกับสคีมาโดยไม่สร้าง XML |
-| `POST /generate` | สร้าง XML แบบซิงโครนัสและส่งคืนไฟล์ |
-| `POST /generate/async` | ส่งงานสร้างแบบอะซิงโครนัส |
-| `GET /status/{job_id}` | ตรวจสอบสถานะงานตาม ID |
-| `GET /download/{job_id}` | ดาวน์โหลด XML ที่สร้างแล้วเมื่องานเสร็จสิ้น |
-| `DELETE /jobs/{job_id}` | ยกเลิกงานที่รอดำเนินการหรือกำลังดำเนินการ |
-| `GET /docs` | Swagger UI แบบโต้ตอบสำหรับสำรวจและทดสอบ endpoints ทั้งหมด |
+<div class="api-endpoints-table" tabindex="0" aria-label="Endpoints">
+  <table>
+    <colgroup>
+      <col class="api-endpoints-table__col-endpoint">
+      <col class="api-endpoints-table__col-desc">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Endpoint</th>
+        <th>คำอธิบาย</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /health</code></td>
+          <td class="api-endpoints-table__desc">ตรวจสอบสถานะ — คืนค่าสถานะบริการ</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /validate</code></td>
+          <td class="api-endpoints-table__desc">ตรวจสอบข้อมูลการชำระเงินกับสคีมาโดยไม่สร้าง XML</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate</code></td>
+          <td class="api-endpoints-table__desc">สร้าง XML แบบซิงโครนัสและส่งคืนไฟล์</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate/async</code></td>
+          <td class="api-endpoints-table__desc">ส่งงานสร้างแบบอะซิงโครนัส</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /status/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">ตรวจสอบสถานะงานตาม ID</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /download/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">ดาวน์โหลด XML ที่สร้างแล้วเมื่องานเสร็จสิ้น</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>DELETE /jobs/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">ยกเลิกงานที่รอดำเนินการหรือกำลังดำเนินการ</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /docs</code></td>
+          <td class="api-endpoints-table__desc">Swagger UI แบบโต้ตอบสำหรับสำรวจและทดสอบ endpoints ทั้งหมด</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 - [`pacs.002.001.12`](/th/pacs.002.001.12/) — รายงานสถานะการชำระเงินระหว่างสถาบันการเงิน
 - [`pacs.003.001.09`](/th/pacs.003.001.09/) — การหักบัญชีลูกค้าระหว่างสถาบันการเงิน
@@ -316,26 +354,118 @@ print(report.is_valid, report.errors)
 
 ทุกบันทึกการชำระเงินต้องมีฟิลด์ต่อไปนี้ ฟิลด์เฉพาะเวอร์ชันจะระบุไว้ตามความเหมาะสม
 
-| ฟิลด์ | คำอธิบาย | ข้อจำกัด |
-|---|---|---|
-| `msg_id` | ตัวระบุข้อความ | สูงสุด 35 อักขระ |
-| `creation_date_time` | ประทับเวลาการสร้าง | รูปแบบ ISO 8601 |
-| `nb_of_txs` | จำนวนธุรกรรม | จำนวนเต็มบวก |
-| `settlement_method` | วิธีการชำระบัญชี | CLRG, INDA, COVE หรือ INGA |
-| `end_to_end_id` | ตัวระบุแบบครบวงจร | สูงสุด 35 อักขระ |
-| `interbank_settlement_amount` | จำนวนเงินชำระบัญชีระหว่างธนาคาร | ทศนิยม เช่น `25000.00` |
-| `interbank_settlement_currency` | สกุลเงินชำระบัญชี | รหัส ISO 4217 |
-| `charge_bearer` | ผู้รับผิดชอบค่าธรรมเนียม | DEBT, CRED, SHAR หรือ SLEV |
-| `debtor_name` | ชื่อลูกหนี้ | สูงสุด 140 อักขระ |
-| `debtor_agent_bic` | BIC ตัวแทนลูกหนี้ | 8 หรือ 11 อักขระ |
-| `creditor_agent_bic` | BIC ตัวแทนเจ้าหนี้ | 8 หรือ 11 อักขระ |
-| `creditor_name` | ชื่อเจ้าหนี้ | สูงสุด 140 อักขระ |
+<div class="api-fields-table" tabindex="0" aria-label="ฟิลด์ข้อมูลที่จำเป็น">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>ฟิลด์</th>
+        <th>คำอธิบาย</th>
+        <th>ข้อจำกัด</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>msg_id</code></td>
+          <td class="api-fields-table__desc">ตัวระบุข้อความ</td>
+          <td class="api-fields-table__constraint">สูงสุด 35 อักขระ</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creation_date_time</code></td>
+          <td class="api-fields-table__desc">ประทับเวลาการสร้าง</td>
+          <td class="api-fields-table__constraint">รูปแบบ ISO 8601</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>nb_of_txs</code></td>
+          <td class="api-fields-table__desc">จำนวนธุรกรรม</td>
+          <td class="api-fields-table__constraint">จำนวนเต็มบวก</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>settlement_method</code></td>
+          <td class="api-fields-table__desc">วิธีการชำระบัญชี</td>
+          <td class="api-fields-table__constraint">CLRG, INDA, COVE หรือ INGA</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>end_to_end_id</code></td>
+          <td class="api-fields-table__desc">ตัวระบุแบบครบวงจร</td>
+          <td class="api-fields-table__constraint">สูงสุด 35 อักขระ</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_amount</code></td>
+          <td class="api-fields-table__desc">จำนวนเงินชำระบัญชีระหว่างธนาคาร</td>
+          <td class="api-fields-table__constraint">ทศนิยม เช่น `25000.00`</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_currency</code></td>
+          <td class="api-fields-table__desc">สกุลเงินชำระบัญชี</td>
+          <td class="api-fields-table__constraint">รหัส ISO 4217</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>charge_bearer</code></td>
+          <td class="api-fields-table__desc">ผู้รับผิดชอบค่าธรรมเนียม</td>
+          <td class="api-fields-table__constraint">DEBT, CRED, SHAR หรือ SLEV</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_name</code></td>
+          <td class="api-fields-table__desc">ชื่อลูกหนี้</td>
+          <td class="api-fields-table__constraint">สูงสุด 140 อักขระ</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_agent_bic</code></td>
+          <td class="api-fields-table__desc">BIC ตัวแทนลูกหนี้</td>
+          <td class="api-fields-table__constraint">8 หรือ 11 อักขระ</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_agent_bic</code></td>
+          <td class="api-fields-table__desc">BIC ตัวแทนเจ้าหนี้</td>
+          <td class="api-fields-table__constraint">8 หรือ 11 อักขระ</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_name</code></td>
+          <td class="api-fields-table__desc">ชื่อเจ้าหนี้</td>
+          <td class="api-fields-table__constraint">สูงสุด 140 อักขระ</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ### ฟิลด์เฉพาะเวอร์ชัน
 
-| ฟิลด์ | คำอธิบาย | ข้อจำกัด |
-|---|---|---|
-| `uetr` | การอ้างอิงธุรกรรมแบบครบวงจรที่ไม่ซ้ำกัน | รูปแบบ UUID — ใช้ได้ตั้งแต่ v08 |
-| `mandate_id` | ตัวระบุคำสั่งมอบอำนาจ | ใช้ได้ตั้งแต่ v10 |
-| `expiry_date_time` | ประทับเวลาหมดอายุข้อความ | ใช้ได้ใน v13 |
+<div class="api-fields-table api-fields-table--versioned" tabindex="0" aria-label="ฟิลด์เฉพาะเวอร์ชัน">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>ฟิลด์</th>
+        <th>คำอธิบาย</th>
+        <th>ข้อจำกัด</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>uetr</code></td>
+          <td class="api-fields-table__desc">การอ้างอิงธุรกรรมแบบครบวงจรที่ไม่ซ้ำกัน</td>
+          <td class="api-fields-table__constraint">รูปแบบ UUID — ใช้ได้ตั้งแต่ v08</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>mandate_id</code></td>
+          <td class="api-fields-table__desc">ตัวระบุคำสั่งมอบอำนาจ</td>
+          <td class="api-fields-table__constraint">ใช้ได้ตั้งแต่ v10</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>expiry_date_time</code></td>
+          <td class="api-fields-table__desc">ประทับเวลาหมดอายุข้อความ</td>
+          <td class="api-fields-table__constraint">ใช้ได้ใน v13</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

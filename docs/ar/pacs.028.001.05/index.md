@@ -36,13 +36,42 @@ image: /logo.svg
 - يكمّل pacs.002 من خلال بدء اتصال الحالة بدلاً من الانتظار
 - يُستخدم في تدفقات إدارة الاستثناءات ومراقبة اتفاقيات مستوى الخدمة
 
-| عناصر البيانات الرئيسية | السياق التجاري |
-|---|---|
-| **GrpHdr** — رأس المجموعة مع تعريف الرسالة والطابع الزمني للإنشاء | يمكّن الاستفسار الاستباقي عن حالة تعليمات الدفع العابرة |
-| **TxInf** — معلومات المعاملة المحددة للدفعة المراد الاستفسار عنها | يساعد فرق العمليات في التحقيق في المدفوعات المتأخرة أو المفقودة |
-| **OrgnlGrpInf** — معلومات المجموعة الأصلية المشيرة إلى الرسالة المصدرية | يكمّل pacs.002 من خلال بدء اتصال الحالة بدلاً من الانتظار |
-| **OrgnlInstrId** — تعريف التعليمات الأصلية من الدفعة المصدرية | يُستخدم في تدفقات إدارة الاستثناءات ومراقبة اتفاقيات مستوى الخدمة |
-| **OrgnlEndToEndId** — تعريف من طرف إلى طرف أصلي للتتبع | يرسل الوكيل المُرسل pacs.028 إلى الوكيل المُستلم لطلب حالة دفعة محددة. يستجيب الوكيل المُستلم برسالة pacs.002 تحتوي على حالة المعالجة الحالية. |
+<div class="operational-matrix-table" tabindex="0" aria-label="عناصر البيانات الرئيسية السياق التجاري">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>عناصر البيانات الرئيسية</th>
+        <th>السياق التجاري</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — رأس المجموعة مع تعريف الرسالة والطابع الزمني للإنشاء</td>
+          <td class="operational-matrix-table__right">يمكّن الاستفسار الاستباقي عن حالة تعليمات الدفع العابرة</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**TxInf** — معلومات المعاملة المحددة للدفعة المراد الاستفسار عنها</td>
+          <td class="operational-matrix-table__right">يساعد فرق العمليات في التحقيق في المدفوعات المتأخرة أو المفقودة</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlGrpInf** — معلومات المجموعة الأصلية المشيرة إلى الرسالة المصدرية</td>
+          <td class="operational-matrix-table__right">يكمّل pacs.002 من خلال بدء اتصال الحالة بدلاً من الانتظار</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlInstrId** — تعريف التعليمات الأصلية من الدفعة المصدرية</td>
+          <td class="operational-matrix-table__right">يُستخدم في تدفقات إدارة الاستثناءات ومراقبة اتفاقيات مستوى الخدمة</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlEndToEndId** — تعريف من طرف إلى طرف أصلي للتتبع</td>
+          <td class="operational-matrix-table__right">يرسل الوكيل المُرسل pacs.028 إلى الوكيل المُستلم لطلب حالة دفعة محددة. يستجيب الوكيل المُستلم برسالة pacs.002 تحتوي على حالة المعالجة الحالية.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## سياق CBPR+ والأنظمة
 
@@ -57,10 +86,34 @@ image: /logo.svg
 
 ## جدول فروق الإصدارات
 
-| نطاق الإصدار | لماذا يهم | الخلاصة التنفيذية |
-|---|---|---|
-| pacs.028.001.05 | التنفيذ الحالي في pacs008 | مناسب لنمذجة طلبات الحالة الحالية. |
-| pacs.028.001.06 | إصدار الكتالوج اللاحق | تحقق من الإصدار الأحدث من الكتالوج للتخطيط المستقبلي للتشغيل البيني. |
+<div class="version-diff-table" tabindex="0" aria-label="جدول فروق الإصدارات">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>نطاق الإصدار</th>
+        <th>لماذا يهم</th>
+        <th>الخلاصة التنفيذية</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.028.001.05</td>
+          <td class="version-diff-table__why">التنفيذ الحالي في pacs008</td>
+          <td class="version-diff-table__takeaway">مناسب لنمذجة طلبات الحالة الحالية.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.028.001.06</td>
+          <td class="version-diff-table__why">إصدار الكتالوج اللاحق</td>
+          <td class="version-diff-table__takeaway">تحقق من الإصدار الأحدث من الكتالوج للتخطيط المستقبلي للتشغيل البيني.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## مثال XML مشروح
 
@@ -84,12 +137,44 @@ image: /logo.svg
 
 ## مقارنة pacs.028 vs pacs.002
 
-| البعد | pacs.028.001.05 | رسالة المقارنة |
-|---|---|---|
-| الغرض الأساسي | طلب الحالة | الإبلاغ عن الحالة |
-| من يبدأ التفاعل | المؤسسة التي تطلب الحالة | المؤسسة التي ترسل الحالة |
-| الوضع التشغيلي | استعلام قائم على الاستثناء | إبلاغ قائم على الحدث |
-| افتراض خاطئ يجب تجنبه | أنه يجب إرساله بشكل روتيني لكل دفعة | أنه يلغي الحاجة إلى إدارة الحالات بشكل استباقي |
+<div class="message-comparison-table" tabindex="0" aria-label="مقارنة pacs.028 vs pacs.002">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>البعد</th>
+        <th>pacs.028.001.05</th>
+        <th>رسالة المقارنة</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">الغرض الأساسي</td>
+          <td class="message-comparison-table__current">طلب الحالة</td>
+          <td class="message-comparison-table__other">الإبلاغ عن الحالة</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">من يبدأ التفاعل</td>
+          <td class="message-comparison-table__current">المؤسسة التي تطلب الحالة</td>
+          <td class="message-comparison-table__other">المؤسسة التي ترسل الحالة</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">الوضع التشغيلي</td>
+          <td class="message-comparison-table__current">استعلام قائم على الاستثناء</td>
+          <td class="message-comparison-table__other">إبلاغ قائم على الحدث</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">افتراض خاطئ يجب تجنبه</td>
+          <td class="message-comparison-table__current">أنه يجب إرساله بشكل روتيني لكل دفعة</td>
+          <td class="message-comparison-table__other">أنه يلغي الحاجة إلى إدارة الحالات بشكل استباقي</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## المراجع الأساسية
 
@@ -99,9 +184,37 @@ image: /logo.svg
 
 
 ## الرسائل ذات الصلة
-| نوع الرسالة | الوصف | نظرة عامة |
-|---|---|---|
-| [`pacs.002.001.12`](/ar/pacs.002.001.12/) | تقرير حالة الدفع من مؤسسة مالية إلى مؤسسة مالية | يُرسل رسالة pacs.002 من مؤسسة مالية للإبلاغ عن حالة تعليمات الدفع المرسلة سابقاً. يوفر تأكيداً أو رفضاً أو معلومات حالة معلقة للمعاملات الفردية ضمن رسالة الدفع. |
-| [`pacs.008.001.13`](/ar/pacs.008.001.13/) | تحويل ائتماني للعميل من مؤسسة مالية إلى مؤسسة مالية | رسالة pacs.008 هي تعليمات الدفع الأساسية المتبادلة بين المؤسسات المالية لتحويل الأموال نيابة عن العميل. تحمل معلومات المدين والدائن والمبلغ والتحويل لمعاملة واحدة أو أكثر. |
-| [`pacs.009.001.10`](/ar/pacs.009.001.10/) | تحويل ائتماني بين المؤسسات المالية | يُستخدم رسالة pacs.009 للتحويلات بين المؤسسات المالية عندما يكون التحويل لحساب المؤسسة الخاص وليس نيابة عن عميل. يدعم التمويل بين البنوك ومدفوعات التغطية وإدارة السيولة. |
+<div class="related-messages-table" tabindex="0" aria-label="الرسائل ذات الصلة">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>نوع الرسالة</th>
+        <th>الوصف</th>
+        <th>نظرة عامة</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/ar/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">تقرير حالة الدفع من مؤسسة مالية إلى مؤسسة مالية</td>
+          <td class="related-messages-table__overview">يُرسل رسالة pacs.002 من مؤسسة مالية للإبلاغ عن حالة تعليمات الدفع المرسلة سابقاً. يوفر تأكيداً أو رفضاً أو معلومات حالة معلقة للمعاملات الفردية ضمن رسالة الدفع.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/ar/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">تحويل ائتماني للعميل من مؤسسة مالية إلى مؤسسة مالية</td>
+          <td class="related-messages-table__overview">رسالة pacs.008 هي تعليمات الدفع الأساسية المتبادلة بين المؤسسات المالية لتحويل الأموال نيابة عن العميل. تحمل معلومات المدين والدائن والمبلغ والتحويل لمعاملة واحدة أو أكثر.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/ar/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">تحويل ائتماني بين المؤسسات المالية</td>
+          <td class="related-messages-table__overview">يُستخدم رسالة pacs.009 للتحويلات بين المؤسسات المالية عندما يكون التحويل لحساب المؤسسة الخاص وليس نيابة عن عميل. يدعم التمويل بين البنوك ومدفوعات التغطية وإدارة السيولة.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

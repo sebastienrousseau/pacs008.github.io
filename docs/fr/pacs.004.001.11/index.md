@@ -36,13 +36,42 @@ Le message pacs.004 est utilisé pour retourner une transaction de paiement pré
 - Porte des codes de raison de retour structurés pour la transparence réglementaire et opérationnelle
 - S'applique aux retours de virements (pacs.008) et aux retours de prélèvements (pacs.003)
 
-| Éléments de données clés | Contexte métier |
-|---|---|
-| **GrpHdr** — En-tête de groupe avec identification du message et horodatage de création | Gère les retours post-règlement lorsque le compte du bénéficiaire ne peut être crédité |
-| **TxInf** — Informations de transaction avec montant de retour et parties | Prend en charge les scénarios de rappel lorsque l'expéditeur demande le retour des fonds |
-| **OrgnlGrpInf** — Informations du groupe d'origine reliant au message source | Porte des codes de raison de retour structurés pour la transparence réglementaire et opérationnelle |
-| **RtrRsnInf** — Informations sur le motif de retour avec codes de raison structurés | S'applique aux retours de virements (pacs.008) et aux retours de prélèvements (pacs.003) |
-| **OrgnlTxRef** — Référence de la transaction d'origine pour appariement et réconciliation | L'agent instruit envoie pacs.004 en retour à travers la chaîne de paiement pour restituer les fonds précédemment réglés. Chaque agent de la chaîne traite le retour et recrédite les comptes concernés. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Éléments de données clés Contexte métier">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Éléments de données clés</th>
+        <th>Contexte métier</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — En-tête de groupe avec identification du message et horodatage de création</td>
+          <td class="operational-matrix-table__right">Gère les retours post-règlement lorsque le compte du bénéficiaire ne peut être crédité</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**TxInf** — Informations de transaction avec montant de retour et parties</td>
+          <td class="operational-matrix-table__right">Prend en charge les scénarios de rappel lorsque l&#39;expéditeur demande le retour des fonds</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Informations du groupe d&#39;origine reliant au message source</td>
+          <td class="operational-matrix-table__right">Porte des codes de raison de retour structurés pour la transparence réglementaire et opérationnelle</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**RtrRsnInf** — Informations sur le motif de retour avec codes de raison structurés</td>
+          <td class="operational-matrix-table__right">S&#39;applique aux retours de virements (pacs.008) et aux retours de prélèvements (pacs.003)</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlTxRef** — Référence de la transaction d&#39;origine pour appariement et réconciliation</td>
+          <td class="operational-matrix-table__right">L&#39;agent instruit envoie pacs.004 en retour à travers la chaîne de paiement pour restituer les fonds précédemment réglés. Chaque agent de la chaîne traite le retour et recrédite les comptes concernés.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Contexte CBPR+ et schémas
 
@@ -57,10 +86,34 @@ L'agent instruit envoie pacs.004 en retour à travers la chaîne de paiement pou
 
 ## Tableau des écarts de version
 
-| Plage de versions | Pourquoi c'est important | Conséquence pratique |
-|---|---|---|
-| pacs.004.001.11 | Implémentation actuelle dans pacs008 | S'aligne sur les modèles actuels pour les retours de paiement. |
-| pacs.004.001.12-14 | Révisions ultérieures du catalogue | Examinez les révisions ultérieures des messages de retour lorsque des mises à jour de schéma ou de nouvelles contreparties entrent dans le périmètre. |
+<div class="version-diff-table" tabindex="0" aria-label="Tableau des écarts de version">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Plage de versions</th>
+        <th>Pourquoi c&#39;est important</th>
+        <th>Conséquence pratique</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.004.001.11</td>
+          <td class="version-diff-table__why">Implémentation actuelle dans pacs008</td>
+          <td class="version-diff-table__takeaway">S&#39;aligne sur les modèles actuels pour les retours de paiement.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.004.001.12-14</td>
+          <td class="version-diff-table__why">Révisions ultérieures du catalogue</td>
+          <td class="version-diff-table__takeaway">Examinez les révisions ultérieures des messages de retour lorsque des mises à jour de schéma ou de nouvelles contreparties entrent dans le périmètre.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Exemple XML commenté
 
@@ -87,12 +140,44 @@ L'agent instruit envoie pacs.004 en retour à travers la chaîne de paiement pou
 
 ## Comparer pacs.004 vs pacs.007
 
-| Dimension | pacs.004.001.11 | Message de comparaison |
-|---|---|---|
-| Objectif principal | Return settled funds | Reverse a previously instructed payment |
-| Initiated by | Receiving / beneficiary side | Original instructing side |
-| Direction of flow | Back through the chain | Forward through the chain |
-| Le plus adapté à | Gestion des retours après règlement | Gestion des annulations liées à un recall, à une erreur ou à une fraude |
+<div class="message-comparison-table" tabindex="0" aria-label="Comparer pacs.004 vs pacs.007">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Dimension</th>
+        <th>pacs.004.001.11</th>
+        <th>Message de comparaison</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Objectif principal</td>
+          <td class="message-comparison-table__current">Return settled funds</td>
+          <td class="message-comparison-table__other">Reverse a previously instructed payment</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Initiated by</td>
+          <td class="message-comparison-table__current">Receiving / beneficiary side</td>
+          <td class="message-comparison-table__other">Original instructing side</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Direction of flow</td>
+          <td class="message-comparison-table__current">Back through the chain</td>
+          <td class="message-comparison-table__other">Forward through the chain</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Le plus adapté à</td>
+          <td class="message-comparison-table__current">Gestion des retours après règlement</td>
+          <td class="message-comparison-table__other">Gestion des annulations liées à un recall, à une erreur ou à une fraude</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Références primaires
 
@@ -104,9 +189,37 @@ L'agent instruit envoie pacs.004 en retour à travers la chaîne de paiement pou
 
 
 ## Messages associés
-| Type de message | Description | Présentation |
-|---|---|---|
-| [`pacs.008.001.13`](/fr/pacs.008.001.13/) | Virement client FI à FI | Le message pacs.008 est l'instruction de paiement centrale échangée entre institutions financières pour transférer des fonds au nom d'un client. Il porte les informations de débiteur, créancier, montant et remise pour une ou plusieurs transactions de virement. |
-| [`pacs.003.001.09`](/fr/pacs.003.001.09/) | Prélèvement client FI à FI | Le message pacs.003 est échangé entre institutions financières pour exécuter une instruction de prélèvement client. Il permet à la banque du créancier de collecter des fonds auprès de la banque du débiteur au nom du créancier. |
-| [`pacs.002.001.12`](/fr/pacs.002.001.12/) | Rapport de statut de paiement FI à FI | Le message pacs.002 est envoyé par une institution financière pour rapporter le statut d'une instruction de paiement précédemment envoyée. Il fournit une confirmation, un rejet ou un statut en attente pour les transactions individuelles au sein d'un message de paiement. |
+<div class="related-messages-table" tabindex="0" aria-label="Messages associés">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Type de message</th>
+        <th>Description</th>
+        <th>Présentation</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/fr/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">Virement client FI à FI</td>
+          <td class="related-messages-table__overview">Le message pacs.008 est l&#39;instruction de paiement centrale échangée entre institutions financières pour transférer des fonds au nom d&#39;un client. Il porte les informations de débiteur, créancier, montant et remise pour une ou plusieurs transactions de virement.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/fr/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
+          <td class="related-messages-table__name">Prélèvement client FI à FI</td>
+          <td class="related-messages-table__overview">Le message pacs.003 est échangé entre institutions financières pour exécuter une instruction de prélèvement client. Il permet à la banque du créancier de collecter des fonds auprès de la banque du débiteur au nom du créancier.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/fr/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">Rapport de statut de paiement FI à FI</td>
+          <td class="related-messages-table__overview">Le message pacs.002 est envoyé par une institution financière pour rapporter le statut d&#39;une instruction de paiement précédemment envoyée. Il fournit une confirmation, un rejet ou un statut en attente pour les transactions individuelles au sein d&#39;un message de paiement.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

@@ -36,13 +36,42 @@ Il messaggio pacs.009 viene utilizzato per bonifici tra istituti finanziari in c
 - Trasporta la tratta di copertura dei bonifici della clientela regolati con metodo copertura
 - Consente operazioni di tesoreria e provvista tra istituti finanziari
 
-| Elementi di dati chiave | Contesto di business |
-|---|---|
-| **GrpHdr** — Intestazione di gruppo con identificazione del messaggio e informazioni di regolamento | Utilizzato per trasferimenti bancari su conto proprio e pagamenti di copertura |
-| **CdtTrfTxInf** — Informazioni sulla transazione di bonifico con importo di regolamento interbancario | Supporta la gestione della liquidità tra partner di corrispondenza bancaria |
-| **Dbtr / DbtrAgt** — Identificazione dell'istituto debitore e del suo agente | Trasporta la tratta di copertura dei bonifici della clientela regolati con metodo copertura |
-| **Cdtr / CdtrAgt** — Identificazione dell'istituto creditore e del suo agente | Consente operazioni di tesoreria e provvista tra istituti finanziari |
-| **IntrBkSttlmAmt** — Importo di regolamento interbancario nella valuta di regolamento | L'istituto debitore invia pacs.009 all'istituto creditore per trasferire i propri fondi. Per i pagamenti con metodo copertura, pacs.009 fornisce la tratta di provvista mentre pacs.008 trasporta l'istruzione del cliente attraverso un percorso separato. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Elementi di dati chiave Contesto di business">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Elementi di dati chiave</th>
+        <th>Contesto di business</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Intestazione di gruppo con identificazione del messaggio e informazioni di regolamento</td>
+          <td class="operational-matrix-table__right">Utilizzato per trasferimenti bancari su conto proprio e pagamenti di copertura</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Informazioni sulla transazione di bonifico con importo di regolamento interbancario</td>
+          <td class="operational-matrix-table__right">Supporta la gestione della liquidità tra partner di corrispondenza bancaria</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identificazione dell&#39;istituto debitore e del suo agente</td>
+          <td class="operational-matrix-table__right">Trasporta la tratta di copertura dei bonifici della clientela regolati con metodo copertura</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identificazione dell&#39;istituto creditore e del suo agente</td>
+          <td class="operational-matrix-table__right">Consente operazioni di tesoreria e provvista tra istituti finanziari</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Importo di regolamento interbancario nella valuta di regolamento</td>
+          <td class="operational-matrix-table__right">L&#39;istituto debitore invia pacs.009 all&#39;istituto creditore per trasferire i propri fondi. Per i pagamenti con metodo copertura, pacs.009 fornisce la tratta di provvista mentre pacs.008 trasporta l&#39;istruzione del cliente attraverso un percorso separato.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Contesto CBPR+ e schemi
 
@@ -57,10 +86,34 @@ L'istituto debitore invia pacs.009 all'istituto creditore per trasferire i propr
 
 ## Tabella delle differenze di versione
 
-| Intervallo di versione | Perché conta | Implicazione implementativa |
-|---|---|---|
-| pacs.009.001.10 | Implementazione attuale in pacs008 | È coerente con il supporto attuale del progetto per i flussi di bonifico FI. |
-| pacs.009.001.11-12 | Revisioni successive del catalogo | Importante per la pianificazione evolutiva in ambienti di banca corrispondente e pagamenti di copertura. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabella delle differenze di versione">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Intervallo di versione</th>
+        <th>Perché conta</th>
+        <th>Implicazione implementativa</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.009.001.10</td>
+          <td class="version-diff-table__why">Implementazione attuale in pacs008</td>
+          <td class="version-diff-table__takeaway">È coerente con il supporto attuale del progetto per i flussi di bonifico FI.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.009.001.11-12</td>
+          <td class="version-diff-table__why">Revisioni successive del catalogo</td>
+          <td class="version-diff-table__takeaway">Importante per la pianificazione evolutiva in ambienti di banca corrispondente e pagamenti di copertura.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Esempio XML commentato
 
@@ -86,12 +139,44 @@ L'istituto debitore invia pacs.009 all'istituto creditore per trasferire i propr
 
 ## Confrontare pacs.009 vs pacs.008
 
-| Dimensione | pacs.009.001.10 | Messaggio di confronto |
-|---|---|---|
-| Scopo principale | Trasferimento di credito su conto proprio dell'istituzione o gamba di copertura | Trasferimento di credito del cliente |
-| Responsabile di business | Operazioni di tesoreria, corrispondenza e funding | Operazioni di pagamento del cliente |
-| Abbinamenti tipici | flussi pacs.002, pacs.004 e pacs.008 collegati | pacs.002, pacs.004, pacs.007, pacs.028 |
-| Ipotesi errata da evitare | Che sia semplicemente una pacs.008 più tecnica | Che possa gestire senza problemi i flussi di provvista tra istituzioni |
+<div class="message-comparison-table" tabindex="0" aria-label="Confrontare pacs.009 vs pacs.008">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Dimensione</th>
+        <th>pacs.009.001.10</th>
+        <th>Messaggio di confronto</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Scopo principale</td>
+          <td class="message-comparison-table__current">Trasferimento di credito su conto proprio dell&#39;istituzione o gamba di copertura</td>
+          <td class="message-comparison-table__other">Trasferimento di credito del cliente</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Responsabile di business</td>
+          <td class="message-comparison-table__current">Operazioni di tesoreria, corrispondenza e funding</td>
+          <td class="message-comparison-table__other">Operazioni di pagamento del cliente</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Abbinamenti tipici</td>
+          <td class="message-comparison-table__current">flussi pacs.002, pacs.004 e pacs.008 collegati</td>
+          <td class="message-comparison-table__other">pacs.002, pacs.004, pacs.007, pacs.028</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Ipotesi errata da evitare</td>
+          <td class="message-comparison-table__current">Che sia semplicemente una pacs.008 più tecnica</td>
+          <td class="message-comparison-table__other">Che possa gestire senza problemi i flussi di provvista tra istituzioni</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Riferimenti primari
 
@@ -103,9 +188,37 @@ L'istituto debitore invia pacs.009 all'istituto creditore per trasferire i propr
 
 
 ## Messaggi correlati
-| Tipo di messaggio | Descrizione | Panoramica |
-|---|---|---|
-| [`pacs.008.001.13`](/it/pacs.008.001.13/) | Bonifico cliente tra istituzioni finanziarie | Il messaggio pacs.008 è l'istruzione di pagamento principale scambiata tra istituti finanziari per trasferire fondi per conto di un cliente. Contiene informazioni su debitore, creditore, importo e dettagli di rimessa per una o più transazioni di bonifico. |
-| [`pacs.002.001.12`](/it/pacs.002.001.12/) | Rapporto di stato del pagamento tra istituzioni finanziarie | Il messaggio pacs.002 viene inviato da un istituto finanziario per comunicare lo stato di un'istruzione di pagamento precedentemente inviata. Fornisce informazioni di conferma, rifiuto o stato in sospeso per le singole transazioni all'interno di un messaggio di pagamento. |
-| [`pacs.010.001.05`](/it/pacs.010.001.05/) | Addebito diretto tra istituzioni finanziarie | Il messaggio pacs.010 viene utilizzato tra istituti finanziari per transazioni di addebito diretto sul conto proprio dell'istituto. Consente a un istituto di raccogliere fondi direttamente dal conto di un altro istituto. |
+<div class="related-messages-table" tabindex="0" aria-label="Messaggi correlati">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Tipo di messaggio</th>
+        <th>Descrizione</th>
+        <th>Panoramica</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/it/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">Bonifico cliente tra istituzioni finanziarie</td>
+          <td class="related-messages-table__overview">Il messaggio pacs.008 è l&#39;istruzione di pagamento principale scambiata tra istituti finanziari per trasferire fondi per conto di un cliente. Contiene informazioni su debitore, creditore, importo e dettagli di rimessa per una o più transazioni di bonifico.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/it/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">Rapporto di stato del pagamento tra istituzioni finanziarie</td>
+          <td class="related-messages-table__overview">Il messaggio pacs.002 viene inviato da un istituto finanziario per comunicare lo stato di un&#39;istruzione di pagamento precedentemente inviata. Fornisce informazioni di conferma, rifiuto o stato in sospeso per le singole transazioni all&#39;interno di un messaggio di pagamento.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/it/pacs.010.001.05/"><code>pacs.010.001.05</code></a></td>
+          <td class="related-messages-table__name">Addebito diretto tra istituzioni finanziarie</td>
+          <td class="related-messages-table__overview">Il messaggio pacs.010 viene utilizzato tra istituti finanziari per transazioni di addebito diretto sul conto proprio dell&#39;istituto. Consente a un istituto di raccogliere fondi direttamente dal conto di un altro istituto.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

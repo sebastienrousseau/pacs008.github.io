@@ -41,16 +41,54 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 
 ### Endpoint-uri
 
-| Endpoint | Descriere |
-|---|---|
-| `GET /health` | Health check — returnează starea serviciului |
-| `POST /validate` | Validează datele de plată față de schemă fără a genera XML |
-| `POST /generate` | Generează XML sincron și returnează fișierul |
-| `POST /generate/async` | Trimite un job de generare asincron |
-| `GET /status/{job_id}` | Interoghează starea jobului după ID |
-| `GET /download/{job_id}` | Descarcă XML-ul generat după finalizarea jobului |
-| `DELETE /jobs/{job_id}` | Anularea unei sarcini în așteptare sau în curs de execuție |
-| `GET /docs` | Swagger UI interactiv pentru explorarea și testarea tuturor endpoint-urilor |
+<div class="api-endpoints-table" tabindex="0" aria-label="Endpoint-uri">
+  <table>
+    <colgroup>
+      <col class="api-endpoints-table__col-endpoint">
+      <col class="api-endpoints-table__col-desc">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Endpoint</th>
+        <th>Descriere</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /health</code></td>
+          <td class="api-endpoints-table__desc">Health check — returnează starea serviciului</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /validate</code></td>
+          <td class="api-endpoints-table__desc">Validează datele de plată față de schemă fără a genera XML</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate</code></td>
+          <td class="api-endpoints-table__desc">Generează XML sincron și returnează fișierul</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate/async</code></td>
+          <td class="api-endpoints-table__desc">Trimite un job de generare asincron</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /status/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Interoghează starea jobului după ID</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /download/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Descarcă XML-ul generat după finalizarea jobului</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>DELETE /jobs/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Anularea unei sarcini în așteptare sau în curs de execuție</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /docs</code></td>
+          <td class="api-endpoints-table__desc">Swagger UI interactiv pentru explorarea și testarea tuturor endpoint-urilor</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 - [`pacs.002.001.12`](/ro/pacs.002.001.12/) — Raport de stare a plății FI-la-FI
 - [`pacs.003.001.09`](/ro/pacs.003.001.09/) — Debit direct de client FI-la-FI
@@ -316,26 +354,118 @@ print(report.is_valid, report.errors)
 
 Fiecare înregistrare de plată trebuie să includă câmpurile de mai jos. Câmpurile specifice versiunii sunt menționate acolo unde este aplicabil.
 
-| Câmp | Descriere | Constrângere |
-|---|---|---|
-| `msg_id` | Identificator mesaj | Max. 35 de caractere |
-| `creation_date_time` | Marcaj temporal de creare | Format ISO 8601 |
-| `nb_of_txs` | Număr de tranzacții | Număr întreg pozitiv |
-| `settlement_method` | Metodă de decontare | CLRG, INDA, COVE sau INGA |
-| `end_to_end_id` | Identificator end-to-end | Max. 35 de caractere |
-| `interbank_settlement_amount` | Suma de decontare interbancară | Zecimal, ex.: `25000.00` |
-| `interbank_settlement_currency` | Moneda de decontare | Cod ISO 4217 |
-| `charge_bearer` | Purtătorul taxelor | DEBT, CRED, SHAR sau SLEV |
-| `debtor_name` | Numele debitorului | Max. 140 de caractere |
-| `debtor_agent_bic` | BIC agentul debitorului | 8 sau 11 caractere |
-| `creditor_agent_bic` | BIC agentul creditorului | 8 sau 11 caractere |
-| `creditor_name` | Numele creditorului | Max. 140 de caractere |
+<div class="api-fields-table" tabindex="0" aria-label="Câmpuri de date obligatorii">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Câmp</th>
+        <th>Descriere</th>
+        <th>Constrângere</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>msg_id</code></td>
+          <td class="api-fields-table__desc">Identificator mesaj</td>
+          <td class="api-fields-table__constraint">Max. 35 de caractere</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creation_date_time</code></td>
+          <td class="api-fields-table__desc">Marcaj temporal de creare</td>
+          <td class="api-fields-table__constraint">Format ISO 8601</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>nb_of_txs</code></td>
+          <td class="api-fields-table__desc">Număr de tranzacții</td>
+          <td class="api-fields-table__constraint">Număr întreg pozitiv</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>settlement_method</code></td>
+          <td class="api-fields-table__desc">Metodă de decontare</td>
+          <td class="api-fields-table__constraint">CLRG, INDA, COVE sau INGA</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>end_to_end_id</code></td>
+          <td class="api-fields-table__desc">Identificator end-to-end</td>
+          <td class="api-fields-table__constraint">Max. 35 de caractere</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_amount</code></td>
+          <td class="api-fields-table__desc">Suma de decontare interbancară</td>
+          <td class="api-fields-table__constraint">Zecimal, ex.: `25000.00`</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_currency</code></td>
+          <td class="api-fields-table__desc">Moneda de decontare</td>
+          <td class="api-fields-table__constraint">Cod ISO 4217</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>charge_bearer</code></td>
+          <td class="api-fields-table__desc">Purtătorul taxelor</td>
+          <td class="api-fields-table__constraint">DEBT, CRED, SHAR sau SLEV</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_name</code></td>
+          <td class="api-fields-table__desc">Numele debitorului</td>
+          <td class="api-fields-table__constraint">Max. 140 de caractere</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_agent_bic</code></td>
+          <td class="api-fields-table__desc">BIC agentul debitorului</td>
+          <td class="api-fields-table__constraint">8 sau 11 caractere</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_agent_bic</code></td>
+          <td class="api-fields-table__desc">BIC agentul creditorului</td>
+          <td class="api-fields-table__constraint">8 sau 11 caractere</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_name</code></td>
+          <td class="api-fields-table__desc">Numele creditorului</td>
+          <td class="api-fields-table__constraint">Max. 140 de caractere</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ### Câmpuri specifice versiunii
 
-| Câmp | Descriere | Constrângere |
-|---|---|---|
-| `uetr` | Referință unică de tranzacție end-to-end | Format UUID — disponibil începând cu v08 |
-| `mandate_id` | Identificator mandat | Disponibil începând cu v10 |
-| `expiry_date_time` | Marcaj temporal de expirare a mesajului | Disponibil în v13 |
+<div class="api-fields-table api-fields-table--versioned" tabindex="0" aria-label="Câmpuri specifice versiunii">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Câmp</th>
+        <th>Descriere</th>
+        <th>Constrângere</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>uetr</code></td>
+          <td class="api-fields-table__desc">Referință unică de tranzacție end-to-end</td>
+          <td class="api-fields-table__constraint">Format UUID — disponibil începând cu v08</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>mandate_id</code></td>
+          <td class="api-fields-table__desc">Identificator mandat</td>
+          <td class="api-fields-table__constraint">Disponibil începând cu v10</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>expiry_date_time</code></td>
+          <td class="api-fields-table__desc">Marcaj temporal de expirare a mesajului</td>
+          <td class="api-fields-table__constraint">Disponibil în v13</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

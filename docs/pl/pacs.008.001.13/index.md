@@ -36,13 +36,42 @@ Komunikat pacs.008 jest podstawową instrukcją płatniczą wymienianą między 
 - Zawiera strukturyzowane informacje o przekazie wspierające automatyczne uzgadnianie
 - Obsługuje metody rozrachunku seryjnego, pokrycia i bezpośredniego dla wieloetapowych łańcuchów płatniczych
 
-| Kluczowe elementy danych | Kontekst biznesowy |
-|---|---|
-| **GrpHdr** — Nagłówek grupy z ID komunikatu, datą utworzenia, liczbą transakcji i informacjami o rozrachunku | Podstawowy komunikat dla transgranicznych i krajowych poleceń przelewu inicjowanych przez klienta |
-| **CdtTrfTxInf** — Informacje o transakcji polecenia przelewu z kwotą, opłatami i celem | Używany w SEPA SCT, SEPA Instant, CBPR+ oraz krajowych systemach rozliczeniowych |
-| **Dbtr / DbtrAgt** — Identyfikacja dłużnika i agenta dłużnika z danymi rachunku | Zawiera strukturyzowane informacje o przekazie wspierające automatyczne uzgadnianie |
-| **Cdtr / CdtrAgt** — Identyfikacja wierzyciela i agenta wierzyciela z danymi rachunku | Obsługuje metody rozrachunku seryjnego, pokrycia i bezpośredniego dla wieloetapowych łańcuchów płatniczych |
-| **RmtInf** — Informacje o przekazie dla strukturyzowanych lub niestrukturyzowanych referencji płatniczych | Agent dłużnika tworzy pacs.008 i wysyła go do agenta wierzyciela (bezpośrednio lub przez pośredników). Każdy agent w łańcuchu waliduje, wzbogaca i przekazuje instrukcję, aż agent wierzyciela uzna rachunek beneficjenta. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Kluczowe elementy danych Kontekst biznesowy">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Kluczowe elementy danych</th>
+        <th>Kontekst biznesowy</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Nagłówek grupy z ID komunikatu, datą utworzenia, liczbą transakcji i informacjami o rozrachunku</td>
+          <td class="operational-matrix-table__right">Podstawowy komunikat dla transgranicznych i krajowych poleceń przelewu inicjowanych przez klienta</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Informacje o transakcji polecenia przelewu z kwotą, opłatami i celem</td>
+          <td class="operational-matrix-table__right">Używany w SEPA SCT, SEPA Instant, CBPR+ oraz krajowych systemach rozliczeniowych</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identyfikacja dłużnika i agenta dłużnika z danymi rachunku</td>
+          <td class="operational-matrix-table__right">Zawiera strukturyzowane informacje o przekazie wspierające automatyczne uzgadnianie</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identyfikacja wierzyciela i agenta wierzyciela z danymi rachunku</td>
+          <td class="operational-matrix-table__right">Obsługuje metody rozrachunku seryjnego, pokrycia i bezpośredniego dla wieloetapowych łańcuchów płatniczych</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**RmtInf** — Informacje o przekazie dla strukturyzowanych lub niestrukturyzowanych referencji płatniczych</td>
+          <td class="operational-matrix-table__right">Agent dłużnika tworzy pacs.008 i wysyła go do agenta wierzyciela (bezpośrednio lub przez pośredników). Każdy agent w łańcuchu waliduje, wzbogaca i przekazuje instrukcję, aż agent wierzyciela uzna rachunek beneficjenta.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Kontekst CBPR+ i schematy
 
@@ -57,11 +86,39 @@ Agent dłużnika tworzy pacs.008 i wysyła go do agenta wierzyciela (bezpośredn
 
 ## Tabela różnic wersji
 
-| Zakres wersji | Dlaczego to ważne | Wniosek wdrożeniowy |
-|---|---|---|
-| pacs.008.001.01-07 | Wczesne rewizje | Przydatne głównie do analizy migracji ze starszych systemów i kontekstu historii wersji. |
-| pacs.008.001.08-12 | Nowoczesne rewizje sprzed bieżącej wersji | To rewizje, które najczęściej pojawiają się w ostatnich projektach migracyjnych lub koegzystencji. |
-| pacs.008.001.13 | Bieżąca rewizja katalogu | Używaj tego do planowania wokół bieżącej wersji, nadal sprawdzając zasady użycia schematu i gotowość kontrahentów. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabela różnic wersji">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Zakres wersji</th>
+        <th>Dlaczego to ważne</th>
+        <th>Wniosek wdrożeniowy</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.01-07</td>
+          <td class="version-diff-table__why">Wczesne rewizje</td>
+          <td class="version-diff-table__takeaway">Przydatne głównie do analizy migracji ze starszych systemów i kontekstu historii wersji.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.08-12</td>
+          <td class="version-diff-table__why">Nowoczesne rewizje sprzed bieżącej wersji</td>
+          <td class="version-diff-table__takeaway">To rewizje, które najczęściej pojawiają się w ostatnich projektach migracyjnych lub koegzystencji.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.13</td>
+          <td class="version-diff-table__why">Bieżąca rewizja katalogu</td>
+          <td class="version-diff-table__takeaway">Używaj tego do planowania wokół bieżącej wersji, nadal sprawdzając zasady użycia schematu i gotowość kontrahentów.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Przykład XML z komentarzami
 
@@ -93,12 +150,44 @@ Agent dłużnika tworzy pacs.008 i wysyła go do agenta wierzyciela (bezpośredn
 
 ## Porównanie pacs.008 vs pacs.009
 
-| Wymiar | pacs.008.001.13 | Wiadomość porównawcza |
-|---|---|---|
-| Główny cel | Kliencki przelew kredytowy | Przelew kredytowy na rachunek własny instytucji lub etap pokrycia |
-| Właściciel biznesowy | Operacje płatności klientów | Operacje skarbowe / korespondencyjne / finansowania |
-| Typowe powiązania | pacs.002, pacs.004, pacs.007, pacs.028 | pacs.002, pacs.004 i czasem powiązane przepływy pacs.008 |
-| Błędne założenie, którego należy unikać | Że wszystkie przelewy między bankami należą tutaj | Że może zastąpić instrukcje przelewu kredytowego klienta |
+<div class="message-comparison-table" tabindex="0" aria-label="Porównanie pacs.008 vs pacs.009">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Wymiar</th>
+        <th>pacs.008.001.13</th>
+        <th>Wiadomość porównawcza</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Główny cel</td>
+          <td class="message-comparison-table__current">Kliencki przelew kredytowy</td>
+          <td class="message-comparison-table__other">Przelew kredytowy na rachunek własny instytucji lub etap pokrycia</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Właściciel biznesowy</td>
+          <td class="message-comparison-table__current">Operacje płatności klientów</td>
+          <td class="message-comparison-table__other">Operacje skarbowe / korespondencyjne / finansowania</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Typowe powiązania</td>
+          <td class="message-comparison-table__current">pacs.002, pacs.004, pacs.007, pacs.028</td>
+          <td class="message-comparison-table__other">pacs.002, pacs.004 i czasem powiązane przepływy pacs.008</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Błędne założenie, którego należy unikać</td>
+          <td class="message-comparison-table__current">Że wszystkie przelewy między bankami należą tutaj</td>
+          <td class="message-comparison-table__other">Że może zastąpić instrukcje przelewu kredytowego klienta</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Źródła podstawowe
 
@@ -132,9 +221,37 @@ Agent dłużnika tworzy pacs.008 i wysyła go do agenta wierzyciela (bezpośredn
 | `pacs.008.001.13` | **Bieżąca** |
 
 ## Powiązane wiadomości
-| Typ wiadomości | Opis | Przegląd |
-|---|---|---|
-| [`pacs.002.001.12`](/pl/pacs.002.001.12/) | Raport statusu płatności FI-do-FI | Komunikat pacs.002 jest wysyłany przez instytucję finansową w celu raportowania statusu wcześniej wysłanej instrukcji płatniczej. Dostarcza informacje o potwierdzeniu, odrzuceniu lub statusie oczekującym dla poszczególnych transakcji w ramach komunikatu płatniczego. |
-| [`pacs.004.001.11`](/pl/pacs.004.001.11/) | Zwrot płatności | Komunikat pacs.004 jest używany do zwrotu wcześniej rozliczonej transakcji płatniczej. Odwraca przepływ środków, gdy płatność nie może zostać zastosowana, została wysłana omyłkowo lub jest przywoływana przez instytucję inicjującą. |
-| [`pacs.009.001.10`](/pl/pacs.009.001.10/) | Przelew kredytowy między instytucjami finansowymi | Komunikat pacs.009 jest używany do poleceń przelewu między instytucjami finansowymi, w których transfer odbywa się na rachunek własny instytucji, a nie w imieniu klienta. Obsługuje finansowanie międzybankowe, płatności pokrycia i zarządzanie płynnością. |
+<div class="related-messages-table" tabindex="0" aria-label="Powiązane wiadomości">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Typ wiadomości</th>
+        <th>Opis</th>
+        <th>Przegląd</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pl/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">Raport statusu płatności FI-do-FI</td>
+          <td class="related-messages-table__overview">Komunikat pacs.002 jest wysyłany przez instytucję finansową w celu raportowania statusu wcześniej wysłanej instrukcji płatniczej. Dostarcza informacje o potwierdzeniu, odrzuceniu lub statusie oczekującym dla poszczególnych transakcji w ramach komunikatu płatniczego.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pl/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
+          <td class="related-messages-table__name">Zwrot płatności</td>
+          <td class="related-messages-table__overview">Komunikat pacs.004 jest używany do zwrotu wcześniej rozliczonej transakcji płatniczej. Odwraca przepływ środków, gdy płatność nie może zostać zastosowana, została wysłana omyłkowo lub jest przywoływana przez instytucję inicjującą.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pl/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">Przelew kredytowy między instytucjami finansowymi</td>
+          <td class="related-messages-table__overview">Komunikat pacs.009 jest używany do poleceń przelewu między instytucjami finansowymi, w których transfer odbywa się na rachunek własny instytucji, a nie w imieniu klienta. Obsługuje finansowanie międzybankowe, płatności pokrycia i zarządzanie płynnością.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

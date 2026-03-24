@@ -41,16 +41,54 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 
 ### Các endpoint
 
-| Endpoint | Mô tả |
-|---|---|
-| `GET /health` | Kiểm tra trạng thái — trả về trạng thái dịch vụ |
-| `POST /validate` | Xác thực dữ liệu thanh toán theo lược đồ mà không tạo XML |
-| `POST /generate` | Tạo XML đồng bộ và trả về tệp |
-| `POST /generate/async` | Gửi tác vụ tạo tệp bất đồng bộ |
-| `GET /status/{job_id}` | Truy vấn trạng thái tác vụ theo ID |
-| `GET /download/{job_id}` | Tải xuống XML đã tạo khi tác vụ hoàn tất |
-| `DELETE /jobs/{job_id}` | Hủy tác vụ đang chờ hoặc đang chạy |
-| `GET /docs` | Swagger UI tương tác để khám phá và kiểm tra tất cả các endpoint |
+<div class="api-endpoints-table" tabindex="0" aria-label="Các endpoint">
+  <table>
+    <colgroup>
+      <col class="api-endpoints-table__col-endpoint">
+      <col class="api-endpoints-table__col-desc">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Endpoint</th>
+        <th>Mô tả</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /health</code></td>
+          <td class="api-endpoints-table__desc">Kiểm tra trạng thái — trả về trạng thái dịch vụ</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /validate</code></td>
+          <td class="api-endpoints-table__desc">Xác thực dữ liệu thanh toán theo lược đồ mà không tạo XML</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate</code></td>
+          <td class="api-endpoints-table__desc">Tạo XML đồng bộ và trả về tệp</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate/async</code></td>
+          <td class="api-endpoints-table__desc">Gửi tác vụ tạo tệp bất đồng bộ</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /status/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Truy vấn trạng thái tác vụ theo ID</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /download/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Tải xuống XML đã tạo khi tác vụ hoàn tất</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>DELETE /jobs/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Hủy tác vụ đang chờ hoặc đang chạy</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /docs</code></td>
+          <td class="api-endpoints-table__desc">Swagger UI tương tác để khám phá và kiểm tra tất cả các endpoint</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 - [`pacs.002.001.12`](/vi/pacs.002.001.12/) — Báo cáo trạng thái thanh toán giữa các tổ chức tài chính
 - [`pacs.003.001.09`](/vi/pacs.003.001.09/) — Ghi nợ trực tiếp khách hàng giữa các tổ chức tài chính
@@ -316,26 +354,118 @@ print(report.is_valid, report.errors)
 
 Mỗi bản ghi thanh toán phải bao gồm các trường sau. Các trường theo phiên bản cụ thể được ghi chú khi áp dụng.
 
-| Trường | Mô tả | Ràng buộc |
-|---|---|---|
-| `msg_id` | Mã định danh thông điệp | Tối đa 35 ký tự |
-| `creation_date_time` | Dấu thời gian tạo | Định dạng ISO 8601 |
-| `nb_of_txs` | Số lượng giao dịch | Số nguyên dương |
-| `settlement_method` | Phương thức thanh toán bù trừ | CLRG, INDA, COVE hoặc INGA |
-| `end_to_end_id` | Mã định danh đầu-cuối | Tối đa 35 ký tự |
-| `interbank_settlement_amount` | Số tiền thanh toán liên ngân hàng | Số thập phân, ví dụ `25000.00` |
-| `interbank_settlement_currency` | Tiền tệ thanh toán bù trừ | Mã ISO 4217 |
-| `charge_bearer` | Bên chịu phí | DEBT, CRED, SHAR hoặc SLEV |
-| `debtor_name` | Tên con nợ | Tối đa 140 ký tự |
-| `debtor_agent_bic` | BIC đại lý con nợ | 8 hoặc 11 ký tự |
-| `creditor_agent_bic` | BIC đại lý chủ nợ | 8 hoặc 11 ký tự |
-| `creditor_name` | Tên chủ nợ | Tối đa 140 ký tự |
+<div class="api-fields-table" tabindex="0" aria-label="Các trường dữ liệu bắt buộc">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Trường</th>
+        <th>Mô tả</th>
+        <th>Ràng buộc</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>msg_id</code></td>
+          <td class="api-fields-table__desc">Mã định danh thông điệp</td>
+          <td class="api-fields-table__constraint">Tối đa 35 ký tự</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creation_date_time</code></td>
+          <td class="api-fields-table__desc">Dấu thời gian tạo</td>
+          <td class="api-fields-table__constraint">Định dạng ISO 8601</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>nb_of_txs</code></td>
+          <td class="api-fields-table__desc">Số lượng giao dịch</td>
+          <td class="api-fields-table__constraint">Số nguyên dương</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>settlement_method</code></td>
+          <td class="api-fields-table__desc">Phương thức thanh toán bù trừ</td>
+          <td class="api-fields-table__constraint">CLRG, INDA, COVE hoặc INGA</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>end_to_end_id</code></td>
+          <td class="api-fields-table__desc">Mã định danh đầu-cuối</td>
+          <td class="api-fields-table__constraint">Tối đa 35 ký tự</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_amount</code></td>
+          <td class="api-fields-table__desc">Số tiền thanh toán liên ngân hàng</td>
+          <td class="api-fields-table__constraint">Số thập phân, ví dụ `25000.00`</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_currency</code></td>
+          <td class="api-fields-table__desc">Tiền tệ thanh toán bù trừ</td>
+          <td class="api-fields-table__constraint">Mã ISO 4217</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>charge_bearer</code></td>
+          <td class="api-fields-table__desc">Bên chịu phí</td>
+          <td class="api-fields-table__constraint">DEBT, CRED, SHAR hoặc SLEV</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_name</code></td>
+          <td class="api-fields-table__desc">Tên con nợ</td>
+          <td class="api-fields-table__constraint">Tối đa 140 ký tự</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_agent_bic</code></td>
+          <td class="api-fields-table__desc">BIC đại lý con nợ</td>
+          <td class="api-fields-table__constraint">8 hoặc 11 ký tự</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_agent_bic</code></td>
+          <td class="api-fields-table__desc">BIC đại lý chủ nợ</td>
+          <td class="api-fields-table__constraint">8 hoặc 11 ký tự</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_name</code></td>
+          <td class="api-fields-table__desc">Tên chủ nợ</td>
+          <td class="api-fields-table__constraint">Tối đa 140 ký tự</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ### Các trường theo phiên bản cụ thể
 
-| Trường | Mô tả | Ràng buộc |
-|---|---|---|
-| `uetr` | Tham chiếu giao dịch đầu-cuối duy nhất | Định dạng UUID — có từ v08 |
-| `mandate_id` | Mã định danh ủy quyền | Có từ v10 |
-| `expiry_date_time` | Dấu thời gian hết hạn thông điệp | Có trong v13 |
+<div class="api-fields-table api-fields-table--versioned" tabindex="0" aria-label="Các trường theo phiên bản cụ thể">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Trường</th>
+        <th>Mô tả</th>
+        <th>Ràng buộc</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>uetr</code></td>
+          <td class="api-fields-table__desc">Tham chiếu giao dịch đầu-cuối duy nhất</td>
+          <td class="api-fields-table__constraint">Định dạng UUID — có từ v08</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>mandate_id</code></td>
+          <td class="api-fields-table__desc">Mã định danh ủy quyền</td>
+          <td class="api-fields-table__constraint">Có từ v10</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>expiry_date_time</code></td>
+          <td class="api-fields-table__desc">Dấu thời gian hết hạn thông điệp</td>
+          <td class="api-fields-table__constraint">Có trong v13</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

@@ -36,13 +36,42 @@ pacs.008 mesajı, bir müşteri adına fon transfer etmek üzere finans kuruluş
 - Doğrudan mutabakatı desteklemek için yapılandırılmış havale bilgisi taşır
 - Çok bacaklı ödeme zincirleri için sıralı, teminat ve doğrudan takas yöntemlerini destekler
 
-| Temel veri öğeleri | İş bağlamı |
-|---|---|
-| **GrpHdr** — Mesaj kimliği, oluşturma tarihi, işlem sayısı ve takas bilgisi içeren Grup Başlığı | Müşteri tarafından başlatılan sınır ötesi ve yurt içi kredi transferleri için birincil mesajdır |
-| **CdtTrfTxInf** — Tutar, masraflar ve amaç içeren Kredi Transferi İşlem Bilgisi | SEPA SCT, SEPA Instant, CBPR+ ve ulusal takas sistemlerinde kullanılır |
-| **Dbtr / DbtrAgt** — Borçlu ve Borçlu Aracısı kimlik bilgileri ve hesap detayları | Doğrudan mutabakatı desteklemek için yapılandırılmış havale bilgisi taşır |
-| **Cdtr / CdtrAgt** — Alacaklı ve Alacaklı Aracısı kimlik bilgileri ve hesap detayları | Çok bacaklı ödeme zincirleri için sıralı, teminat ve doğrudan takas yöntemlerini destekler |
-| **RmtInf** — Yapılandırılmış veya yapılandırılmamış ödeme referansları için Havale Bilgisi | Borçlu aracı bir pacs.008 oluşturur ve alacaklı aracıya gönderir (doğrudan veya aracılar üzerinden). Zincirdeki her aracı talimatı doğrular, zenginleştirir ve iletir; alacaklı aracı lehdarın hesabına alacak kaydedene kadar süreç devam eder. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Temel veri öğeleri İş bağlamı">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Temel veri öğeleri</th>
+        <th>İş bağlamı</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Mesaj kimliği, oluşturma tarihi, işlem sayısı ve takas bilgisi içeren Grup Başlığı</td>
+          <td class="operational-matrix-table__right">Müşteri tarafından başlatılan sınır ötesi ve yurt içi kredi transferleri için birincil mesajdır</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Tutar, masraflar ve amaç içeren Kredi Transferi İşlem Bilgisi</td>
+          <td class="operational-matrix-table__right">SEPA SCT, SEPA Instant, CBPR+ ve ulusal takas sistemlerinde kullanılır</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Borçlu ve Borçlu Aracısı kimlik bilgileri ve hesap detayları</td>
+          <td class="operational-matrix-table__right">Doğrudan mutabakatı desteklemek için yapılandırılmış havale bilgisi taşır</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Alacaklı ve Alacaklı Aracısı kimlik bilgileri ve hesap detayları</td>
+          <td class="operational-matrix-table__right">Çok bacaklı ödeme zincirleri için sıralı, teminat ve doğrudan takas yöntemlerini destekler</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**RmtInf** — Yapılandırılmış veya yapılandırılmamış ödeme referansları için Havale Bilgisi</td>
+          <td class="operational-matrix-table__right">Borçlu aracı bir pacs.008 oluşturur ve alacaklı aracıya gönderir (doğrudan veya aracılar üzerinden). Zincirdeki her aracı talimatı doğrular, zenginleştirir ve iletir; alacaklı aracı lehdarın hesabına alacak kaydedene kadar süreç devam eder.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## CBPR+ ve şema bağlamı
 
@@ -57,11 +86,39 @@ Borçlu aracı bir pacs.008 oluşturur ve alacaklı aracıya gönderir (doğruda
 
 ## Sürüm fark tablosu
 
-| Sürüm aralığı | Neden önemli | Uygulama çıkarımı |
-|---|---|---|
-| pacs.008.001.01-07 | Erken sürümler | Esas olarak eski sistemlerden geçiş analizi ve sürüm geçmişi bağlamı için yararlıdır. |
-| pacs.008.001.08-12 | Mevcut sürümden önceki modern sürümler | Son dönem geçiş veya birlikte çalışma projelerinde en çok karşılaşılması muhtemel sürümler bunlardır. |
-| pacs.008.001.13 | Geçerli katalog sürümü | Bunu mevcut sürüm planlaması için kullanın; ancak şema kullanım kuralları ve karşı taraf hazırlığı yine de doğrulanmalıdır. |
+<div class="version-diff-table" tabindex="0" aria-label="Sürüm fark tablosu">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Sürüm aralığı</th>
+        <th>Neden önemli</th>
+        <th>Uygulama çıkarımı</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.01-07</td>
+          <td class="version-diff-table__why">Erken sürümler</td>
+          <td class="version-diff-table__takeaway">Esas olarak eski sistemlerden geçiş analizi ve sürüm geçmişi bağlamı için yararlıdır.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.08-12</td>
+          <td class="version-diff-table__why">Mevcut sürümden önceki modern sürümler</td>
+          <td class="version-diff-table__takeaway">Son dönem geçiş veya birlikte çalışma projelerinde en çok karşılaşılması muhtemel sürümler bunlardır.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.13</td>
+          <td class="version-diff-table__why">Geçerli katalog sürümü</td>
+          <td class="version-diff-table__takeaway">Bunu mevcut sürüm planlaması için kullanın; ancak şema kullanım kuralları ve karşı taraf hazırlığı yine de doğrulanmalıdır.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Açıklamalı XML örneği
 
@@ -93,12 +150,44 @@ Borçlu aracı bir pacs.008 oluşturur ve alacaklı aracıya gönderir (doğruda
 
 ## Karşılaştır pacs.008 vs pacs.009
 
-| Boyut | pacs.008.001.13 | Karşılaştırma mesajı |
-|---|---|---|
-| Temel amaç | Müşteri kredi transferi | Kurumun kendi hesabına kredi transferi veya karşılama ayağı |
-| İş sahibi | Müşteri ödeme operasyonları | Hazine / muhabirlik / fonlama operasyonları |
-| Tipik eşleşmeler | pacs.002, pacs.004, pacs.007, pacs.028 | pacs.002, pacs.004 ve bazen ilişkili pacs.008 akışları |
-| Kaçınılması gereken yanlış varsayım | Tüm bankadan bankaya transferlerin burada yer aldığı | Müşteri kredi transferi talimatlarının yerini alabileceği |
+<div class="message-comparison-table" tabindex="0" aria-label="Karşılaştır pacs.008 vs pacs.009">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Boyut</th>
+        <th>pacs.008.001.13</th>
+        <th>Karşılaştırma mesajı</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Temel amaç</td>
+          <td class="message-comparison-table__current">Müşteri kredi transferi</td>
+          <td class="message-comparison-table__other">Kurumun kendi hesabına kredi transferi veya karşılama ayağı</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">İş sahibi</td>
+          <td class="message-comparison-table__current">Müşteri ödeme operasyonları</td>
+          <td class="message-comparison-table__other">Hazine / muhabirlik / fonlama operasyonları</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Tipik eşleşmeler</td>
+          <td class="message-comparison-table__current">pacs.002, pacs.004, pacs.007, pacs.028</td>
+          <td class="message-comparison-table__other">pacs.002, pacs.004 ve bazen ilişkili pacs.008 akışları</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Kaçınılması gereken yanlış varsayım</td>
+          <td class="message-comparison-table__current">Tüm bankadan bankaya transferlerin burada yer aldığı</td>
+          <td class="message-comparison-table__other">Müşteri kredi transferi talimatlarının yerini alabileceği</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Birincil referanslar
 
@@ -132,9 +221,37 @@ Borçlu aracı bir pacs.008 oluşturur ve alacaklı aracıya gönderir (doğruda
 | `pacs.008.001.13` | **Güncel** |
 
 ## İlgili mesajlar
-| Mesaj türü | Açıklama | Genel bakış |
-|---|---|---|
-| [`pacs.002.001.12`](/tr/pacs.002.001.12/) | FI'dan FI'ya ödeme durumu raporu | pacs.002 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu bildirmek üzere bir finans kuruluşu tarafından gönderilir. Bir ödeme mesajı içindeki bireysel işlemler için onay, ret veya bekleyen durum bilgisi sağlar. |
-| [`pacs.004.001.11`](/tr/pacs.004.001.11/) | Ödeme iadesi | pacs.004 mesajı, daha önce takas edilmiş bir ödeme işlemini iade etmek için kullanılır. Bir ödeme uygulanamadığında, hatalı gönderildiğinde veya kaynak kuruluş tarafından geri çağrıldığında fon akışını tersine çevirir. |
-| [`pacs.009.001.10`](/tr/pacs.009.001.10/) | Finansal kuruluşlar arası kredi transferi | pacs.009 mesajı, transferin bir müşteri adına değil kurumun kendi adına gerçekleştirildiği durumlarda finans kuruluşları arasında kredi transferleri için kullanılır. Bankalar arası fonlama, teminat ödemeleri ve likidite yönetimini destekler. |
+<div class="related-messages-table" tabindex="0" aria-label="İlgili mesajlar">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Mesaj türü</th>
+        <th>Açıklama</th>
+        <th>Genel bakış</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/tr/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">FI&#39;dan FI&#39;ya ödeme durumu raporu</td>
+          <td class="related-messages-table__overview">pacs.002 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu bildirmek üzere bir finans kuruluşu tarafından gönderilir. Bir ödeme mesajı içindeki bireysel işlemler için onay, ret veya bekleyen durum bilgisi sağlar.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/tr/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
+          <td class="related-messages-table__name">Ödeme iadesi</td>
+          <td class="related-messages-table__overview">pacs.004 mesajı, daha önce takas edilmiş bir ödeme işlemini iade etmek için kullanılır. Bir ödeme uygulanamadığında, hatalı gönderildiğinde veya kaynak kuruluş tarafından geri çağrıldığında fon akışını tersine çevirir.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/tr/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">Finansal kuruluşlar arası kredi transferi</td>
+          <td class="related-messages-table__overview">pacs.009 mesajı, transferin bir müşteri adına değil kurumun kendi adına gerçekleştirildiği durumlarda finans kuruluşları arasında kredi transferleri için kullanılır. Bankalar arası fonlama, teminat ödemeleri ve likidite yönetimini destekler.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

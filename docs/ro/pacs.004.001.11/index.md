@@ -36,13 +36,42 @@ Mesajul pacs.004 este utilizat pentru returnarea unei tranzacții de plată deco
 - Conține coduri de motiv de returnare structurate pentru transparență reglementară și operațională
 - Se aplică atât returnărilor de transferuri de credit (pacs.008), cât și returnărilor de debitări directe (pacs.003)
 
-| Elemente de date cheie | Context de afaceri |
-|---|---|
-| **GrpHdr** — Antet de grup cu identificarea mesajului și marca temporală de creare | Gestionează returnările post-decontare când contul beneficiarului nu poate fi creditat |
-| **TxInf** — Informații privind tranzacția cu suma returnării și părțile implicate | Suportă scenarii de reclamare în care inițiatorul solicită returnarea fondurilor |
-| **OrgnlGrpInf** — Informații ale grupului original cu legătura către mesajul sursă | Conține coduri de motiv de returnare structurate pentru transparență reglementară și operațională |
-| **RtrRsnInf** — Informații privind motivul returnării cu coduri de motiv structurate | Se aplică atât returnărilor de transferuri de credit (pacs.008), cât și returnărilor de debitări directe (pacs.003) |
-| **OrgnlTxRef** — Referința tranzacției originale pentru potrivire și reconciliere | Agentul instruit trimite pacs.004 înapoi prin lanțul de plăți pentru a returna fonduri decontate anterior. Fiecare agent din lanț procesează returnarea și recreditează conturile relevante. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Elemente de date cheie Context de afaceri">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Elemente de date cheie</th>
+        <th>Context de afaceri</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Antet de grup cu identificarea mesajului și marca temporală de creare</td>
+          <td class="operational-matrix-table__right">Gestionează returnările post-decontare când contul beneficiarului nu poate fi creditat</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**TxInf** — Informații privind tranzacția cu suma returnării și părțile implicate</td>
+          <td class="operational-matrix-table__right">Suportă scenarii de reclamare în care inițiatorul solicită returnarea fondurilor</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Informații ale grupului original cu legătura către mesajul sursă</td>
+          <td class="operational-matrix-table__right">Conține coduri de motiv de returnare structurate pentru transparență reglementară și operațională</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**RtrRsnInf** — Informații privind motivul returnării cu coduri de motiv structurate</td>
+          <td class="operational-matrix-table__right">Se aplică atât returnărilor de transferuri de credit (pacs.008), cât și returnărilor de debitări directe (pacs.003)</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlTxRef** — Referința tranzacției originale pentru potrivire și reconciliere</td>
+          <td class="operational-matrix-table__right">Agentul instruit trimite pacs.004 înapoi prin lanțul de plăți pentru a returna fonduri decontate anterior. Fiecare agent din lanț procesează returnarea și recreditează conturile relevante.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Context CBPR+ și scheme de plată
 
@@ -57,10 +86,34 @@ Agentul instruit trimite pacs.004 înapoi prin lanțul de plăți pentru a retur
 
 ## Tabelul diferențelor de versiune
 
-| Interval de versiuni | De ce contează | Concluzie de implementare |
-|---|---|---|
-| pacs.004.001.11 | Implementarea curentă în pacs008 | Se aliniază cu șabloanele curente pentru mesajele de retur al plăților. |
-| pacs.004.001.12-14 | Revizii ulterioare ale catalogului | Verifică reviziile ulterioare ale mesajelor de retur când upgrade-urile de schemă sau contrapărți noi intră în sferă. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabelul diferențelor de versiune">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Interval de versiuni</th>
+        <th>De ce contează</th>
+        <th>Concluzie de implementare</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.004.001.11</td>
+          <td class="version-diff-table__why">Implementarea curentă în pacs008</td>
+          <td class="version-diff-table__takeaway">Se aliniază cu șabloanele curente pentru mesajele de retur al plăților.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.004.001.12-14</td>
+          <td class="version-diff-table__why">Revizii ulterioare ale catalogului</td>
+          <td class="version-diff-table__takeaway">Verifică reviziile ulterioare ale mesajelor de retur când upgrade-urile de schemă sau contrapărți noi intră în sferă.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Exemplu XML comentat
 
@@ -87,12 +140,44 @@ Agentul instruit trimite pacs.004 înapoi prin lanțul de plăți pentru a retur
 
 ## Compară pacs.004 vs pacs.007
 
-| Dimensiune | pacs.004.001.11 | Mesaj de comparație |
-|---|---|---|
-| Scop principal | Returnarea fondurilor deja decontate | Reversarea unei plăți instruite anterior |
-| Inițiat de | Partea de primire / beneficiar | Partea care a inițiat instrucțiunea inițială |
-| Direcția fluxului | Înapoi prin lanț | Înainte prin lanț |
-| Cel mai potrivit pentru | Gestionarea returului după decontare | Gestionarea reversărilor generate de recall, eroare sau fraudă |
+<div class="message-comparison-table" tabindex="0" aria-label="Compară pacs.004 vs pacs.007">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Dimensiune</th>
+        <th>pacs.004.001.11</th>
+        <th>Mesaj de comparație</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Scop principal</td>
+          <td class="message-comparison-table__current">Returnarea fondurilor deja decontate</td>
+          <td class="message-comparison-table__other">Reversarea unei plăți instruite anterior</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Inițiat de</td>
+          <td class="message-comparison-table__current">Partea de primire / beneficiar</td>
+          <td class="message-comparison-table__other">Partea care a inițiat instrucțiunea inițială</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Direcția fluxului</td>
+          <td class="message-comparison-table__current">Înapoi prin lanț</td>
+          <td class="message-comparison-table__other">Înainte prin lanț</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Cel mai potrivit pentru</td>
+          <td class="message-comparison-table__current">Gestionarea returului după decontare</td>
+          <td class="message-comparison-table__other">Gestionarea reversărilor generate de recall, eroare sau fraudă</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Referințe primare
 
@@ -104,9 +189,37 @@ Agentul instruit trimite pacs.004 înapoi prin lanțul de plăți pentru a retur
 
 
 ## Mesaje conexe
-| Tip de mesaj | Descriere | Prezentare generală |
-|---|---|---|
-| [`pacs.008.001.13`](/ro/pacs.008.001.13/) | Transfer de credit client FI-la-FI | Mesajul pacs.008 este instrucțiunea de plată principală schimbată între instituții financiare pentru a transfera fonduri în numele unui client. Conține informații despre debitor, creditor, sumă și detalii de remitere pentru una sau mai multe tranzacții de transfer de credit. |
-| [`pacs.003.001.09`](/ro/pacs.003.001.09/) | Debit direct de client FI-la-FI | Mesajul pacs.003 este schimbat între instituții financiare pentru a executa o instrucțiune de debitare directă a clientului. Permite băncii creditorului să colecteze fonduri de la banca debitorului în numele creditorului. |
-| [`pacs.002.001.12`](/ro/pacs.002.001.12/) | Raport de stare a plății FI-la-FI | Mesajul pacs.002 este trimis de o instituție financiară pentru a raporta statusul unei instrucțiuni de plată trimise anterior. Furnizează informații de confirmare, respingere sau status în așteptare pentru tranzacțiile individuale din cadrul unui mesaj de plată. |
+<div class="related-messages-table" tabindex="0" aria-label="Mesaje conexe">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Tip de mesaj</th>
+        <th>Descriere</th>
+        <th>Prezentare generală</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/ro/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">Transfer de credit client FI-la-FI</td>
+          <td class="related-messages-table__overview">Mesajul pacs.008 este instrucțiunea de plată principală schimbată între instituții financiare pentru a transfera fonduri în numele unui client. Conține informații despre debitor, creditor, sumă și detalii de remitere pentru una sau mai multe tranzacții de transfer de credit.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/ro/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
+          <td class="related-messages-table__name">Debit direct de client FI-la-FI</td>
+          <td class="related-messages-table__overview">Mesajul pacs.003 este schimbat între instituții financiare pentru a executa o instrucțiune de debitare directă a clientului. Permite băncii creditorului să colecteze fonduri de la banca debitorului în numele creditorului.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/ro/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">Raport de stare a plății FI-la-FI</td>
+          <td class="related-messages-table__overview">Mesajul pacs.002 este trimis de o instituție financiară pentru a raporta statusul unei instrucțiuni de plată trimise anterior. Furnizează informații de confirmare, respingere sau status în așteptare pentru tranzacțiile individuale din cadrul unui mesaj de plată.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

@@ -36,13 +36,42 @@ Il messaggio pacs.003 viene scambiato tra istituti finanziari per eseguire un'is
 - Richiede un riferimento di mandato valido tra debitore e creditore
 - Consente la riscossione massiva di molteplici istruzioni di addebito diretto in un unico messaggio
 
-| Elementi di dati chiave | Contesto di business |
-|---|---|
-| **GrpHdr** — Intestazione di gruppo con identificazione del messaggio e informazioni di regolamento | Supporta gli schemi di addebito diretto SEPA Core e B2B |
-| **DrctDbtTxInf** — Informazioni sulla transazione di addebito diretto con importo e parti coinvolte | Utilizzato per la riscossione di pagamenti ricorrenti come abbonamenti, bollette e rimborsi di prestiti |
-| **Cdtr** — Identificazione del creditore e dettagli del conto | Richiede un riferimento di mandato valido tra debitore e creditore |
-| **CdtrAgt** — Identificazione dell'agente del creditore (istituto di incasso) | Consente la riscossione massiva di molteplici istruzioni di addebito diretto in un unico messaggio |
-| **DbtrAgt** — Identificazione dell'agente del debitore (istituto pagante) | L'agente del creditore avvia pacs.003 verso l'agente del debitore per raccogliere i fondi. L'agente del debitore convalida il mandato, verifica la copertura del conto e procede al regolamento o alla restituzione della transazione. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Elementi di dati chiave Contesto di business">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Elementi di dati chiave</th>
+        <th>Contesto di business</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Intestazione di gruppo con identificazione del messaggio e informazioni di regolamento</td>
+          <td class="operational-matrix-table__right">Supporta gli schemi di addebito diretto SEPA Core e B2B</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Informazioni sulla transazione di addebito diretto con importo e parti coinvolte</td>
+          <td class="operational-matrix-table__right">Utilizzato per la riscossione di pagamenti ricorrenti come abbonamenti, bollette e rimborsi di prestiti</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr** — Identificazione del creditore e dettagli del conto</td>
+          <td class="operational-matrix-table__right">Richiede un riferimento di mandato valido tra debitore e creditore</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**CdtrAgt** — Identificazione dell&#39;agente del creditore (istituto di incasso)</td>
+          <td class="operational-matrix-table__right">Consente la riscossione massiva di molteplici istruzioni di addebito diretto in un unico messaggio</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**DbtrAgt** — Identificazione dell&#39;agente del debitore (istituto pagante)</td>
+          <td class="operational-matrix-table__right">L&#39;agente del creditore avvia pacs.003 verso l&#39;agente del debitore per raccogliere i fondi. L&#39;agente del debitore convalida il mandato, verifica la copertura del conto e procede al regolamento o alla restituzione della transazione.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Contesto CBPR+ e schemi
 
@@ -57,10 +86,34 @@ L'agente del creditore avvia pacs.003 verso l'agente del debitore per raccoglier
 
 ## Tabella delle differenze di versione
 
-| Intervallo di versione | Perché conta | Implicazione implementativa |
-|---|---|---|
-| pacs.003.001.09 | Implementazione attuale in pacs008 | Utile per la modellazione dei riferimenti di addebito diretto nel progetto corrente. |
-| pacs.003.001.10-11 | Revisioni successive del catalogo | Periksa revisi yang lebih baru untuk pembaruan mandat, status, dan interoperabilitas sebelum dipakai dalam implementasi baru. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabella delle differenze di versione">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Intervallo di versione</th>
+        <th>Perché conta</th>
+        <th>Implicazione implementativa</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.003.001.09</td>
+          <td class="version-diff-table__why">Implementazione attuale in pacs008</td>
+          <td class="version-diff-table__takeaway">Utile per la modellazione dei riferimenti di addebito diretto nel progetto corrente.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.003.001.10-11</td>
+          <td class="version-diff-table__why">Revisioni successive del catalogo</td>
+          <td class="version-diff-table__takeaway">Periksa revisi yang lebih baru untuk pembaruan mandat, status, dan interoperabilitas sebelum dipakai dalam implementasi baru.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Esempio XML commentato
 
@@ -92,9 +145,37 @@ L'agente del creditore avvia pacs.003 verso l'agente del debitore per raccoglier
 
 
 ## Messaggi correlati
-| Tipo di messaggio | Descrizione | Panoramica |
-|---|---|---|
-| [`pacs.004.001.11`](/it/pacs.004.001.11/) | Reso di pagamento | Il messaggio pacs.004 viene utilizzato per restituire una transazione di pagamento precedentemente regolata. Inverte il flusso di fondi quando un pagamento non può essere applicato, è stato inviato per errore o viene richiamato dall'istituto di origine. |
-| [`pacs.007.001.11`](/it/pacs.007.001.11/) | Storno di pagamento tra istituzioni finanziarie | Il messaggio pacs.007 viene utilizzato per stornare un'istruzione di pagamento precedentemente inviata che non è ancora stata regolata o per richiedere lo storno di un pagamento regolato. A differenza di pacs.004 (restituzione), è avviato dall'agente ordinante originale. |
-| [`pacs.002.001.12`](/it/pacs.002.001.12/) | Rapporto di stato del pagamento tra istituzioni finanziarie | Il messaggio pacs.002 viene inviato da un istituto finanziario per comunicare lo stato di un'istruzione di pagamento precedentemente inviata. Fornisce informazioni di conferma, rifiuto o stato in sospeso per le singole transazioni all'interno di un messaggio di pagamento. |
+<div class="related-messages-table" tabindex="0" aria-label="Messaggi correlati">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Tipo di messaggio</th>
+        <th>Descrizione</th>
+        <th>Panoramica</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/it/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
+          <td class="related-messages-table__name">Reso di pagamento</td>
+          <td class="related-messages-table__overview">Il messaggio pacs.004 viene utilizzato per restituire una transazione di pagamento precedentemente regolata. Inverte il flusso di fondi quando un pagamento non può essere applicato, è stato inviato per errore o viene richiamato dall&#39;istituto di origine.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/it/pacs.007.001.11/"><code>pacs.007.001.11</code></a></td>
+          <td class="related-messages-table__name">Storno di pagamento tra istituzioni finanziarie</td>
+          <td class="related-messages-table__overview">Il messaggio pacs.007 viene utilizzato per stornare un&#39;istruzione di pagamento precedentemente inviata che non è ancora stata regolata o per richiedere lo storno di un pagamento regolato. A differenza di pacs.004 (restituzione), è avviato dall&#39;agente ordinante originale.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/it/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">Rapporto di stato del pagamento tra istituzioni finanziarie</td>
+          <td class="related-messages-table__overview">Il messaggio pacs.002 viene inviato da un istituto finanziario per comunicare lo stato di un&#39;istruzione di pagamento precedentemente inviata. Fornisce informazioni di conferma, rifiuto o stato in sospeso per le singole transazioni all&#39;interno di un messaggio di pagamento.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

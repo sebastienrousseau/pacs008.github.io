@@ -36,13 +36,42 @@ The pacs.009 message is used for credit transfers between financial institutions
 - Carries the cover leg of customer credit transfers settled via cover method
 - Enables treasury and funding operations between financial institutions
 
-| Key data elements | Business context |
-|---|---|
-| **GrpHdr** — Group Header with message identification and settlement information | Used for bank-to-bank own-account transfers and cover payments |
-| **CdtTrfTxInf** — Credit Transfer Transaction Information with interbank settlement amount | Supports liquidity management between correspondent banking partners |
-| **Dbtr / DbtrAgt** — Debtor institution and its agent identification | Carries the cover leg of customer credit transfers settled via cover method |
-| **Cdtr / CdtrAgt** — Creditor institution and its agent identification | Enables treasury and funding operations between financial institutions |
-| **IntrBkSttlmAmt** — Interbank Settlement Amount in the settlement currency | The debtor institution sends pacs.009 to the creditor institution to transfer its own funds. For cover-method payments, pacs.009 provides the funding leg while pacs.008 carries the customer instruction through a separate path. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Key data elements Business context">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Key data elements</th>
+        <th>Business context</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Group Header with message identification and settlement information</td>
+          <td class="operational-matrix-table__right">Used for bank-to-bank own-account transfers and cover payments</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Credit Transfer Transaction Information with interbank settlement amount</td>
+          <td class="operational-matrix-table__right">Supports liquidity management between correspondent banking partners</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Debtor institution and its agent identification</td>
+          <td class="operational-matrix-table__right">Carries the cover leg of customer credit transfers settled via cover method</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Creditor institution and its agent identification</td>
+          <td class="operational-matrix-table__right">Enables treasury and funding operations between financial institutions</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Interbank Settlement Amount in the settlement currency</td>
+          <td class="operational-matrix-table__right">The debtor institution sends pacs.009 to the creditor institution to transfer its own funds. For cover-method payments, pacs.009 provides the funding leg while pacs.008 carries the customer instruction through a separate path.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## CBPR+ and scheme context
 
@@ -63,10 +92,34 @@ That means this page is useful for understanding the currently implemented versi
 
 ## Version-diff table
 
-| Version range | Why it matters | Implementation takeaway |
-|---|---|---|
-| pacs.009.001.10 | Current implementation in pacs008 | Matches the current project support for FI credit transfer flows. |
-| pacs.009.001.11-12 | Later catalogue revisions | Important for roadmap planning in correspondent and cover-payment environments. |
+<div class="version-diff-table" tabindex="0" aria-label="Version-diff table">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Version range</th>
+        <th>Why it matters</th>
+        <th>Implementation takeaway</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.009.001.10</td>
+          <td class="version-diff-table__why">Current implementation in pacs008</td>
+          <td class="version-diff-table__takeaway">Matches the current project support for FI credit transfer flows.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.009.001.11-12</td>
+          <td class="version-diff-table__why">Later catalogue revisions</td>
+          <td class="version-diff-table__takeaway">Important for roadmap planning in correspondent and cover-payment environments.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Scheme-specific notes
 
@@ -130,12 +183,44 @@ No -> Validate whether treasury or settlement operations own the case.
 
 ## Compare pacs.009 vs pacs.008
 
-| Dimension | pacs.009.001.10 | Comparison message |
-|---|---|---|
-| Primary purpose | Institution-own-account credit transfer or cover leg | Customer credit transfer |
-| Business owner | Treasury / correspondent / funding operations | Customer-payment operations |
-| Typical pairings | pacs.002, pacs.004, and linked pacs.008 flows | pacs.002, pacs.004, pacs.007, pacs.028 |
-| Wrong assumption to avoid | That it is just a more technical pacs.008 | That it can carry institution funding flows cleanly |
+<div class="message-comparison-table" tabindex="0" aria-label="Compare pacs.009 vs pacs.008">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Dimension</th>
+        <th>pacs.009.001.10</th>
+        <th>Comparison message</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Primary purpose</td>
+          <td class="message-comparison-table__current">Institution-own-account credit transfer or cover leg</td>
+          <td class="message-comparison-table__other">Customer credit transfer</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Business owner</td>
+          <td class="message-comparison-table__current">Treasury / correspondent / funding operations</td>
+          <td class="message-comparison-table__other">Customer-payment operations</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Typical pairings</td>
+          <td class="message-comparison-table__current">pacs.002, pacs.004, and linked pacs.008 flows</td>
+          <td class="message-comparison-table__other">pacs.002, pacs.004, pacs.007, pacs.028</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Wrong assumption to avoid</td>
+          <td class="message-comparison-table__current">That it is just a more technical pacs.008</td>
+          <td class="message-comparison-table__other">That it can carry institution funding flows cleanly</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Implementation FAQ
 
@@ -157,9 +242,37 @@ Because institutions must preserve the relationship between treasury funding, co
 
 
 ## Related messages
-| Message type | Description | Overview |
-|---|---|---|
-| [`pacs.008.001.13`](/pacs.008.001.13/) | FI to FI Customer Credit Transfer | The pacs.008 message is the core payment instruction exchanged between financial institutions to transfer funds on behalf of a customer. It carries debtor, creditor, amount, and remittance information for one or more credit transfer transactions. |
-| [`pacs.002.001.12`](/pacs.002.001.12/) | FI to FI Payment Status Report | The pacs.002 message is sent by a financial institution to report the status of a previously sent payment instruction. It provides confirmation, rejection, or pending status information for individual transactions within a payment message. |
-| [`pacs.010.001.05`](/pacs.010.001.05/) | Financial Institution Direct Debit | The pacs.010 message is used between financial institutions for direct debit transactions on the institution's own account. It enables one institution to collect funds directly from another institution's account. |
+<div class="related-messages-table" tabindex="0" aria-label="Related messages">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Message type</th>
+        <th>Description</th>
+        <th>Overview</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">FI to FI Customer Credit Transfer</td>
+          <td class="related-messages-table__overview">The pacs.008 message is the core payment instruction exchanged between financial institutions to transfer funds on behalf of a customer. It carries debtor, creditor, amount, and remittance information for one or more credit transfer transactions.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">FI to FI Payment Status Report</td>
+          <td class="related-messages-table__overview">The pacs.002 message is sent by a financial institution to report the status of a previously sent payment instruction. It provides confirmation, rejection, or pending status information for individual transactions within a payment message.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pacs.010.001.05/"><code>pacs.010.001.05</code></a></td>
+          <td class="related-messages-table__name">Financial Institution Direct Debit</td>
+          <td class="related-messages-table__overview">The pacs.010 message is used between financial institutions for direct debit transactions on the institution&#39;s own account. It enables one institution to collect funds directly from another institution&#39;s account.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

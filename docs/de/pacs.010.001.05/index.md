@@ -36,13 +36,42 @@ Die Nachricht pacs.010 wird zwischen Finanzinstituten für Lastschrifttransaktio
 - Erfordert vorab vereinbarte bilaterale Vereinbarungen zwischen teilnehmenden Instituten
 - Entscheidend für institutionelles Cash Management und Interbanken-Abwicklungszyklen
 
-| Wichtige Datenelemente | Geschäftskontext |
-|---|---|
-| **GrpHdr** — Gruppenkopf mit Nachrichtenidentifikation und Abwicklungsinformationen | Unterstützt Interbanken-Lastschrifteinzug zwischen Finanzinstituten |
-| **DrctDbtTxInf** — Lastschrifttransaktionsinformationen mit Einzugsbetrag | Wird für Gebühreneinzug, Margin Calls und institutionelle Abwicklungsverpflichtungen verwendet |
-| **Cdtr / CdtrAgt** — Gläubigerinstitut und Agentenidentifikation | Erfordert vorab vereinbarte bilaterale Vereinbarungen zwischen teilnehmenden Instituten |
-| **Dbtr / DbtrAgt** — Schuldnerinstitut und Agentenidentifikation | Entscheidend für institutionelles Cash Management und Interbanken-Abwicklungszyklen |
-| **IntrBkSttlmAmt** — Interbanken-Abwicklungsbetrag in der Abwicklungswährung | Das Gläubigerinstitut sendet pacs.010 an das Schuldnerinstitut, um Gelder im Rahmen einer vorab vereinbarten Regelung einzuziehen. Das Schuldnerinstitut validiert die Anforderung und wickelt die Lastschrift ab oder lehnt sie ab. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Wichtige Datenelemente Geschäftskontext">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Wichtige Datenelemente</th>
+        <th>Geschäftskontext</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Gruppenkopf mit Nachrichtenidentifikation und Abwicklungsinformationen</td>
+          <td class="operational-matrix-table__right">Unterstützt Interbanken-Lastschrifteinzug zwischen Finanzinstituten</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Lastschrifttransaktionsinformationen mit Einzugsbetrag</td>
+          <td class="operational-matrix-table__right">Wird für Gebühreneinzug, Margin Calls und institutionelle Abwicklungsverpflichtungen verwendet</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Gläubigerinstitut und Agentenidentifikation</td>
+          <td class="operational-matrix-table__right">Erfordert vorab vereinbarte bilaterale Vereinbarungen zwischen teilnehmenden Instituten</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Schuldnerinstitut und Agentenidentifikation</td>
+          <td class="operational-matrix-table__right">Entscheidend für institutionelles Cash Management und Interbanken-Abwicklungszyklen</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Interbanken-Abwicklungsbetrag in der Abwicklungswährung</td>
+          <td class="operational-matrix-table__right">Das Gläubigerinstitut sendet pacs.010 an das Schuldnerinstitut, um Gelder im Rahmen einer vorab vereinbarten Regelung einzuziehen. Das Schuldnerinstitut validiert die Anforderung und wickelt die Lastschrift ab oder lehnt sie ab.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## CBPR+- und Schema-Kontext
 
@@ -57,10 +86,34 @@ Das Gläubigerinstitut sendet pacs.010 an das Schuldnerinstitut, um Gelder im Ra
 
 ## Tabelle der Versionsunterschiede
 
-| Versionsbereich | Warum es wichtig ist | Praktische Konsequenz |
-|---|---|---|
-| pacs.010.001.05 | Aktuelle Implementierung in pacs008 | Referenzpunkt für die Unterstützung institutsbezogener Lastschriften im aktuellen Projekt. |
-| pacs.010.001.06 | Spätere Katalogversion | Vor der Übernahme neuer Infrastrukturanforderungen prüfen. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabelle der Versionsunterschiede">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Versionsbereich</th>
+        <th>Warum es wichtig ist</th>
+        <th>Praktische Konsequenz</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.010.001.05</td>
+          <td class="version-diff-table__why">Aktuelle Implementierung in pacs008</td>
+          <td class="version-diff-table__takeaway">Referenzpunkt für die Unterstützung institutsbezogener Lastschriften im aktuellen Projekt.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.010.001.06</td>
+          <td class="version-diff-table__why">Spätere Katalogversion</td>
+          <td class="version-diff-table__takeaway">Vor der Übernahme neuer Infrastrukturanforderungen prüfen.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Kommentiertes XML-Beispiel
 
@@ -92,9 +145,37 @@ Das Gläubigerinstitut sendet pacs.010 an das Schuldnerinstitut, um Gelder im Ra
 
 
 ## Verwandte Nachrichten
-| Nachrichtentyp | Beschreibung | Überblick |
-|---|---|---|
-| [`pacs.009.001.10`](/de/pacs.009.001.10/) | Kredittransfer zwischen Finanzinstituten | Die Nachricht pacs.009 wird für Überweisungen zwischen Finanzinstituten verwendet, bei denen die Überweisung auf eigene Rechnung des Instituts erfolgt. Sie unterstützt Interbankenfinanzierung, Deckungszahlungen und Liquiditätsmanagement. |
-| [`pacs.002.001.12`](/de/pacs.002.001.12/) | FI-zu-FI-Zahlungsstatusbericht | Die Nachricht pacs.002 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung zu melden. Sie liefert Bestätigungs-, Ablehnungs- oder Statusinformationen für einzelne Transaktionen innerhalb einer Zahlungsnachricht. |
-| [`pacs.003.001.09`](/de/pacs.003.001.09/) | FI-zu-FI-Kundenlastschrift | Die Nachricht pacs.003 wird zwischen Finanzinstituten ausgetauscht, um eine Kundenlastschrift auszuführen. Sie ermöglicht es der Bank des Gläubigers, Gelder von der Bank des Schuldners im Auftrag des Gläubigers einzuziehen. |
+<div class="related-messages-table" tabindex="0" aria-label="Verwandte Nachrichten">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Nachrichtentyp</th>
+        <th>Beschreibung</th>
+        <th>Überblick</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/de/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">Kredittransfer zwischen Finanzinstituten</td>
+          <td class="related-messages-table__overview">Die Nachricht pacs.009 wird für Überweisungen zwischen Finanzinstituten verwendet, bei denen die Überweisung auf eigene Rechnung des Instituts erfolgt. Sie unterstützt Interbankenfinanzierung, Deckungszahlungen und Liquiditätsmanagement.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/de/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">FI-zu-FI-Zahlungsstatusbericht</td>
+          <td class="related-messages-table__overview">Die Nachricht pacs.002 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung zu melden. Sie liefert Bestätigungs-, Ablehnungs- oder Statusinformationen für einzelne Transaktionen innerhalb einer Zahlungsnachricht.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/de/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
+          <td class="related-messages-table__name">FI-zu-FI-Kundenlastschrift</td>
+          <td class="related-messages-table__overview">Die Nachricht pacs.003 wird zwischen Finanzinstituten ausgetauscht, um eine Kundenlastschrift auszuführen. Sie ermöglicht es der Bank des Gläubigers, Gelder von der Bank des Schuldners im Auftrag des Gläubigers einzuziehen.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

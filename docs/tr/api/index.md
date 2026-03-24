@@ -41,16 +41,54 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 
 ### Uç Noktalar
 
-| Endpoint | Açıklama |
-|---|---|
-| `GET /health` | Sağlık kontrolü — servis durumunu döndürür |
-| `POST /validate` | XML oluşturmadan ödeme verilerini şemaya göre doğrula |
-| `POST /generate` | XML'i eşzamanlı olarak oluştur ve dosyayı döndür |
-| `POST /generate/async` | Eşzamansız oluşturma işi gönder |
-| `GET /status/{job_id}` | İş durumunu ID'ye göre sorgula |
-| `GET /download/{job_id}` | İş tamamlandığında oluşturulan XML'i indir |
-| `DELETE /jobs/{job_id}` | Bekleyen veya çalışan bir işi iptal et |
-| `GET /docs` | Tüm uç noktaları keşfetmek ve test etmek için etkileşimli Swagger UI |
+<div class="api-endpoints-table" tabindex="0" aria-label="Uç Noktalar">
+  <table>
+    <colgroup>
+      <col class="api-endpoints-table__col-endpoint">
+      <col class="api-endpoints-table__col-desc">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Endpoint</th>
+        <th>Açıklama</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /health</code></td>
+          <td class="api-endpoints-table__desc">Sağlık kontrolü — servis durumunu döndürür</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /validate</code></td>
+          <td class="api-endpoints-table__desc">XML oluşturmadan ödeme verilerini şemaya göre doğrula</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate</code></td>
+          <td class="api-endpoints-table__desc">XML&#39;i eşzamanlı olarak oluştur ve dosyayı döndür</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate/async</code></td>
+          <td class="api-endpoints-table__desc">Eşzamansız oluşturma işi gönder</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /status/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">İş durumunu ID&#39;ye göre sorgula</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /download/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">İş tamamlandığında oluşturulan XML&#39;i indir</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>DELETE /jobs/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Bekleyen veya çalışan bir işi iptal et</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /docs</code></td>
+          <td class="api-endpoints-table__desc">Tüm uç noktaları keşfetmek ve test etmek için etkileşimli Swagger UI</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 - [`pacs.002.001.12`](/tr/pacs.002.001.12/) — FI'dan FI'ya ödeme durumu raporu
 - [`pacs.003.001.09`](/tr/pacs.003.001.09/) — FI'dan FI'ya müşteri doğrudan borçlandırması
@@ -316,26 +354,118 @@ print(report.is_valid, report.errors)
 
 Her ödeme kaydı aşağıdaki alanları içermelidir. Sürüme özgü alanlar geçerli olduğu yerlerde belirtilmiştir.
 
-| Alan | Açıklama | Kısıtlama |
-|---|---|---|
-| `msg_id` | Mesaj tanımlayıcısı | En fazla 35 karakter |
-| `creation_date_time` | Oluşturma zaman damgası | ISO 8601 formatı |
-| `nb_of_txs` | İşlem sayısı | Pozitif tamsayı |
-| `settlement_method` | Uzlaşım yöntemi | CLRG, INDA, COVE veya INGA |
-| `end_to_end_id` | Uçtan uca tanımlayıcı | En fazla 35 karakter |
-| `interbank_settlement_amount` | Bankalararası uzlaşım tutarı | Ondalık, örn. `25000.00` |
-| `interbank_settlement_currency` | Uzlaşım para birimi | ISO 4217 kodu |
-| `charge_bearer` | Masraf taşıyıcısı | DEBT, CRED, SHAR veya SLEV |
-| `debtor_name` | Borçlu adı | En fazla 140 karakter |
-| `debtor_agent_bic` | Borçlu acente BIC'i | 8 veya 11 karakter |
-| `creditor_agent_bic` | Alacaklı acente BIC'i | 8 veya 11 karakter |
-| `creditor_name` | Alacaklı adı | En fazla 140 karakter |
+<div class="api-fields-table" tabindex="0" aria-label="Gerekli veri alanları">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Alan</th>
+        <th>Açıklama</th>
+        <th>Kısıtlama</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>msg_id</code></td>
+          <td class="api-fields-table__desc">Mesaj tanımlayıcısı</td>
+          <td class="api-fields-table__constraint">En fazla 35 karakter</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creation_date_time</code></td>
+          <td class="api-fields-table__desc">Oluşturma zaman damgası</td>
+          <td class="api-fields-table__constraint">ISO 8601 formatı</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>nb_of_txs</code></td>
+          <td class="api-fields-table__desc">İşlem sayısı</td>
+          <td class="api-fields-table__constraint">Pozitif tamsayı</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>settlement_method</code></td>
+          <td class="api-fields-table__desc">Uzlaşım yöntemi</td>
+          <td class="api-fields-table__constraint">CLRG, INDA, COVE veya INGA</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>end_to_end_id</code></td>
+          <td class="api-fields-table__desc">Uçtan uca tanımlayıcı</td>
+          <td class="api-fields-table__constraint">En fazla 35 karakter</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_amount</code></td>
+          <td class="api-fields-table__desc">Bankalararası uzlaşım tutarı</td>
+          <td class="api-fields-table__constraint">Ondalık, örn. `25000.00`</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_currency</code></td>
+          <td class="api-fields-table__desc">Uzlaşım para birimi</td>
+          <td class="api-fields-table__constraint">ISO 4217 kodu</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>charge_bearer</code></td>
+          <td class="api-fields-table__desc">Masraf taşıyıcısı</td>
+          <td class="api-fields-table__constraint">DEBT, CRED, SHAR veya SLEV</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_name</code></td>
+          <td class="api-fields-table__desc">Borçlu adı</td>
+          <td class="api-fields-table__constraint">En fazla 140 karakter</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_agent_bic</code></td>
+          <td class="api-fields-table__desc">Borçlu acente BIC&#39;i</td>
+          <td class="api-fields-table__constraint">8 veya 11 karakter</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_agent_bic</code></td>
+          <td class="api-fields-table__desc">Alacaklı acente BIC&#39;i</td>
+          <td class="api-fields-table__constraint">8 veya 11 karakter</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_name</code></td>
+          <td class="api-fields-table__desc">Alacaklı adı</td>
+          <td class="api-fields-table__constraint">En fazla 140 karakter</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ### Sürüme özgü alanlar
 
-| Alan | Açıklama | Kısıtlama |
-|---|---|---|
-| `uetr` | Benzersiz uçtan uca işlem referansı | UUID formatı — v08'den itibaren kullanılabilir |
-| `mandate_id` | Yetki tanımlayıcısı | v10'dan itibaren kullanılabilir |
-| `expiry_date_time` | Mesaj son kullanma zaman damgası | v13'te kullanılabilir |
+<div class="api-fields-table api-fields-table--versioned" tabindex="0" aria-label="Sürüme özgü alanlar">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Alan</th>
+        <th>Açıklama</th>
+        <th>Kısıtlama</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>uetr</code></td>
+          <td class="api-fields-table__desc">Benzersiz uçtan uca işlem referansı</td>
+          <td class="api-fields-table__constraint">UUID formatı — v08&#39;den itibaren kullanılabilir</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>mandate_id</code></td>
+          <td class="api-fields-table__desc">Yetki tanımlayıcısı</td>
+          <td class="api-fields-table__constraint">v10&#39;dan itibaren kullanılabilir</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>expiry_date_time</code></td>
+          <td class="api-fields-table__desc">Mesaj son kullanma zaman damgası</td>
+          <td class="api-fields-table__constraint">v13&#39;te kullanılabilir</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

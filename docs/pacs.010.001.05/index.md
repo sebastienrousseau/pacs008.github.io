@@ -36,13 +36,42 @@ The pacs.010 message is used between financial institutions for direct debit tra
 - Requires pre-agreed bilateral arrangements between participating institutions
 - Critical for institutional cash management and interbank settlement cycles
 
-| Key data elements | Business context |
-|---|---|
-| **GrpHdr** — Group Header with message identification and settlement information | Supports interbank direct debit collection between financial institutions |
-| **DrctDbtTxInf** — Direct Debit Transaction Information with collection amount | Used for fee collection, margin calls, and institutional settlement obligations |
-| **Cdtr / CdtrAgt** — Creditor institution and its agent identification | Requires pre-agreed bilateral arrangements between participating institutions |
-| **Dbtr / DbtrAgt** — Debtor institution and its agent identification | Critical for institutional cash management and interbank settlement cycles |
-| **IntrBkSttlmAmt** — Interbank Settlement Amount in the settlement currency | The creditor institution sends pacs.010 to the debtor institution to collect funds under a pre-agreed arrangement. The debtor institution validates the request and settles or rejects the direct debit. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Key data elements Business context">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Key data elements</th>
+        <th>Business context</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Group Header with message identification and settlement information</td>
+          <td class="operational-matrix-table__right">Supports interbank direct debit collection between financial institutions</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Direct Debit Transaction Information with collection amount</td>
+          <td class="operational-matrix-table__right">Used for fee collection, margin calls, and institutional settlement obligations</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Creditor institution and its agent identification</td>
+          <td class="operational-matrix-table__right">Requires pre-agreed bilateral arrangements between participating institutions</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Debtor institution and its agent identification</td>
+          <td class="operational-matrix-table__right">Critical for institutional cash management and interbank settlement cycles</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Interbank Settlement Amount in the settlement currency</td>
+          <td class="operational-matrix-table__right">The creditor institution sends pacs.010 to the debtor institution to collect funds under a pre-agreed arrangement. The debtor institution validates the request and settles or rejects the direct debit.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## CBPR+ and scheme context
 
@@ -63,10 +92,34 @@ That means this page is useful for understanding the currently implemented versi
 
 ## Version-diff table
 
-| Version range | Why it matters | Implementation takeaway |
-|---|---|---|
-| pacs.010.001.05 | Current implementation in pacs008 | Reference point for institution direct-debit support in the current project. |
-| pacs.010.001.06 | Later catalogue revision | Review before adopting newer infrastructure requirements. |
+<div class="version-diff-table" tabindex="0" aria-label="Version-diff table">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Version range</th>
+        <th>Why it matters</th>
+        <th>Implementation takeaway</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.010.001.05</td>
+          <td class="version-diff-table__why">Current implementation in pacs008</td>
+          <td class="version-diff-table__takeaway">Reference point for institution direct-debit support in the current project.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.010.001.06</td>
+          <td class="version-diff-table__why">Later catalogue revision</td>
+          <td class="version-diff-table__takeaway">Review before adopting newer infrastructure requirements.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Scheme-specific notes
 
@@ -145,9 +198,37 @@ Authorization context, bilateral controls, and exception handling should be clea
 
 
 ## Related messages
-| Message type | Description | Overview |
-|---|---|---|
-| [`pacs.009.001.10`](/pacs.009.001.10/) | Financial Institution Credit Transfer | The pacs.009 message is used for credit transfers between financial institutions where the transfer is on the institution's own behalf rather than on behalf of a customer. It supports interbank funding, cover payments, and liquidity management. |
-| [`pacs.002.001.12`](/pacs.002.001.12/) | FI to FI Payment Status Report | The pacs.002 message is sent by a financial institution to report the status of a previously sent payment instruction. It provides confirmation, rejection, or pending status information for individual transactions within a payment message. |
-| [`pacs.003.001.09`](/pacs.003.001.09/) | FI to FI Customer Direct Debit | The pacs.003 message is exchanged between financial institutions to execute a customer direct debit instruction. It enables the creditor's bank to collect funds from the debtor's bank on behalf of the creditor. |
+<div class="related-messages-table" tabindex="0" aria-label="Related messages">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Message type</th>
+        <th>Description</th>
+        <th>Overview</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">Financial Institution Credit Transfer</td>
+          <td class="related-messages-table__overview">The pacs.009 message is used for credit transfers between financial institutions where the transfer is on the institution&#39;s own behalf rather than on behalf of a customer. It supports interbank funding, cover payments, and liquidity management.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">FI to FI Payment Status Report</td>
+          <td class="related-messages-table__overview">The pacs.002 message is sent by a financial institution to report the status of a previously sent payment instruction. It provides confirmation, rejection, or pending status information for individual transactions within a payment message.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
+          <td class="related-messages-table__name">FI to FI Customer Direct Debit</td>
+          <td class="related-messages-table__overview">The pacs.003 message is exchanged between financial institutions to execute a customer direct debit instruction. It enables the creditor&#39;s bank to collect funds from the debtor&#39;s bank on behalf of the creditor.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

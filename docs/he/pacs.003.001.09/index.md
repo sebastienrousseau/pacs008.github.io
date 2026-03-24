@@ -36,13 +36,42 @@ image: /logo.svg
 - דורשת הפניית הרשאה תקפה בין החייב לנושה
 - מאפשרת גביית צרור של הוראות חיוב ישיר מרובות בהודעה אחת
 
-| אלמנטי נתונים מרכזיים | הקשר עסקי |
-|---|---|
-| **GrpHdr** — כותרת קבוצה עם זיהוי הודעה ומידע סליקה | תומכת בתוכניות חיוב ישיר SEPA Core ו-B2B |
-| **DrctDbtTxInf** — מידע עסקת חיוב ישיר עם סכום וצדדים | משמשת לגביית תשלומים חוזרים כגון מנויים, חשבונות שירותים ותשלומי הלוואות |
-| **Cdtr** — זיהוי הנושה ופרטי חשבון | דורשת הפניית הרשאה תקפה בין החייב לנושה |
-| **CdtrAgt** — זיהוי סוכן הנושה (מוסד הגבייה) | מאפשרת גביית צרור של הוראות חיוב ישיר מרובות בהודעה אחת |
-| **DbtrAgt** — זיהוי סוכן החייב (מוסד המשלם) | סוכן הנושה יוזם pacs.003 כלפי סוכן החייב לגביית כספים. סוכן החייב מאמת את ההרשאה, בודק כיסוי חשבון, ומסלק או מחזיר את העסקה. |
+<div class="operational-matrix-table" tabindex="0" aria-label="אלמנטי נתונים מרכזיים הקשר עסקי">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>אלמנטי נתונים מרכזיים</th>
+        <th>הקשר עסקי</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — כותרת קבוצה עם זיהוי הודעה ומידע סליקה</td>
+          <td class="operational-matrix-table__right">תומכת בתוכניות חיוב ישיר SEPA Core ו-B2B</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**DrctDbtTxInf** — מידע עסקת חיוב ישיר עם סכום וצדדים</td>
+          <td class="operational-matrix-table__right">משמשת לגביית תשלומים חוזרים כגון מנויים, חשבונות שירותים ותשלומי הלוואות</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr** — זיהוי הנושה ופרטי חשבון</td>
+          <td class="operational-matrix-table__right">דורשת הפניית הרשאה תקפה בין החייב לנושה</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**CdtrAgt** — זיהוי סוכן הנושה (מוסד הגבייה)</td>
+          <td class="operational-matrix-table__right">מאפשרת גביית צרור של הוראות חיוב ישיר מרובות בהודעה אחת</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**DbtrAgt** — זיהוי סוכן החייב (מוסד המשלם)</td>
+          <td class="operational-matrix-table__right">סוכן הנושה יוזם pacs.003 כלפי סוכן החייב לגביית כספים. סוכן החייב מאמת את ההרשאה, בודק כיסוי חשבון, ומסלק או מחזיר את העסקה.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## הקשר CBPR+ וסכמות
 
@@ -57,10 +86,34 @@ image: /logo.svg
 
 ## טבלת הבדלי גרסאות
 
-| טווח גרסאות | למה זה חשוב | לקח יישומי |
-|---|---|---|
-| pacs.003.001.09 | המימוש הנוכחי ב-pacs008 | מועיל למידול הפניות של חיוב ישיר בפרויקט הנוכחי. |
-| pacs.003.001.10-11 | גרסאות קטלוג מאוחרות יותר | בדקו גרסאות מאוחרות יותר לגבי עדכוני הרשאה, סטטוס ותאימות הדדית לפני שימוש בפרויקט חדש. |
+<div class="version-diff-table" tabindex="0" aria-label="טבלת הבדלי גרסאות">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>טווח גרסאות</th>
+        <th>למה זה חשוב</th>
+        <th>לקח יישומי</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.003.001.09</td>
+          <td class="version-diff-table__why">המימוש הנוכחי ב-pacs008</td>
+          <td class="version-diff-table__takeaway">מועיל למידול הפניות של חיוב ישיר בפרויקט הנוכחי.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.003.001.10-11</td>
+          <td class="version-diff-table__why">גרסאות קטלוג מאוחרות יותר</td>
+          <td class="version-diff-table__takeaway">בדקו גרסאות מאוחרות יותר לגבי עדכוני הרשאה, סטטוס ותאימות הדדית לפני שימוש בפרויקט חדש.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## דוגמת XML עם הערות
 
@@ -92,9 +145,37 @@ image: /logo.svg
 
 
 ## הודעות קשורות
-| סוג הודעה | תיאור | סקירה |
-|---|---|---|
-| [`pacs.004.001.11`](/he/pacs.004.001.11/) | החזר תשלום | הודעת pacs.004 משמשת להחזרת עסקת תשלום שנסלקה בעבר. היא הופכת את זרימת הכספים כאשר תשלום אינו ניתן להחלה, נשלח בטעות או מוחזר על ידי המוסד המקורי. |
-| [`pacs.007.001.11`](/he/pacs.007.001.11/) | היפוך תשלום בין מוסדות פיננסיים | הודעת pacs.007 משמשת לביטול הוראת תשלום שנשלחה בעבר ועדיין לא נסלקה, או לבקשת ביטול תשלום שנסלק. בניגוד ל-pacs.004 (החזרה), היא מיוזמת על ידי הסוכן המורה המקורי. |
-| [`pacs.002.001.12`](/he/pacs.002.001.12/) | דוח סטטוס תשלום בין מוסדות פיננסיים | הודעת pacs.002 נשלחת על ידי מוסד פיננסי לדיווח על מצב הוראת תשלום שנשלחה בעבר. היא מספקת מידע על אישור, דחייה או סטטוס ממתין עבור עסקאות בודדות בתוך הודעת תשלום. |
+<div class="related-messages-table" tabindex="0" aria-label="הודעות קשורות">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>סוג הודעה</th>
+        <th>תיאור</th>
+        <th>סקירה</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/he/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
+          <td class="related-messages-table__name">החזר תשלום</td>
+          <td class="related-messages-table__overview">הודעת pacs.004 משמשת להחזרת עסקת תשלום שנסלקה בעבר. היא הופכת את זרימת הכספים כאשר תשלום אינו ניתן להחלה, נשלח בטעות או מוחזר על ידי המוסד המקורי.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/he/pacs.007.001.11/"><code>pacs.007.001.11</code></a></td>
+          <td class="related-messages-table__name">היפוך תשלום בין מוסדות פיננסיים</td>
+          <td class="related-messages-table__overview">הודעת pacs.007 משמשת לביטול הוראת תשלום שנשלחה בעבר ועדיין לא נסלקה, או לבקשת ביטול תשלום שנסלק. בניגוד ל-pacs.004 (החזרה), היא מיוזמת על ידי הסוכן המורה המקורי.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/he/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">דוח סטטוס תשלום בין מוסדות פיננסיים</td>
+          <td class="related-messages-table__overview">הודעת pacs.002 נשלחת על ידי מוסד פיננסי לדיווח על מצב הוראת תשלום שנשלחה בעבר. היא מספקת מידע על אישור, דחייה או סטטוס ממתין עבור עסקאות בודדות בתוך הודעת תשלום.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

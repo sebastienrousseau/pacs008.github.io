@@ -36,13 +36,42 @@ Komunikat pacs.002 jest wysyłany przez instytucję finansową w celu raportowan
 - Wymagany w przepływach CBPR+ w celu potwierdzenia przetwarzania komunikatów pacs.008 i pacs.009
 - Obsługuje raportowanie statusu zarówno na poziomie zbiorczym grupy, jak i na poziomie poszczególnych transakcji
 
-| Kluczowe elementy danych | Kontekst biznesowy |
-|---|---|
-| **GrpHdr** — Nagłówek grupy z identyfikacją komunikatu i znacznikiem czasu utworzenia | Używany do potwierdzania rozrachunku lub raportowania odrzucenia poleceń przelewu, poleceń zapłaty i zwrotów płatności |
-| **OrgnlGrpInfAndSts** — Informacje i status oryginalnej grupy do raportowania na poziomie zbiorczym | Umożliwia uzgadnianie między agentem zlecającym a agentem zleconym |
-| **TxInfAndSts** — Informacje i status transakcji dla wyników poszczególnych transakcji | Wymagany w przepływach CBPR+ w celu potwierdzenia przetwarzania komunikatów pacs.008 i pacs.009 |
-| **StsRsnInf** — Informacje o przyczynie statusu ze strukturyzowanymi kodami przyczyn | Obsługuje raportowanie statusu zarówno na poziomie zbiorczym grupy, jak i na poziomie poszczególnych transakcji |
-| **OrgnlTxRef** — Referencja oryginalnej transakcji łącząca z instrukcją źródłową | Agent zlecony (odbiorca) wysyła pacs.002 z powrotem do agenta zlecającego (nadawcy) w celu potwierdzenia akceptacji, rozrachunku lub odrzucenia otrzymanej instrukcji płatniczej, takiej jak pacs.008 lub pacs.009. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Kluczowe elementy danych Kontekst biznesowy">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Kluczowe elementy danych</th>
+        <th>Kontekst biznesowy</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Nagłówek grupy z identyfikacją komunikatu i znacznikiem czasu utworzenia</td>
+          <td class="operational-matrix-table__right">Używany do potwierdzania rozrachunku lub raportowania odrzucenia poleceń przelewu, poleceń zapłaty i zwrotów płatności</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlGrpInfAndSts** — Informacje i status oryginalnej grupy do raportowania na poziomie zbiorczym</td>
+          <td class="operational-matrix-table__right">Umożliwia uzgadnianie między agentem zlecającym a agentem zleconym</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**TxInfAndSts** — Informacje i status transakcji dla wyników poszczególnych transakcji</td>
+          <td class="operational-matrix-table__right">Wymagany w przepływach CBPR+ w celu potwierdzenia przetwarzania komunikatów pacs.008 i pacs.009</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**StsRsnInf** — Informacje o przyczynie statusu ze strukturyzowanymi kodami przyczyn</td>
+          <td class="operational-matrix-table__right">Obsługuje raportowanie statusu zarówno na poziomie zbiorczym grupy, jak i na poziomie poszczególnych transakcji</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlTxRef** — Referencja oryginalnej transakcji łącząca z instrukcją źródłową</td>
+          <td class="operational-matrix-table__right">Agent zlecony (odbiorca) wysyła pacs.002 z powrotem do agenta zlecającego (nadawcy) w celu potwierdzenia akceptacji, rozrachunku lub odrzucenia otrzymanej instrukcji płatniczej, takiej jak pacs.008 lub pacs.009.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Kontekst CBPR+ i schematy
 
@@ -57,10 +86,34 @@ Agent zlecony (odbiorca) wysyła pacs.002 z powrotem do agenta zlecającego (nad
 
 ## Tabela różnic wersji
 
-| Zakres wersji | Dlaczego to ważne | Wniosek wdrożeniowy |
-|---|---|---|
-| pacs.002.001.12 | Bieżąca implementacja w pacs008 | Używaj tego przy dopasowaniu do bieżących szablonów projektu i zasobów walidacyjnych. |
-| pacs.002.001.13-15 | Późniejsze rewizje katalogu | Przed rozpoczęciem nowych prac interoperacyjnych lub podłączaniem nowych infrastruktur sprawdź późniejsze rewizje ISO. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabela różnic wersji">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Zakres wersji</th>
+        <th>Dlaczego to ważne</th>
+        <th>Wniosek wdrożeniowy</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.002.001.12</td>
+          <td class="version-diff-table__why">Bieżąca implementacja w pacs008</td>
+          <td class="version-diff-table__takeaway">Używaj tego przy dopasowaniu do bieżących szablonów projektu i zasobów walidacyjnych.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.002.001.13-15</td>
+          <td class="version-diff-table__why">Późniejsze rewizje katalogu</td>
+          <td class="version-diff-table__takeaway">Przed rozpoczęciem nowych prac interoperacyjnych lub podłączaniem nowych infrastruktur sprawdź późniejsze rewizje ISO.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Przykład XML z komentarzami
 
@@ -89,12 +142,44 @@ Agent zlecony (odbiorca) wysyła pacs.002 z powrotem do agenta zlecającego (nad
 
 ## Porównanie pacs.002 vs pacs.028
 
-| Wymiar | pacs.002.001.12 | Wiadomość porównawcza |
-|---|---|---|
-| Główny cel | Raportuj status | Żądaj statusu |
-| Kto inicjuje interakcję | Instytucja wysyłająca status | Instytucja pytająca o status |
-| Model operacyjny | Raportowanie zdarzeniowe | Zapytanie oparte na wyjątkach |
-| Błędne założenie, którego należy unikać | Że raportowanie statusu zastępuje procesy wyjaśniające i dochodzeniowe | Że każda płatność wymaga jawnego zapytania o status |
+<div class="message-comparison-table" tabindex="0" aria-label="Porównanie pacs.002 vs pacs.028">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Wymiar</th>
+        <th>pacs.002.001.12</th>
+        <th>Wiadomość porównawcza</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Główny cel</td>
+          <td class="message-comparison-table__current">Raportuj status</td>
+          <td class="message-comparison-table__other">Żądaj statusu</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Kto inicjuje interakcję</td>
+          <td class="message-comparison-table__current">Instytucja wysyłająca status</td>
+          <td class="message-comparison-table__other">Instytucja pytająca o status</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Model operacyjny</td>
+          <td class="message-comparison-table__current">Raportowanie zdarzeniowe</td>
+          <td class="message-comparison-table__other">Zapytanie oparte na wyjątkach</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Błędne założenie, którego należy unikać</td>
+          <td class="message-comparison-table__current">Że raportowanie statusu zastępuje procesy wyjaśniające i dochodzeniowe</td>
+          <td class="message-comparison-table__other">Że każda płatność wymaga jawnego zapytania o status</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Źródła podstawowe
 
@@ -106,9 +191,37 @@ Agent zlecony (odbiorca) wysyła pacs.002 z powrotem do agenta zlecającego (nad
 
 
 ## Powiązane wiadomości
-| Typ wiadomości | Opis | Przegląd |
-|---|---|---|
-| [`pacs.008.001.13`](/pl/pacs.008.001.13/) | Przelew kredytowy klienta FI-do-FI | Komunikat pacs.008 jest podstawową instrukcją płatniczą wymienianą między instytucjami finansowymi w celu przekazania środków w imieniu klienta. Zawiera informacje o dłużniku, wierzycielu, kwocie i danych przekazu dla jednej lub więcej transakcji polecenia przelewu. |
-| [`pacs.009.001.10`](/pl/pacs.009.001.10/) | Przelew kredytowy między instytucjami finansowymi | Komunikat pacs.009 jest używany do poleceń przelewu między instytucjami finansowymi, w których transfer odbywa się na rachunek własny instytucji, a nie w imieniu klienta. Obsługuje finansowanie międzybankowe, płatności pokrycia i zarządzanie płynnością. |
-| [`pacs.028.001.05`](/pl/pacs.028.001.05/) | Zapytanie o status płatności FI-do-FI | Komunikat pacs.028 jest wysyłany przez instytucję finansową w celu zapytania o status wcześniej wysłanej instrukcji płatniczej. Umożliwia proaktywne śledzenie przetwarzania płatności bez oczekiwania na nieoczekiwany raport statusowy. |
+<div class="related-messages-table" tabindex="0" aria-label="Powiązane wiadomości">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Typ wiadomości</th>
+        <th>Opis</th>
+        <th>Przegląd</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pl/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">Przelew kredytowy klienta FI-do-FI</td>
+          <td class="related-messages-table__overview">Komunikat pacs.008 jest podstawową instrukcją płatniczą wymienianą między instytucjami finansowymi w celu przekazania środków w imieniu klienta. Zawiera informacje o dłużniku, wierzycielu, kwocie i danych przekazu dla jednej lub więcej transakcji polecenia przelewu.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pl/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">Przelew kredytowy między instytucjami finansowymi</td>
+          <td class="related-messages-table__overview">Komunikat pacs.009 jest używany do poleceń przelewu między instytucjami finansowymi, w których transfer odbywa się na rachunek własny instytucji, a nie w imieniu klienta. Obsługuje finansowanie międzybankowe, płatności pokrycia i zarządzanie płynnością.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pl/pacs.028.001.05/"><code>pacs.028.001.05</code></a></td>
+          <td class="related-messages-table__name">Zapytanie o status płatności FI-do-FI</td>
+          <td class="related-messages-table__overview">Komunikat pacs.028 jest wysyłany przez instytucję finansową w celu zapytania o status wcześniej wysłanej instrukcji płatniczej. Umożliwia proaktywne śledzenie przetwarzania płatności bez oczekiwania na nieoczekiwany raport statusowy.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

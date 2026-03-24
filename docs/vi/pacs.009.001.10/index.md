@@ -36,13 +36,42 @@ Thông điệp pacs.009 được sử dụng cho chuyển khoản tín dụng gi
 - Mang chặng bù đắp của chuyển khoản tín dụng khách hàng được quyết toán theo phương thức bù đắp
 - Cho phép các hoạt động ngân quỹ và cấp vốn giữa các tổ chức tài chính
 
-| Yếu tố dữ liệu chính | Bối cảnh kinh doanh |
-|---|---|
-| **GrpHdr** — Tiêu đề nhóm với mã nhận dạng thông điệp và thông tin quyết toán | Được sử dụng cho chuyển khoản tài khoản tự thân giữa ngân hàng và thanh toán bù đắp |
-| **CdtTrfTxInf** — Thông tin giao dịch chuyển khoản tín dụng với số tiền quyết toán liên ngân hàng | Hỗ trợ quản lý thanh khoản giữa các đối tác ngân hàng đại lý |
-| **Dbtr / DbtrAgt** — Nhận dạng tổ chức con nợ và đại lý | Mang chặng bù đắp của chuyển khoản tín dụng khách hàng được quyết toán theo phương thức bù đắp |
-| **Cdtr / CdtrAgt** — Nhận dạng tổ chức chủ nợ và đại lý | Cho phép các hoạt động ngân quỹ và cấp vốn giữa các tổ chức tài chính |
-| **IntrBkSttlmAmt** — Số tiền quyết toán liên ngân hàng bằng đồng tiền quyết toán | Tổ chức con nợ gửi pacs.009 đến tổ chức chủ nợ để chuyển tiền của chính mình. Đối với thanh toán theo phương thức bù đắp, pacs.009 cung cấp chặng cấp vốn trong khi pacs.008 mang lệnh khách hàng qua đường dẫn riêng biệt. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Yếu tố dữ liệu chính Bối cảnh kinh doanh">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Yếu tố dữ liệu chính</th>
+        <th>Bối cảnh kinh doanh</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Tiêu đề nhóm với mã nhận dạng thông điệp và thông tin quyết toán</td>
+          <td class="operational-matrix-table__right">Được sử dụng cho chuyển khoản tài khoản tự thân giữa ngân hàng và thanh toán bù đắp</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Thông tin giao dịch chuyển khoản tín dụng với số tiền quyết toán liên ngân hàng</td>
+          <td class="operational-matrix-table__right">Hỗ trợ quản lý thanh khoản giữa các đối tác ngân hàng đại lý</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Nhận dạng tổ chức con nợ và đại lý</td>
+          <td class="operational-matrix-table__right">Mang chặng bù đắp của chuyển khoản tín dụng khách hàng được quyết toán theo phương thức bù đắp</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Nhận dạng tổ chức chủ nợ và đại lý</td>
+          <td class="operational-matrix-table__right">Cho phép các hoạt động ngân quỹ và cấp vốn giữa các tổ chức tài chính</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Số tiền quyết toán liên ngân hàng bằng đồng tiền quyết toán</td>
+          <td class="operational-matrix-table__right">Tổ chức con nợ gửi pacs.009 đến tổ chức chủ nợ để chuyển tiền của chính mình. Đối với thanh toán theo phương thức bù đắp, pacs.009 cung cấp chặng cấp vốn trong khi pacs.008 mang lệnh khách hàng qua đường dẫn riêng biệt.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Bối cảnh CBPR+ và lược đồ
 
@@ -57,10 +86,34 @@ Tổ chức con nợ gửi pacs.009 đến tổ chức chủ nợ để chuyển
 
 ## Bảng khác biệt phiên bản
 
-| Phạm vi phiên bản | Vì sao điều này quan trọng | Kết luận triển khai |
-|---|---|---|
-| pacs.009.001.10 | Triển khai hiện tại trong pacs008 | Phù hợp với mức hỗ trợ hiện tại của dự án cho các luồng chuyển khoản tín dụng FI. |
-| pacs.009.001.11-12 | Các bản sửa đổi danh mục về sau | Quan trọng cho việc lập lộ trình trong môi trường ngân hàng đại lý và thanh toán bù đắp. |
+<div class="version-diff-table" tabindex="0" aria-label="Bảng khác biệt phiên bản">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Phạm vi phiên bản</th>
+        <th>Vì sao điều này quan trọng</th>
+        <th>Kết luận triển khai</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.009.001.10</td>
+          <td class="version-diff-table__why">Triển khai hiện tại trong pacs008</td>
+          <td class="version-diff-table__takeaway">Phù hợp với mức hỗ trợ hiện tại của dự án cho các luồng chuyển khoản tín dụng FI.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.009.001.11-12</td>
+          <td class="version-diff-table__why">Các bản sửa đổi danh mục về sau</td>
+          <td class="version-diff-table__takeaway">Quan trọng cho việc lập lộ trình trong môi trường ngân hàng đại lý và thanh toán bù đắp.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Ví dụ XML có chú thích
 
@@ -86,12 +139,44 @@ Tổ chức con nợ gửi pacs.009 đến tổ chức chủ nợ để chuyển
 
 ## So sánh pacs.009 vs pacs.008
 
-| Khía cạnh | pacs.009.001.10 | Thông điệp so sánh |
-|---|---|---|
-| Mục đích chính | Chuyển khoản tín dụng cho tài khoản riêng của tổ chức hoặc chặng thanh toán bù đắp | Chuyển khoản tín dụng khách hàng |
-| Chủ sở hữu nghiệp vụ | Hoạt động ngân quỹ / ngân hàng đại lý / tài trợ vốn | Vận hành thanh toán khách hàng |
-| Cặp kết hợp điển hình | các luồng pacs.002, pacs.004 và pacs.008 liên kết | pacs.002, pacs.004, pacs.007, pacs.028 |
-| Giả định sai cần tránh | Rằng đây chỉ là một pacs.008 mang tính kỹ thuật hơn | Rằng nó có thể mang các luồng tài trợ vốn của tổ chức một cách gọn gàng |
+<div class="message-comparison-table" tabindex="0" aria-label="So sánh pacs.009 vs pacs.008">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Khía cạnh</th>
+        <th>pacs.009.001.10</th>
+        <th>Thông điệp so sánh</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Mục đích chính</td>
+          <td class="message-comparison-table__current">Chuyển khoản tín dụng cho tài khoản riêng của tổ chức hoặc chặng thanh toán bù đắp</td>
+          <td class="message-comparison-table__other">Chuyển khoản tín dụng khách hàng</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Chủ sở hữu nghiệp vụ</td>
+          <td class="message-comparison-table__current">Hoạt động ngân quỹ / ngân hàng đại lý / tài trợ vốn</td>
+          <td class="message-comparison-table__other">Vận hành thanh toán khách hàng</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Cặp kết hợp điển hình</td>
+          <td class="message-comparison-table__current">các luồng pacs.002, pacs.004 và pacs.008 liên kết</td>
+          <td class="message-comparison-table__other">pacs.002, pacs.004, pacs.007, pacs.028</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Giả định sai cần tránh</td>
+          <td class="message-comparison-table__current">Rằng đây chỉ là một pacs.008 mang tính kỹ thuật hơn</td>
+          <td class="message-comparison-table__other">Rằng nó có thể mang các luồng tài trợ vốn của tổ chức một cách gọn gàng</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Tài liệu tham chiếu gốc
 
@@ -103,9 +188,37 @@ Tổ chức con nợ gửi pacs.009 đến tổ chức chủ nợ để chuyển
 
 
 ## Thông điệp liên quan
-| Loại thông điệp | Mô tả | Tổng quan |
-|---|---|---|
-| [`pacs.008.001.13`](/vi/pacs.008.001.13/) | Chuyển khoản tín dụng khách hàng giữa các tổ chức tài chính | Thông điệp pacs.008 là lệnh thanh toán cốt lõi được trao đổi giữa các tổ chức tài chính để chuyển tiền thay mặt khách hàng. Thông điệp này mang thông tin con nợ, chủ nợ, số tiền và thông tin chuyển tiền cho một hoặc nhiều giao dịch chuyển khoản tín dụng. |
-| [`pacs.002.001.12`](/vi/pacs.002.001.12/) | Báo cáo trạng thái thanh toán giữa các tổ chức tài chính | Thông điệp pacs.002 được gửi bởi tổ chức tài chính để báo cáo trạng thái của lệnh thanh toán đã gửi trước đó. Thông điệp này cung cấp thông tin xác nhận, từ chối hoặc trạng thái đang chờ xử lý cho các giao dịch riêng lẻ trong thông điệp thanh toán. |
-| [`pacs.010.001.05`](/vi/pacs.010.001.05/) | Ghi nợ trực tiếp giữa các tổ chức tài chính | Thông điệp pacs.010 được sử dụng giữa các tổ chức tài chính cho giao dịch ghi nợ trực tiếp trên tài khoản của chính tổ chức. Thông điệp này cho phép một tổ chức thu tiền trực tiếp từ tài khoản của tổ chức khác. |
+<div class="related-messages-table" tabindex="0" aria-label="Thông điệp liên quan">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Loại thông điệp</th>
+        <th>Mô tả</th>
+        <th>Tổng quan</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/vi/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">Chuyển khoản tín dụng khách hàng giữa các tổ chức tài chính</td>
+          <td class="related-messages-table__overview">Thông điệp pacs.008 là lệnh thanh toán cốt lõi được trao đổi giữa các tổ chức tài chính để chuyển tiền thay mặt khách hàng. Thông điệp này mang thông tin con nợ, chủ nợ, số tiền và thông tin chuyển tiền cho một hoặc nhiều giao dịch chuyển khoản tín dụng.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/vi/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">Báo cáo trạng thái thanh toán giữa các tổ chức tài chính</td>
+          <td class="related-messages-table__overview">Thông điệp pacs.002 được gửi bởi tổ chức tài chính để báo cáo trạng thái của lệnh thanh toán đã gửi trước đó. Thông điệp này cung cấp thông tin xác nhận, từ chối hoặc trạng thái đang chờ xử lý cho các giao dịch riêng lẻ trong thông điệp thanh toán.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/vi/pacs.010.001.05/"><code>pacs.010.001.05</code></a></td>
+          <td class="related-messages-table__name">Ghi nợ trực tiếp giữa các tổ chức tài chính</td>
+          <td class="related-messages-table__overview">Thông điệp pacs.010 được sử dụng giữa các tổ chức tài chính cho giao dịch ghi nợ trực tiếp trên tài khoản của chính tổ chức. Thông điệp này cho phép một tổ chức thu tiền trực tiếp từ tài khoản của tổ chức khác.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

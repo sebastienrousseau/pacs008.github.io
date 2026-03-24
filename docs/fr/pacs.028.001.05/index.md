@@ -36,13 +36,42 @@ Le message pacs.028 est envoyé par une institution financière pour demander le
 - Complète pacs.002 en initiant la communication de statut plutôt que d'attendre
 - Utilisé dans les flux de gestion d'exceptions et de surveillance des SLA
 
-| Éléments de données clés | Contexte métier |
-|---|---|
-| **GrpHdr** — En-tête de groupe avec identification du message et horodatage de création | Permet l'interrogation proactive du statut pour les instructions de paiement en transit |
-| **TxInf** — Informations de transaction identifiant le paiement à interroger | Aide les équipes d'opérations à enquêter sur les paiements retardés ou manquants |
-| **OrgnlGrpInf** — Informations du groupe d'origine référençant le message source | Complète pacs.002 en initiant la communication de statut plutôt que d'attendre |
-| **OrgnlInstrId** — Identification de l'instruction d'origine du paiement source | Utilisé dans les flux de gestion d'exceptions et de surveillance des SLA |
-| **OrgnlEndToEndId** — Identification de bout en bout d'origine pour la traçabilité | L'agent instructeur envoie pacs.028 à l'agent instruit pour demander le statut d'un paiement spécifique. L'agent instruit répond avec un pacs.002 contenant le statut de traitement actuel. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Éléments de données clés Contexte métier">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Éléments de données clés</th>
+        <th>Contexte métier</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — En-tête de groupe avec identification du message et horodatage de création</td>
+          <td class="operational-matrix-table__right">Permet l&#39;interrogation proactive du statut pour les instructions de paiement en transit</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**TxInf** — Informations de transaction identifiant le paiement à interroger</td>
+          <td class="operational-matrix-table__right">Aide les équipes d&#39;opérations à enquêter sur les paiements retardés ou manquants</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Informations du groupe d&#39;origine référençant le message source</td>
+          <td class="operational-matrix-table__right">Complète pacs.002 en initiant la communication de statut plutôt que d&#39;attendre</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlInstrId** — Identification de l&#39;instruction d&#39;origine du paiement source</td>
+          <td class="operational-matrix-table__right">Utilisé dans les flux de gestion d&#39;exceptions et de surveillance des SLA</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlEndToEndId** — Identification de bout en bout d&#39;origine pour la traçabilité</td>
+          <td class="operational-matrix-table__right">L&#39;agent instructeur envoie pacs.028 à l&#39;agent instruit pour demander le statut d&#39;un paiement spécifique. L&#39;agent instruit répond avec un pacs.002 contenant le statut de traitement actuel.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Contexte CBPR+ et schémas
 
@@ -57,10 +86,34 @@ L'agent instructeur envoie pacs.028 à l'agent instruit pour demander le statut 
 
 ## Tableau des écarts de version
 
-| Plage de versions | Pourquoi c'est important | Conséquence pratique |
-|---|---|---|
-| pacs.028.001.05 | Implémentation actuelle dans pacs008 | Adapté à la modélisation actuelle des demandes de statut. |
-| pacs.028.001.06 | Révision ultérieure du catalogue | Consultez la version plus récente du catalogue pour la planification future de l'interopérabilité. |
+<div class="version-diff-table" tabindex="0" aria-label="Tableau des écarts de version">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Plage de versions</th>
+        <th>Pourquoi c&#39;est important</th>
+        <th>Conséquence pratique</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.028.001.05</td>
+          <td class="version-diff-table__why">Implémentation actuelle dans pacs008</td>
+          <td class="version-diff-table__takeaway">Adapté à la modélisation actuelle des demandes de statut.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.028.001.06</td>
+          <td class="version-diff-table__why">Révision ultérieure du catalogue</td>
+          <td class="version-diff-table__takeaway">Consultez la version plus récente du catalogue pour la planification future de l&#39;interopérabilité.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Exemple XML commenté
 
@@ -84,12 +137,44 @@ L'agent instructeur envoie pacs.028 à l'agent instruit pour demander le statut 
 
 ## Comparer pacs.028 vs pacs.002
 
-| Dimension | pacs.028.001.05 | Message de comparaison |
-|---|---|---|
-| Objectif principal | Request status | Report status |
-| Qui initie l'interaction | L'établissement qui demande le statut | L'établissement qui envoie le statut |
-| Posture opérationnelle | Demande pilotée par exception | Reporting déclenché par événement |
-| Hypothèse erronée à éviter | Qu'il devrait être envoyé de façon routinière pour chaque paiement | Qu'il supprime le besoin d'une gestion proactive des cas |
+<div class="message-comparison-table" tabindex="0" aria-label="Comparer pacs.028 vs pacs.002">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Dimension</th>
+        <th>pacs.028.001.05</th>
+        <th>Message de comparaison</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Objectif principal</td>
+          <td class="message-comparison-table__current">Request status</td>
+          <td class="message-comparison-table__other">Report status</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Qui initie l&#39;interaction</td>
+          <td class="message-comparison-table__current">L&#39;établissement qui demande le statut</td>
+          <td class="message-comparison-table__other">L&#39;établissement qui envoie le statut</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Posture opérationnelle</td>
+          <td class="message-comparison-table__current">Demande pilotée par exception</td>
+          <td class="message-comparison-table__other">Reporting déclenché par événement</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Hypothèse erronée à éviter</td>
+          <td class="message-comparison-table__current">Qu&#39;il devrait être envoyé de façon routinière pour chaque paiement</td>
+          <td class="message-comparison-table__other">Qu&#39;il supprime le besoin d&#39;une gestion proactive des cas</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Références primaires
 
@@ -99,9 +184,37 @@ L'agent instructeur envoie pacs.028 à l'agent instruit pour demander le statut 
 
 
 ## Messages associés
-| Type de message | Description | Présentation |
-|---|---|---|
-| [`pacs.002.001.12`](/fr/pacs.002.001.12/) | Rapport de statut de paiement FI à FI | Le message pacs.002 est envoyé par une institution financière pour rapporter le statut d'une instruction de paiement précédemment envoyée. Il fournit une confirmation, un rejet ou un statut en attente pour les transactions individuelles au sein d'un message de paiement. |
-| [`pacs.008.001.13`](/fr/pacs.008.001.13/) | Virement client FI à FI | Le message pacs.008 est l'instruction de paiement centrale échangée entre institutions financières pour transférer des fonds au nom d'un client. Il porte les informations de débiteur, créancier, montant et remise pour une ou plusieurs transactions de virement. |
-| [`pacs.009.001.10`](/fr/pacs.009.001.10/) | Virement entre institutions financières | Le message pacs.009 est utilisé pour les virements entre institutions financières lorsque le transfert est pour le compte propre de l'institution plutôt que pour un client. Il prend en charge le financement interbancaire, les paiements de couverture et la gestion de liquidité. |
+<div class="related-messages-table" tabindex="0" aria-label="Messages associés">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Type de message</th>
+        <th>Description</th>
+        <th>Présentation</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/fr/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">Rapport de statut de paiement FI à FI</td>
+          <td class="related-messages-table__overview">Le message pacs.002 est envoyé par une institution financière pour rapporter le statut d&#39;une instruction de paiement précédemment envoyée. Il fournit une confirmation, un rejet ou un statut en attente pour les transactions individuelles au sein d&#39;un message de paiement.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/fr/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">Virement client FI à FI</td>
+          <td class="related-messages-table__overview">Le message pacs.008 est l&#39;instruction de paiement centrale échangée entre institutions financières pour transférer des fonds au nom d&#39;un client. Il porte les informations de débiteur, créancier, montant et remise pour une ou plusieurs transactions de virement.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/fr/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">Virement entre institutions financières</td>
+          <td class="related-messages-table__overview">Le message pacs.009 est utilisé pour les virements entre institutions financières lorsque le transfert est pour le compte propre de l&#39;institution plutôt que pour un client. Il prend en charge le financement interbancaire, les paiements de couverture et la gestion de liquidité.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

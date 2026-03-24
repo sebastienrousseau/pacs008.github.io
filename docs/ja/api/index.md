@@ -41,16 +41,54 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 
 ### エンドポイント
 
-| Endpoint | 説明 |
-|---|---|
-| `GET /health` | ヘルスチェック — サービスのステータスを返す |
-| `POST /validate` | XML を生成せずにスキーマに対して支払いデータを検証する |
-| `POST /generate` | XML を同期的に生成してファイルを返す |
-| `POST /generate/async` | 非同期生成ジョブを送信する |
-| `GET /status/{job_id}` | ID でジョブのステータスをポーリングする |
-| `GET /download/{job_id}` | ジョブの完了後に生成された XML をダウンロードする |
-| `DELETE /jobs/{job_id}` | 保留中または実行中のジョブをキャンセル |
-| `GET /docs` | すべてのエンドポイントを探索・テストするためのインタラクティブな Swagger UI |
+<div class="api-endpoints-table" tabindex="0" aria-label="エンドポイント">
+  <table>
+    <colgroup>
+      <col class="api-endpoints-table__col-endpoint">
+      <col class="api-endpoints-table__col-desc">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Endpoint</th>
+        <th>説明</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /health</code></td>
+          <td class="api-endpoints-table__desc">ヘルスチェック — サービスのステータスを返す</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /validate</code></td>
+          <td class="api-endpoints-table__desc">XML を生成せずにスキーマに対して支払いデータを検証する</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate</code></td>
+          <td class="api-endpoints-table__desc">XML を同期的に生成してファイルを返す</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate/async</code></td>
+          <td class="api-endpoints-table__desc">非同期生成ジョブを送信する</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /status/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">ID でジョブのステータスをポーリングする</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /download/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">ジョブの完了後に生成された XML をダウンロードする</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>DELETE /jobs/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">保留中または実行中のジョブをキャンセル</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /docs</code></td>
+          <td class="api-endpoints-table__desc">すべてのエンドポイントを探索・テストするためのインタラクティブな Swagger UI</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 - [`pacs.002.001.12`](/ja/pacs.002.001.12/) — 金融機関間支払ステータス報告
 - [`pacs.003.001.09`](/ja/pacs.003.001.09/) — 金融機関間顧客口座振替
@@ -316,26 +354,118 @@ print(report.is_valid, report.errors)
 
 すべての支払いレコードに以下のフィールドが必要です。バージョン固有のフィールドは該当箇所に記載されています。
 
-| フィールド | 説明 | 制約 |
-|---|---|---|
-| `msg_id` | メッセージ識別子 | 最大 35 文字 |
-| `creation_date_time` | 作成タイムスタンプ | ISO 8601 形式 |
-| `nb_of_txs` | 取引件数 | 正の整数 |
-| `settlement_method` | 決済方法 | CLRG、INDA、COVE、または INGA |
-| `end_to_end_id` | エンドツーエンド識別子 | 最大 35 文字 |
-| `interbank_settlement_amount` | 銀行間決済金額 | 小数、例: `25000.00` |
-| `interbank_settlement_currency` | 決済通貨 | ISO 4217 コード |
-| `charge_bearer` | 手数料負担者 | DEBT、CRED、SHAR、または SLEV |
-| `debtor_name` | 債務者名 | 最大 140 文字 |
-| `debtor_agent_bic` | 債務者エージェント BIC | 8 または 11 文字 |
-| `creditor_agent_bic` | 債権者エージェント BIC | 8 または 11 文字 |
-| `creditor_name` | 債権者名 | 最大 140 文字 |
+<div class="api-fields-table" tabindex="0" aria-label="必須データフィールド">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>フィールド</th>
+        <th>説明</th>
+        <th>制約</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>msg_id</code></td>
+          <td class="api-fields-table__desc">メッセージ識別子</td>
+          <td class="api-fields-table__constraint">最大 35 文字</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creation_date_time</code></td>
+          <td class="api-fields-table__desc">作成タイムスタンプ</td>
+          <td class="api-fields-table__constraint">ISO 8601 形式</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>nb_of_txs</code></td>
+          <td class="api-fields-table__desc">取引件数</td>
+          <td class="api-fields-table__constraint">正の整数</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>settlement_method</code></td>
+          <td class="api-fields-table__desc">決済方法</td>
+          <td class="api-fields-table__constraint">CLRG、INDA、COVE、または INGA</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>end_to_end_id</code></td>
+          <td class="api-fields-table__desc">エンドツーエンド識別子</td>
+          <td class="api-fields-table__constraint">最大 35 文字</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_amount</code></td>
+          <td class="api-fields-table__desc">銀行間決済金額</td>
+          <td class="api-fields-table__constraint">小数、例: `25000.00`</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_currency</code></td>
+          <td class="api-fields-table__desc">決済通貨</td>
+          <td class="api-fields-table__constraint">ISO 4217 コード</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>charge_bearer</code></td>
+          <td class="api-fields-table__desc">手数料負担者</td>
+          <td class="api-fields-table__constraint">DEBT、CRED、SHAR、または SLEV</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_name</code></td>
+          <td class="api-fields-table__desc">債務者名</td>
+          <td class="api-fields-table__constraint">最大 140 文字</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_agent_bic</code></td>
+          <td class="api-fields-table__desc">債務者エージェント BIC</td>
+          <td class="api-fields-table__constraint">8 または 11 文字</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_agent_bic</code></td>
+          <td class="api-fields-table__desc">債権者エージェント BIC</td>
+          <td class="api-fields-table__constraint">8 または 11 文字</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_name</code></td>
+          <td class="api-fields-table__desc">債権者名</td>
+          <td class="api-fields-table__constraint">最大 140 文字</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ### バージョン固有のフィールド
 
-| フィールド | 説明 | 制約 |
-|---|---|---|
-| `uetr` | ユニークなエンドツーエンド取引参照 | UUID 形式 — v08 以降で利用可能 |
-| `mandate_id` | マンデート識別子 | v10 以降で利用可能 |
-| `expiry_date_time` | メッセージ有効期限タイムスタンプ | v13 で利用可能 |
+<div class="api-fields-table api-fields-table--versioned" tabindex="0" aria-label="バージョン固有のフィールド">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>フィールド</th>
+        <th>説明</th>
+        <th>制約</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>uetr</code></td>
+          <td class="api-fields-table__desc">ユニークなエンドツーエンド取引参照</td>
+          <td class="api-fields-table__constraint">UUID 形式 — v08 以降で利用可能</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>mandate_id</code></td>
+          <td class="api-fields-table__desc">マンデート識別子</td>
+          <td class="api-fields-table__constraint">v10 以降で利用可能</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>expiry_date_time</code></td>
+          <td class="api-fields-table__desc">メッセージ有効期限タイムスタンプ</td>
+          <td class="api-fields-table__constraint">v13 で利用可能</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

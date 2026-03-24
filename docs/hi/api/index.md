@@ -41,16 +41,54 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 
 ### एंडपॉइंट
 
-| Endpoint | विवरण |
-|---|---|
-| `GET /health` | हेल्थ चेक — सेवा की स्थिति लौटाता है |
-| `POST /validate` | XML जनरेट किए बिना स्कीमा के विरुद्ध भुगतान डेटा को वैलिडेट करें |
-| `POST /generate` | XML को समकालिक रूप से जनरेट करें और फ़ाइल लौटाएँ |
-| `POST /generate/async` | एक असमकालिक जनरेशन जॉब सबमिट करें |
-| `GET /status/{job_id}` | ID द्वारा जॉब की स्थिति पोल करें |
-| `GET /download/{job_id}` | जॉब पूरी होने के बाद जनरेट किया गया XML डाउनलोड करें |
-| `DELETE /jobs/{job_id}` | लंबित या चल रही नौकरी को रद्द करें |
-| `GET /docs` | सभी एंडपॉइंट एक्सप्लोर और टेस्ट करने के लिए इंटरएक्टिव Swagger UI |
+<div class="api-endpoints-table" tabindex="0" aria-label="एंडपॉइंट">
+  <table>
+    <colgroup>
+      <col class="api-endpoints-table__col-endpoint">
+      <col class="api-endpoints-table__col-desc">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Endpoint</th>
+        <th>विवरण</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /health</code></td>
+          <td class="api-endpoints-table__desc">हेल्थ चेक — सेवा की स्थिति लौटाता है</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /validate</code></td>
+          <td class="api-endpoints-table__desc">XML जनरेट किए बिना स्कीमा के विरुद्ध भुगतान डेटा को वैलिडेट करें</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate</code></td>
+          <td class="api-endpoints-table__desc">XML को समकालिक रूप से जनरेट करें और फ़ाइल लौटाएँ</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate/async</code></td>
+          <td class="api-endpoints-table__desc">एक असमकालिक जनरेशन जॉब सबमिट करें</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /status/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">ID द्वारा जॉब की स्थिति पोल करें</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /download/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">जॉब पूरी होने के बाद जनरेट किया गया XML डाउनलोड करें</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>DELETE /jobs/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">लंबित या चल रही नौकरी को रद्द करें</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /docs</code></td>
+          <td class="api-endpoints-table__desc">सभी एंडपॉइंट एक्सप्लोर और टेस्ट करने के लिए इंटरएक्टिव Swagger UI</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 - [`pacs.002.001.12`](/hi/pacs.002.001.12/) — FI-से-FI भुगतान स्थिति रिपोर्ट
 - [`pacs.003.001.09`](/hi/pacs.003.001.09/) — FI-से-FI ग्राहक प्रत्यक्ष डेबिट
@@ -316,26 +354,118 @@ print(report.is_valid, report.errors)
 
 हर भुगतान रिकॉर्ड में निम्नलिखित फ़ील्ड शामिल होने चाहिए। संस्करण-विशिष्ट फ़ील्ड जहाँ लागू हों वहाँ नोट किए गए हैं।
 
-| फ़ील्ड | विवरण | बाधा |
-|---|---|---|
-| `msg_id` | संदेश पहचानकर्ता | अधिकतम 35 वर्ण |
-| `creation_date_time` | निर्माण टाइमस्टैम्प | ISO 8601 फ़ॉर्मेट |
-| `nb_of_txs` | लेनदेन की संख्या | धनात्मक पूर्णांक |
-| `settlement_method` | निपटान विधि | CLRG, INDA, COVE, या INGA |
-| `end_to_end_id` | एंड-टू-एंड पहचानकर्ता | अधिकतम 35 वर्ण |
-| `interbank_settlement_amount` | इंटरबैंक निपटान राशि | दशमलव, जैसे `25000.00` |
-| `interbank_settlement_currency` | निपटान मुद्रा | ISO 4217 कोड |
-| `charge_bearer` | शुल्क वाहक | DEBT, CRED, SHAR, या SLEV |
-| `debtor_name` | देनदार का नाम | अधिकतम 140 वर्ण |
-| `debtor_agent_bic` | देनदार एजेंट BIC | 8 या 11 वर्ण |
-| `creditor_agent_bic` | लेनदार एजेंट BIC | 8 या 11 वर्ण |
-| `creditor_name` | लेनदार का नाम | अधिकतम 140 वर्ण |
+<div class="api-fields-table" tabindex="0" aria-label="आवश्यक डेटा फ़ील्ड">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>फ़ील्ड</th>
+        <th>विवरण</th>
+        <th>बाधा</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>msg_id</code></td>
+          <td class="api-fields-table__desc">संदेश पहचानकर्ता</td>
+          <td class="api-fields-table__constraint">अधिकतम 35 वर्ण</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creation_date_time</code></td>
+          <td class="api-fields-table__desc">निर्माण टाइमस्टैम्प</td>
+          <td class="api-fields-table__constraint">ISO 8601 फ़ॉर्मेट</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>nb_of_txs</code></td>
+          <td class="api-fields-table__desc">लेनदेन की संख्या</td>
+          <td class="api-fields-table__constraint">धनात्मक पूर्णांक</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>settlement_method</code></td>
+          <td class="api-fields-table__desc">निपटान विधि</td>
+          <td class="api-fields-table__constraint">CLRG, INDA, COVE, या INGA</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>end_to_end_id</code></td>
+          <td class="api-fields-table__desc">एंड-टू-एंड पहचानकर्ता</td>
+          <td class="api-fields-table__constraint">अधिकतम 35 वर्ण</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_amount</code></td>
+          <td class="api-fields-table__desc">इंटरबैंक निपटान राशि</td>
+          <td class="api-fields-table__constraint">दशमलव, जैसे `25000.00`</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_currency</code></td>
+          <td class="api-fields-table__desc">निपटान मुद्रा</td>
+          <td class="api-fields-table__constraint">ISO 4217 कोड</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>charge_bearer</code></td>
+          <td class="api-fields-table__desc">शुल्क वाहक</td>
+          <td class="api-fields-table__constraint">DEBT, CRED, SHAR, या SLEV</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_name</code></td>
+          <td class="api-fields-table__desc">देनदार का नाम</td>
+          <td class="api-fields-table__constraint">अधिकतम 140 वर्ण</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_agent_bic</code></td>
+          <td class="api-fields-table__desc">देनदार एजेंट BIC</td>
+          <td class="api-fields-table__constraint">8 या 11 वर्ण</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_agent_bic</code></td>
+          <td class="api-fields-table__desc">लेनदार एजेंट BIC</td>
+          <td class="api-fields-table__constraint">8 या 11 वर्ण</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_name</code></td>
+          <td class="api-fields-table__desc">लेनदार का नाम</td>
+          <td class="api-fields-table__constraint">अधिकतम 140 वर्ण</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ### संस्करण-विशिष्ट फ़ील्ड
 
-| फ़ील्ड | विवरण | बाधा |
-|---|---|---|
-| `uetr` | अद्वितीय एंड-टू-एंड लेनदेन संदर्भ | UUID फ़ॉर्मेट — v08 से उपलब्ध |
-| `mandate_id` | जनादेश पहचानकर्ता | v10 से उपलब्ध |
-| `expiry_date_time` | संदेश समाप्ति टाइमस्टैम्प | v13 में उपलब्ध |
+<div class="api-fields-table api-fields-table--versioned" tabindex="0" aria-label="संस्करण-विशिष्ट फ़ील्ड">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>फ़ील्ड</th>
+        <th>विवरण</th>
+        <th>बाधा</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>uetr</code></td>
+          <td class="api-fields-table__desc">अद्वितीय एंड-टू-एंड लेनदेन संदर्भ</td>
+          <td class="api-fields-table__constraint">UUID फ़ॉर्मेट — v08 से उपलब्ध</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>mandate_id</code></td>
+          <td class="api-fields-table__desc">जनादेश पहचानकर्ता</td>
+          <td class="api-fields-table__constraint">v10 से उपलब्ध</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>expiry_date_time</code></td>
+          <td class="api-fields-table__desc">संदेश समाप्ति टाइमस्टैम्प</td>
+          <td class="api-fields-table__constraint">v13 में उपलब्ध</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

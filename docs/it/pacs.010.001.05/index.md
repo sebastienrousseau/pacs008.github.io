@@ -36,13 +36,42 @@ Il messaggio pacs.010 viene utilizzato tra istituti finanziari per transazioni d
 - Richiede accordi bilaterali prestabiliti tra gli istituti partecipanti
 - Essenziale per la gestione della liquidità istituzionale e i cicli di regolamento interbancario
 
-| Elementi di dati chiave | Contesto di business |
-|---|---|
-| **GrpHdr** — Intestazione di gruppo con identificazione del messaggio e informazioni di regolamento | Supporta la riscossione interbancaria tramite addebito diretto tra istituti finanziari |
-| **DrctDbtTxInf** — Informazioni sulla transazione di addebito diretto con importo di riscossione | Utilizzato per la riscossione di commissioni, richieste di margine e obblighi di regolamento istituzionale |
-| **Cdtr / CdtrAgt** — Identificazione dell'istituto creditore e del suo agente | Richiede accordi bilaterali prestabiliti tra gli istituti partecipanti |
-| **Dbtr / DbtrAgt** — Identificazione dell'istituto debitore e del suo agente | Essenziale per la gestione della liquidità istituzionale e i cicli di regolamento interbancario |
-| **IntrBkSttlmAmt** — Importo di regolamento interbancario nella valuta di regolamento | L'istituto creditore invia pacs.010 all'istituto debitore per raccogliere fondi in base a un accordo prestabilito. L'istituto debitore convalida la richiesta e regola o rifiuta l'addebito diretto. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Elementi di dati chiave Contesto di business">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Elementi di dati chiave</th>
+        <th>Contesto di business</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Intestazione di gruppo con identificazione del messaggio e informazioni di regolamento</td>
+          <td class="operational-matrix-table__right">Supporta la riscossione interbancaria tramite addebito diretto tra istituti finanziari</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Informazioni sulla transazione di addebito diretto con importo di riscossione</td>
+          <td class="operational-matrix-table__right">Utilizzato per la riscossione di commissioni, richieste di margine e obblighi di regolamento istituzionale</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identificazione dell&#39;istituto creditore e del suo agente</td>
+          <td class="operational-matrix-table__right">Richiede accordi bilaterali prestabiliti tra gli istituti partecipanti</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identificazione dell&#39;istituto debitore e del suo agente</td>
+          <td class="operational-matrix-table__right">Essenziale per la gestione della liquidità istituzionale e i cicli di regolamento interbancario</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Importo di regolamento interbancario nella valuta di regolamento</td>
+          <td class="operational-matrix-table__right">L&#39;istituto creditore invia pacs.010 all&#39;istituto debitore per raccogliere fondi in base a un accordo prestabilito. L&#39;istituto debitore convalida la richiesta e regola o rifiuta l&#39;addebito diretto.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Contesto CBPR+ e schemi
 
@@ -57,10 +86,34 @@ L'istituto creditore invia pacs.010 all'istituto debitore per raccogliere fondi 
 
 ## Tabella delle differenze di versione
 
-| Intervallo di versione | Perché conta | Implicazione implementativa |
-|---|---|---|
-| pacs.010.001.05 | Implementazione attuale in pacs008 | Punto di riferimento per il supporto agli addebiti diretti tra istituzioni nel progetto attuale. |
-| pacs.010.001.06 | Revisione successiva del catalogo | Review before adopting newer infrastructure requirements. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabella delle differenze di versione">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Intervallo di versione</th>
+        <th>Perché conta</th>
+        <th>Implicazione implementativa</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.010.001.05</td>
+          <td class="version-diff-table__why">Implementazione attuale in pacs008</td>
+          <td class="version-diff-table__takeaway">Punto di riferimento per il supporto agli addebiti diretti tra istituzioni nel progetto attuale.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.010.001.06</td>
+          <td class="version-diff-table__why">Revisione successiva del catalogo</td>
+          <td class="version-diff-table__takeaway">Review before adopting newer infrastructure requirements.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Esempio XML commentato
 
@@ -92,9 +145,37 @@ L'istituto creditore invia pacs.010 all'istituto debitore per raccogliere fondi 
 
 
 ## Messaggi correlati
-| Tipo di messaggio | Descrizione | Panoramica |
-|---|---|---|
-| [`pacs.009.001.10`](/it/pacs.009.001.10/) | Bonifico tra istituzioni finanziarie | Il messaggio pacs.009 viene utilizzato per bonifici tra istituti finanziari in cui il trasferimento avviene per conto proprio dell'istituto anziché per conto di un cliente. Supporta il finanziamento interbancario, i pagamenti di copertura e la gestione della liquidità. |
-| [`pacs.002.001.12`](/it/pacs.002.001.12/) | Rapporto di stato del pagamento tra istituzioni finanziarie | Il messaggio pacs.002 viene inviato da un istituto finanziario per comunicare lo stato di un'istruzione di pagamento precedentemente inviata. Fornisce informazioni di conferma, rifiuto o stato in sospeso per le singole transazioni all'interno di un messaggio di pagamento. |
-| [`pacs.003.001.09`](/it/pacs.003.001.09/) | Addebito diretto cliente tra istituzioni finanziarie | Il messaggio pacs.003 viene scambiato tra istituti finanziari per eseguire un'istruzione di addebito diretto del cliente. Consente alla banca del creditore di raccogliere fondi dalla banca del debitore per conto del creditore. |
+<div class="related-messages-table" tabindex="0" aria-label="Messaggi correlati">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Tipo di messaggio</th>
+        <th>Descrizione</th>
+        <th>Panoramica</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/it/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">Bonifico tra istituzioni finanziarie</td>
+          <td class="related-messages-table__overview">Il messaggio pacs.009 viene utilizzato per bonifici tra istituti finanziari in cui il trasferimento avviene per conto proprio dell&#39;istituto anziché per conto di un cliente. Supporta il finanziamento interbancario, i pagamenti di copertura e la gestione della liquidità.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/it/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">Rapporto di stato del pagamento tra istituzioni finanziarie</td>
+          <td class="related-messages-table__overview">Il messaggio pacs.002 viene inviato da un istituto finanziario per comunicare lo stato di un&#39;istruzione di pagamento precedentemente inviata. Fornisce informazioni di conferma, rifiuto o stato in sospeso per le singole transazioni all&#39;interno di un messaggio di pagamento.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/it/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
+          <td class="related-messages-table__name">Addebito diretto cliente tra istituzioni finanziarie</td>
+          <td class="related-messages-table__overview">Il messaggio pacs.003 viene scambiato tra istituti finanziari per eseguire un&#39;istruzione di addebito diretto del cliente. Consente alla banca del creditore di raccogliere fondi dalla banca del debitore per conto del creditore.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

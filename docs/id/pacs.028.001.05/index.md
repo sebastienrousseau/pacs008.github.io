@@ -36,13 +36,42 @@ Pesan pacs.028 dikirim oleh lembaga keuangan untuk meminta status instruksi pemb
 - Melengkapi pacs.002 dengan menginisiasi komunikasi status alih-alih menunggu
 - Digunakan dalam alur kerja penanganan pengecualian dan pemantauan SLA
 
-| Elemen data utama | Konteks bisnis |
-|---|---|
-| **GrpHdr** — Group Header dengan identifikasi pesan dan stempel waktu pembuatan | Memungkinkan pertanyaan status proaktif untuk instruksi pembayaran yang sedang dalam perjalanan |
-| **TxInf** — Informasi Transaksi yang mengidentifikasi pembayaran yang akan ditanyakan | Mendukung tim operasi yang menyelidiki pembayaran yang tertunda atau hilang |
-| **OrgnlGrpInf** — Informasi Grup Asli yang merujuk pesan sumber | Melengkapi pacs.002 dengan menginisiasi komunikasi status alih-alih menunggu |
-| **OrgnlInstrId** — Identifikasi Instruksi Asli dari pembayaran sumber | Digunakan dalam alur kerja penanganan pengecualian dan pemantauan SLA |
-| **OrgnlEndToEndId** — Identifikasi Ujung ke Ujung Asli untuk ketertelusuran | Agen yang memberi instruksi mengirim pacs.028 ke agen yang diinstruksikan untuk meminta status pembayaran tertentu. Agen yang diinstruksikan merespons dengan pacs.002 yang berisi status pemrosesan terkini. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Elemen data utama Konteks bisnis">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Elemen data utama</th>
+        <th>Konteks bisnis</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Group Header dengan identifikasi pesan dan stempel waktu pembuatan</td>
+          <td class="operational-matrix-table__right">Memungkinkan pertanyaan status proaktif untuk instruksi pembayaran yang sedang dalam perjalanan</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**TxInf** — Informasi Transaksi yang mengidentifikasi pembayaran yang akan ditanyakan</td>
+          <td class="operational-matrix-table__right">Mendukung tim operasi yang menyelidiki pembayaran yang tertunda atau hilang</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Informasi Grup Asli yang merujuk pesan sumber</td>
+          <td class="operational-matrix-table__right">Melengkapi pacs.002 dengan menginisiasi komunikasi status alih-alih menunggu</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlInstrId** — Identifikasi Instruksi Asli dari pembayaran sumber</td>
+          <td class="operational-matrix-table__right">Digunakan dalam alur kerja penanganan pengecualian dan pemantauan SLA</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**OrgnlEndToEndId** — Identifikasi Ujung ke Ujung Asli untuk ketertelusuran</td>
+          <td class="operational-matrix-table__right">Agen yang memberi instruksi mengirim pacs.028 ke agen yang diinstruksikan untuk meminta status pembayaran tertentu. Agen yang diinstruksikan merespons dengan pacs.002 yang berisi status pemrosesan terkini.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Konteks CBPR+ dan skema
 
@@ -57,10 +86,34 @@ Agen yang memberi instruksi mengirim pacs.028 ke agen yang diinstruksikan untuk 
 
 ## Tabel perbedaan versi
 
-| Rentang versi | Mengapa ini penting | Kesimpulan implementasi |
-|---|---|---|
-| pacs.028.001.05 | Implementasi saat ini di pacs008 | Cocok untuk pemodelan permintaan status saat ini. |
-| pacs.028.001.06 | Revisi katalog berikutnya | Periksa revisi katalog yang lebih baru untuk perencanaan interoperabilitas di masa depan. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabel perbedaan versi">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Rentang versi</th>
+        <th>Mengapa ini penting</th>
+        <th>Kesimpulan implementasi</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.028.001.05</td>
+          <td class="version-diff-table__why">Implementasi saat ini di pacs008</td>
+          <td class="version-diff-table__takeaway">Cocok untuk pemodelan permintaan status saat ini.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.028.001.06</td>
+          <td class="version-diff-table__why">Revisi katalog berikutnya</td>
+          <td class="version-diff-table__takeaway">Periksa revisi katalog yang lebih baru untuk perencanaan interoperabilitas di masa depan.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Contoh XML beranotasi
 
@@ -84,12 +137,44 @@ Agen yang memberi instruksi mengirim pacs.028 ke agen yang diinstruksikan untuk 
 
 ## Bandingkan pacs.028 vs pacs.002
 
-| Dimensi | pacs.028.001.05 | Pesan pembanding |
-|---|---|---|
-| Tujuan utama | Minta status | Laporkan status |
-| Siapa yang memulai interaksi | Institusi yang meminta status | Institusi yang mengirim status |
-| Posisi operasional | Permintaan berbasis pengecualian | Pelaporan berbasis peristiwa |
-| Asumsi keliru yang harus dihindari | Bahwa ini harus dikirim secara rutin untuk setiap pembayaran | Bahwa ini menghilangkan kebutuhan akan manajemen kasus proaktif |
+<div class="message-comparison-table" tabindex="0" aria-label="Bandingkan pacs.028 vs pacs.002">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Dimensi</th>
+        <th>pacs.028.001.05</th>
+        <th>Pesan pembanding</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Tujuan utama</td>
+          <td class="message-comparison-table__current">Minta status</td>
+          <td class="message-comparison-table__other">Laporkan status</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Siapa yang memulai interaksi</td>
+          <td class="message-comparison-table__current">Institusi yang meminta status</td>
+          <td class="message-comparison-table__other">Institusi yang mengirim status</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Posisi operasional</td>
+          <td class="message-comparison-table__current">Permintaan berbasis pengecualian</td>
+          <td class="message-comparison-table__other">Pelaporan berbasis peristiwa</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Asumsi keliru yang harus dihindari</td>
+          <td class="message-comparison-table__current">Bahwa ini harus dikirim secara rutin untuk setiap pembayaran</td>
+          <td class="message-comparison-table__other">Bahwa ini menghilangkan kebutuhan akan manajemen kasus proaktif</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Referensi primer
 
@@ -99,9 +184,37 @@ Agen yang memberi instruksi mengirim pacs.028 ke agen yang diinstruksikan untuk 
 
 
 ## Pesan terkait
-| Jenis pesan | Deskripsi | Ikhtisar |
-|---|---|---|
-| [`pacs.002.001.12`](/id/pacs.002.001.12/) | Laporan Status Pembayaran FI ke FI | Pesan pacs.002 dikirim oleh lembaga keuangan untuk melaporkan status instruksi pembayaran yang sebelumnya dikirim. Pesan ini memberikan informasi konfirmasi, penolakan, atau status tertunda untuk transaksi individual dalam pesan pembayaran. |
-| [`pacs.008.001.13`](/id/pacs.008.001.13/) | Transfer Kredit Pelanggan FI ke FI | Pesan pacs.008 adalah instruksi pembayaran inti yang dipertukarkan antara lembaga keuangan untuk mentransfer dana atas nama pelanggan. Pesan ini membawa informasi debitur, kreditur, jumlah, dan remitansi untuk satu atau lebih transaksi transfer kredit. |
-| [`pacs.009.001.10`](/id/pacs.009.001.10/) | Transfer Kredit Antar Lembaga Keuangan | Pesan pacs.009 digunakan untuk transfer kredit antara lembaga keuangan di mana transfer dilakukan atas nama lembaga itu sendiri bukan atas nama pelanggan. Pesan ini mendukung pendanaan antarbank, pembayaran cover, dan manajemen likuiditas. |
+<div class="related-messages-table" tabindex="0" aria-label="Pesan terkait">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Jenis pesan</th>
+        <th>Deskripsi</th>
+        <th>Ikhtisar</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/id/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">Laporan Status Pembayaran FI ke FI</td>
+          <td class="related-messages-table__overview">Pesan pacs.002 dikirim oleh lembaga keuangan untuk melaporkan status instruksi pembayaran yang sebelumnya dikirim. Pesan ini memberikan informasi konfirmasi, penolakan, atau status tertunda untuk transaksi individual dalam pesan pembayaran.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/id/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">Transfer Kredit Pelanggan FI ke FI</td>
+          <td class="related-messages-table__overview">Pesan pacs.008 adalah instruksi pembayaran inti yang dipertukarkan antara lembaga keuangan untuk mentransfer dana atas nama pelanggan. Pesan ini membawa informasi debitur, kreditur, jumlah, dan remitansi untuk satu atau lebih transaksi transfer kredit.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/id/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">Transfer Kredit Antar Lembaga Keuangan</td>
+          <td class="related-messages-table__overview">Pesan pacs.009 digunakan untuk transfer kredit antara lembaga keuangan di mana transfer dilakukan atas nama lembaga itu sendiri bukan atas nama pelanggan. Pesan ini mendukung pendanaan antarbank, pembayaran cover, dan manajemen likuiditas.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

@@ -36,13 +36,42 @@ pacs.009 mesajı, transferin bir müşteri adına değil kurumun kendi adına ge
 - Teminat yöntemiyle takas edilen müşteri kredi transferlerinin teminat bacağını taşır
 - Finans kuruluşları arasında hazine ve fonlama operasyonlarını mümkün kılar
 
-| Temel veri öğeleri | İş bağlamı |
-|---|---|
-| **GrpHdr** — Mesaj tanımlama ve takas bilgisi içeren Grup Başlığı | Bankaların kendi hesapları arasındaki transferler ve teminat ödemeleri için kullanılır |
-| **CdtTrfTxInf** — Bankalar arası takas tutarı içeren Kredi Transferi İşlem Bilgisi | Muhabir bankacılık ortakları arasında likidite yönetimini destekler |
-| **Dbtr / DbtrAgt** — Borçlu kuruluş ve aracısının kimlik bilgileri | Teminat yöntemiyle takas edilen müşteri kredi transferlerinin teminat bacağını taşır |
-| **Cdtr / CdtrAgt** — Alacaklı kuruluş ve aracısının kimlik bilgileri | Finans kuruluşları arasında hazine ve fonlama operasyonlarını mümkün kılar |
-| **IntrBkSttlmAmt** — Takas para birimi cinsinden Bankalar Arası Takas Tutarı | Borçlu kuruluş, kendi fonlarını transfer etmek üzere alacaklı kuruluşa pacs.009 gönderir. Teminat yöntemi ödemelerinde pacs.009 fonlama bacağını sağlarken, pacs.008 müşteri talimatını ayrı bir yoldan taşır. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Temel veri öğeleri İş bağlamı">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Temel veri öğeleri</th>
+        <th>İş bağlamı</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Mesaj tanımlama ve takas bilgisi içeren Grup Başlığı</td>
+          <td class="operational-matrix-table__right">Bankaların kendi hesapları arasındaki transferler ve teminat ödemeleri için kullanılır</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Bankalar arası takas tutarı içeren Kredi Transferi İşlem Bilgisi</td>
+          <td class="operational-matrix-table__right">Muhabir bankacılık ortakları arasında likidite yönetimini destekler</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Borçlu kuruluş ve aracısının kimlik bilgileri</td>
+          <td class="operational-matrix-table__right">Teminat yöntemiyle takas edilen müşteri kredi transferlerinin teminat bacağını taşır</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Alacaklı kuruluş ve aracısının kimlik bilgileri</td>
+          <td class="operational-matrix-table__right">Finans kuruluşları arasında hazine ve fonlama operasyonlarını mümkün kılar</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Takas para birimi cinsinden Bankalar Arası Takas Tutarı</td>
+          <td class="operational-matrix-table__right">Borçlu kuruluş, kendi fonlarını transfer etmek üzere alacaklı kuruluşa pacs.009 gönderir. Teminat yöntemi ödemelerinde pacs.009 fonlama bacağını sağlarken, pacs.008 müşteri talimatını ayrı bir yoldan taşır.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## CBPR+ ve şema bağlamı
 
@@ -57,10 +86,34 @@ Borçlu kuruluş, kendi fonlarını transfer etmek üzere alacaklı kuruluşa pa
 
 ## Sürüm fark tablosu
 
-| Sürüm aralığı | Neden önemli | Uygulama çıkarımı |
-|---|---|---|
-| pacs.009.001.10 | pacs008 içindeki mevcut uygulama | FI kredi transfer akışları için mevcut proje desteğiyle uyumludur. |
-| pacs.009.001.11-12 | Daha sonraki katalog sürümleri | Muhabirlik ve karşılama ödemesi ortamlarında yol haritası planlaması için önemlidir. |
+<div class="version-diff-table" tabindex="0" aria-label="Sürüm fark tablosu">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Sürüm aralığı</th>
+        <th>Neden önemli</th>
+        <th>Uygulama çıkarımı</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.009.001.10</td>
+          <td class="version-diff-table__why">pacs008 içindeki mevcut uygulama</td>
+          <td class="version-diff-table__takeaway">FI kredi transfer akışları için mevcut proje desteğiyle uyumludur.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.009.001.11-12</td>
+          <td class="version-diff-table__why">Daha sonraki katalog sürümleri</td>
+          <td class="version-diff-table__takeaway">Muhabirlik ve karşılama ödemesi ortamlarında yol haritası planlaması için önemlidir.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Açıklamalı XML örneği
 
@@ -86,12 +139,44 @@ Borçlu kuruluş, kendi fonlarını transfer etmek üzere alacaklı kuruluşa pa
 
 ## Karşılaştır pacs.009 vs pacs.008
 
-| Boyut | pacs.009.001.10 | Karşılaştırma mesajı |
-|---|---|---|
-| Temel amaç | Kurumun kendi hesabına kredi transferi veya karşılama ayağı | Müşteri kredi transferi |
-| İş sahibi | Hazine / muhabirlik / fonlama operasyonları | Müşteri ödeme operasyonları |
-| Tipik eşleşmeler | pacs.002, pacs.004 ve bağlantılı pacs.008 akışları | pacs.002, pacs.004, pacs.007, pacs.028 |
-| Kaçınılması gereken yanlış varsayım | Bunun yalnızca daha teknik bir pacs.008 olduğu | Kurum fonlama akışlarını sorunsuz taşıyabildiği |
+<div class="message-comparison-table" tabindex="0" aria-label="Karşılaştır pacs.009 vs pacs.008">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Boyut</th>
+        <th>pacs.009.001.10</th>
+        <th>Karşılaştırma mesajı</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Temel amaç</td>
+          <td class="message-comparison-table__current">Kurumun kendi hesabına kredi transferi veya karşılama ayağı</td>
+          <td class="message-comparison-table__other">Müşteri kredi transferi</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">İş sahibi</td>
+          <td class="message-comparison-table__current">Hazine / muhabirlik / fonlama operasyonları</td>
+          <td class="message-comparison-table__other">Müşteri ödeme operasyonları</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Tipik eşleşmeler</td>
+          <td class="message-comparison-table__current">pacs.002, pacs.004 ve bağlantılı pacs.008 akışları</td>
+          <td class="message-comparison-table__other">pacs.002, pacs.004, pacs.007, pacs.028</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Kaçınılması gereken yanlış varsayım</td>
+          <td class="message-comparison-table__current">Bunun yalnızca daha teknik bir pacs.008 olduğu</td>
+          <td class="message-comparison-table__other">Kurum fonlama akışlarını sorunsuz taşıyabildiği</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Birincil referanslar
 
@@ -103,9 +188,37 @@ Borçlu kuruluş, kendi fonlarını transfer etmek üzere alacaklı kuruluşa pa
 
 
 ## İlgili mesajlar
-| Mesaj türü | Açıklama | Genel bakış |
-|---|---|---|
-| [`pacs.008.001.13`](/tr/pacs.008.001.13/) | FI'dan FI'ya müşteri kredi transferi | pacs.008 mesajı, bir müşteri adına fon transfer etmek üzere finans kuruluşları arasında iletilen temel ödeme talimatıdır. Bir veya daha fazla kredi transferi işlemi için borçlu, alacaklı, tutar ve havale bilgilerini taşır. |
-| [`pacs.002.001.12`](/tr/pacs.002.001.12/) | FI'dan FI'ya ödeme durumu raporu | pacs.002 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu bildirmek üzere bir finans kuruluşu tarafından gönderilir. Bir ödeme mesajı içindeki bireysel işlemler için onay, ret veya bekleyen durum bilgisi sağlar. |
-| [`pacs.010.001.05`](/tr/pacs.010.001.05/) | Finansal kuruluşlar arası doğrudan borçlandırma | pacs.010 mesajı, kuruluşun kendi hesabındaki doğrudan borçlandırma işlemleri için finans kuruluşları arasında kullanılır. Bir kuruluşun başka bir kuruluşun hesabından doğrudan fon tahsil etmesini sağlar. |
+<div class="related-messages-table" tabindex="0" aria-label="İlgili mesajlar">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Mesaj türü</th>
+        <th>Açıklama</th>
+        <th>Genel bakış</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/tr/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="related-messages-table__name">FI&#39;dan FI&#39;ya müşteri kredi transferi</td>
+          <td class="related-messages-table__overview">pacs.008 mesajı, bir müşteri adına fon transfer etmek üzere finans kuruluşları arasında iletilen temel ödeme talimatıdır. Bir veya daha fazla kredi transferi işlemi için borçlu, alacaklı, tutar ve havale bilgilerini taşır.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/tr/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">FI&#39;dan FI&#39;ya ödeme durumu raporu</td>
+          <td class="related-messages-table__overview">pacs.002 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu bildirmek üzere bir finans kuruluşu tarafından gönderilir. Bir ödeme mesajı içindeki bireysel işlemler için onay, ret veya bekleyen durum bilgisi sağlar.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/tr/pacs.010.001.05/"><code>pacs.010.001.05</code></a></td>
+          <td class="related-messages-table__name">Finansal kuruluşlar arası doğrudan borçlandırma</td>
+          <td class="related-messages-table__overview">pacs.010 mesajı, kuruluşun kendi hesabındaki doğrudan borçlandırma işlemleri için finans kuruluşları arasında kullanılır. Bir kuruluşun başka bir kuruluşun hesabından doğrudan fon tahsil etmesini sağlar.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

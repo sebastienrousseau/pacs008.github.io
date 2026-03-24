@@ -36,13 +36,42 @@ The pacs.003 message is exchanged between financial institutions to execute a cu
 - Requires a valid mandate reference between debtor and creditor
 - Enables bulk collection of multiple direct debit instructions in a single message
 
-| Key data elements | Business context |
-|---|---|
-| **GrpHdr** — Group Header with message identification and settlement information | Supports SEPA Core and B2B direct debit schemes |
-| **DrctDbtTxInf** — Direct Debit Transaction Information with amount and parties | Used for recurring payment collection such as subscriptions, utility bills, and loan repayments |
-| **Cdtr** — Creditor identification and account details | Requires a valid mandate reference between debtor and creditor |
-| **CdtrAgt** — Creditor Agent (collecting institution) identification | Enables bulk collection of multiple direct debit instructions in a single message |
-| **DbtrAgt** — Debtor Agent (paying institution) identification | The creditor agent initiates pacs.003 toward the debtor agent to collect funds. The debtor agent validates the mandate, checks account coverage, and either settles or returns the transaction. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Key data elements Business context">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Key data elements</th>
+        <th>Business context</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Group Header with message identification and settlement information</td>
+          <td class="operational-matrix-table__right">Supports SEPA Core and B2B direct debit schemes</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Direct Debit Transaction Information with amount and parties</td>
+          <td class="operational-matrix-table__right">Used for recurring payment collection such as subscriptions, utility bills, and loan repayments</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr** — Creditor identification and account details</td>
+          <td class="operational-matrix-table__right">Requires a valid mandate reference between debtor and creditor</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**CdtrAgt** — Creditor Agent (collecting institution) identification</td>
+          <td class="operational-matrix-table__right">Enables bulk collection of multiple direct debit instructions in a single message</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**DbtrAgt** — Debtor Agent (paying institution) identification</td>
+          <td class="operational-matrix-table__right">The creditor agent initiates pacs.003 toward the debtor agent to collect funds. The debtor agent validates the mandate, checks account coverage, and either settles or returns the transaction.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## CBPR+ and scheme context
 
@@ -63,10 +92,34 @@ That means this page is useful for understanding the currently implemented versi
 
 ## Version-diff table
 
-| Version range | Why it matters | Implementation takeaway |
-|---|---|---|
-| pacs.003.001.09 | Current implementation in pacs008 | Useful for direct-debit reference modelling in the current project. |
-| pacs.003.001.10-11 | Later catalogue revisions | Check later revisions for mandate, status, and interoperability updates before greenfield use. |
+<div class="version-diff-table" tabindex="0" aria-label="Version-diff table">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Version range</th>
+        <th>Why it matters</th>
+        <th>Implementation takeaway</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.003.001.09</td>
+          <td class="version-diff-table__why">Current implementation in pacs008</td>
+          <td class="version-diff-table__takeaway">Useful for direct-debit reference modelling in the current project.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.003.001.10-11</td>
+          <td class="version-diff-table__why">Later catalogue revisions</td>
+          <td class="version-diff-table__takeaway">Check later revisions for mandate, status, and interoperability updates before greenfield use.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Scheme-specific notes
 
@@ -145,9 +198,37 @@ Mandate quality, debtor-account rules, and return handling usually matter more t
 
 
 ## Related messages
-| Message type | Description | Overview |
-|---|---|---|
-| [`pacs.004.001.11`](/pacs.004.001.11/) | Payment Return | The pacs.004 message is used to return a previously settled payment transaction. It reverses the flow of funds when a payment cannot be applied, was sent in error, or is being recalled by the originating institution. |
-| [`pacs.007.001.11`](/pacs.007.001.11/) | FI to FI Payment Reversal | The pacs.007 message is used to reverse a previously sent payment instruction that has not yet been settled or to request reversal of a settled payment. Unlike pacs.004 (return), it is initiated by the original instructing agent. |
-| [`pacs.002.001.12`](/pacs.002.001.12/) | FI to FI Payment Status Report | The pacs.002 message is sent by a financial institution to report the status of a previously sent payment instruction. It provides confirmation, rejection, or pending status information for individual transactions within a payment message. |
+<div class="related-messages-table" tabindex="0" aria-label="Related messages">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Message type</th>
+        <th>Description</th>
+        <th>Overview</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
+          <td class="related-messages-table__name">Payment Return</td>
+          <td class="related-messages-table__overview">The pacs.004 message is used to return a previously settled payment transaction. It reverses the flow of funds when a payment cannot be applied, was sent in error, or is being recalled by the originating institution.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pacs.007.001.11/"><code>pacs.007.001.11</code></a></td>
+          <td class="related-messages-table__name">FI to FI Payment Reversal</td>
+          <td class="related-messages-table__overview">The pacs.007 message is used to reverse a previously sent payment instruction that has not yet been settled or to request reversal of a settled payment. Unlike pacs.004 (return), it is initiated by the original instructing agent.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">FI to FI Payment Status Report</td>
+          <td class="related-messages-table__overview">The pacs.002 message is sent by a financial institution to report the status of a previously sent payment instruction. It provides confirmation, rejection, or pending status information for individual transactions within a payment message.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

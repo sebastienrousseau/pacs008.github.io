@@ -36,13 +36,42 @@ Pesan pacs.010 digunakan antara lembaga keuangan untuk transaksi debit langsung 
 - Memerlukan pengaturan bilateral yang telah disepakati sebelumnya antara lembaga peserta
 - Penting untuk manajemen kas institusional dan siklus penyelesaian antarbank
 
-| Elemen data utama | Konteks bisnis |
-|---|---|
-| **GrpHdr** — Group Header dengan identifikasi pesan dan informasi penyelesaian | Mendukung penagihan debit langsung antarbank antara lembaga keuangan |
-| **DrctDbtTxInf** — Informasi Transaksi Debit Langsung dengan jumlah penagihan | Digunakan untuk penagihan biaya, margin call, dan kewajiban penyelesaian institusional |
-| **Cdtr / CdtrAgt** — Identifikasi lembaga kreditur dan agennya | Memerlukan pengaturan bilateral yang telah disepakati sebelumnya antara lembaga peserta |
-| **Dbtr / DbtrAgt** — Identifikasi lembaga debitur dan agennya | Penting untuk manajemen kas institusional dan siklus penyelesaian antarbank |
-| **IntrBkSttlmAmt** — Jumlah Penyelesaian Antarbank dalam mata uang penyelesaian | Lembaga kreditur mengirim pacs.010 ke lembaga debitur untuk menagih dana berdasarkan pengaturan yang telah disepakati sebelumnya. Lembaga debitur memvalidasi permintaan dan menyelesaikan atau menolak debit langsung. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Elemen data utama Konteks bisnis">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Elemen data utama</th>
+        <th>Konteks bisnis</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Group Header dengan identifikasi pesan dan informasi penyelesaian</td>
+          <td class="operational-matrix-table__right">Mendukung penagihan debit langsung antarbank antara lembaga keuangan</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Informasi Transaksi Debit Langsung dengan jumlah penagihan</td>
+          <td class="operational-matrix-table__right">Digunakan untuk penagihan biaya, margin call, dan kewajiban penyelesaian institusional</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identifikasi lembaga kreditur dan agennya</td>
+          <td class="operational-matrix-table__right">Memerlukan pengaturan bilateral yang telah disepakati sebelumnya antara lembaga peserta</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identifikasi lembaga debitur dan agennya</td>
+          <td class="operational-matrix-table__right">Penting untuk manajemen kas institusional dan siklus penyelesaian antarbank</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Jumlah Penyelesaian Antarbank dalam mata uang penyelesaian</td>
+          <td class="operational-matrix-table__right">Lembaga kreditur mengirim pacs.010 ke lembaga debitur untuk menagih dana berdasarkan pengaturan yang telah disepakati sebelumnya. Lembaga debitur memvalidasi permintaan dan menyelesaikan atau menolak debit langsung.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Konteks CBPR+ dan skema
 
@@ -57,10 +86,34 @@ Lembaga kreditur mengirim pacs.010 ke lembaga debitur untuk menagih dana berdasa
 
 ## Tabel perbedaan versi
 
-| Rentang versi | Mengapa ini penting | Kesimpulan implementasi |
-|---|---|---|
-| pacs.010.001.05 | Implementasi saat ini di pacs008 | Menjadi titik acuan untuk dukungan debit langsung antar lembaga dalam proyek saat ini. |
-| pacs.010.001.06 | Revisi katalog berikutnya | Tinjau sebelum mengadopsi persyaratan infrastruktur yang lebih baru. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabel perbedaan versi">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Rentang versi</th>
+        <th>Mengapa ini penting</th>
+        <th>Kesimpulan implementasi</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.010.001.05</td>
+          <td class="version-diff-table__why">Implementasi saat ini di pacs008</td>
+          <td class="version-diff-table__takeaway">Menjadi titik acuan untuk dukungan debit langsung antar lembaga dalam proyek saat ini.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.010.001.06</td>
+          <td class="version-diff-table__why">Revisi katalog berikutnya</td>
+          <td class="version-diff-table__takeaway">Tinjau sebelum mengadopsi persyaratan infrastruktur yang lebih baru.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Contoh XML beranotasi
 
@@ -92,9 +145,37 @@ Lembaga kreditur mengirim pacs.010 ke lembaga debitur untuk menagih dana berdasa
 
 
 ## Pesan terkait
-| Jenis pesan | Deskripsi | Ikhtisar |
-|---|---|---|
-| [`pacs.009.001.10`](/id/pacs.009.001.10/) | Transfer Kredit Antar Lembaga Keuangan | Pesan pacs.009 digunakan untuk transfer kredit antara lembaga keuangan di mana transfer dilakukan atas nama lembaga itu sendiri bukan atas nama pelanggan. Pesan ini mendukung pendanaan antarbank, pembayaran cover, dan manajemen likuiditas. |
-| [`pacs.002.001.12`](/id/pacs.002.001.12/) | Laporan Status Pembayaran FI ke FI | Pesan pacs.002 dikirim oleh lembaga keuangan untuk melaporkan status instruksi pembayaran yang sebelumnya dikirim. Pesan ini memberikan informasi konfirmasi, penolakan, atau status tertunda untuk transaksi individual dalam pesan pembayaran. |
-| [`pacs.003.001.09`](/id/pacs.003.001.09/) | Direct Debit Pelanggan FI ke FI | Pesan pacs.003 dipertukarkan antara lembaga keuangan untuk mengeksekusi instruksi debit langsung pelanggan. Pesan ini memungkinkan bank kreditur untuk menagih dana dari bank debitur atas nama kreditur. |
+<div class="related-messages-table" tabindex="0" aria-label="Pesan terkait">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Jenis pesan</th>
+        <th>Deskripsi</th>
+        <th>Ikhtisar</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/id/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">Transfer Kredit Antar Lembaga Keuangan</td>
+          <td class="related-messages-table__overview">Pesan pacs.009 digunakan untuk transfer kredit antara lembaga keuangan di mana transfer dilakukan atas nama lembaga itu sendiri bukan atas nama pelanggan. Pesan ini mendukung pendanaan antarbank, pembayaran cover, dan manajemen likuiditas.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/id/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">Laporan Status Pembayaran FI ke FI</td>
+          <td class="related-messages-table__overview">Pesan pacs.002 dikirim oleh lembaga keuangan untuk melaporkan status instruksi pembayaran yang sebelumnya dikirim. Pesan ini memberikan informasi konfirmasi, penolakan, atau status tertunda untuk transaksi individual dalam pesan pembayaran.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/id/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
+          <td class="related-messages-table__name">Direct Debit Pelanggan FI ke FI</td>
+          <td class="related-messages-table__overview">Pesan pacs.003 dipertukarkan antara lembaga keuangan untuk mengeksekusi instruksi debit langsung pelanggan. Pesan ini memungkinkan bank kreditur untuk menagih dana dari bank debitur atas nama kreditur.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

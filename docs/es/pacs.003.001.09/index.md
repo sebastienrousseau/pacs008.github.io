@@ -36,13 +36,42 @@ El mensaje pacs.003 se intercambia entre instituciones financieras para ejecutar
 - Requiere una referencia de mandato válida entre deudor y acreedor
 - Permite el cobro masivo de múltiples instrucciones de adeudo directo en un solo mensaje
 
-| Elementos de datos clave | Contexto de negocio |
-|---|---|
-| **GrpHdr** — Cabecera de grupo con identificación del mensaje e información de liquidación | Soporta esquemas SEPA Core y B2B de adeudo directo |
-| **DrctDbtTxInf** — Información de transacción de adeudo directo con importe y partes | Se utiliza para cobro de pagos recurrentes como suscripciones, facturas y amortizaciones de préstamos |
-| **Cdtr** — Identificación del acreedor y datos de cuenta | Requiere una referencia de mandato válida entre deudor y acreedor |
-| **CdtrAgt** — Identificación del agente del acreedor (institución cobradora) | Permite el cobro masivo de múltiples instrucciones de adeudo directo en un solo mensaje |
-| **DbtrAgt** — Identificación del agente del deudor (institución pagadora) | El agente del acreedor inicia pacs.003 hacia el agente del deudor para cobrar fondos. El agente del deudor valida el mandato, comprueba la cobertura de la cuenta y liquida o devuelve la transacción. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Elementos de datos clave Contexto de negocio">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Elementos de datos clave</th>
+        <th>Contexto de negocio</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Cabecera de grupo con identificación del mensaje e información de liquidación</td>
+          <td class="operational-matrix-table__right">Soporta esquemas SEPA Core y B2B de adeudo directo</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Información de transacción de adeudo directo con importe y partes</td>
+          <td class="operational-matrix-table__right">Se utiliza para cobro de pagos recurrentes como suscripciones, facturas y amortizaciones de préstamos</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr** — Identificación del acreedor y datos de cuenta</td>
+          <td class="operational-matrix-table__right">Requiere una referencia de mandato válida entre deudor y acreedor</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**CdtrAgt** — Identificación del agente del acreedor (institución cobradora)</td>
+          <td class="operational-matrix-table__right">Permite el cobro masivo de múltiples instrucciones de adeudo directo en un solo mensaje</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**DbtrAgt** — Identificación del agente del deudor (institución pagadora)</td>
+          <td class="operational-matrix-table__right">El agente del acreedor inicia pacs.003 hacia el agente del deudor para cobrar fondos. El agente del deudor valida el mandato, comprueba la cobertura de la cuenta y liquida o devuelve la transacción.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Contexto CBPR+ y esquemas
 
@@ -57,10 +86,34 @@ El agente del acreedor inicia pacs.003 hacia el agente del deudor para cobrar fo
 
 ## Tabla de diferencias de versión
 
-| Rango de versiones | Por qué importa | Conclusión de implementación |
-|---|---|---|
-| pacs.003.001.09 | Implementación actual en pacs008 | Útil para la modelización de referencias de adeudo directo en el proyecto actual. |
-| pacs.003.001.10-11 | Revisiones posteriores del catálogo | Revise versiones posteriores para cambios de mandato, estado e interoperabilidad antes de usarlo en una nueva implementación. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabla de diferencias de versión">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Rango de versiones</th>
+        <th>Por qué importa</th>
+        <th>Conclusión de implementación</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.003.001.09</td>
+          <td class="version-diff-table__why">Implementación actual en pacs008</td>
+          <td class="version-diff-table__takeaway">Útil para la modelización de referencias de adeudo directo en el proyecto actual.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.003.001.10-11</td>
+          <td class="version-diff-table__why">Revisiones posteriores del catálogo</td>
+          <td class="version-diff-table__takeaway">Revise versiones posteriores para cambios de mandato, estado e interoperabilidad antes de usarlo en una nueva implementación.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Fragmento XML comentado
 
@@ -92,9 +145,37 @@ El agente del acreedor inicia pacs.003 hacia el agente del deudor para cobrar fo
 
 
 ## Mensajes relacionados
-| Tipo de mensaje | Descripción | Descripción general |
-|---|---|---|
-| [`pacs.004.001.11`](/es/pacs.004.001.11/) | Devolución de pago | El mensaje pacs.004 se utiliza para devolver una transacción de pago liquidada previamente. Invierte el flujo de fondos cuando un pago no puede aplicarse, se envió por error o está siendo reclamado por la institución originadora. |
-| [`pacs.007.001.11`](/es/pacs.007.001.11/) | Reverso de pago FI a FI | El mensaje pacs.007 se utiliza para revertir una instrucción de pago enviada previamente que aún no ha sido liquidada o para solicitar la reversión de un pago liquidado. A diferencia de pacs.004 (devolución), es iniciado por el agente ordenante original. |
-| [`pacs.002.001.12`](/es/pacs.002.001.12/) | Informe de estado de pagos FI a FI | El mensaje pacs.002 es enviado por una institución financiera para informar del estado de una instrucción de pago enviada previamente. Proporciona información de confirmación, rechazo o estado pendiente para transacciones individuales dentro de un mensaje de pago. |
+<div class="related-messages-table" tabindex="0" aria-label="Mensajes relacionados">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Tipo de mensaje</th>
+        <th>Descripción</th>
+        <th>Descripción general</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/es/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
+          <td class="related-messages-table__name">Devolución de pago</td>
+          <td class="related-messages-table__overview">El mensaje pacs.004 se utiliza para devolver una transacción de pago liquidada previamente. Invierte el flujo de fondos cuando un pago no puede aplicarse, se envió por error o está siendo reclamado por la institución originadora.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/es/pacs.007.001.11/"><code>pacs.007.001.11</code></a></td>
+          <td class="related-messages-table__name">Reverso de pago FI a FI</td>
+          <td class="related-messages-table__overview">El mensaje pacs.007 se utiliza para revertir una instrucción de pago enviada previamente que aún no ha sido liquidada o para solicitar la reversión de un pago liquidado. A diferencia de pacs.004 (devolución), es iniciado por el agente ordenante original.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/es/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">Informe de estado de pagos FI a FI</td>
+          <td class="related-messages-table__overview">El mensaje pacs.002 es enviado por una institución financiera para informar del estado de una instrucción de pago enviada previamente. Proporciona información de confirmación, rechazo o estado pendiente para transacciones individuales dentro de un mensaje de pago.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

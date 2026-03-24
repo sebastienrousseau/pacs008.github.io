@@ -41,16 +41,54 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 
 ### Ендпоінти
 
-| Endpoint | Опис |
-|---|---|
-| `GET /health` | Перевірка стану — повертає статус сервісу |
-| `POST /validate` | Валідувати платіжні дані за схемою без генерації XML |
-| `POST /generate` | Синхронно згенерувати XML і повернути файл |
-| `POST /generate/async` | Надіслати завдання на асинхронну генерацію |
-| `GET /status/{job_id}` | Опитати статус завдання за ідентифікатором |
-| `GET /download/{job_id}` | Завантажити згенерований XML після завершення завдання |
-| `DELETE /jobs/{job_id}` | Скасувати очікувану або виконувану задачу |
-| `GET /docs` | Інтерактивний Swagger UI для перегляду та тестування всіх ендпоінтів |
+<div class="api-endpoints-table" tabindex="0" aria-label="Ендпоінти">
+  <table>
+    <colgroup>
+      <col class="api-endpoints-table__col-endpoint">
+      <col class="api-endpoints-table__col-desc">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Endpoint</th>
+        <th>Опис</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /health</code></td>
+          <td class="api-endpoints-table__desc">Перевірка стану — повертає статус сервісу</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /validate</code></td>
+          <td class="api-endpoints-table__desc">Валідувати платіжні дані за схемою без генерації XML</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate</code></td>
+          <td class="api-endpoints-table__desc">Синхронно згенерувати XML і повернути файл</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate/async</code></td>
+          <td class="api-endpoints-table__desc">Надіслати завдання на асинхронну генерацію</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /status/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Опитати статус завдання за ідентифікатором</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /download/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Завантажити згенерований XML після завершення завдання</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>DELETE /jobs/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Скасувати очікувану або виконувану задачу</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /docs</code></td>
+          <td class="api-endpoints-table__desc">Інтерактивний Swagger UI для перегляду та тестування всіх ендпоінтів</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 - [`pacs.002.001.12`](/uk/pacs.002.001.12/) — Звіт про статус платежу між фінансовими установами
 - [`pacs.003.001.09`](/uk/pacs.003.001.09/) — Клієнтське пряме дебетування між фінансовими установами
@@ -316,26 +354,118 @@ print(report.is_valid, report.errors)
 
 Кожен платіжний запис повинен містити наступні поля. Поля, специфічні для версій, відзначені там, де застосовно.
 
-| Поле | Опис | Обмеження |
-|---|---|---|
-| `msg_id` | Ідентифікатор повідомлення | Максимум 35 символів |
-| `creation_date_time` | Мітка часу створення | Формат ISO 8601 |
-| `nb_of_txs` | Кількість транзакцій | Позитивне ціле число |
-| `settlement_method` | Метод розрахунку | CLRG, INDA, COVE або INGA |
-| `end_to_end_id` | Наскрізний ідентифікатор | Максимум 35 символів |
-| `interbank_settlement_amount` | Сума міжбанківського розрахунку | Десяткове число, наприклад `25000.00` |
-| `interbank_settlement_currency` | Валюта розрахунку | Код ISO 4217 |
-| `charge_bearer` | Платник комісій | DEBT, CRED, SHAR або SLEV |
-| `debtor_name` | Найменування дебітора | Максимум 140 символів |
-| `debtor_agent_bic` | BIC агента дебітора | 8 або 11 символів |
-| `creditor_agent_bic` | BIC агента кредитора | 8 або 11 символів |
-| `creditor_name` | Найменування кредитора | Максимум 140 символів |
+<div class="api-fields-table" tabindex="0" aria-label="Обов&#39;язкові поля даних">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Поле</th>
+        <th>Опис</th>
+        <th>Обмеження</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>msg_id</code></td>
+          <td class="api-fields-table__desc">Ідентифікатор повідомлення</td>
+          <td class="api-fields-table__constraint">Максимум 35 символів</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creation_date_time</code></td>
+          <td class="api-fields-table__desc">Мітка часу створення</td>
+          <td class="api-fields-table__constraint">Формат ISO 8601</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>nb_of_txs</code></td>
+          <td class="api-fields-table__desc">Кількість транзакцій</td>
+          <td class="api-fields-table__constraint">Позитивне ціле число</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>settlement_method</code></td>
+          <td class="api-fields-table__desc">Метод розрахунку</td>
+          <td class="api-fields-table__constraint">CLRG, INDA, COVE або INGA</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>end_to_end_id</code></td>
+          <td class="api-fields-table__desc">Наскрізний ідентифікатор</td>
+          <td class="api-fields-table__constraint">Максимум 35 символів</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_amount</code></td>
+          <td class="api-fields-table__desc">Сума міжбанківського розрахунку</td>
+          <td class="api-fields-table__constraint">Десяткове число, наприклад `25000.00`</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_currency</code></td>
+          <td class="api-fields-table__desc">Валюта розрахунку</td>
+          <td class="api-fields-table__constraint">Код ISO 4217</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>charge_bearer</code></td>
+          <td class="api-fields-table__desc">Платник комісій</td>
+          <td class="api-fields-table__constraint">DEBT, CRED, SHAR або SLEV</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_name</code></td>
+          <td class="api-fields-table__desc">Найменування дебітора</td>
+          <td class="api-fields-table__constraint">Максимум 140 символів</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_agent_bic</code></td>
+          <td class="api-fields-table__desc">BIC агента дебітора</td>
+          <td class="api-fields-table__constraint">8 або 11 символів</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_agent_bic</code></td>
+          <td class="api-fields-table__desc">BIC агента кредитора</td>
+          <td class="api-fields-table__constraint">8 або 11 символів</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_name</code></td>
+          <td class="api-fields-table__desc">Найменування кредитора</td>
+          <td class="api-fields-table__constraint">Максимум 140 символів</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ### Поля, специфічні для версій
 
-| Поле | Опис | Обмеження |
-|---|---|---|
-| `uetr` | Унікальне наскрізне посилання на транзакцію | Формат UUID — доступно починаючи з v08 |
-| `mandate_id` | Ідентифікатор мандата | Доступно починаючи з v10 |
-| `expiry_date_time` | Мітка часу закінчення строку дії повідомлення | Доступно у v13 |
+<div class="api-fields-table api-fields-table--versioned" tabindex="0" aria-label="Поля, специфічні для версій">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Поле</th>
+        <th>Опис</th>
+        <th>Обмеження</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>uetr</code></td>
+          <td class="api-fields-table__desc">Унікальне наскрізне посилання на транзакцію</td>
+          <td class="api-fields-table__constraint">Формат UUID — доступно починаючи з v08</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>mandate_id</code></td>
+          <td class="api-fields-table__desc">Ідентифікатор мандата</td>
+          <td class="api-fields-table__constraint">Доступно починаючи з v10</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>expiry_date_time</code></td>
+          <td class="api-fields-table__desc">Мітка часу закінчення строку дії повідомлення</td>
+          <td class="api-fields-table__constraint">Доступно у v13</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

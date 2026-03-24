@@ -41,16 +41,54 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 
 ### نقاط الخدمة
 
-| Endpoint | الوصف |
-|---|---|
-| `GET /health` | فحص الحالة — يُعيد حالة الخدمة |
-| `POST /validate` | التحقق من بيانات الدفع مقابل المخطط دون توليد XML |
-| `POST /generate` | توليد XML بشكل متزامن وإعادة الملف |
-| `POST /generate/async` | إرسال مهمة توليد غير متزامنة |
-| `GET /status/{job_id}` | استطلاع حالة المهمة بالمعرّف |
-| `GET /download/{job_id}` | تنزيل XML المُولَّد بعد اكتمال المهمة |
-| `DELETE /jobs/{job_id}` | إلغاء مهمة معلقة أو قيد التنفيذ |
-| `GET /docs` | واجهة Swagger UI التفاعلية لاستكشاف جميع نقاط الخدمة واختبارها |
+<div class="api-endpoints-table" tabindex="0" aria-label="نقاط الخدمة">
+  <table>
+    <colgroup>
+      <col class="api-endpoints-table__col-endpoint">
+      <col class="api-endpoints-table__col-desc">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Endpoint</th>
+        <th>الوصف</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /health</code></td>
+          <td class="api-endpoints-table__desc">فحص الحالة — يُعيد حالة الخدمة</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /validate</code></td>
+          <td class="api-endpoints-table__desc">التحقق من بيانات الدفع مقابل المخطط دون توليد XML</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate</code></td>
+          <td class="api-endpoints-table__desc">توليد XML بشكل متزامن وإعادة الملف</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate/async</code></td>
+          <td class="api-endpoints-table__desc">إرسال مهمة توليد غير متزامنة</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /status/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">استطلاع حالة المهمة بالمعرّف</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /download/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">تنزيل XML المُولَّد بعد اكتمال المهمة</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>DELETE /jobs/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">إلغاء مهمة معلقة أو قيد التنفيذ</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /docs</code></td>
+          <td class="api-endpoints-table__desc">واجهة Swagger UI التفاعلية لاستكشاف جميع نقاط الخدمة واختبارها</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 - [`pacs.002.001.12`](/ar/pacs.002.001.12/) — تقرير حالة الدفع من مؤسسة مالية إلى مؤسسة مالية
 - [`pacs.003.001.09`](/ar/pacs.003.001.09/) — خصم مباشر للعميل من مؤسسة مالية إلى مؤسسة مالية
@@ -316,26 +354,118 @@ print(report.is_valid, report.errors)
 
 يجب أن يتضمن كل سجل دفع الحقول التالية. تُشار الحقول الخاصة بكل إصدار عند الاقتضاء.
 
-| الحقل | الوصف | القيد |
-|---|---|---|
-| `msg_id` | معرّف الرسالة | الحد الأقصى 35 حرفاً |
-| `creation_date_time` | طابع زمن الإنشاء | تنسيق ISO 8601 |
-| `nb_of_txs` | عدد المعاملات | عدد صحيح موجب |
-| `settlement_method` | طريقة التسوية | CLRG أو INDA أو COVE أو INGA |
-| `end_to_end_id` | معرّف النهاية إلى النهاية | الحد الأقصى 35 حرفاً |
-| `interbank_settlement_amount` | مبلغ التسوية بين البنوك | عشري، مثلاً `25000.00` |
-| `interbank_settlement_currency` | عملة التسوية | رمز ISO 4217 |
-| `charge_bearer` | حامل الرسوم | DEBT أو CRED أو SHAR أو SLEV |
-| `debtor_name` | اسم المدين | الحد الأقصى 140 حرفاً |
-| `debtor_agent_bic` | BIC وكيل المدين | 8 أو 11 حرفاً |
-| `creditor_agent_bic` | BIC وكيل الدائن | 8 أو 11 حرفاً |
-| `creditor_name` | اسم الدائن | الحد الأقصى 140 حرفاً |
+<div class="api-fields-table" tabindex="0" aria-label="حقول البيانات المطلوبة">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>الحقل</th>
+        <th>الوصف</th>
+        <th>القيد</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>msg_id</code></td>
+          <td class="api-fields-table__desc">معرّف الرسالة</td>
+          <td class="api-fields-table__constraint">الحد الأقصى 35 حرفاً</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creation_date_time</code></td>
+          <td class="api-fields-table__desc">طابع زمن الإنشاء</td>
+          <td class="api-fields-table__constraint">تنسيق ISO 8601</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>nb_of_txs</code></td>
+          <td class="api-fields-table__desc">عدد المعاملات</td>
+          <td class="api-fields-table__constraint">عدد صحيح موجب</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>settlement_method</code></td>
+          <td class="api-fields-table__desc">طريقة التسوية</td>
+          <td class="api-fields-table__constraint">CLRG أو INDA أو COVE أو INGA</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>end_to_end_id</code></td>
+          <td class="api-fields-table__desc">معرّف النهاية إلى النهاية</td>
+          <td class="api-fields-table__constraint">الحد الأقصى 35 حرفاً</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_amount</code></td>
+          <td class="api-fields-table__desc">مبلغ التسوية بين البنوك</td>
+          <td class="api-fields-table__constraint">عشري، مثلاً `25000.00`</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_currency</code></td>
+          <td class="api-fields-table__desc">عملة التسوية</td>
+          <td class="api-fields-table__constraint">رمز ISO 4217</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>charge_bearer</code></td>
+          <td class="api-fields-table__desc">حامل الرسوم</td>
+          <td class="api-fields-table__constraint">DEBT أو CRED أو SHAR أو SLEV</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_name</code></td>
+          <td class="api-fields-table__desc">اسم المدين</td>
+          <td class="api-fields-table__constraint">الحد الأقصى 140 حرفاً</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_agent_bic</code></td>
+          <td class="api-fields-table__desc">BIC وكيل المدين</td>
+          <td class="api-fields-table__constraint">8 أو 11 حرفاً</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_agent_bic</code></td>
+          <td class="api-fields-table__desc">BIC وكيل الدائن</td>
+          <td class="api-fields-table__constraint">8 أو 11 حرفاً</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_name</code></td>
+          <td class="api-fields-table__desc">اسم الدائن</td>
+          <td class="api-fields-table__constraint">الحد الأقصى 140 حرفاً</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ### حقول خاصة بالإصدار
 
-| الحقل | الوصف | القيد |
-|---|---|---|
-| `uetr` | مرجع المعاملة الفريد من النهاية إلى النهاية | تنسيق UUID — متاح من الإصدار v08 |
-| `mandate_id` | معرّف التفويض | متاح من الإصدار v10 |
-| `expiry_date_time` | طابع زمن انتهاء صلاحية الرسالة | متاح في الإصدار v13 |
+<div class="api-fields-table api-fields-table--versioned" tabindex="0" aria-label="حقول خاصة بالإصدار">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>الحقل</th>
+        <th>الوصف</th>
+        <th>القيد</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>uetr</code></td>
+          <td class="api-fields-table__desc">مرجع المعاملة الفريد من النهاية إلى النهاية</td>
+          <td class="api-fields-table__constraint">تنسيق UUID — متاح من الإصدار v08</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>mandate_id</code></td>
+          <td class="api-fields-table__desc">معرّف التفويض</td>
+          <td class="api-fields-table__constraint">متاح من الإصدار v10</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>expiry_date_time</code></td>
+          <td class="api-fields-table__desc">طابع زمن انتهاء صلاحية الرسالة</td>
+          <td class="api-fields-table__constraint">متاح في الإصدار v13</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

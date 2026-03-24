@@ -36,13 +36,42 @@ Het pacs.003-bericht wordt uitgewisseld tussen financiële instellingen om een i
 - Vereist een geldige mandaatreferentie tussen debiteur en crediteur
 - Maakt bulkincasso van meerdere incasso-instructies in één bericht mogelijk
 
-| Belangrijke gegevenselementen | Zakelijke context |
-|---|---|
-| **GrpHdr** — Groepskoptekst met berichtidentificatie en afwikkelingsinformatie | Ondersteunt SEPA Core- en B2B-incassoschema's |
-| **DrctDbtTxInf** — Incassotransactie-informatie met bedrag en partijen | Gebruikt voor terugkerende betalingsincasso's zoals abonnementen, energierekeningen en leningaflossingen |
-| **Cdtr** — Identificatie van de crediteur en rekeninggegevens | Vereist een geldige mandaatreferentie tussen debiteur en crediteur |
-| **CdtrAgt** — Identificatie van de crediteuragent (incasserende instelling) | Maakt bulkincasso van meerdere incasso-instructies in één bericht mogelijk |
-| **DbtrAgt** — Identificatie van de debiteuragent (betalende instelling) | De crediteuragent initieert pacs.003 richting de debiteuragent om gelden te innen. De debiteuragent valideert het mandaat, controleert de rekeningdekking en wikkelt de transactie af of retourneert deze. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Belangrijke gegevenselementen Zakelijke context">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Belangrijke gegevenselementen</th>
+        <th>Zakelijke context</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Groepskoptekst met berichtidentificatie en afwikkelingsinformatie</td>
+          <td class="operational-matrix-table__right">Ondersteunt SEPA Core- en B2B-incassoschema&#39;s</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Incassotransactie-informatie met bedrag en partijen</td>
+          <td class="operational-matrix-table__right">Gebruikt voor terugkerende betalingsincasso&#39;s zoals abonnementen, energierekeningen en leningaflossingen</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr** — Identificatie van de crediteur en rekeninggegevens</td>
+          <td class="operational-matrix-table__right">Vereist een geldige mandaatreferentie tussen debiteur en crediteur</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**CdtrAgt** — Identificatie van de crediteuragent (incasserende instelling)</td>
+          <td class="operational-matrix-table__right">Maakt bulkincasso van meerdere incasso-instructies in één bericht mogelijk</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**DbtrAgt** — Identificatie van de debiteuragent (betalende instelling)</td>
+          <td class="operational-matrix-table__right">De crediteuragent initieert pacs.003 richting de debiteuragent om gelden te innen. De debiteuragent valideert het mandaat, controleert de rekeningdekking en wikkelt de transactie af of retourneert deze.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## CBPR+- en schema-context
 
@@ -57,10 +86,34 @@ De crediteuragent initieert pacs.003 richting de debiteuragent om gelden te inne
 
 ## Tabel met versieverschillen
 
-| Versiebereik | Waarom dit telt | Implementatieconclusie |
-|---|---|---|
-| pacs.003.001.09 | Huidige implementatie in pacs008 | Nuttig voor de referentiemodellering van incasso's in het huidige project. |
-| pacs.003.001.10-11 | Latere catalogusrevisies | Controleer latere revisies op wijzigingen rond mandaat, status en interoperabiliteit voordat u dit in een nieuwe implementatie gebruikt. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabel met versieverschillen">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Versiebereik</th>
+        <th>Waarom dit telt</th>
+        <th>Implementatieconclusie</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.003.001.09</td>
+          <td class="version-diff-table__why">Huidige implementatie in pacs008</td>
+          <td class="version-diff-table__takeaway">Nuttig voor de referentiemodellering van incasso&#39;s in het huidige project.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.003.001.10-11</td>
+          <td class="version-diff-table__why">Latere catalogusrevisies</td>
+          <td class="version-diff-table__takeaway">Controleer latere revisies op wijzigingen rond mandaat, status en interoperabiliteit voordat u dit in een nieuwe implementatie gebruikt.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Uitgewerkt XML-voorbeeld
 
@@ -92,9 +145,37 @@ De crediteuragent initieert pacs.003 richting de debiteuragent om gelden te inne
 
 
 ## Gerelateerde berichten
-| Berichttype | Beschrijving | Overzicht |
-|---|---|---|
-| [`pacs.004.001.11`](/nl/pacs.004.001.11/) | Betalingsretour | Het pacs.004-bericht wordt gebruikt om een eerder afgewikkelde betalingstransactie te retourneren. Het keert de geldstroom om wanneer een betaling niet kan worden toegepast, per abuis is verzonden of door de opdrachtgevende instelling wordt teruggevorderd. |
-| [`pacs.007.001.11`](/nl/pacs.007.001.11/) | FI-naar-FI-betalingsstornering | Het pacs.007-bericht wordt gebruikt om een eerder verzonden betalingsinstructie die nog niet is afgewikkeld te storneren of om stornering van een afgewikkelde betaling te verzoeken. In tegenstelling tot pacs.004 (retourzending) wordt het geïnitieerd door de oorspronkelijke opdrachtgevende agent. |
-| [`pacs.002.001.12`](/nl/pacs.002.001.12/) | FI-naar-FI-betalingsstatusrapport | Het pacs.002-bericht wordt door een financiële instelling verzonden om de status te rapporteren van een eerder verzonden betalingsinstructie. Het biedt bevestigings-, afwijzings- of hangende statusinformatie voor individuele transacties binnen een betalingsbericht. |
+<div class="related-messages-table" tabindex="0" aria-label="Gerelateerde berichten">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Berichttype</th>
+        <th>Beschrijving</th>
+        <th>Overzicht</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/nl/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
+          <td class="related-messages-table__name">Betalingsretour</td>
+          <td class="related-messages-table__overview">Het pacs.004-bericht wordt gebruikt om een eerder afgewikkelde betalingstransactie te retourneren. Het keert de geldstroom om wanneer een betaling niet kan worden toegepast, per abuis is verzonden of door de opdrachtgevende instelling wordt teruggevorderd.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/nl/pacs.007.001.11/"><code>pacs.007.001.11</code></a></td>
+          <td class="related-messages-table__name">FI-naar-FI-betalingsstornering</td>
+          <td class="related-messages-table__overview">Het pacs.007-bericht wordt gebruikt om een eerder verzonden betalingsinstructie die nog niet is afgewikkeld te storneren of om stornering van een afgewikkelde betaling te verzoeken. In tegenstelling tot pacs.004 (retourzending) wordt het geïnitieerd door de oorspronkelijke opdrachtgevende agent.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/nl/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">FI-naar-FI-betalingsstatusrapport</td>
+          <td class="related-messages-table__overview">Het pacs.002-bericht wordt door een financiële instelling verzonden om de status te rapporteren van een eerder verzonden betalingsinstructie. Het biedt bevestigings-, afwijzings- of hangende statusinformatie voor individuele transacties binnen een betalingsbericht.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

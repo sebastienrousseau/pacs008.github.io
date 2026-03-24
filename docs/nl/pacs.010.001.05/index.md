@@ -36,13 +36,42 @@ Het pacs.010-bericht wordt tussen financiële instellingen gebruikt voor incasso
 - Vereist vooraf overeengekomen bilaterale overeenkomsten tussen deelnemende instellingen
 - Essentieel voor institutioneel kasbeheer en interbancaire afwikkelingscycli
 
-| Belangrijke gegevenselementen | Zakelijke context |
-|---|---|
-| **GrpHdr** — Groepskoptekst met berichtidentificatie en afwikkelingsinformatie | Ondersteunt interbancaire incasso-inning tussen financiële instellingen |
-| **DrctDbtTxInf** — Incassotransactie-informatie met incassobedrag | Gebruikt voor vergoedingsinning, margestortingen en institutionele afwikkelingsverplichtingen |
-| **Cdtr / CdtrAgt** — Identificatie van de crediteurinstelling en haar agent | Vereist vooraf overeengekomen bilaterale overeenkomsten tussen deelnemende instellingen |
-| **Dbtr / DbtrAgt** — Identificatie van de debiteurinstelling en haar agent | Essentieel voor institutioneel kasbeheer en interbancaire afwikkelingscycli |
-| **IntrBkSttlmAmt** — Interbancair afwikkelingsbedrag in de afwikkelingsvaluta | De crediteurinstelling stuurt pacs.010 naar de debiteurinstelling om gelden te innen op basis van een vooraf overeengekomen regeling. De debiteurinstelling valideert het verzoek en wikkelt de incasso af of wijst deze af. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Belangrijke gegevenselementen Zakelijke context">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Belangrijke gegevenselementen</th>
+        <th>Zakelijke context</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Groepskoptekst met berichtidentificatie en afwikkelingsinformatie</td>
+          <td class="operational-matrix-table__right">Ondersteunt interbancaire incasso-inning tussen financiële instellingen</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Incassotransactie-informatie met incassobedrag</td>
+          <td class="operational-matrix-table__right">Gebruikt voor vergoedingsinning, margestortingen en institutionele afwikkelingsverplichtingen</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identificatie van de crediteurinstelling en haar agent</td>
+          <td class="operational-matrix-table__right">Vereist vooraf overeengekomen bilaterale overeenkomsten tussen deelnemende instellingen</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identificatie van de debiteurinstelling en haar agent</td>
+          <td class="operational-matrix-table__right">Essentieel voor institutioneel kasbeheer en interbancaire afwikkelingscycli</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Interbancair afwikkelingsbedrag in de afwikkelingsvaluta</td>
+          <td class="operational-matrix-table__right">De crediteurinstelling stuurt pacs.010 naar de debiteurinstelling om gelden te innen op basis van een vooraf overeengekomen regeling. De debiteurinstelling valideert het verzoek en wikkelt de incasso af of wijst deze af.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## CBPR+- en schema-context
 
@@ -57,10 +86,34 @@ De crediteurinstelling stuurt pacs.010 naar de debiteurinstelling om gelden te i
 
 ## Tabel met versieverschillen
 
-| Versiebereik | Waarom dit telt | Implementatieconclusie |
-|---|---|---|
-| pacs.010.001.05 | Huidige implementatie in pacs008 | Referentiepunt voor ondersteuning van institutionele incasso's in het huidige project. |
-| pacs.010.001.06 | Latere catalogusrevisie | Review before adopting newer infrastructure requirements. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabel met versieverschillen">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Versiebereik</th>
+        <th>Waarom dit telt</th>
+        <th>Implementatieconclusie</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.010.001.05</td>
+          <td class="version-diff-table__why">Huidige implementatie in pacs008</td>
+          <td class="version-diff-table__takeaway">Referentiepunt voor ondersteuning van institutionele incasso&#39;s in het huidige project.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.010.001.06</td>
+          <td class="version-diff-table__why">Latere catalogusrevisie</td>
+          <td class="version-diff-table__takeaway">Review before adopting newer infrastructure requirements.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Uitgewerkt XML-voorbeeld
 
@@ -92,9 +145,37 @@ De crediteurinstelling stuurt pacs.010 naar de debiteurinstelling om gelden te i
 
 
 ## Gerelateerde berichten
-| Berichttype | Beschrijving | Overzicht |
-|---|---|---|
-| [`pacs.009.001.10`](/nl/pacs.009.001.10/) | Kredietoverboeking tussen financiële instellingen | Het pacs.009-bericht wordt gebruikt voor overboekingen tussen financiële instellingen waarbij de overboeking voor eigen rekening van de instelling plaatsvindt en niet namens een klant. Het ondersteunt interbancaire financiering, dekkingsbetalingen en liquiditeitsbeheer. |
-| [`pacs.002.001.12`](/nl/pacs.002.001.12/) | FI-naar-FI-betalingsstatusrapport | Het pacs.002-bericht wordt door een financiële instelling verzonden om de status te rapporteren van een eerder verzonden betalingsinstructie. Het biedt bevestigings-, afwijzings- of hangende statusinformatie voor individuele transacties binnen een betalingsbericht. |
-| [`pacs.003.001.09`](/nl/pacs.003.001.09/) | FI-naar-FI-klantincasso | Het pacs.003-bericht wordt uitgewisseld tussen financiële instellingen om een incasso-instructie van de klant uit te voeren. Het stelt de bank van de crediteur in staat om namens de crediteur gelden te innen bij de bank van de debiteur. |
+<div class="related-messages-table" tabindex="0" aria-label="Gerelateerde berichten">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Berichttype</th>
+        <th>Beschrijving</th>
+        <th>Overzicht</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/nl/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">Kredietoverboeking tussen financiële instellingen</td>
+          <td class="related-messages-table__overview">Het pacs.009-bericht wordt gebruikt voor overboekingen tussen financiële instellingen waarbij de overboeking voor eigen rekening van de instelling plaatsvindt en niet namens een klant. Het ondersteunt interbancaire financiering, dekkingsbetalingen en liquiditeitsbeheer.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/nl/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">FI-naar-FI-betalingsstatusrapport</td>
+          <td class="related-messages-table__overview">Het pacs.002-bericht wordt door een financiële instelling verzonden om de status te rapporteren van een eerder verzonden betalingsinstructie. Het biedt bevestigings-, afwijzings- of hangende statusinformatie voor individuele transacties binnen een betalingsbericht.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/nl/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
+          <td class="related-messages-table__name">FI-naar-FI-klantincasso</td>
+          <td class="related-messages-table__overview">Het pacs.003-bericht wordt uitgewisseld tussen financiële instellingen om een incasso-instructie van de klant uit te voeren. Het stelt de bank van de crediteur in staat om namens de crediteur gelden te innen bij de bank van de debiteur.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

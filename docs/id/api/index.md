@@ -41,16 +41,54 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 
 ### Endpoint
 
-| Endpoint | Deskripsi |
-|---|---|
-| `GET /health` | Pemeriksaan kesehatan — mengembalikan status layanan |
-| `POST /validate` | Validasi data pembayaran terhadap skema tanpa membuat XML |
-| `POST /generate` | Buat XML secara sinkron dan kembalikan file |
-| `POST /generate/async` | Kirim pekerjaan pembuatan asinkron |
-| `GET /status/{job_id}` | Poll status pekerjaan berdasarkan ID |
-| `GET /download/{job_id}` | Unduh XML yang dihasilkan setelah pekerjaan selesai |
-| `DELETE /jobs/{job_id}` | Membatalkan tugas yang tertunda atau sedang berjalan |
-| `GET /docs` | Antarmuka Swagger UI interaktif untuk menjelajahi dan menguji semua endpoint |
+<div class="api-endpoints-table" tabindex="0" aria-label="Endpoint">
+  <table>
+    <colgroup>
+      <col class="api-endpoints-table__col-endpoint">
+      <col class="api-endpoints-table__col-desc">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Endpoint</th>
+        <th>Deskripsi</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /health</code></td>
+          <td class="api-endpoints-table__desc">Pemeriksaan kesehatan — mengembalikan status layanan</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /validate</code></td>
+          <td class="api-endpoints-table__desc">Validasi data pembayaran terhadap skema tanpa membuat XML</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate</code></td>
+          <td class="api-endpoints-table__desc">Buat XML secara sinkron dan kembalikan file</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>POST /generate/async</code></td>
+          <td class="api-endpoints-table__desc">Kirim pekerjaan pembuatan asinkron</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /status/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Poll status pekerjaan berdasarkan ID</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /download/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Unduh XML yang dihasilkan setelah pekerjaan selesai</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>DELETE /jobs/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Membatalkan tugas yang tertunda atau sedang berjalan</td>
+        </tr>
+        <tr>
+          <td class="api-endpoints-table__endpoint"><code>GET /docs</code></td>
+          <td class="api-endpoints-table__desc">Antarmuka Swagger UI interaktif untuk menjelajahi dan menguji semua endpoint</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 - [`pacs.002.001.12`](/id/pacs.002.001.12/) — Laporan Status Pembayaran FI ke FI
 - [`pacs.003.001.09`](/id/pacs.003.001.09/) — Direct Debit Pelanggan FI ke FI
@@ -316,26 +354,118 @@ print(report.is_valid, report.errors)
 
 Setiap rekaman pembayaran harus menyertakan bidang-bidang berikut. Bidang khusus versi dicatat jika berlaku.
 
-| Bidang | Deskripsi | Batasan |
-|---|---|---|
-| `msg_id` | Pengidentifikasi pesan | Maksimal 35 karakter |
-| `creation_date_time` | Stempel waktu pembuatan | Format ISO 8601 |
-| `nb_of_txs` | Jumlah transaksi | Bilangan bulat positif |
-| `settlement_method` | Metode penyelesaian | CLRG, INDA, COVE, atau INGA |
-| `end_to_end_id` | Pengidentifikasi ujung ke ujung | Maksimal 35 karakter |
-| `interbank_settlement_amount` | Jumlah penyelesaian antarbank | Desimal, mis. `25000.00` |
-| `interbank_settlement_currency` | Mata uang penyelesaian | Kode ISO 4217 |
-| `charge_bearer` | Penanggung biaya | DEBT, CRED, SHAR, atau SLEV |
-| `debtor_name` | Nama debitur | Maksimal 140 karakter |
-| `debtor_agent_bic` | BIC agen debitur | 8 atau 11 karakter |
-| `creditor_agent_bic` | BIC agen kreditur | 8 atau 11 karakter |
-| `creditor_name` | Nama kreditur | Maksimal 140 karakter |
+<div class="api-fields-table" tabindex="0" aria-label="Bidang data yang diperlukan">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Bidang</th>
+        <th>Deskripsi</th>
+        <th>Batasan</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>msg_id</code></td>
+          <td class="api-fields-table__desc">Pengidentifikasi pesan</td>
+          <td class="api-fields-table__constraint">Maksimal 35 karakter</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creation_date_time</code></td>
+          <td class="api-fields-table__desc">Stempel waktu pembuatan</td>
+          <td class="api-fields-table__constraint">Format ISO 8601</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>nb_of_txs</code></td>
+          <td class="api-fields-table__desc">Jumlah transaksi</td>
+          <td class="api-fields-table__constraint">Bilangan bulat positif</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>settlement_method</code></td>
+          <td class="api-fields-table__desc">Metode penyelesaian</td>
+          <td class="api-fields-table__constraint">CLRG, INDA, COVE, atau INGA</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>end_to_end_id</code></td>
+          <td class="api-fields-table__desc">Pengidentifikasi ujung ke ujung</td>
+          <td class="api-fields-table__constraint">Maksimal 35 karakter</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_amount</code></td>
+          <td class="api-fields-table__desc">Jumlah penyelesaian antarbank</td>
+          <td class="api-fields-table__constraint">Desimal, mis. `25000.00`</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>interbank_settlement_currency</code></td>
+          <td class="api-fields-table__desc">Mata uang penyelesaian</td>
+          <td class="api-fields-table__constraint">Kode ISO 4217</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>charge_bearer</code></td>
+          <td class="api-fields-table__desc">Penanggung biaya</td>
+          <td class="api-fields-table__constraint">DEBT, CRED, SHAR, atau SLEV</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_name</code></td>
+          <td class="api-fields-table__desc">Nama debitur</td>
+          <td class="api-fields-table__constraint">Maksimal 140 karakter</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>debtor_agent_bic</code></td>
+          <td class="api-fields-table__desc">BIC agen debitur</td>
+          <td class="api-fields-table__constraint">8 atau 11 karakter</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_agent_bic</code></td>
+          <td class="api-fields-table__desc">BIC agen kreditur</td>
+          <td class="api-fields-table__constraint">8 atau 11 karakter</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>creditor_name</code></td>
+          <td class="api-fields-table__desc">Nama kreditur</td>
+          <td class="api-fields-table__constraint">Maksimal 140 karakter</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ### Bidang khusus versi
 
-| Bidang | Deskripsi | Batasan |
-|---|---|---|
-| `uetr` | Referensi transaksi ujung ke ujung yang unik | Format UUID — tersedia dari v08 |
-| `mandate_id` | Pengidentifikasi mandat | Tersedia dari v10 |
-| `expiry_date_time` | Stempel waktu kedaluwarsa pesan | Tersedia di v13 |
+<div class="api-fields-table api-fields-table--versioned" tabindex="0" aria-label="Bidang khusus versi">
+  <table>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Bidang</th>
+        <th>Deskripsi</th>
+        <th>Batasan</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><code>uetr</code></td>
+          <td class="api-fields-table__desc">Referensi transaksi ujung ke ujung yang unik</td>
+          <td class="api-fields-table__constraint">Format UUID — tersedia dari v08</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>mandate_id</code></td>
+          <td class="api-fields-table__desc">Pengidentifikasi mandat</td>
+          <td class="api-fields-table__constraint">Tersedia dari v10</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><code>expiry_date_time</code></td>
+          <td class="api-fields-table__desc">Stempel waktu kedaluwarsa pesan</td>
+          <td class="api-fields-table__constraint">Tersedia di v13</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 

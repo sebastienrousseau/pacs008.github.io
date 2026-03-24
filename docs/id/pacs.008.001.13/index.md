@@ -36,13 +36,42 @@ Pesan pacs.008 adalah instruksi pembayaran inti yang dipertukarkan antara lembag
 - Membawa informasi remitansi terstruktur untuk mendukung rekonsiliasi langsung otomatis
 - Mendukung metode penyelesaian serial, cover, dan langsung untuk rantai pembayaran multi-kaki
 
-| Elemen data utama | Konteks bisnis |
-|---|---|
-| **GrpHdr** — Group Header dengan ID pesan, tanggal pembuatan, jumlah transaksi, dan informasi penyelesaian | Pesan utama untuk transfer kredit lintas batas dan domestik yang diinisiasi pelanggan |
-| **CdtTrfTxInf** — Informasi Transaksi Transfer Kredit dengan jumlah, biaya, dan tujuan | Digunakan di seluruh SEPA SCT, SEPA Instant, CBPR+, dan sistem kliring nasional |
-| **Dbtr / DbtrAgt** — Identifikasi dan rincian rekening Debitur dan Agen Debitur | Membawa informasi remitansi terstruktur untuk mendukung rekonsiliasi langsung otomatis |
-| **Cdtr / CdtrAgt** — Identifikasi dan rincian rekening Kreditur dan Agen Kreditur | Mendukung metode penyelesaian serial, cover, dan langsung untuk rantai pembayaran multi-kaki |
-| **RmtInf** — Informasi Remitansi untuk referensi pembayaran terstruktur atau tidak terstruktur | Agen debitur membuat pacs.008 dan mengirimkannya ke agen kreditur (langsung atau melalui perantara). Setiap agen dalam rantai memvalidasi, memperkaya, dan meneruskan instruksi hingga agen kreditur mengkreditkan rekening penerima manfaat. |
+<div class="operational-matrix-table" tabindex="0" aria-label="Elemen data utama Konteks bisnis">
+  <table>
+    <colgroup>
+      <col class="operational-matrix-table__col-left">
+      <col class="operational-matrix-table__col-right">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Elemen data utama</th>
+        <th>Konteks bisnis</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="operational-matrix-table__left">**GrpHdr** — Group Header dengan ID pesan, tanggal pembuatan, jumlah transaksi, dan informasi penyelesaian</td>
+          <td class="operational-matrix-table__right">Pesan utama untuk transfer kredit lintas batas dan domestik yang diinisiasi pelanggan</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Informasi Transaksi Transfer Kredit dengan jumlah, biaya, dan tujuan</td>
+          <td class="operational-matrix-table__right">Digunakan di seluruh SEPA SCT, SEPA Instant, CBPR+, dan sistem kliring nasional</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identifikasi dan rincian rekening Debitur dan Agen Debitur</td>
+          <td class="operational-matrix-table__right">Membawa informasi remitansi terstruktur untuk mendukung rekonsiliasi langsung otomatis</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identifikasi dan rincian rekening Kreditur dan Agen Kreditur</td>
+          <td class="operational-matrix-table__right">Mendukung metode penyelesaian serial, cover, dan langsung untuk rantai pembayaran multi-kaki</td>
+        </tr>
+        <tr>
+          <td class="operational-matrix-table__left">**RmtInf** — Informasi Remitansi untuk referensi pembayaran terstruktur atau tidak terstruktur</td>
+          <td class="operational-matrix-table__right">Agen debitur membuat pacs.008 dan mengirimkannya ke agen kreditur (langsung atau melalui perantara). Setiap agen dalam rantai memvalidasi, memperkaya, dan meneruskan instruksi hingga agen kreditur mengkreditkan rekening penerima manfaat.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Konteks CBPR+ dan skema
 
@@ -57,11 +86,39 @@ Agen debitur membuat pacs.008 dan mengirimkannya ke agen kreditur (langsung atau
 
 ## Tabel perbedaan versi
 
-| Rentang versi | Mengapa ini penting | Kesimpulan implementasi |
-|---|---|---|
-| pacs.008.001.01-07 | Revisi awal | Terutama berguna untuk analisis migrasi dari sistem lama dan konteks riwayat versi. |
-| pacs.008.001.08-12 | Revisi modern sebelum versi saat ini | Inilah revisi yang paling mungkin muncul dalam proyek migrasi atau koeksistensi terbaru. |
-| pacs.008.001.13 | Revisi katalog saat ini | Gunakan ini untuk perencanaan versi saat ini, sambil tetap memvalidasi pedoman penggunaan skema dan kesiapan pihak lawan. |
+<div class="version-diff-table" tabindex="0" aria-label="Tabel perbedaan versi">
+  <table>
+    <colgroup>
+      <col class="version-diff-table__col-range">
+      <col class="version-diff-table__col-why">
+      <col class="version-diff-table__col-takeaway">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Rentang versi</th>
+        <th>Mengapa ini penting</th>
+        <th>Kesimpulan implementasi</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.01-07</td>
+          <td class="version-diff-table__why">Revisi awal</td>
+          <td class="version-diff-table__takeaway">Terutama berguna untuk analisis migrasi dari sistem lama dan konteks riwayat versi.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.08-12</td>
+          <td class="version-diff-table__why">Revisi modern sebelum versi saat ini</td>
+          <td class="version-diff-table__takeaway">Inilah revisi yang paling mungkin muncul dalam proyek migrasi atau koeksistensi terbaru.</td>
+        </tr>
+        <tr>
+          <td class="version-diff-table__range">pacs.008.001.13</td>
+          <td class="version-diff-table__why">Revisi katalog saat ini</td>
+          <td class="version-diff-table__takeaway">Gunakan ini untuk perencanaan versi saat ini, sambil tetap memvalidasi pedoman penggunaan skema dan kesiapan pihak lawan.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Contoh XML beranotasi
 
@@ -93,12 +150,44 @@ Agen debitur membuat pacs.008 dan mengirimkannya ke agen kreditur (langsung atau
 
 ## Bandingkan pacs.008 vs pacs.009
 
-| Dimensi | pacs.008.001.13 | Pesan pembanding |
-|---|---|---|
-| Tujuan utama | Transfer kredit nasabah | Transfer kredit rekening milik institusi sendiri atau tahap penutup pendanaan |
-| Pemilik bisnis | Operasi pembayaran nasabah | Operasi tresuri / perbankan koresponden / pendanaan |
-| Pasangan umum | pacs.002, pacs.004, pacs.007, pacs.028 | aliran pacs.002, pacs.004, dan kadang-kadang aliran pacs.008 yang terkait |
-| Asumsi keliru yang harus dihindari | Bahwa semua transfer antarbank termasuk di sini | Bahwa ini dapat menggantikan instruksi transfer kredit nasabah |
+<div class="message-comparison-table" tabindex="0" aria-label="Bandingkan pacs.008 vs pacs.009">
+  <table>
+    <colgroup>
+      <col class="message-comparison-table__col-dimension">
+      <col class="message-comparison-table__col-current">
+      <col class="message-comparison-table__col-other">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Dimensi</th>
+        <th>pacs.008.001.13</th>
+        <th>Pesan pembanding</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-comparison-table__dimension">Tujuan utama</td>
+          <td class="message-comparison-table__current">Transfer kredit nasabah</td>
+          <td class="message-comparison-table__other">Transfer kredit rekening milik institusi sendiri atau tahap penutup pendanaan</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Pemilik bisnis</td>
+          <td class="message-comparison-table__current">Operasi pembayaran nasabah</td>
+          <td class="message-comparison-table__other">Operasi tresuri / perbankan koresponden / pendanaan</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Pasangan umum</td>
+          <td class="message-comparison-table__current">pacs.002, pacs.004, pacs.007, pacs.028</td>
+          <td class="message-comparison-table__other">aliran pacs.002, pacs.004, dan kadang-kadang aliran pacs.008 yang terkait</td>
+        </tr>
+        <tr>
+          <td class="message-comparison-table__dimension">Asumsi keliru yang harus dihindari</td>
+          <td class="message-comparison-table__current">Bahwa semua transfer antarbank termasuk di sini</td>
+          <td class="message-comparison-table__other">Bahwa ini dapat menggantikan instruksi transfer kredit nasabah</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Referensi primer
 
@@ -132,9 +221,37 @@ Agen debitur membuat pacs.008 dan mengirimkannya ke agen kreditur (langsung atau
 | `pacs.008.001.13` | **Saat ini** |
 
 ## Pesan terkait
-| Jenis pesan | Deskripsi | Ikhtisar |
-|---|---|---|
-| [`pacs.002.001.12`](/id/pacs.002.001.12/) | Laporan Status Pembayaran FI ke FI | Pesan pacs.002 dikirim oleh lembaga keuangan untuk melaporkan status instruksi pembayaran yang sebelumnya dikirim. Pesan ini memberikan informasi konfirmasi, penolakan, atau status tertunda untuk transaksi individual dalam pesan pembayaran. |
-| [`pacs.004.001.11`](/id/pacs.004.001.11/) | Retur Pembayaran | Pesan pacs.004 digunakan untuk mengembalikan transaksi pembayaran yang sebelumnya telah diselesaikan. Pesan ini membalikkan aliran dana ketika pembayaran tidak dapat diterapkan, dikirim secara keliru, atau sedang ditarik kembali oleh lembaga asal. |
-| [`pacs.009.001.10`](/id/pacs.009.001.10/) | Transfer Kredit Antar Lembaga Keuangan | Pesan pacs.009 digunakan untuk transfer kredit antara lembaga keuangan di mana transfer dilakukan atas nama lembaga itu sendiri bukan atas nama pelanggan. Pesan ini mendukung pendanaan antarbank, pembayaran cover, dan manajemen likuiditas. |
+<div class="related-messages-table" tabindex="0" aria-label="Pesan terkait">
+  <table>
+    <colgroup>
+      <col class="related-messages-table__col-id">
+      <col class="related-messages-table__col-name">
+      <col class="related-messages-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Jenis pesan</th>
+        <th>Deskripsi</th>
+        <th>Ikhtisar</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="related-messages-table__id"><a href="/id/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="related-messages-table__name">Laporan Status Pembayaran FI ke FI</td>
+          <td class="related-messages-table__overview">Pesan pacs.002 dikirim oleh lembaga keuangan untuk melaporkan status instruksi pembayaran yang sebelumnya dikirim. Pesan ini memberikan informasi konfirmasi, penolakan, atau status tertunda untuk transaksi individual dalam pesan pembayaran.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/id/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
+          <td class="related-messages-table__name">Retur Pembayaran</td>
+          <td class="related-messages-table__overview">Pesan pacs.004 digunakan untuk mengembalikan transaksi pembayaran yang sebelumnya telah diselesaikan. Pesan ini membalikkan aliran dana ketika pembayaran tidak dapat diterapkan, dikirim secara keliru, atau sedang ditarik kembali oleh lembaga asal.</td>
+        </tr>
+        <tr>
+          <td class="related-messages-table__id"><a href="/id/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="related-messages-table__name">Transfer Kredit Antar Lembaga Keuangan</td>
+          <td class="related-messages-table__overview">Pesan pacs.009 digunakan untuk transfer kredit antara lembaga keuangan di mana transfer dilakukan atas nama lembaga itu sendiri bukan atas nama pelanggan. Pesan ini mendukung pendanaan antarbank, pembayaran cover, dan manajemen likuiditas.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
