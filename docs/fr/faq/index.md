@@ -1,14 +1,14 @@
 ---
-title: "Frequently asked questions | pacs008"
-description: Common questions about ISO 20022 pacs messages, CBPR+ migration, message selection, implementation, and the pacs008 toolkit.
+title: "Questions fréquentes | pacs008"
+description: "Questions courantes sur les messages pacs ISO 20022, la migration CBPR+, la sélection de messages, l'implémentation et le toolkit pacs008."
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Frequently asked questions
+# Questions fréquentes
 
-This page answers common questions about ISO 20022 pacs messages, how they work together, and how pacs008 helps teams implement them.
+Cette page répond aux questions courantes sur les messages pacs ISO 20022, leur fonctionnement conjoint et comment pacs008 aide les équipes à les implémenter.
 
 ## General
 

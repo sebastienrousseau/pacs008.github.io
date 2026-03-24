@@ -1,14 +1,14 @@
 ---
-title: "PACS messages explained | pacs008"
-description: "Detailed technical reference for ISO 20022 pacs messages: lifecycle, XML structure, settlement methods, reason codes, address types, identifiers..."
+title: "PACS-Nachrichten erklärt | pacs008"
+description: "Detaillierte technische Referenz für ISO 20022 pacs-Nachrichten: Lebenszyklus, XML-Struktur, Abwicklungsmethoden, Begründungscodes, Adresstypen..."
 lang: de-DE
 lastUpdated: true
 image: /logo.svg
 ---
 
-# PACS messages explained
+# PACS-Nachrichten erklärt
 
-This page provides a detailed technical reference for the ISO 20022 pacs message family. It covers how messages work together in a complete payment lifecycle, the XML structure, settlement methods, reason codes, party identification, remittance information, and end-to-end tracking.
+Diese Seite bietet eine detaillierte technische Referenz für die ISO 20022 pacs-Nachrichtenfamilie. Sie behandelt den vollständigen Zahlungslebenszyklus, die XML-Struktur, Abwicklungsmethoden, Begründungscodes, Parteiidentifikation, Überweisungsinformationen und End-to-End-Tracking.
 
 ## Payment lifecycle
 

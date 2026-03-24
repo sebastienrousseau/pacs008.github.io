@@ -23,7 +23,8 @@ function breadcrumbNameForSegment(segment: string): string {
     api: t.value.api,
     contact: t.value.contact,
     privacy: t.value.privacy,
-    terms: t.value.terms
+    terms: t.value.terms,
+    glossary: t.value.glossary
   };
   return known[segment] || slugToTitle(segment);
 }

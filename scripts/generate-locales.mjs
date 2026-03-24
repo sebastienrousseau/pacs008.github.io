@@ -618,6 +618,12 @@ const pageCopy = {
     pacsExplainedTitle: "PACS messages explained",
     pacsExplainedDescription: "Detailed technical reference for ISO 20022 pacs messages: lifecycle, XML structure, settlement methods, reason codes, address types, identifiers, remittance, and UETR tracking.",
     pacsExplainedIntro: "This page provides a detailed technical reference for the ISO 20022 pacs message family. It covers how messages work together in a complete payment lifecycle, the XML structure, settlement methods, reason codes, party identification, remittance information, and end-to-end tracking.",
+    changelogTitle: "Changelog",
+    changelogDescription: "Version history and release notes for the pacs008 toolkit. Track new features, improvements, and fixes across releases.",
+    changelogIntro: "This page tracks significant changes to the pacs008 toolkit and this documentation site.",
+    glossaryTitle: "ISO 20022 glossary",
+    glossaryDescription: "Definitions of key ISO 20022 and payment messaging terms used in pacs.008 and related messages.",
+    glossaryIntro: "This glossary defines the key terms, abbreviations, and technical concepts used across ISO 20022 pacs messages and this site.",
     msgDetailIdentifier: "Identifier",
     msgDetailIsoName: "ISO name",
     msgDetailStatus: "Registration status",
@@ -1103,6 +1109,9 @@ const pageCopy = {
     editorialAccuracyText: "pacs008.com vise à être précis et à jour, mais ne remplace pas les règlements des systèmes de paiement, les accords de contrepartie ou les conseils juridiques. Confirmez toujours les détails de mise en œuvre avec les sources primaires et les règles spécifiques du marché ou du système dans lequel vous opérez.",
     editorialContactTitle: "Contact",
     editorialContactText: "Si vous trouvez une erreur ou avez une correction, veuillez ouvrir un ticket dans le [dépôt pacs008](https://github.com/sebastienrousseau/pacs008/issues).",
+    faqPageTitle: "Questions fréquentes",
+    faqPageDescription: "Questions courantes sur les messages pacs ISO 20022, la migration CBPR+, la sélection de messages, l'implémentation et le toolkit pacs008.",
+    faqPageIntro: "Cette page répond aux questions courantes sur les messages pacs ISO 20022, leur fonctionnement conjoint et comment pacs008 aide les équipes à les implémenter.",
     structuredAddressTitle: "Échéance adresse structurée novembre 2026",
     structuredAddressDescription: "Impact de l'échéance SWIFT CBPR+ de novembre 2026 sur les adresses postales structurées pour pacs.008 et les messages de paiement associés, et comment pacs008 aide les équipes à se conformer.",
     structuredAddressIntro: "SWIFT exige des adresses postales structurées dans les messages de paiement transfrontaliers à partir de novembre 2026. Cette page explique ce qui change, quels messages sont concernés et comment pacs008 aide les équipes à se préparer.",
@@ -1133,6 +1142,9 @@ const pageCopy = {
     structuredAddressAction3: "Ajouter la validation d'adresse à votre pipeline de pré-génération avec pacs008.",
     structuredAddressAction4: "Tester avec des données de paiement représentatives avant l'échéance.",
     structuredAddressRefsTitle: "Références",
+    pacsExplainedTitle: "Les messages PACS expliqués",
+    pacsExplainedDescription: "Référence technique détaillée pour les messages pacs ISO 20022 : cycle de vie, structure XML, méthodes de règlement, codes motif, types d'adresse, identifiants, remise et suivi UETR.",
+    pacsExplainedIntro: "Cette page fournit une référence technique détaillée pour la famille de messages pacs ISO 20022. Elle couvre le fonctionnement des messages dans le cycle de vie complet d'un paiement, la structure XML, les méthodes de règlement, les codes motif, l'identification des parties, les informations de remise et le suivi de bout en bout.",
   },
   ar: {
     aboutTitle: "حول pacs008",
@@ -1809,6 +1821,9 @@ const pageCopy = {
     editorialAccuracyText: "pacs008.com strebt Genauigkeit und Aktualität an, ist aber kein Ersatz für Schema-Regelwerke, Gegenparteivereinbarungen oder Rechtsberatung. Bestätigen Sie Implementierungsdetails immer anhand der Primärquellen und der spezifischen Regeln des Marktes oder Schemas, in dem Sie tätig sind.",
     editorialContactTitle: "Kontakt",
     editorialContactText: "Wenn Sie einen Fehler finden oder eine Korrektur haben, öffnen Sie bitte ein Issue im [pacs008-Repository](https://github.com/sebastienrousseau/pacs008/issues).",
+    faqPageTitle: "Häufig gestellte Fragen",
+    faqPageDescription: "Häufige Fragen zu ISO 20022 pacs-Nachrichten, CBPR+-Migration, Nachrichtenauswahl, Implementierung und dem pacs008-Toolkit.",
+    faqPageIntro: "Diese Seite beantwortet häufige Fragen zu ISO 20022 pacs-Nachrichten, wie sie zusammenwirken und wie pacs008 Teams bei der Implementierung unterstützt.",
     structuredAddressTitle: "Frist für strukturierte Adressen November 2026",
     structuredAddressDescription: "Auswirkungen der SWIFT CBPR+ Frist im November 2026 für strukturierte Postanschriften auf pacs.008 und verwandte Zahlungsnachrichten, und wie pacs008 Teams bei der Einhaltung unterstützt.",
     structuredAddressIntro: "SWIFT verlangt ab November 2026 strukturierte Postanschriften in grenzüberschreitenden Zahlungsnachrichten. Diese Seite erklärt, was sich ändert, welche Nachrichten betroffen sind und wie pacs008 Teams bei der Vorbereitung hilft.",
@@ -1839,6 +1854,9 @@ const pageCopy = {
     structuredAddressAction3: "Adressvalidierung mit pacs008 in die Pre-Generation-Pipeline einbauen.",
     structuredAddressAction4: "Mit repräsentativen Zahlungsdaten vor der Frist testen.",
     structuredAddressRefsTitle: "Referenzen",
+    pacsExplainedTitle: "PACS-Nachrichten erklärt",
+    pacsExplainedDescription: "Detaillierte technische Referenz für ISO 20022 pacs-Nachrichten: Lebenszyklus, XML-Struktur, Abwicklungsmethoden, Begründungscodes, Adresstypen, Kennungen, Überweisungsinformationen und UETR-Tracking.",
+    pacsExplainedIntro: "Diese Seite bietet eine detaillierte technische Referenz für die ISO 20022 pacs-Nachrichtenfamilie. Sie behandelt den vollständigen Zahlungslebenszyklus, die XML-Struktur, Abwicklungsmethoden, Begründungscodes, Parteiidentifikation, Überweisungsinformationen und End-to-End-Tracking.",
   },
   es: {
     aboutTitle: "Acerca de pacs008",
@@ -2162,6 +2180,9 @@ const pageCopy = {
     editorialAccuracyText: "pacs008.com busca ser preciso y actual, pero no sustituye los reglamentos de esquemas, los acuerdos con contrapartes ni el asesoramiento jurídico. Confirme siempre los detalles de implementación con las fuentes primarias y las reglas específicas del mercado o esquema en el que opera.",
     editorialContactTitle: "Contacto",
     editorialContactText: "Si encuentra un error o tiene una corrección, abra un issue en el [repositorio pacs008](https://github.com/sebastienrousseau/pacs008/issues).",
+    faqPageTitle: "Preguntas frecuentes",
+    faqPageDescription: "Preguntas comunes sobre mensajes pacs ISO 20022, migración CBPR+, selección de mensajes, implementación y el toolkit pacs008.",
+    faqPageIntro: "Esta página responde preguntas comunes sobre los mensajes pacs ISO 20022, cómo funcionan juntos y cómo pacs008 ayuda a los equipos a implementarlos.",
     structuredAddressTitle: "Plazo de dirección estructurada noviembre 2026",
     structuredAddressDescription: "Cómo afecta el plazo SWIFT CBPR+ de noviembre 2026 para direcciones postales estructuradas a pacs.008 y mensajes de pago relacionados, y cómo pacs008 ayuda a los equipos a cumplir.",
     structuredAddressIntro: "SWIFT requiere direcciones postales estructuradas en mensajes de pago transfronterizos a partir de noviembre de 2026. Esta página explica qué cambia, qué mensajes se ven afectados y cómo pacs008 ayuda a los equipos a prepararse.",
@@ -2192,6 +2213,9 @@ const pageCopy = {
     structuredAddressAction3: "Añadir validación de dirección al pipeline de pre-generación usando pacs008.",
     structuredAddressAction4: "Probar con datos de pago representativos antes del plazo.",
     structuredAddressRefsTitle: "Referencias",
+    pacsExplainedTitle: "Mensajes PACS explicados",
+    pacsExplainedDescription: "Referencia técnica detallada para mensajes pacs ISO 20022: ciclo de vida, estructura XML, métodos de liquidación, códigos de motivo, tipos de dirección, identificadores, información de remesa y seguimiento UETR.",
+    pacsExplainedIntro: "Esta página proporciona una referencia técnica detallada para la familia de mensajes pacs ISO 20022. Cubre cómo funcionan los mensajes en el ciclo de vida completo de un pago, la estructura XML, los métodos de liquidación, los códigos de motivo, la identificación de partes, la información de remesa y el seguimiento de extremo a extremo.",
   },
   he: {
     aboutTitle: "אודות pacs008",
@@ -14140,6 +14164,174 @@ SWIFT gpi uses the UETR to track payments through a cloud-based Tracker database
 `;
 }
 
+function glossaryBody(localeKey) {
+  const t = copyFor(localeKey);
+  return `# ${t.glossaryTitle}
+
+${t.glossaryIntro}
+
+## A
+
+**ACH** — Automated Clearing House. A network that processes batched electronic payments between financial institutions.
+
+**AdrLine** — Address Line. A free-text address field in ISO 20022 postal address structures. Up to 7 lines of 70 characters each. Being replaced by structured address elements for CBPR+ by November 2026.
+
+**ACCP** — Accepted Customer Profile. A pacs.002 status code indicating that preceding checks (syntax, customer profile) have passed.
+
+**ACSC** — Accepted Settlement Completed. A pacs.002 status code confirming that settlement on the debtor's account has been completed.
+
+**ACSP** — Accepted Settlement in Process. A pacs.002 status code indicating all checks passed and settlement is in progress.
+
+## B
+
+**BAH** — Business Application Header (head.001). A standardised envelope that wraps ISO 20022 business messages for transport via SWIFT. Contains routing information, message definition identifier, and sender/receiver BICs.
+
+**BIC** — Business Identifier Code (ISO 9362). An 8 or 11 character code that uniquely identifies a financial institution. Format: BBBBCCLL (bank code + country + location) with optional BBB branch code.
+
+## C
+
+**CBPR+** — Cross-Border Payments and Reporting Plus. SWIFT's programme for migrating cross-border payment messaging from MT to ISO 20022. Went live March 2023.
+
+**CdtTrfTxInf** — Credit Transfer Transaction Information. The main transaction-level building block in pacs.008 containing payment details, parties, amounts, and remittance information.
+
+**ChrgBr** — Charge Bearer. Specifies who pays the transaction charges. Values: DEBT (debtor), CRED (creditor), SHAR (shared), SLEV (service level, SEPA only).
+
+**CLRG** — Clearing system settlement. A settlement method where funds move through a clearing system such as TARGET2, EURO1, or CHIPS.
+
+**COVE** — Cover method settlement. A settlement method where a separate pacs.009 cover payment handles the funding between correspondents while pacs.008 carries the customer data directly.
+
+**CSM** — Clearing and Settlement Mechanism. An infrastructure that processes and settles payment instructions between participating institutions.
+
+## D
+
+**Dbtr** — Debtor. The party that owes funds and initiates the payment. In pacs.008, the Dbtr element carries the debtor's name, postal address, identification, and country of residence.
+
+**DbtrAgt** — Debtor Agent. The financial institution that services the debtor's account and sends the pacs.008 instruction.
+
+## E
+
+**E2E ID** — End-to-End Identification (EndToEndId). A reference assigned by the originator that must remain unchanged across all agents in the payment chain. Used for customer-level traceability.
+
+**EPC** — European Payments Council. The body that manages SEPA payment scheme rulebooks for credit transfers and direct debits.
+
+## F
+
+**FI** — Financial Institution. A bank or other institution that participates in payment clearing and settlement.
+
+**FIToFI** — Financial Institution to Financial Institution. Describes the interbank domain where pacs messages operate.
+
+## G
+
+**gpi** — Global Payments Innovation. SWIFT's initiative for faster, transparent cross-border payments. Uses UETR for end-to-end tracking via a cloud-based Tracker.
+
+**GrpHdr** — Group Header. The message-level metadata block in pacs messages. Contains MsgId, CreDtTm, NbOfTxs, settlement information, and payment type information.
+
+## H
+
+**Hybrid address** — A postal address format that combines structured elements (StrtNm, TwnNm, Ctry) with unstructured AdrLine elements. Permitted during the transition period before the November 2026 structured address deadline.
+
+## I
+
+**IBAN** — International Bank Account Number (ISO 13616). A standardised account number format used for cross-border and domestic payments. Validated using ISO 7064 Mod 97-10 checksum.
+
+**INDA** — Instructed Agent settlement. A settlement method where funds settle on the books of the instructed agent, where the debtor agent holds a nostro account.
+
+**INGA** — Instructing Agent settlement. A settlement method where funds settle on the books of the instructing agent, where the instructed agent holds a nostro account.
+
+**InstrId** — Instruction Identification. A point-to-point reference between adjacent agents in the payment chain. May change at each hop.
+
+**IntrBkSttlmAmt** — Interbank Settlement Amount. The amount that settles between the instructing and instructed agents, in the settlement currency.
+
+**ISO 20022** — An international standard for electronic data interchange between financial institutions. Defines a common data model and XML-based message formats for payments, securities, trade finance, and other financial domains.
+
+## L
+
+**LEI** — Legal Entity Identifier (ISO 17442). A 20-character alphanumeric code that uniquely identifies legal entities participating in financial transactions. Used in OrgId/LEI for parties and FinInstnId/LEI for agents.
+
+## M
+
+**MsgId** — Message Identification. A unique identifier for the message envelope, assigned by the sending agent. Changes at each hop in the payment chain.
+
+**MT** — Message Type. SWIFT's legacy message format (e.g., MT103 for customer credit transfers, MT202 for financial institution transfers). Being replaced by ISO 20022 MX messages.
+
+**MX** — The ISO 20022 XML message format used by SWIFT. MX messages replace MT messages for cross-border payments under CBPR+.
+
+## N
+
+**NbOfTxs** — Number of Transactions. A Group Header element indicating how many individual transactions are contained in the message.
+
+## P
+
+**pacs** — Payments Clearing and Settlement. The ISO 20022 business domain covering interbank payment messages.
+
+**pacs.002** — FI to FI Payment Status Report. Reports the processing status (accepted, rejected, pending, settled) of an earlier payment instruction.
+
+**pacs.003** — FI to FI Customer Direct Debit. Carries a customer direct debit instruction between banks for fund collection.
+
+**pacs.004** — Payment Return. Returns settled funds back through the payment chain when a payment cannot be applied.
+
+**pacs.007** — FI to FI Payment Reversal. Reverses a payment instruction from the original sender forward through the chain.
+
+**pacs.008** — FI to FI Customer Credit Transfer. The primary interbank message for customer credit transfers. Replaces MT103.
+
+**pacs.009** — Financial Institution Credit Transfer. Moves funds between banks on their own behalf. Covers funding, cover payments, and liquidity management. Replaces MT202/MT202COV.
+
+**pacs.010** — Financial Institution Direct Debit. Lets one bank debit another bank's own account under a bilateral agreement.
+
+**pacs.028** — FI to FI Payment Status Request. Actively requests the status of an earlier payment when no pacs.002 update has arrived.
+
+**pain** — Payment Initiation. The ISO 20022 business domain covering customer-to-bank messages (e.g., pain.001 for credit transfer initiation).
+
+**PII** — Personally Identifiable Information. Data that can identify an individual. pacs008 masks PII in structured logs.
+
+**PstlAdr** — Postal Address. The address structure used for parties in pacs messages. Supports structured (StrtNm, TwnNm, Ctry) and unstructured (AdrLine) formats.
+
+## R
+
+**RJCT** — Rejected. A pacs.002 status code indicating the payment has been rejected.
+
+**RmtInf** — Remittance Information. Payment reference data carried in pacs.008. Supports unstructured (free text, max 140 chars) and structured (document references, amounts, creditor references) formats.
+
+**RTGS** — Real-Time Gross Settlement. A payment system where transactions settle individually and in real time (e.g., TARGET2, Fedwire, CHAPS).
+
+## S
+
+**SCT** — SEPA Credit Transfer. The euro credit transfer scheme managed by the EPC, using pacs.008.
+
+**SCT Inst** — SEPA Instant Credit Transfer. The instant payment variant of SCT, settling in under 10 seconds.
+
+**SDD** — SEPA Direct Debit. The euro direct debit scheme managed by the EPC, using pacs.003.
+
+**SEPA** — Single Euro Payments Area. A payment integration initiative covering euro-denominated credit transfers, direct debits, and card payments across 36 European countries.
+
+**SLEV** — Service Level. A charge bearer code mandatory for SEPA. Means charges follow scheme rules with no deductions from the transfer amount.
+
+**STP** — Straight-Through Processing. Automated end-to-end payment processing without manual intervention.
+
+**SttlmMtd** — Settlement Method. Defines how interbank settlement occurs: CLRG (clearing system), INDA (instructed agent), INGA (instructing agent), or COVE (cover payment).
+
+## T
+
+**TxId** — Transaction Identification. An interbank reference assigned by the first instructing agent. Must not be altered by subsequent agents.
+
+## U
+
+**UETR** — Unique End-to-End Transaction Reference. A UUID v4 identifier generated by the debtor agent and carried unchanged across all legs of a payment for gpi tracking.
+
+## X
+
+**XSD** — XML Schema Definition. The formal schema that defines the structure, elements, and data types of an ISO 20022 XML message.
+
+**XXE** — XML External Entity. A security vulnerability in XML parsing. pacs008 prevents XXE attacks using defusedxml.
+
+## References
+
+- [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions)
+- [ISO 20022 external code sets](https://www.iso20022.org/external_code_list.page)
+- [SWIFT CBPR+ standards programme](https://www.swift.com/standards/iso-20022)
+`;
+}
+
 function contactBody(localeKey) {
   const t = copyFor(localeKey);
   if (localeKey === "en") {
@@ -14167,6 +14359,56 @@ ${t.contactIntro}
 - ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>
 - ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>
 - ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>`;
+}
+
+function changelogBody(localeKey) {
+  const t = copyFor(localeKey);
+  return `# ${t.changelogTitle}
+
+${t.changelogIntro}
+
+## 2026
+
+### March 2026
+
+- Added comprehensive FAQ page with 25+ Q&A pairs covering ISO 20022 pacs messages.
+- Added PACS Messages Explained page with detailed technical reference for the entire pacs family.
+- Added glossary page defining 60+ ISO 20022 and payment messaging terms.
+- Added structured-address deadline page covering the November 2026 CBPR+ requirement.
+- Added editorial policy page explaining content sources, review process, and methodology.
+- Added FAQPage, TechArticle, SoftwareApplication, and HowTo JSON-LD schema markup.
+- Extended sitemap with hreflang annotations for all 22 locales.
+- Improved readability across all English pages (Flesch Reading Ease 55-58, Flesch-Kincaid Grade 8-9).
+- Fixed 374 empty table header elements across all locales for accessibility.
+- Added table captions to comparison, operational-matrix, and version-diff tables.
+- Optimised hero image from 2.7 MB to 32 KB.
+- Lighthouse scores: Accessibility 96-100, Best Practices 100, SEO 100.
+
+### January 2026
+
+- Launched pacs008.com with documentation for 8 ISO 20022 pacs message types.
+- Generated documentation in 22 languages.
+- Implemented hreflang tags, canonical URLs, and structured data (WebSite, BreadcrumbList, WebPage).
+- Published REST API, CLI, and Python library documentation.
+- Added IBAN and BIC validation documentation.
+- Shipped Docker deployment guide.
+
+## 2025
+
+### December 2025
+
+- Initial release of the pacs008 Python toolkit on PyPI.
+- Support for pacs.008.001.13 XML generation and validation.
+- CSV, JSON, JSONL, SQLite, and Parquet data input.
+- JSON Schema and XSD validation pipeline.
+- SWIFT character compliance checking.
+- FastAPI REST API for automated workflows.
+
+## Links
+
+- [pacs008 releases on GitHub](https://github.com/sebastienrousseau/pacs008/releases)
+- [pacs008 on PyPI](https://pypi.org/project/pacs008/)
+`;
 }
 
 async function ensureDir(dir) {
@@ -14305,6 +14547,18 @@ for (const locale of locales) {
     lang: locale.lang,
     body: pacsExplainedBody(locale.key)
   }));
+  await write(path.join(base, "glossary", "index.md"), pageTemplate({
+    title: sectionPageTitle(locale.key, "glossary", pageTitle(`${t.glossaryTitle} | pacs008`)),
+    description: localeSectionDescription(locale, t.glossaryDescription),
+    lang: locale.lang,
+    body: glossaryBody(locale.key)
+  }));
+  await write(path.join(base, "changelog", "index.md"), pageTemplate({
+    title: sectionPageTitle(locale.key, "changelog", pageTitle(`${t.changelogTitle} | pacs008`)),
+    description: localeSectionDescription(locale, t.changelogDescription),
+    lang: locale.lang,
+    body: changelogBody(locale.key)
+  }));
   for (const msgType of messageTypes) {
     let faqFrontmatter = "";
     if (msgType.faq && msgType.faq.length > 0) {
@@ -14322,5 +14576,5 @@ for (const locale of locales) {
   }
 }
 
-const totalPages = locales.length * (11 + messageTypes.length);
+const totalPages = locales.length * (13 + messageTypes.length);
 console.log(`Generated ${totalPages} pages across ${locales.length} locales for pacs008.`);

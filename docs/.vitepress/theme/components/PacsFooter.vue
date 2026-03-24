@@ -37,6 +37,7 @@ function localLink(path: string): string {
             <li><a :href="localLink('/pacs-explained/')">{{ t.pacsExplained }}</a></li>
             <li><a :href="localLink('/structured-address/')">{{ t.structuredAddress }}</a></li>
             <li><a :href="localLink('/faq/')">{{ t.faq }}</a></li>
+            <li><a :href="localLink('/glossary/')">{{ t.glossary }}</a></li>
             <li><a :href="localLink('/contact/')">{{ t.contact }}</a></li>
             <li><a :href="localLink('/editorial/')">{{ t.editorial }}</a></li>
           </ul>
@@ -44,6 +45,7 @@ function localLink(path: string): string {
         <div class="dot-footer-column">
           <h2 class="dot-footer-title">{{ t.resources }}</h2>
           <ul>
+            <li><a :href="localLink('/changelog/')">{{ t.changelog }}</a></li>
             <li>
               <a href="https://github.com/sebastienrousseau/pacs008" target="_blank" rel="noopener noreferrer">{{ t.github }}<span class="visually-hidden"> {{ t.opensInNewTab }}</span></a>
             </li>

@@ -70,7 +70,9 @@ function breadcrumbNameForSegment(locale: string, segment: string): string {
     editorial: t.editorial,
     "structured-address": t.structuredAddress,
     faq: t.faq,
-    "pacs-explained": t.pacsExplained
+    glossary: t.glossary,
+    "pacs-explained": t.pacsExplained,
+    changelog: t.changelog
   };
   return known[segment] || segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, " ");
 }
