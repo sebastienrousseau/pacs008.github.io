@@ -10,6 +10,6 @@ image: /logo.svg
 
 रिपॉजिटरी समस्याओं, सुविधा अनुरोधों और कार्यान्वयन प्रश्नों के लिए, नीचे दिए गए प्रोजेक्ट लिंक का उपयोग करें।
 
-- Repository: <https://github.com/sebastienrousseau/pacs008>
-- Releases: <https://github.com/sebastienrousseau/pacs008/releases>
-- Package: <https://pypi.org/project/pacs008/>
+- रिपॉज़िटरी: <https://github.com/sebastienrousseau/pacs008>
+- रिलीज़: <https://github.com/sebastienrousseau/pacs008/releases>
+- पैकेज: <https://pypi.org/project/pacs008/>

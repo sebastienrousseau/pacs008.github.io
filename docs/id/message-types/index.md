@@ -14,16 +14,84 @@ pacs008 mencakup definisi pesan inti pacs.008 dan pesan terkait yang digunakan d
 
 ## Dukungan yang disertakan
 
-| Jenis pesan | Deskripsi | Versi | Tahun | Ikhtisar |
-|---|---|---|---|---|
-| [`pacs.002.001.12`](/id/pacs.002.001.12/) | Laporan Status Pembayaran FI ke FI | `pacs.002.001.12` | 2019 | Pesan pacs.002 dikirim oleh lembaga keuangan untuk melaporkan status instruksi pembayaran yang sebelumnya dikirim. Pesan ini memberikan informasi konfirmasi, penolakan, atau status tertunda untuk transaksi individual dalam pesan pembayaran. |
-| [`pacs.003.001.09`](/id/pacs.003.001.09/) | Direct Debit Pelanggan FI ke FI | `pacs.003.001.09` | 2019 | Pesan pacs.003 dipertukarkan antara lembaga keuangan untuk mengeksekusi instruksi debit langsung pelanggan. Pesan ini memungkinkan bank kreditur untuk menagih dana dari bank debitur atas nama kreditur. |
-| [`pacs.004.001.11`](/id/pacs.004.001.11/) | Retur Pembayaran | `pacs.004.001.11` | 2019 | Pesan pacs.004 digunakan untuk mengembalikan transaksi pembayaran yang sebelumnya telah diselesaikan. Pesan ini membalikkan aliran dana ketika pembayaran tidak dapat diterapkan, dikirim secara keliru, atau sedang ditarik kembali oleh lembaga asal. |
-| [`pacs.007.001.11`](/id/pacs.007.001.11/) | Pembalikan Pembayaran FI ke FI | `pacs.007.001.11` | 2019 | Pesan pacs.007 digunakan untuk membalikkan instruksi pembayaran yang sebelumnya dikirim yang belum diselesaikan atau untuk meminta pembalikan pembayaran yang telah diselesaikan. Berbeda dengan pacs.004 (pengembalian), pesan ini diinisiasi oleh agen yang memberi instruksi asli. |
-| [`pacs.008.001.13`](/id/pacs.008.001.13/) | Transfer Kredit Pelanggan FI ke FI | `pacs.008.001.13` | 2023 | Pesan pacs.008 adalah instruksi pembayaran inti yang dipertukarkan antara lembaga keuangan untuk mentransfer dana atas nama pelanggan. Pesan ini membawa informasi debitur, kreditur, jumlah, dan remitansi untuk satu atau lebih transaksi transfer kredit. |
-| [`pacs.009.001.10`](/id/pacs.009.001.10/) | Transfer Kredit Antar Lembaga Keuangan | `pacs.009.001.10` | 2019 | Pesan pacs.009 digunakan untuk transfer kredit antara lembaga keuangan di mana transfer dilakukan atas nama lembaga itu sendiri bukan atas nama pelanggan. Pesan ini mendukung pendanaan antarbank, pembayaran cover, dan manajemen likuiditas. |
-| [`pacs.010.001.05`](/id/pacs.010.001.05/) | Direct Debit Antar Lembaga Keuangan | `pacs.010.001.05` | 2019 | Pesan pacs.010 digunakan antara lembaga keuangan untuk transaksi debit langsung pada rekening lembaga itu sendiri. Pesan ini memungkinkan satu lembaga untuk menagih dana langsung dari rekening lembaga lain. |
-| [`pacs.028.001.05`](/id/pacs.028.001.05/) | Permintaan Status Pembayaran FI ke FI | `pacs.028.001.05` | 2019 | Pesan pacs.028 dikirim oleh lembaga keuangan untuk meminta status instruksi pembayaran yang sebelumnya dikirim. Pesan ini memungkinkan pelacakan proaktif pemrosesan pembayaran tanpa menunggu laporan status yang tidak diminta. |
+<div class="message-coverage-table" tabindex="0" aria-label="Dukungan yang disertakan">
+  <table>
+    <colgroup>
+      <col class="message-coverage-table__col-id">
+      <col class="message-coverage-table__col-name">
+      <col class="message-coverage-table__col-version">
+      <col class="message-coverage-table__col-year">
+      <col class="message-coverage-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Jenis pesan</th>
+        <th>Deskripsi</th>
+        <th>Versi</th>
+        <th>Tahun</th>
+        <th>Ikhtisar</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-coverage-table__id"><a href="/id/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="message-coverage-table__name">Laporan Status Pembayaran FI ke FI</td>
+          <td class="message-coverage-table__version"><code>pacs.002.001.12</code></td>
+          <td class="message-coverage-table__year">2019</td>
+          <td class="message-coverage-table__overview">Pesan pacs.002 dikirim oleh lembaga keuangan untuk melaporkan status instruksi pembayaran yang sebelumnya dikirim. Pesan ini memberikan informasi konfirmasi, penolakan, atau status tertunda untuk transaksi individual dalam pesan pembayaran.</td>
+        </tr>
+        <tr>
+          <td class="message-coverage-table__id"><a href="/id/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
+          <td class="message-coverage-table__name">Direct Debit Pelanggan FI ke FI</td>
+          <td class="message-coverage-table__version"><code>pacs.003.001.09</code></td>
+          <td class="message-coverage-table__year">2019</td>
+          <td class="message-coverage-table__overview">Pesan pacs.003 dipertukarkan antara lembaga keuangan untuk mengeksekusi instruksi debit langsung pelanggan. Pesan ini memungkinkan bank kreditur untuk menagih dana dari bank debitur atas nama kreditur.</td>
+        </tr>
+        <tr>
+          <td class="message-coverage-table__id"><a href="/id/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
+          <td class="message-coverage-table__name">Retur Pembayaran</td>
+          <td class="message-coverage-table__version"><code>pacs.004.001.11</code></td>
+          <td class="message-coverage-table__year">2019</td>
+          <td class="message-coverage-table__overview">Pesan pacs.004 digunakan untuk mengembalikan transaksi pembayaran yang sebelumnya telah diselesaikan. Pesan ini membalikkan aliran dana ketika pembayaran tidak dapat diterapkan, dikirim secara keliru, atau sedang ditarik kembali oleh lembaga asal.</td>
+        </tr>
+        <tr>
+          <td class="message-coverage-table__id"><a href="/id/pacs.007.001.11/"><code>pacs.007.001.11</code></a></td>
+          <td class="message-coverage-table__name">Pembalikan Pembayaran FI ke FI</td>
+          <td class="message-coverage-table__version"><code>pacs.007.001.11</code></td>
+          <td class="message-coverage-table__year">2019</td>
+          <td class="message-coverage-table__overview">Pesan pacs.007 digunakan untuk membalikkan instruksi pembayaran yang sebelumnya dikirim yang belum diselesaikan atau untuk meminta pembalikan pembayaran yang telah diselesaikan. Berbeda dengan pacs.004 (pengembalian), pesan ini diinisiasi oleh agen yang memberi instruksi asli.</td>
+        </tr>
+        <tr>
+          <td class="message-coverage-table__id"><a href="/id/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="message-coverage-table__name">Transfer Kredit Pelanggan FI ke FI</td>
+          <td class="message-coverage-table__version"><code>pacs.008.001.13</code></td>
+          <td class="message-coverage-table__year">2023</td>
+          <td class="message-coverage-table__overview">Pesan pacs.008 adalah instruksi pembayaran inti yang dipertukarkan antara lembaga keuangan untuk mentransfer dana atas nama pelanggan. Pesan ini membawa informasi debitur, kreditur, jumlah, dan remitansi untuk satu atau lebih transaksi transfer kredit.</td>
+        </tr>
+        <tr>
+          <td class="message-coverage-table__id"><a href="/id/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="message-coverage-table__name">Transfer Kredit Antar Lembaga Keuangan</td>
+          <td class="message-coverage-table__version"><code>pacs.009.001.10</code></td>
+          <td class="message-coverage-table__year">2019</td>
+          <td class="message-coverage-table__overview">Pesan pacs.009 digunakan untuk transfer kredit antara lembaga keuangan di mana transfer dilakukan atas nama lembaga itu sendiri bukan atas nama pelanggan. Pesan ini mendukung pendanaan antarbank, pembayaran cover, dan manajemen likuiditas.</td>
+        </tr>
+        <tr>
+          <td class="message-coverage-table__id"><a href="/id/pacs.010.001.05/"><code>pacs.010.001.05</code></a></td>
+          <td class="message-coverage-table__name">Direct Debit Antar Lembaga Keuangan</td>
+          <td class="message-coverage-table__version"><code>pacs.010.001.05</code></td>
+          <td class="message-coverage-table__year">2019</td>
+          <td class="message-coverage-table__overview">Pesan pacs.010 digunakan antara lembaga keuangan untuk transaksi debit langsung pada rekening lembaga itu sendiri. Pesan ini memungkinkan satu lembaga untuk menagih dana langsung dari rekening lembaga lain.</td>
+        </tr>
+        <tr>
+          <td class="message-coverage-table__id"><a href="/id/pacs.028.001.05/"><code>pacs.028.001.05</code></a></td>
+          <td class="message-coverage-table__name">Permintaan Status Pembayaran FI ke FI</td>
+          <td class="message-coverage-table__version"><code>pacs.028.001.05</code></td>
+          <td class="message-coverage-table__year">2019</td>
+          <td class="message-coverage-table__overview">Pesan pacs.028 dikirim oleh lembaga keuangan untuk meminta status instruksi pembayaran yang sebelumnya dikirim. Pesan ini memungkinkan pelacakan proaktif pemrosesan pembayaran tanpa menunggu laporan status yang tidak diminta.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Model pengiriman
 

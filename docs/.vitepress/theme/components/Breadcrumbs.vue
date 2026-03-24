@@ -53,7 +53,7 @@ const localePrefix = computed(() => {
 </script>
 
 <template>
-  <nav v-if="items.length" class="vp-breadcrumb" aria-label="Breadcrumb">
+  <nav v-if="items.length" class="vp-breadcrumb" :aria-label="t.breadcrumb">
     <ol>
       <li><a :href="localePrefix ? `${localePrefix}/` : '/'">{{ LOCALE_HOME_LABELS[localePrefix.slice(1)] ?? "Home" }}</a></li>
       <li v-for="item in items" :key="item.link">

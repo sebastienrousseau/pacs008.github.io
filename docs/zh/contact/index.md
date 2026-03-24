@@ -10,6 +10,6 @@ image: /logo.svg
 
 如有仓库问题、功能请求和实施问题，请使用下方的项目链接。
 
-- Repository: <https://github.com/sebastienrousseau/pacs008>
-- Releases: <https://github.com/sebastienrousseau/pacs008/releases>
-- Package: <https://pypi.org/project/pacs008/>
+- 仓库: <https://github.com/sebastienrousseau/pacs008>
+- 发布版本: <https://github.com/sebastienrousseau/pacs008/releases>
+- 软件包: <https://pypi.org/project/pacs008/>

@@ -10752,11 +10752,57 @@ function localePath(localeKey, slug = "") {
   return normalizedSlug ? `${prefix}/${normalizedSlug}/` : `${prefix || "/"}`;
 }
 
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll("\"", "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
 function messageCoverageTable(localeKey, detailed = false) {
   const t = copyFor(localeKey);
-  const headers = [t.msgTypeColId, t.msgTypeColDesc, t.msgDetailVersion, t.msgDetailYear];
-  if (detailed) headers.push(t.msgDetailOverview);
+  if (detailed) {
+    const rows = messageTypes.map((msgType) => {
+      const link = localePath(localeKey, msgType.slug);
+      const name = localizedMessageName(localeKey, msgType);
+      const overview = t[msgType.copyPrefix + "Overview"];
+      return `        <tr>
+          <td class="message-coverage-table__id"><a href="${escapeHtml(link)}"><code>${escapeHtml(msgType.slug)}</code></a></td>
+          <td class="message-coverage-table__name">${escapeHtml(name)}</td>
+          <td class="message-coverage-table__version"><code>${escapeHtml(msgType.slug)}</code></td>
+          <td class="message-coverage-table__year">${escapeHtml(msgType.year)}</td>
+          <td class="message-coverage-table__overview">${escapeHtml(overview)}</td>
+        </tr>`;
+    }).join("\n");
 
+    return `<div class="message-coverage-table" tabindex="0" aria-label="${escapeHtml(t.includedSupport)}">
+  <table>
+    <colgroup>
+      <col class="message-coverage-table__col-id">
+      <col class="message-coverage-table__col-name">
+      <col class="message-coverage-table__col-version">
+      <col class="message-coverage-table__col-year">
+      <col class="message-coverage-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>${escapeHtml(t.msgTypeColId)}</th>
+        <th>${escapeHtml(t.msgTypeColDesc)}</th>
+        <th>${escapeHtml(t.msgDetailVersion)}</th>
+        <th>${escapeHtml(t.msgDetailYear)}</th>
+        <th>${escapeHtml(t.msgDetailOverview)}</th>
+      </tr>
+    </thead>
+    <tbody>
+${rows}
+    </tbody>
+  </table>
+</div>`;
+  }
+
+  const headers = [t.msgTypeColId, t.msgTypeColDesc, t.msgDetailVersion, t.msgDetailYear];
   const rows = messageTypes.map((msgType) => {
     const cells = [
       `[\`${msgType.slug}\`](${localePath(localeKey, msgType.slug)})`,
@@ -10764,7 +10810,6 @@ function messageCoverageTable(localeKey, detailed = false) {
       `\`${msgType.slug}\``,
       String(msgType.year)
     ];
-    if (detailed) cells.push(t[msgType.copyPrefix + "Overview"]);
     return `| ${cells.join(" | ")} |`;
   }).join("\n");
 
@@ -12145,15 +12190,43 @@ ${t.termsContactText}
 `;
 }
 
+function translateContactLabel(localeKey, label) {
+  const labels = {
+    en: { repository: "Repository", releases: "Releases", package: "Package" },
+    ar: { repository: "المستودع", releases: "الإصدارات", package: "الحزمة" },
+    de: { repository: "Repository", releases: "Veröffentlichungen", package: "Paket" },
+    es: { repository: "Repositorio", releases: "Versiones", package: "Paquete" },
+    fr: { repository: "Dépôt", releases: "Versions", package: "Paquet" },
+    he: { repository: "מאגר", releases: "גרסאות", package: "חבילה" },
+    hi: { repository: "रिपॉज़िटरी", releases: "रिलीज़", package: "पैकेज" },
+    id: { repository: "Repositori", releases: "Rilis", package: "Paket" },
+    it: { repository: "Repository", releases: "Versioni", package: "Pacchetto" },
+    ja: { repository: "リポジトリ", releases: "リリース", package: "パッケージ" },
+    ko: { repository: "저장소", releases: "릴리스", package: "패키지" },
+    nl: { repository: "Repository", releases: "Releases", package: "Pakket" },
+    pl: { repository: "Repozytorium", releases: "Wydania", package: "Pakiet" },
+    pt: { repository: "Repositório", releases: "Lançamentos", package: "Pacote" },
+    ro: { repository: "Depozit", releases: "Lansări", package: "Pachet" },
+    ru: { repository: "Репозиторий", releases: "Релизы", package: "Пакет" },
+    th: { repository: "ที่เก็บซอร์ส", releases: "รีลีส", package: "แพ็กเกจ" },
+    tr: { repository: "Depo", releases: "Sürümler", package: "Paket" },
+    uk: { repository: "Репозиторій", releases: "Релізи", package: "Пакет" },
+    vi: { repository: "Kho mã", releases: "Bản phát hành", package: "Gói" },
+    zh: { repository: "仓库", releases: "发布版本", package: "软件包" },
+    "zh-tw": { repository: "儲存庫", releases: "發行版本", package: "套件" }
+  };
+  return (labels[localeKey] ?? labels.en)[label];
+}
+
 function contactBody(localeKey) {
   const t = copyFor(localeKey);
   return `# ${t.contactTitle}
 
 ${t.contactIntro}
 
-- Repository: <https://github.com/sebastienrousseau/pacs008>
-- Releases: <https://github.com/sebastienrousseau/pacs008/releases>
-- Package: <https://pypi.org/project/pacs008/>`;
+- ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>
+- ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>
+- ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>`;
 }
 
 async function ensureDir(dir) {

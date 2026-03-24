@@ -402,6 +402,69 @@ strong {
   font-weight: 400;
 }
 
+.message-coverage-table {
+  margin: 1.5rem 0 2rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.message-coverage-table table {
+  width: 100%;
+  min-width: 980px;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.message-coverage-table th,
+.message-coverage-table td {
+  vertical-align: top;
+  font-size: 1rem;
+  line-height: 1.55;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+
+.message-coverage-table th {
+  text-align: left;
+}
+
+.message-coverage-table td code,
+.message-coverage-table th code {
+  font-size: 0.95rem;
+}
+
+.message-coverage-table__col-id {
+  width: 22%;
+}
+
+.message-coverage-table__col-name {
+  width: 16%;
+}
+
+.message-coverage-table__col-version {
+  width: 22%;
+}
+
+.message-coverage-table__col-year {
+  width: 9%;
+}
+
+.message-coverage-table__col-overview {
+  width: 31%;
+}
+
+.message-coverage-table__year {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .message-coverage-table {
+    margin-inline: -0.25rem;
+    padding-inline: 0.25rem;
+  }
+}
+
 /* ---------- Home Page ---------- */
 /* Propagate flex-grow so the hero fills the space between navbar and footer.
    Chain: .Layout (flex column, min-height:100vh) -> .VPContent (flex-grow:1)

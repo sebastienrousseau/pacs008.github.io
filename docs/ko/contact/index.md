@@ -10,6 +10,6 @@ image: /logo.svg
 
 저장소 문제, 기능 요청 및 구현 관련 질문은 아래 프로젝트 링크를 사용하세요.
 
-- Repository: <https://github.com/sebastienrousseau/pacs008>
-- Releases: <https://github.com/sebastienrousseau/pacs008/releases>
-- Package: <https://pypi.org/project/pacs008/>
+- 저장소: <https://github.com/sebastienrousseau/pacs008>
+- 릴리스: <https://github.com/sebastienrousseau/pacs008/releases>
+- 패키지: <https://pypi.org/project/pacs008/>

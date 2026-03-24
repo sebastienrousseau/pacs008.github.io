@@ -10,6 +10,6 @@ image: /logo.svg
 
 สำหรับปัญหาของที่เก็บข้อมูล คำขอฟีเจอร์ และคำถามเกี่ยวกับการใช้งาน ใช้ลิงก์โครงการด้านล่าง
 
-- Repository: <https://github.com/sebastienrousseau/pacs008>
-- Releases: <https://github.com/sebastienrousseau/pacs008/releases>
-- Package: <https://pypi.org/project/pacs008/>
+- ที่เก็บซอร์ส: <https://github.com/sebastienrousseau/pacs008>
+- รีลีส: <https://github.com/sebastienrousseau/pacs008/releases>
+- แพ็กเกจ: <https://pypi.org/project/pacs008/>

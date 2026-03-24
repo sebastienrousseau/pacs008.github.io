@@ -10,6 +10,6 @@ image: /logo.svg
 
 Para problemas del repositorio, solicitudes de funciones y preguntas de implementación, utilice los enlaces del proyecto a continuación.
 
-- Repository: <https://github.com/sebastienrousseau/pacs008>
-- Releases: <https://github.com/sebastienrousseau/pacs008/releases>
-- Package: <https://pypi.org/project/pacs008/>
+- Repositorio: <https://github.com/sebastienrousseau/pacs008>
+- Versiones: <https://github.com/sebastienrousseau/pacs008/releases>
+- Paquete: <https://pypi.org/project/pacs008/>

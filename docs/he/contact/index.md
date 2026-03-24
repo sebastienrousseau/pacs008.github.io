@@ -10,6 +10,6 @@ image: /logo.svg
 
 לבעיות מאגר, בקשות תכונות ושאלות יישום, השתמשו בקישורי הפרויקט להלן.
 
-- Repository: <https://github.com/sebastienrousseau/pacs008>
-- Releases: <https://github.com/sebastienrousseau/pacs008/releases>
-- Package: <https://pypi.org/project/pacs008/>
+- מאגר: <https://github.com/sebastienrousseau/pacs008>
+- גרסאות: <https://github.com/sebastienrousseau/pacs008/releases>
+- חבילה: <https://pypi.org/project/pacs008/>

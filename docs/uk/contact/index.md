@@ -10,6 +10,6 @@ image: /logo.svg
 
 Щодо проблем репозиторію, запитів на функції та питань реалізації використовуйте посилання проєкту нижче.
 
-- Repository: <https://github.com/sebastienrousseau/pacs008>
-- Releases: <https://github.com/sebastienrousseau/pacs008/releases>
-- Package: <https://pypi.org/project/pacs008/>
+- Репозиторій: <https://github.com/sebastienrousseau/pacs008>
+- Релізи: <https://github.com/sebastienrousseau/pacs008/releases>
+- Пакет: <https://pypi.org/project/pacs008/>

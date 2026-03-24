@@ -10,6 +10,6 @@ image: /logo.svg
 
 Depo sorunları, özellik talepleri ve uygulama soruları için aşağıdaki proje bağlantılarını kullanın.
 
-- Repository: <https://github.com/sebastienrousseau/pacs008>
-- Releases: <https://github.com/sebastienrousseau/pacs008/releases>
-- Package: <https://pypi.org/project/pacs008/>
+- Depo: <https://github.com/sebastienrousseau/pacs008>
+- Sürümler: <https://github.com/sebastienrousseau/pacs008/releases>
+- Paket: <https://pypi.org/project/pacs008/>

@@ -14,16 +14,84 @@ pacs008 deckt die zentrale pacs.008-Nachrichtendefinition sowie verwandte Nachri
 
 ## Enthaltene Unterstützung
 
-| Nachrichtentyp | Beschreibung | Version | Jahr | Überblick |
-|---|---|---|---|---|
-| [`pacs.002.001.12`](/de/pacs.002.001.12/) | FI-zu-FI-Zahlungsstatusbericht | `pacs.002.001.12` | 2019 | Die Nachricht pacs.002 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung zu melden. Sie liefert Bestätigungs-, Ablehnungs- oder Statusinformationen für einzelne Transaktionen innerhalb einer Zahlungsnachricht. |
-| [`pacs.003.001.09`](/de/pacs.003.001.09/) | FI-zu-FI-Kundenlastschrift | `pacs.003.001.09` | 2019 | Die Nachricht pacs.003 wird zwischen Finanzinstituten ausgetauscht, um eine Kundenlastschrift auszuführen. Sie ermöglicht es der Bank des Gläubigers, Gelder von der Bank des Schuldners im Auftrag des Gläubigers einzuziehen. |
-| [`pacs.004.001.11`](/de/pacs.004.001.11/) | Zahlungsrückgabe | `pacs.004.001.11` | 2019 | Die Nachricht pacs.004 wird verwendet, um eine zuvor abgewickelte Zahlungstransaktion zurückzugeben. Sie kehrt den Geldfluss um, wenn eine Zahlung nicht angewendet werden kann, irrtümlich gesendet wurde oder vom Ursprungsinstitut zurückgerufen wird. |
-| [`pacs.007.001.11`](/de/pacs.007.001.11/) | FI-zu-FI-Zahlungsstornierung | `pacs.007.001.11` | 2019 | Die Nachricht pacs.007 wird verwendet, um eine zuvor gesendete Zahlungsanweisung umzukehren, die noch nicht abgewickelt wurde, oder um die Umkehrung einer abgewickelten Zahlung zu beantragen. Im Gegensatz zu pacs.004 (Rückgabe) wird sie vom ursprünglichen beauftragenden Agenten initiiert. |
-| [`pacs.008.001.13`](/de/pacs.008.001.13/) | FI-zu-FI-Kundenkredittransfer | `pacs.008.001.13` | 2023 | Die Nachricht pacs.008 ist die zentrale Zahlungsanweisung, die zwischen Finanzinstituten ausgetauscht wird, um Gelder im Auftrag eines Kunden zu überweisen. Sie enthält Informationen zu Schuldner, Gläubiger, Betrag und Überweisungszweck für eine oder mehrere Überweisungen. |
-| [`pacs.009.001.10`](/de/pacs.009.001.10/) | Kredittransfer zwischen Finanzinstituten | `pacs.009.001.10` | 2019 | Die Nachricht pacs.009 wird für Überweisungen zwischen Finanzinstituten verwendet, bei denen die Überweisung auf eigene Rechnung des Instituts erfolgt. Sie unterstützt Interbankenfinanzierung, Deckungszahlungen und Liquiditätsmanagement. |
-| [`pacs.010.001.05`](/de/pacs.010.001.05/) | Lastschrift zwischen Finanzinstituten | `pacs.010.001.05` | 2019 | Die Nachricht pacs.010 wird zwischen Finanzinstituten für Lastschrifttransaktionen auf eigene Rechnung verwendet. Sie ermöglicht es einem Institut, Gelder direkt vom Konto eines anderen Instituts einzuziehen. |
-| [`pacs.028.001.05`](/de/pacs.028.001.05/) | FI-zu-FI-Anfrage zum Zahlungsstatus | `pacs.028.001.05` | 2019 | Die Nachricht pacs.028 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung anzufragen. Sie ermöglicht die proaktive Verfolgung der Zahlungsverarbeitung, ohne auf einen unaufgeforderten Statusbericht zu warten. |
+<div class="message-coverage-table" tabindex="0" aria-label="Enthaltene Unterstützung">
+  <table>
+    <colgroup>
+      <col class="message-coverage-table__col-id">
+      <col class="message-coverage-table__col-name">
+      <col class="message-coverage-table__col-version">
+      <col class="message-coverage-table__col-year">
+      <col class="message-coverage-table__col-overview">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Nachrichtentyp</th>
+        <th>Beschreibung</th>
+        <th>Version</th>
+        <th>Jahr</th>
+        <th>Überblick</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-coverage-table__id"><a href="/de/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
+          <td class="message-coverage-table__name">FI-zu-FI-Zahlungsstatusbericht</td>
+          <td class="message-coverage-table__version"><code>pacs.002.001.12</code></td>
+          <td class="message-coverage-table__year">2019</td>
+          <td class="message-coverage-table__overview">Die Nachricht pacs.002 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung zu melden. Sie liefert Bestätigungs-, Ablehnungs- oder Statusinformationen für einzelne Transaktionen innerhalb einer Zahlungsnachricht.</td>
+        </tr>
+        <tr>
+          <td class="message-coverage-table__id"><a href="/de/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
+          <td class="message-coverage-table__name">FI-zu-FI-Kundenlastschrift</td>
+          <td class="message-coverage-table__version"><code>pacs.003.001.09</code></td>
+          <td class="message-coverage-table__year">2019</td>
+          <td class="message-coverage-table__overview">Die Nachricht pacs.003 wird zwischen Finanzinstituten ausgetauscht, um eine Kundenlastschrift auszuführen. Sie ermöglicht es der Bank des Gläubigers, Gelder von der Bank des Schuldners im Auftrag des Gläubigers einzuziehen.</td>
+        </tr>
+        <tr>
+          <td class="message-coverage-table__id"><a href="/de/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
+          <td class="message-coverage-table__name">Zahlungsrückgabe</td>
+          <td class="message-coverage-table__version"><code>pacs.004.001.11</code></td>
+          <td class="message-coverage-table__year">2019</td>
+          <td class="message-coverage-table__overview">Die Nachricht pacs.004 wird verwendet, um eine zuvor abgewickelte Zahlungstransaktion zurückzugeben. Sie kehrt den Geldfluss um, wenn eine Zahlung nicht angewendet werden kann, irrtümlich gesendet wurde oder vom Ursprungsinstitut zurückgerufen wird.</td>
+        </tr>
+        <tr>
+          <td class="message-coverage-table__id"><a href="/de/pacs.007.001.11/"><code>pacs.007.001.11</code></a></td>
+          <td class="message-coverage-table__name">FI-zu-FI-Zahlungsstornierung</td>
+          <td class="message-coverage-table__version"><code>pacs.007.001.11</code></td>
+          <td class="message-coverage-table__year">2019</td>
+          <td class="message-coverage-table__overview">Die Nachricht pacs.007 wird verwendet, um eine zuvor gesendete Zahlungsanweisung umzukehren, die noch nicht abgewickelt wurde, oder um die Umkehrung einer abgewickelten Zahlung zu beantragen. Im Gegensatz zu pacs.004 (Rückgabe) wird sie vom ursprünglichen beauftragenden Agenten initiiert.</td>
+        </tr>
+        <tr>
+          <td class="message-coverage-table__id"><a href="/de/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
+          <td class="message-coverage-table__name">FI-zu-FI-Kundenkredittransfer</td>
+          <td class="message-coverage-table__version"><code>pacs.008.001.13</code></td>
+          <td class="message-coverage-table__year">2023</td>
+          <td class="message-coverage-table__overview">Die Nachricht pacs.008 ist die zentrale Zahlungsanweisung, die zwischen Finanzinstituten ausgetauscht wird, um Gelder im Auftrag eines Kunden zu überweisen. Sie enthält Informationen zu Schuldner, Gläubiger, Betrag und Überweisungszweck für eine oder mehrere Überweisungen.</td>
+        </tr>
+        <tr>
+          <td class="message-coverage-table__id"><a href="/de/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
+          <td class="message-coverage-table__name">Kredittransfer zwischen Finanzinstituten</td>
+          <td class="message-coverage-table__version"><code>pacs.009.001.10</code></td>
+          <td class="message-coverage-table__year">2019</td>
+          <td class="message-coverage-table__overview">Die Nachricht pacs.009 wird für Überweisungen zwischen Finanzinstituten verwendet, bei denen die Überweisung auf eigene Rechnung des Instituts erfolgt. Sie unterstützt Interbankenfinanzierung, Deckungszahlungen und Liquiditätsmanagement.</td>
+        </tr>
+        <tr>
+          <td class="message-coverage-table__id"><a href="/de/pacs.010.001.05/"><code>pacs.010.001.05</code></a></td>
+          <td class="message-coverage-table__name">Lastschrift zwischen Finanzinstituten</td>
+          <td class="message-coverage-table__version"><code>pacs.010.001.05</code></td>
+          <td class="message-coverage-table__year">2019</td>
+          <td class="message-coverage-table__overview">Die Nachricht pacs.010 wird zwischen Finanzinstituten für Lastschrifttransaktionen auf eigene Rechnung verwendet. Sie ermöglicht es einem Institut, Gelder direkt vom Konto eines anderen Instituts einzuziehen.</td>
+        </tr>
+        <tr>
+          <td class="message-coverage-table__id"><a href="/de/pacs.028.001.05/"><code>pacs.028.001.05</code></a></td>
+          <td class="message-coverage-table__name">FI-zu-FI-Anfrage zum Zahlungsstatus</td>
+          <td class="message-coverage-table__version"><code>pacs.028.001.05</code></td>
+          <td class="message-coverage-table__year">2019</td>
+          <td class="message-coverage-table__overview">Die Nachricht pacs.028 wird von einem Finanzinstitut gesendet, um den Status einer zuvor gesendeten Zahlungsanweisung anzufragen. Sie ermöglicht die proaktive Verfolgung der Zahlungsverarbeitung, ohne auf einen unaufgeforderten Statusbericht zu warten.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Bereitstellungsmodell
 

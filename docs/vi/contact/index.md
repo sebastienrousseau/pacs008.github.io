@@ -10,6 +10,6 @@ image: /logo.svg
 
 Đối với các vấn đề kho lưu trữ, yêu cầu tính năng và câu hỏi triển khai, hãy sử dụng các liên kết dự án bên dưới.
 
-- Repository: <https://github.com/sebastienrousseau/pacs008>
-- Releases: <https://github.com/sebastienrousseau/pacs008/releases>
-- Package: <https://pypi.org/project/pacs008/>
+- Kho mã: <https://github.com/sebastienrousseau/pacs008>
+- Bản phát hành: <https://github.com/sebastienrousseau/pacs008/releases>
+- Gói: <https://pypi.org/project/pacs008/>

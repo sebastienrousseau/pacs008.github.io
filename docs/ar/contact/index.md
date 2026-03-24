@@ -10,6 +10,6 @@ image: /logo.svg
 
 لمشكلات المستودع وطلبات الميزات وأسئلة التنفيذ، استخدم روابط المشروع أدناه.
 
-- Repository: <https://github.com/sebastienrousseau/pacs008>
-- Releases: <https://github.com/sebastienrousseau/pacs008/releases>
-- Package: <https://pypi.org/project/pacs008/>
+- المستودع: <https://github.com/sebastienrousseau/pacs008>
+- الإصدارات: <https://github.com/sebastienrousseau/pacs008/releases>
+- الحزمة: <https://pypi.org/project/pacs008/>

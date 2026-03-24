@@ -10,6 +10,6 @@ image: /logo.svg
 
 Pentru probleme de depozit, cereri de funcționalități și întrebări de implementare, utilizați linkurile proiectului de mai jos.
 
-- Repository: <https://github.com/sebastienrousseau/pacs008>
-- Releases: <https://github.com/sebastienrousseau/pacs008/releases>
-- Package: <https://pypi.org/project/pacs008/>
+- Depozit: <https://github.com/sebastienrousseau/pacs008>
+- Lansări: <https://github.com/sebastienrousseau/pacs008/releases>
+- Pachet: <https://pypi.org/project/pacs008/>

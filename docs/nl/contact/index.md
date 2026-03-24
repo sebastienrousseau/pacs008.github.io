@@ -12,4 +12,4 @@ Voor repositoryproblemen, functieverzoeken en implementatievragen kunt u de onde
 
 - Repository: <https://github.com/sebastienrousseau/pacs008>
 - Releases: <https://github.com/sebastienrousseau/pacs008/releases>
-- Package: <https://pypi.org/project/pacs008/>
+- Pakket: <https://pypi.org/project/pacs008/>
