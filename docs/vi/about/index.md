@@ -72,4 +72,3 @@ pacs008 vượt ra ngoài tham chiếu định nghĩa thông điệp để hỗ 
 - Coi chất lượng BIC, IBAN, remittance và địa chỉ bưu chính là tiêu chí phát hành chứ không phải việc dọn dẹp về sau.
 - Chạy kiểm thử hồi quy cho mỗi thay đổi quy tắc của cơ chế thanh toán hoặc ngân hàng với dữ liệu thanh toán đại diện.
 
-

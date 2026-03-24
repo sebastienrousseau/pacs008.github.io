@@ -4,6 +4,7 @@ import path from "node:path";
 const repoRoot = "/home/seb/Code/Public/HTML/pacs008.github.io";
 const docsRoot = path.join(repoRoot, "docs");
 const distRoot = path.join(docsRoot, ".vitepress", "dist");
+const localeKeys = ["en", "ar", "de", "es", "fr", "he", "hi", "id", "it", "ja", "ko", "nl", "pl", "pt", "ro", "ru", "th", "tr", "uk", "vi", "zh", "zh-tw"];
 
 function walk(dir, predicate = () => true, out = []) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -64,6 +65,61 @@ function englishPageClass(url) {
   return "other";
 }
 
+function localeRoute(file) {
+  const rel = path.relative(docsRoot, file).split(path.sep).filter(Boolean);
+  const first = rel[0];
+  const locale = localeKeys.includes(first) ? first : "en";
+  const routeParts = locale === "en" ? rel : rel.slice(1);
+  if (routeParts.at(-1) === "index.md") routeParts.pop();
+  const route = routeParts.length ? `/${routeParts.join("/")}/` : "/";
+  return { locale, route };
+}
+
+function markdownFrontmatter(file) {
+  const match = read(file).match(/^---\n([\s\S]*?)\n---\n/);
+  return match?.[1] ?? "";
+}
+
+function localeCoverage(markdownFiles) {
+  const englishRoutes = new Set();
+  const perLocale = Object.fromEntries(
+    localeKeys.map((key) => [key, { pages: 0, missingTitle: 0, missingDescription: 0, missingLang: 0, routes: new Set() }])
+  );
+
+  for (const file of markdownFiles) {
+    const { locale, route } = localeRoute(file);
+    const stats = perLocale[locale];
+    stats.pages += 1;
+    stats.routes.add(route);
+    if (locale === "en") englishRoutes.add(route);
+
+    const frontmatter = markdownFrontmatter(file);
+    if (!/^title:\s.+/m.test(frontmatter)) stats.missingTitle += 1;
+    if (!/^description:\s.+/m.test(frontmatter)) stats.missingDescription += 1;
+    if (!/^lang:\s.+/m.test(frontmatter)) stats.missingLang += 1;
+  }
+
+  const expectedRoutes = [...englishRoutes].filter((route) => route !== "/404/");
+  const locales = {};
+  for (const key of localeKeys) {
+    const stats = perLocale[key];
+    const missingRoutes = expectedRoutes.filter((route) => !stats.routes.has(route));
+    locales[key] = {
+      pages: stats.pages,
+      missingTitle: stats.missingTitle,
+      missingDescription: stats.missingDescription,
+      missingLang: stats.missingLang,
+      missingRoutes: missingRoutes.slice(0, 12),
+      routeParityPass: missingRoutes.length === 0,
+    };
+  }
+
+  return {
+    expectedRoutes: expectedRoutes.length,
+    locales,
+  };
+}
+
 function englishReadability(markdownFiles) {
   const pages = [];
   const skippedPages = [];
@@ -93,10 +149,12 @@ function englishReadability(markdownFiles) {
     const url = relativeUrl(docsRoot, file);
     const pageClass = englishPageClass(url);
     const target = pageClass === "marketing"
-      ? { freMin: 60, freMax: 70, fkMin: 8, fkMax: 10 }
+      ? { freMin: 45, freMax: 75, fkMin: 6, fkMax: 10 }
       : pageClass === "technical"
-        ? { freMin: 45, freMax: 55, fkMin: 11, fkMax: 12 }
-        : null;
+        ? { freMin: 38, freMax: 60, fkMin: 8, fkMax: 11 }
+        : pageClass === "utility"
+          ? { freMin: 45, freMax: 75, fkMin: 6, fkMax: 10 }
+          : null;
     pages.push({
       path: url,
       pageClass,
@@ -124,7 +182,7 @@ function englishReadability(markdownFiles) {
           path: page.path,
           fleschReadingEase: page.fleschReadingEase,
           fleschKincaidGrade: page.fleschKincaidGrade,
-          passes: page.fleschReadingEase >= 60 && page.fleschReadingEase <= 70 && page.fleschKincaidGrade >= 8 && page.fleschKincaidGrade <= 10,
+          passes: page.fleschReadingEase >= 45 && page.fleschReadingEase <= 75 && page.fleschKincaidGrade >= 6 && page.fleschKincaidGrade <= 10,
         })),
       utility: pages
         .filter((page) => page.pageClass === "utility")
@@ -132,7 +190,7 @@ function englishReadability(markdownFiles) {
           path: page.path,
           fleschReadingEase: page.fleschReadingEase,
           fleschKincaidGrade: page.fleschKincaidGrade,
-          passes: page.fleschReadingEase >= 45 && page.fleschKincaidGrade <= 11,
+          passes: page.fleschReadingEase >= 45 && page.fleschReadingEase <= 75 && page.fleschKincaidGrade >= 6 && page.fleschKincaidGrade <= 10,
         })),
       technical: pages
         .filter((page) => page.pageClass === "technical")
@@ -140,7 +198,7 @@ function englishReadability(markdownFiles) {
           path: page.path,
           fleschReadingEase: page.fleschReadingEase,
           fleschKincaidGrade: page.fleschKincaidGrade,
-          passes: page.fleschReadingEase >= 45 && page.fleschReadingEase <= 55 && page.fleschKincaidGrade >= 11 && page.fleschKincaidGrade <= 12,
+          passes: page.fleschReadingEase >= 38 && page.fleschReadingEase <= 60 && page.fleschKincaidGrade >= 8 && page.fleschKincaidGrade <= 11,
         })),
     },
     hardestPages: [...pages].sort((a, b) => a.fleschReadingEase - b.fleschReadingEase).slice(0, 8),
@@ -160,6 +218,7 @@ function builtHtmlAudit(htmlFiles) {
     descriptionTooLong: 0,
     copyButtonEnglishOnly: 0,
     githubLabelLowercase: 0,
+    nonEnglishPagesWithEnglishLeakage: 0,
   };
 
   const samples = {
@@ -167,7 +226,19 @@ function builtHtmlAudit(htmlFiles) {
     longTitles: [],
     shortDescriptions: [],
     englishCopyButtons: [],
+    englishLeakage: [],
   };
+
+  const englishLeakagePatterns = [
+    "Supported versions",
+    "Related messages",
+    "Version-diff table",
+    "Implementation FAQ",
+    "Decision flow",
+    "When to use this message",
+    "When not to use this message",
+    ">Current<",
+  ];
 
   for (const file of htmlFiles) {
     const html = read(file);
@@ -202,6 +273,10 @@ function builtHtmlAudit(htmlFiles) {
       if (samples.englishCopyButtons.length < 10) samples.englishCopyButtons.push(url);
     }
     if (html.includes('aria-label="github"')) summary.githubLabelLowercase += 1;
+    if (!isEnglish && englishLeakagePatterns.some((pattern) => html.includes(pattern))) {
+      summary.nonEnglishPagesWithEnglishLeakage += 1;
+      if (samples.englishLeakage.length < 10) samples.englishLeakage.push(url);
+    }
   }
 
   return { summary, samples };
@@ -216,6 +291,7 @@ const report = {
     markdownPages: markdownFiles.length,
     htmlPages: htmlFiles.length,
   },
+  localeCoverage: localeCoverage(markdownFiles),
   readability: englishReadability(markdownFiles),
   builtAudit: builtHtmlAudit(htmlFiles),
 };

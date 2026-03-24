@@ -1,6 +1,6 @@
 ---
 title: API | pacs008
-description: Soporte de flujos REST y CLI en pacs008. Generación, validación, orquestación de API y soporte de cumplimiento para flujos de transferencia de crédito de...
+description: Soporte de flujos REST y CLI en pacs008.
 lang: es-ES
 lastUpdated: true
 image: /logo.svg

@@ -10,8 +10,6 @@ image: /logo.svg
 
 まず業務イベントに基づいて pacs ファミリーを選び、次にスキームと運用モデルで絞り込みます。
 
-
-
 ## クイック判断マトリクス
 
 <div class="decision-matrix-table" tabindex="0" aria-label="クイック判断マトリクス">

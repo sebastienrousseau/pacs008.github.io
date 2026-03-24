@@ -1,6 +1,6 @@
 ---
 title: Over pacs008 | pacs008
-description: Wat pacs008 doet en voor wie het bedoeld is. Generatie, validatie, API-orchestratie en compliance-ondersteuning voor klantkredietoverdrachten tussen...
+description: Wat pacs008 doet en voor wie het bedoeld is.
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg
@@ -71,5 +71,4 @@ pacs008 gaat verder dan berichtdefinitiereferentie en ondersteunt operationele i
 - Valideer businessdata vóór XML-generatie zodat schemafouten niet het eerste waarschuwingssignaal zijn.
 - Behandel de kwaliteit van BIC, IBAN, betalingsreferenties en postadressen als releasecriterium en niet als latere opschoning.
 - Voer regressietests uit voor elke schema- of bankspecifieke regelwijziging met representatieve betaaldata.
-
 

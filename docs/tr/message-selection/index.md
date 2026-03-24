@@ -10,8 +10,6 @@ image: /logo.svg
 
 Önce iş olayına göre pacs ailesini, ardından şema ve işletim modeline göre seçin.
 
-
-
 ## Hızlı karar matrisi
 
 <div class="decision-matrix-table" tabindex="0" aria-label="Hızlı karar matrisi">

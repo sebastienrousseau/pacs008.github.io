@@ -212,7 +212,6 @@ L'istituto debitore invia pacs.009 all'istituto creditore per trasferire i propr
 - [Swift CBPR+ pacs.009 overview](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/cbpr-payment-instructions-pacs009)
 - [Swift CBPR+ cover-method pacs.008/pacs.009 guidance](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/fi-fi-customer-credit-transfer-cover-method-pacs008-pacs009)
 
-
 ## Messaggi correlati
 <div class="related-messages-table" tabindex="0" aria-label="Messaggi correlati">
   <table>

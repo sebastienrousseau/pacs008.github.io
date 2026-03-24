@@ -1,6 +1,6 @@
 ---
 title: Berichttypen | pacs008 ISO 20022
-description: Ondersteunde ISO 20022 pacs-berichtdefinities en versies. Generatie, validatie, API-orchestratie en compliance-ondersteuning voor klantkredietoverdrachten...
+description: Ondersteunde ISO 20022 pacs-berichtdefinities en versies.
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg
@@ -90,7 +90,6 @@ Elk ondersteund berichttype wordt ondersteund door sjablonen en validatielogica 
 De berichtcatalogus is vooral belangrijk wanneer teams moeten bepalen welk bericht het proces start, welk bericht de status rapporteert en welk bericht de stroom corrigeert of terugdraait.
 
 Zie de [keuzegids](/nl/message-selection/) voor een compacte beslisweergave over de ondersteunde pacs-stromen.
-
 
 ## Marktcontext 2026
 

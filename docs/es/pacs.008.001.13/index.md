@@ -227,7 +227,6 @@ El agente del deudor crea un pacs.008 y lo envía al agente del acreedor (direct
 - [Swift CBPR+ cover-method pacs.008/pacs.009 guidance](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/fi-fi-customer-credit-transfer-cover-method-pacs008-pacs009)
 - [Swift CBPR+ roadmap and standards programme](https://www.swift.com/standards/iso-20022/iso-20022-programme/cbpr-roadmap)
 
-
 ## Versiones compatibles
 
 <div class="message-versions-table" tabindex="0" aria-label="Versiones compatibles">
@@ -293,7 +292,7 @@ El agente del deudor crea un pacs.008 y lo envía al agente del acreedor (direct
         </tr>
         <tr>
           <td class="message-versions-table__version"><code>pacs.008.001.13</code></td>
-          <td class="message-versions-table__status"><strong>Current</strong></td>
+          <td class="message-versions-table__status"><strong>Actual</strong></td>
         </tr>
     </tbody>
   </table>

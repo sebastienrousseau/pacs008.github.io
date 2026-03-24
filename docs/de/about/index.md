@@ -1,6 +1,6 @@
 ---
 title: Über pacs008 | pacs008
-description: Was pacs008 leistet und für wen es gedacht ist. Generierung, Validierung, API-Orchestrierung und Compliance-Unterstützung für...
+description: Was pacs008 leistet und für wen es gedacht ist.
 lang: de-DE
 lastUpdated: true
 image: /logo.svg
@@ -71,5 +71,4 @@ pacs008 geht über die Nachrichtendefinitions-Referenz hinaus und unterstützt d
 - Geschäftsdaten vor der XML-Erzeugung validieren, damit Schemafehler nicht das erste Warnsignal sind.
 - BIC-, IBAN-, Remittance- und Adressqualität als Release-Kriterium behandeln und nicht als spätere Bereinigung.
 - Jede schemaspezifische oder bankspezifische Regeländerung mit repräsentativen Zahlungsdaten regressionsprüfen.
-
 

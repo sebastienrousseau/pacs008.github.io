@@ -1,6 +1,6 @@
 ---
 title: Typy wiadomości | pacs008 ISO 20022
-description: Obsługiwane definicje i wersje wiadomości pacs ISO 20022. Generowanie, walidacja, orkiestracja API i wsparcie zgodności dla przepływów przelewów...
+description: Obsługiwane definicje i wersje wiadomości pacs ISO 20022.
 lang: pl-PL
 lastUpdated: true
 image: /logo.svg
@@ -90,7 +90,6 @@ Każdy obsługiwany typ wiadomości jest wspierany przez zasoby szablonów i log
 Katalog komunikatów jest szczególnie ważny wtedy, gdy zespoły muszą ustalić, który komunikat rozpoczyna przepływ, który raportuje status, a który koryguje lub odwraca proces.
 
 Zobacz [przewodnik wyboru wiadomości](/pl/message-selection/), aby uzyskać skrócony widok decyzji dla obsługiwanych przepływów pacs.
-
 
 ## Kontekst rynkowy 2026
 

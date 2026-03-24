@@ -10,8 +10,6 @@ image: /logo.svg
 
 Choose the pacs family by business event first, then by scheme and operating model.
 
-
-
 ## Quick decision matrix
 
 <div class="decision-matrix-table" tabindex="0" aria-label="Quick decision matrix">
@@ -107,4 +105,17 @@ Choose the pacs family by business event first, then by scheme and operating mod
 ## Supported message pages
 
 Supported message pages are listed in [Message Types](/message-types/).
+
+## How to choose fast
+
+- Start with the business event.
+- Check who owns the payment at that stage.
+- Check whether value is moving, being reported, being returned, or being queried.
+- Confirm the scheme and counterparty rules before you freeze the template.
+
+## 2026 implementation signals
+
+- Structured address quality is moving from best practice to release gate.
+- Banks want less manual repair, so status design and field quality matter as much as XML generation.
+- Multi-rail teams need one clear map across customer, treasury, and exception flows.
 

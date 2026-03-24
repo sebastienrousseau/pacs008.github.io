@@ -1,6 +1,6 @@
 ---
 title: Jenis Pesan | pacs008 ISO 20022
-description: Definisi dan versi pesan pacs ISO 20022 yang didukung. Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan...
+description: Definisi dan versi pesan pacs ISO 20022 yang didukung.
 lang: id-ID
 lastUpdated: true
 image: /logo.svg
@@ -90,7 +90,6 @@ Setiap jenis pesan yang didukung dilengkapi dengan berkas contoh XML dan logika 
 Katalog pesan paling penting ketika tim harus memutuskan pesan mana yang memulai alur, mana yang melaporkan status, dan mana yang memperbaiki atau membalikkan proses.
 
 Lihat [panduan pemilihan pesan](/id/message-selection/) untuk ringkasan keputusan lintas alur pacs yang didukung.
-
 
 ## Konteks pasar 2026
 

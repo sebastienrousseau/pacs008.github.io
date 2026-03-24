@@ -1,6 +1,6 @@
 ---
 title: Prywatność | pacs008
-description: Informacje o prywatności strony pacs008. Generowanie, walidacja, orkiestracja API i wsparcie zgodności dla przepływów przelewów kredytowych klientów...
+description: Informacje o prywatności strony pacs008.
 lang: pl-PL
 lastUpdated: true
 image: /logo.svg

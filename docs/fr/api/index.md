@@ -1,6 +1,6 @@
 ---
 title: API | pacs008
-description: Prise en charge REST et CLI dans pacs008. Génération, validation, orchestration d'API et conformité pour les flux de virement client entre institutions...
+description: Prise en charge REST et CLI dans pacs008.
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg

@@ -1,6 +1,6 @@
 ---
 title: API | pacs008
-description: REST- und CLI-Unterstützung in pacs008. Generierung, Validierung, API-Orchestrierung und Compliance-Unterstützung für Kundenkredittransfer-Workflows...
+description: REST- und CLI-Unterstützung in pacs008.
 lang: de-DE
 lastUpdated: true
 image: /logo.svg

@@ -723,7 +723,7 @@ strong {
 
 /* Hero fade-in */
 .VPHomeHero {
-  background: url('https://cloudcdn.pro/stock/images/banners/meiying-ng-OrwkD-iWgqg.webp') center/cover no-repeat;
+  background: url('/images/hero-bg.webp') center/cover no-repeat;
   position: relative;
   animation: fadeIn 3s ease;
   flex-grow: 1;

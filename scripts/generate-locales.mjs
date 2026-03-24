@@ -384,24 +384,24 @@ for (const mt of messageTypes) {
 const pageCopy = {
   en: {
     aboutTitle: "About pacs008",
-    aboutDescription: "Learn what pacs008 does, who it helps, and how it supports ISO 20022 payment generation, validation, and daily payment operations.",
-    aboutIntro: "pacs008 helps teams create and check ISO 20022 payment messages. It is a Python toolkit for payment operations.",
+    aboutDescription: "Learn how pacs008 helps teams generate, validate, test, and ship ISO 20022 payment messages for daily payment operations.",
+    aboutIntro: "pacs008 is a Python toolkit for teams that need to generate, validate, and ship ISO 20022 payment messages with less manual repair work. It helps payment teams catch bad data before release.",
     whatItDoes: "What it does",
     whoItIsFor: "Who it is for",
     messageTitle: "Message Types",
-    messageDescription: "Browse the ISO 20022 pacs messages supported by pacs008 and see where each message fits in the payment lifecycle.",
-    messageIntro: "pacs008 covers the core pacs.008 message and the related pacs messages used for status, returns, reversals, and enquiries.",
+    messageDescription: "Browse the ISO 20022 pacs messages supported by pacs008 and see where each message fits in payment initiation, status, returns, reversals, and enquiries.",
+    messageIntro: "pacs008 covers pacs.008 and the related pacs messages that teams use to start, track, return, reverse, and query payments.",
     includedSupport: "Included support",
     deliveryModel: "Delivery model",
-    deliveryText: "Each supported message comes with templates and validation rules. Teams can use the same assets in local tests, CI, and internal payment services.",
+    deliveryText: "Each supported message comes with templates and validation rules. Teams can reuse the same assets in local tests, CI pipelines, and internal payment services.",
     apiTitle: "API",
-    apiDescription: "Use the pacs008 REST API, CLI, and Python library to validate payment data and generate ISO 20022 XML files.",
-    apiIntro: "pacs008 offers a REST API, CLI, and Python library.",
+    apiDescription: "Use the pacs008 REST API, CLI, and Python library to validate payment data, enforce message rules, and generate ISO 20022 XML files.",
+    apiIntro: "pacs008 offers a REST API, CLI, and Python library for payment validation, XML generation, and repeatable release workflows. Teams can use the same rules in local tests and live services.",
     apiCapabilities: "API capabilities",
     cliCapabilities: "CLI capabilities",
     contactTitle: "Contact",
     contactDescription: "Find the pacs008 repository, releases, and package links for support, issue reporting, and implementation questions.",
-    contactIntro: "Use the links below for support, release notes, and package details.",
+    contactIntro: "Use the links below for source code, issue tracking, release notes, and package details.",
     privacyTitle: "Privacy",
     privacyDescription: "Read how pacs008.com handles website data, uses basic analytics, and explains visitor privacy rights and limits.",
     termsTitle: "Terms",
@@ -440,9 +440,9 @@ const pageCopy = {
     difference4: "make scheme-specific changes testable in code",
     marketTitle: "2026 market context",
     market1: "**SEPA SCT / SCT Inst**: pacs.008 remains central to credit transfers and instant payments.",
-    market2: "**CBPR+**: pacs.008 keeps replacing MT103-style cross-border traffic with more structured data.",
-    market3: "**Structured addresses**: market guidance points to a November 2026 move away from fully unstructured postal addresses.",
-    market4: "**Serial method and STP**: multi-leg bank chains still matter, and straight-through processing still drives efficiency.",
+    market2: "**CBPR+**: richer pacs.008 data keeps replacing MT103-style cross-border traffic and pushes better field-level validation.",
+    market3: "**Structured addresses**: Swift guidance points to a November 2026 move away from fully unstructured postal addresses in key payment flows.",
+    market4: "**STP and repair control**: banks still want fewer manual fixes, so clear routing, status design, and clean party data matter more in 2026.",
     addsTitle: "Operational capabilities",
     addsIntro: "pacs008 provides template-backed generation and validation across supported message definition revisions:",
     adds1: "compare versions",
@@ -452,7 +452,7 @@ const pageCopy = {
     apiInstallTitle: "Installation",
     apiInstallText: "Install the package from PyPI. You need Python 3.9.2 or later.",
     apiRestTitle: "REST API",
-    apiRestIntro: "Start the FastAPI server for validation and XML generation.",
+    apiRestIntro: "Start the FastAPI server to validate payment data and generate XML.",
     apiRestStart: "Start the server",
     apiEndpointsTitle: "Endpoints",
     apiEndpointHealth: "Health check that returns service status",
@@ -7145,17 +7145,17 @@ const EN_EDITORIAL = {
     "Connects pacs message families so implementers can reason about generation, status, return, and reversal flows together."
   ],
   aboutChecklist: [
-    "Pick the right message family before writing templates.",
-    "Validate business data before XML generation.",
+    "Pick the right message family before you build templates.",
+    "Validate business data before you generate XML.",
     "Treat BIC, IBAN, remittance, and postal-address quality as release criteria.",
-    "Regression-test each scheme or bank rule change with representative payment data."
+    "Regression-test each scheme or bank rule change with real payment samples."
   ],
-  messageTypesPerspectiveIntro: "The message catalogue matters most when teams need to decide which message initiates work, which message reports status, and which message corrects or reverses the flow.",
+  messageTypesPerspectiveIntro: "The message catalogue matters most when a team must decide which message starts the work, which one reports status, and which one returns or reverses the flow.",
   apiImplementationNotes: [
-    "Use synchronous generation for operator-driven checks and small batches where the caller expects an immediate XML file.",
-    "Use asynchronous generation when input files are large, when jobs need retry semantics, or when generation is part of a broader workflow engine.",
-    "Persist both the source payload and validation report so support teams can reproduce XML output during incident review.",
-    "Version-lock template and XSD file paths in deployment configuration to avoid silent upgrades during releases."
+    "Use synchronous generation for quick operator checks and small batches.",
+    "Use asynchronous generation for large files, retries, or workflow-driven runs.",
+    "Store the input payload and validation report together so support teams can reproduce output fast.",
+    "Lock template and XSD paths in deployment settings so releases do not change message versions by accident."
   ],
   messageGuidance: {
     "pacs.002.001.12": {
@@ -10746,6 +10746,34 @@ function localizedMessageName(localeKey, msgType) {
   return MESSAGE_NAME_MAP[localeKey]?.[msgType.slug] ?? msgType.isoFullName;
 }
 
+function currentVersionLabel(localeKey) {
+  const labels = {
+    en: "Current",
+    ar: "الحالي",
+    de: "Aktuell",
+    es: "Actual",
+    fr: "Actuel",
+    he: "נוכחי",
+    hi: "वर्तमान",
+    id: "Saat ini",
+    it: "Corrente",
+    ja: "現行",
+    ko: "현재",
+    nl: "Huidig",
+    pl: "Bieżąca",
+    pt: "Atual",
+    ro: "Curent",
+    ru: "Текущая",
+    th: "ปัจจุบัน",
+    tr: "Güncel",
+    uk: "Поточна",
+    vi: "Hiện tại",
+    zh: "当前",
+    "zh-tw": "目前"
+  };
+  return labels[localeKey] ?? labels.en;
+}
+
 function localePath(localeKey, slug = "") {
   const normalizedSlug = slug.replace(/^\/+|\/+$/g, "");
   const prefix = localeKey === "en" ? "" : `/${localeKey}`;
@@ -10906,7 +10934,7 @@ function messageVersionsTable(localeKey, msgType) {
       { className: "message-versions-table__version", html: `<code>${escapeHtml(version)}</code>` },
       {
         className: "message-versions-table__status",
-        html: version === msgType.slug ? `<strong>${escapeHtml(localeKey === "en" ? "Current" : advancedTranslate(localeKey, "Current"))}</strong>` : ""
+        html: version === msgType.slug ? `<strong>${escapeHtml(currentVersionLabel(localeKey))}</strong>` : ""
       }
     ])
   });
@@ -10968,6 +10996,10 @@ function englishAboutEditorial() {
   return `
 ## Implementation checklist
 
+Use this list to keep rollout work simple and repeatable.
+
+Keep each release small, testable, and easy to trace.
+
 ${EN_EDITORIAL.aboutChecklist.map((item) => `- ${item}`).join("\n")}
 `;
 }
@@ -10996,6 +11028,8 @@ Start with the business event, not the message code.
 - \`pacs.007\` reverses an earlier payment instruction.
 
 Use the [message selection guide](/message-selection/) for a one-page view across the supported pacs flows.
+
+Keep the payment owner, settlement stage, and exception path clear before you pick a message.
 `;
 }
 
@@ -11038,6 +11072,10 @@ ${guidance.commonPitfalls.map((item) => `- ${item}`).join("\n")}
 function englishApiEditorial() {
   return `
 ## Implementation notes
+
+Start with the smallest path that fits the workflow.
+
+Use one path for local checks, one for service runs, and one for embedded code.
 
 - Use sync generation for quick checks.
 - Use async generation for large files.
@@ -11280,6 +11318,23 @@ ${steps.join("\n")}
 function localizedSelectionGuide(localeKey) {
   const copy = seoCopy(localeKey);
   const t = copyFor(localeKey);
+  const reviewLine = sourceReviewLine(localeKey);
+  const englishExtra = localeKey === "en"
+    ? `
+## How to choose fast
+
+- Start with the business event.
+- Check who owns the payment at that stage.
+- Check whether value is moving, being reported, being returned, or being queried.
+- Confirm the scheme and counterparty rules before you freeze the template.
+
+## 2026 implementation signals
+
+- Structured address quality is moving from best practice to release gate.
+- Banks want less manual repair, so status design and field quality matter as much as XML generation.
+- Multi-rail teams need one clear map across customer, treasury, and exception flows.
+`
+    : "";
   const quickDecisionTable = htmlTable({
     className: "decision-matrix-table",
     ariaLabel: copy.quickDecisionMatrix,
@@ -11326,11 +11381,14 @@ function localizedSelectionGuide(localeKey) {
     ]
   });
 
+  const introText = normalizeWhitespace(copy.selectionGuideIntro);
+  const intro = reviewLine
+    ? `${introText}\n\n${reviewLine}`
+    : introText;
+
   return `# ${copy.selectionGuideTitle}
 
-${copy.selectionGuideIntro}
-
-${sourceReviewLine(localeKey)}
+${intro}
 
 ## ${copy.quickDecisionMatrix}
 
@@ -11345,6 +11403,7 @@ ${comparisonTable}
 ${localeKey === "en"
     ? `Supported message pages are listed in [Message Types](/message-types/).`
     : messageCoverageList(localeKey)}
+${englishExtra}
 `;
 }
 
@@ -11527,10 +11586,21 @@ function clampDescription(value, max = 158) {
 }
 
 function localeSectionDescription(locale, summary) {
+  const cleanSummary = normalizeWhitespace(summary);
   if (locale.key === "en") {
-    return clampDescription(summary);
+    return clampDescription(cleanSummary);
   }
-  return clampDescription(`${summary} ${locale.tagline}`);
+
+  if (cleanSummary.length >= 110) {
+    return clampDescription(cleanSummary);
+  }
+
+  const combined = normalizeWhitespace(`${cleanSummary} ${locale.tagline}`);
+  if (combined.length <= 158) {
+    return combined;
+  }
+
+  return clampDescription(cleanSummary);
 }
 
 function homeTitle(locale) {
@@ -12461,6 +12531,12 @@ ${t.contactIntro}
 
 Use the repository for bugs, feature requests, and source code. Use releases for version history. Use PyPI for install details.
 
+For implementation work, start with the repository when you need examples, templates, or issue history. Check releases when you need a clear version record. Check PyPI when you need package metadata and install commands.
+
+If you are reporting a bug, include the message type, version, and a short example of the failing input. If you are planning a rollout, review recent releases first so you can match your implementation work to a known package version. If you need install or dependency details, PyPI is the fastest place to confirm the current package record.
+
+This page is meant to reduce back-and-forth for common project questions. It points you to the right source depending on whether you need code, package details, release history, or implementation context. That makes it easier to find the right starting point before you open an issue or begin a rollout review.
+
 - ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>
 - ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>
 - ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>`;
@@ -12479,9 +12555,16 @@ async function ensureDir(dir) {
   await fs.mkdir(dir, { recursive: true });
 }
 
+function normalizeGeneratedMarkdown(content) {
+  return content
+    .replace(/[ \t]+\n/g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .replace(/\n?$/, "\n");
+}
+
 async function write(filePath, content) {
   await ensureDir(path.dirname(filePath));
-  await fs.writeFile(filePath, content, "utf8");
+  await fs.writeFile(filePath, normalizeGeneratedMarkdown(content), "utf8");
 }
 
 await fs.rm(path.join(docsDir, "en"), { recursive: true, force: true });

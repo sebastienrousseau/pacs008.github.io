@@ -10,8 +10,6 @@ image: /logo.svg
 
 اختر عائلة رسائل pacs بحسب الحدث التشغيلي أولاً، ثم بحسب المخطط ونموذج التشغيل.
 
-
-
 ## مصفوفة قرار سريعة
 
 <div class="decision-matrix-table" tabindex="0" aria-label="مصفوفة قرار سريعة">

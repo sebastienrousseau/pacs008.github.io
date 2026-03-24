@@ -1,6 +1,6 @@
 ---
 title: pacs008 Hakkında | pacs008
-description: pacs008 ne yapar ve kimler için tasarlanmıştır. Finansal kuruluşlar arasındaki müşteri kredi transferi iş akışları için oluşturma, doğrulama, API...
+description: pacs008 ne yapar ve kimler için tasarlanmıştır.
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg
@@ -71,5 +71,4 @@ pacs008, mesaj tanımı referansının ötesine geçerek operasyonel uygulamayı
 - Şema hatalarının ilk sinyal olmaması için XML üretiminden önce iş verilerini doğrulayın.
 - BIC, IBAN, remittance ve posta adresi kalitesini sonradan temizlenecek bir konu değil, yayınlama kriteri olarak ele alın.
 - Her şema veya banka kuralı değişikliğinde temsilî ödeme verileriyle regresyon testleri çalıştırın.
-
 

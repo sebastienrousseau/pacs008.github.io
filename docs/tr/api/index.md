@@ -1,6 +1,6 @@
 ---
 title: API | pacs008
-description: pacs008'de REST ve CLI iş akışı desteği. Finansal kuruluşlar arasındaki müşteri kredi transferi iş akışları için oluşturma, doğrulama, API orkestrasyonu...
+description: pacs008'de REST ve CLI iş akışı desteği.
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg

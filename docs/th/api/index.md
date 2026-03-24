@@ -1,6 +1,6 @@
 ---
 title: API | pacs008
-description: การสนับสนุนเวิร์กโฟลว์ REST และ CLI ใน pacs008 การสร้าง ตรวจสอบ จัดเรียง API และสนับสนุนการปฏิบัติตามกฎระเบียบสำหรับเวิร์กโฟลว์โอนเครดิตลูกค้าระหว่างสถาบัน...
+description: การสนับสนุนเวิร์กโฟลว์ REST และ CLI ใน pacs008
 lang: th-TH
 lastUpdated: true
 image: /logo.svg

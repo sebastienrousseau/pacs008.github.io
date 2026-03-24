@@ -227,7 +227,6 @@ Thông điệp pacs.008 là lệnh thanh toán cốt lõi được trao đổi g
 - [Swift CBPR+ cover-method pacs.008/pacs.009 guidance](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/fi-fi-customer-credit-transfer-cover-method-pacs008-pacs009)
 - [Swift CBPR+ roadmap and standards programme](https://www.swift.com/standards/iso-20022/iso-20022-programme/cbpr-roadmap)
 
-
 ## Phiên bản được hỗ trợ
 
 <div class="message-versions-table" tabindex="0" aria-label="Phiên bản được hỗ trợ">

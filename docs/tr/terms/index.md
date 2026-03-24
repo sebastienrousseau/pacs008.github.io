@@ -1,6 +1,6 @@
 ---
 title: Koşullar | pacs008
-description: pacs008 web sitesi koşullar bilgileri. Finansal kuruluşlar arasındaki müşteri kredi transferi iş akışları için oluşturma, doğrulama, API orkestrasyonu ve...
+description: pacs008 web sitesi koşullar bilgileri.
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg

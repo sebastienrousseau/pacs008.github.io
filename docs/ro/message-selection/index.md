@@ -10,8 +10,6 @@ image: /logo.svg
 
 Alegeți familia pacs mai întâi după evenimentul de business, apoi după schemă și modelul operațional.
 
-
-
 ## Matrice rapidă de decizie
 
 <div class="decision-matrix-table" tabindex="0" aria-label="Matrice rapidă de decizie">

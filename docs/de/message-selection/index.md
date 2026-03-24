@@ -10,8 +10,6 @@ image: /logo.svg
 
 Wählen Sie die pacs-Familie zuerst nach dem Geschäftsvorfall und danach nach Schema und Betriebsmodell.
 
-
-
 ## Schnelle Entscheidungsmatrix
 
 <div class="decision-matrix-table" tabindex="0" aria-label="Schnelle Entscheidungsmatrix">

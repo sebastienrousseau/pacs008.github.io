@@ -215,7 +215,6 @@ L'agent instruit (récepteur) envoie pacs.002 à l'agent instructeur (émetteur)
 - [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and)
 - [EPC SEPA Instant Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook)
 
-
 ## Messages associés
 <div class="related-messages-table" tabindex="0" aria-label="Messages associés">
   <table>

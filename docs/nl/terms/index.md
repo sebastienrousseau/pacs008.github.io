@@ -1,6 +1,6 @@
 ---
 title: Voorwaarden | pacs008
-description: Voorwaarden-informatie voor de pacs008-website. Generatie, validatie, API-orchestratie en compliance-ondersteuning voor klantkredietoverdrachten tussen...
+description: Voorwaarden-informatie voor de pacs008-website.
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg

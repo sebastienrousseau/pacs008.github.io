@@ -1,6 +1,6 @@
 ---
 title: Despre pacs008 | pacs008
-description: Ce face pacs008 și cui se adresează. Generare, validare, orchestrare API și suport de conformitate pentru fluxuri de transfer de credit ale clienților...
+description: Ce face pacs008 și cui se adresează.
 lang: ro-RO
 lastUpdated: true
 image: /logo.svg
@@ -71,5 +71,4 @@ pacs008 depășește referința definițiilor de mesaje pentru a susține implem
 - Validează datele de business înainte de generarea XML pentru ca erorile de schemă să nu fie primul semnal.
 - Tratează calitatea BIC, IBAN, remittance și a adreselor poștale ca pe un criteriu de release, nu ca pe o curățare ulterioară.
 - Rulează teste de regresie pentru fiecare schimbare de regulă de schemă sau bancă folosind date de plată reprezentative.
-
 

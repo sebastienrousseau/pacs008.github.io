@@ -212,7 +212,6 @@ Das Schuldnerinstitut sendet pacs.009 an das Gläubigerinstitut, um eigene Mitte
 - [Swift CBPR+ pacs.009 overview](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/cbpr-payment-instructions-pacs009)
 - [Swift CBPR+ cover-method pacs.008/pacs.009 guidance](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/fi-fi-customer-credit-transfer-cover-method-pacs008-pacs009)
 
-
 ## Verwandte Nachrichten
 <div class="related-messages-table" tabindex="0" aria-label="Verwandte Nachrichten">
   <table>

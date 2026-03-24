@@ -1,6 +1,6 @@
 ---
 title: Tipuri de mesaje | pacs008 ISO 20022
-description: Definiții și versiuni de mesaje pacs ISO 20022 acceptate. Generare, validare, orchestrare API și suport de conformitate pentru fluxuri de transfer de...
+description: Definiții și versiuni de mesaje pacs ISO 20022 acceptate.
 lang: ro-RO
 lastUpdated: true
 image: /logo.svg
@@ -90,7 +90,6 @@ Fiecare tip de mesaj acceptat este susținut de active șablon și logică de va
 Catalogul de mesaje este deosebit de important atunci când echipele trebuie să decidă ce mesaj pornește fluxul, care raportează statusul și care corectează sau inversează procesul.
 
 Vezi [ghidul de selecție a mesajelor](/ro/message-selection/) pentru o vedere scurtă asupra deciziei în fluxurile pacs suportate.
-
 
 ## Contextul pieței 2026
 

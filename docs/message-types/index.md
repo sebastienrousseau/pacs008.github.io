@@ -1,6 +1,6 @@
 ---
 title: Supported ISO 20022 message types | pacs008
-description: Browse the ISO 20022 pacs messages supported by pacs008 and see where each message fits in the payment lifecycle.
+description: Browse the ISO 20022 pacs messages supported by pacs008 and see where each message fits in payment initiation, status, returns, reversals, and enquiries.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
@@ -8,7 +8,7 @@ image: /logo.svg
 
 # Message Types
 
-pacs008 covers the core pacs.008 message and the related pacs messages used for status, returns, reversals, and enquiries.
+pacs008 covers pacs.008 and the related pacs messages that teams use to start, track, return, reverse, and query payments.
 
 ## Included support
 
@@ -83,7 +83,7 @@ pacs008 covers the core pacs.008 message and the related pacs messages used for 
 
 ## Delivery model
 
-Each supported message comes with templates and validation rules. Teams can use the same assets in local tests, CI, and internal payment services.
+Each supported message comes with templates and validation rules. Teams can reuse the same assets in local tests, CI pipelines, and internal payment services.
 
 ## Choosing the right message
 
@@ -98,13 +98,14 @@ Start with the business event, not the message code.
 
 Use the [message selection guide](/message-selection/) for a one-page view across the supported pacs flows.
 
+Keep the payment owner, settlement stage, and exception path clear before you pick a message.
 
 ## 2026 market context
 
 - **SEPA SCT / SCT Inst**: pacs.008 remains central to credit transfers and instant payments.
-- **CBPR+**: pacs.008 keeps replacing MT103-style cross-border traffic with more structured data.
-- **Structured addresses**: market guidance points to a November 2026 move away from fully unstructured postal addresses.
-- **Serial method and STP**: multi-leg bank chains still matter, and straight-through processing still drives efficiency.
+- **CBPR+**: richer pacs.008 data keeps replacing MT103-style cross-border traffic and pushes better field-level validation.
+- **Structured addresses**: Swift guidance points to a November 2026 move away from fully unstructured postal addresses in key payment flows.
+- **STP and repair control**: banks still want fewer manual fixes, so clear routing, status design, and clean party data matter more in 2026.
 
 ## Operational capabilities
 

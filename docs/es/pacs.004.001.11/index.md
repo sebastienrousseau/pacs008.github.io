@@ -213,7 +213,6 @@ El agente instruido envía pacs.004 a través de la cadena de pago para devolver
 - [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and)
 - [EPC SEPA Instant Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook)
 
-
 ## Mensajes relacionados
 <div class="related-messages-table" tabindex="0" aria-label="Mensajes relacionados">
   <table>

@@ -11,6 +11,5 @@ export const sharedHead: HeadConfig[] = [
   ["meta", { name: "format-detection", content: "telephone=no" }],
   ["link", { rel: "icon", href: "/logo.svg", type: "image/svg+xml" }],
   ["link", { rel: "manifest", href: "/manifest.json" }],
-  ["link", { rel: "preconnect", href: "https://cloudcdn.pro", crossorigin: "" }],
   ["link", { rel: "alternate", type: "application/rss+xml", title: "pacs008 RSS Feed", href: "https://pacs008.com/rss.xml" }]
 ];

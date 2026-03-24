@@ -1,6 +1,6 @@
 ---
 title: À propos de pacs008 | pacs008
-description: Ce que fait pacs008 et à qui il s'adresse. Génération, validation, orchestration d'API et conformité pour les flux de virement client entre institutions...
+description: Ce que fait pacs008 et à qui il s'adresse.
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg
@@ -71,5 +71,4 @@ pacs008 va au-delà de la référence des définitions de messages pour soutenir
 - Valider les données métier avant la génération XML afin que les erreurs de schéma ne soient pas le premier signal.
 - Traiter la qualité des BIC, IBAN, remises et adresses postales comme un critère de mise en production et non comme un nettoyage ultérieur.
 - Tester en régression chaque évolution de règle de schéma ou de banque avec des données de paiement représentatives.
-
 

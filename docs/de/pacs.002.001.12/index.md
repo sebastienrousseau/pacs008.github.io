@@ -215,7 +215,6 @@ Der beauftragte Agent (Empfänger) sendet pacs.002 an den beauftragenden Agent (
 - [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and)
 - [EPC SEPA Instant Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook)
 
-
 ## Verwandte Nachrichten
 <div class="related-messages-table" tabindex="0" aria-label="Verwandte Nachrichten">
   <table>

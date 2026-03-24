@@ -10,8 +10,6 @@ image: /logo.svg
 
 Trước hết chọn họ pacs theo sự kiện nghiệp vụ, sau đó theo quy tắc và mô hình vận hành.
 
-
-
 ## Ma trận quyết định nhanh
 
 <div class="decision-matrix-table" tabindex="0" aria-label="Ma trận quyết định nhanh">

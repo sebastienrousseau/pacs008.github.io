@@ -1,6 +1,6 @@
 ---
 title: Types de messages | pacs008 ISO 20022
-description: Définitions et versions de messages pacs ISO 20022 prises en charge. Génération, validation, orchestration d'API et conformité pour les flux de virement...
+description: Définitions et versions de messages pacs ISO 20022 prises en charge.
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg
@@ -90,7 +90,6 @@ Chaque type de message pris en charge repose sur des modèles et une logique de 
 Le catalogue de messages est surtout utile lorsque les équipes doivent décider quel message initie l'action, lequel rapporte le statut et lequel corrige ou annule le flux.
 
 Voir le [guide de sélection des messages](/fr/message-selection/) pour une vue de décision synthétique sur les flux pacs pris en charge.
-
 
 ## Contexte de marché 2026
 

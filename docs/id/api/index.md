@@ -1,6 +1,6 @@
 ---
 title: API | pacs008
-description: Dukungan alur kerja REST dan CLI di pacs008. Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan antar...
+description: Dukungan alur kerja REST dan CLI di pacs008.
 lang: id-ID
 lastUpdated: true
 image: /logo.svg

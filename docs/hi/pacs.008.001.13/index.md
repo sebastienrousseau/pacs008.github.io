@@ -227,7 +227,6 @@ pacs.008 संदेश वित्तीय संस्थानों क�
 - [Swift CBPR+ cover-method pacs.008/pacs.009 guidance](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/fi-fi-customer-credit-transfer-cover-method-pacs008-pacs009)
 - [Swift CBPR+ roadmap and standards programme](https://www.swift.com/standards/iso-20022/iso-20022-programme/cbpr-roadmap)
 
-
 ## समर्थित संस्करण
 
 <div class="message-versions-table" tabindex="0" aria-label="समर्थित संस्करण">

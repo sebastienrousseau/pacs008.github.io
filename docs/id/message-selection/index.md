@@ -10,8 +10,6 @@ image: /logo.svg
 
 Pilih keluarga pacs berdasarkan peristiwa bisnis terlebih dahulu, lalu berdasarkan skema dan model operasional.
 
-
-
 ## Matriks keputusan cepat
 
 <div class="decision-matrix-table" tabindex="0" aria-label="Matriks keputusan cepat">

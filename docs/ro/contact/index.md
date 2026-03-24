@@ -1,6 +1,6 @@
 ---
 title: Contact | pacs008
-description: Cum să contactați proiectul pacs008. Generare, validare, orchestrare API și suport de conformitate pentru fluxuri de transfer de credit ale clienților...
+description: Cum să contactați proiectul pacs008.
 lang: ro-RO
 lastUpdated: true
 image: /logo.svg

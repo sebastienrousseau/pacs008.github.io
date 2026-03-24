@@ -1,6 +1,6 @@
 ---
 title: Tipos de mensagem | pacs008 ISO 20022
-description: Definições e versões de mensagens pacs ISO 20022 suportadas. Geração, validação, orquestração de API e suporte de conformidade para fluxos de...
+description: Definições e versões de mensagens pacs ISO 20022 suportadas.
 lang: pt-BR
 lastUpdated: true
 image: /logo.svg
@@ -90,7 +90,6 @@ Cada tipo de mensagem suportado é acompanhado por modelos XML e lógica de vali
 O catálogo de mensagens é mais importante quando as equipes precisam decidir qual mensagem inicia o fluxo, qual informa o status e qual corrige ou reverte a operação.
 
 Veja o [guia de seleção de mensagens](/pt/message-selection/) para uma visão resumida de decisão sobre os fluxos pacs suportados.
-
 
 ## Contexto de mercado 2026
 

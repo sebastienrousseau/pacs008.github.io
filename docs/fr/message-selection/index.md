@@ -10,8 +10,6 @@ image: /logo.svg
 
 Choisissez la famille pacs d'abord selon l'événement métier, puis selon le schéma et le modèle d'exploitation.
 
-
-
 ## Matrice de décision rapide
 
 <div class="decision-matrix-table" tabindex="0" aria-label="Matrice de décision rapide">

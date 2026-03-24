@@ -1,6 +1,6 @@
 ---
 title: API | pacs008
-description: Hỗ trợ quy trình REST và CLI trong pacs008. Tạo, xác thực, điều phối API và hỗ trợ tuân thủ cho quy trình chuyển khoản tín dụng khách hàng giữa các tổ...
+description: Hỗ trợ quy trình REST và CLI trong pacs008.
 lang: vi-VN
 lastUpdated: true
 image: /logo.svg

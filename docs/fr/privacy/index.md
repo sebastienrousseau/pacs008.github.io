@@ -1,6 +1,6 @@
 ---
 title: Confidentialité | pacs008
-description: Informations de confidentialité pour le site pacs008. Génération, validation, orchestration d'API et conformité pour les flux de virement client entre...
+description: Informations de confidentialité pour le site pacs008.
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg

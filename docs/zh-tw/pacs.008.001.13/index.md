@@ -227,7 +227,6 @@ pacs.008 訊息是金融機構之間交換的核心付款指令，用於代表�
 - [Swift CBPR+ cover-method pacs.008/pacs.009 guidance](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/fi-fi-customer-credit-transfer-cover-method-pacs008-pacs009)
 - [Swift CBPR+ roadmap and standards programme](https://www.swift.com/standards/iso-20022/iso-20022-programme/cbpr-roadmap)
 
-
 ## 支援的版本
 
 <div class="message-versions-table" tabindex="0" aria-label="支援的版本">

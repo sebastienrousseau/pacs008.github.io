@@ -10,8 +10,6 @@ image: /logo.svg
 
 בחרו תחילה את משפחת pacs לפי האירוע העסקי, ואז לפי הסכמה ומודל ההפעלה.
 
-
-
 ## מטריצת החלטה מהירה
 
 <div class="decision-matrix-table" tabindex="0" aria-label="מטריצת החלטה מהירה">

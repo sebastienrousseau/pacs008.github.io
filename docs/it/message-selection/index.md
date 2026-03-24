@@ -10,8 +10,6 @@ image: /logo.svg
 
 Scegli la famiglia pacs prima in base all'evento operativo e poi in base allo schema e al modello operativo.
 
-
-
 ## Matrice decisionale rapida
 
 <div class="decision-matrix-table" tabindex="0" aria-label="Matrice decisionale rapida">

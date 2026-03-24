@@ -10,8 +10,6 @@ image: /logo.svg
 
 먼저 업무 이벤트를 기준으로 pacs 계열을 고른 뒤, 스킴과 운영 모델에 따라 선택하십시오.
 
-
-
 ## 빠른 결정 매트릭스
 
 <div class="decision-matrix-table" tabindex="0" aria-label="빠른 결정 매트릭스">

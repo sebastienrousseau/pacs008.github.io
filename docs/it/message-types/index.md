@@ -1,6 +1,6 @@
 ---
 title: Tipi di messaggio | pacs008 ISO 20022
-description: Definizioni e versioni di messaggi pacs ISO 20022 supportate. Generazione, validazione, orchestrazione API e conformità per i flussi di bonifico cliente...
+description: Definizioni e versioni di messaggi pacs ISO 20022 supportate.
 lang: it-IT
 lastUpdated: true
 image: /logo.svg
@@ -90,7 +90,6 @@ Ogni tipo di messaggio supportato è affiancato da modelli XML e logica di valid
 Il catalogo dei messaggi è particolarmente utile quando i team devono decidere quale messaggio avvia il lavoro, quale riporta lo stato e quale corregge o annulla il flusso.
 
 Vedere la [guida alla selezione dei messaggi](/it/message-selection/) per una vista decisionale sintetica sui flussi pacs supportati.
-
 
 ## Contesto di mercato 2026
 

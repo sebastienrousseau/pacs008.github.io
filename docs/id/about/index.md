@@ -1,6 +1,6 @@
 ---
 title: Tentang pacs008 | pacs008
-description: Apa yang dilakukan pacs008 dan untuk siapa. Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan antar lembaga...
+description: Apa yang dilakukan pacs008 dan untuk siapa.
 lang: id-ID
 lastUpdated: true
 image: /logo.svg
@@ -71,5 +71,4 @@ pacs008 melampaui referensi definisi pesan untuk mendukung implementasi operasio
 - Validasi data bisnis sebelum menghasilkan XML agar kesalahan skema bukan menjadi sinyal pertama.
 - Perlakukan kualitas BIC, IBAN, remittance, dan alamat pos sebagai kriteria rilis, bukan pekerjaan pembersihan belakangan.
 - Jalankan uji regresi untuk setiap perubahan aturan skema atau bank dengan data pembayaran yang representatif.
-
 

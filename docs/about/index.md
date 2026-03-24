@@ -1,6 +1,6 @@
 ---
 title: About pacs008 - ISO 20022 toolkit | pacs008
-description: Learn what pacs008 does, who it helps, and how it supports ISO 20022 payment generation, validation, and daily payment operations.
+description: Learn how pacs008 helps teams generate, validate, test, and ship ISO 20022 payment messages for daily payment operations.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
@@ -8,7 +8,7 @@ image: /logo.svg
 
 # About pacs008
 
-pacs008 helps teams create and check ISO 20022 payment messages. It is a Python toolkit for payment operations.
+pacs008 is a Python toolkit for teams that need to generate, validate, and ship ISO 20022 payment messages with less manual repair work. It helps payment teams catch bad data before release.
 
 ## What it does
 
@@ -67,9 +67,12 @@ pacs008 is not just a message reference. It helps teams run payment workflows:
 
 ## Implementation checklist
 
-- Pick the right message family before writing templates.
-- Validate business data before XML generation.
-- Treat BIC, IBAN, remittance, and postal-address quality as release criteria.
-- Regression-test each scheme or bank rule change with representative payment data.
+Use this list to keep rollout work simple and repeatable.
 
+Keep each release small, testable, and easy to trace.
+
+- Pick the right message family before you build templates.
+- Validate business data before you generate XML.
+- Treat BIC, IBAN, remittance, and postal-address quality as release criteria.
+- Regression-test each scheme or bank rule change with real payment samples.
 

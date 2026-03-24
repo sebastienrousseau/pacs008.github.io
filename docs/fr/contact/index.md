@@ -1,6 +1,6 @@
 ---
 title: Contact | pacs008
-description: Comment contacter le projet pacs008. Génération, validation, orchestration d'API et conformité pour les flux de virement client entre institutions...
+description: Comment contacter le projet pacs008.
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg

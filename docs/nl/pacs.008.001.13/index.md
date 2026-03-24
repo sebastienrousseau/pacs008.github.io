@@ -227,7 +227,6 @@ De debiteuragent maakt een pacs.008 aan en stuurt dit naar de crediteuragent (re
 - [Swift CBPR+ cover-method pacs.008/pacs.009 guidance](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/fi-fi-customer-credit-transfer-cover-method-pacs008-pacs009)
 - [Swift CBPR+ roadmap and standards programme](https://www.swift.com/standards/iso-20022/iso-20022-programme/cbpr-roadmap)
 
-
 ## Ondersteunde versies
 
 <div class="message-versions-table" tabindex="0" aria-label="Ondersteunde versies">
@@ -293,7 +292,7 @@ De debiteuragent maakt een pacs.008 aan en stuurt dit naar de crediteuragent (re
         </tr>
         <tr>
           <td class="message-versions-table__version"><code>pacs.008.001.13</code></td>
-          <td class="message-versions-table__status"><strong>Current</strong></td>
+          <td class="message-versions-table__status"><strong>Huidig</strong></td>
         </tr>
     </tbody>
   </table>

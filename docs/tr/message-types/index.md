@@ -1,6 +1,6 @@
 ---
 title: Mesaj Türleri | pacs008 ISO 20022
-description: Desteklenen ISO 20022 pacs mesaj tanımları ve sürümleri. Finansal kuruluşlar arasındaki müşteri kredi transferi iş akışları için oluşturma, doğrulama, API...
+description: Desteklenen ISO 20022 pacs mesaj tanımları ve sürümleri.
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg
@@ -90,7 +90,6 @@ Desteklenen her mesaj türü, ekiplerin birden çok kanalda oluşturma ve regres
 Mesaj kataloğu, ekiplerin hangi mesajın akışı başlattığını, hangisinin durum bildirdiğini ve hangisinin süreci düzelttiğini veya geri çevirdiğini belirlemesi gerektiğinde özellikle önemlidir.
 
 Desteklenen pacs akışları için kısa karar görünümü almak üzere [mesaj seçim rehberine](/tr/message-selection/) bakın.
-
 
 ## 2026 pazar bağlamı
 

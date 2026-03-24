@@ -72,4 +72,3 @@ pacs008 va oltre il riferimento alla definizione dei messaggi per supportare l'i
 - Trattare la qualità di BIC, IBAN, dati di rimessa e indirizzi postali come criterio di rilascio e non come attività di pulizia successiva.
 - Eseguire test di regressione su ogni modifica di regola di schema o di banca con dati di pagamento rappresentativi.
 
-

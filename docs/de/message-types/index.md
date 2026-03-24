@@ -1,6 +1,6 @@
 ---
 title: Nachrichtentypen | pacs008 ISO 20022
-description: Unterstützte ISO 20022 pacs-Nachrichtendefinitionen und Versionen. Generierung, Validierung, API-Orchestrierung und Compliance-Unterstützung für...
+description: Unterstützte ISO 20022 pacs-Nachrichtendefinitionen und Versionen.
 lang: de-DE
 lastUpdated: true
 image: /logo.svg
@@ -90,7 +90,6 @@ Jeder unterstützte Nachrichtentyp basiert auf Vorlagen und Validierungslogik, d
 Der Nachrichtenkatalog ist besonders dann relevant, wenn Teams entscheiden müssen, welche Nachricht einen Vorgang startet, welche den Status meldet und welche den Ablauf korrigiert oder rückgängig macht.
 
 Siehe den dedizierten [Leitfaden zur Nachrichtenauswahl](/de/message-selection/) für eine komprimierte Entscheidungsansicht über die unterstützten pacs-Abläufe.
-
 
 ## Marktkontext 2026
 

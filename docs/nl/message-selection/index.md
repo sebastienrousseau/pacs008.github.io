@@ -10,8 +10,6 @@ image: /logo.svg
 
 Kies de pacs-familie eerst op basis van de bedrijfsgebeurtenis en daarna op basis van schema en operationeel model.
 
-
-
 ## Snelle beslismatrix
 
 <div class="decision-matrix-table" tabindex="0" aria-label="Snelle beslismatrix">

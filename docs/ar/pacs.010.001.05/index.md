@@ -169,7 +169,6 @@ image: /logo.svg
 - [Swift CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released)
 - [Swift CBPR+ migration roadmap PDF](https://www.swift.com/swift-resource/252463/download)
 
-
 ## الرسائل ذات الصلة
 <div class="related-messages-table" tabindex="0" aria-label="الرسائل ذات الصلة">
   <table>

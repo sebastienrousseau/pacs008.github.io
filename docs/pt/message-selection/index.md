@@ -10,8 +10,6 @@ image: /logo.svg
 
 Escolha a família pacs primeiro pelo evento operacional e depois pelo esquema e pelo modelo operacional.
 
-
-
 ## Matriz rápida de decisão
 
 <div class="decision-matrix-table" tabindex="0" aria-label="Matriz rápida de decisão">

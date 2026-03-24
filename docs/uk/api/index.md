@@ -1,6 +1,6 @@
 ---
 title: API | pacs008
-description: Підтримка робочих процесів REST та CLI у pacs008. Генерація, валідація, оркестрація API та підтримка комплаєнсу для потоків клієнтських кредитових...
+description: Підтримка робочих процесів REST та CLI у pacs008.
 lang: uk-UA
 lastUpdated: true
 image: /logo.svg

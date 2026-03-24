@@ -215,7 +215,6 @@ Agent zlecony (odbiorca) wysyła pacs.002 z powrotem do agenta zlecającego (nad
 - [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and)
 - [EPC SEPA Instant Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook)
 
-
 ## Powiązane wiadomości
 <div class="related-messages-table" tabindex="0" aria-label="Powiązane wiadomości">
   <table>

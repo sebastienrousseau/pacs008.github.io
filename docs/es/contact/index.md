@@ -1,6 +1,6 @@
 ---
 title: Contacto | pacs008
-description: Cómo contactar con el proyecto pacs008. Generación, validación, orquestación de API y soporte de cumplimiento para flujos de transferencia de crédito de...
+description: Cómo contactar con el proyecto pacs008.
 lang: es-ES
 lastUpdated: true
 image: /logo.svg

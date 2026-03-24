@@ -10,8 +10,6 @@ image: /logo.svg
 
 先按业务事件选择 pacs 家族，再按方案规则和运行模式细化选择。
 
-
-
 ## 快速决策矩阵
 
 <div class="decision-matrix-table" tabindex="0" aria-label="快速决策矩阵">

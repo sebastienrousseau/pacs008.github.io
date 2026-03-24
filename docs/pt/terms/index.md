@@ -1,6 +1,6 @@
 ---
 title: Termos | pacs008
-description: Informações sobre os termos do site pacs008. Geração, validação, orquestração de API e suporte de conformidade para fluxos de transferência de crédito de...
+description: Informações sobre os termos do site pacs008.
 lang: pt-BR
 lastUpdated: true
 image: /logo.svg

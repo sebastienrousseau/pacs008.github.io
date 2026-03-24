@@ -208,7 +208,6 @@ pacs.028 消息由金融机构发送，用于查询先前发送的支付指令�
 - [Swift CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released)
 - [Swift CBPR+ migration roadmap PDF](https://www.swift.com/swift-resource/252463/download)
 
-
 ## 相关报文
 <div class="related-messages-table" tabindex="0" aria-label="相关报文">
   <table>

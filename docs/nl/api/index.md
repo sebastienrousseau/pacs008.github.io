@@ -1,6 +1,6 @@
 ---
 title: API | pacs008
-description: REST- en CLI-ondersteuning voor operationele processen in pacs008. Generatie, validatie, API-orchestratie en compliance-ondersteuning voor...
+description: REST- en CLI-ondersteuning voor operationele processen in pacs008.
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg

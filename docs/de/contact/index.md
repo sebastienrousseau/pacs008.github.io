@@ -1,6 +1,6 @@
 ---
 title: Kontakt | pacs008
-description: So erreichen Sie das pacs008-Projekt. Generierung, Validierung, API-Orchestrierung und Compliance-Unterstützung für Kundenkredittransfer-Workflows...
+description: So erreichen Sie das pacs008-Projekt.
 lang: de-DE
 lastUpdated: true
 image: /logo.svg

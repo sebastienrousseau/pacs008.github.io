@@ -10,8 +10,6 @@ image: /logo.svg
 
 Najpierw wybierz rodzinę pacs według zdarzenia biznesowego, a następnie według schematu i modelu operacyjnego.
 
-
-
 ## Szybka macierz decyzji
 
 <div class="decision-matrix-table" tabindex="0" aria-label="Szybka macierz decyzji">

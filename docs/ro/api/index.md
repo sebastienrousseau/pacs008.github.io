@@ -1,6 +1,6 @@
 ---
 title: API | pacs008
-description: Suport pentru fluxuri REST și CLI în pacs008. Generare, validare, orchestrare API și suport de conformitate pentru fluxuri de transfer de credit ale...
+description: Suport pentru fluxuri REST și CLI în pacs008.
 lang: ro-RO
 lastUpdated: true
 image: /logo.svg

@@ -1,6 +1,6 @@
 ---
 title: İletişim | pacs008
-description: pacs008 projesine nasıl ulaşılır. Finansal kuruluşlar arasındaki müşteri kredi transferi iş akışları için oluşturma, doğrulama, API orkestrasyonu ve...
+description: pacs008 projesine nasıl ulaşılır.
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg

@@ -1,6 +1,6 @@
 ---
 title: API | pacs008
-description: pacs008 में REST और CLI वर्कफ़्लो समर्थन। वित्तीय संस्थानों के बीच ग्राहक क्रेडिट ट्रांसफर वर्कफ़्लो के लिए जनरेशन, वैलिडेशन, API ऑर्केस्ट्रेशन और अनुपालन...
+description: pacs008 में REST और CLI वर्कफ़्लो समर्थन।
 lang: hi-IN
 lastUpdated: true
 image: /logo.svg
