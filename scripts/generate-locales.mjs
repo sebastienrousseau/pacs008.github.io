@@ -384,8 +384,8 @@ for (const mt of messageTypes) {
 const pageCopy = {
   en: {
     aboutTitle: "About pacs008",
-    aboutDescription: "Learn what pacs008 does, who it helps, and how it supports ISO 20022 payment generation, validation, and operational delivery.",
-    aboutIntro: "pacs008 helps teams create and check ISO 20022 payment messages. It is a Python toolkit for day-to-day payment operations.",
+    aboutDescription: "Learn what pacs008 does, who it helps, and how it supports ISO 20022 payment generation, validation, and daily payment operations.",
+    aboutIntro: "pacs008 helps teams create and check ISO 20022 payment messages. It is a Python toolkit for payment operations.",
     whatItDoes: "What it does",
     whoItIsFor: "Who it is for",
     messageTitle: "Message Types",
@@ -395,13 +395,13 @@ const pageCopy = {
     deliveryModel: "Delivery model",
     deliveryText: "Each supported message comes with templates and validation rules. Teams can use the same assets in local tests, CI, and internal payment services.",
     apiTitle: "API",
-    apiDescription: "Use the pacs008 REST API, CLI, and Python library to validate payment data and generate ISO 20022 XML.",
+    apiDescription: "Use the pacs008 REST API, CLI, and Python library to validate payment data, manage checks, and generate ISO 20022 XML.",
     apiIntro: "pacs008 gives you three entry points: REST API, CLI, and Python library.",
     apiCapabilities: "API capabilities",
     cliCapabilities: "CLI capabilities",
     contactTitle: "Contact",
-    contactDescription: "Find the pacs008 repository, releases, and package links for support, issue tracking, and implementation questions.",
-    contactIntro: "Use the links below for issues, release notes, package details, and implementation questions.",
+    contactDescription: "Find the pacs008 repository, releases, and package links for support, issue reporting, and implementation questions.",
+    contactIntro: "Use the links below for support, release notes, and package details.",
     privacyTitle: "Privacy",
     privacyDescription: "Read how pacs008.com handles website data, uses basic analytics, and explains visitor privacy rights and limits.",
     termsTitle: "Terms",
@@ -7145,10 +7145,10 @@ const EN_EDITORIAL = {
     "Connects pacs message families so implementers can reason about generation, status, return, and reversal flows together."
   ],
   aboutChecklist: [
-    "Select the correct message family for the business event before writing templates.",
-    "Validate business data before XML generation so schema errors are not your first signal.",
-    "Treat BIC, IBAN, remittance, and postal-address quality as release criteria rather than cleanup work.",
-    "Regression-test every scheme or bank-specific rule change against representative payment data."
+    "Pick the right message family before writing templates.",
+    "Validate business data before XML generation.",
+    "Treat BIC, IBAN, remittance, and postal-address quality as release criteria.",
+    "Regression-test each scheme or bank rule change with representative payment data."
   ],
   messageTypesPerspectiveIntro: "The message catalogue matters most when teams need to decide which message initiates work, which message reports status, and which message corrects or reverses the flow.",
   apiImplementationNotes: [
@@ -12044,7 +12044,9 @@ ${htmlTable({
     ])
   })}
 
-${messageCoverageList(localeKey)}
+${localeKey === "en"
+    ? `See [Message Types](/message-types/) for the full list of supported message pages.`
+    : messageCoverageList(localeKey)}
 
 ### ${t.apiValidateExample}
 
@@ -12459,7 +12461,7 @@ function contactBody(localeKey) {
 
 ${t.contactIntro}
 
-Use the repository link to report bugs, ask for features, or review the source code. Use the releases page when you need version history or packaged deliverables. Use the PyPI page for install details and package metadata.
+Use the repository for bugs, feature requests, and source code. Use releases for version history. Use PyPI for install details.
 
 - ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>
 - ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>
