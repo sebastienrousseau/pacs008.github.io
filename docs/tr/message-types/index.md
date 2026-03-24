@@ -19,7 +19,6 @@ pacs008, temel pacs.008 mesaj tanımını ve orkestrasyon ve mutabakat akışlar
     <colgroup>
       <col class="message-coverage-table__col-id">
       <col class="message-coverage-table__col-name">
-      <col class="message-coverage-table__col-version">
       <col class="message-coverage-table__col-year">
       <col class="message-coverage-table__col-overview">
     </colgroup>
@@ -27,7 +26,6 @@ pacs008, temel pacs.008 mesaj tanımını ve orkestrasyon ve mutabakat akışlar
       <tr>
         <th>Mesaj türü</th>
         <th>Açıklama</th>
-        <th>Sürüm</th>
         <th>Yıl</th>
         <th>Genel bakış</th>
       </tr>
@@ -36,56 +34,48 @@ pacs008, temel pacs.008 mesaj tanımını ve orkestrasyon ve mutabakat akışlar
         <tr>
           <td class="message-coverage-table__id"><a href="/tr/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="message-coverage-table__name">FI&#39;dan FI&#39;ya ödeme durumu raporu</td>
-          <td class="message-coverage-table__version"><code>pacs.002.001.12</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">pacs.002 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu bildirmek üzere bir finans kuruluşu tarafından gönderilir. Bir ödeme mesajı içindeki bireysel işlemler için onay, ret veya bekleyen durum bilgisi sağlar.</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/tr/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
           <td class="message-coverage-table__name">FI&#39;dan FI&#39;ya müşteri doğrudan borçlandırması</td>
-          <td class="message-coverage-table__version"><code>pacs.003.001.09</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">pacs.003 mesajı, bir müşteri doğrudan borçlandırma talimatını yürütmek üzere finans kuruluşları arasında iletilir. Alacaklının bankasının, alacaklı adına borçlunun bankasından fon tahsil etmesini sağlar.</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/tr/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
           <td class="message-coverage-table__name">Ödeme iadesi</td>
-          <td class="message-coverage-table__version"><code>pacs.004.001.11</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">pacs.004 mesajı, daha önce takas edilmiş bir ödeme işlemini iade etmek için kullanılır. Bir ödeme uygulanamadığında, hatalı gönderildiğinde veya kaynak kuruluş tarafından geri çağrıldığında fon akışını tersine çevirir.</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/tr/pacs.007.001.11/"><code>pacs.007.001.11</code></a></td>
           <td class="message-coverage-table__name">FI&#39;dan FI&#39;ya ödeme geri alma mesajı</td>
-          <td class="message-coverage-table__version"><code>pacs.007.001.11</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">pacs.007 mesajı, henüz takas edilmemiş daha önce gönderilmiş bir ödeme talimatını tersine çevirmek veya takas edilmiş bir ödemenin tersine çevrilmesini talep etmek için kullanılır. pacs.004&#39;ten (iade) farklı olarak, orijinal talimat veren aracı tarafından başlatılır.</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/tr/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
           <td class="message-coverage-table__name">FI&#39;dan FI&#39;ya müşteri kredi transferi</td>
-          <td class="message-coverage-table__version"><code>pacs.008.001.13</code></td>
           <td class="message-coverage-table__year">2023</td>
           <td class="message-coverage-table__overview">pacs.008 mesajı, bir müşteri adına fon transfer etmek üzere finans kuruluşları arasında iletilen temel ödeme talimatıdır. Bir veya daha fazla kredi transferi işlemi için borçlu, alacaklı, tutar ve havale bilgilerini taşır.</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/tr/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
           <td class="message-coverage-table__name">Finansal kuruluşlar arası kredi transferi</td>
-          <td class="message-coverage-table__version"><code>pacs.009.001.10</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">pacs.009 mesajı, transferin bir müşteri adına değil kurumun kendi adına gerçekleştirildiği durumlarda finans kuruluşları arasında kredi transferleri için kullanılır. Bankalar arası fonlama, teminat ödemeleri ve likidite yönetimini destekler.</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/tr/pacs.010.001.05/"><code>pacs.010.001.05</code></a></td>
           <td class="message-coverage-table__name">Finansal kuruluşlar arası doğrudan borçlandırma</td>
-          <td class="message-coverage-table__version"><code>pacs.010.001.05</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">pacs.010 mesajı, kuruluşun kendi hesabındaki doğrudan borçlandırma işlemleri için finans kuruluşları arasında kullanılır. Bir kuruluşun başka bir kuruluşun hesabından doğrudan fon tahsil etmesini sağlar.</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/tr/pacs.028.001.05/"><code>pacs.028.001.05</code></a></td>
           <td class="message-coverage-table__name">FI&#39;dan FI&#39;ya ödeme durumu talebi</td>
-          <td class="message-coverage-table__version"><code>pacs.028.001.05</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">pacs.028 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu talep etmek üzere bir finans kuruluşu tarafından gönderilir. İstenmeyen bir durum raporu beklemeden ödeme işleme sürecinin proaktif takibini sağlar.</td>
         </tr>

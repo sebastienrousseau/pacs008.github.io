@@ -19,7 +19,6 @@ O pacs008 cobre a definição de mensagem pacs.008 principal e mensagens relacio
     <colgroup>
       <col class="message-coverage-table__col-id">
       <col class="message-coverage-table__col-name">
-      <col class="message-coverage-table__col-version">
       <col class="message-coverage-table__col-year">
       <col class="message-coverage-table__col-overview">
     </colgroup>
@@ -27,7 +26,6 @@ O pacs008 cobre a definição de mensagem pacs.008 principal e mensagens relacio
       <tr>
         <th>Tipo de mensagem</th>
         <th>Descrição</th>
-        <th>Versão</th>
         <th>Ano</th>
         <th>Visão geral</th>
       </tr>
@@ -36,56 +34,48 @@ O pacs008 cobre a definição de mensagem pacs.008 principal e mensagens relacio
         <tr>
           <td class="message-coverage-table__id"><a href="/pt/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="message-coverage-table__name">Relatório de status de pagamento FI a FI</td>
-          <td class="message-coverage-table__version"><code>pacs.002.001.12</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">A mensagem pacs.002 é enviada por uma instituição financeira para reportar o status de uma instrução de pagamento enviada anteriormente. Fornece informações de confirmação, rejeição ou status pendente para transações individuais dentro de uma mensagem de pagamento.</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/pt/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
           <td class="message-coverage-table__name">Débito direto de cliente FI a FI</td>
-          <td class="message-coverage-table__version"><code>pacs.003.001.09</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">A mensagem pacs.003 é trocada entre instituições financeiras para executar uma instrução de débito direto do cliente. Permite que o banco do credor colete fundos do banco do devedor em nome do credor.</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/pt/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
           <td class="message-coverage-table__name">Retorno de pagamento</td>
-          <td class="message-coverage-table__version"><code>pacs.004.001.11</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">A mensagem pacs.004 é utilizada para devolver uma transação de pagamento previamente liquidada. Reverte o fluxo de fundos quando um pagamento não pode ser aplicado, foi enviado por engano ou está sendo rechamado pela instituição originadora.</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/pt/pacs.007.001.11/"><code>pacs.007.001.11</code></a></td>
           <td class="message-coverage-table__name">Reversão de pagamento FI a FI</td>
-          <td class="message-coverage-table__version"><code>pacs.007.001.11</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">A mensagem pacs.007 é utilizada para reverter uma instrução de pagamento enviada anteriormente que ainda não foi liquidada ou para solicitar a reversão de um pagamento liquidado. Diferentemente do pacs.004 (devolução), é iniciada pelo agente instruente original.</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/pt/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
           <td class="message-coverage-table__name">Transferência de crédito de cliente FI a FI</td>
-          <td class="message-coverage-table__version"><code>pacs.008.001.13</code></td>
           <td class="message-coverage-table__year">2023</td>
           <td class="message-coverage-table__overview">A mensagem pacs.008 é a instrução de pagamento principal trocada entre instituições financeiras para transferir fundos em nome de um cliente. Contém informações sobre devedor, credor, valor e dados de remessa para uma ou mais transações de transferência de crédito.</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/pt/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
           <td class="message-coverage-table__name">Transferência de crédito entre instituições financeiras</td>
-          <td class="message-coverage-table__version"><code>pacs.009.001.10</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">A mensagem pacs.009 é utilizada para transferências de crédito entre instituições financeiras onde a transferência ocorre por conta própria da instituição e não em nome de um cliente. Suporta financiamento interbancário, pagamentos de cobertura e gestão de liquidez.</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/pt/pacs.010.001.05/"><code>pacs.010.001.05</code></a></td>
           <td class="message-coverage-table__name">Débito direto entre instituições financeiras</td>
-          <td class="message-coverage-table__version"><code>pacs.010.001.05</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">A mensagem pacs.010 é utilizada entre instituições financeiras para transações de débito direto na conta própria da instituição. Permite que uma instituição colete fundos diretamente da conta de outra instituição.</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/pt/pacs.028.001.05/"><code>pacs.028.001.05</code></a></td>
           <td class="message-coverage-table__name">Solicitação de status de pagamento FI a FI</td>
-          <td class="message-coverage-table__version"><code>pacs.028.001.05</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">A mensagem pacs.028 é enviada por uma instituição financeira para solicitar o status de uma instrução de pagamento enviada anteriormente. Permite o rastreamento proativo do processamento de pagamentos sem aguardar um relatório de status não solicitado.</td>
         </tr>

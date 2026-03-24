@@ -10771,7 +10771,6 @@ function messageCoverageTable(localeKey, detailed = false) {
       return `        <tr>
           <td class="message-coverage-table__id"><a href="${escapeHtml(link)}"><code>${escapeHtml(msgType.slug)}</code></a></td>
           <td class="message-coverage-table__name">${escapeHtml(name)}</td>
-          <td class="message-coverage-table__version"><code>${escapeHtml(msgType.slug)}</code></td>
           <td class="message-coverage-table__year">${escapeHtml(msgType.year)}</td>
           <td class="message-coverage-table__overview">${escapeHtml(overview)}</td>
         </tr>`;
@@ -10782,7 +10781,6 @@ function messageCoverageTable(localeKey, detailed = false) {
     <colgroup>
       <col class="message-coverage-table__col-id">
       <col class="message-coverage-table__col-name">
-      <col class="message-coverage-table__col-version">
       <col class="message-coverage-table__col-year">
       <col class="message-coverage-table__col-overview">
     </colgroup>
@@ -10790,7 +10788,6 @@ function messageCoverageTable(localeKey, detailed = false) {
       <tr>
         <th>${escapeHtml(t.msgTypeColId)}</th>
         <th>${escapeHtml(t.msgTypeColDesc)}</th>
-        <th>${escapeHtml(t.msgDetailVersion)}</th>
         <th>${escapeHtml(t.msgDetailYear)}</th>
         <th>${escapeHtml(t.msgDetailOverview)}</th>
       </tr>
@@ -10802,12 +10799,11 @@ ${rows}
 </div>`;
   }
 
-  const headers = [t.msgTypeColId, t.msgTypeColDesc, t.msgDetailVersion, t.msgDetailYear];
+  const headers = [t.msgTypeColId, t.msgTypeColDesc, t.msgDetailYear];
   const rows = messageTypes.map((msgType) => {
     const cells = [
       `[\`${msgType.slug}\`](${localePath(localeKey, msgType.slug)})`,
       localizedMessageName(localeKey, msgType),
-      `\`${msgType.slug}\``,
       String(msgType.year)
     ];
     return `| ${cells.join(" | ")} |`;

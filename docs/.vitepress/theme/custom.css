@@ -410,7 +410,7 @@ strong {
 
 .message-coverage-table table {
   width: 100%;
-  min-width: 980px;
+  min-width: 860px;
   table-layout: fixed;
   border-collapse: collapse;
 }
@@ -435,23 +435,19 @@ strong {
 }
 
 .message-coverage-table__col-id {
-  width: 22%;
+  width: 24%;
 }
 
 .message-coverage-table__col-name {
-  width: 16%;
-}
-
-.message-coverage-table__col-version {
   width: 22%;
 }
 
 .message-coverage-table__col-year {
-  width: 9%;
+  width: 10%;
 }
 
 .message-coverage-table__col-overview {
-  width: 31%;
+  width: 44%;
 }
 
 .message-coverage-table__year {

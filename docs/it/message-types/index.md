@@ -19,7 +19,6 @@ pacs008 copre la definizione di messaggio pacs.008 principale e i messaggi corre
     <colgroup>
       <col class="message-coverage-table__col-id">
       <col class="message-coverage-table__col-name">
-      <col class="message-coverage-table__col-version">
       <col class="message-coverage-table__col-year">
       <col class="message-coverage-table__col-overview">
     </colgroup>
@@ -27,7 +26,6 @@ pacs008 copre la definizione di messaggio pacs.008 principale e i messaggi corre
       <tr>
         <th>Tipo di messaggio</th>
         <th>Descrizione</th>
-        <th>Versione</th>
         <th>Anno</th>
         <th>Panoramica</th>
       </tr>
@@ -36,56 +34,48 @@ pacs008 copre la definizione di messaggio pacs.008 principale e i messaggi corre
         <tr>
           <td class="message-coverage-table__id"><a href="/it/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="message-coverage-table__name">Rapporto di stato del pagamento tra istituzioni finanziarie</td>
-          <td class="message-coverage-table__version"><code>pacs.002.001.12</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">Il messaggio pacs.002 viene inviato da un istituto finanziario per comunicare lo stato di un&#39;istruzione di pagamento precedentemente inviata. Fornisce informazioni di conferma, rifiuto o stato in sospeso per le singole transazioni all&#39;interno di un messaggio di pagamento.</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/it/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
           <td class="message-coverage-table__name">Addebito diretto cliente tra istituzioni finanziarie</td>
-          <td class="message-coverage-table__version"><code>pacs.003.001.09</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">Il messaggio pacs.003 viene scambiato tra istituti finanziari per eseguire un&#39;istruzione di addebito diretto del cliente. Consente alla banca del creditore di raccogliere fondi dalla banca del debitore per conto del creditore.</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/it/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
           <td class="message-coverage-table__name">Reso di pagamento</td>
-          <td class="message-coverage-table__version"><code>pacs.004.001.11</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">Il messaggio pacs.004 viene utilizzato per restituire una transazione di pagamento precedentemente regolata. Inverte il flusso di fondi quando un pagamento non può essere applicato, è stato inviato per errore o viene richiamato dall&#39;istituto di origine.</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/it/pacs.007.001.11/"><code>pacs.007.001.11</code></a></td>
           <td class="message-coverage-table__name">Storno di pagamento tra istituzioni finanziarie</td>
-          <td class="message-coverage-table__version"><code>pacs.007.001.11</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">Il messaggio pacs.007 viene utilizzato per stornare un&#39;istruzione di pagamento precedentemente inviata che non è ancora stata regolata o per richiedere lo storno di un pagamento regolato. A differenza di pacs.004 (restituzione), è avviato dall&#39;agente ordinante originale.</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/it/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
           <td class="message-coverage-table__name">Bonifico cliente tra istituzioni finanziarie</td>
-          <td class="message-coverage-table__version"><code>pacs.008.001.13</code></td>
           <td class="message-coverage-table__year">2023</td>
           <td class="message-coverage-table__overview">Il messaggio pacs.008 è l&#39;istruzione di pagamento principale scambiata tra istituti finanziari per trasferire fondi per conto di un cliente. Contiene informazioni su debitore, creditore, importo e dettagli di rimessa per una o più transazioni di bonifico.</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/it/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
           <td class="message-coverage-table__name">Bonifico tra istituzioni finanziarie</td>
-          <td class="message-coverage-table__version"><code>pacs.009.001.10</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">Il messaggio pacs.009 viene utilizzato per bonifici tra istituti finanziari in cui il trasferimento avviene per conto proprio dell&#39;istituto anziché per conto di un cliente. Supporta il finanziamento interbancario, i pagamenti di copertura e la gestione della liquidità.</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/it/pacs.010.001.05/"><code>pacs.010.001.05</code></a></td>
           <td class="message-coverage-table__name">Addebito diretto tra istituzioni finanziarie</td>
-          <td class="message-coverage-table__version"><code>pacs.010.001.05</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">Il messaggio pacs.010 viene utilizzato tra istituti finanziari per transazioni di addebito diretto sul conto proprio dell&#39;istituto. Consente a un istituto di raccogliere fondi direttamente dal conto di un altro istituto.</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/it/pacs.028.001.05/"><code>pacs.028.001.05</code></a></td>
           <td class="message-coverage-table__name">Richiesta di stato del pagamento tra istituzioni finanziarie</td>
-          <td class="message-coverage-table__version"><code>pacs.028.001.05</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">Il messaggio pacs.028 viene inviato da un istituto finanziario per richiedere lo stato di un&#39;istruzione di pagamento precedentemente inviata. Consente il tracciamento proattivo dell&#39;elaborazione dei pagamenti senza attendere un rapporto di stato non richiesto.</td>
         </tr>

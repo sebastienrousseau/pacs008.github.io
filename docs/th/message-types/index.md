@@ -19,7 +19,6 @@ pacs008 ครอบคลุมคำจำกัดความข้อคว
     <colgroup>
       <col class="message-coverage-table__col-id">
       <col class="message-coverage-table__col-name">
-      <col class="message-coverage-table__col-version">
       <col class="message-coverage-table__col-year">
       <col class="message-coverage-table__col-overview">
     </colgroup>
@@ -27,7 +26,6 @@ pacs008 ครอบคลุมคำจำกัดความข้อคว
       <tr>
         <th>ประเภทข้อความ</th>
         <th>คำอธิบาย</th>
-        <th>เวอร์ชัน</th>
         <th>ปี</th>
         <th>ภาพรวม</th>
       </tr>
@@ -36,56 +34,48 @@ pacs008 ครอบคลุมคำจำกัดความข้อคว
         <tr>
           <td class="message-coverage-table__id"><a href="/th/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="message-coverage-table__name">รายงานสถานะการชำระเงินระหว่างสถาบันการเงิน</td>
-          <td class="message-coverage-table__version"><code>pacs.002.001.12</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">ข้อความ pacs.002 ถูกส่งโดยสถาบันการเงินเพื่อรายงานสถานะของคำสั่งชำระเงินที่ส่งไปก่อนหน้านี้ โดยให้ข้อมูลยืนยัน ปฏิเสธ หรือสถานะรอดำเนินการสำหรับธุรกรรมแต่ละรายการภายในข้อความการชำระเงิน</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/th/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
           <td class="message-coverage-table__name">การหักบัญชีลูกค้าระหว่างสถาบันการเงิน</td>
-          <td class="message-coverage-table__version"><code>pacs.003.001.09</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">ข้อความ pacs.003 ถูกแลกเปลี่ยนระหว่างสถาบันการเงินเพื่อดำเนินการคำสั่งหักบัญชีโดยตรงของลูกค้า ช่วยให้ธนาคารของเจ้าหนี้สามารถเรียกเก็บเงินจากธนาคารของลูกหนี้ในนามของเจ้าหนี้</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/th/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
           <td class="message-coverage-table__name">การคืนเงินชำระ</td>
-          <td class="message-coverage-table__version"><code>pacs.004.001.11</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">ข้อความ pacs.004 ใช้เพื่อส่งคืนธุรกรรมการชำระเงินที่ชำระบัญชีแล้วก่อนหน้านี้ โดยย้อนกลับกระแสเงินทุนเมื่อไม่สามารถนำเงินไปใช้ได้ ส่งผิดพลาด หรือถูกเรียกคืนโดยสถาบันต้นทาง</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/th/pacs.007.001.11/"><code>pacs.007.001.11</code></a></td>
           <td class="message-coverage-table__name">การกลับรายการชำระเงินระหว่างสถาบันการเงิน</td>
-          <td class="message-coverage-table__version"><code>pacs.007.001.11</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">ข้อความ pacs.007 ใช้เพื่อย้อนกลับคำสั่งชำระเงินที่ส่งไปก่อนหน้านี้ซึ่งยังไม่ได้ชำระบัญชี หรือเพื่อร้องขอการย้อนกลับของการชำระเงินที่ชำระบัญชีแล้ว ต่างจาก pacs.004 (การส่งคืน) ข้อความนี้ริเริ่มโดยตัวแทนผู้สั่งต้นฉบับ</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/th/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
           <td class="message-coverage-table__name">การโอนเครดิตลูกค้าระหว่างสถาบันการเงิน</td>
-          <td class="message-coverage-table__version"><code>pacs.008.001.13</code></td>
           <td class="message-coverage-table__year">2023</td>
           <td class="message-coverage-table__overview">ข้อความ pacs.008 เป็นคำสั่งชำระเงินหลักที่แลกเปลี่ยนระหว่างสถาบันการเงินเพื่อโอนเงินในนามของลูกค้า โดยมีข้อมูลลูกหนี้ เจ้าหนี้ จำนวนเงิน และข้อมูลการโอนเงินสำหรับธุรกรรมโอนเครดิตหนึ่งรายการหรือมากกว่า</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/th/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
           <td class="message-coverage-table__name">การโอนเครดิตระหว่างสถาบันการเงิน</td>
-          <td class="message-coverage-table__version"><code>pacs.009.001.10</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">ข้อความ pacs.009 ใช้สำหรับการโอนเครดิตระหว่างสถาบันการเงินโดยที่การโอนเป็นในนามของสถาบันเอง ไม่ใช่ในนามของลูกค้า รองรับการจัดหาเงินทุนระหว่างธนาคาร การชำระเงินแบบ cover และการจัดการสภาพคล่อง</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/th/pacs.010.001.05/"><code>pacs.010.001.05</code></a></td>
           <td class="message-coverage-table__name">การหักบัญชีระหว่างสถาบันการเงิน</td>
-          <td class="message-coverage-table__version"><code>pacs.010.001.05</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">ข้อความ pacs.010 ใช้ระหว่างสถาบันการเงินสำหรับธุรกรรมหักบัญชีโดยตรงในบัญชีของสถาบันเอง ช่วยให้สถาบันหนึ่งสามารถเรียกเก็บเงินโดยตรงจากบัญชีของสถาบันอื่น</td>
         </tr>
         <tr>
           <td class="message-coverage-table__id"><a href="/th/pacs.028.001.05/"><code>pacs.028.001.05</code></a></td>
           <td class="message-coverage-table__name">คำขอสถานะการชำระเงินระหว่างสถาบันการเงิน</td>
-          <td class="message-coverage-table__version"><code>pacs.028.001.05</code></td>
           <td class="message-coverage-table__year">2019</td>
           <td class="message-coverage-table__overview">ข้อความ pacs.028 ถูกส่งโดยสถาบันการเงินเพื่อร้องขอสถานะของคำสั่งชำระเงินที่ส่งไปก่อนหน้านี้ ช่วยให้สามารถติดตามการประมวลผลการชำระเงินเชิงรุกโดยไม่ต้องรอรายงานสถานะที่ไม่ได้ร้องขอ</td>
         </tr>
