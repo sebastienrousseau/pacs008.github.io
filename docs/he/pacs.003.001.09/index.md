@@ -4,6 +4,11 @@ description: הודעת pacs.003 מוחלפת בין מוסדות פיננסיי
 lang: he-IL
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
+    answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."
+  - question: "What matters most operationally?"
+    answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation."
 ---
 
 # pacs.003.001.09 — חיוב ישיר ללקוח בין מוסדות פיננסיים
@@ -64,6 +69,7 @@ image: /logo.svg
 
 <div class="operational-matrix-table" tabindex="0" aria-label="אלמנטי נתונים מרכזיים הקשר עסקי">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ image: /logo.svg
 
 <div class="version-diff-table" tabindex="0" aria-label="טבלת הבדלי גרסאות">
   <table>
+    <caption>טבלת הבדלי גרסאות</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">

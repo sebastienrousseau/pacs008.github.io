@@ -4,6 +4,11 @@ description: pacs.007 메시지는 아직 결제되지 않은 이전에 전송�
 lang: ko-KR
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.007 only for fraud scenarios?"
+    answer: "No. Fraud is a major use case, but any instructing-side need to reverse a payment can trigger it."
+  - question: "Can it be handled like a normal return?"
+    answer: "No. Reversal timing, reason capture, and reconciliation differ materially from returns."
 ---
 
 # pacs.007.001.11 — 금융기관 간 지급 취소
@@ -64,6 +69,7 @@ pacs.007 메시지는 아직 결제되지 않은 이전에 전송된 결제 지�
 
 <div class="operational-matrix-table" tabindex="0" aria-label="핵심 데이터 요소 비즈니스 컨텍스트">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ pacs.007 메시지는 아직 결제되지 않은 이전에 전송된 결제 지�
 
 <div class="version-diff-table" tabindex="0" aria-label="버전 차이 표">
   <table>
+    <caption>버전 차이 표</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -167,6 +174,7 @@ pacs.007 메시지는 아직 결제되지 않은 이전에 전송된 결제 지�
 
 <div class="message-comparison-table" tabindex="0" aria-label="비교 pacs.007 vs pacs.004">
   <table>
+    <caption>비교 pacs.007 vs pacs.004</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

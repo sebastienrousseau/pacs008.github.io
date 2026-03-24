@@ -4,6 +4,11 @@ description: Le message pacs.010 est utilisé entre institutions financières po
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.010 common in retail payment products?"
+    answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."
+  - question: "What should teams design first?"
+    answer: "Start with approval rules, bilateral controls, and exception handling before finalising XML templates."
 ---
 
 # pacs.010.001.05 — Prélèvement entre institutions financières
@@ -64,6 +69,7 @@ Le message pacs.010 est utilisé entre institutions financières pour les transa
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Éléments de données clés Contexte métier">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ L'institution créancière envoie pacs.010 à l'institution débitrice pour coll
 
 <div class="version-diff-table" tabindex="0" aria-label="Tableau des écarts de version">
   <table>
+    <caption>Tableau des écarts de version</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">

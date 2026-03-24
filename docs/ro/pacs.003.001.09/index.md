@@ -4,6 +4,11 @@ description: Mesajul pacs.003 este schimbat între instituții financiare pentru
 lang: ro-RO
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
+    answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."
+  - question: "What matters most operationally?"
+    answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation."
 ---
 
 # pacs.003.001.09 — Debit direct de client FI-la-FI
@@ -64,6 +69,7 @@ Mesajul pacs.003 este schimbat între instituții financiare pentru a executa o 
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Elemente de date cheie Context de afaceri">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ Agentul creditorului inițiază pacs.003 către agentul debitorului pentru a col
 
 <div class="version-diff-table" tabindex="0" aria-label="Tabelul diferențelor de versiune">
   <table>
+    <caption>Tabelul diferențelor de versiune</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">

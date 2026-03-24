@@ -4,6 +4,11 @@ description: Mesajul pacs.008 este instrucțiunea de plată principală schimbat
 lang: ro-RO
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.008 enough on its own for production payments?"
+    answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."
+  - question: "What causes the most repair work?"
+    answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."
 ---
 
 # pacs.008.001.13 — Transfer de credit client FI-la-FI
@@ -64,6 +69,7 @@ Mesajul pacs.008 este instrucțiunea de plată principală schimbată între ins
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Elemente de date cheie Context de afaceri">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ Agentul debitorului creează un pacs.008 și îl trimite agentului creditorului 
 
 <div class="version-diff-table" tabindex="0" aria-label="Tabelul diferențelor de versiune">
   <table>
+    <caption>Tabelul diferențelor de versiune</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -178,6 +185,7 @@ Agentul debitorului creează un pacs.008 și îl trimite agentului creditorului 
 
 <div class="message-comparison-table" tabindex="0" aria-label="Compară pacs.008 vs pacs.009">
   <table>
+    <caption>Compară pacs.008 vs pacs.009</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

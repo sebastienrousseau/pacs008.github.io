@@ -4,6 +4,11 @@ description: Die Nachricht pacs.007 wird verwendet, um eine zuvor gesendete Zahl
 lang: de-DE
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.007 only for fraud scenarios?"
+    answer: "No. Fraud is a major use case, but any instructing-side need to reverse a payment can trigger it."
+  - question: "Can it be handled like a normal return?"
+    answer: "No. Reversal timing, reason capture, and reconciliation differ materially from returns."
 ---
 
 # pacs.007.001.11 — FI-zu-FI-Zahlungsstornierung
@@ -64,6 +69,7 @@ Die Nachricht pacs.007 wird verwendet, um eine zuvor gesendete Zahlungsanweisung
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Wichtige Datenelemente Geschäftskontext">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ Der beauftragende Agent (ursprünglicher Sender) sendet pacs.007 durch die Zahlu
 
 <div class="version-diff-table" tabindex="0" aria-label="Tabelle der Versionsunterschiede">
   <table>
+    <caption>Tabelle der Versionsunterschiede</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -167,6 +174,7 @@ Der beauftragende Agent (ursprünglicher Sender) sendet pacs.007 durch die Zahlu
 
 <div class="message-comparison-table" tabindex="0" aria-label="Vergleich pacs.007 vs pacs.004">
   <table>
+    <caption>Vergleich pacs.007 vs pacs.004</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

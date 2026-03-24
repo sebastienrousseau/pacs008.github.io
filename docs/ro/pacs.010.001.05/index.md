@@ -4,6 +4,11 @@ description: Mesajul pacs.010 este utilizat între instituții financiare pentru
 lang: ro-RO
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.010 common in retail payment products?"
+    answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."
+  - question: "What should teams design first?"
+    answer: "Start with approval rules, bilateral controls, and exception handling before finalising XML templates."
 ---
 
 # pacs.010.001.05 — Debit direct între instituții financiare
@@ -64,6 +69,7 @@ Mesajul pacs.010 este utilizat între instituții financiare pentru tranzacții 
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Elemente de date cheie Context de afaceri">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ Instituția creditoare trimite pacs.010 instituției debitoare pentru a colecta 
 
 <div class="version-diff-table" tabindex="0" aria-label="Tabelul diferențelor de versiune">
   <table>
+    <caption>Tabelul diferențelor de versiune</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">

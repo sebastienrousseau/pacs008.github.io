@@ -4,6 +4,11 @@ description: Pesan pacs.002 dikirim oleh lembaga keuangan untuk melaporkan statu
 lang: id-ID
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.002 a payment message?"
+    answer: "No. It reports status for an earlier instruction rather than moving value itself."
+  - question: "Should pacs.002 replace internal workflow states?"
+    answer: "No. It should inform them, but internal case states still need their own operational logic."
 ---
 
 # pacs.002.001.12 — Laporan Status Pembayaran FI ke FI
@@ -64,6 +69,7 @@ Pesan pacs.002 dikirim oleh lembaga keuangan untuk melaporkan status instruksi p
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Elemen data utama Konteks bisnis">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ Agen yang diinstruksikan (penerima) mengirim pacs.002 kembali ke agen yang membe
 
 <div class="version-diff-table" tabindex="0" aria-label="Tabel perbedaan versi">
   <table>
+    <caption>Tabel perbedaan versi</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -170,6 +177,7 @@ Agen yang diinstruksikan (penerima) mengirim pacs.002 kembali ke agen yang membe
 
 <div class="message-comparison-table" tabindex="0" aria-label="Bandingkan pacs.002 vs pacs.028">
   <table>
+    <caption>Bandingkan pacs.002 vs pacs.028</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

@@ -4,6 +4,11 @@ description: Le message pacs.004 est utilisé pour retourner une transaction de 
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "What is the difference between pacs.004 and pacs.007?"
+    answer: "pacs.004 returns settled funds from the receiving side, while pacs.007 requests reversal from the original instructing side."
+  - question: "Should every failed beneficiary credit become pacs.004?"
+    answer: "Not automatically. The right path depends on scheme rules, settlement stage, and counterparty handling."
 ---
 
 # pacs.004.001.11 — Retour de paiement
@@ -64,6 +69,7 @@ Le message pacs.004 est utilisé pour retourner une transaction de paiement pré
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Éléments de données clés Contexte métier">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ L'agent instruit envoie pacs.004 en retour à travers la chaîne de paiement pou
 
 <div class="version-diff-table" tabindex="0" aria-label="Tableau des écarts de version">
   <table>
+    <caption>Tableau des écarts de version</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -168,6 +175,7 @@ L'agent instruit envoie pacs.004 en retour à travers la chaîne de paiement pou
 
 <div class="message-comparison-table" tabindex="0" aria-label="Comparer pacs.004 vs pacs.007">
   <table>
+    <caption>Comparer pacs.004 vs pacs.007</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

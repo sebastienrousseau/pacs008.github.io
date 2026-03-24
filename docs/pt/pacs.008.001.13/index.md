@@ -4,6 +4,11 @@ description: A mensagem pacs.008 é a instrução de pagamento principal trocada
 lang: pt-BR
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.008 enough on its own for production payments?"
+    answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."
+  - question: "What causes the most repair work?"
+    answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."
 ---
 
 # pacs.008.001.13 — Transferência de crédito de cliente FI a FI
@@ -64,6 +69,7 @@ A mensagem pacs.008 é a instrução de pagamento principal trocada entre instit
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Elementos de dados principais Contexto de negócio">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ O agente do devedor cria um pacs.008 e o envia ao agente do credor (diretamente 
 
 <div class="version-diff-table" tabindex="0" aria-label="Tabela de diferenças de versão">
   <table>
+    <caption>Tabela de diferenças de versão</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -178,6 +185,7 @@ O agente do devedor cria um pacs.008 e o envia ao agente do credor (diretamente 
 
 <div class="message-comparison-table" tabindex="0" aria-label="Comparar pacs.008 vs pacs.009">
   <table>
+    <caption>Comparar pacs.008 vs pacs.009</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

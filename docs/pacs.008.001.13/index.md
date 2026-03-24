@@ -4,6 +4,11 @@ description: The pacs.008 message is the main customer credit-transfer instructi
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.008 enough on its own for production payments?"
+    answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."
+  - question: "What causes the most repair work?"
+    answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."
 ---
 
 # pacs.008.001.13 — FI to FI Customer Credit Transfer
@@ -64,6 +69,7 @@ The pacs.008 message is the main customer credit-transfer instruction between ba
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Key data elements Business context">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -120,6 +126,7 @@ Use this page for current implementation work, but still check scheme guidance b
 
 <div class="version-diff-table" tabindex="0" aria-label="Version-diff table">
   <table>
+    <caption>Version history and implementation guidance</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -221,6 +228,7 @@ No -> Re-check whether the case is status, return, or reversal.
 
 <div class="message-comparison-table" tabindex="0" aria-label="Compare pacs.008 vs pacs.009">
   <table>
+    <caption>Comparison of pacs.008.001.13 and pacs.009</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

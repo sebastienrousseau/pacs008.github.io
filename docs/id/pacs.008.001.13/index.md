@@ -4,6 +4,11 @@ description: Pesan pacs.008 adalah instruksi pembayaran inti yang dipertukarkan 
 lang: id-ID
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.008 enough on its own for production payments?"
+    answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."
+  - question: "What causes the most repair work?"
+    answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."
 ---
 
 # pacs.008.001.13 — Transfer Kredit Pelanggan FI ke FI
@@ -64,6 +69,7 @@ Pesan pacs.008 adalah instruksi pembayaran inti yang dipertukarkan antara lembag
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Elemen data utama Konteks bisnis">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ Agen debitur membuat pacs.008 dan mengirimkannya ke agen kreditur (langsung atau
 
 <div class="version-diff-table" tabindex="0" aria-label="Tabel perbedaan versi">
   <table>
+    <caption>Tabel perbedaan versi</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -178,6 +185,7 @@ Agen debitur membuat pacs.008 dan mengirimkannya ke agen kreditur (langsung atau
 
 <div class="message-comparison-table" tabindex="0" aria-label="Bandingkan pacs.008 vs pacs.009">
   <table>
+    <caption>Bandingkan pacs.008 vs pacs.009</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

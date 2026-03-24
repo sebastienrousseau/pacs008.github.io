@@ -4,6 +4,11 @@ description: Het pacs.004-bericht wordt gebruikt om een eerder afgewikkelde beta
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "What is the difference between pacs.004 and pacs.007?"
+    answer: "pacs.004 returns settled funds from the receiving side, while pacs.007 requests reversal from the original instructing side."
+  - question: "Should every failed beneficiary credit become pacs.004?"
+    answer: "Not automatically. The right path depends on scheme rules, settlement stage, and counterparty handling."
 ---
 
 # pacs.004.001.11 — Betalingsretour
@@ -64,6 +69,7 @@ Het pacs.004-bericht wordt gebruikt om een eerder afgewikkelde betalingstransact
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Belangrijke gegevenselementen Zakelijke context">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ De opdrachthebbende agent stuurt pacs.004 terug door de betalingsketen om eerder
 
 <div class="version-diff-table" tabindex="0" aria-label="Tabel met versieverschillen">
   <table>
+    <caption>Tabel met versieverschillen</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -168,6 +175,7 @@ De opdrachthebbende agent stuurt pacs.004 terug door de betalingsketen om eerder
 
 <div class="message-comparison-table" tabindex="0" aria-label="Vergelijk pacs.004 vs pacs.007">
   <table>
+    <caption>Vergelijk pacs.004 vs pacs.007</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

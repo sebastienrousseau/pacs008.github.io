@@ -4,6 +4,11 @@ description: pacs.008 mesajı, bir müşteri adına fon transfer etmek üzere fi
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.008 enough on its own for production payments?"
+    answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."
+  - question: "What causes the most repair work?"
+    answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."
 ---
 
 # pacs.008.001.13 — FI'dan FI'ya müşteri kredi transferi
@@ -64,6 +69,7 @@ pacs.008 mesajı, bir müşteri adına fon transfer etmek üzere finans kuruluş
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Temel veri öğeleri İş bağlamı">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ Borçlu aracı bir pacs.008 oluşturur ve alacaklı aracıya gönderir (doğruda
 
 <div class="version-diff-table" tabindex="0" aria-label="Sürüm fark tablosu">
   <table>
+    <caption>Sürüm fark tablosu</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -178,6 +185,7 @@ Borçlu aracı bir pacs.008 oluşturur ve alacaklı aracıya gönderir (doğruda
 
 <div class="message-comparison-table" tabindex="0" aria-label="Karşılaştır pacs.008 vs pacs.009">
   <table>
+    <caption>Karşılaştır pacs.008 vs pacs.009</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

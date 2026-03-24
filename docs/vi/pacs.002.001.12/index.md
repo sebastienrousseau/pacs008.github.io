@@ -4,6 +4,11 @@ description: Thông điệp pacs.002 được gửi bởi tổ chức tài chín
 lang: vi-VN
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.002 a payment message?"
+    answer: "No. It reports status for an earlier instruction rather than moving value itself."
+  - question: "Should pacs.002 replace internal workflow states?"
+    answer: "No. It should inform them, but internal case states still need their own operational logic."
 ---
 
 # pacs.002.001.12 — Báo cáo trạng thái thanh toán giữa các tổ chức tài chính
@@ -64,6 +69,7 @@ Thông điệp pacs.002 được gửi bởi tổ chức tài chính để báo 
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Yếu tố dữ liệu chính Bối cảnh kinh doanh">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ Thông điệp pacs.002 được gửi bởi tổ chức tài chính để báo 
 
 <div class="version-diff-table" tabindex="0" aria-label="Bảng khác biệt phiên bản">
   <table>
+    <caption>Bảng khác biệt phiên bản</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -170,6 +177,7 @@ Thông điệp pacs.002 được gửi bởi tổ chức tài chính để báo 
 
 <div class="message-comparison-table" tabindex="0" aria-label="So sánh pacs.002 vs pacs.028">
   <table>
+    <caption>So sánh pacs.002 vs pacs.028</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

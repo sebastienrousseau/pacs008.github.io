@@ -4,6 +4,11 @@ description: The pacs.002 message reports the status of an earlier payment instr
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.002 a payment message?"
+    answer: "No. It reports status for an earlier instruction rather than moving value itself."
+  - question: "Should pacs.002 replace internal workflow states?"
+    answer: "No. It should inform them, but internal case states still need their own operational logic."
 ---
 
 # pacs.002.001.12 — FI to FI Payment Status Report
@@ -64,6 +69,7 @@ The pacs.002 message reports the status of an earlier payment instruction. It te
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Key data elements Business context">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -120,6 +126,7 @@ Use this page for the version that pacs008 implements today, and review the newe
 
 <div class="version-diff-table" tabindex="0" aria-label="Version-diff table">
   <table>
+    <caption>Version history and implementation guidance</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -211,6 +218,7 @@ No -> Stay in the payment or exception flow.
 
 <div class="message-comparison-table" tabindex="0" aria-label="Compare pacs.002 vs pacs.028">
   <table>
+    <caption>Comparison of pacs.002.001.12 and pacs.028</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

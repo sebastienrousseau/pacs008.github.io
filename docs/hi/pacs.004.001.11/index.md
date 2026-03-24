@@ -4,6 +4,11 @@ description: pacs.004 संदेश का उपयोग पहले से
 lang: hi-IN
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "What is the difference between pacs.004 and pacs.007?"
+    answer: "pacs.004 returns settled funds from the receiving side, while pacs.007 requests reversal from the original instructing side."
+  - question: "Should every failed beneficiary credit become pacs.004?"
+    answer: "Not automatically. The right path depends on scheme rules, settlement stage, and counterparty handling."
 ---
 
 # pacs.004.001.11 — भुगतान वापसी
@@ -64,6 +69,7 @@ pacs.004 संदेश का उपयोग पहले से निपट
 
 <div class="operational-matrix-table" tabindex="0" aria-label="प्रमुख डेटा तत्व व्यावसायिक संदर्भ">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ pacs.004 संदेश का उपयोग पहले से निपट
 
 <div class="version-diff-table" tabindex="0" aria-label="संस्करण अंतर तालिका">
   <table>
+    <caption>संस्करण अंतर तालिका</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -168,6 +175,7 @@ pacs.004 संदेश का उपयोग पहले से निपट
 
 <div class="message-comparison-table" tabindex="0" aria-label="तुलना pacs.004 vs pacs.007">
   <table>
+    <caption>तुलना pacs.004 vs pacs.007</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

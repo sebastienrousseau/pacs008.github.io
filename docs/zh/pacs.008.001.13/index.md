@@ -4,6 +4,11 @@ description: pacs.008 消息是金融机构之间交换的核心支付指令，�
 lang: zh-CN
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.008 enough on its own for production payments?"
+    answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."
+  - question: "What causes the most repair work?"
+    answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."
 ---
 
 # pacs.008.001.13 — 金融机构间客户信用转账
@@ -64,6 +69,7 @@ pacs.008 消息是金融机构之间交换的核心支付指令，用于代表�
 
 <div class="operational-matrix-table" tabindex="0" aria-label="关键数据要素 业务背景">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ pacs.008 消息是金融机构之间交换的核心支付指令，用于代表�
 
 <div class="version-diff-table" tabindex="0" aria-label="版本差异表">
   <table>
+    <caption>版本差异表</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -178,6 +185,7 @@ pacs.008 消息是金融机构之间交换的核心支付指令，用于代表�
 
 <div class="message-comparison-table" tabindex="0" aria-label="比较 pacs.008 vs pacs.009">
   <table>
+    <caption>比较 pacs.008 vs pacs.009</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

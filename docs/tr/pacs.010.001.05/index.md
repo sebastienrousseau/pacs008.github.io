@@ -4,6 +4,11 @@ description: pacs.010 mesajı, kuruluşun kendi hesabındaki doğrudan borçland
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.010 common in retail payment products?"
+    answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."
+  - question: "What should teams design first?"
+    answer: "Start with approval rules, bilateral controls, and exception handling before finalising XML templates."
 ---
 
 # pacs.010.001.05 — Finansal kuruluşlar arası doğrudan borçlandırma
@@ -64,6 +69,7 @@ pacs.010 mesajı, kuruluşun kendi hesabındaki doğrudan borçlandırma işleml
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Temel veri öğeleri İş bağlamı">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ Alacaklı kuruluş, önceden üzerinde anlaşılmış bir düzenleme kapsamında
 
 <div class="version-diff-table" tabindex="0" aria-label="Sürüm fark tablosu">
   <table>
+    <caption>Sürüm fark tablosu</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">

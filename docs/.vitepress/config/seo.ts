@@ -89,6 +89,28 @@ export function buildHreflangTags(routePath: string): Array<[string, Record<stri
   return tags;
 }
 
+export function buildSitemapHreflangLinks(url: string): Array<{ lang: string; url: string }> {
+  const urlObj = new URL(url, SITE_URL);
+  const pathname = urlObj.pathname;
+  const segments = pathname.split("/").filter(Boolean);
+  const first = segments[0];
+  const hasLocale = first && LOCALE_KEYS.has(first);
+  const suffix = hasLocale
+    ? `/${segments.slice(1).join("/")}/`.replace(/\/+/g, "/")
+    : pathname.endsWith("/") ? pathname : `${pathname}/`;
+
+  const links: Array<{ lang: string; url: string }> = [];
+  for (const key of Object.keys(LOCALE_META)) {
+    const href = key === "en"
+      ? `${SITE_URL}${suffix === "/" ? "/" : suffix}`
+      : `${SITE_URL}/${key}${suffix}`;
+    const hreflang = key === "zh-tw" ? "zh-Hant" : key;
+    links.push({ lang: hreflang, url: href });
+  }
+  links.push({ lang: "x-default", url: `${SITE_URL}${suffix === "/" ? "/" : suffix}` });
+  return links;
+}
+
 export function resolvePageMeta(pageData: { title?: string; description?: string; relativePath: string; frontmatter: Record<string, unknown> }) {
   const routePath = routeFromRelativePath(pageData.relativePath);
   const localeKey = routePath.split("/").filter(Boolean)[0] || "en";

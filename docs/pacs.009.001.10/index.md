@@ -4,6 +4,11 @@ description: The pacs.009 message moves funds between banks on their own behalf.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "When should I choose pacs.009 over pacs.008?"
+    answer: "Choose pacs.009 for own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions."
+  - question: "Why is pacs.009 often harder to reconcile than expected?"
+    answer: "Because banks must preserve the relationship between treasury funding, correspondent legs, and any linked customer payment."
 ---
 
 # pacs.009.001.10 — Financial Institution Credit Transfer
@@ -64,6 +69,7 @@ The pacs.009 message moves funds between banks on their own behalf. It supports 
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Key data elements Business context">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -120,6 +126,7 @@ Use this page for the version that pacs008 implements today, and review the newe
 
 <div class="version-diff-table" tabindex="0" aria-label="Version-diff table">
   <table>
+    <caption>Version history and implementation guidance</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -209,6 +216,7 @@ No -> Check whether treasury or settlement operations own the case.
 
 <div class="message-comparison-table" tabindex="0" aria-label="Compare pacs.009 vs pacs.008">
   <table>
+    <caption>Comparison of pacs.009.001.10 and pacs.008</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

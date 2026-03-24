@@ -2,7 +2,7 @@ import { defineConfig } from "vitepress";
 import { writeFileSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { sharedHead } from "./config/head";
-import { LOCALE_HOME_LABELS, LOCALE_META, SITE_URL, buildHreflangTags, resolvePageMeta } from "./config/seo";
+import { LOCALE_HOME_LABELS, LOCALE_META, SITE_URL, buildHreflangTags, buildSitemapHreflangLinks, resolvePageMeta } from "./config/seo";
 import { getUiStrings } from "./config/i18n";
 
 const RTL_LOCALES = new Set(["ar", "he"]);
@@ -63,7 +63,9 @@ function breadcrumbNameForSegment(locale: string, segment: string): string {
     api: t.api,
     contact: t.contact,
     privacy: t.privacy,
-    terms: t.terms
+    terms: t.terms,
+    editorial: t.editorial,
+    "structured-address": t.structuredAddress
   };
   return known[segment] || segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, " ");
 }
@@ -134,8 +136,14 @@ export default defineConfig({
   srcExclude: ["public/**"],
   sitemap: {
     hostname: "https://pacs008.com",
+    xmlns: { xhtml: true },
     transformItems(items) {
-      return items.filter((item) => !item.url.includes("404") && !/\/en\/$/.test(item.url));
+      return items
+        .filter((item) => !item.url.includes("404") && !/\/en\/$/.test(item.url))
+        .map((item) => ({
+          ...item,
+          links: buildSitemapHreflangLinks(item.url)
+        }));
     }
   },
   locales,
@@ -300,6 +308,60 @@ ${items.join("\n")}
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": breadcrumbItems
+      })] as unknown as [string, Record<string, string>]);
+    }
+
+    // JSON-LD: TechArticle on pacs message pages
+    const lastContentSegment = segments.length > 0
+      ? (LOCALE_META[segments[0]] ? segments.slice(1) : segments).at(-1) || ""
+      : "";
+    const isPacsPage = lastContentSegment.startsWith("pacs.");
+
+    if (isPacsPage) {
+      head.push(["script", { type: "application/ld+json" }, JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": meta.title,
+        "description": meta.description,
+        "author": { "@type": "Person", "name": "Sebastien Rousseau", "url": "https://sebastienrousseau.com/" },
+        "dateModified": pageData.lastUpdated ? new Date(pageData.lastUpdated).toISOString() : new Date().toISOString(),
+        "datePublished": "2025-01-01T00:00:00.000Z",
+        "publisher": { "@type": "Organization", "name": SITE_NAME, "url": SITE_URL },
+        "inLanguage": meta.locale,
+        "mainEntityOfPage": meta.canonical,
+        "about": { "@type": "Thing", "name": "ISO 20022", "url": "https://www.iso20022.org/" },
+        "proficiencyLevel": "Expert"
+      })] as unknown as [string, Record<string, string>]);
+    }
+
+    // JSON-LD: SoftwareApplication on API page
+    const isApiPage = lastContentSegment === "api";
+    if (isApiPage) {
+      head.push(["script", { type: "application/ld+json" }, JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "pacs008",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Cross-platform",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "url": "https://pypi.org/project/pacs008/",
+        "downloadUrl": "https://pypi.org/project/pacs008/",
+        "softwareRequirements": "Python 3.9.2 or later",
+        "description": meta.description,
+        "author": { "@type": "Person", "name": "Sebastien Rousseau", "url": "https://sebastienrousseau.com/" }
+      })] as unknown as [string, Record<string, string>]);
+    }
+
+    // JSON-LD: FAQPage on pacs message pages with FAQ sections
+    if (isPacsPage && Array.isArray(fm.faq) && fm.faq.length > 0) {
+      head.push(["script", { type: "application/ld+json" }, JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": (fm.faq as Array<{ question: string; answer: string }>).map((item) => ({
+          "@type": "Question",
+          "name": item.question,
+          "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+        }))
       })] as unknown as [string, Record<string, string>]);
     }
 

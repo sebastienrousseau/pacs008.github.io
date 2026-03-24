@@ -4,6 +4,11 @@ description: pacs.003 संदेश वित्तीय संस्था�
 lang: hi-IN
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
+    answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."
+  - question: "What matters most operationally?"
+    answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation."
 ---
 
 # pacs.003.001.09 — FI-से-FI ग्राहक प्रत्यक्ष डेबिट
@@ -64,6 +69,7 @@ pacs.003 संदेश वित्तीय संस्थानों क�
 
 <div class="operational-matrix-table" tabindex="0" aria-label="प्रमुख डेटा तत्व व्यावसायिक संदर्भ">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ pacs.003 संदेश वित्तीय संस्थानों क�
 
 <div class="version-diff-table" tabindex="0" aria-label="संस्करण अंतर तालिका">
   <table>
+    <caption>संस्करण अंतर तालिका</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">

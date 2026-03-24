@@ -4,6 +4,11 @@ description: A mensagem pacs.002 é enviada por uma instituição financeira par
 lang: pt-BR
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.002 a payment message?"
+    answer: "No. It reports status for an earlier instruction rather than moving value itself."
+  - question: "Should pacs.002 replace internal workflow states?"
+    answer: "No. It should inform them, but internal case states still need their own operational logic."
 ---
 
 # pacs.002.001.12 — Relatório de status de pagamento FI a FI
@@ -64,6 +69,7 @@ A mensagem pacs.002 é enviada por uma instituição financeira para reportar o 
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Elementos de dados principais Contexto de negócio">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ O agente instruído (receptor) envia pacs.002 de volta ao agente instruente (rem
 
 <div class="version-diff-table" tabindex="0" aria-label="Tabela de diferenças de versão">
   <table>
+    <caption>Tabela de diferenças de versão</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -170,6 +177,7 @@ O agente instruído (receptor) envia pacs.002 de volta ao agente instruente (rem
 
 <div class="message-comparison-table" tabindex="0" aria-label="Comparar pacs.002 vs pacs.028">
   <table>
+    <caption>Comparar pacs.002 vs pacs.028</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

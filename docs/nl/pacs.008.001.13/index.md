@@ -4,6 +4,11 @@ description: Het pacs.008-bericht is de kernbetalingsinstructie die wordt uitgew
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.008 enough on its own for production payments?"
+    answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."
+  - question: "What causes the most repair work?"
+    answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."
 ---
 
 # pacs.008.001.13 — FI-naar-FI-klantkredietoverboeking
@@ -64,6 +69,7 @@ Het pacs.008-bericht is de kernbetalingsinstructie die wordt uitgewisseld tussen
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Belangrijke gegevenselementen Zakelijke context">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ De debiteuragent maakt een pacs.008 aan en stuurt dit naar de crediteuragent (re
 
 <div class="version-diff-table" tabindex="0" aria-label="Tabel met versieverschillen">
   <table>
+    <caption>Tabel met versieverschillen</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -178,6 +185,7 @@ De debiteuragent maakt een pacs.008 aan en stuurt dit naar de crediteuragent (re
 
 <div class="message-comparison-table" tabindex="0" aria-label="Vergelijk pacs.008 vs pacs.009">
   <table>
+    <caption>Vergelijk pacs.008 vs pacs.009</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

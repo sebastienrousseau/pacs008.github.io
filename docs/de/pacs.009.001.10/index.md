@@ -4,6 +4,11 @@ description: Die Nachricht pacs.009 wird für Überweisungen zwischen Finanzinst
 lang: de-DE
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "When should I choose pacs.009 over pacs.008?"
+    answer: "Choose pacs.009 for own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions."
+  - question: "Why is pacs.009 often harder to reconcile than expected?"
+    answer: "Because banks must preserve the relationship between treasury funding, correspondent legs, and any linked customer payment."
 ---
 
 # pacs.009.001.10 — Kredittransfer zwischen Finanzinstituten
@@ -64,6 +69,7 @@ Die Nachricht pacs.009 wird für Überweisungen zwischen Finanzinstituten verwen
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Wichtige Datenelemente Geschäftskontext">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ Das Schuldnerinstitut sendet pacs.009 an das Gläubigerinstitut, um eigene Mitte
 
 <div class="version-diff-table" tabindex="0" aria-label="Tabelle der Versionsunterschiede">
   <table>
+    <caption>Tabelle der Versionsunterschiede</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -167,6 +174,7 @@ Das Schuldnerinstitut sendet pacs.009 an das Gläubigerinstitut, um eigene Mitte
 
 <div class="message-comparison-table" tabindex="0" aria-label="Vergleich pacs.009 vs pacs.008">
   <table>
+    <caption>Vergleich pacs.009 vs pacs.008</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

@@ -4,6 +4,11 @@ description: Komunikat pacs.008 jest podstawową instrukcją płatniczą wymieni
 lang: pl-PL
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.008 enough on its own for production payments?"
+    answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."
+  - question: "What causes the most repair work?"
+    answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."
 ---
 
 # pacs.008.001.13 — Przelew kredytowy klienta FI-do-FI
@@ -64,6 +69,7 @@ Komunikat pacs.008 jest podstawową instrukcją płatniczą wymienianą między 
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Kluczowe elementy danych Kontekst biznesowy">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ Agent dłużnika tworzy pacs.008 i wysyła go do agenta wierzyciela (bezpośredn
 
 <div class="version-diff-table" tabindex="0" aria-label="Tabela różnic wersji">
   <table>
+    <caption>Tabela różnic wersji</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -178,6 +185,7 @@ Agent dłużnika tworzy pacs.008 i wysyła go do agenta wierzyciela (bezpośredn
 
 <div class="message-comparison-table" tabindex="0" aria-label="Porównanie pacs.008 vs pacs.009">
   <table>
+    <caption>Porównanie pacs.008 vs pacs.009</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

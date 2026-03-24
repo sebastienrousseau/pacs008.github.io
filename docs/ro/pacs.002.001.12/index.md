@@ -4,6 +4,11 @@ description: Mesajul pacs.002 este trimis de o instituție financiară pentru a 
 lang: ro-RO
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.002 a payment message?"
+    answer: "No. It reports status for an earlier instruction rather than moving value itself."
+  - question: "Should pacs.002 replace internal workflow states?"
+    answer: "No. It should inform them, but internal case states still need their own operational logic."
 ---
 
 # pacs.002.001.12 — Raport de stare a plății FI-la-FI
@@ -64,6 +69,7 @@ Mesajul pacs.002 este trimis de o instituție financiară pentru a raporta statu
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Elemente de date cheie Context de afaceri">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ Agentul instruit (receptorul) trimite pacs.002 înapoi către agentul ordonator 
 
 <div class="version-diff-table" tabindex="0" aria-label="Tabelul diferențelor de versiune">
   <table>
+    <caption>Tabelul diferențelor de versiune</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -170,6 +177,7 @@ Agentul instruit (receptorul) trimite pacs.002 înapoi către agentul ordonator 
 
 <div class="message-comparison-table" tabindex="0" aria-label="Compară pacs.002 vs pacs.028">
   <table>
+    <caption>Compară pacs.002 vs pacs.028</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

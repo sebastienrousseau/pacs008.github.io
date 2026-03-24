@@ -4,6 +4,11 @@ description: Le message pacs.008 est l'instruction de paiement centrale échang�
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.008 enough on its own for production payments?"
+    answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."
+  - question: "What causes the most repair work?"
+    answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."
 ---
 
 # pacs.008.001.13 — Virement client FI à FI
@@ -64,6 +69,7 @@ Le message pacs.008 est l'instruction de paiement centrale échangée entre inst
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Éléments de données clés Contexte métier">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ L'agent du débiteur crée un pacs.008 et l'envoie à l'agent du créancier (dir
 
 <div class="version-diff-table" tabindex="0" aria-label="Tableau des écarts de version">
   <table>
+    <caption>Tableau des écarts de version</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -178,6 +185,7 @@ L'agent du débiteur crée un pacs.008 et l'envoie à l'agent du créancier (dir
 
 <div class="message-comparison-table" tabindex="0" aria-label="Comparer pacs.008 vs pacs.009">
   <table>
+    <caption>Comparer pacs.008 vs pacs.009</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

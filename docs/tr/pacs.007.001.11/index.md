@@ -4,6 +4,11 @@ description: pacs.007 mesajı, henüz takas edilmemiş daha önce gönderilmiş 
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.007 only for fraud scenarios?"
+    answer: "No. Fraud is a major use case, but any instructing-side need to reverse a payment can trigger it."
+  - question: "Can it be handled like a normal return?"
+    answer: "No. Reversal timing, reason capture, and reconciliation differ materially from returns."
 ---
 
 # pacs.007.001.11 — FI'dan FI'ya ödeme geri alma mesajı
@@ -64,6 +69,7 @@ pacs.007 mesajı, henüz takas edilmemiş daha önce gönderilmiş bir ödeme ta
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Temel veri öğeleri İş bağlamı">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ Talimat veren aracı (orijinal gönderici), daha önce talimat verilmiş bir öd
 
 <div class="version-diff-table" tabindex="0" aria-label="Sürüm fark tablosu">
   <table>
+    <caption>Sürüm fark tablosu</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -167,6 +174,7 @@ Talimat veren aracı (orijinal gönderici), daha önce talimat verilmiş bir öd
 
 <div class="message-comparison-table" tabindex="0" aria-label="Karşılaştır pacs.007 vs pacs.004">
   <table>
+    <caption>Karşılaştır pacs.007 vs pacs.004</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

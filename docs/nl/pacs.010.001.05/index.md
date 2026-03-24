@@ -4,6 +4,11 @@ description: Het pacs.010-bericht wordt tussen financiële instellingen gebruikt
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.010 common in retail payment products?"
+    answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."
+  - question: "What should teams design first?"
+    answer: "Start with approval rules, bilateral controls, and exception handling before finalising XML templates."
 ---
 
 # pacs.010.001.05 — Incasso tussen financiële instellingen
@@ -64,6 +69,7 @@ Het pacs.010-bericht wordt tussen financiële instellingen gebruikt voor incasso
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Belangrijke gegevenselementen Zakelijke context">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ De crediteurinstelling stuurt pacs.010 naar de debiteurinstelling om gelden te i
 
 <div class="version-diff-table" tabindex="0" aria-label="Tabel met versieverschillen">
   <table>
+    <caption>Tabel met versieverschillen</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">

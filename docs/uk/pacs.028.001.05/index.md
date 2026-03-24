@@ -4,6 +4,11 @@ description: Повідомлення pacs.028 надсилається фіна
 lang: uk-UA
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Should pacs.028 be sent after every payment?"
+    answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic."
+  - question: "What makes pacs.028 useful?"
+    answer: "Clear timeout, escalation, and reconciliation rules around the original payment case."
 ---
 
 # pacs.028.001.05 — Запит статусу платежу між фінансовими установами
@@ -64,6 +69,7 @@ image: /logo.svg
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Ключові елементи даних Бізнес-контекст">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ image: /logo.svg
 
 <div class="version-diff-table" tabindex="0" aria-label="Таблиця відмінностей версій">
   <table>
+    <caption>Таблиця відмінностей версій</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -165,6 +172,7 @@ image: /logo.svg
 
 <div class="message-comparison-table" tabindex="0" aria-label="Порівняння pacs.028 vs pacs.002">
   <table>
+    <caption>Порівняння pacs.028 vs pacs.002</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

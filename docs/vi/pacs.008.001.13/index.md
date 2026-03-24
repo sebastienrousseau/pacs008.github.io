@@ -4,6 +4,11 @@ description: Thông điệp pacs.008 là lệnh thanh toán cốt lõi được 
 lang: vi-VN
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.008 enough on its own for production payments?"
+    answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."
+  - question: "What causes the most repair work?"
+    answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."
 ---
 
 # pacs.008.001.13 — Chuyển khoản tín dụng khách hàng giữa các tổ chức tài chính
@@ -64,6 +69,7 @@ Thông điệp pacs.008 là lệnh thanh toán cốt lõi được trao đổi g
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Yếu tố dữ liệu chính Bối cảnh kinh doanh">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ Thông điệp pacs.008 là lệnh thanh toán cốt lõi được trao đổi g
 
 <div class="version-diff-table" tabindex="0" aria-label="Bảng khác biệt phiên bản">
   <table>
+    <caption>Bảng khác biệt phiên bản</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -178,6 +185,7 @@ Thông điệp pacs.008 là lệnh thanh toán cốt lõi được trao đổi g
 
 <div class="message-comparison-table" tabindex="0" aria-label="So sánh pacs.008 vs pacs.009">
   <table>
+    <caption>So sánh pacs.008 vs pacs.009</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

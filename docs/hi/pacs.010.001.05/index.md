@@ -4,6 +4,11 @@ description: pacs.010 संदेश का उपयोग वित्ती�
 lang: hi-IN
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.010 common in retail payment products?"
+    answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."
+  - question: "What should teams design first?"
+    answer: "Start with approval rules, bilateral controls, and exception handling before finalising XML templates."
 ---
 
 # pacs.010.001.05 — वित्तीय संस्थानों के बीच प्रत्यक्ष डेबिट
@@ -64,6 +69,7 @@ pacs.010 संदेश का उपयोग वित्तीय संस�
 
 <div class="operational-matrix-table" tabindex="0" aria-label="प्रमुख डेटा तत्व व्यावसायिक संदर्भ">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ pacs.010 संदेश का उपयोग वित्तीय संस�
 
 <div class="version-diff-table" tabindex="0" aria-label="संस्करण अंतर तालिका">
   <table>
+    <caption>संस्करण अंतर तालिका</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">

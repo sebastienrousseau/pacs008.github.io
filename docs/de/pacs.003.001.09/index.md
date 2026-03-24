@@ -4,6 +4,11 @@ description: Die Nachricht pacs.003 wird zwischen Finanzinstituten ausgetauscht,
 lang: de-DE
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
+    answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."
+  - question: "What matters most operationally?"
+    answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation."
 ---
 
 # pacs.003.001.09 — FI-zu-FI-Kundenlastschrift
@@ -64,6 +69,7 @@ Die Nachricht pacs.003 wird zwischen Finanzinstituten ausgetauscht, um eine Kund
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Wichtige Datenelemente Geschäftskontext">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ Der Gläubigeragent initiiert pacs.003 gegenüber dem Schuldneragent zum Einzug 
 
 <div class="version-diff-table" tabindex="0" aria-label="Tabelle der Versionsunterschiede">
   <table>
+    <caption>Tabelle der Versionsunterschiede</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">

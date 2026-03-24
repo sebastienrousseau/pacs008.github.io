@@ -4,6 +4,11 @@ description: Die Nachricht pacs.008 ist die zentrale Zahlungsanweisung, die zwis
 lang: de-DE
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.008 enough on its own for production payments?"
+    answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."
+  - question: "What causes the most repair work?"
+    answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."
 ---
 
 # pacs.008.001.13 — FI-zu-FI-Kundenkredittransfer
@@ -64,6 +69,7 @@ Die Nachricht pacs.008 ist die zentrale Zahlungsanweisung, die zwischen Finanzin
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Wichtige Datenelemente Geschäftskontext">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ Der Schuldneragent erstellt einen pacs.008 und sendet ihn an den Gläubigeragent
 
 <div class="version-diff-table" tabindex="0" aria-label="Tabelle der Versionsunterschiede">
   <table>
+    <caption>Tabelle der Versionsunterschiede</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -178,6 +185,7 @@ Der Schuldneragent erstellt einen pacs.008 und sendet ihn an den Gläubigeragent
 
 <div class="message-comparison-table" tabindex="0" aria-label="Vergleich pacs.008 vs pacs.009">
   <table>
+    <caption>Vergleich pacs.008 vs pacs.009</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

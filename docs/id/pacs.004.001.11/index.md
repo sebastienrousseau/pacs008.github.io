@@ -4,6 +4,11 @@ description: Pesan pacs.004 digunakan untuk mengembalikan transaksi pembayaran y
 lang: id-ID
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "What is the difference between pacs.004 and pacs.007?"
+    answer: "pacs.004 returns settled funds from the receiving side, while pacs.007 requests reversal from the original instructing side."
+  - question: "Should every failed beneficiary credit become pacs.004?"
+    answer: "Not automatically. The right path depends on scheme rules, settlement stage, and counterparty handling."
 ---
 
 # pacs.004.001.11 — Retur Pembayaran
@@ -64,6 +69,7 @@ Pesan pacs.004 digunakan untuk mengembalikan transaksi pembayaran yang sebelumny
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Elemen data utama Konteks bisnis">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ Agen yang diinstruksikan mengirim pacs.004 kembali melalui rantai pembayaran unt
 
 <div class="version-diff-table" tabindex="0" aria-label="Tabel perbedaan versi">
   <table>
+    <caption>Tabel perbedaan versi</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -168,6 +175,7 @@ Agen yang diinstruksikan mengirim pacs.004 kembali melalui rantai pembayaran unt
 
 <div class="message-comparison-table" tabindex="0" aria-label="Bandingkan pacs.004 vs pacs.007">
   <table>
+    <caption>Bandingkan pacs.004 vs pacs.007</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

@@ -4,6 +4,11 @@ description: Il messaggio pacs.008 è l'istruzione di pagamento principale scamb
 lang: it-IT
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.008 enough on its own for production payments?"
+    answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."
+  - question: "What causes the most repair work?"
+    answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."
 ---
 
 # pacs.008.001.13 — Bonifico cliente tra istituzioni finanziarie
@@ -64,6 +69,7 @@ Il messaggio pacs.008 è l'istruzione di pagamento principale scambiata tra isti
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Elementi di dati chiave Contesto di business">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ L'agente del debitore crea un pacs.008 e lo invia all'agente del creditore (dire
 
 <div class="version-diff-table" tabindex="0" aria-label="Tabella delle differenze di versione">
   <table>
+    <caption>Tabella delle differenze di versione</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -178,6 +185,7 @@ L'agente del debitore crea un pacs.008 e lo invia all'agente del creditore (dire
 
 <div class="message-comparison-table" tabindex="0" aria-label="Confrontare pacs.008 vs pacs.009">
   <table>
+    <caption>Confrontare pacs.008 vs pacs.009</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

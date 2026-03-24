@@ -35,6 +35,9 @@ export interface UiStrings {
   contact: string;
   privacy: string;
   terms: string;
+  author: string;
+  editorial: string;
+  structuredAddress: string;
   langMenuLabel: string;
   skipToContentLabel: string;
   returnToTopLabel: string;
@@ -73,6 +76,9 @@ const en: UiStrings = {
   contact: "Contact",
   privacy: "Privacy",
   terms: "Terms",
+  author: "Author",
+  editorial: "Editorial policy",
+  structuredAddress: "Structured address deadline",
   langMenuLabel: "Change language",
   skipToContentLabel: "Skip to content",
   returnToTopLabel: "Return to top",

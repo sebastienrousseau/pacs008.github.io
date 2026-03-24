@@ -4,6 +4,11 @@ description: Pesan pacs.003 dipertukarkan antara lembaga keuangan untuk mengekse
 lang: id-ID
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
+    answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."
+  - question: "What matters most operationally?"
+    answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation."
 ---
 
 # pacs.003.001.09 — Direct Debit Pelanggan FI ke FI
@@ -64,6 +69,7 @@ Pesan pacs.003 dipertukarkan antara lembaga keuangan untuk mengeksekusi instruks
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Elemen data utama Konteks bisnis">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ Agen kreditur menginisiasi pacs.003 menuju agen debitur untuk menagih dana. Agen
 
 <div class="version-diff-table" tabindex="0" aria-label="Tabel perbedaan versi">
   <table>
+    <caption>Tabel perbedaan versi</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">

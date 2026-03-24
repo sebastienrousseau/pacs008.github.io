@@ -4,6 +4,11 @@ description: pacs.028 mesajı, daha önce gönderilmiş bir ödeme talimatının
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Should pacs.028 be sent after every payment?"
+    answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic."
+  - question: "What makes pacs.028 useful?"
+    answer: "Clear timeout, escalation, and reconciliation rules around the original payment case."
 ---
 
 # pacs.028.001.05 — FI'dan FI'ya ödeme durumu talebi
@@ -64,6 +69,7 @@ pacs.028 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu tal
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Temel veri öğeleri İş bağlamı">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ Talimat veren aracı, belirli bir ödemenin durumunu talep etmek üzere talimat 
 
 <div class="version-diff-table" tabindex="0" aria-label="Sürüm fark tablosu">
   <table>
+    <caption>Sürüm fark tablosu</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -165,6 +172,7 @@ Talimat veren aracı, belirli bir ödemenin durumunu talep etmek üzere talimat 
 
 <div class="message-comparison-table" tabindex="0" aria-label="Karşılaştır pacs.028 vs pacs.002">
   <table>
+    <caption>Karşılaştır pacs.028 vs pacs.002</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

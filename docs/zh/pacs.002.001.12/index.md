@@ -4,6 +4,11 @@ description: pacs.002 消息由金融机构发送，用于报告先前发送的�
 lang: zh-CN
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.002 a payment message?"
+    answer: "No. It reports status for an earlier instruction rather than moving value itself."
+  - question: "Should pacs.002 replace internal workflow states?"
+    answer: "No. It should inform them, but internal case states still need their own operational logic."
 ---
 
 # pacs.002.001.12 — 金融机构间支付状态报告
@@ -64,6 +69,7 @@ pacs.002 消息由金融机构发送，用于报告先前发送的支付指令�
 
 <div class="operational-matrix-table" tabindex="0" aria-label="关键数据要素 业务背景">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ pacs.002 消息由金融机构发送，用于报告先前发送的支付指令�
 
 <div class="version-diff-table" tabindex="0" aria-label="版本差异表">
   <table>
+    <caption>版本差异表</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -170,6 +177,7 @@ pacs.002 消息由金融机构发送，用于报告先前发送的支付指令�
 
 <div class="message-comparison-table" tabindex="0" aria-label="比较 pacs.002 vs pacs.028">
   <table>
+    <caption>比较 pacs.002 vs pacs.028</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

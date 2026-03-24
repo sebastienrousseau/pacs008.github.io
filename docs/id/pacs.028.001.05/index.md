@@ -4,6 +4,11 @@ description: Pesan pacs.028 dikirim oleh lembaga keuangan untuk meminta status i
 lang: id-ID
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Should pacs.028 be sent after every payment?"
+    answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic."
+  - question: "What makes pacs.028 useful?"
+    answer: "Clear timeout, escalation, and reconciliation rules around the original payment case."
 ---
 
 # pacs.028.001.05 — Permintaan Status Pembayaran FI ke FI
@@ -64,6 +69,7 @@ Pesan pacs.028 dikirim oleh lembaga keuangan untuk meminta status instruksi pemb
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Elemen data utama Konteks bisnis">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ Agen yang memberi instruksi mengirim pacs.028 ke agen yang diinstruksikan untuk 
 
 <div class="version-diff-table" tabindex="0" aria-label="Tabel perbedaan versi">
   <table>
+    <caption>Tabel perbedaan versi</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -165,6 +172,7 @@ Agen yang memberi instruksi mengirim pacs.028 ke agen yang diinstruksikan untuk 
 
 <div class="message-comparison-table" tabindex="0" aria-label="Bandingkan pacs.028 vs pacs.002">
   <table>
+    <caption>Bandingkan pacs.028 vs pacs.002</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

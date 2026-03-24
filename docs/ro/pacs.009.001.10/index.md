@@ -4,6 +4,11 @@ description: Mesajul pacs.009 este utilizat pentru transferuri de credit între 
 lang: ro-RO
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "When should I choose pacs.009 over pacs.008?"
+    answer: "Choose pacs.009 for own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions."
+  - question: "Why is pacs.009 often harder to reconcile than expected?"
+    answer: "Because banks must preserve the relationship between treasury funding, correspondent legs, and any linked customer payment."
 ---
 
 # pacs.009.001.10 — Transfer de credit între instituții financiare
@@ -64,6 +69,7 @@ Mesajul pacs.009 este utilizat pentru transferuri de credit între instituții f
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Elemente de date cheie Context de afaceri">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ Instituția debitoare trimite pacs.009 instituției creditoare pentru a transfer
 
 <div class="version-diff-table" tabindex="0" aria-label="Tabelul diferențelor de versiune">
   <table>
+    <caption>Tabelul diferențelor de versiune</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -167,6 +174,7 @@ Instituția debitoare trimite pacs.009 instituției creditoare pentru a transfer
 
 <div class="message-comparison-table" tabindex="0" aria-label="Compară pacs.009 vs pacs.008">
   <table>
+    <caption>Compară pacs.009 vs pacs.008</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

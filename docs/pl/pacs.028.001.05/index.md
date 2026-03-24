@@ -4,6 +4,11 @@ description: Komunikat pacs.028 jest wysyłany przez instytucję finansową w ce
 lang: pl-PL
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Should pacs.028 be sent after every payment?"
+    answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic."
+  - question: "What makes pacs.028 useful?"
+    answer: "Clear timeout, escalation, and reconciliation rules around the original payment case."
 ---
 
 # pacs.028.001.05 — Zapytanie o status płatności FI-do-FI
@@ -64,6 +69,7 @@ Komunikat pacs.028 jest wysyłany przez instytucję finansową w celu zapytania 
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Kluczowe elementy danych Kontekst biznesowy">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ Agent zlecający wysyła pacs.028 do agenta zleconego w celu zapytania o status 
 
 <div class="version-diff-table" tabindex="0" aria-label="Tabela różnic wersji">
   <table>
+    <caption>Tabela różnic wersji</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -165,6 +172,7 @@ Agent zlecający wysyła pacs.028 do agenta zleconego w celu zapytania o status 
 
 <div class="message-comparison-table" tabindex="0" aria-label="Porównanie pacs.028 vs pacs.002">
   <table>
+    <caption>Porównanie pacs.028 vs pacs.002</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

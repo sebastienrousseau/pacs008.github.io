@@ -4,6 +4,11 @@ description: Повідомлення pacs.003 передається між ф�
 lang: uk-UA
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
+    answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."
+  - question: "What matters most operationally?"
+    answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation."
 ---
 
 # pacs.003.001.09 — Клієнтське пряме дебетування між фінансовими установами
@@ -64,6 +69,7 @@ image: /logo.svg
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Ключові елементи даних Бізнес-контекст">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ image: /logo.svg
 
 <div class="version-diff-table" tabindex="0" aria-label="Таблиця відмінностей версій">
   <table>
+    <caption>Таблиця відмінностей версій</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">

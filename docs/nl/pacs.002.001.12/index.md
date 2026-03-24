@@ -4,6 +4,11 @@ description: Het pacs.002-bericht wordt door een financiële instelling verzonde
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.002 a payment message?"
+    answer: "No. It reports status for an earlier instruction rather than moving value itself."
+  - question: "Should pacs.002 replace internal workflow states?"
+    answer: "No. It should inform them, but internal case states still need their own operational logic."
 ---
 
 # pacs.002.001.12 — FI-naar-FI-betalingsstatusrapport
@@ -64,6 +69,7 @@ Het pacs.002-bericht wordt door een financiële instelling verzonden om de statu
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Belangrijke gegevenselementen Zakelijke context">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ De opdrachthebbende agent (ontvanger) stuurt pacs.002 terug naar de opdrachtgeve
 
 <div class="version-diff-table" tabindex="0" aria-label="Tabel met versieverschillen">
   <table>
+    <caption>Tabel met versieverschillen</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -170,6 +177,7 @@ De opdrachthebbende agent (ontvanger) stuurt pacs.002 terug naar de opdrachtgeve
 
 <div class="message-comparison-table" tabindex="0" aria-label="Vergelijk pacs.002 vs pacs.028">
   <table>
+    <caption>Vergelijk pacs.002 vs pacs.028</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

@@ -4,6 +4,11 @@ description: Komunikat pacs.003 jest wymieniany między instytucjami finansowymi
 lang: pl-PL
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
+    answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."
+  - question: "What matters most operationally?"
+    answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation."
 ---
 
 # pacs.003.001.09 — Polecenie zapłaty klienta FI-do-FI
@@ -64,6 +69,7 @@ Komunikat pacs.003 jest wymieniany między instytucjami finansowymi w celu reali
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Kluczowe elementy danych Kontekst biznesowy">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ Agent wierzyciela inicjuje pacs.003 w kierunku agenta dłużnika w celu pobrania
 
 <div class="version-diff-table" tabindex="0" aria-label="Tabela różnic wersji">
   <table>
+    <caption>Tabela różnic wersji</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">

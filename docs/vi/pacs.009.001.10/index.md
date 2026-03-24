@@ -4,6 +4,11 @@ description: Thông điệp pacs.009 được sử dụng cho chuyển khoản t
 lang: vi-VN
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "When should I choose pacs.009 over pacs.008?"
+    answer: "Choose pacs.009 for own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions."
+  - question: "Why is pacs.009 often harder to reconcile than expected?"
+    answer: "Because banks must preserve the relationship between treasury funding, correspondent legs, and any linked customer payment."
 ---
 
 # pacs.009.001.10 — Chuyển khoản tín dụng giữa các tổ chức tài chính
@@ -64,6 +69,7 @@ Thông điệp pacs.009 được sử dụng cho chuyển khoản tín dụng gi
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Yếu tố dữ liệu chính Bối cảnh kinh doanh">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ Tổ chức con nợ gửi pacs.009 đến tổ chức chủ nợ để chuyển
 
 <div class="version-diff-table" tabindex="0" aria-label="Bảng khác biệt phiên bản">
   <table>
+    <caption>Bảng khác biệt phiên bản</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -167,6 +174,7 @@ Tổ chức con nợ gửi pacs.009 đến tổ chức chủ nợ để chuyển
 
 <div class="message-comparison-table" tabindex="0" aria-label="So sánh pacs.009 vs pacs.008">
   <table>
+    <caption>So sánh pacs.009 vs pacs.008</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

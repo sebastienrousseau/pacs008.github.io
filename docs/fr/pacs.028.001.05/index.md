@@ -4,6 +4,11 @@ description: Le message pacs.028 est envoyé par une institution financière pou
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Should pacs.028 be sent after every payment?"
+    answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic."
+  - question: "What makes pacs.028 useful?"
+    answer: "Clear timeout, escalation, and reconciliation rules around the original payment case."
 ---
 
 # pacs.028.001.05 — Demande de statut de paiement FI à FI
@@ -64,6 +69,7 @@ Le message pacs.028 est envoyé par une institution financière pour demander le
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Éléments de données clés Contexte métier">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ L'agent instructeur envoie pacs.028 à l'agent instruit pour demander le statut 
 
 <div class="version-diff-table" tabindex="0" aria-label="Tableau des écarts de version">
   <table>
+    <caption>Tableau des écarts de version</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -165,6 +172,7 @@ L'agent instructeur envoie pacs.028 à l'agent instruit pour demander le statut 
 
 <div class="message-comparison-table" tabindex="0" aria-label="Comparer pacs.028 vs pacs.002">
   <table>
+    <caption>Comparer pacs.028 vs pacs.002</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

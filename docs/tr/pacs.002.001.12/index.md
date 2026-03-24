@@ -4,6 +4,11 @@ description: pacs.002 mesajı, daha önce gönderilmiş bir ödeme talimatının
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.002 a payment message?"
+    answer: "No. It reports status for an earlier instruction rather than moving value itself."
+  - question: "Should pacs.002 replace internal workflow states?"
+    answer: "No. It should inform them, but internal case states still need their own operational logic."
 ---
 
 # pacs.002.001.12 — FI'dan FI'ya ödeme durumu raporu
@@ -64,6 +69,7 @@ pacs.002 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu bil
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Temel veri öğeleri İş bağlamı">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ Talimat alan aracı (alıcı), pacs.008 veya pacs.009 gibi alınan bir ödeme ta
 
 <div class="version-diff-table" tabindex="0" aria-label="Sürüm fark tablosu">
   <table>
+    <caption>Sürüm fark tablosu</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -170,6 +177,7 @@ Talimat alan aracı (alıcı), pacs.008 veya pacs.009 gibi alınan bir ödeme ta
 
 <div class="message-comparison-table" tabindex="0" aria-label="Karşılaştır pacs.002 vs pacs.028">
   <table>
+    <caption>Karşılaştır pacs.002 vs pacs.028</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

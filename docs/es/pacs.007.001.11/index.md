@@ -4,6 +4,11 @@ description: El mensaje pacs.007 se utiliza para revertir una instrucción de pa
 lang: es-ES
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.007 only for fraud scenarios?"
+    answer: "No. Fraud is a major use case, but any instructing-side need to reverse a payment can trigger it."
+  - question: "Can it be handled like a normal return?"
+    answer: "No. Reversal timing, reason capture, and reconciliation differ materially from returns."
 ---
 
 # pacs.007.001.11 — Reverso de pago FI a FI
@@ -64,6 +69,7 @@ El mensaje pacs.007 se utiliza para revertir una instrucción de pago enviada pr
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Elementos de datos clave Contexto de negocio">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ El agente ordenante (emisor original) envía pacs.007 a través de la cadena de 
 
 <div class="version-diff-table" tabindex="0" aria-label="Tabla de diferencias de versión">
   <table>
+    <caption>Tabla de diferencias de versión</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -167,6 +174,7 @@ El agente ordenante (emisor original) envía pacs.007 a través de la cadena de 
 
 <div class="message-comparison-table" tabindex="0" aria-label="Comparar pacs.007 vs pacs.004">
   <table>
+    <caption>Comparar pacs.007 vs pacs.004</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

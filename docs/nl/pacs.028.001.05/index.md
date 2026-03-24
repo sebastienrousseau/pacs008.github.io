@@ -4,6 +4,11 @@ description: Het pacs.028-bericht wordt door een financiële instelling verzonde
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Should pacs.028 be sent after every payment?"
+    answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic."
+  - question: "What makes pacs.028 useful?"
+    answer: "Clear timeout, escalation, and reconciliation rules around the original payment case."
 ---
 
 # pacs.028.001.05 — FI-naar-FI-aanvraag betalingsstatus
@@ -64,6 +69,7 @@ Het pacs.028-bericht wordt door een financiële instelling verzonden om de statu
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Belangrijke gegevenselementen Zakelijke context">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ De opdrachtgevende agent stuurt pacs.028 naar de opdrachthebbende agent om de st
 
 <div class="version-diff-table" tabindex="0" aria-label="Tabel met versieverschillen">
   <table>
+    <caption>Tabel met versieverschillen</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -165,6 +172,7 @@ De opdrachtgevende agent stuurt pacs.028 naar de opdrachthebbende agent om de st
 
 <div class="message-comparison-table" tabindex="0" aria-label="Vergelijk pacs.028 vs pacs.002">
   <table>
+    <caption>Vergelijk pacs.028 vs pacs.002</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

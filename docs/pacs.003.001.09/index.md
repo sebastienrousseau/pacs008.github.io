@@ -4,6 +4,11 @@ description: The pacs.003 message carries a customer direct debit between banks.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
+    answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."
+  - question: "What matters most operationally?"
+    answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation."
 ---
 
 # pacs.003.001.09 — FI to FI Customer Direct Debit
@@ -64,6 +69,7 @@ The pacs.003 message carries a customer direct debit between banks. It lets the 
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Key data elements Business context">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -120,6 +126,7 @@ Use this page for the version that pacs008 implements today, and review the newe
 
 <div class="version-diff-table" tabindex="0" aria-label="Version-diff table">
   <table>
+    <caption>Version history and implementation guidance</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">

@@ -4,6 +4,11 @@ description: pacs.009 संदेश का उपयोग वित्ती�
 lang: hi-IN
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "When should I choose pacs.009 over pacs.008?"
+    answer: "Choose pacs.009 for own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions."
+  - question: "Why is pacs.009 often harder to reconcile than expected?"
+    answer: "Because banks must preserve the relationship between treasury funding, correspondent legs, and any linked customer payment."
 ---
 
 # pacs.009.001.10 — वित्तीय संस्थानों के बीच क्रेडिट ट्रांसफर
@@ -64,6 +69,7 @@ pacs.009 संदेश का उपयोग वित्तीय संस�
 
 <div class="operational-matrix-table" tabindex="0" aria-label="प्रमुख डेटा तत्व व्यावसायिक संदर्भ">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ pacs.009 संदेश का उपयोग वित्तीय संस�
 
 <div class="version-diff-table" tabindex="0" aria-label="संस्करण अंतर तालिका">
   <table>
+    <caption>संस्करण अंतर तालिका</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -167,6 +174,7 @@ pacs.009 संदेश का उपयोग वित्तीय संस�
 
 <div class="message-comparison-table" tabindex="0" aria-label="तुलना pacs.009 vs pacs.008">
   <table>
+    <caption>तुलना pacs.009 vs pacs.008</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

@@ -4,6 +4,11 @@ description: הודעת pacs.002 נשלחת על ידי מוסד פיננסי ל
 lang: he-IL
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.002 a payment message?"
+    answer: "No. It reports status for an earlier instruction rather than moving value itself."
+  - question: "Should pacs.002 replace internal workflow states?"
+    answer: "No. It should inform them, but internal case states still need their own operational logic."
 ---
 
 # pacs.002.001.12 — דוח סטטוס תשלום בין מוסדות פיננסיים
@@ -64,6 +69,7 @@ image: /logo.svg
 
 <div class="operational-matrix-table" tabindex="0" aria-label="אלמנטי נתונים מרכזיים הקשר עסקי">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ image: /logo.svg
 
 <div class="version-diff-table" tabindex="0" aria-label="טבלת הבדלי גרסאות">
   <table>
+    <caption>טבלת הבדלי גרסאות</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -170,6 +177,7 @@ image: /logo.svg
 
 <div class="message-comparison-table" tabindex="0" aria-label="השוואה pacs.002 vs pacs.028">
   <table>
+    <caption>השוואה pacs.002 vs pacs.028</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

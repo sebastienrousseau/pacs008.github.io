@@ -4,6 +4,11 @@ description: pacs.002 संदेश एक वित्तीय संस्�
 lang: hi-IN
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.002 a payment message?"
+    answer: "No. It reports status for an earlier instruction rather than moving value itself."
+  - question: "Should pacs.002 replace internal workflow states?"
+    answer: "No. It should inform them, but internal case states still need their own operational logic."
 ---
 
 # pacs.002.001.12 — FI-से-FI भुगतान स्थिति रिपोर्ट
@@ -64,6 +69,7 @@ pacs.002 संदेश एक वित्तीय संस्थान द�
 
 <div class="operational-matrix-table" tabindex="0" aria-label="प्रमुख डेटा तत्व व्यावसायिक संदर्भ">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ pacs.002 संदेश एक वित्तीय संस्थान द�
 
 <div class="version-diff-table" tabindex="0" aria-label="संस्करण अंतर तालिका">
   <table>
+    <caption>संस्करण अंतर तालिका</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -170,6 +177,7 @@ pacs.002 संदेश एक वित्तीय संस्थान द�
 
 <div class="message-comparison-table" tabindex="0" aria-label="तुलना pacs.002 vs pacs.028">
   <table>
+    <caption>तुलना pacs.002 vs pacs.028</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

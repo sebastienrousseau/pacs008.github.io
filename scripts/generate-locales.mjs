@@ -66,7 +66,11 @@ const messageTypes = [
     version: 12,
     versions: ["pacs.002.001.12"],
     relatedSlugs: ["pacs.008.001.13", "pacs.009.001.10", "pacs.028.001.05"],
-    copyPrefix: "pacs002"
+    copyPrefix: "pacs002",
+    faq: [
+      { question: "Is pacs.002 a payment message?", answer: "No. It reports status for an earlier instruction rather than moving value itself." },
+      { question: "Should pacs.002 replace internal workflow states?", answer: "No. It should inform them, but internal case states still need their own operational logic." }
+    ]
   },
   {
     id: "pacs.003",
@@ -78,7 +82,11 @@ const messageTypes = [
     version: 9,
     versions: ["pacs.003.001.09"],
     relatedSlugs: ["pacs.004.001.11", "pacs.007.001.11", "pacs.002.001.12"],
-    copyPrefix: "pacs003"
+    copyPrefix: "pacs003",
+    faq: [
+      { question: "Is pacs.003 the direct-debit mirror of pacs.008?", answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules." },
+      { question: "What matters most operationally?", answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation." }
+    ]
   },
   {
     id: "pacs.004",
@@ -90,7 +98,11 @@ const messageTypes = [
     version: 11,
     versions: ["pacs.004.001.11"],
     relatedSlugs: ["pacs.008.001.13", "pacs.003.001.09", "pacs.002.001.12"],
-    copyPrefix: "pacs004"
+    copyPrefix: "pacs004",
+    faq: [
+      { question: "What is the difference between pacs.004 and pacs.007?", answer: "pacs.004 returns settled funds from the receiving side, while pacs.007 requests reversal from the original instructing side." },
+      { question: "Should every failed beneficiary credit become pacs.004?", answer: "Not automatically. The right path depends on scheme rules, settlement stage, and counterparty handling." }
+    ]
   },
   {
     id: "pacs.007",
@@ -102,7 +114,11 @@ const messageTypes = [
     version: 11,
     versions: ["pacs.007.001.11"],
     relatedSlugs: ["pacs.008.001.13", "pacs.004.001.11", "pacs.002.001.12"],
-    copyPrefix: "pacs007"
+    copyPrefix: "pacs007",
+    faq: [
+      { question: "Is pacs.007 only for fraud scenarios?", answer: "No. Fraud is a major use case, but any instructing-side need to reverse a payment can trigger it." },
+      { question: "Can it be handled like a normal return?", answer: "No. Reversal timing, reason capture, and reconciliation differ materially from returns." }
+    ]
   },
   {
     id: "pacs.008",
@@ -120,7 +136,11 @@ const messageTypes = [
       "pacs.008.001.13"
     ],
     relatedSlugs: ["pacs.002.001.12", "pacs.004.001.11", "pacs.009.001.10"],
-    copyPrefix: "pacs008d"
+    copyPrefix: "pacs008d",
+    faq: [
+      { question: "Is pacs.008 enough on its own for production payments?", answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows." },
+      { question: "What causes the most repair work?", answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes." }
+    ]
   },
   {
     id: "pacs.009",
@@ -132,7 +152,11 @@ const messageTypes = [
     version: 10,
     versions: ["pacs.009.001.10"],
     relatedSlugs: ["pacs.008.001.13", "pacs.002.001.12", "pacs.010.001.05"],
-    copyPrefix: "pacs009"
+    copyPrefix: "pacs009",
+    faq: [
+      { question: "When should I choose pacs.009 over pacs.008?", answer: "Choose pacs.009 for own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions." },
+      { question: "Why is pacs.009 often harder to reconcile than expected?", answer: "Because banks must preserve the relationship between treasury funding, correspondent legs, and any linked customer payment." }
+    ]
   },
   {
     id: "pacs.010",
@@ -144,7 +168,11 @@ const messageTypes = [
     version: 5,
     versions: ["pacs.010.001.05"],
     relatedSlugs: ["pacs.009.001.10", "pacs.002.001.12", "pacs.003.001.09"],
-    copyPrefix: "pacs010"
+    copyPrefix: "pacs010",
+    faq: [
+      { question: "Is pacs.010 common in retail payment products?", answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products." },
+      { question: "What should teams design first?", answer: "Start with approval rules, bilateral controls, and exception handling before finalising XML templates." }
+    ]
   },
   {
     id: "pacs.028",
@@ -156,7 +184,11 @@ const messageTypes = [
     version: 5,
     versions: ["pacs.028.001.05"],
     relatedSlugs: ["pacs.002.001.12", "pacs.008.001.13", "pacs.009.001.10"],
-    copyPrefix: "pacs028"
+    copyPrefix: "pacs028",
+    faq: [
+      { question: "Should pacs.028 be sent after every payment?", answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic." },
+      { question: "What makes pacs.028 useful?", answer: "Clear timeout, escalation, and reconciliation rules around the original payment case." }
+    ]
   }
 ];
 
@@ -529,6 +561,57 @@ const pageCopy = {
     termsChangesText: "These terms of use may be updated at any time. Continued use of the website after changes constitutes acceptance of the revised terms.",
     termsContactTitle: "Contact",
     termsContactText: "If you have questions about these terms, please visit the [contact page](/contact/).",
+    authorTitle: "About the author",
+    authorDescription: "About Sebastien Rousseau, the author and maintainer of pacs008, an open-source ISO 20022 payment message toolkit.",
+    authorIntro: "Sebastien Rousseau is the author and maintainer of pacs008. He works at the intersection of payment infrastructure, open-source tooling, and ISO 20022 standards adoption.",
+    authorBackgroundTitle: "Background",
+    authorBackgroundText: "Sebastien brings experience in payment systems, financial messaging standards, and software engineering. His work on pacs008 focuses on helping teams validate, generate, and ship ISO 20022 payment messages with less manual effort.",
+    authorLinksTitle: "Links",
+    authorEditorialTitle: "Editorial standards",
+    authorEditorialText: "All content on pacs008.com is reviewed against primary sources including the ISO 20022 message catalogue, SWIFT CBPR+ documentation, and EPC rulebooks. Each message page shows a review date and links to the sources used.\n\nTranslated content is generated from reviewed English source material and structurally verified for consistency across all 22 supported languages. Technical terms and ISO identifiers remain in their standard form across all locales.",
+    editorialTitle: "Editorial policy",
+    editorialDescription: "How pacs008.com content is created, reviewed, and maintained. Sources, review process, and update schedule.",
+    editorialIntro: "This page explains how content on pacs008.com is created, reviewed, and kept current.",
+    editorialSourcesTitle: "Sources",
+    editorialSourcesIntro: "All message documentation is based on primary sources:",
+    editorialReviewTitle: "Review process",
+    editorialReviewText: "Each message page shows a review date. Reviews check that version numbers, registration status, and scheme context still match the primary sources listed above.\n\nContent is updated when ISO 20022 publishes new catalogue versions, when SWIFT releases updated usage guidelines, or when scheme rules change.",
+    editorialGenerationTitle: "Content generation",
+    editorialGenerationText: "Page structure and translated content are generated from reviewed English source material using a build script. This ensures structural consistency across all 22 languages while keeping technical terms and ISO identifiers in their standard form.",
+    editorialAccuracyTitle: "Accuracy and limits",
+    editorialAccuracyText: "pacs008.com aims to be accurate and current, but it is not a substitute for scheme rulebooks, counterparty agreements, or legal advice. Always confirm implementation details against the primary sources and the specific rules of the market or scheme you operate in.",
+    editorialContactTitle: "Contact",
+    editorialContactText: "If you find an error or have a correction, please open an issue in the [pacs008 repository](https://github.com/sebastienrousseau/pacs008/issues).",
+    structuredAddressTitle: "November 2026 structured-address deadline",
+    structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
+    structuredAddressIntro: "SWIFT requires structured postal addresses in cross-border payment messages from November 2026. This page explains what changes, which messages are affected, and how pacs008 helps teams prepare.",
+    structuredAddressWhatTitle: "What is changing",
+    structuredAddressWhatText: "SWIFT CBPR+ is moving from unstructured postal addresses to structured address fields in cross-border payment messages. After the November 2026 deadline, key party address fields must use the structured format with separate elements for street name, building number, post code, town, and country.",
+    structuredAddressWhyTitle: "Why it matters",
+    structuredAddressWhy1: "Unstructured addresses increase manual repair rates and delay straight-through processing.",
+    structuredAddressWhy2: "Structured addresses improve sanctions screening accuracy by separating party name from location data.",
+    structuredAddressWhy3: "Regulatory and scheme requirements increasingly mandate structured data for compliance and reporting.",
+    structuredAddressWhy4: "Cross-border payment rejection rates rise when address quality does not meet counterparty expectations.",
+    structuredAddressWhichTitle: "Which messages are affected",
+    structuredAddressWhich1: "**pacs.008** — debtor and creditor postal addresses in customer credit transfers.",
+    structuredAddressWhich2: "**pacs.009** — institution addresses in financial institution credit transfers and cover payments.",
+    structuredAddressWhich3: "**pacs.004** — party addresses in payment returns.",
+    structuredAddressWhich4: "**pacs.003** — creditor and debtor addresses in customer direct debits.",
+    structuredAddressHowTitle: "How pacs008 helps",
+    structuredAddressHow1: "Validates structured and hybrid postal address fields before XML generation.",
+    structuredAddressHow2: "Flags unstructured address data that would fail after the deadline.",
+    structuredAddressHow3: "Supports both pre-deadline hybrid formats and post-deadline structured-only formats.",
+    structuredAddressHow4: "Integrates address quality checks into CI pipelines and batch validation workflows.",
+    structuredAddressTimelineTitle: "Timeline",
+    structuredAddressTimeline1: "**March 2023** — SWIFT CBPR+ goes live with ISO 20022 for cross-border payments.",
+    structuredAddressTimeline2: "**November 2025** — coexistence period for MT and MX payment instructions ends.",
+    structuredAddressTimeline3: "**November 2026** — structured postal address requirement takes effect for CBPR+ messages.",
+    structuredAddressActionTitle: "What to do now",
+    structuredAddressAction1: "Audit current address data quality across debtor, creditor, and agent records.",
+    structuredAddressAction2: "Map existing unstructured address fields to the structured format (street, building, post code, town, country).",
+    structuredAddressAction3: "Add address validation to your pre-generation pipeline using pacs008.",
+    structuredAddressAction4: "Test with representative payment data before the deadline.",
+    structuredAddressRefsTitle: "References",
     msgDetailIdentifier: "Identifier",
     msgDetailIsoName: "ISO name",
     msgDetailStatus: "Registration status",
@@ -10804,8 +10887,11 @@ function copyFor(localeKey) {
   return { ...pageCopy.en, ...(pageCopy[localeKey] ?? {}), ...(PAGE_COPY_PATCH[localeKey] ?? {}) };
 }
 
-function pageTemplate({ title, description, lang, body }) {
-  return `---\ntitle: ${title}\ndescription: ${description}\nlang: ${lang}\nlastUpdated: true\nimage: /logo.svg\n---\n\n${body}\n`;
+function pageTemplate({ title, description, lang, body, extraFrontmatter }) {
+  let fm = `---\ntitle: ${title}\ndescription: ${description}\nlang: ${lang}\nlastUpdated: true\nimage: /logo.svg`;
+  if (extraFrontmatter) fm += `\n${extraFrontmatter}`;
+  fm += `\n---\n\n${body}\n`;
+  return fm;
 }
 
 function localizedMessageName(localeKey, msgType) {
@@ -10861,15 +10947,16 @@ function formatInlineMarkup(value) {
     .replace(/`([^`]+)`/g, "<code>$1</code>");
 }
 
-function htmlTable({ className, ariaLabel, columns, rows }) {
+function htmlTable({ className, ariaLabel, caption, columns, rows }) {
   const colgroup = columns.map((column) => `      <col class="${column.className}">`).join("\n");
   const head = columns.map((column) => `        <th${column.scope ? ` scope="${column.scope}"` : ""}>${escapeHtml(column.label)}</th>`).join("\n");
   const body = rows.map((row) => `        <tr>
 ${row.map((cell) => `          <td class="${cell.className}">${cell.html}</td>`).join("\n")}
         </tr>`).join("\n");
+  const captionHtml = caption ? `\n    <caption>${escapeHtml(caption)}</caption>` : "";
 
   return `<div class="${className}" tabindex="0" aria-label="${escapeHtml(ariaLabel)}">
-  <table>
+  <table>${captionHtml}
     <colgroup>
 ${colgroup}
     </colgroup>
@@ -10955,6 +11042,7 @@ function messageOperationalMatrix(localeKey, msgType) {
   return htmlTable({
     className: "operational-matrix-table",
     ariaLabel: `${t.msgDetailKeyElements} ${t.msgDetailBusinessContext}`,
+    caption: "Key data elements and business context",
     columns: [
       { className: "operational-matrix-table__col-left", label: t.msgDetailKeyElements },
       { className: "operational-matrix-table__col-right", label: t.msgDetailBusinessContext }
@@ -11483,6 +11571,7 @@ function englishVersionDiffTable(msgType) {
 ${htmlTable({
     className: "version-diff-table",
     ariaLabel: "Version-diff table",
+    caption: "Version history and implementation guidance",
     columns: [
       { className: "version-diff-table__col-range", label: "Version range" },
       { className: "version-diff-table__col-why", label: "Why it matters" },
@@ -11526,6 +11615,7 @@ function localizedVersionDiffTable(localeKey, msgType) {
 ${htmlTable({
     className: "version-diff-table",
     ariaLabel: copy.versionDiffTableTitle,
+    caption: copy.versionDiffTableTitle,
     columns: [
       { className: "version-diff-table__col-range", label: copy.versionRange },
       { className: "version-diff-table__col-why", label: copy.whyItMatters },
@@ -11585,6 +11675,7 @@ function englishComparisonSection(msgType) {
 ${htmlTable({
     className: "message-comparison-table",
     ariaLabel: block.title,
+    caption: `Comparison of ${msgType.slug} and ${block.title.replace(/^Compare\s+\S+\s+vs\s+/i, "")}`,
     columns: [
       { className: "message-comparison-table__col-dimension", label: "Dimension" },
       { className: "message-comparison-table__col-current", label: msgType.slug },
@@ -11610,6 +11701,7 @@ function localizedComparisonSection(localeKey, msgType) {
 ${htmlTable({
     className: "message-comparison-table",
     ariaLabel: `${copy.compareTitlePrefix} ${block.title.replace(/^Compare\s+/i, "")}`,
+    caption: `${copy.compareTitlePrefix} ${block.title.replace(/^Compare\s+/i, "")}`,
     columns: [
       { className: "message-comparison-table__col-dimension", label: copy.dimension },
       { className: "message-comparison-table__col-current", label: msgType.slug },
@@ -12588,6 +12680,112 @@ function translateContactLabel(localeKey, label) {
   return (labels[localeKey] ?? labels.en)[label];
 }
 
+function authorBody(localeKey) {
+  const t = copyFor(localeKey);
+  return `# ${t.authorTitle}
+
+${t.authorIntro}
+
+## ${t.authorBackgroundTitle}
+
+${t.authorBackgroundText}
+
+## ${t.authorLinksTitle}
+
+- Website: [sebastienrousseau.com](https://sebastienrousseau.com/)
+- GitHub: [github.com/sebastienrousseau](https://github.com/sebastienrousseau)
+- pacs008 repository: [github.com/sebastienrousseau/pacs008](https://github.com/sebastienrousseau/pacs008)
+- PyPI: [pypi.org/project/pacs008](https://pypi.org/project/pacs008/)
+
+## ${t.authorEditorialTitle}
+
+${t.authorEditorialText}`;
+}
+
+function editorialBody(localeKey) {
+  const t = copyFor(localeKey);
+  return `# ${t.editorialTitle}
+
+${t.editorialIntro}
+
+## ${t.editorialSourcesTitle}
+
+${t.editorialSourcesIntro}
+
+- [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions) for message specifications and version history.
+- [SWIFT CBPR+ usage guidelines](https://www.swift.com/standards/iso-20022) for cross-border payment context.
+- [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) for euro credit transfer rules.
+- [EPC SEPA Instant Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) for instant payment rules.
+
+## ${t.editorialReviewTitle}
+
+${t.editorialReviewText}
+
+## ${t.editorialGenerationTitle}
+
+${t.editorialGenerationText}
+
+## ${t.editorialAccuracyTitle}
+
+${t.editorialAccuracyText}
+
+## ${t.editorialContactTitle}
+
+${t.editorialContactText}`;
+}
+
+function structuredAddressBody(localeKey) {
+  const t = copyFor(localeKey);
+  return `# ${t.structuredAddressTitle}
+
+${t.structuredAddressIntro}
+
+## ${t.structuredAddressWhatTitle}
+
+${t.structuredAddressWhatText}
+
+## ${t.structuredAddressWhyTitle}
+
+- ${t.structuredAddressWhy1}
+- ${t.structuredAddressWhy2}
+- ${t.structuredAddressWhy3}
+- ${t.structuredAddressWhy4}
+
+## ${t.structuredAddressWhichTitle}
+
+- ${t.structuredAddressWhich1}
+- ${t.structuredAddressWhich2}
+- ${t.structuredAddressWhich3}
+- ${t.structuredAddressWhich4}
+
+## ${t.structuredAddressHowTitle}
+
+- ${t.structuredAddressHow1}
+- ${t.structuredAddressHow2}
+- ${t.structuredAddressHow3}
+- ${t.structuredAddressHow4}
+
+## ${t.structuredAddressTimelineTitle}
+
+- ${t.structuredAddressTimeline1}
+- ${t.structuredAddressTimeline2}
+- ${t.structuredAddressTimeline3}
+
+## ${t.structuredAddressActionTitle}
+
+- ${t.structuredAddressAction1}
+- ${t.structuredAddressAction2}
+- ${t.structuredAddressAction3}
+- ${t.structuredAddressAction4}
+
+## ${t.structuredAddressRefsTitle}
+
+- [Swift CBPR+ roadmap and standards programme](https://www.swift.com/standards/iso-20022/iso-20022-programme/cbpr-roadmap)
+- [Swift CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released)
+- [Swift CBPR+ migration roadmap PDF](https://www.swift.com/swift-resource/252463/download)
+`;
+}
+
 function contactBody(localeKey) {
   const t = copyFor(localeKey);
   if (localeKey === "en") {
@@ -12717,15 +12915,34 @@ for (const locale of locales) {
     lang: locale.lang,
     body: termsBody(locale.key)
   }));
+  await write(path.join(base, "editorial", "index.md"), pageTemplate({
+    title: sectionPageTitle(locale.key, "editorial", pageTitle(`${t.editorialTitle} | pacs008`)),
+    description: localeSectionDescription(locale, t.editorialDescription),
+    lang: locale.lang,
+    body: editorialBody(locale.key)
+  }));
+  await write(path.join(base, "structured-address", "index.md"), pageTemplate({
+    title: sectionPageTitle(locale.key, "structured-address", pageTitle(`${t.structuredAddressTitle} | pacs008`)),
+    description: localeSectionDescription(locale, t.structuredAddressDescription),
+    lang: locale.lang,
+    body: structuredAddressBody(locale.key)
+  }));
   for (const msgType of messageTypes) {
+    let faqFrontmatter = "";
+    if (msgType.faq && msgType.faq.length > 0) {
+      faqFrontmatter = "faq:\n" + msgType.faq.map(
+        (item) => `  - question: ${JSON.stringify(item.question)}\n    answer: ${JSON.stringify(item.answer)}`
+      ).join("\n");
+    }
     await write(path.join(base, msgType.slug, "index.md"), pageTemplate({
       title: pageTitle(`${msgType.slug} | ${localizedMessageName(locale.key, msgType)}`),
       description: clampDescription(t[msgType.copyPrefix + "Overview"]),
       lang: locale.lang,
-      body: messageTypeDetailBody(locale.key, msgType)
+      body: messageTypeDetailBody(locale.key, msgType),
+      extraFrontmatter: faqFrontmatter || undefined
     }));
   }
 }
 
-const totalPages = locales.length * (7 + messageTypes.length);
+const totalPages = locales.length * (9 + messageTypes.length);
 console.log(`Generated ${totalPages} pages across ${locales.length} locales for pacs008.`);

@@ -4,6 +4,11 @@ description: Pesan pacs.007 digunakan untuk membalikkan instruksi pembayaran yan
 lang: id-ID
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.007 only for fraud scenarios?"
+    answer: "No. Fraud is a major use case, but any instructing-side need to reverse a payment can trigger it."
+  - question: "Can it be handled like a normal return?"
+    answer: "No. Reversal timing, reason capture, and reconciliation differ materially from returns."
 ---
 
 # pacs.007.001.11 — Pembalikan Pembayaran FI ke FI
@@ -64,6 +69,7 @@ Pesan pacs.007 digunakan untuk membalikkan instruksi pembayaran yang sebelumnya 
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Elemen data utama Konteks bisnis">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ Agen yang memberi instruksi (pengirim asli) mengirim pacs.007 maju melalui ranta
 
 <div class="version-diff-table" tabindex="0" aria-label="Tabel perbedaan versi">
   <table>
+    <caption>Tabel perbedaan versi</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -167,6 +174,7 @@ Agen yang memberi instruksi (pengirim asli) mengirim pacs.007 maju melalui ranta
 
 <div class="message-comparison-table" tabindex="0" aria-label="Bandingkan pacs.007 vs pacs.004">
   <table>
+    <caption>Bandingkan pacs.007 vs pacs.004</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">

@@ -4,6 +4,11 @@ description: Thông điệp pacs.007 được sử dụng để đảo ngược 
 lang: vi-VN
 lastUpdated: true
 image: /logo.svg
+faq:
+  - question: "Is pacs.007 only for fraud scenarios?"
+    answer: "No. Fraud is a major use case, but any instructing-side need to reverse a payment can trigger it."
+  - question: "Can it be handled like a normal return?"
+    answer: "No. Reversal timing, reason capture, and reconciliation differ materially from returns."
 ---
 
 # pacs.007.001.11 — Đảo ngược thanh toán giữa các tổ chức tài chính
@@ -64,6 +69,7 @@ Thông điệp pacs.007 được sử dụng để đảo ngược lệnh thanh 
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Yếu tố dữ liệu chính Bối cảnh kinh doanh">
   <table>
+    <caption>Key data elements and business context</caption>
     <colgroup>
       <col class="operational-matrix-table__col-left">
       <col class="operational-matrix-table__col-right">
@@ -114,6 +120,7 @@ Thông điệp pacs.007 được sử dụng để đảo ngược lệnh thanh 
 
 <div class="version-diff-table" tabindex="0" aria-label="Bảng khác biệt phiên bản">
   <table>
+    <caption>Bảng khác biệt phiên bản</caption>
     <colgroup>
       <col class="version-diff-table__col-range">
       <col class="version-diff-table__col-why">
@@ -167,6 +174,7 @@ Thông điệp pacs.007 được sử dụng để đảo ngược lệnh thanh 
 
 <div class="message-comparison-table" tabindex="0" aria-label="So sánh pacs.007 vs pacs.004">
   <table>
+    <caption>So sánh pacs.007 vs pacs.004</caption>
     <colgroup>
       <col class="message-comparison-table__col-dimension">
       <col class="message-comparison-table__col-current">
