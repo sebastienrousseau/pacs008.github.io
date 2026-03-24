@@ -12,159 +12,159 @@ This glossary defines the key terms, abbreviations, and technical concepts used 
 
 ## A
 
-**ACH** — Automated Clearing House. A network that processes batched electronic payments between financial institutions.
+**ACH** — Cámara de compensación automatizada. Una red que procesa pagos electrónicos por lotes entre instituciones financieras.
 
-**AdrLine** — Address Line. A free-text address field in ISO 20022 postal address structures. Up to 7 lines of 70 characters each. Being replaced by structured address elements for CBPR+ by November 2026.
+**AdrLine** — Línea de dirección. Un campo de dirección en texto libre en las estructuras de dirección postal ISO 20022. Hasta 7 líneas de 70 caracteres cada una. Será reemplazado por elementos de dirección estructurados para CBPR+ antes de noviembre de 2026.
 
-**ACCP** — Accepted Customer Profile. A pacs.002 status code indicating that preceding checks (syntax, customer profile) have passed.
+**ACCP** — Perfil de cliente aceptado. Un código de estado pacs.002 que indica que las verificaciones anteriores (sintaxis, perfil del cliente) han sido superadas.
 
-**ACSC** — Accepted Settlement Completed. A pacs.002 status code confirming that settlement on the debtor's account has been completed.
+**ACSC** — Liquidación aceptada completada. Un código de estado pacs.002 que confirma que la liquidación en la cuenta del deudor ha sido completada.
 
-**ACSP** — Accepted Settlement in Process. A pacs.002 status code indicating all checks passed and settlement is in progress.
+**ACSP** — Liquidación aceptada en proceso. Un código de estado pacs.002 que indica que todas las verificaciones han sido superadas y la liquidación está en curso.
 
 ## B
 
-**BAH** — Business Application Header (head.001). A standardised envelope that wraps ISO 20022 business messages for transport via SWIFT. Contains routing information, message definition identifier, and sender/receiver BICs.
+**BAH** — Cabecera de aplicación de negocio (head.001). Un sobre estandarizado que envuelve los mensajes de negocio ISO 20022 para su transporte a través de SWIFT. Contiene información de enrutamiento, identificador de definición del mensaje y BICs del emisor/receptor.
 
-**BIC** — Business Identifier Code (ISO 9362). An 8 or 11 character code that uniquely identifies a financial institution. Format: BBBBCCLL (bank code + country + location) with optional BBB branch code.
+**BIC** — Código de identificación de negocio (ISO 9362). Un código de 8 u 11 caracteres que identifica de forma única a una institución financiera. Formato: BBBBCCLL (código de banco + país + localización) con código de sucursal BBB opcional.
 
 ## C
 
-**CBPR+** — Cross-Border Payments and Reporting Plus. SWIFT's programme for migrating cross-border payment messaging from MT to ISO 20022. Went live March 2023.
+**CBPR+** — Pagos y reportes transfronterizos Plus. El programa de SWIFT para la migración de la mensajería de pagos transfronterizos de MT a ISO 20022. Entró en funcionamiento en marzo de 2023.
 
-**CdtTrfTxInf** — Credit Transfer Transaction Information. The main transaction-level building block in pacs.008 containing payment details, parties, amounts, and remittance information.
+**CdtTrfTxInf** — Información de transacción de transferencia de crédito. El principal bloque de construcción a nivel de transacción en pacs.008 que contiene detalles de pago, partes, importes e información de remesa.
 
-**ChrgBr** — Charge Bearer. Specifies who pays the transaction charges. Values: DEBT (debtor), CRED (creditor), SHAR (shared), SLEV (service level, SEPA only).
+**ChrgBr** — Portador de cargos. Especifica quién paga los cargos de la transacción. Valores: DEBT (deudor), CRED (acreedor), SHAR (compartido), SLEV (nivel de servicio, solo SEPA).
 
-**CLRG** — Clearing system settlement. A settlement method where funds move through a clearing system such as TARGET2, EURO1, or CHIPS.
+**CLRG** — Liquidación por sistema de compensación. Un método de liquidación donde los fondos se mueven a través de un sistema de compensación como TARGET2, EURO1 o CHIPS.
 
-**COVE** — Cover method settlement. A settlement method where a separate pacs.009 cover payment handles the funding between correspondents while pacs.008 carries the customer data directly.
+**COVE** — Liquidación por método de cobertura. Un método de liquidación donde un pago de cobertura pacs.009 separado gestiona la financiación entre corresponsales mientras pacs.008 transporta los datos del cliente directamente.
 
-**CSM** — Clearing and Settlement Mechanism. An infrastructure that processes and settles payment instructions between participating institutions.
+**CSM** — Mecanismo de compensación y liquidación. Una infraestructura que procesa y liquida instrucciones de pago entre instituciones participantes.
 
 ## D
 
-**Dbtr** — Debtor. The party that owes funds and initiates the payment. In pacs.008, the Dbtr element carries the debtor's name, postal address, identification, and country of residence.
+**Dbtr** — Deudor. La parte que adeuda fondos e inicia el pago. En pacs.008, el elemento Dbtr contiene el nombre del deudor, la dirección postal, la identificación y el país de residencia.
 
-**DbtrAgt** — Debtor Agent. The financial institution that services the debtor's account and sends the pacs.008 instruction.
+**DbtrAgt** — Agente del deudor. La institución financiera que gestiona la cuenta del deudor y envía la instrucción pacs.008.
 
 ## E
 
-**E2E ID** — End-to-End Identification (EndToEndId). A reference assigned by the originator that must remain unchanged across all agents in the payment chain. Used for customer-level traceability.
+**E2E ID** — Identificación de extremo a extremo (EndToEndId). Una referencia asignada por el originador que debe permanecer sin cambios a través de todos los agentes en la cadena de pago. Utilizada para la trazabilidad a nivel de cliente.
 
-**EPC** — European Payments Council. The body that manages SEPA payment scheme rulebooks for credit transfers and direct debits.
+**EPC** — Consejo Europeo de Pagos. El organismo que gestiona los reglamentos de los esquemas de pago SEPA para transferencias de crédito y débitos directos.
 
 ## F
 
-**FI** — Financial Institution. A bank or other institution that participates in payment clearing and settlement.
+**FI** — Institución financiera. Un banco u otra institución que participa en la compensación y liquidación de pagos.
 
-**FIToFI** — Financial Institution to Financial Institution. Describes the interbank domain where pacs messages operate.
+**FIToFI** — Institución financiera a institución financiera. Describe el dominio interbancario donde operan los mensajes pacs.
 
 ## G
 
-**gpi** — Global Payments Innovation. SWIFT's initiative for faster, transparent cross-border payments. Uses UETR for end-to-end tracking via a cloud-based Tracker.
+**gpi** — Innovación global de pagos. La iniciativa de SWIFT para pagos transfronterizos más rápidos y transparentes. Utiliza UETR para el seguimiento de extremo a extremo a través de un Tracker basado en la nube.
 
-**GrpHdr** — Group Header. The message-level metadata block in pacs messages. Contains MsgId, CreDtTm, NbOfTxs, settlement information, and payment type information.
+**GrpHdr** — Cabecera de grupo. El bloque de metadatos a nivel de mensaje en los mensajes pacs. Contiene MsgId, CreDtTm, NbOfTxs, información de liquidación e información de tipo de pago.
 
 ## H
 
-**Hybrid address** — A postal address format that combines structured elements (StrtNm, TwnNm, Ctry) with unstructured AdrLine elements. Permitted during the transition period before the November 2026 structured address deadline.
+**Hybrid address** — Un formato de dirección postal que combina elementos estructurados (StrtNm, TwnNm, Ctry) con elementos no estructurados AdrLine. Permitido durante el período de transición antes de la fecha límite de dirección estructurada de noviembre de 2026.
 
 ## I
 
-**IBAN** — International Bank Account Number (ISO 13616). A standardised account number format used for cross-border and domestic payments. Validated using ISO 7064 Mod 97-10 checksum.
+**IBAN** — Número de cuenta bancaria internacional (ISO 13616). Un formato de número de cuenta estandarizado utilizado para pagos transfronterizos y nacionales. Validado mediante la suma de verificación ISO 7064 Mod 97-10.
 
-**INDA** — Instructed Agent settlement. A settlement method where funds settle on the books of the instructed agent, where the debtor agent holds a nostro account.
+**INDA** — Liquidación por agente instruido. Un método de liquidación donde los fondos se liquidan en los libros del agente instruido, donde el agente del deudor mantiene una cuenta nostro.
 
-**INGA** — Instructing Agent settlement. A settlement method where funds settle on the books of the instructing agent, where the instructed agent holds a nostro account.
+**INGA** — Liquidación por agente instructor. Un método de liquidación donde los fondos se liquidan en los libros del agente instructor, donde el agente instruido mantiene una cuenta nostro.
 
-**InstrId** — Instruction Identification. A point-to-point reference between adjacent agents in the payment chain. May change at each hop.
+**InstrId** — Identificación de instrucción. Una referencia punto a punto entre agentes adyacentes en la cadena de pago. Puede cambiar en cada salto.
 
-**IntrBkSttlmAmt** — Interbank Settlement Amount. The amount that settles between the instructing and instructed agents, in the settlement currency.
+**IntrBkSttlmAmt** — Importe de liquidación interbancaria. El importe que se liquida entre el agente instructor y el agente instruido, en la moneda de liquidación.
 
-**ISO 20022** — An international standard for electronic data interchange between financial institutions. Defines a common data model and XML-based message formats for payments, securities, trade finance, and other financial domains.
+**ISO 20022** — Un estándar internacional para el intercambio electrónico de datos entre instituciones financieras. Define un modelo de datos común y formatos de mensajes basados en XML para pagos, valores, financiación del comercio y otros dominios financieros.
 
 ## L
 
-**LEI** — Legal Entity Identifier (ISO 17442). A 20-character alphanumeric code that uniquely identifies legal entities participating in financial transactions. Used in OrgId/LEI for parties and FinInstnId/LEI for agents.
+**LEI** — Identificador de entidad jurídica (ISO 17442). Un código alfanumérico de 20 caracteres que identifica de forma única a las entidades jurídicas que participan en transacciones financieras. Utilizado en OrgId/LEI para partes y FinInstnId/LEI para agentes.
 
 ## M
 
-**MsgId** — Message Identification. A unique identifier for the message envelope, assigned by the sending agent. Changes at each hop in the payment chain.
+**MsgId** — Identificación de mensaje. Un identificador único para el sobre del mensaje, asignado por el agente emisor. Cambia en cada salto de la cadena de pago.
 
-**MT** — Message Type. SWIFT's legacy message format (e.g., MT103 for customer credit transfers, MT202 for financial institution transfers). Being replaced by ISO 20022 MX messages.
+**MT** — Tipo de mensaje. El formato de mensaje heredado de SWIFT (p. ej., MT103 para transferencias de crédito de clientes, MT202 para transferencias entre instituciones financieras). Será reemplazado por mensajes MX ISO 20022.
 
-**MX** — The ISO 20022 XML message format used by SWIFT. MX messages replace MT messages for cross-border payments under CBPR+.
+**MX** — El formato de mensaje XML ISO 20022 utilizado por SWIFT. Los mensajes MX reemplazan a los mensajes MT para pagos transfronterizos bajo CBPR+.
 
 ## N
 
-**NbOfTxs** — Number of Transactions. A Group Header element indicating how many individual transactions are contained in the message.
+**NbOfTxs** — Número de transacciones. Un elemento de la cabecera de grupo que indica cuántas transacciones individuales están contenidas en el mensaje.
 
 ## P
 
-**pacs** — Payments Clearing and Settlement. The ISO 20022 business domain covering interbank payment messages.
+**pacs** — Compensación y liquidación de pagos. El dominio de negocio ISO 20022 que cubre los mensajes de pago interbancarios.
 
-**pacs.002** — FI to FI Payment Status Report. Reports the processing status (accepted, rejected, pending, settled) of an earlier payment instruction.
+**pacs.002** — Informe de estado de pago FI a FI. Informa del estado de procesamiento (aceptado, rechazado, pendiente, liquidado) de una instrucción de pago anterior.
 
-**pacs.003** — FI to FI Customer Direct Debit. Carries a customer direct debit instruction between banks for fund collection.
+**pacs.003** — Débito directo de cliente FI a FI. Transporta una instrucción de débito directo de cliente entre bancos para la recaudación de fondos.
 
-**pacs.004** — Payment Return. Returns settled funds back through the payment chain when a payment cannot be applied.
+**pacs.004** — Devolución de pago. Devuelve los fondos liquidados a través de la cadena de pago cuando un pago no puede ser aplicado.
 
-**pacs.007** — FI to FI Payment Reversal. Reverses a payment instruction from the original sender forward through the chain.
+**pacs.007** — Reversión de pago FI a FI. Revierte una instrucción de pago del emisor original a través de la cadena.
 
-**pacs.008** — FI to FI Customer Credit Transfer. The primary interbank message for customer credit transfers. Replaces MT103.
+**pacs.008** — Transferencia de crédito de cliente FI a FI. El principal mensaje interbancario para transferencias de crédito de clientes. Reemplaza MT103.
 
-**pacs.009** — Financial Institution Credit Transfer. Moves funds between banks on their own behalf. Covers funding, cover payments, and liquidity management. Replaces MT202/MT202COV.
+**pacs.009** — Transferencia de crédito de institución financiera. Mueve fondos entre bancos por cuenta propia. Cubre financiación, pagos de cobertura y gestión de liquidez. Reemplaza MT202/MT202COV.
 
-**pacs.010** — Financial Institution Direct Debit. Lets one bank debit another bank's own account under a bilateral agreement.
+**pacs.010** — Débito directo de institución financiera. Permite a un banco debitar la cuenta propia de otro banco bajo un acuerdo bilateral.
 
-**pacs.028** — FI to FI Payment Status Request. Actively requests the status of an earlier payment when no pacs.002 update has arrived.
+**pacs.028** — Solicitud de estado de pago FI a FI. Solicita activamente el estado de un pago anterior cuando no ha llegado ninguna actualización pacs.002.
 
-**pain** — Payment Initiation. The ISO 20022 business domain covering customer-to-bank messages (e.g., pain.001 for credit transfer initiation).
+**pain** — Iniciación de pago. El dominio de negocio ISO 20022 que cubre los mensajes de cliente a banco (p. ej., pain.001 para la iniciación de transferencia de crédito).
 
-**PII** — Personally Identifiable Information. Data that can identify an individual. pacs008 masks PII in structured logs.
+**PII** — Información de identificación personal. Datos que pueden identificar a un individuo. pacs008 enmascara la PII en los registros estructurados.
 
-**PstlAdr** — Postal Address. The address structure used for parties in pacs messages. Supports structured (StrtNm, TwnNm, Ctry) and unstructured (AdrLine) formats.
+**PstlAdr** — Dirección postal. La estructura de dirección utilizada para las partes en los mensajes pacs. Soporta formatos estructurados (StrtNm, TwnNm, Ctry) y no estructurados (AdrLine).
 
 ## R
 
-**RJCT** — Rejected. A pacs.002 status code indicating the payment has been rejected.
+**RJCT** — Rechazado. Un código de estado pacs.002 que indica que el pago ha sido rechazado.
 
-**RmtInf** — Remittance Information. Payment reference data carried in pacs.008. Supports unstructured (free text, max 140 chars) and structured (document references, amounts, creditor references) formats.
+**RmtInf** — Información de remesa. Datos de referencia de pago transportados en pacs.008. Soporta formatos no estructurados (texto libre, máx. 140 caracteres) y estructurados (referencias de documentos, importes, referencias de acreedor).
 
-**RTGS** — Real-Time Gross Settlement. A payment system where transactions settle individually and in real time (e.g., TARGET2, Fedwire, CHAPS).
+**RTGS** — Liquidación bruta en tiempo real. Un sistema de pago donde las transacciones se liquidan individualmente y en tiempo real (p. ej., TARGET2, Fedwire, CHAPS).
 
 ## S
 
-**SCT** — SEPA Credit Transfer. The euro credit transfer scheme managed by the EPC, using pacs.008.
+**SCT** — Transferencia de crédito SEPA. El esquema de transferencia de crédito en euros gestionado por el EPC, utilizando pacs.008.
 
-**SCT Inst** — SEPA Instant Credit Transfer. The instant payment variant of SCT, settling in under 10 seconds.
+**SCT Inst** — Transferencia de crédito instantánea SEPA. La variante de pago instantáneo del SCT, que se liquida en menos de 10 segundos.
 
-**SDD** — SEPA Direct Debit. The euro direct debit scheme managed by the EPC, using pacs.003.
+**SDD** — Débito directo SEPA. El esquema de débito directo en euros gestionado por el EPC, utilizando pacs.003.
 
-**SEPA** — Single Euro Payments Area. A payment integration initiative covering euro-denominated credit transfers, direct debits, and card payments across 36 European countries.
+**SEPA** — Zona Única de Pagos en Euros. Una iniciativa de integración de pagos que cubre transferencias de crédito, débitos directos y pagos con tarjeta en euros en 36 países europeos.
 
-**SLEV** — Service Level. A charge bearer code mandatory for SEPA. Means charges follow scheme rules with no deductions from the transfer amount.
+**SLEV** — Nivel de servicio. Un código de portador de cargos obligatorio para SEPA. Significa que los cargos siguen las reglas del esquema sin deducciones del importe de la transferencia.
 
-**STP** — Straight-Through Processing. Automated end-to-end payment processing without manual intervention.
+**STP** — Procesamiento directo automatizado. Procesamiento automatizado de pagos de extremo a extremo sin intervención manual.
 
-**SttlmMtd** — Settlement Method. Defines how interbank settlement occurs: CLRG (clearing system), INDA (instructed agent), INGA (instructing agent), or COVE (cover payment).
+**SttlmMtd** — Método de liquidación. Define cómo se produce la liquidación interbancaria: CLRG (sistema de compensación), INDA (agente instruido), INGA (agente instructor) o COVE (pago de cobertura).
 
 ## T
 
-**TxId** — Transaction Identification. An interbank reference assigned by the first instructing agent. Must not be altered by subsequent agents.
+**TxId** — Identificación de transacción. Una referencia interbancaria asignada por el primer agente instructor. No debe ser modificada por agentes posteriores.
 
 ## U
 
-**UETR** — Unique End-to-End Transaction Reference. A UUID v4 identifier generated by the debtor agent and carried unchanged across all legs of a payment for gpi tracking.
+**UETR** — Referencia única de transacción de extremo a extremo. Un identificador UUID v4 generado por el agente del deudor y transportado sin cambios a través de todas las etapas de un pago para el seguimiento gpi.
 
 ## X
 
-**XSD** — XML Schema Definition. The formal schema that defines the structure, elements, and data types of an ISO 20022 XML message.
+**XSD** — Definición de esquema XML. El esquema formal que define la estructura, los elementos y los tipos de datos de un mensaje XML ISO 20022.
 
-**XXE** — XML External Entity. A security vulnerability in XML parsing. pacs008 prevents XXE attacks using defusedxml.
+**XXE** — Entidad externa XML. Una vulnerabilidad de seguridad en el análisis XML. pacs008 previene ataques XXE utilizando defusedxml.
 
-## References
+## Referencias
 
 - [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions)
 - [ISO 20022 external code sets](https://www.iso20022.org/external_code_list.page)

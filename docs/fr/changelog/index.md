@@ -12,42 +12,42 @@ This page tracks significant changes to the pacs008 toolkit and this documentati
 
 ## 2026
 
-### March 2026
+### Mars 2026
 
-- Added comprehensive FAQ page with 25+ Q&A pairs covering ISO 20022 pacs messages.
-- Added PACS Messages Explained page with detailed technical reference for the entire pacs family.
-- Added glossary page defining 60+ ISO 20022 and payment messaging terms.
-- Added structured-address deadline page covering the November 2026 CBPR+ requirement.
-- Added editorial policy page explaining content sources, review process, and methodology.
-- Added FAQPage, TechArticle, SoftwareApplication, and HowTo JSON-LD schema markup.
-- Extended sitemap with hreflang annotations for all 22 locales.
-- Improved readability across all English pages (Flesch Reading Ease 55-58, Flesch-Kincaid Grade 8-9).
-- Fixed 374 empty table header elements across all locales for accessibility.
-- Added table captions to comparison, operational-matrix, and version-diff tables.
-- Optimised hero image from 2.7 MB to 32 KB.
-- Lighthouse scores: Accessibility 96-100, Best Practices 100, SEO 100.
+- Ajout d'une page FAQ complète avec plus de 25 paires de questions-réponses couvrant les messages ISO 20022 pacs.
+- Ajout d'une page explicative des messages PACS avec une référence technique détaillée pour toute la famille pacs.
+- Ajout d'une page de glossaire définissant plus de 60 termes ISO 20022 et de messagerie de paiement.
+- Ajout d'une page sur la date limite des adresses structurées couvrant l'exigence CBPR+ de novembre 2026.
+- Ajout d'une page de politique éditoriale expliquant les sources de contenu, le processus de révision et la méthodologie.
+- Ajout du balisage de schéma JSON-LD FAQPage, TechArticle, SoftwareApplication et HowTo.
+- Extension du sitemap avec des annotations hreflang pour les 22 locales.
+- Amélioration de la lisibilité de toutes les pages en anglais (Flesch Reading Ease 55-58, Flesch-Kincaid Grade 8-9).
+- Correction de 374 éléments d'en-tête de tableau vides dans toutes les locales pour l'accessibilité.
+- Ajout de légendes de tableau aux tableaux de comparaison, de matrice opérationnelle et de différences de versions.
+- Optimisation de l'image héro de 2,7 Mo à 32 Ko.
+- Scores Lighthouse : Accessibilité 96-100, Bonnes pratiques 100, SEO 100.
 
-### January 2026
+### Janvier 2026
 
-- Launched pacs008.com with documentation for 8 ISO 20022 pacs message types.
-- Generated documentation in 22 languages.
-- Implemented hreflang tags, canonical URLs, and structured data (WebSite, BreadcrumbList, WebPage).
-- Published REST API, CLI, and Python library documentation.
-- Added IBAN and BIC validation documentation.
-- Shipped Docker deployment guide.
+- Lancement de pacs008.com avec la documentation pour 8 types de messages ISO 20022 pacs.
+- Génération de la documentation en 22 langues.
+- Implémentation des balises hreflang, des URL canoniques et des données structurées (WebSite, BreadcrumbList, WebPage).
+- Publication de la documentation de l'API REST, du CLI et de la bibliothèque Python.
+- Ajout de la documentation de validation IBAN et BIC.
+- Livraison du guide de déploiement Docker.
 
 ## 2025
 
-### December 2025
+### Décembre 2025
 
-- Initial release of the pacs008 Python toolkit on PyPI.
-- Support for pacs.008.001.13 XML generation and validation.
-- CSV, JSON, JSONL, SQLite, and Parquet data input.
-- JSON Schema and XSD validation pipeline.
-- SWIFT character compliance checking.
-- FastAPI REST API for automated workflows.
+- Version initiale du toolkit Python pacs008 sur PyPI.
+- Prise en charge de la génération et de la validation XML pacs.008.001.13.
+- Entrée de données CSV, JSON, JSONL, SQLite et Parquet.
+- Pipeline de validation JSON Schema et XSD.
+- Vérification de conformité des caractères SWIFT.
+- API REST FastAPI pour les flux de travail automatisés.
 
-## Links
+## Liens
 
 - [pacs008 releases on GitHub](https://github.com/sebastienrousseau/pacs008/releases)
 - [pacs008 on PyPI](https://pypi.org/project/pacs008/)

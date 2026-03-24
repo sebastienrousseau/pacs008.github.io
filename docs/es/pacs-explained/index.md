@@ -10,23 +10,23 @@ image: /logo.svg
 
 Esta página proporciona una referencia técnica detallada para la familia de mensajes pacs ISO 20022. Cubre cómo funcionan los mensajes en el ciclo de vida completo de un pago, la estructura XML, los métodos de liquidación, los códigos de motivo, la identificación de partes, la información de remesa y el seguimiento de extremo a extremo.
 
-## Payment lifecycle
+## Ciclo de vida del pago
 
-The complete pacs payment lifecycle involves six stages and multiple message types working together.
+El ciclo de vida completo de un pago pacs comprende seis etapas y múltiples tipos de mensajes que funcionan conjuntamente.
 
-**Stage 1 — Initiation.** The payment originates in the customer-to-bank domain (pain.001). The debtor's bank receives the instruction and maps it into the interbank domain.
+**Etapa 1 — Iniciación.** El pago se origina en el ámbito cliente-banco (pain.001). El banco del deudor recibe la instrucción y la traslada al ámbito interbancario.
 
-**Stage 2 — Interbank instruction.** The debtor agent creates a pacs.008 and sends it to the next agent in the chain. In a serial flow, the pacs.008 travels hop by hop through intermediaries. In a cover flow, the pacs.008 goes directly from debtor agent to creditor agent, while a separate pacs.009 carries the funding leg through the correspondent chain.
+**Etapa 2 — Instrucción interbancaria.** El agente del deudor crea un pacs.008 y lo envía al siguiente agente de la cadena. En un flujo en serie, el pacs.008 se transmite paso a paso a través de los intermediarios. En un flujo de cobertura, el pacs.008 va directamente del agente del deudor al agente del acreedor, mientras que un pacs.009 separado gestiona el tramo de financiación a través de la cadena de corresponsales.
 
-**Stage 3 — Status reporting.** At each hop, the receiving agent may return a pacs.002 confirming acceptance (ACCP/ACSP/ACSC), rejection (RJCT), or pending status (PDNG). In CBPR+, pacs.002 is mandatory for all payment status communication.
+**Etapa 3 — Informes de estado.** En cada paso, el agente receptor puede devolver un pacs.002 confirmando la aceptación (ACCP/ACSP/ACSC), el rechazo (RJCT) o un estado pendiente (PDNG). En CBPR+, el pacs.002 es obligatorio para toda comunicación de estado de pago.
 
-**Stage 4 — Settlement.** Settlement occurs through a clearing system (CLRG), on correspondent accounts (INDA/INGA), or via a cover payment (COVE). The interbank settlement date and amount control when and how much settles.
+**Etapa 4 — Liquidación.** La liquidación se realiza a través de un sistema de compensación (CLRG), en cuentas de corresponsales (INDA/INGA) o mediante un pago de cobertura (COVE). La fecha y el importe de la liquidación interbancaria determinan cuándo y cuánto se liquida.
 
-**Stage 5 — Credit to beneficiary.** The creditor agent credits the beneficiary and may send a customer notification.
+**Etapa 5 — Abono al beneficiario.** El agente del acreedor abona al beneficiario y puede enviar una notificación al cliente.
 
-**Stage 6 — Exception handling.** If the beneficiary cannot be credited post-settlement, pacs.004 returns funds back through the chain. If the originator discovers an error or fraud, pacs.007 goes forward through the chain. If status is unknown, pacs.028 queries the next agent and the answer returns via pacs.002.
+**Etapa 6 — Gestión de excepciones.** Si el beneficiario no puede ser abonado tras la liquidación, el pacs.004 devuelve los fondos a través de la cadena. Si el ordenante detecta un error o fraude, el pacs.007 avanza a través de la cadena. Si el estado es desconocido, el pacs.028 consulta al siguiente agente y la respuesta regresa a través de pacs.002.
 
-### Serial method flow
+### Flujo en serie
 
 ```text
 Debtor Agent --(pacs.008)--> Intermediary Agent
@@ -36,50 +36,50 @@ Creditor Agent --(pacs.002)--> Intermediary Agent [status]
 Creditor Agent --> Creditor [credit notification]
 ```
 
-### Cover method flow
+### Flujo de cobertura
 
 ```text
 Debtor Agent --(pacs.008)--> Creditor Agent [direct, with customer data]
 Debtor Agent --(pacs.009)--> Cover Bank --(pacs.009)--> Creditor Agent [funding leg]
 ```
 
-## XML structure of pacs.008
+## Estructura XML de pacs.008
 
-pacs.008 has two main building blocks: the Group Header (GrpHdr) and Credit Transfer Transaction Information (CdtTrfTxInf).
+pacs.008 tiene dos bloques principales: la cabecera de grupo (GrpHdr) y la información de la transacción de transferencia de crédito (CdtTrfTxInf).
 
-### Group Header (GrpHdr)
+### Cabecera de grupo (GrpHdr)
 
-The Group Header appears exactly once per message and contains:
+La cabecera de grupo aparece exactamente una vez por mensaje y contiene:
 
-- **MsgId** — Unique message identifier assigned by the sending agent. Max 35 characters, must be unique per sender.
-- **CreDtTm** — Creation timestamp in ISO 8601 format.
-- **NbOfTxs** — Count of individual transactions in the message.
-- **SttlmInf** — Settlement information including the settlement method (SttlmMtd) and optionally the clearing system and settlement account.
-- **IntrBkSttlmDt** — Date on which interbank settlement occurs.
-- **PmtTpInf** — Payment type information including priority, service level, local instrument, and category purpose.
+- **MsgId** — Identificador único del mensaje asignado por el agente emisor. Máximo 35 caracteres, debe ser único por emisor.
+- **CreDtTm** — Marca de tiempo de creación en formato ISO 8601.
+- **NbOfTxs** — Número de transacciones individuales en el mensaje.
+- **SttlmInf** — Información de liquidación incluyendo el método de liquidación (SttlmMtd) y opcionalmente el sistema de compensación y la cuenta de liquidación.
+- **IntrBkSttlmDt** — Fecha en la que se produce la liquidación interbancaria.
+- **PmtTpInf** — Información del tipo de pago incluyendo prioridad, nivel de servicio, instrumento local y propósito de categoría.
 
-### Credit Transfer Transaction Information (CdtTrfTxInf)
+### Información de la transacción de transferencia de crédito (CdtTrfTxInf)
 
-Each transaction carries:
+Cada transacción contiene:
 
-- **PmtId** — Payment identifiers: InstrId, EndToEndId, TxId, and UETR.
-- **IntrBkSttlmAmt** — Interbank settlement amount with currency code.
-- **InstdAmt** — Original instructed amount (may differ from settlement amount due to FX).
-- **ChrgBr** — Charge bearer code (DEBT, CRED, SHAR, or SLEV).
-- **Dbtr / DbtrAcct / DbtrAgt** — Debtor name, address, identification, account, and agent.
-- **Cdtr / CdtrAcct / CdtrAgt** — Creditor name, address, identification, account, and agent.
-- **IntrmyAgt1 / 2 / 3** — Up to three intermediary agents in the chain.
-- **RmtInf** — Remittance information, either unstructured (free text) or structured (document references, amounts, dates).
-- **Purp** — Structured purpose code.
-- **RgltryRptg** — Regulatory reporting details.
+- **PmtId** — Identificadores de pago: InstrId, EndToEndId, TxId y UETR.
+- **IntrBkSttlmAmt** — Importe de liquidación interbancaria con código de divisa.
+- **InstdAmt** — Importe original instruido (puede diferir del importe de liquidación por cambio de divisa).
+- **ChrgBr** — Código de asunción de gastos (DEBT, CRED, SHAR o SLEV).
+- **Dbtr / DbtrAcct / DbtrAgt** — Nombre, dirección, identificación, cuenta y agente del deudor.
+- **Cdtr / CdtrAcct / CdtrAgt** — Nombre, dirección, identificación, cuenta y agente del acreedor.
+- **IntrmyAgt1 / 2 / 3** — Hasta tres agentes intermediarios en la cadena.
+- **RmtInf** — Información de remesa, ya sea no estructurada (texto libre) o estructurada (referencias de documentos, importes, fechas).
+- **Purp** — Código de propósito estructurado.
+- **RgltryRptg** — Detalles de información regulatoria.
 
-## Payment identifiers
+## Identificadores de pago
 
-pacs messages use several identifiers that serve different roles in the payment chain.
+Los mensajes pacs utilizan varios identificadores que cumplen diferentes funciones en la cadena de pago.
 
-<div class="api-fields-table" tabindex="0" aria-label="Payment identifiers">
+<div class="api-fields-table" tabindex="0" aria-label="Identificadores de pago">
   <table>
-    <caption>Payment identifiers and their roles</caption>
+    <caption>Identificadores de pago y sus funciones</caption>
     <colgroup>
       <col class="api-fields-table__col-field">
       <col class="api-fields-table__col-desc">
@@ -87,64 +87,64 @@ pacs messages use several identifiers that serve different roles in the payment 
     </colgroup>
     <thead>
       <tr>
-        <th scope="col">Identifier</th>
-        <th scope="col">Set by</th>
-        <th scope="col">Changes in chain?</th>
+        <th scope="col">Identificador</th>
+        <th scope="col">Establecido por</th>
+        <th scope="col">¿Cambia en la cadena?</th>
       </tr>
     </thead>
     <tbody>
         <tr>
           <td class="api-fields-table__field"><strong>MsgId</strong></td>
-          <td class="api-fields-table__desc">Each sending agent</td>
-          <td class="api-fields-table__constraint">Yes — new per message</td>
+          <td class="api-fields-table__desc">Cada agente emisor</td>
+          <td class="api-fields-table__constraint">Sí — nuevo por mensaje</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><strong>InstrId</strong></td>
-          <td class="api-fields-table__desc">Each instructing agent</td>
-          <td class="api-fields-table__constraint">Yes — may change per hop</td>
+          <td class="api-fields-table__desc">Cada agente ordenante</td>
+          <td class="api-fields-table__constraint">Sí — puede cambiar en cada paso</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><strong>EndToEndId</strong></td>
-          <td class="api-fields-table__desc">Originator (debtor)</td>
-          <td class="api-fields-table__constraint">No — must not be altered</td>
+          <td class="api-fields-table__desc">Ordenante (deudor)</td>
+          <td class="api-fields-table__constraint">No — no debe modificarse</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><strong>TxId</strong></td>
-          <td class="api-fields-table__desc">First instructing agent</td>
-          <td class="api-fields-table__constraint">No — must not be altered</td>
+          <td class="api-fields-table__desc">Primer agente ordenante</td>
+          <td class="api-fields-table__constraint">No — no debe modificarse</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><strong>UETR</strong></td>
-          <td class="api-fields-table__desc">Debtor agent</td>
-          <td class="api-fields-table__constraint">No — universal tracking</td>
+          <td class="api-fields-table__desc">Agente del deudor</td>
+          <td class="api-fields-table__constraint">No — seguimiento universal</td>
         </tr>
     </tbody>
   </table>
 </div>
 
-## Settlement methods
+## Métodos de liquidación
 
-The SttlmMtd element defines how interbank settlement occurs.
+El elemento SttlmMtd define cómo se realiza la liquidación interbancaria.
 
-- **CLRG** — Settlement through a clearing system such as TARGET2, EURO1, or CHIPS. Most common for domestic and regional clearing.
-- **INDA** — Settlement on the books of the instructed agent. The debtor agent holds a nostro account with the next agent. Typical for bilateral correspondent banking.
-- **INGA** — Settlement on the books of the instructing agent. The instructed agent holds a nostro account with the sending agent. Less common than INDA.
-- **COVE** — Settlement through a separate cover payment. A pacs.009 carries the funding leg while pacs.008 carries the customer data directly. Used in cross-border correspondent banking.
+- **CLRG** — Liquidación a través de un sistema de compensación como TARGET2, EURO1 o CHIPS. El más habitual para compensación nacional y regional.
+- **INDA** — Liquidación en los libros del agente instruido. El agente del deudor mantiene una cuenta nostro en el siguiente agente. Típico de la banca corresponsal bilateral.
+- **INGA** — Liquidación en los libros del agente ordenante. El agente instruido mantiene una cuenta nostro en el agente emisor. Menos habitual que INDA.
+- **COVE** — Liquidación mediante un pago de cobertura separado. Un pacs.009 gestiona el tramo de financiación mientras el pacs.008 transmite directamente los datos del cliente. Se utiliza en la banca corresponsal transfronteriza.
 
-## Charge bearer codes
+## Códigos de asunción de gastos
 
-The ChrgBr element specifies who bears the payment charges.
+El elemento ChrgBr especifica quién asume los gastos del pago.
 
-- **DEBT** — Debtor bears all charges (MT103 equivalent: OUR). Creditor receives the full amount.
-- **CRED** — Creditor bears all charges (MT103 equivalent: BEN). Charges are deducted from the transfer.
-- **SHAR** — Charges are shared (MT103 equivalent: SHA). Each party pays their own agent's charges. Most common for cross-border payments.
-- **SLEV** — Charges follow the service level. Mandatory for SEPA. No deductions from the transfer amount.
+- **DEBT** — El deudor asume todos los gastos (equivalente MT103: OUR). El acreedor recibe el importe íntegro.
+- **CRED** — El acreedor asume todos los gastos (equivalente MT103: BEN). Los gastos se deducen de la transferencia.
+- **SHAR** — Los gastos se comparten (equivalente MT103: SHA). Cada parte paga los gastos de su propio agente. El más habitual en pagos transfronterizos.
+- **SLEV** — Los gastos siguen el nivel de servicio. Obligatorio para SEPA. Sin deducciones del importe de la transferencia.
 
-## MT103 to pacs.008 field mapping
+## Correspondencia de campos MT103 a pacs.008
 
-<div class="api-fields-table" tabindex="0" aria-label="MT103 to pacs.008 field mapping">
+<div class="api-fields-table" tabindex="0" aria-label="Correspondencia de campos MT103 a pacs.008">
   <table>
-    <caption>Key field mapping from MT103 to pacs.008</caption>
+    <caption>Principales correspondencias de campos de MT103 a pacs.008</caption>
     <colgroup>
       <col class="api-fields-table__col-field">
       <col class="api-fields-table__col-desc">
@@ -152,61 +152,61 @@ The ChrgBr element specifies who bears the payment charges.
     </colgroup>
     <thead>
       <tr>
-        <th scope="col">MT103 field</th>
-        <th scope="col">MT103 name</th>
-        <th scope="col">pacs.008 XML path</th>
+        <th scope="col">Campo MT103</th>
+        <th scope="col">Nombre MT103</th>
+        <th scope="col">Ruta XML pacs.008</th>
       </tr>
     </thead>
     <tbody>
-        <tr><td class="api-fields-table__field">20</td><td class="api-fields-table__desc">Sender's Reference</td><td class="api-fields-table__constraint">GrpHdr/MsgId or PmtId/InstrId</td></tr>
-        <tr><td class="api-fields-table__field">23B</td><td class="api-fields-table__desc">Bank Operation Code</td><td class="api-fields-table__constraint">PmtTpInf/SvcLvl</td></tr>
-        <tr><td class="api-fields-table__field">32A</td><td class="api-fields-table__desc">Value Date / Amount</td><td class="api-fields-table__constraint">IntrBkSttlmDt + IntrBkSttlmAmt</td></tr>
-        <tr><td class="api-fields-table__field">33B</td><td class="api-fields-table__desc">Instructed Amount</td><td class="api-fields-table__constraint">InstdAmt</td></tr>
-        <tr><td class="api-fields-table__field">50a</td><td class="api-fields-table__desc">Ordering Customer</td><td class="api-fields-table__constraint">Dbtr + DbtrAcct</td></tr>
-        <tr><td class="api-fields-table__field">52a</td><td class="api-fields-table__desc">Ordering Institution</td><td class="api-fields-table__constraint">DbtrAgt</td></tr>
-        <tr><td class="api-fields-table__field">57a</td><td class="api-fields-table__desc">Account With Institution</td><td class="api-fields-table__constraint">CdtrAgt</td></tr>
-        <tr><td class="api-fields-table__field">59a</td><td class="api-fields-table__desc">Beneficiary Customer</td><td class="api-fields-table__constraint">Cdtr + CdtrAcct</td></tr>
-        <tr><td class="api-fields-table__field">70</td><td class="api-fields-table__desc">Remittance Information</td><td class="api-fields-table__constraint">RmtInf/Ustrd or RmtInf/Strd</td></tr>
-        <tr><td class="api-fields-table__field">71A</td><td class="api-fields-table__desc">Details of Charges</td><td class="api-fields-table__constraint">ChrgBr (BEN→CRED, OUR→DEBT, SHA→SHAR)</td></tr>
-        <tr><td class="api-fields-table__field">72</td><td class="api-fields-table__desc">Sender to Receiver Info</td><td class="api-fields-table__constraint">InstrForCdtrAgt / InstrForNxtAgt</td></tr>
+        <tr><td class="api-fields-table__field">20</td><td class="api-fields-table__desc">Referencia del emisor</td><td class="api-fields-table__constraint">GrpHdr/MsgId or PmtId/InstrId</td></tr>
+        <tr><td class="api-fields-table__field">23B</td><td class="api-fields-table__desc">Código de operación bancaria</td><td class="api-fields-table__constraint">PmtTpInf/SvcLvl</td></tr>
+        <tr><td class="api-fields-table__field">32A</td><td class="api-fields-table__desc">Fecha valor / Importe</td><td class="api-fields-table__constraint">IntrBkSttlmDt + IntrBkSttlmAmt</td></tr>
+        <tr><td class="api-fields-table__field">33B</td><td class="api-fields-table__desc">Importe instruido</td><td class="api-fields-table__constraint">InstdAmt</td></tr>
+        <tr><td class="api-fields-table__field">50a</td><td class="api-fields-table__desc">Cliente ordenante</td><td class="api-fields-table__constraint">Dbtr + DbtrAcct</td></tr>
+        <tr><td class="api-fields-table__field">52a</td><td class="api-fields-table__desc">Institución ordenante</td><td class="api-fields-table__constraint">DbtrAgt</td></tr>
+        <tr><td class="api-fields-table__field">57a</td><td class="api-fields-table__desc">Institución de la cuenta</td><td class="api-fields-table__constraint">CdtrAgt</td></tr>
+        <tr><td class="api-fields-table__field">59a</td><td class="api-fields-table__desc">Cliente beneficiario</td><td class="api-fields-table__constraint">Cdtr + CdtrAcct</td></tr>
+        <tr><td class="api-fields-table__field">70</td><td class="api-fields-table__desc">Información de remesa</td><td class="api-fields-table__constraint">RmtInf/Ustrd or RmtInf/Strd</td></tr>
+        <tr><td class="api-fields-table__field">71A</td><td class="api-fields-table__desc">Detalle de gastos</td><td class="api-fields-table__constraint">ChrgBr (BEN→CRED, OUR→DEBT, SHA→SHAR)</td></tr>
+        <tr><td class="api-fields-table__field">72</td><td class="api-fields-table__desc">Info. emisor a receptor</td><td class="api-fields-table__constraint">InstrForCdtrAgt / InstrForNxtAgt</td></tr>
         <tr><td class="api-fields-table__field">N/A</td><td class="api-fields-table__desc">UETR (Block 3, field 121)</td><td class="api-fields-table__constraint">PmtId/UETR</td></tr>
     </tbody>
   </table>
 </div>
 
-## Status and reason codes
+## Códigos de estado y de motivo
 
-### pacs.002 status codes
+### Códigos de estado pacs.002
 
-<div class="api-fields-table" tabindex="0" aria-label="pacs.002 status codes">
+<div class="api-fields-table" tabindex="0" aria-label="Códigos de estado pacs.002">
   <table>
-    <caption>Transaction status codes in pacs.002</caption>
+    <caption>Códigos de estado de transacción en pacs.002</caption>
     <colgroup>
       <col class="api-fields-table__col-field">
       <col class="api-fields-table__col-desc">
     </colgroup>
     <thead>
       <tr>
-        <th scope="col">Code</th>
-        <th scope="col">Meaning</th>
+        <th scope="col">Código</th>
+        <th scope="col">Significado</th>
       </tr>
     </thead>
     <tbody>
-        <tr><td class="api-fields-table__field"><code>ACCP</code></td><td class="api-fields-table__desc">Accepted — preceding checks passed</td></tr>
-        <tr><td class="api-fields-table__field"><code>ACSP</code></td><td class="api-fields-table__desc">Accepted — settlement in progress</td></tr>
-        <tr><td class="api-fields-table__field"><code>ACSC</code></td><td class="api-fields-table__desc">Accepted — settlement completed</td></tr>
-        <tr><td class="api-fields-table__field"><code>RCVD</code></td><td class="api-fields-table__desc">Received — not yet processed</td></tr>
-        <tr><td class="api-fields-table__field"><code>PDNG</code></td><td class="api-fields-table__desc">Pending — further processing needed</td></tr>
-        <tr><td class="api-fields-table__field"><code>RJCT</code></td><td class="api-fields-table__desc">Rejected — with reason code</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACCP</code></td><td class="api-fields-table__desc">Aceptado — controles previos superados</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACSP</code></td><td class="api-fields-table__desc">Aceptado — liquidación en curso</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACSC</code></td><td class="api-fields-table__desc">Aceptado — liquidación completada</td></tr>
+        <tr><td class="api-fields-table__field"><code>RCVD</code></td><td class="api-fields-table__desc">Recibido — aún no procesado</td></tr>
+        <tr><td class="api-fields-table__field"><code>PDNG</code></td><td class="api-fields-table__desc">Pendiente — procesamiento adicional necesario</td></tr>
+        <tr><td class="api-fields-table__field"><code>RJCT</code></td><td class="api-fields-table__desc">Rechazado — con código de motivo</td></tr>
     </tbody>
   </table>
 </div>
 
-### Common rejection and return reason codes
+### Códigos de motivo habituales de rechazo y devolución
 
-<div class="api-fields-table" tabindex="0" aria-label="Common reason codes">
+<div class="api-fields-table" tabindex="0" aria-label="Códigos de motivo habituales">
   <table>
-    <caption>Frequently used rejection and return reason codes</caption>
+    <caption>Códigos de motivo de rechazo y devolución más utilizados</caption>
     <colgroup>
       <col class="api-fields-table__col-field">
       <col class="api-fields-table__col-desc">
@@ -214,32 +214,32 @@ The ChrgBr element specifies who bears the payment charges.
     </colgroup>
     <thead>
       <tr>
-        <th scope="col">Code</th>
-        <th scope="col">Name</th>
-        <th scope="col">Description</th>
+        <th scope="col">Código</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Descripción</th>
       </tr>
     </thead>
     <tbody>
-        <tr><td class="api-fields-table__field"><code>AC01</code></td><td class="api-fields-table__desc">Incorrect account number</td><td class="api-fields-table__constraint">Account number is invalid or does not exist</td></tr>
-        <tr><td class="api-fields-table__field"><code>AC04</code></td><td class="api-fields-table__desc">Closed account</td><td class="api-fields-table__constraint">Account is closed</td></tr>
-        <tr><td class="api-fields-table__field"><code>AC06</code></td><td class="api-fields-table__desc">Blocked account</td><td class="api-fields-table__constraint">Account is blocked for transactions</td></tr>
-        <tr><td class="api-fields-table__field"><code>AM04</code></td><td class="api-fields-table__desc">Insufficient funds</td><td class="api-fields-table__constraint">Insufficient funds in debtor account</td></tr>
-        <tr><td class="api-fields-table__field"><code>AM05</code></td><td class="api-fields-table__desc">Duplication</td><td class="api-fields-table__constraint">Duplicate payment detected</td></tr>
-        <tr><td class="api-fields-table__field"><code>BE04</code></td><td class="api-fields-table__desc">Missing creditor address</td><td class="api-fields-table__constraint">Creditor address is missing or incomplete</td></tr>
-        <tr><td class="api-fields-table__field"><code>CUST</code></td><td class="api-fields-table__desc">Requested by customer</td><td class="api-fields-table__constraint">Return or rejection requested by the customer</td></tr>
-        <tr><td class="api-fields-table__field"><code>DUPL</code></td><td class="api-fields-table__desc">Duplicate payment</td><td class="api-fields-table__constraint">Duplicate payment identified</td></tr>
-        <tr><td class="api-fields-table__field"><code>FOCR</code></td><td class="api-fields-table__desc">Following cancellation</td><td class="api-fields-table__constraint">Following a cancellation request</td></tr>
-        <tr><td class="api-fields-table__field"><code>FR01</code></td><td class="api-fields-table__desc">Fraud</td><td class="api-fields-table__constraint">Suspected fraud</td></tr>
-        <tr><td class="api-fields-table__field"><code>RC01</code></td><td class="api-fields-table__desc">Incorrect BIC</td><td class="api-fields-table__constraint">BIC is incorrect or unknown</td></tr>
-        <tr><td class="api-fields-table__field"><code>RR03</code></td><td class="api-fields-table__desc">Missing creditor name/address</td><td class="api-fields-table__constraint">Creditor name or address data is missing</td></tr>
-        <tr><td class="api-fields-table__field"><code>TM01</code></td><td class="api-fields-table__desc">Cut-off time</td><td class="api-fields-table__constraint">Cut-off time has passed</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC01</code></td><td class="api-fields-table__desc">Número de cuenta incorrecto</td><td class="api-fields-table__constraint">El número de cuenta es inválido o no existe</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC04</code></td><td class="api-fields-table__desc">Cuenta cerrada</td><td class="api-fields-table__constraint">La cuenta está cerrada</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC06</code></td><td class="api-fields-table__desc">Cuenta bloqueada</td><td class="api-fields-table__constraint">La cuenta está bloqueada para transacciones</td></tr>
+        <tr><td class="api-fields-table__field"><code>AM04</code></td><td class="api-fields-table__desc">Fondos insuficientes</td><td class="api-fields-table__constraint">Fondos insuficientes en la cuenta del deudor</td></tr>
+        <tr><td class="api-fields-table__field"><code>AM05</code></td><td class="api-fields-table__desc">Duplicación</td><td class="api-fields-table__constraint">Pago duplicado detectado</td></tr>
+        <tr><td class="api-fields-table__field"><code>BE04</code></td><td class="api-fields-table__desc">Dirección del acreedor ausente</td><td class="api-fields-table__constraint">La dirección del acreedor falta o está incompleta</td></tr>
+        <tr><td class="api-fields-table__field"><code>CUST</code></td><td class="api-fields-table__desc">Solicitado por el cliente</td><td class="api-fields-table__constraint">Devolución o rechazo solicitado por el cliente</td></tr>
+        <tr><td class="api-fields-table__field"><code>DUPL</code></td><td class="api-fields-table__desc">Pago duplicado</td><td class="api-fields-table__constraint">Pago duplicado identificado</td></tr>
+        <tr><td class="api-fields-table__field"><code>FOCR</code></td><td class="api-fields-table__desc">Tras anulación</td><td class="api-fields-table__constraint">Como consecuencia de una solicitud de anulación</td></tr>
+        <tr><td class="api-fields-table__field"><code>FR01</code></td><td class="api-fields-table__desc">Fraude</td><td class="api-fields-table__constraint">Sospecha de fraude</td></tr>
+        <tr><td class="api-fields-table__field"><code>RC01</code></td><td class="api-fields-table__desc">BIC incorrecto</td><td class="api-fields-table__constraint">El BIC es incorrecto o desconocido</td></tr>
+        <tr><td class="api-fields-table__field"><code>RR03</code></td><td class="api-fields-table__desc">Nombre/dirección del acreedor ausente</td><td class="api-fields-table__constraint">Faltan el nombre o los datos de dirección del acreedor</td></tr>
+        <tr><td class="api-fields-table__field"><code>TM01</code></td><td class="api-fields-table__desc">Hora límite</td><td class="api-fields-table__constraint">Se ha superado la hora límite de procesamiento</td></tr>
     </tbody>
   </table>
 </div>
 
-## Postal address format
+## Formato de dirección postal
 
-### Structured address
+### Dirección estructurada
 
 ```xml
 <PstlAdr>
@@ -251,7 +251,7 @@ The ChrgBr element specifies who bears the payment charges.
 </PstlAdr>
 ```
 
-### Unstructured address (deprecated for CBPR+ after November 2026)
+### Dirección no estructurada (obsoleta para CBPR+ a partir de noviembre de 2026)
 
 ```xml
 <PstlAdr>
@@ -261,33 +261,33 @@ The ChrgBr element specifies who bears the payment charges.
 </PstlAdr>
 ```
 
-Key constraints: StrtNm max 70 characters (CBPR+), TwnNm max 35 characters (CBPR+), Ctry is ISO 3166-1 alpha-2, AdrLine max 70 characters per line and max 7 lines.
+Restricciones principales: StrtNm máximo 70 caracteres (CBPR+), TwnNm máximo 35 caracteres (CBPR+), Ctry en formato ISO 3166-1 alfa-2, AdrLine máximo 70 caracteres por línea y máximo 7 líneas.
 
-## Party identification
+## Identificación de las partes
 
-Parties in pacs.008 support multiple identification methods:
+Las partes en pacs.008 admiten múltiples métodos de identificación:
 
-- **BIC** — Business Identifier Code per ISO 9362. 8 or 11 characters (BBBBCCLL or BBBBCCLLBBB). Used in FinInstnId/BICFI for agents and OrgId/AnyBIC for parties.
-- **LEI** — Legal Entity Identifier per ISO 17442. 20 alphanumeric characters. Appears in OrgId/LEI for parties and FinInstnId/LEI for agents. Improves entity disambiguation for regulatory reporting.
-- **IBAN** — International Bank Account Number per ISO 13616. Used in DbtrAcct/Id/IBAN and CdtrAcct/Id/IBAN.
-- **Organisation IDs** — Other scheme-based identifiers (tax ID, DUNS, customer number) via OrgId/Othr with a scheme name code.
-- **Private IDs** — For natural persons: date and place of birth, passport (CCPT), national ID (NIDN), or driver's licence (DRLC) via PrvtId.
+- **BIC** — Código de identificación empresarial según ISO 9362. 8 u 11 caracteres (BBBBCCLL o BBBBCCLLBBB). Utilizado en FinInstnId/BICFI para agentes y OrgId/AnyBIC para partes.
+- **LEI** — Identificador de entidad jurídica según ISO 17442. 20 caracteres alfanuméricos. Aparece en OrgId/LEI para partes y FinInstnId/LEI para agentes. Mejora la desambiguación de entidades para los informes regulatorios.
+- **IBAN** — Número de cuenta bancaria internacional según ISO 13616. Utilizado en DbtrAcct/Id/IBAN y CdtrAcct/Id/IBAN.
+- **Identificadores de organización** — Otros identificadores basados en esquema (NIF, DUNS, número de cliente) mediante OrgId/Othr con un código de nombre de esquema.
+- **Identificadores privados** — Para personas físicas: fecha y lugar de nacimiento, pasaporte (CCPT), documento nacional de identidad (NIDN) o permiso de conducir (DRLC) mediante PrvtId.
 
-## Remittance information
+## Información de remesa
 
-Remittance data in pacs.008 uses the RmtInf element with two forms:
+Los datos de remesa en pacs.008 utilizan el elemento RmtInf con dos formas:
 
-**Unstructured** — Free text up to 140 characters per occurrence. Simple but limits automated reconciliation.
+**No estructurada** — Texto libre de hasta 140 caracteres por ocurrencia. Sencillo pero limita la conciliación automatizada.
 
-**Structured** — Document references with type codes, numbers, dates, and amounts. Common document types: CINV (commercial invoice), CREN (credit note), SOAC (statement of account). Supports ISO 11649 creditor references (RF + check digits + reference) via CdtrRefInf. Enables automated invoice matching and multi-invoice payments.
+**Estructurada** — Referencias de documentos con códigos de tipo, números, fechas e importes. Tipos de documento habituales: CINV (factura comercial), CREN (nota de crédito), SOAC (extracto de cuenta). Admite referencias de acreedor ISO 11649 (RF + dígitos de control + referencia) mediante CdtrRefInf. Permite la conciliación automática de facturas y los pagos de múltiples facturas.
 
-## UETR and gpi tracking
+## UETR y seguimiento gpi
 
-UETR (Unique End-to-End Transaction Reference) is a UUID v4 generated by the debtor agent. It appears in PmtId/UETR across pacs.008, pacs.009, pacs.002, pacs.004, pacs.007, and pacs.028. It must remain unchanged throughout the entire payment chain.
+UETR (Unique End-to-End Transaction Reference) es un UUID v4 generado por el agente del deudor. Aparece en PmtId/UETR a lo largo de pacs.008, pacs.009, pacs.002, pacs.004, pacs.007 y pacs.028. No debe modificarse en toda la cadena de pago.
 
-SWIFT gpi uses the UETR to track payments through a cloud-based Tracker database. Each agent confirms receipt and processing, enabling end-to-end visibility. The gpi SLA for cross-border payments targets same-day credit to the creditor account.
+SWIFT gpi utiliza el UETR para rastrear los pagos a través de una base de datos Tracker alojada en la nube. Cada agente confirma la recepción y el procesamiento, lo que permite una visibilidad de extremo a extremo. El acuerdo de nivel de servicio gpi para pagos transfronterizos tiene como objetivo el abono en el día en la cuenta del acreedor.
 
-## References
+## Referencias
 
 - [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions)
 - [ISO 20022 external code sets](https://www.iso20022.org/external_code_list.page)
