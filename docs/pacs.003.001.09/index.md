@@ -1,6 +1,6 @@
 ---
 title: pacs.003.001.09 | FI to FI Customer Direct Debit | pacs008
-description: The pacs.003 message executes a customer direct debit between financial institutions. It lets the creditor bank collect funds from the debtor bank.
+description: The pacs.003 message carries a customer direct debit between banks. It lets the creditor bank collect funds from the debtor bank.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
@@ -43,7 +43,7 @@ image: /logo.svg
 
 ## Overview
 
-The pacs.003 message executes a customer direct debit between financial institutions. It lets the creditor bank collect funds from the debtor bank.
+The pacs.003 message carries a customer direct debit between banks. It lets the creditor bank collect funds from the debtor bank.
 
 > Reviewed 23 March 2026. ISO catalogue date: 2025-02-27.
 
@@ -58,9 +58,9 @@ The pacs.003 message executes a customer direct debit between financial institut
 ## Business context
 
 - Supports SEPA Core and B2B direct debit schemes.
-- Used for recurring collections such as subscriptions, utility bills, and loan repayments.
-- Needs a valid mandate reference between debtor and creditor.
-- Supports bulk collection of multiple direct debits in one message.
+- Used for recurring collections such as subscriptions and bills.
+- Needs a valid mandate reference.
+- Can carry many direct debits in one message.
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Key data elements Business context">
   <table>
@@ -81,19 +81,19 @@ The pacs.003 message executes a customer direct debit between financial institut
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Direct Debit Transaction Information with amount and parties</td>
-          <td class="operational-matrix-table__right">Used for recurring collections such as subscriptions, utility bills, and loan repayments</td>
+          <td class="operational-matrix-table__right">Used for recurring collections such as subscriptions and bills</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>Cdtr</strong> — Creditor identification and account details</td>
-          <td class="operational-matrix-table__right">Needs a valid mandate reference between debtor and creditor</td>
+          <td class="operational-matrix-table__right">Needs a valid mandate reference</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>CdtrAgt</strong> — Creditor Agent (collecting institution) identification</td>
-          <td class="operational-matrix-table__right">Supports bulk collection of multiple direct debits in one message</td>
+          <td class="operational-matrix-table__right">Can carry many direct debits in one message</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>DbtrAgt</strong> — Debtor Agent (paying institution) identification</td>
-          <td class="operational-matrix-table__right">The creditor agent sends pacs.003 to the debtor agent to collect funds. The debtor agent checks the mandate and either settles or returns the transaction.</td>
+          <td class="operational-matrix-table__right">The creditor agent sends pacs.003 to the debtor agent. The debtor agent checks the mandate and either settles or returns the transaction.</td>
         </tr>
     </tbody>
   </table>
@@ -101,14 +101,14 @@ The pacs.003 message executes a customer direct debit between financial institut
 
 ## CBPR+ and scheme context
 
-- Structured address and party data rules apply to direct debits as well.
-- Mandate-related data must be fully structured from November 2026.
+- Structured address and party-data rules also apply here.
+- Mandate data must be structured from November 2026.
 - It replaces older MT104-style direct-debit formats in cross-border flows.
-- Creditor scheme identifiers are under closer validation.
+- Creditor scheme identifiers need closer validation.
 
 ## Message flow
 
-The creditor agent sends pacs.003 to the debtor agent to collect funds. The debtor agent checks the mandate and either settles or returns the transaction.
+The creditor agent sends pacs.003 to the debtor agent. The debtor agent checks the mandate and either settles or returns the transaction.
 
 ## Version commentary
 
@@ -150,11 +150,11 @@ Use this page for the version that pacs008 implements today, and review the newe
 ## Scheme-specific notes
 
 - This message is outside the SCT and SCT Inst credit-transfer rulebooks, so treat it as a separate direct-debit track.
-- Use this page as a message guide, not as a substitute for scheme rulebooks.
+- Use this page as a guide, not as a substitute for scheme rulebooks.
 
 ## When to use this message
 
-Use pacs.003 for customer direct-debit collection between financial institutions.
+Use pacs.003 for customer direct-debit collection between banks.
 
 ## When not to use this message
 
@@ -162,7 +162,7 @@ Do not use pacs.003 for institution-own-account debits or customer credit transf
 
 ## Implementation notes
 
-- Mandate and debtor-account data usually matter more than XML alone.
+- Mandate and debtor-account data usually matter more than the XML.
 - Scheme timing, cutoffs, and return rights vary, so keep that logic outside the generic message model.
 - Store collection references separately from invoice references.
 
@@ -197,11 +197,11 @@ Do not use pacs.003 for institution-own-account debits or customer credit transf
 ## Decision flow
 
 ```text
-Need an FI-to-FI customer direct debit?
+Need a bank-to-bank customer direct debit?
 Yes -> Use pacs.003.
 No -> Need a customer credit transfer?
 Yes -> Use pacs.008 instead.
-No -> Re-check whether the business case is a direct debit at all.
+No -> Re-check whether the case is really a direct debit.
 ```
 
 ## Implementation FAQ
@@ -212,7 +212,7 @@ No. It handles customer direct-debit flows, which have different mandate, timing
 
 ### What matters most operationally?
 
-Mandate quality, debtor-account rules, and return handling matter more than XML generation alone.
+Mandate quality, debtor-account rules, and return handling matter more than XML generation.
 
 ## Primary references
 
@@ -240,7 +240,7 @@ Mandate quality, debtor-account rules, and return handling matter more than XML 
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
           <td class="related-messages-table__name">Payment Return</td>
-          <td class="related-messages-table__overview">The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied or must be sent back.</td>
+          <td class="related-messages-table__overview">The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.007.001.11/"><code>pacs.007.001.11</code></a></td>

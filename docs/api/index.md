@@ -8,7 +8,7 @@ image: /logo.svg
 
 # API
 
-pacs008 offers a REST API, CLI, and Python library for payment data checks and XML generation.
+pacs008 offers a REST API, CLI, and Python library.
 
 ## Implementation notes
 
@@ -28,7 +28,7 @@ python -m pip install pacs008
 
 ## REST API
 
-Start the FastAPI server for HTTP validation and XML generation.
+Start the FastAPI server for validation and XML generation.
 
 ### Start the server
 
@@ -127,7 +127,7 @@ curl -X POST http://localhost:8000/api/validate \
 
 ### Synchronous generation example
 
-Generate a `pacs.008.001.13` XML file from JSON.
+Generate a `pacs.008.001.13` XML file from JSON data.
 
 ```bash
 curl -X POST http://localhost:8000/api/generate \

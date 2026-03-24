@@ -37,12 +37,12 @@ Choose the pacs family by business event first, then by scheme and operating mod
         <tr>
           <td class="decision-matrix-table__id"><a href="/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
           <td class="decision-matrix-table__name">FI to FI Customer Direct Debit</td>
-          <td class="decision-matrix-table__overview">The pacs.003 message executes a customer direct debit between financial institutions. It lets the creditor bank collect funds from the debtor bank.</td>
+          <td class="decision-matrix-table__overview">The pacs.003 message carries a customer direct debit between banks. It lets the creditor bank collect funds from the debtor bank.</td>
         </tr>
         <tr>
           <td class="decision-matrix-table__id"><a href="/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
           <td class="decision-matrix-table__name">Payment Return</td>
-          <td class="decision-matrix-table__overview">The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied or must be sent back.</td>
+          <td class="decision-matrix-table__overview">The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied.</td>
         </tr>
         <tr>
           <td class="decision-matrix-table__id"><a href="/pacs.007.001.11/"><code>pacs.007.001.11</code></a></td>
@@ -52,12 +52,12 @@ Choose the pacs family by business event first, then by scheme and operating mod
         <tr>
           <td class="decision-matrix-table__id"><a href="/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
           <td class="decision-matrix-table__name">FI to FI Customer Credit Transfer</td>
-          <td class="decision-matrix-table__overview">The pacs.008 message is the main customer credit-transfer instruction between financial institutions. It carries party, amount, and remittance data.</td>
+          <td class="decision-matrix-table__overview">The pacs.008 message is the main customer credit-transfer instruction between banks. It carries party, amount, and remittance data.</td>
         </tr>
         <tr>
           <td class="decision-matrix-table__id"><a href="/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
           <td class="decision-matrix-table__name">Financial Institution Credit Transfer</td>
-          <td class="decision-matrix-table__overview">The pacs.009 message moves funds between financial institutions on their own behalf. It supports funding, cover payments, and liquidity management.</td>
+          <td class="decision-matrix-table__overview">The pacs.009 message moves funds between banks on their own behalf. It supports funding, cover payments, and liquidity management.</td>
         </tr>
         <tr>
           <td class="decision-matrix-table__id"><a href="/pacs.010.001.05/"><code>pacs.010.001.05</code></a></td>

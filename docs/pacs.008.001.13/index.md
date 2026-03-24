@@ -1,6 +1,6 @@
 ---
 title: pacs.008.001.13 | FI to FI Customer Credit Transfer | pacs008
-description: The pacs.008 message is the main customer credit-transfer instruction between financial institutions. It carries party, amount, and remittance data.
+description: The pacs.008 message is the main customer credit-transfer instruction between banks. It carries party, amount, and remittance data.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
@@ -43,7 +43,7 @@ image: /logo.svg
 
 ## Overview
 
-The pacs.008 message is the main customer credit-transfer instruction between financial institutions. It carries party, amount, and remittance data.
+The pacs.008 message is the main customer credit-transfer instruction between banks. It carries party, amount, and remittance data.
 
 > Reviewed 23 March 2026. ISO catalogue date: 2025-02-27.
 
@@ -57,9 +57,9 @@ The pacs.008 message is the main customer credit-transfer instruction between fi
 
 ## Business context
 
-- Main message for customer cross-border and domestic credit transfers.
-- Used across SEPA SCT, SEPA Instant, CBPR+, and national clearing systems.
-- Carries remittance data for straight-through reconciliation.
+- Main message for customer credit transfers.
+- Used across SEPA, CBPR+, and national clearing systems.
+- Carries remittance data for reconciliation.
 - Supports serial, cover, and direct settlement methods.
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Key data elements Business context">
@@ -77,15 +77,15 @@ The pacs.008 message is the main customer credit-transfer instruction between fi
     <tbody>
         <tr>
           <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message ID, creation date, number of transactions, and settlement information</td>
-          <td class="operational-matrix-table__right">Main message for customer cross-border and domestic credit transfers</td>
+          <td class="operational-matrix-table__right">Main message for customer credit transfers</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Credit Transfer Transaction Information with amount, charges, and purpose</td>
-          <td class="operational-matrix-table__right">Used across SEPA SCT, SEPA Instant, CBPR+, and national clearing systems</td>
+          <td class="operational-matrix-table__right">Used across SEPA, CBPR+, and national clearing systems</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Debtor and Debtor Agent identification and account details</td>
-          <td class="operational-matrix-table__right">Carries remittance data for straight-through reconciliation</td>
+          <td class="operational-matrix-table__right">Carries remittance data for reconciliation</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Creditor and Creditor Agent identification and account details</td>
@@ -93,7 +93,7 @@ The pacs.008 message is the main customer credit-transfer instruction between fi
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>RmtInf</strong> — Remittance Information for structured or unstructured payment references</td>
-          <td class="operational-matrix-table__right">The debtor agent sends pacs.008 to the creditor agent, directly or through intermediaries. Each agent validates and forwards the instruction until the creditor agent credits the beneficiary.</td>
+          <td class="operational-matrix-table__right">The debtor agent sends pacs.008 to the creditor agent, either directly or through intermediaries. Each agent checks and forwards the instruction until the creditor agent credits the beneficiary.</td>
         </tr>
     </tbody>
   </table>
@@ -102,13 +102,13 @@ The pacs.008 message is the main customer credit-transfer instruction between fi
 ## CBPR+ and scheme context
 
 - Replaces MT103 and MT103+ for cross-border customer credit transfers.
-- The November 2026 structured-address deadline applies to party postal addresses.
+- The November 2026 structured-address deadline applies to party addresses.
 - SWIFT gpi uses pacs.008 for UETR-based tracking.
-- Revision 13 reflects ongoing schema change across market infrastructures.
+- Version 13 is the current catalogue revision.
 
 ## Message flow
 
-The debtor agent sends pacs.008 to the creditor agent, directly or through intermediaries. Each agent validates and forwards the instruction until the creditor agent credits the beneficiary.
+The debtor agent sends pacs.008 to the creditor agent, either directly or through intermediaries. Each agent checks and forwards the instruction until the creditor agent credits the beneficiary.
 
 ## Version commentary
 
@@ -154,15 +154,14 @@ Use this page for current implementation work, but still check scheme guidance b
 
 ## Scheme-specific notes
 
-- For SEPA credit transfers, pacs.008 is part of the SCT scheme messaging stack defined by the [EPC SCT rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and).
-- For instant payments, pacs.008 is also central to SCT Inst flows under the [EPC SCT Inst rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook).
-- For CBPR+, Swift positions pacs.008 as the ISO 20022 successor to MT103-style customer credit-transfer instructions. See [Swift CBPR+ pacs.008 training overview](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/cbpr-payment-instructions-pacs008), [serial method](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/fi-fi-customer-credit-transfer-serial-method-pacs008), and [cover method](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/fi-fi-customer-credit-transfer-cover-method-pacs008-pacs009).
-- Swift's roadmap shows MT 103 moving to pacs.008 during migration. See the [Swift roadmap PDF](https://www.swift.com/swift-resource/252463/download).
-- Structured-address changes around November 2026 affect pacs.008 data quality in cross-border use. See the [Swift CBPR+ roadmap](https://www.swift.com/standards/iso-20022/iso-20022-programme/cbpr-roadmap).
+- For SEPA credit transfers, pacs.008 is part of the SCT stack in the [EPC SCT rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and).
+- For instant payments, pacs.008 is also central to SCT Inst in the [EPC SCT Inst rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook).
+- For CBPR+, pacs.008 replaces MT103-style customer payment instructions. See [Swift CBPR+ pacs.008 overview](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/cbpr-payment-instructions-pacs008), [serial method](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/fi-fi-customer-credit-transfer-serial-method-pacs008), and [cover method](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/fi-fi-customer-credit-transfer-cover-method-pacs008-pacs009).
+- The November 2026 structured-address change affects cross-border pacs.008 data quality. See the [Swift CBPR+ roadmap](https://www.swift.com/standards/iso-20022/iso-20022-programme/cbpr-roadmap).
 
 ## When to use this message
 
-Use pacs.008 for customer credit transfers moving between financial institutions.
+Use pacs.008 for customer credit transfers moving between banks.
 
 ## When not to use this message
 
@@ -170,15 +169,15 @@ Do not use pacs.008 for institution-own-account funding transfers or for status,
 
 ## Implementation notes
 
-- Address quality, party identifiers, and remittance structure often matter more than the XML skeleton.
+- Address quality, party identifiers, and remittance structure often matter more than the XML.
 - Model payment purpose, charge bearer, settlement method, and party roles in source data before rendering.
-- Treat version selection as a deployment decision tied to market infrastructure and counterparties.
+- Treat version selection as a deployment decision tied to the market and counterparties.
 
 ## Common failure modes
 
-- Assuming one pacs.008 mapping works unchanged across CBPR+, SEPA, domestic RTGS, and instant-payment contexts.
+- Assuming one pacs.008 mapping works unchanged across CBPR+, SEPA, RTGS, and instant-payment contexts.
 - Using free text where structured remittance or address fields are expected.
-- Leaving exception-handling design until after XML generation already works.
+- Leaving exception-handling design until after XML generation works.
 
 ## Worked XML fragment
 
@@ -211,11 +210,11 @@ Do not use pacs.008 for institution-own-account funding transfers or for status,
 ## Decision flow
 
 ```text
-Is this a customer credit-transfer instruction between institutions?
+Is this a customer credit-transfer instruction between banks?
 Yes -> Use pacs.008.
 No -> Is it an institution funding leg or cover payment?
 Yes -> Consider pacs.009 instead.
-No -> Re-check whether the business event is status, return, or reversal.
+No -> Re-check whether the case is status, return, or reversal.
 ```
 
 ## Compare pacs.008 vs pacs.009
@@ -377,12 +376,12 @@ Weak party data, poor address structuring, inconsistent identifiers, and unstruc
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
           <td class="related-messages-table__name">Payment Return</td>
-          <td class="related-messages-table__overview">The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied or must be sent back.</td>
+          <td class="related-messages-table__overview">The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
           <td class="related-messages-table__name">Financial Institution Credit Transfer</td>
-          <td class="related-messages-table__overview">The pacs.009 message moves funds between financial institutions on their own behalf. It supports funding, cover payments, and liquidity management.</td>
+          <td class="related-messages-table__overview">The pacs.009 message moves funds between banks on their own behalf. It supports funding, cover payments, and liquidity management.</td>
         </tr>
     </tbody>
   </table>

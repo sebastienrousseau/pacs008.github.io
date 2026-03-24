@@ -1,6 +1,6 @@
 ---
 title: pacs.009.001.10 | Financial Institution Credit Transfer | pacs008
-description: The pacs.009 message moves funds between financial institutions on their own behalf. It supports funding, cover payments, and liquidity management.
+description: The pacs.009 message moves funds between banks on their own behalf. It supports funding, cover payments, and liquidity management.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
@@ -43,7 +43,7 @@ image: /logo.svg
 
 ## Overview
 
-The pacs.009 message moves funds between financial institutions on their own behalf. It supports funding, cover payments, and liquidity management.
+The pacs.009 message moves funds between banks on their own behalf. It supports funding, cover payments, and liquidity management.
 
 > Reviewed 23 March 2026. ISO catalogue date: 2025-02-27.
 
@@ -93,7 +93,7 @@ The pacs.009 message moves funds between financial institutions on their own beh
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Interbank Settlement Amount in the settlement currency</td>
-          <td class="operational-matrix-table__right">The debtor institution sends pacs.009 to the creditor institution to transfer its own funds. In cover flows, pacs.009 carries the funding leg while pacs.008 carries the customer instruction on a separate path.</td>
+          <td class="operational-matrix-table__right">The debtor bank sends pacs.009 to the creditor bank to transfer its own funds. In cover flows, pacs.009 carries the funding leg while pacs.008 carries the customer instruction on a separate path.</td>
         </tr>
     </tbody>
   </table>
@@ -103,12 +103,12 @@ The pacs.009 message moves funds between financial institutions on their own beh
 
 - Replaces MT202 and MT202COV for institution-to-institution transfers.
 - Cover-method flows pair pacs.009 with the underlying pacs.008 instruction.
-- Structured party data and LEI identification are used more often.
-- SWIFT gpi covers pacs.009 for correspondent-banking transparency.
+- Structured party data and LEI identification matter more often.
+- SWIFT gpi also covers pacs.009.
 
 ## Message flow
 
-The debtor institution sends pacs.009 to the creditor institution to transfer its own funds. In cover flows, pacs.009 carries the funding leg while pacs.008 carries the customer instruction on a separate path.
+The debtor bank sends pacs.009 to the creditor bank to transfer its own funds. In cover flows, pacs.009 carries the funding leg while pacs.008 carries the customer instruction on a separate path.
 
 ## Version commentary
 
@@ -149,13 +149,13 @@ Use this page for the version that pacs008 implements today, and review the newe
 
 ## Scheme-specific notes
 
-- In CBPR+, pacs.009 carries institution-to-institution credit transfers and cover-payment legs. See the [roadmap PDF](https://www.swift.com/swift-resource/252463/download) and [CBPR+ pacs.009 material](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/cbpr-payment-instructions-pacs009).
-- For cover method, analyse pacs.009 together with the related customer leg in pacs.008. See [Swift's pacs.008/pacs.009 cover-method training page](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/fi-fi-customer-credit-transfer-cover-method-pacs008-pacs009).
+- In CBPR+, pacs.009 carries bank-to-bank credit transfers and cover-payment legs. See the [roadmap PDF](https://www.swift.com/swift-resource/252463/download) and [CBPR+ pacs.009 material](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/cbpr-payment-instructions-pacs009).
+- For cover method, read pacs.009 with the related customer leg in pacs.008. See [Swift's pacs.008/pacs.009 cover-method page](https://www.swift.com/myswift/services/training/swift-training-catalogue/browse-swift-training-catalogue/fi-fi-customer-credit-transfer-cover-method-pacs008-pacs009).
 - This message is outside the SCT and SCT Inst customer credit-transfer rulebooks, so SEPA customer-payment rules do not carry over unchanged.
 
 ## When to use this message
 
-Use pacs.009 for institution-to-institution credit transfers, especially treasury, funding, and cover-payment legs.
+Use pacs.009 for bank-to-bank credit transfers, especially treasury, funding, and cover-payment legs.
 
 ## When not to use this message
 
@@ -165,13 +165,13 @@ Do not use pacs.009 when the business transaction still belongs in pacs.008.
 
 - Separate cover-payment logic from customer-payment logic.
 - Apply strict controls to value date, settlement amount, and liquidity booking.
-- Prioritise institution identifiers and chain transparency.
+- Prioritise bank identifiers and chain transparency.
 
 ## Common failure modes
 
 - Confusing own-account transfers with customer transfers.
 - Losing the relationship between cover and underlying customer flows.
-- Underestimating the impact of correspondent chain changes on settlement behavior.
+- Underestimating the impact of correspondent chain changes on settlement.
 
 ## Worked XML fragment
 
@@ -202,7 +202,7 @@ Is this own-account bank movement or a cover leg?
 Yes -> Use pacs.009.
 No -> Is it a customer payment instruction?
 Yes -> Consider pacs.008 instead.
-No -> Validate whether treasury or settlement operations own the case.
+No -> Check whether treasury or settlement operations own the case.
 ```
 
 ## Compare pacs.009 vs pacs.008
@@ -250,11 +250,11 @@ No -> Validate whether treasury or settlement operations own the case.
 
 ### When should I choose pacs.009 over pacs.008?
 
-Choose pacs.009 for institution-own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions.
+Choose pacs.009 for own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions.
 
 ### Why is pacs.009 often harder to reconcile than expected?
 
-Because institutions must preserve the relationship between treasury funding, correspondent legs, and any linked customer payment.
+Because banks must preserve the relationship between treasury funding, correspondent legs, and any linked customer payment.
 
 ## Primary references
 
@@ -284,7 +284,7 @@ Because institutions must preserve the relationship between treasury funding, co
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
           <td class="related-messages-table__name">FI to FI Customer Credit Transfer</td>
-          <td class="related-messages-table__overview">The pacs.008 message is the main customer credit-transfer instruction between financial institutions. It carries party, amount, and remittance data.</td>
+          <td class="related-messages-table__overview">The pacs.008 message is the main customer credit-transfer instruction between banks. It carries party, amount, and remittance data.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>

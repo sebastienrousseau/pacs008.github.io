@@ -1,6 +1,6 @@
 ---
 title: pacs.004.001.11 | Payment Return | pacs008
-description: The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied or must be sent back.
+description: The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
@@ -43,7 +43,7 @@ image: /logo.svg
 
 ## Overview
 
-The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied or must be sent back.
+The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied.
 
 > Reviewed 23 March 2026. ISO catalogue date: 2025-02-27.
 
@@ -58,8 +58,8 @@ The pacs.004 message returns a payment that has already settled. It sends funds 
 ## Business context
 
 - Handles post-settlement returns when the beneficiary's account cannot be credited.
-- Supports recall scenarios where the originator requests return of funds.
-- Carries structured return reason codes for regulatory and operational transparency.
+- Supports recall scenarios where the originator requests funds back.
+- Carries structured return reason codes.
 - Applies to both credit transfer returns (pacs.008) and direct debit returns (pacs.003).
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Key data elements Business context">
@@ -81,11 +81,11 @@ The pacs.004 message returns a payment that has already settled. It sends funds 
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>TxInf</strong> — Transaction Information with return amount and parties</td>
-          <td class="operational-matrix-table__right">Supports recall scenarios where the originator requests return of funds</td>
+          <td class="operational-matrix-table__right">Supports recall scenarios where the originator requests funds back</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Original Group Information linking to the source message</td>
-          <td class="operational-matrix-table__right">Carries structured return reason codes for regulatory and operational transparency</td>
+          <td class="operational-matrix-table__right">Carries structured return reason codes</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>RtrRsnInf</strong> — Return Reason Information with structured reason codes</td>
@@ -93,7 +93,7 @@ The pacs.004 message returns a payment that has already settled. It sends funds 
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Original Transaction Reference for matching and reconciliation</td>
-          <td class="operational-matrix-table__right">The instructed agent sends pacs.004 back through the payment chain to return previously settled funds. Each agent in the chain processes the return and credits back the relevant accounts.</td>
+          <td class="operational-matrix-table__right">The instructed agent sends pacs.004 back through the payment chain to return settled funds. Each agent in the chain processes the return and credits back the relevant accounts.</td>
         </tr>
     </tbody>
   </table>
@@ -103,12 +103,12 @@ The pacs.004 message returns a payment that has already settled. It sends funds 
 
 - Replaces MT103 RETURN and cover-method return messaging.
 - Return reason codes are standardised and machine-readable under ISO 20022.
-- CBPR+ requires full original transaction reference data for matching.
-- SWIFT gpi tracking extends to return transactions for end-to-end visibility.
+- CBPR+ requires the full original transaction reference for matching.
+- SWIFT gpi tracking also covers returns.
 
 ## Message flow
 
-The instructed agent sends pacs.004 back through the payment chain to return previously settled funds. Each agent in the chain processes the return and credits back the relevant accounts.
+The instructed agent sends pacs.004 back through the payment chain to return settled funds. Each agent in the chain processes the return and credits back the relevant accounts.
 
 ## Version commentary
 
@@ -149,8 +149,8 @@ Use this page for the version that pacs008 implements today, and review the newe
 
 ## Scheme-specific notes
 
-- For SEPA credit-transfer flows, pacs.004 is part of the wider return and exception-management picture around executed payments. The [EPC SCT rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) and [EPC SCT Inst rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) define scheme behaviour around those operational flows.
-- In CBPR+, Swift maps pacs.004 alongside pacs.008, pacs.009, and pacs.002 during the ISO 20022 migration of payment instructions. See the [CBPR+ coexistence and end-state roadmap](https://www.swift.com/swift-resource/252463/download).
+- For SEPA credit-transfer flows, pacs.004 sits in the wider return and exception path defined by the [EPC SCT rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) and [EPC SCT Inst rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook).
+- In CBPR+, Swift maps pacs.004 alongside pacs.008, pacs.009, and pacs.002. See the [CBPR+ roadmap](https://www.swift.com/swift-resource/252463/download).
 
 ## When to use this message
 
@@ -162,8 +162,8 @@ Do not use pacs.004 when the original instructing agent is requesting an upstrea
 
 ## Implementation notes
 
-- Return reason codes should be mapped into internal exception categories so operations teams can route cases quickly.
-- Keep the original transaction reference accessible to customer-support tooling; returns are hard to reconcile without it.
+- Map return reason codes into internal exception categories early.
+- Keep the original transaction reference easy to find.
 - Expect scheme and correspondent-bank rules to limit which return reasons are acceptable after specific processing stages.
 
 ## Common failure modes
@@ -202,7 +202,7 @@ Has value already settled and now needs to move back?
 Yes -> Use pacs.004.
 No -> Is the instructing side trying to stop or reverse the payment?
 Yes -> Consider pacs.007 instead.
-No -> Review scheme exception handling before choosing a message.
+No -> Review scheme exception handling before you choose a message.
 ```
 
 ## Compare pacs.004 vs pacs.007
@@ -284,12 +284,12 @@ Not automatically. The right path depends on scheme rules, settlement stage, and
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
           <td class="related-messages-table__name">FI to FI Customer Credit Transfer</td>
-          <td class="related-messages-table__overview">The pacs.008 message is the main customer credit-transfer instruction between financial institutions. It carries party, amount, and remittance data.</td>
+          <td class="related-messages-table__overview">The pacs.008 message is the main customer credit-transfer instruction between banks. It carries party, amount, and remittance data.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
           <td class="related-messages-table__name">FI to FI Customer Direct Debit</td>
-          <td class="related-messages-table__overview">The pacs.003 message executes a customer direct debit between financial institutions. It lets the creditor bank collect funds from the debtor bank.</td>
+          <td class="related-messages-table__overview">The pacs.003 message carries a customer direct debit between banks. It lets the creditor bank collect funds from the debtor bank.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>

@@ -396,7 +396,7 @@ const pageCopy = {
     deliveryText: "Each supported message comes with templates and validation rules. Teams can use the same assets in local tests, CI, and internal payment services.",
     apiTitle: "API",
     apiDescription: "Use the pacs008 REST API, CLI, and Python library to validate payment data and generate ISO 20022 XML files.",
-    apiIntro: "pacs008 offers a REST API, CLI, and Python library for payment data checks and XML generation.",
+    apiIntro: "pacs008 offers a REST API, CLI, and Python library.",
     apiCapabilities: "API capabilities",
     cliCapabilities: "CLI capabilities",
     contactTitle: "Contact",
@@ -452,7 +452,7 @@ const pageCopy = {
     apiInstallTitle: "Installation",
     apiInstallText: "Install the package from PyPI. You need Python 3.9.2 or later.",
     apiRestTitle: "REST API",
-    apiRestIntro: "Start the FastAPI server for HTTP validation and XML generation.",
+    apiRestIntro: "Start the FastAPI server for validation and XML generation.",
     apiRestStart: "Start the server",
     apiEndpointsTitle: "Endpoints",
     apiEndpointHealth: "Health check that returns service status",
@@ -465,7 +465,7 @@ const pageCopy = {
     apiValidateExample: "Validation example",
     apiValidateDesc: "Validate payment data before you generate XML.",
     apiGenerateExample: "Synchronous generation example",
-    apiGenerateDesc: "Generate a `pacs.008.001.13` XML file from JSON.",
+    apiGenerateDesc: "Generate a `pacs.008.001.13` XML file from JSON data.",
     apiAsyncExample: "Asynchronous generation",
     apiAsyncDesc: "For large files, submit an async job and poll until it finishes.",
     apiCliTitle: "CLI",
@@ -558,36 +558,36 @@ const pageCopy = {
     pacs002Cbpr3: "Structured reason codes replace free-text rejection explanations",
     pacs002Cbpr4: "SWIFT gpi tracking integration requires pacs.002 for end-to-end transparency",
     pacs002Flow: "The instructed agent sends pacs.002 back to the instructing agent to confirm acceptance, settlement, or rejection of a payment instruction such as pacs.008 or pacs.009.",
-    pacs003Overview: "The pacs.003 message executes a customer direct debit between financial institutions. It lets the creditor bank collect funds from the debtor bank.",
+    pacs003Overview: "The pacs.003 message carries a customer direct debit between banks. It lets the creditor bank collect funds from the debtor bank.",
     pacs003Element1: "**GrpHdr** — Group Header with message identification and settlement information",
     pacs003Element2: "**DrctDbtTxInf** — Direct Debit Transaction Information with amount and parties",
     pacs003Element3: "**Cdtr** — Creditor identification and account details",
     pacs003Element4: "**CdtrAgt** — Creditor Agent (collecting institution) identification",
     pacs003Element5: "**DbtrAgt** — Debtor Agent (paying institution) identification",
     pacs003Business1: "Supports SEPA Core and B2B direct debit schemes",
-    pacs003Business2: "Used for recurring collections such as subscriptions, utility bills, and loan repayments",
-    pacs003Business3: "Needs a valid mandate reference between debtor and creditor",
-    pacs003Business4: "Supports bulk collection of multiple direct debits in one message",
-    pacs003Cbpr1: "Structured address and party data rules apply to direct debits as well.",
-    pacs003Cbpr2: "Mandate-related data must be fully structured from November 2026.",
+    pacs003Business2: "Used for recurring collections such as subscriptions and bills",
+    pacs003Business3: "Needs a valid mandate reference",
+    pacs003Business4: "Can carry many direct debits in one message",
+    pacs003Cbpr1: "Structured address and party-data rules also apply here.",
+    pacs003Cbpr2: "Mandate data must be structured from November 2026.",
     pacs003Cbpr3: "It replaces older MT104-style direct-debit formats in cross-border flows.",
-    pacs003Cbpr4: "Creditor scheme identifiers are under closer validation.",
-    pacs003Flow: "The creditor agent sends pacs.003 to the debtor agent to collect funds. The debtor agent checks the mandate and either settles or returns the transaction.",
-    pacs004Overview: "The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied or must be sent back.",
+    pacs003Cbpr4: "Creditor scheme identifiers need closer validation.",
+    pacs003Flow: "The creditor agent sends pacs.003 to the debtor agent. The debtor agent checks the mandate and either settles or returns the transaction.",
+    pacs004Overview: "The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied.",
     pacs004Element1: "**GrpHdr** — Group Header with message identification and creation timestamp",
     pacs004Element2: "**TxInf** — Transaction Information with return amount and parties",
     pacs004Element3: "**OrgnlGrpInf** — Original Group Information linking to the source message",
     pacs004Element4: "**RtrRsnInf** — Return Reason Information with structured reason codes",
     pacs004Element5: "**OrgnlTxRef** — Original Transaction Reference for matching and reconciliation",
     pacs004Business1: "Handles post-settlement returns when the beneficiary's account cannot be credited",
-    pacs004Business2: "Supports recall scenarios where the originator requests return of funds",
-    pacs004Business3: "Carries structured return reason codes for regulatory and operational transparency",
+    pacs004Business2: "Supports recall scenarios where the originator requests funds back",
+    pacs004Business3: "Carries structured return reason codes",
     pacs004Business4: "Applies to both credit transfer returns (pacs.008) and direct debit returns (pacs.003)",
     pacs004Cbpr1: "Replaces MT103 RETURN and cover-method return messaging",
     pacs004Cbpr2: "Return reason codes are standardised and machine-readable under ISO 20022",
-    pacs004Cbpr3: "CBPR+ requires full original transaction reference data for matching",
-    pacs004Cbpr4: "SWIFT gpi tracking extends to return transactions for end-to-end visibility",
-    pacs004Flow: "The instructed agent sends pacs.004 back through the payment chain to return previously settled funds. Each agent in the chain processes the return and credits back the relevant accounts.",
+    pacs004Cbpr3: "CBPR+ requires the full original transaction reference for matching",
+    pacs004Cbpr4: "SWIFT gpi tracking also covers returns",
+    pacs004Flow: "The instructed agent sends pacs.004 back through the payment chain to return settled funds. Each agent in the chain processes the return and credits back the relevant accounts.",
     pacs007Overview: "The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, it starts from the original sender.",
     pacs007Element1: "**GrpHdr** — Group Header with message identification and creation timestamp",
     pacs007Element2: "**TxInf** — Transaction Information with reversal amount and parties",
@@ -603,22 +603,22 @@ const pageCopy = {
     pacs007Cbpr3: "Structured reason codes replace free-text narratives from legacy MT messages",
     pacs007Cbpr4: "Used more often in instant-payment recall and fraud workflows",
     pacs007Flow: "The instructing agent sends pacs.007 forward through the payment chain to reverse an earlier payment. Each agent processes the reversal and adjusts settlement.",
-    pacs008dOverview: "The pacs.008 message is the main customer credit-transfer instruction between financial institutions. It carries party, amount, and remittance data.",
+    pacs008dOverview: "The pacs.008 message is the main customer credit-transfer instruction between banks. It carries party, amount, and remittance data.",
     pacs008dElement1: "**GrpHdr** — Group Header with message ID, creation date, number of transactions, and settlement information",
     pacs008dElement2: "**CdtTrfTxInf** — Credit Transfer Transaction Information with amount, charges, and purpose",
     pacs008dElement3: "**Dbtr / DbtrAgt** — Debtor and Debtor Agent identification and account details",
     pacs008dElement4: "**Cdtr / CdtrAgt** — Creditor and Creditor Agent identification and account details",
     pacs008dElement5: "**RmtInf** — Remittance Information for structured or unstructured payment references",
-    pacs008dBusiness1: "Main message for customer cross-border and domestic credit transfers",
-    pacs008dBusiness2: "Used across SEPA SCT, SEPA Instant, CBPR+, and national clearing systems",
-    pacs008dBusiness3: "Carries remittance data for straight-through reconciliation",
+    pacs008dBusiness1: "Main message for customer credit transfers",
+    pacs008dBusiness2: "Used across SEPA, CBPR+, and national clearing systems",
+    pacs008dBusiness3: "Carries remittance data for reconciliation",
     pacs008dBusiness4: "Supports serial, cover, and direct settlement methods",
     pacs008dCbpr1: "Replaces MT103 and MT103+ for cross-border customer credit transfers",
-    pacs008dCbpr2: "The November 2026 structured-address deadline applies to party postal addresses",
+    pacs008dCbpr2: "The November 2026 structured-address deadline applies to party addresses",
     pacs008dCbpr3: "SWIFT gpi uses pacs.008 for UETR-based tracking",
-    pacs008dCbpr4: "Revision 13 reflects ongoing schema change across market infrastructures",
-    pacs008dFlow: "The debtor agent sends pacs.008 to the creditor agent, directly or through intermediaries. Each agent validates and forwards the instruction until the creditor agent credits the beneficiary.",
-    pacs009Overview: "The pacs.009 message moves funds between financial institutions on their own behalf. It supports funding, cover payments, and liquidity management.",
+    pacs008dCbpr4: "Version 13 is the current catalogue revision",
+    pacs008dFlow: "The debtor agent sends pacs.008 to the creditor agent, either directly or through intermediaries. Each agent checks and forwards the instruction until the creditor agent credits the beneficiary.",
+    pacs009Overview: "The pacs.009 message moves funds between banks on their own behalf. It supports funding, cover payments, and liquidity management.",
     pacs009Element1: "**GrpHdr** — Group Header with message identification and settlement information",
     pacs009Element2: "**CdtTrfTxInf** — Credit Transfer Transaction Information with interbank settlement amount",
     pacs009Element3: "**Dbtr / DbtrAgt** — Debtor institution and its agent identification",
@@ -630,9 +630,9 @@ const pageCopy = {
     pacs009Business4: "Supports treasury and funding operations",
     pacs009Cbpr1: "Replaces MT202 and MT202COV for institution-to-institution transfers",
     pacs009Cbpr2: "Cover-method flows pair pacs.009 with the underlying pacs.008 instruction",
-    pacs009Cbpr3: "Structured party data and LEI identification are used more often",
-    pacs009Cbpr4: "SWIFT gpi covers pacs.009 for correspondent-banking transparency",
-    pacs009Flow: "The debtor institution sends pacs.009 to the creditor institution to transfer its own funds. In cover flows, pacs.009 carries the funding leg while pacs.008 carries the customer instruction on a separate path.",
+    pacs009Cbpr3: "Structured party data and LEI identification matter more often",
+    pacs009Cbpr4: "SWIFT gpi also covers pacs.009",
+    pacs009Flow: "The debtor bank sends pacs.009 to the creditor bank to transfer its own funds. In cover flows, pacs.009 carries the funding leg while pacs.008 carries the customer instruction on a separate path.",
     pacs010Overview: "The pacs.010 message lets one financial institution debit another institution's own account. It is for bank-to-bank collections, not customer direct debits.",
     pacs010Element1: "**GrpHdr** — Group Header with message identification and settlement information",
     pacs010Element2: "**DrctDbtTxInf** — Direct Debit Transaction Information with collection amount",
@@ -7173,10 +7173,10 @@ const EN_EDITORIAL = {
       ]
     },
     "pacs.003.001.09": {
-      whenToUse: "Use pacs.003 for customer direct-debit collection between financial institutions.",
+      whenToUse: "Use pacs.003 for customer direct-debit collection between banks.",
       avoidUsing: "Do not use pacs.003 for institution-own-account debits or customer credit transfers.",
       implementationNotes: [
-        "Mandate and debtor-account data usually matter more than XML alone.",
+        "Mandate and debtor-account data usually matter more than the XML.",
         "Scheme timing, cutoffs, and return rights vary, so keep that logic outside the generic message model.",
         "Store collection references separately from invoice references."
       ],
@@ -7190,8 +7190,8 @@ const EN_EDITORIAL = {
       whenToUse: "Use pacs.004 when settled funds need to move back to the original sender because the payment cannot be applied or must be returned after settlement.",
       avoidUsing: "Do not use pacs.004 when the original instructing agent is requesting an upstream reversal before or around settlement; that is pacs.007 territory.",
       implementationNotes: [
-        "Return reason codes should be mapped into internal exception categories so operations teams can route cases quickly.",
-        "Keep the original transaction reference accessible to customer-support tooling; returns are hard to reconcile without it.",
+        "Map return reason codes into internal exception categories early.",
+        "Keep the original transaction reference easy to find.",
         "Expect scheme and correspondent-bank rules to limit which return reasons are acceptable after specific processing stages."
       ],
       commonPitfalls: [
@@ -7215,31 +7215,31 @@ const EN_EDITORIAL = {
       ]
     },
     "pacs.008.001.13": {
-      whenToUse: "Use pacs.008 for customer credit transfers moving between financial institutions.",
+      whenToUse: "Use pacs.008 for customer credit transfers moving between banks.",
       avoidUsing: "Do not use pacs.008 for institution-own-account funding transfers or for status, return, or investigation messages.",
       implementationNotes: [
-        "Address quality, party identifiers, and remittance structure often matter more than the XML skeleton.",
+        "Address quality, party identifiers, and remittance structure often matter more than the XML.",
         "Model payment purpose, charge bearer, settlement method, and party roles in source data before rendering.",
-        "Treat version selection as a deployment decision tied to market infrastructure and counterparties."
+        "Treat version selection as a deployment decision tied to the market and counterparties."
       ],
       commonPitfalls: [
-        "Assuming one pacs.008 mapping works unchanged across CBPR+, SEPA, domestic RTGS, and instant-payment contexts.",
+        "Assuming one pacs.008 mapping works unchanged across CBPR+, SEPA, RTGS, and instant-payment contexts.",
         "Using free text where structured remittance or address fields are expected.",
-        "Leaving exception-handling design until after XML generation already works."
+        "Leaving exception-handling design until after XML generation works."
       ]
     },
     "pacs.009.001.10": {
-      whenToUse: "Use pacs.009 for institution-to-institution credit transfers, especially treasury, funding, and cover-payment legs.",
+      whenToUse: "Use pacs.009 for bank-to-bank credit transfers, especially treasury, funding, and cover-payment legs.",
       avoidUsing: "Do not use pacs.009 when the business transaction still belongs in pacs.008.",
       implementationNotes: [
         "Separate cover-payment logic from customer-payment logic.",
         "Apply strict controls to value date, settlement amount, and liquidity booking.",
-        "Prioritise institution identifiers and chain transparency."
+        "Prioritise bank identifiers and chain transparency."
       ],
       commonPitfalls: [
         "Confusing own-account transfers with customer transfers.",
         "Losing the relationship between cover and underlying customer flows.",
-        "Underestimating the impact of correspondent chain changes on settlement behavior."
+        "Underestimating the impact of correspondent chain changes on settlement."
       ]
     },
     "pacs.010.001.05": {
@@ -11079,26 +11079,25 @@ function englishSchemeNotes(msgType) {
     ],
     "pacs.003.001.09": [
       `This message is outside the SCT and SCT Inst credit-transfer rulebooks, so treat it as a separate direct-debit track.`,
-      `Use this page as a message guide, not as a substitute for scheme rulebooks.`
+      `Use this page as a guide, not as a substitute for scheme rulebooks.`
     ],
     "pacs.004.001.11": [
-      `For SEPA credit-transfer flows, pacs.004 is part of the wider return and exception-management picture around executed payments. The [EPC SCT rulebook](${PRIMARY_SOURCES.epcSct}) and [EPC SCT Inst rulebook](${PRIMARY_SOURCES.epcSctInst}) define scheme behaviour around those operational flows.`,
-      `In CBPR+, Swift maps pacs.004 alongside pacs.008, pacs.009, and pacs.002 during the ISO 20022 migration of payment instructions. See the [CBPR+ coexistence and end-state roadmap](${PRIMARY_SOURCES.swiftRoadmap}).`
+      `For SEPA credit-transfer flows, pacs.004 sits in the wider return and exception path defined by the [EPC SCT rulebook](${PRIMARY_SOURCES.epcSct}) and [EPC SCT Inst rulebook](${PRIMARY_SOURCES.epcSctInst}).`,
+      `In CBPR+, Swift maps pacs.004 alongside pacs.008, pacs.009, and pacs.002. See the [CBPR+ roadmap](${PRIMARY_SOURCES.swiftRoadmap}).`
     ],
     "pacs.007.001.11": [
       `pacs.007 is closer to recall and reversal handling than to beneficiary-side returns, so do not collapse it into the same process model as pacs.004.`,
       `It is often used for fast exception handling in instant-payment and fraud-response contexts.`
     ],
     "pacs.008.001.13": [
-      `For SEPA credit transfers, pacs.008 is part of the SCT scheme messaging stack defined by the [EPC SCT rulebook](${PRIMARY_SOURCES.epcSct}).`,
-      `For instant payments, pacs.008 is also central to SCT Inst flows under the [EPC SCT Inst rulebook](${PRIMARY_SOURCES.epcSctInst}).`,
-      `For CBPR+, Swift positions pacs.008 as the ISO 20022 successor to MT103-style customer credit-transfer instructions. See [Swift CBPR+ pacs.008 training overview](${PRIMARY_SOURCES.swiftCbprPacs008}), [serial method](${PRIMARY_SOURCES.swiftCbprSerial}), and [cover method](${PRIMARY_SOURCES.swiftCbprCover}).`,
-      `Swift's roadmap shows MT 103 moving to pacs.008 during migration. See the [Swift roadmap PDF](${PRIMARY_SOURCES.swiftRoadmap}).`,
-      `Structured-address changes around November 2026 affect pacs.008 data quality in cross-border use. See the [Swift CBPR+ roadmap](${PRIMARY_SOURCES.swiftAddress}).`
+      `For SEPA credit transfers, pacs.008 is part of the SCT stack in the [EPC SCT rulebook](${PRIMARY_SOURCES.epcSct}).`,
+      `For instant payments, pacs.008 is also central to SCT Inst in the [EPC SCT Inst rulebook](${PRIMARY_SOURCES.epcSctInst}).`,
+      `For CBPR+, pacs.008 replaces MT103-style customer payment instructions. See [Swift CBPR+ pacs.008 overview](${PRIMARY_SOURCES.swiftCbprPacs008}), [serial method](${PRIMARY_SOURCES.swiftCbprSerial}), and [cover method](${PRIMARY_SOURCES.swiftCbprCover}).`,
+      `The November 2026 structured-address change affects cross-border pacs.008 data quality. See the [Swift CBPR+ roadmap](${PRIMARY_SOURCES.swiftAddress}).`
     ],
     "pacs.009.001.10": [
-      `In CBPR+, pacs.009 carries institution-to-institution credit transfers and cover-payment legs. See the [roadmap PDF](${PRIMARY_SOURCES.swiftRoadmap}) and [CBPR+ pacs.009 material](${PRIMARY_SOURCES.swiftCbprPacs009}).`,
-      `For cover method, analyse pacs.009 together with the related customer leg in pacs.008. See [Swift's pacs.008/pacs.009 cover-method training page](${PRIMARY_SOURCES.swiftCbprCover}).`,
+      `In CBPR+, pacs.009 carries bank-to-bank credit transfers and cover-payment legs. See the [roadmap PDF](${PRIMARY_SOURCES.swiftRoadmap}) and [CBPR+ pacs.009 material](${PRIMARY_SOURCES.swiftCbprPacs009}).`,
+      `For cover method, read pacs.009 with the related customer leg in pacs.008. See [Swift's pacs.008/pacs.009 cover-method page](${PRIMARY_SOURCES.swiftCbprCover}).`,
       `This message is outside the SCT and SCT Inst customer credit-transfer rulebooks, so SEPA customer-payment rules do not carry over unchanged.`
     ],
     "pacs.010.001.05": [
@@ -11129,7 +11128,7 @@ function englishFaq(msgType) {
     ],
     "pacs.003.001.09": [
       ["Is pacs.003 the direct-debit mirror of pacs.008?", "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."],
-      ["What matters most operationally?", "Mandate quality, debtor-account rules, and return handling matter more than XML generation alone."]
+      ["What matters most operationally?", "Mandate quality, debtor-account rules, and return handling matter more than XML generation."]
     ],
     "pacs.004.001.11": [
       ["What is the difference between pacs.004 and pacs.007?", "pacs.004 returns settled funds from the receiving side, while pacs.007 requests reversal from the original instructing side."],
@@ -11144,8 +11143,8 @@ function englishFaq(msgType) {
       ["What causes the most repair work?", "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."]
     ],
     "pacs.009.001.10": [
-      ["When should I choose pacs.009 over pacs.008?", "Choose pacs.009 for institution-own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions."],
-      ["Why is pacs.009 often harder to reconcile than expected?", "Because institutions must preserve the relationship between treasury funding, correspondent legs, and any linked customer payment."]
+      ["When should I choose pacs.009 over pacs.008?", "Choose pacs.009 for own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions."],
+      ["Why is pacs.009 often harder to reconcile than expected?", "Because banks must preserve the relationship between treasury funding, correspondent legs, and any linked customer payment."]
     ],
     "pacs.010.001.05": [
       ["Is pacs.010 common in retail payment products?", "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."],
@@ -11216,18 +11215,18 @@ function englishDecisionFlow(msgType) {
       "No -> Stay in the payment or exception flow."
     ],
     "pacs.003.001.09": [
-      "Need an FI-to-FI customer direct debit?",
+      "Need a bank-to-bank customer direct debit?",
       "Yes -> Use pacs.003.",
       "No -> Need a customer credit transfer?",
       "Yes -> Use pacs.008 instead.",
-      "No -> Re-check whether the business case is a direct debit at all."
+      "No -> Re-check whether the case is really a direct debit."
     ],
     "pacs.004.001.11": [
       "Has value already settled and now needs to move back?",
       "Yes -> Use pacs.004.",
       "No -> Is the instructing side trying to stop or reverse the payment?",
       "Yes -> Consider pacs.007 instead.",
-      "No -> Review scheme exception handling before choosing a message."
+      "No -> Review scheme exception handling before you choose a message."
     ],
     "pacs.007.001.11": [
       "Is the instructing side requesting reversal of an earlier instruction?",
@@ -11237,18 +11236,18 @@ function englishDecisionFlow(msgType) {
       "No -> Check whether the case is status, investigation, or recall handling."
     ],
     "pacs.008.001.13": [
-      "Is this a customer credit-transfer instruction between institutions?",
+      "Is this a customer credit-transfer instruction between banks?",
       "Yes -> Use pacs.008.",
       "No -> Is it an institution funding leg or cover payment?",
       "Yes -> Consider pacs.009 instead.",
-      "No -> Re-check whether the business event is status, return, or reversal."
+      "No -> Re-check whether the case is status, return, or reversal."
     ],
     "pacs.009.001.10": [
       "Is this own-account bank movement or a cover leg?",
       "Yes -> Use pacs.009.",
       "No -> Is it a customer payment instruction?",
       "Yes -> Consider pacs.008 instead.",
-      "No -> Validate whether treasury or settlement operations own the case."
+      "No -> Check whether treasury or settlement operations own the case."
     ],
     "pacs.010.001.05": [
       "Need a bank-to-bank direct-debit message?",
