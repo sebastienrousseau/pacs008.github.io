@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Group Header พร้อมรหัสระบุข้อความและประทับเวลาการสร้าง</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header พร้อมรหัสระบุข้อความและประทับเวลาการสร้าง</td>
           <td class="operational-matrix-table__right">เปิดใช้งานการสอบถามสถานะเชิงรุกสำหรับคำสั่งชำระเงินที่อยู่ระหว่างทาง</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — ข้อมูลธุรกรรมที่ระบุการชำระเงินที่ต้องการสอบถาม</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — ข้อมูลธุรกรรมที่ระบุการชำระเงินที่ต้องการสอบถาม</td>
           <td class="operational-matrix-table__right">รองรับทีมปฏิบัติการที่สืบสวนการชำระเงินที่ล่าช้าหรือสูญหาย</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — ข้อมูลกลุ่มต้นฉบับที่อ้างอิงข้อความต้นทาง</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — ข้อมูลกลุ่มต้นฉบับที่อ้างอิงข้อความต้นทาง</td>
           <td class="operational-matrix-table__right">เสริม pacs.002 โดยริเริ่มการสื่อสารสถานะแทนที่จะรอ</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlInstrId** — รหัสระบุคำสั่งต้นฉบับจากการชำระเงินต้นทาง</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlInstrId</strong> — รหัสระบุคำสั่งต้นฉบับจากการชำระเงินต้นทาง</td>
           <td class="operational-matrix-table__right">ใช้ในขั้นตอนการจัดการข้อยกเว้นและการตรวจสอบ SLA</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlEndToEndId** — รหัสระบุแบบครบวงจรต้นฉบับสำหรับการตรวจสอบย้อนกลับ</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlEndToEndId</strong> — รหัสระบุแบบครบวงจรต้นฉบับสำหรับการตรวจสอบย้อนกลับ</td>
           <td class="operational-matrix-table__right">ตัวแทนผู้สั่งส่ง pacs.028 ไปยังตัวแทนผู้รับคำสั่งเพื่อร้องขอสถานะของการชำระเงินเฉพาะรายการ ตัวแทนผู้รับคำสั่งตอบกลับด้วย pacs.002 ที่มีสถานะการประมวลผลปัจจุบัน</td>
         </tr>
     </tbody>

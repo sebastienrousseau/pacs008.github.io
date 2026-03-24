@@ -50,23 +50,23 @@ Pesan pacs.010 digunakan antara lembaga keuangan untuk transaksi debit langsung 
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Group Header dengan identifikasi pesan dan informasi penyelesaian</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header dengan identifikasi pesan dan informasi penyelesaian</td>
           <td class="operational-matrix-table__right">Mendukung penagihan debit langsung antarbank antara lembaga keuangan</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Informasi Transaksi Debit Langsung dengan jumlah penagihan</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Informasi Transaksi Debit Langsung dengan jumlah penagihan</td>
           <td class="operational-matrix-table__right">Digunakan untuk penagihan biaya, margin call, dan kewajiban penyelesaian institusional</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identifikasi lembaga kreditur dan agennya</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Identifikasi lembaga kreditur dan agennya</td>
           <td class="operational-matrix-table__right">Memerlukan pengaturan bilateral yang telah disepakati sebelumnya antara lembaga peserta</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identifikasi lembaga debitur dan agennya</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Identifikasi lembaga debitur dan agennya</td>
           <td class="operational-matrix-table__right">Penting untuk manajemen kas institusional dan siklus penyelesaian antarbank</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Jumlah Penyelesaian Antarbank dalam mata uang penyelesaian</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Jumlah Penyelesaian Antarbank dalam mata uang penyelesaian</td>
           <td class="operational-matrix-table__right">Lembaga kreditur mengirim pacs.010 ke lembaga debitur untuk menagih dana berdasarkan pengaturan yang telah disepakati sebelumnya. Lembaga debitur memvalidasi permintaan dan menyelesaikan atau menolak debit langsung.</td>
         </tr>
     </tbody>

@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Заголовок групи з ідентифікацією повідомлення та інформацією про розрахунок</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Заголовок групи з ідентифікацією повідомлення та інформацією про розрахунок</td>
           <td class="operational-matrix-table__right">Підтримує схеми прямого дебетування SEPA Core та B2B</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Інформація про транзакцію прямого дебетування з сумою та сторонами</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Інформація про транзакцію прямого дебетування з сумою та сторонами</td>
           <td class="operational-matrix-table__right">Використовується для інкасування періодичних платежів, таких як підписки, комунальні рахунки та погашення кредитів</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr** — Ідентифікація кредитора та реквізити рахунку</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr</strong> — Ідентифікація кредитора та реквізити рахунку</td>
           <td class="operational-matrix-table__right">Вимагає дійсного посилання на мандат між дебітором та кредитором</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtrAgt** — Ідентифікація агента кредитора (інкасуючої установи)</td>
+          <td class="operational-matrix-table__left"><strong>CdtrAgt</strong> — Ідентифікація агента кредитора (інкасуючої установи)</td>
           <td class="operational-matrix-table__right">Дозволяє пакетне інкасування кількох доручень на пряме дебетування в одному повідомленні</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DbtrAgt** — Ідентифікація агента дебітора (платіжної установи)</td>
+          <td class="operational-matrix-table__left"><strong>DbtrAgt</strong> — Ідентифікація агента дебітора (платіжної установи)</td>
           <td class="operational-matrix-table__right">Агент кредитора ініціює pacs.003 на адресу агента дебітора для інкасування коштів. Агент дебітора перевіряє мандат, контролює покриття рахунку та здійснює розрахунок або повертає транзакцію.</td>
         </tr>
     </tbody>

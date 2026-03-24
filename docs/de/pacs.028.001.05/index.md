@@ -50,23 +50,23 @@ Die Nachricht pacs.028 wird von einem Finanzinstitut gesendet, um den Status ein
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Gruppenkopf mit Nachrichtenidentifikation und Erstellungszeitstempel</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Gruppenkopf mit Nachrichtenidentifikation und Erstellungszeitstempel</td>
           <td class="operational-matrix-table__right">Ermöglicht proaktive Statusabfragen für in Bearbeitung befindliche Zahlungsanweisungen</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Transaktionsinformationen zur Identifizierung der abzufragenden Zahlung</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Transaktionsinformationen zur Identifizierung der abzufragenden Zahlung</td>
           <td class="operational-matrix-table__right">Unterstützt Betriebsteams bei der Untersuchung verzögerter oder fehlender Zahlungen</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Originalgruppendaten mit Bezug auf die Quellnachricht</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Originalgruppendaten mit Bezug auf die Quellnachricht</td>
           <td class="operational-matrix-table__right">Ergänzt pacs.002, indem Statuskommunikation initiiert statt abgewartet wird</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlInstrId** — Originalanweisungskennung aus der Quellzahlung</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlInstrId</strong> — Originalanweisungskennung aus der Quellzahlung</td>
           <td class="operational-matrix-table__right">Wird in Ausnahmebehandlungs- und SLA-Überwachungs-Workflows eingesetzt</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlEndToEndId** — Originale End-to-End-Kennung für die Nachverfolgbarkeit</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlEndToEndId</strong> — Originale End-to-End-Kennung für die Nachverfolgbarkeit</td>
           <td class="operational-matrix-table__right">Der beauftragende Agent sendet pacs.028 an den beauftragten Agent, um den Status einer bestimmten Zahlung abzufragen. Der beauftragte Agent antwortet mit einem pacs.002 mit dem aktuellen Verarbeitungsstatus.</td>
         </tr>
     </tbody>

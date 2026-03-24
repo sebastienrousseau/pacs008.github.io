@@ -50,23 +50,23 @@ Die Nachricht pacs.004 wird verwendet, um eine zuvor abgewickelte Zahlungstransa
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Gruppenkopf mit Nachrichtenidentifikation und Erstellungszeitstempel</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Gruppenkopf mit Nachrichtenidentifikation und Erstellungszeitstempel</td>
           <td class="operational-matrix-table__right">Behandelt Rückgaben nach Abwicklung, wenn das Konto des Begünstigten nicht gutgeschrieben werden kann</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Transaktionsinformationen mit Rückgabebetrag und Parteien</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Transaktionsinformationen mit Rückgabebetrag und Parteien</td>
           <td class="operational-matrix-table__right">Unterstützt Rückrufszenarien, bei denen der Auftraggeber die Rückgabe der Mittel anfordert</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Originalgruppendaten mit Verknüpfung zur Quellnachricht</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Originalgruppendaten mit Verknüpfung zur Quellnachricht</td>
           <td class="operational-matrix-table__right">Trägt strukturierte Rückgabegrundcodes für regulatorische und operative Transparenz</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RtrRsnInf** — Rückgabegrundinformationen mit strukturierten Grundcodes</td>
+          <td class="operational-matrix-table__left"><strong>RtrRsnInf</strong> — Rückgabegrundinformationen mit strukturierten Grundcodes</td>
           <td class="operational-matrix-table__right">Gilt für Überweisungsrückgaben (pacs.008) und Lastschriftrückgaben (pacs.003)</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Originaltransaktionsreferenz für Zuordnung und Abstimmung</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Originaltransaktionsreferenz für Zuordnung und Abstimmung</td>
           <td class="operational-matrix-table__right">Der beauftragte Agent sendet pacs.004 durch die Zahlungskette zurück, um zuvor abgewickelte Gelder zurückzugeben. Jeder Agent in der Kette verarbeitet die Rückgabe und schreibt die entsprechenden Konten gut.</td>
         </tr>
     </tbody>

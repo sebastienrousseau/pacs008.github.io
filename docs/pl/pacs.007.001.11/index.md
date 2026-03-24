@@ -50,23 +50,23 @@ Komunikat pacs.007 jest używany do odwrócenia wcześniej wysłanej instrukcji 
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Nagłówek grupy z identyfikacją komunikatu i znacznikiem czasu utworzenia</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Nagłówek grupy z identyfikacją komunikatu i znacznikiem czasu utworzenia</td>
           <td class="operational-matrix-table__right">Inicjowany, gdy oryginalny nadawca wykryje błąd przed lub po rozrachunku</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Informacje o transakcji z kwotą odwrócenia i stronami</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Informacje o transakcji z kwotą odwrócenia i stronami</td>
           <td class="operational-matrix-table__right">Używany w scenariuszach oszustw, gdy wymagane jest szybkie odwrócenie</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Informacje o oryginalnej grupie z odniesieniem do komunikatu źródłowego</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Informacje o oryginalnej grupie z odniesieniem do komunikatu źródłowego</td>
           <td class="operational-matrix-table__right">Obsługuje zarówno pełne, jak i częściowe odwrócenie kwot oryginalnej płatności</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RvslRsnInf** — Informacje o przyczynie odwrócenia ze strukturyzowanymi kodami przyczyn</td>
+          <td class="operational-matrix-table__left"><strong>RvslRsnInf</strong> — Informacje o przyczynie odwrócenia ze strukturyzowanymi kodami przyczyn</td>
           <td class="operational-matrix-table__right">Zawiera strukturyzowane kody przyczyn odwrócenia do przetwarzania dalszego</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Referencja oryginalnej transakcji dla identyfikowalności end-to-end</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Referencja oryginalnej transakcji dla identyfikowalności end-to-end</td>
           <td class="operational-matrix-table__right">Agent zlecający (oryginalny nadawca) wysyła pacs.007 do przodu przez łańcuch płatniczy w celu odwrócenia wcześniej zleconej płatności. Każdy agent przetwarza instrukcję odwrócenia i odpowiednio koryguje rozrachunek.</td>
         </tr>
     </tbody>

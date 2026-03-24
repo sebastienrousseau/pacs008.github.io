@@ -50,23 +50,23 @@ A mensagem pacs.007 é utilizada para reverter uma instrução de pagamento envi
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Cabeçalho de grupo com identificação da mensagem e registro de data/hora de criação</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Cabeçalho de grupo com identificação da mensagem e registro de data/hora de criação</td>
           <td class="operational-matrix-table__right">Iniciado quando o remetente original identifica um erro antes ou após a liquidação</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Informações da transação com valor da reversão e partes envolvidas</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Informações da transação com valor da reversão e partes envolvidas</td>
           <td class="operational-matrix-table__right">Utilizado em cenários de fraude onde é necessária uma reversão rápida</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Informações do grupo original com referência à mensagem de origem</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Informações do grupo original com referência à mensagem de origem</td>
           <td class="operational-matrix-table__right">Suporta tanto a reversão total quanto parcial dos valores do pagamento original</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RvslRsnInf** — Informações do motivo da reversão com códigos de motivo estruturados</td>
+          <td class="operational-matrix-table__left"><strong>RvslRsnInf</strong> — Informações do motivo da reversão com códigos de motivo estruturados</td>
           <td class="operational-matrix-table__right">Contém códigos de motivo de reversão estruturados para processamento a jusante</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Referência da transação original para rastreabilidade de ponta a ponta</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Referência da transação original para rastreabilidade de ponta a ponta</td>
           <td class="operational-matrix-table__right">O agente instruente (remetente original) envia pacs.007 para frente pela cadeia de pagamento para reverter um pagamento previamente instruído. Cada agente processa a instrução de reversão e ajusta a liquidação de acordo.</td>
         </tr>
     </tbody>

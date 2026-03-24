@@ -50,23 +50,23 @@ A mensagem pacs.002 é enviada por uma instituição financeira para reportar o 
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Cabeçalho de grupo com identificação da mensagem e registro de data/hora de criação</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Cabeçalho de grupo com identificação da mensagem e registro de data/hora de criação</td>
           <td class="operational-matrix-table__right">Utilizado para confirmar a liquidação ou reportar a rejeição de transferências de crédito, débitos diretos e devoluções de pagamento</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInfAndSts** — Informações e status do grupo original para relatórios em nível agregado</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInfAndSts</strong> — Informações e status do grupo original para relatórios em nível agregado</td>
           <td class="operational-matrix-table__right">Possibilita a reconciliação entre agentes instruentes e agentes instruídos</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInfAndSts** — Informações e status da transação para resultados de transações individuais</td>
+          <td class="operational-matrix-table__left"><strong>TxInfAndSts</strong> — Informações e status da transação para resultados de transações individuais</td>
           <td class="operational-matrix-table__right">Obrigatório nos fluxos CBPR+ para confirmar o processamento de mensagens pacs.008 e pacs.009</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**StsRsnInf** — Informações do motivo do status com códigos de motivo estruturados</td>
+          <td class="operational-matrix-table__left"><strong>StsRsnInf</strong> — Informações do motivo do status com códigos de motivo estruturados</td>
           <td class="operational-matrix-table__right">Suporta relatórios de status tanto em nível de grupo agregado quanto em nível de transação individual</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Referência da transação original vinculando à instrução de origem</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Referência da transação original vinculando à instrução de origem</td>
           <td class="operational-matrix-table__right">O agente instruído (receptor) envia pacs.002 de volta ao agente instruente (remetente) para confirmar a aceitação, liquidação ou rejeição de uma instrução de pagamento recebida, como pacs.008 ou pacs.009.</td>
         </tr>
     </tbody>

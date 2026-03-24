@@ -50,23 +50,23 @@ Komunikat pacs.009 jest używany do poleceń przelewu między instytucjami finan
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Nagłówek grupy z identyfikacją komunikatu i informacjami o rozrachunku</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Nagłówek grupy z identyfikacją komunikatu i informacjami o rozrachunku</td>
           <td class="operational-matrix-table__right">Używany do międzybankowych przelewów na rachunek własny i płatności pokrycia</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Informacje o transakcji polecenia przelewu z kwotą rozrachunku międzybankowego</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Informacje o transakcji polecenia przelewu z kwotą rozrachunku międzybankowego</td>
           <td class="operational-matrix-table__right">Obsługuje zarządzanie płynnością między partnerami bankowości korespondencyjnej</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identyfikacja instytucji dłużnika i jej agenta</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Identyfikacja instytucji dłużnika i jej agenta</td>
           <td class="operational-matrix-table__right">Zawiera etap pokrycia poleceń przelewu klientów rozliczanych metodą pokrycia</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identyfikacja instytucji wierzyciela i jej agenta</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Identyfikacja instytucji wierzyciela i jej agenta</td>
           <td class="operational-matrix-table__right">Umożliwia operacje skarbowe i finansowe między instytucjami finansowymi</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Kwota rozrachunku międzybankowego w walucie rozrachunku</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Kwota rozrachunku międzybankowego w walucie rozrachunku</td>
           <td class="operational-matrix-table__right">Instytucja dłużnika wysyła pacs.009 do instytucji wierzyciela w celu przekazania własnych środków. W przypadku płatności metodą pokrycia pacs.009 zapewnia etap finansowania, podczas gdy pacs.008 przenosi instrukcję klienta odrębną ścieżką.</td>
         </tr>
     </tbody>

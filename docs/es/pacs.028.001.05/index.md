@@ -50,23 +50,23 @@ El mensaje pacs.028 es enviado por una institución financiera para solicitar el
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Cabecera de grupo con identificación del mensaje y marca temporal de creación</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Cabecera de grupo con identificación del mensaje y marca temporal de creación</td>
           <td class="operational-matrix-table__right">Permite la consulta proactiva de estado para instrucciones de pago en tránsito</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Información de transacción identificando el pago a consultar</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Información de transacción identificando el pago a consultar</td>
           <td class="operational-matrix-table__right">Apoya a los equipos de operaciones en la investigación de pagos retrasados o perdidos</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Información del grupo original referenciando al mensaje fuente</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Información del grupo original referenciando al mensaje fuente</td>
           <td class="operational-matrix-table__right">Complementa pacs.002 iniciando la comunicación de estado en lugar de esperar</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlInstrId** — Identificación de la instrucción original del pago fuente</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlInstrId</strong> — Identificación de la instrucción original del pago fuente</td>
           <td class="operational-matrix-table__right">Se utiliza en flujos de gestión de excepciones y monitorización de SLA</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlEndToEndId** — Identificación de extremo a extremo original para trazabilidad</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlEndToEndId</strong> — Identificación de extremo a extremo original para trazabilidad</td>
           <td class="operational-matrix-table__right">El agente ordenante envía pacs.028 al agente instruido para solicitar el estado de un pago específico. El agente instruido responde con un pacs.002 que contiene el estado de procesamiento actual.</td>
         </tr>
     </tbody>

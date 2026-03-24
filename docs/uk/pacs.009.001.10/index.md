@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Заголовок групи з ідентифікацією повідомлення та інформацією про розрахунок</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Заголовок групи з ідентифікацією повідомлення та інформацією про розрахунок</td>
           <td class="operational-matrix-table__right">Використовується для міжбанківських переказів з власного рахунку та покриваючих платежів</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Інформація про транзакцію кредитового переказу з сумою міжбанківського розрахунку</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Інформація про транзакцію кредитового переказу з сумою міжбанківського розрахунку</td>
           <td class="operational-matrix-table__right">Підтримує управління ліквідністю між партнерами кореспондентського банкінгу</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Ідентифікація установи-дебітора та її агента</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Ідентифікація установи-дебітора та її агента</td>
           <td class="operational-matrix-table__right">Несе покриваючу частину клієнтських кредитових переказів, розрахованих методом покриття</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Ідентифікація установи-кредитора та її агента</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Ідентифікація установи-кредитора та її агента</td>
           <td class="operational-matrix-table__right">Забезпечує казначейські та фінансові операції між фінансовими установами</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Сума міжбанківського розрахунку у валюті розрахунку</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Сума міжбанківського розрахунку у валюті розрахунку</td>
           <td class="operational-matrix-table__right">Установа-дебітор надсилає pacs.009 установі-кредитору для переказу власних коштів. Для платежів методом покриття pacs.009 забезпечує фінансову частину, тоді як pacs.008 несе клієнтське доручення окремим маршрутом.</td>
         </tr>
     </tbody>

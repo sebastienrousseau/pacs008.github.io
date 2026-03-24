@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — כותרת קבוצה עם מזהה הודעה, תאריך יצירה, מספר עסקאות ומידע סליקה</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — כותרת קבוצה עם מזהה הודעה, תאריך יצירה, מספר עסקאות ומידע סליקה</td>
           <td class="operational-matrix-table__right">ההודעה העיקרית להעברות זכות חוצות גבולות ומקומיות ביוזמת לקוח</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — מידע עסקת העברת זכות עם סכום, עמלות ומטרה</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — מידע עסקת העברת זכות עם סכום, עמלות ומטרה</td>
           <td class="operational-matrix-table__right">בשימוש ב-SEPA SCT, SEPA Instant, CBPR+ ומערכות סליקה לאומיות</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — זיהוי החייב וסוכן החייב ופרטי חשבון</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — זיהוי החייב וסוכן החייב ופרטי חשבון</td>
           <td class="operational-matrix-table__right">נושאת מידע העברה מובנה לתמיכה בהתאמה אוטומטית</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — זיהוי הנושה וסוכן הנושה ופרטי חשבון</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — זיהוי הנושה וסוכן הנושה ופרטי חשבון</td>
           <td class="operational-matrix-table__right">תומכת בשיטות סליקה סדרתית, כיסוי וישירה לשרשראות תשלום מרובות רגליים</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RmtInf** — מידע העברה להפניות תשלום מובנות או בלתי מובנות</td>
+          <td class="operational-matrix-table__left"><strong>RmtInf</strong> — מידע העברה להפניות תשלום מובנות או בלתי מובנות</td>
           <td class="operational-matrix-table__right">סוכן החייב יוצר pacs.008 ושולח אותה לסוכן הנושה (ישירות או דרך מתווכים). כל סוכן בשרשרת מאמת, מעשיר ומעביר את ההוראה עד שסוכן הנושה מזכה את חשבון המוטב.</td>
         </tr>
     </tbody>

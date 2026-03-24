@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — رأس المجموعة مع تعريف الرسالة والطابع الزمني للإنشاء</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — رأس المجموعة مع تعريف الرسالة والطابع الزمني للإنشاء</td>
           <td class="operational-matrix-table__right">يُستخدم لتأكيد التسوية أو الإبلاغ عن رفض التحويلات والخصم المباشر والمرتجعات</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInfAndSts** — معلومات وحالة المجموعة الأصلية للتقارير الجماعية</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInfAndSts</strong> — معلومات وحالة المجموعة الأصلية للتقارير الجماعية</td>
           <td class="operational-matrix-table__right">يمكّن المطابقة بين الوكلاء المُرسلين والمُستلمين</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInfAndSts** — معلومات وحالة المعاملة لنتائج المعاملات الفردية</td>
+          <td class="operational-matrix-table__left"><strong>TxInfAndSts</strong> — معلومات وحالة المعاملة لنتائج المعاملات الفردية</td>
           <td class="operational-matrix-table__right">مطلوب في تدفقات CBPR+ للإقرار بمعالجة رسائل pacs.008 و pacs.009</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**StsRsnInf** — معلومات سبب الحالة مع رموز أسباب منظمة</td>
+          <td class="operational-matrix-table__left"><strong>StsRsnInf</strong> — معلومات سبب الحالة مع رموز أسباب منظمة</td>
           <td class="operational-matrix-table__right">يدعم الإبلاغ عن الحالة على مستوى المجموعة وعلى مستوى المعاملات الفردية</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — مرجع المعاملة الأصلية المرتبط بالتعليمات المصدرية</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — مرجع المعاملة الأصلية المرتبط بالتعليمات المصدرية</td>
           <td class="operational-matrix-table__right">يرسل الوكيل المُستلم pacs.002 إلى الوكيل المُرسل لتأكيد القبول أو التسوية أو الرفض لتعليمات دفع مستلمة مثل pacs.008 أو pacs.009.</td>
         </tr>
     </tbody>

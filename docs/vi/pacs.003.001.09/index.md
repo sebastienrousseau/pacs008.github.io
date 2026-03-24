@@ -50,23 +50,23 @@ Thông điệp pacs.003 được trao đổi giữa các tổ chức tài chính
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Tiêu đề nhóm với mã nhận dạng thông điệp và thông tin quyết toán</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Tiêu đề nhóm với mã nhận dạng thông điệp và thông tin quyết toán</td>
           <td class="operational-matrix-table__right">Hỗ trợ các chương trình ghi nợ trực tiếp SEPA Core và B2B</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Thông tin giao dịch ghi nợ trực tiếp với số tiền và các bên</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Thông tin giao dịch ghi nợ trực tiếp với số tiền và các bên</td>
           <td class="operational-matrix-table__right">Được sử dụng cho việc thu thanh toán định kỳ như đăng ký thuê bao, hóa đơn tiện ích và trả nợ vay</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr** — Nhận dạng chủ nợ và chi tiết tài khoản</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr</strong> — Nhận dạng chủ nợ và chi tiết tài khoản</td>
           <td class="operational-matrix-table__right">Yêu cầu tham chiếu ủy quyền hợp lệ giữa con nợ và chủ nợ</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtrAgt** — Nhận dạng đại lý chủ nợ (tổ chức thu tiền)</td>
+          <td class="operational-matrix-table__left"><strong>CdtrAgt</strong> — Nhận dạng đại lý chủ nợ (tổ chức thu tiền)</td>
           <td class="operational-matrix-table__right">Cho phép thu gom hàng loạt nhiều lệnh ghi nợ trực tiếp trong một thông điệp duy nhất</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DbtrAgt** — Nhận dạng đại lý con nợ (tổ chức thanh toán)</td>
+          <td class="operational-matrix-table__left"><strong>DbtrAgt</strong> — Nhận dạng đại lý con nợ (tổ chức thanh toán)</td>
           <td class="operational-matrix-table__right">Đại lý chủ nợ khởi tạo pacs.003 hướng tới đại lý con nợ để thu tiền. Đại lý con nợ xác thực ủy quyền, kiểm tra số dư tài khoản, và quyết toán hoặc trả lại giao dịch.</td>
         </tr>
     </tbody>

@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — כותרת קבוצה עם זיהוי הודעה וחותמת זמן יצירה</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — כותרת קבוצה עם זיהוי הודעה וחותמת זמן יצירה</td>
           <td class="operational-matrix-table__right">מאפשרת בירור סטטוס יזום עבור הוראות תשלום בתהליך</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — מידע עסקה המזהה את התשלום לבירור</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — מידע עסקה המזהה את התשלום לבירור</td>
           <td class="operational-matrix-table__right">תומכת בצוותי תפעול החוקרים תשלומים מעוכבים או חסרים</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — מידע על הקבוצה המקורית המפנה להודעת המקור</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — מידע על הקבוצה המקורית המפנה להודעת המקור</td>
           <td class="operational-matrix-table__right">משלימה את pacs.002 ביוזמת תקשורת סטטוס במקום המתנה</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlInstrId** — מזהה ההוראה המקורית מהתשלום המקורי</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlInstrId</strong> — מזהה ההוראה המקורית מהתשלום המקורי</td>
           <td class="operational-matrix-table__right">משמשת בתהליכי טיפול בחריגים וניטור SLA</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlEndToEndId** — מזהה מקצה לקצה מקורי לעקיבות</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlEndToEndId</strong> — מזהה מקצה לקצה מקורי לעקיבות</td>
           <td class="operational-matrix-table__right">הסוכן המורה שולח pacs.028 לסוכן מקבל ההוראות לבקשת סטטוס של תשלום ספציפי. הסוכן מקבל ההוראות משיב עם pacs.002 המכילה את סטטוס העיבוד הנוכחי.</td>
         </tr>
     </tbody>

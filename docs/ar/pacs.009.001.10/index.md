@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — رأس المجموعة مع تعريف الرسالة ومعلومات التسوية</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — رأس المجموعة مع تعريف الرسالة ومعلومات التسوية</td>
           <td class="operational-matrix-table__right">يُستخدم لتحويلات الحساب الخاص بين البنوك ومدفوعات التغطية</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — معلومات معاملة التحويل مع مبلغ التسوية بين البنوك</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — معلومات معاملة التحويل مع مبلغ التسوية بين البنوك</td>
           <td class="operational-matrix-table__right">يدعم إدارة السيولة بين شركاء البنوك المراسلة</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — المؤسسة المدينة وتعريف وكيلها</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — المؤسسة المدينة وتعريف وكيلها</td>
           <td class="operational-matrix-table__right">يحمل ساق التغطية لتحويلات العملاء المسوّاة بطريقة التغطية</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — المؤسسة الدائنة وتعريف وكيلها</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — المؤسسة الدائنة وتعريف وكيلها</td>
           <td class="operational-matrix-table__right">يمكّن عمليات الخزينة والتمويل بين المؤسسات المالية</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — مبلغ التسوية بين البنوك بعملة التسوية</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — مبلغ التسوية بين البنوك بعملة التسوية</td>
           <td class="operational-matrix-table__right">ترسل المؤسسة المدينة pacs.009 إلى المؤسسة الدائنة لتحويل أموالها الخاصة. لمدفوعات التغطية، يوفر pacs.009 ساق التمويل بينما يحمل pacs.008 تعليمات العميل عبر مسار منفصل.</td>
         </tr>
     </tbody>

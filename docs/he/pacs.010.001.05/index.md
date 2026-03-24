@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — כותרת קבוצה עם זיהוי הודעה ומידע סליקה</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — כותרת קבוצה עם זיהוי הודעה ומידע סליקה</td>
           <td class="operational-matrix-table__right">תומכת בגביית חיוב ישיר בין-בנקאי בין מוסדות פיננסיים</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — מידע עסקת חיוב ישיר עם סכום הגבייה</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — מידע עסקת חיוב ישיר עם סכום הגבייה</td>
           <td class="operational-matrix-table__right">משמשת לגביית עמלות, דרישות מרווח והתחייבויות סליקה מוסדיות</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — זיהוי מוסד הנושה וסוכנו</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — זיהוי מוסד הנושה וסוכנו</td>
           <td class="operational-matrix-table__right">דורשת הסדרים דו-צדדיים מוסכמים מראש בין מוסדות משתתפים</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — זיהוי מוסד החייב וסוכנו</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — זיהוי מוסד החייב וסוכנו</td>
           <td class="operational-matrix-table__right">קריטית לניהול מזומנים מוסדי ומחזורי סליקה בין-בנקאיים</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — סכום סליקה בין-בנקאי במטבע הסליקה</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — סכום סליקה בין-בנקאי במטבע הסליקה</td>
           <td class="operational-matrix-table__right">מוסד הנושה שולח pacs.010 למוסד החייב לגביית כספים תחת הסדר מוסכם מראש. מוסד החייב מאמת את הבקשה ומסלק או דוחה את החיוב הישיר.</td>
         </tr>
     </tbody>

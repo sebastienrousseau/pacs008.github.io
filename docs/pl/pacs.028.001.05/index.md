@@ -50,23 +50,23 @@ Komunikat pacs.028 jest wysyłany przez instytucję finansową w celu zapytania 
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Nagłówek grupy z identyfikacją komunikatu i znacznikiem czasu utworzenia</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Nagłówek grupy z identyfikacją komunikatu i znacznikiem czasu utworzenia</td>
           <td class="operational-matrix-table__right">Umożliwia proaktywne zapytanie o status instrukcji płatniczych w trakcie realizacji</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Informacje o transakcji identyfikujące płatność, o którą zapytano</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Informacje o transakcji identyfikujące płatność, o którą zapytano</td>
           <td class="operational-matrix-table__right">Wspiera zespoły operacyjne w badaniu opóźnionych lub brakujących płatności</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Informacje o oryginalnej grupie z odniesieniem do komunikatu źródłowego</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Informacje o oryginalnej grupie z odniesieniem do komunikatu źródłowego</td>
           <td class="operational-matrix-table__right">Uzupełnia pacs.002, inicjując komunikację statusową zamiast oczekiwania</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlInstrId** — Oryginalna identyfikacja instrukcji z płatności źródłowej</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlInstrId</strong> — Oryginalna identyfikacja instrukcji z płatności źródłowej</td>
           <td class="operational-matrix-table__right">Używany w procesach obsługi wyjątków i monitorowania SLA</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlEndToEndId** — Oryginalna identyfikacja end-to-end dla identyfikowalności</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlEndToEndId</strong> — Oryginalna identyfikacja end-to-end dla identyfikowalności</td>
           <td class="operational-matrix-table__right">Agent zlecający wysyła pacs.028 do agenta zleconego w celu zapytania o status konkretnej płatności. Agent zlecony odpowiada komunikatem pacs.002 zawierającym aktualny status przetwarzania.</td>
         </tr>
     </tbody>

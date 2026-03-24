@@ -50,23 +50,23 @@ Het pacs.008-bericht is de kernbetalingsinstructie die wordt uitgewisseld tussen
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Groepskoptekst met bericht-ID, aanmaakdatum, aantal transacties en afwikkelingsinformatie</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Groepskoptekst met bericht-ID, aanmaakdatum, aantal transacties en afwikkelingsinformatie</td>
           <td class="operational-matrix-table__right">Het primaire bericht voor door klanten geïnitieerde grensoverschrijdende en binnenlandse overboekingen</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Overboekingstransactie-informatie met bedrag, kosten en doel</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Overboekingstransactie-informatie met bedrag, kosten en doel</td>
           <td class="operational-matrix-table__right">Gebruikt in SEPA SCT, SEPA Instant, CBPR+ en nationale verrekeningssystemen</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identificatie van debiteur en debiteuragent met rekeninggegevens</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Identificatie van debiteur en debiteuragent met rekeninggegevens</td>
           <td class="operational-matrix-table__right">Bevat gestructureerde betalingskenmerkinformatie ter ondersteuning van geautomatiseerde reconciliatie</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identificatie van crediteur en crediteuragent met rekeninggegevens</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Identificatie van crediteur en crediteuragent met rekeninggegevens</td>
           <td class="operational-matrix-table__right">Ondersteunt seriële, dekkings- en directe afwikkelingsmethoden voor betalingsketens met meerdere schakels</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RmtInf** — Betalingskenmerkinformatie voor gestructureerde of ongestructureerde betalingsreferenties</td>
+          <td class="operational-matrix-table__left"><strong>RmtInf</strong> — Betalingskenmerkinformatie voor gestructureerde of ongestructureerde betalingsreferenties</td>
           <td class="operational-matrix-table__right">De debiteuragent maakt een pacs.008 aan en stuurt dit naar de crediteuragent (rechtstreeks of via tussenpersonen). Elke agent in de keten valideert, verrijkt en stuurt de instructie door totdat de crediteuragent de rekening van de begunstigde crediteert.</td>
         </tr>
     </tbody>

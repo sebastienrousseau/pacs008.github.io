@@ -50,23 +50,23 @@ pacs.004 mesajı, daha önce takas edilmiş bir ödeme işlemini iade etmek içi
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Mesaj tanımlama ve oluşturma zaman damgası içeren Grup Başlığı</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Mesaj tanımlama ve oluşturma zaman damgası içeren Grup Başlığı</td>
           <td class="operational-matrix-table__right">Lehdarın hesabına alacak kaydedilemediğinde takas sonrası iadeleri işler</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — İade tutarı ve tarafları içeren İşlem Bilgisi</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — İade tutarı ve tarafları içeren İşlem Bilgisi</td>
           <td class="operational-matrix-table__right">Göndericinin fon iadesi talep ettiği geri çağırma senaryolarını destekler</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Kaynak mesaja bağlayan Orijinal Grup Bilgisi</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Kaynak mesaja bağlayan Orijinal Grup Bilgisi</td>
           <td class="operational-matrix-table__right">Düzenleyici ve operasyonel şeffaflık için yapılandırılmış iade neden kodları taşır</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RtrRsnInf** — Yapılandırılmış neden kodları içeren İade Nedeni Bilgisi</td>
+          <td class="operational-matrix-table__left"><strong>RtrRsnInf</strong> — Yapılandırılmış neden kodları içeren İade Nedeni Bilgisi</td>
           <td class="operational-matrix-table__right">Hem kredi transferi iadelerine (pacs.008) hem de doğrudan borçlandırma iadelerine (pacs.003) uygulanır</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Eşleştirme ve mutabakat için Orijinal İşlem Referansı</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Eşleştirme ve mutabakat için Orijinal İşlem Referansı</td>
           <td class="operational-matrix-table__right">Talimat alan aracı, daha önce takas edilmiş fonları iade etmek üzere ödeme zinciri boyunca geriye pacs.004 gönderir. Zincirdeki her aracı iadeyi işler ve ilgili hesapları geri alacaklandırır.</td>
         </tr>
     </tbody>

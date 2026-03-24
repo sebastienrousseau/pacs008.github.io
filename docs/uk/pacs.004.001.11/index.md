@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Заголовок групи з ідентифікацією повідомлення та міткою часу створення</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Заголовок групи з ідентифікацією повідомлення та міткою часу створення</td>
           <td class="operational-matrix-table__right">Обробляє повернення після розрахунку, коли рахунок бенефіціара не може бути кредитований</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Інформація про транзакцію з сумою повернення та сторонами</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Інформація про транзакцію з сумою повернення та сторонами</td>
           <td class="operational-matrix-table__right">Підтримує сценарії відкликання, коли відправник запитує повернення коштів</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Інформація про вихідну групу, що пов&#39;язує з вихідним повідомленням</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Інформація про вихідну групу, що пов&#39;язує з вихідним повідомленням</td>
           <td class="operational-matrix-table__right">Містить структуровані коди причин повернення для регуляторної та операційної прозорості</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RtrRsnInf** — Інформація про причину повернення зі структурованими кодами причин</td>
+          <td class="operational-matrix-table__left"><strong>RtrRsnInf</strong> — Інформація про причину повернення зі структурованими кодами причин</td>
           <td class="operational-matrix-table__right">Застосовується як до повернень кредитових переказів (pacs.008), так і до повернень прямих дебетувань (pacs.003)</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Посилання на вихідну транзакцію для зіставлення та звірки</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Посилання на вихідну транзакцію для зіставлення та звірки</td>
           <td class="operational-matrix-table__right">Інструктований агент надсилає pacs.004 назад через платіжний ланцюг для повернення раніше розрахованих коштів. Кожен агент у ланцюгу обробляє повернення та кредитує відповідні рахунки.</td>
         </tr>
     </tbody>

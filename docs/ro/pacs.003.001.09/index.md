@@ -50,23 +50,23 @@ Mesajul pacs.003 este schimbat între instituții financiare pentru a executa o 
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Antet de grup cu identificarea mesajului și informații de decontare</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Antet de grup cu identificarea mesajului și informații de decontare</td>
           <td class="operational-matrix-table__right">Suportă schemele de debitare directă SEPA Core și B2B</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Informații privind tranzacția de debitare directă cu sumă și părți implicate</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Informații privind tranzacția de debitare directă cu sumă și părți implicate</td>
           <td class="operational-matrix-table__right">Utilizat pentru colectarea plăților recurente precum abonamente, facturi de utilități și rambursări de împrumuturi</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr** — Identificarea creditorului și detaliile contului</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr</strong> — Identificarea creditorului și detaliile contului</td>
           <td class="operational-matrix-table__right">Necesită o referință de mandat validă între debitor și creditor</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtrAgt** — Identificarea agentului creditorului (instituția colectoare)</td>
+          <td class="operational-matrix-table__left"><strong>CdtrAgt</strong> — Identificarea agentului creditorului (instituția colectoare)</td>
           <td class="operational-matrix-table__right">Permite colectarea în masă a mai multor instrucțiuni de debitare directă într-un singur mesaj</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DbtrAgt** — Identificarea agentului debitorului (instituția plătitoare)</td>
+          <td class="operational-matrix-table__left"><strong>DbtrAgt</strong> — Identificarea agentului debitorului (instituția plătitoare)</td>
           <td class="operational-matrix-table__right">Agentul creditorului inițiază pacs.003 către agentul debitorului pentru a colecta fonduri. Agentul debitorului validează mandatul, verifică acoperirea contului și decontează sau returnează tranzacția.</td>
         </tr>
     </tbody>

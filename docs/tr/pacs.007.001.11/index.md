@@ -50,23 +50,23 @@ pacs.007 mesajı, henüz takas edilmemiş daha önce gönderilmiş bir ödeme ta
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Mesaj tanımlama ve oluşturma zaman damgası içeren Grup Başlığı</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Mesaj tanımlama ve oluşturma zaman damgası içeren Grup Başlığı</td>
           <td class="operational-matrix-table__right">Orijinal gönderici, takas öncesinde veya sonrasında bir hata tespit ettiğinde başlatılır</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Tersine çevirme tutarı ve tarafları içeren İşlem Bilgisi</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Tersine çevirme tutarı ve tarafları içeren İşlem Bilgisi</td>
           <td class="operational-matrix-table__right">Hızlı tersine çevirme gerektiren dolandırıcılık senaryolarında kullanılır</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Kaynak mesaja referans veren Orijinal Grup Bilgisi</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Kaynak mesaja referans veren Orijinal Grup Bilgisi</td>
           <td class="operational-matrix-table__right">Orijinal ödeme tutarlarının hem tam hem de kısmi tersine çevrilmesini destekler</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RvslRsnInf** — Yapılandırılmış neden kodları içeren Tersine Çevirme Nedeni Bilgisi</td>
+          <td class="operational-matrix-table__left"><strong>RvslRsnInf</strong> — Yapılandırılmış neden kodları içeren Tersine Çevirme Nedeni Bilgisi</td>
           <td class="operational-matrix-table__right">Alt akış işleme için yapılandırılmış tersine çevirme neden kodları taşır</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Uçtan uca izlenebilirlik için Orijinal İşlem Referansı</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Uçtan uca izlenebilirlik için Orijinal İşlem Referansı</td>
           <td class="operational-matrix-table__right">Talimat veren aracı (orijinal gönderici), daha önce talimat verilmiş bir ödemeyi tersine çevirmek üzere ödeme zinciri boyunca ileriye pacs.007 gönderir. Her aracı tersine çevirme talimatını işler ve takası buna göre ayarlar.</td>
         </tr>
     </tbody>

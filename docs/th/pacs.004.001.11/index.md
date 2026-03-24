@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Group Header พร้อมรหัสระบุข้อความและประทับเวลาการสร้าง</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header พร้อมรหัสระบุข้อความและประทับเวลาการสร้าง</td>
           <td class="operational-matrix-table__right">จัดการการส่งคืนหลังการชำระบัญชีเมื่อไม่สามารถเครดิตเข้าบัญชีผู้รับผลประโยชน์ได้</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — ข้อมูลธุรกรรมพร้อมจำนวนเงินคืนและคู่สัญญา</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — ข้อมูลธุรกรรมพร้อมจำนวนเงินคืนและคู่สัญญา</td>
           <td class="operational-matrix-table__right">รองรับสถานการณ์การเรียกคืนที่ผู้ส่งต้นทางร้องขอการคืนเงิน</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — ข้อมูลกลุ่มต้นฉบับที่เชื่อมโยงไปยังข้อความต้นทาง</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — ข้อมูลกลุ่มต้นฉบับที่เชื่อมโยงไปยังข้อความต้นทาง</td>
           <td class="operational-matrix-table__right">มีรหัสเหตุผลการส่งคืนที่มีโครงสร้างเพื่อความโปร่งใสด้านกฎระเบียบและการดำเนินงาน</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RtrRsnInf** — ข้อมูลเหตุผลการส่งคืนพร้อมรหัสเหตุผลที่มีโครงสร้าง</td>
+          <td class="operational-matrix-table__left"><strong>RtrRsnInf</strong> — ข้อมูลเหตุผลการส่งคืนพร้อมรหัสเหตุผลที่มีโครงสร้าง</td>
           <td class="operational-matrix-table__right">ใช้ได้กับทั้งการส่งคืนการโอนเครดิต (pacs.008) และการส่งคืนการหักบัญชีโดยตรง (pacs.003)</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — การอ้างอิงธุรกรรมต้นฉบับสำหรับการจับคู่และกระทบยอด</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — การอ้างอิงธุรกรรมต้นฉบับสำหรับการจับคู่และกระทบยอด</td>
           <td class="operational-matrix-table__right">ตัวแทนผู้รับคำสั่งส่ง pacs.004 กลับผ่านสายการชำระเงินเพื่อส่งคืนเงินที่ชำระบัญชีแล้วก่อนหน้านี้ ตัวแทนแต่ละรายในสายประมวลผลการส่งคืนและเครดิตกลับเข้าบัญชีที่เกี่ยวข้อง</td>
         </tr>
     </tbody>

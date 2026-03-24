@@ -50,23 +50,23 @@ Thông điệp pacs.028 được gửi bởi tổ chức tài chính để yêu 
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Tiêu đề nhóm với mã nhận dạng thông điệp và dấu thời gian tạo</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Tiêu đề nhóm với mã nhận dạng thông điệp và dấu thời gian tạo</td>
           <td class="operational-matrix-table__right">Cho phép tra cứu trạng thái chủ động cho các lệnh thanh toán đang trên đường</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Thông tin giao dịch xác định khoản thanh toán cần tra cứu</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Thông tin giao dịch xác định khoản thanh toán cần tra cứu</td>
           <td class="operational-matrix-table__right">Hỗ trợ các nhóm vận hành điều tra các khoản thanh toán bị chậm trễ hoặc thất lạc</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Thông tin nhóm gốc tham chiếu đến thông điệp nguồn</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Thông tin nhóm gốc tham chiếu đến thông điệp nguồn</td>
           <td class="operational-matrix-table__right">Bổ sung cho pacs.002 bằng cách chủ động khởi tạo thông tin liên lạc về trạng thái thay vì chờ đợi</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlInstrId** — Mã nhận dạng lệnh gốc từ thanh toán nguồn</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlInstrId</strong> — Mã nhận dạng lệnh gốc từ thanh toán nguồn</td>
           <td class="operational-matrix-table__right">Được sử dụng trong quy trình xử lý ngoại lệ và giám sát SLA</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlEndToEndId** — Mã nhận dạng từ đầu đến cuối gốc để truy vết</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlEndToEndId</strong> — Mã nhận dạng từ đầu đến cuối gốc để truy vết</td>
           <td class="operational-matrix-table__right">Đại lý ra lệnh gửi pacs.028 đến đại lý nhận lệnh để yêu cầu trạng thái của một khoản thanh toán cụ thể. Đại lý nhận lệnh phản hồi bằng pacs.002 chứa trạng thái xử lý hiện tại.</td>
         </tr>
     </tbody>

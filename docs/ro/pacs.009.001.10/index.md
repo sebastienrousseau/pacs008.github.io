@@ -50,23 +50,23 @@ Mesajul pacs.009 este utilizat pentru transferuri de credit între instituții f
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Antet de grup cu identificarea mesajului și informații de decontare</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Antet de grup cu identificarea mesajului și informații de decontare</td>
           <td class="operational-matrix-table__right">Utilizat pentru transferuri interbancare în cont propriu și plăți de acoperire</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Informații privind tranzacția de transfer de credit cu suma de decontare interbancară</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Informații privind tranzacția de transfer de credit cu suma de decontare interbancară</td>
           <td class="operational-matrix-table__right">Suportă gestionarea lichidității între partenerii de corespondență bancară</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identificarea instituției debitoare și a agentului acesteia</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Identificarea instituției debitoare și a agentului acesteia</td>
           <td class="operational-matrix-table__right">Conține etapa de acoperire a transferurilor de credit ale clienților decontate prin metoda de acoperire</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identificarea instituției creditoare și a agentului acesteia</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Identificarea instituției creditoare și a agentului acesteia</td>
           <td class="operational-matrix-table__right">Permite operațiuni de trezorerie și finanțare între instituții financiare</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Suma de decontare interbancară în moneda de decontare</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Suma de decontare interbancară în moneda de decontare</td>
           <td class="operational-matrix-table__right">Instituția debitoare trimite pacs.009 instituției creditoare pentru a transfera fonduri proprii. Pentru plățile prin metoda de acoperire, pacs.009 asigură etapa de finanțare în timp ce pacs.008 transportă instrucțiunea clientului pe o cale separată.</td>
         </tr>
     </tbody>

@@ -50,23 +50,23 @@ Komunikat pacs.008 jest podstawową instrukcją płatniczą wymienianą między 
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Nagłówek grupy z ID komunikatu, datą utworzenia, liczbą transakcji i informacjami o rozrachunku</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Nagłówek grupy z ID komunikatu, datą utworzenia, liczbą transakcji i informacjami o rozrachunku</td>
           <td class="operational-matrix-table__right">Podstawowy komunikat dla transgranicznych i krajowych poleceń przelewu inicjowanych przez klienta</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Informacje o transakcji polecenia przelewu z kwotą, opłatami i celem</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Informacje o transakcji polecenia przelewu z kwotą, opłatami i celem</td>
           <td class="operational-matrix-table__right">Używany w SEPA SCT, SEPA Instant, CBPR+ oraz krajowych systemach rozliczeniowych</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identyfikacja dłużnika i agenta dłużnika z danymi rachunku</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Identyfikacja dłużnika i agenta dłużnika z danymi rachunku</td>
           <td class="operational-matrix-table__right">Zawiera strukturyzowane informacje o przekazie wspierające automatyczne uzgadnianie</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identyfikacja wierzyciela i agenta wierzyciela z danymi rachunku</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Identyfikacja wierzyciela i agenta wierzyciela z danymi rachunku</td>
           <td class="operational-matrix-table__right">Obsługuje metody rozrachunku seryjnego, pokrycia i bezpośredniego dla wieloetapowych łańcuchów płatniczych</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RmtInf** — Informacje o przekazie dla strukturyzowanych lub niestrukturyzowanych referencji płatniczych</td>
+          <td class="operational-matrix-table__left"><strong>RmtInf</strong> — Informacje o przekazie dla strukturyzowanych lub niestrukturyzowanych referencji płatniczych</td>
           <td class="operational-matrix-table__right">Agent dłużnika tworzy pacs.008 i wysyła go do agenta wierzyciela (bezpośrednio lub przez pośredników). Każdy agent w łańcuchu waliduje, wzbogaca i przekazuje instrukcję, aż agent wierzyciela uzna rachunek beneficjenta.</td>
         </tr>
     </tbody>

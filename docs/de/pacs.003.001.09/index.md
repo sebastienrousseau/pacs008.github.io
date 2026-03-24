@@ -50,23 +50,23 @@ Die Nachricht pacs.003 wird zwischen Finanzinstituten ausgetauscht, um eine Kund
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Gruppenkopf mit Nachrichtenidentifikation und Abwicklungsinformationen</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Gruppenkopf mit Nachrichtenidentifikation und Abwicklungsinformationen</td>
           <td class="operational-matrix-table__right">Unterstützt SEPA Core- und B2B-Lastschriftverfahren</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Lastschrifttransaktionsinformationen mit Betrag und Parteien</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Lastschrifttransaktionsinformationen mit Betrag und Parteien</td>
           <td class="operational-matrix-table__right">Wird für wiederkehrende Zahlungseinzüge wie Abonnements, Rechnungen und Kreditrückzahlungen verwendet</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr** — Gläubigeridentifikation und Kontodaten</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr</strong> — Gläubigeridentifikation und Kontodaten</td>
           <td class="operational-matrix-table__right">Erfordert eine gültige Mandatsreferenz zwischen Schuldner und Gläubiger</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtrAgt** — Gläubigeragent (einziehendes Institut) Identifikation</td>
+          <td class="operational-matrix-table__left"><strong>CdtrAgt</strong> — Gläubigeragent (einziehendes Institut) Identifikation</td>
           <td class="operational-matrix-table__right">Ermöglicht den Sammeleinzug mehrerer Lastschriftanweisungen in einer Nachricht</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DbtrAgt** — Schuldneragent (zahlendes Institut) Identifikation</td>
+          <td class="operational-matrix-table__left"><strong>DbtrAgt</strong> — Schuldneragent (zahlendes Institut) Identifikation</td>
           <td class="operational-matrix-table__right">Der Gläubigeragent initiiert pacs.003 gegenüber dem Schuldneragent zum Einzug von Geldern. Der Schuldneragent validiert das Mandat, prüft die Kontodeckung und wickelt die Transaktion ab oder gibt sie zurück.</td>
         </tr>
     </tbody>

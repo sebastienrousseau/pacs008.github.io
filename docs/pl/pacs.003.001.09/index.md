@@ -50,23 +50,23 @@ Komunikat pacs.003 jest wymieniany między instytucjami finansowymi w celu reali
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Nagłówek grupy z identyfikacją komunikatu i informacjami o rozrachunku</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Nagłówek grupy z identyfikacją komunikatu i informacjami o rozrachunku</td>
           <td class="operational-matrix-table__right">Obsługuje schematy poleceń zapłaty SEPA Core i B2B</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Informacje o transakcji polecenia zapłaty z kwotą i stronami</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Informacje o transakcji polecenia zapłaty z kwotą i stronami</td>
           <td class="operational-matrix-table__right">Używany do inkasa płatności cyklicznych, takich jak subskrypcje, rachunki za media i spłaty kredytów</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr** — Identyfikacja wierzyciela i dane rachunku</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr</strong> — Identyfikacja wierzyciela i dane rachunku</td>
           <td class="operational-matrix-table__right">Wymaga ważnej referencji mandatu między dłużnikiem a wierzycielem</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtrAgt** — Identyfikacja agenta wierzyciela (instytucji inkasującej)</td>
+          <td class="operational-matrix-table__left"><strong>CdtrAgt</strong> — Identyfikacja agenta wierzyciela (instytucji inkasującej)</td>
           <td class="operational-matrix-table__right">Umożliwia zbiorcze inkaso wielu instrukcji poleceń zapłaty w jednym komunikacie</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DbtrAgt** — Identyfikacja agenta dłużnika (instytucji płacącej)</td>
+          <td class="operational-matrix-table__left"><strong>DbtrAgt</strong> — Identyfikacja agenta dłużnika (instytucji płacącej)</td>
           <td class="operational-matrix-table__right">Agent wierzyciela inicjuje pacs.003 w kierunku agenta dłużnika w celu pobrania środków. Agent dłużnika waliduje mandat, sprawdza pokrycie rachunku i dokonuje rozrachunku lub zwraca transakcję.</td>
         </tr>
     </tbody>

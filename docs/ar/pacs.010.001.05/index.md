@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — رأس المجموعة مع تعريف الرسالة ومعلومات التسوية</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — رأس المجموعة مع تعريف الرسالة ومعلومات التسوية</td>
           <td class="operational-matrix-table__right">يدعم تحصيل الخصم المباشر بين المؤسسات المالية</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — معلومات معاملة الخصم المباشر مع مبلغ التحصيل</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — معلومات معاملة الخصم المباشر مع مبلغ التحصيل</td>
           <td class="operational-matrix-table__right">يُستخدم لتحصيل الرسوم ونداءات الهامش والتزامات التسوية المؤسسية</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — المؤسسة الدائنة وتعريف وكيلها</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — المؤسسة الدائنة وتعريف وكيلها</td>
           <td class="operational-matrix-table__right">يتطلب ترتيبات ثنائية متفق عليها مسبقاً بين المؤسسات المشاركة</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — المؤسسة المدينة وتعريف وكيلها</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — المؤسسة المدينة وتعريف وكيلها</td>
           <td class="operational-matrix-table__right">حاسم لإدارة النقد المؤسسي ودورات التسوية بين البنوك</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — مبلغ التسوية بين البنوك بعملة التسوية</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — مبلغ التسوية بين البنوك بعملة التسوية</td>
           <td class="operational-matrix-table__right">ترسل المؤسسة الدائنة pacs.010 إلى المؤسسة المدينة لتحصيل الأموال وفق ترتيب متفق عليه مسبقاً. تتحقق المؤسسة المدينة من الطلب وتسوّي أو ترفض الخصم المباشر.</td>
         </tr>
     </tbody>

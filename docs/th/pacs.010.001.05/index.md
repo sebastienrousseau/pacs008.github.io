@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Group Header พร้อมรหัสระบุข้อความและข้อมูลการชำระบัญชี</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header พร้อมรหัสระบุข้อความและข้อมูลการชำระบัญชี</td>
           <td class="operational-matrix-table__right">รองรับการเรียกเก็บเงินหักบัญชีโดยตรงระหว่างธนาคารระหว่างสถาบันการเงิน</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — ข้อมูลธุรกรรมหักบัญชีโดยตรงพร้อมจำนวนเงินเรียกเก็บ</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — ข้อมูลธุรกรรมหักบัญชีโดยตรงพร้อมจำนวนเงินเรียกเก็บ</td>
           <td class="operational-matrix-table__right">ใช้สำหรับการเรียกเก็บค่าธรรมเนียม margin call และภาระผูกพันการชำระบัญชีระดับสถาบัน</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — การระบุตัวตนสถาบันเจ้าหนี้และตัวแทน</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — การระบุตัวตนสถาบันเจ้าหนี้และตัวแทน</td>
           <td class="operational-matrix-table__right">ต้องมีข้อตกลงทวิภาคีที่ตกลงไว้ล่วงหน้าระหว่างสถาบันที่เข้าร่วม</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — การระบุตัวตนสถาบันลูกหนี้และตัวแทน</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — การระบุตัวตนสถาบันลูกหนี้และตัวแทน</td>
           <td class="operational-matrix-table__right">สำคัญสำหรับการจัดการเงินสดระดับสถาบันและวงจรการชำระบัญชีระหว่างธนาคาร</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — จำนวนเงินชำระบัญชีระหว่างธนาคารในสกุลเงินชำระบัญชี</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — จำนวนเงินชำระบัญชีระหว่างธนาคารในสกุลเงินชำระบัญชี</td>
           <td class="operational-matrix-table__right">สถาบันเจ้าหนี้ส่ง pacs.010 ไปยังสถาบันลูกหนี้เพื่อเรียกเก็บเงินภายใต้ข้อตกลงที่ตกลงไว้ล่วงหน้า สถาบันลูกหนี้ตรวจสอบคำขอและชำระบัญชีหรือปฏิเสธการหักบัญชีโดยตรง</td>
         </tr>
     </tbody>

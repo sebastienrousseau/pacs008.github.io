@@ -50,23 +50,23 @@ Het pacs.007-bericht wordt gebruikt om een eerder verzonden betalingsinstructie 
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Groepskoptekst met berichtidentificatie en aanmaaktijdstempel</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Groepskoptekst met berichtidentificatie en aanmaaktijdstempel</td>
           <td class="operational-matrix-table__right">Geïnitieerd wanneer de oorspronkelijke verzender een fout constateert vóór of na afwikkeling</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Transactie-informatie met storneringsbedrag en partijen</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Transactie-informatie met storneringsbedrag en partijen</td>
           <td class="operational-matrix-table__right">Gebruikt bij fraudescenario&#39;s waarbij snelle stornering vereist is</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Oorspronkelijke groepsinformatie met verwijzing naar het bronbericht</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Oorspronkelijke groepsinformatie met verwijzing naar het bronbericht</td>
           <td class="operational-matrix-table__right">Ondersteunt zowel volledige als gedeeltelijke stornering van oorspronkelijke betalingsbedragen</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RvslRsnInf** — Storneringsredeninformatie met gestructureerde redencodes</td>
+          <td class="operational-matrix-table__left"><strong>RvslRsnInf</strong> — Storneringsredeninformatie met gestructureerde redencodes</td>
           <td class="operational-matrix-table__right">Bevat gestructureerde storneringsredencodes voor verdere verwerking in de keten</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Oorspronkelijke transactiereferentie voor end-to-end traceerbaarheid</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Oorspronkelijke transactiereferentie voor end-to-end traceerbaarheid</td>
           <td class="operational-matrix-table__right">De opdrachtgevende agent (oorspronkelijke verzender) stuurt pacs.007 voorwaarts door de betalingsketen om een eerder gegeven betalingsinstructie te storneren. Elke agent verwerkt de storneringsinstructie en past de afwikkeling dienovereenkomstig aan.</td>
         </tr>
     </tbody>

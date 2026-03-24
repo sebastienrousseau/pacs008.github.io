@@ -50,23 +50,23 @@ pacs.007 संदेश का उपयोग पहले भेजे गए
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — संदेश पहचान और निर्माण टाइमस्टैम्प के साथ ग्रुप हेडर</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — संदेश पहचान और निर्माण टाइमस्टैम्प के साथ ग्रुप हेडर</td>
           <td class="operational-matrix-table__right">जब मूल प्रेषक निपटान से पहले या बाद में त्रुटि की पहचान करता है तब आरंभ किया जाता है</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — प्रत्यावर्तन राशि और पक्षों के साथ लेनदेन सूचना</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — प्रत्यावर्तन राशि और पक्षों के साथ लेनदेन सूचना</td>
           <td class="operational-matrix-table__right">धोखाधड़ी परिदृश्यों में उपयोग किया जाता है जहां तीव्र प्रत्यावर्तन आवश्यक है</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — स्रोत संदेश का संदर्भ देने वाली मूल समूह सूचना</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — स्रोत संदेश का संदर्भ देने वाली मूल समूह सूचना</td>
           <td class="operational-matrix-table__right">मूल भुगतान राशि के पूर्ण और आंशिक दोनों प्रत्यावर्तन का समर्थन करता है</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RvslRsnInf** — संरचित कारण कोड के साथ प्रत्यावर्तन कारण सूचना</td>
+          <td class="operational-matrix-table__left"><strong>RvslRsnInf</strong> — संरचित कारण कोड के साथ प्रत्यावर्तन कारण सूचना</td>
           <td class="operational-matrix-table__right">डाउनस्ट्रीम प्रसंस्करण के लिए संरचित प्रत्यावर्तन कारण कोड वहन करता है</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — एंड-टू-एंड अनुरेखणीयता के लिए मूल लेनदेन संदर्भ</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — एंड-टू-एंड अनुरेखणीयता के लिए मूल लेनदेन संदर्भ</td>
           <td class="operational-matrix-table__right">निर्देश देने वाला एजेंट (मूल प्रेषक) पहले निर्देशित भुगतान को उलटने के लिए भुगतान शृंखला के माध्यम से आगे pacs.007 भेजता है। प्रत्येक एजेंट प्रत्यावर्तन निर्देश को संसाधित करता है और तदनुसार निपटान समायोजित करता है।</td>
         </tr>
     </tbody>

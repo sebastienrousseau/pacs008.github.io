@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Заголовок группы с идентификацией сообщения и информацией о расчёте</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Заголовок группы с идентификацией сообщения и информацией о расчёте</td>
           <td class="operational-matrix-table__right">Используется для межбанковских переводов с собственного счёта и покрывающих платежей</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Информация о транзакции кредитового перевода с суммой межбанковского расчёта</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Информация о транзакции кредитового перевода с суммой межбанковского расчёта</td>
           <td class="operational-matrix-table__right">Поддерживает управление ликвидностью между партнёрами корреспондентского банкинга</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Идентификация учреждения-дебитора и его агента</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Идентификация учреждения-дебитора и его агента</td>
           <td class="operational-matrix-table__right">Несёт покрывающую часть клиентских кредитовых переводов, рассчитываемых методом покрытия</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Идентификация учреждения-кредитора и его агента</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Идентификация учреждения-кредитора и его агента</td>
           <td class="operational-matrix-table__right">Обеспечивает казначейские и финансовые операции между финансовыми учреждениями</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Сумма межбанковского расчёта в валюте расчёта</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Сумма межбанковского расчёта в валюте расчёта</td>
           <td class="operational-matrix-table__right">Учреждение-дебитор отправляет pacs.009 учреждению-кредитору для перевода собственных средств. Для платежей методом покрытия pacs.009 обеспечивает финансовую часть, в то время как pacs.008 несёт клиентское поручение по отдельному маршруту.</td>
         </tr>
     </tbody>

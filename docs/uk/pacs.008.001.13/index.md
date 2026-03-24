@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Заголовок групи з ідентифікатором повідомлення, датою створення, кількістю транзакцій та інформацією про розрахунок</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Заголовок групи з ідентифікатором повідомлення, датою створення, кількістю транзакцій та інформацією про розрахунок</td>
           <td class="operational-matrix-table__right">Основне повідомлення для транскордонних та внутрішніх кредитових переказів, ініційованих клієнтом</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Інформація про транзакцію кредитового переказу з сумою, комісіями та призначенням</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Інформація про транзакцію кредитового переказу з сумою, комісіями та призначенням</td>
           <td class="operational-matrix-table__right">Використовується в SEPA SCT, SEPA Instant, CBPR+ та національних клірингових системах</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Ідентифікація дебітора та агента дебітора і реквізити рахунку</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Ідентифікація дебітора та агента дебітора і реквізити рахунку</td>
           <td class="operational-matrix-table__right">Містить структуровану інформацію про переказ для підтримки автоматичної звірки</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Ідентифікація кредитора та агента кредитора і реквізити рахунку</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Ідентифікація кредитора та агента кредитора і реквізити рахунку</td>
           <td class="operational-matrix-table__right">Підтримує послідовний, покриваючий та прямий методи розрахунку для багатоетапних платіжних ланцюгів</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RmtInf** — Інформація про переказ для структурованих або неструктурованих платіжних посилань</td>
+          <td class="operational-matrix-table__left"><strong>RmtInf</strong> — Інформація про переказ для структурованих або неструктурованих платіжних посилань</td>
           <td class="operational-matrix-table__right">Агент дебітора створює pacs.008 та надсилає його агенту кредитора (безпосередньо або через посередників). Кожен агент у ланцюгу перевіряє, збагачує та пересилає доручення, доки агент кредитора не зарахує кошти на рахунок бенефіціара.</td>
         </tr>
     </tbody>

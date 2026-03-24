@@ -50,23 +50,23 @@ Pesan pacs.007 digunakan untuk membalikkan instruksi pembayaran yang sebelumnya 
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Group Header dengan identifikasi pesan dan stempel waktu pembuatan</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header dengan identifikasi pesan dan stempel waktu pembuatan</td>
           <td class="operational-matrix-table__right">Diinisiasi ketika pengirim asli mengidentifikasi kesalahan sebelum atau sesudah penyelesaian</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Informasi Transaksi dengan jumlah pembalikan dan pihak-pihak</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Informasi Transaksi dengan jumlah pembalikan dan pihak-pihak</td>
           <td class="operational-matrix-table__right">Digunakan dalam skenario penipuan di mana pembalikan cepat diperlukan</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Informasi Grup Asli yang merujuk pesan sumber</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Informasi Grup Asli yang merujuk pesan sumber</td>
           <td class="operational-matrix-table__right">Mendukung pembalikan penuh dan sebagian dari jumlah pembayaran asli</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RvslRsnInf** — Informasi Alasan Pembalikan dengan kode alasan terstruktur</td>
+          <td class="operational-matrix-table__left"><strong>RvslRsnInf</strong> — Informasi Alasan Pembalikan dengan kode alasan terstruktur</td>
           <td class="operational-matrix-table__right">Membawa kode alasan pembalikan terstruktur untuk pemrosesan hilir</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Referensi Transaksi Asli untuk ketertelusuran ujung-ke-ujung</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Referensi Transaksi Asli untuk ketertelusuran ujung-ke-ujung</td>
           <td class="operational-matrix-table__right">Agen yang memberi instruksi (pengirim asli) mengirim pacs.007 maju melalui rantai pembayaran untuk membalikkan pembayaran yang sebelumnya diinstruksikan. Setiap agen memproses instruksi pembalikan dan menyesuaikan penyelesaian sesuai kebutuhan.</td>
         </tr>
     </tbody>

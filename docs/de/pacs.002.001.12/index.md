@@ -50,23 +50,23 @@ Die Nachricht pacs.002 wird von einem Finanzinstitut gesendet, um den Status ein
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Gruppenkopf mit Nachrichtenidentifikation und Erstellungszeitstempel</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Gruppenkopf mit Nachrichtenidentifikation und Erstellungszeitstempel</td>
           <td class="operational-matrix-table__right">Wird zur Bestätigung der Abwicklung oder Meldung der Ablehnung von Überweisungen, Lastschriften und Rückzahlungen verwendet</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInfAndSts** — Originalgruppendaten und Status für Massenberichterstattung</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInfAndSts</strong> — Originalgruppendaten und Status für Massenberichterstattung</td>
           <td class="operational-matrix-table__right">Ermöglicht die Abstimmung zwischen beauftragenden und beauftragten Agenten</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInfAndSts** — Transaktionsinformationen und Status für einzelne Transaktionsergebnisse</td>
+          <td class="operational-matrix-table__left"><strong>TxInfAndSts</strong> — Transaktionsinformationen und Status für einzelne Transaktionsergebnisse</td>
           <td class="operational-matrix-table__right">In CBPR+-Abläufen zur Bestätigung der Verarbeitung von pacs.008- und pacs.009-Nachrichten erforderlich</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**StsRsnInf** — Statusgrundinformationen mit strukturierten Grundcodes</td>
+          <td class="operational-matrix-table__left"><strong>StsRsnInf</strong> — Statusgrundinformationen mit strukturierten Grundcodes</td>
           <td class="operational-matrix-table__right">Unterstützt sowohl Gruppenebene als auch individuelle Transaktionsstatusberichte</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Originaltransaktionsreferenz mit Verknüpfung zur Quellanweisung</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Originaltransaktionsreferenz mit Verknüpfung zur Quellanweisung</td>
           <td class="operational-matrix-table__right">Der beauftragte Agent (Empfänger) sendet pacs.002 an den beauftragenden Agent (Sender) zurück, um Annahme, Abwicklung oder Ablehnung einer empfangenen Zahlungsanweisung wie pacs.008 oder pacs.009 zu bestätigen.</td>
         </tr>
     </tbody>

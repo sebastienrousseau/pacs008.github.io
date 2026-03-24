@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Заголовок группы с идентификацией сообщения и меткой времени создания</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Заголовок группы с идентификацией сообщения и меткой времени создания</td>
           <td class="operational-matrix-table__right">Обрабатывает возвраты после расчёта, когда счёт бенефициара не может быть кредитован</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Информация о транзакции с суммой возврата и сторонами</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Информация о транзакции с суммой возврата и сторонами</td>
           <td class="operational-matrix-table__right">Поддерживает сценарии отзыва, когда отправитель запрашивает возврат средств</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Информация об исходной группе, связывающая с исходным сообщением</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Информация об исходной группе, связывающая с исходным сообщением</td>
           <td class="operational-matrix-table__right">Содержит структурированные коды причин возврата для регуляторной и операционной прозрачности</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RtrRsnInf** — Информация о причине возврата со структурированными кодами причин</td>
+          <td class="operational-matrix-table__left"><strong>RtrRsnInf</strong> — Информация о причине возврата со структурированными кодами причин</td>
           <td class="operational-matrix-table__right">Применяется как к возвратам кредитовых переводов (pacs.008), так и к возвратам прямых дебетований (pacs.003)</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Ссылка на исходную транзакцию для сопоставления и сверки</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Ссылка на исходную транзакцию для сопоставления и сверки</td>
           <td class="operational-matrix-table__right">Инструктируемый агент отправляет pacs.004 обратно по платёжной цепочке для возврата ранее рассчитанных средств. Каждый агент в цепочке обрабатывает возврат и кредитует соответствующие счета.</td>
         </tr>
     </tbody>

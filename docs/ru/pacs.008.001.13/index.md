@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Заголовок группы с идентификатором сообщения, датой создания, количеством транзакций и информацией о расчёте</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Заголовок группы с идентификатором сообщения, датой создания, количеством транзакций и информацией о расчёте</td>
           <td class="operational-matrix-table__right">Основное сообщение для трансграничных и внутренних кредитовых переводов, инициированных клиентом</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Информация о транзакции кредитового перевода с суммой, комиссиями и назначением</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Информация о транзакции кредитового перевода с суммой, комиссиями и назначением</td>
           <td class="operational-matrix-table__right">Используется в SEPA SCT, SEPA Instant, CBPR+ и национальных клиринговых системах</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Идентификация дебитора и агента дебитора и реквизиты счёта</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Идентификация дебитора и агента дебитора и реквизиты счёта</td>
           <td class="operational-matrix-table__right">Содержит структурированную информацию о переводе для поддержки автоматической сверки</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Идентификация кредитора и агента кредитора и реквизиты счёта</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Идентификация кредитора и агента кредитора и реквизиты счёта</td>
           <td class="operational-matrix-table__right">Поддерживает последовательный, покрывающий и прямой методы расчёта для многоэтапных платёжных цепочек</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RmtInf** — Информация о переводе для структурированных или неструктурированных платёжных ссылок</td>
+          <td class="operational-matrix-table__left"><strong>RmtInf</strong> — Информация о переводе для структурированных или неструктурированных платёжных ссылок</td>
           <td class="operational-matrix-table__right">Агент дебитора создаёт pacs.008 и отправляет его агенту кредитора (напрямую или через посредников). Каждый агент в цепочке проверяет, обогащает и пересылает поручение, пока агент кредитора не зачислит средства на счёт бенефициара.</td>
         </tr>
     </tbody>

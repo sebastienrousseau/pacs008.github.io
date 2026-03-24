@@ -50,23 +50,23 @@ pacs.003 mesajı, bir müşteri doğrudan borçlandırma talimatını yürütmek
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Mesaj tanımlama ve takas bilgisi içeren Grup Başlığı</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Mesaj tanımlama ve takas bilgisi içeren Grup Başlığı</td>
           <td class="operational-matrix-table__right">SEPA Core ve B2B doğrudan borçlandırma şemalarını destekler</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Tutar ve tarafları içeren Doğrudan Borçlandırma İşlem Bilgisi</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Tutar ve tarafları içeren Doğrudan Borçlandırma İşlem Bilgisi</td>
           <td class="operational-matrix-table__right">Abonelikler, fatura ödemeleri ve kredi geri ödemeleri gibi tekrarlayan ödeme tahsilatı için kullanılır</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr** — Alacaklı kimlik bilgileri ve hesap detayları</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr</strong> — Alacaklı kimlik bilgileri ve hesap detayları</td>
           <td class="operational-matrix-table__right">Borçlu ile alacaklı arasında geçerli bir yetki referansı gerektirir</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtrAgt** — Alacaklı Aracısı (tahsilat kuruluşu) kimlik bilgileri</td>
+          <td class="operational-matrix-table__left"><strong>CdtrAgt</strong> — Alacaklı Aracısı (tahsilat kuruluşu) kimlik bilgileri</td>
           <td class="operational-matrix-table__right">Tek bir mesajda birden fazla doğrudan borçlandırma talimatının toplu tahsilatını sağlar</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DbtrAgt** — Borçlu Aracısı (ödeme kuruluşu) kimlik bilgileri</td>
+          <td class="operational-matrix-table__left"><strong>DbtrAgt</strong> — Borçlu Aracısı (ödeme kuruluşu) kimlik bilgileri</td>
           <td class="operational-matrix-table__right">Alacaklı aracı, fon tahsil etmek üzere borçlu aracıya pacs.003 başlatır. Borçlu aracı yetkiyi doğrular, hesap bakiyesini kontrol eder ve işlemi takas eder veya iade eder.</td>
         </tr>
     </tbody>

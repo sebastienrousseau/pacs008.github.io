@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — رأس المجموعة مع تعريف الرسالة والطابع الزمني للإنشاء</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — رأس المجموعة مع تعريف الرسالة والطابع الزمني للإنشاء</td>
           <td class="operational-matrix-table__right">يمكّن الاستفسار الاستباقي عن حالة تعليمات الدفع العابرة</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — معلومات المعاملة المحددة للدفعة المراد الاستفسار عنها</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — معلومات المعاملة المحددة للدفعة المراد الاستفسار عنها</td>
           <td class="operational-matrix-table__right">يساعد فرق العمليات في التحقيق في المدفوعات المتأخرة أو المفقودة</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — معلومات المجموعة الأصلية المشيرة إلى الرسالة المصدرية</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — معلومات المجموعة الأصلية المشيرة إلى الرسالة المصدرية</td>
           <td class="operational-matrix-table__right">يكمّل pacs.002 من خلال بدء اتصال الحالة بدلاً من الانتظار</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlInstrId** — تعريف التعليمات الأصلية من الدفعة المصدرية</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlInstrId</strong> — تعريف التعليمات الأصلية من الدفعة المصدرية</td>
           <td class="operational-matrix-table__right">يُستخدم في تدفقات إدارة الاستثناءات ومراقبة اتفاقيات مستوى الخدمة</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlEndToEndId** — تعريف من طرف إلى طرف أصلي للتتبع</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlEndToEndId</strong> — تعريف من طرف إلى طرف أصلي للتتبع</td>
           <td class="operational-matrix-table__right">يرسل الوكيل المُرسل pacs.028 إلى الوكيل المُستلم لطلب حالة دفعة محددة. يستجيب الوكيل المُستلم برسالة pacs.002 تحتوي على حالة المعالجة الحالية.</td>
         </tr>
     </tbody>

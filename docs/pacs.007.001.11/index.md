@@ -50,23 +50,23 @@ The pacs.007 message is used to reverse a previously sent payment instruction th
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Group Header with message identification and creation timestamp</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message identification and creation timestamp</td>
           <td class="operational-matrix-table__right">Initiated when the original sender identifies an error before or after settlement</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Transaction Information with reversal amount and parties</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Transaction Information with reversal amount and parties</td>
           <td class="operational-matrix-table__right">Used in fraud scenarios where rapid reversal is required</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Original Group Information referencing the source message</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Original Group Information referencing the source message</td>
           <td class="operational-matrix-table__right">Supports both full and partial reversal of original payment amounts</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RvslRsnInf** — Reversal Reason Information with structured reason codes</td>
+          <td class="operational-matrix-table__left"><strong>RvslRsnInf</strong> — Reversal Reason Information with structured reason codes</td>
           <td class="operational-matrix-table__right">Carries structured reversal reason codes for downstream processing</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Original Transaction Reference for end-to-end traceability</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Original Transaction Reference for end-to-end traceability</td>
           <td class="operational-matrix-table__right">The instructing agent (original sender) sends pacs.007 forward through the payment chain to reverse a previously instructed payment. Each agent processes the reversal instruction and adjusts settlement accordingly.</td>
         </tr>
     </tbody>

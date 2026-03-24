@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — رأس المجموعة مع تعريف الرسالة والطابع الزمني للإنشاء</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — رأس المجموعة مع تعريف الرسالة والطابع الزمني للإنشاء</td>
           <td class="operational-matrix-table__right">يُبدأ عندما يحدد المُرسل الأصلي خطأً قبل أو بعد التسوية</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — معلومات المعاملة مع مبلغ العكس والأطراف</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — معلومات المعاملة مع مبلغ العكس والأطراف</td>
           <td class="operational-matrix-table__right">يُستخدم في سيناريوهات الاحتيال التي تتطلب عكساً سريعاً</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — معلومات المجموعة الأصلية المشيرة إلى الرسالة المصدرية</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — معلومات المجموعة الأصلية المشيرة إلى الرسالة المصدرية</td>
           <td class="operational-matrix-table__right">يدعم العكس الكامل والجزئي لمبالغ الدفع الأصلية</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RvslRsnInf** — معلومات سبب العكس مع رموز أسباب منظمة</td>
+          <td class="operational-matrix-table__left"><strong>RvslRsnInf</strong> — معلومات سبب العكس مع رموز أسباب منظمة</td>
           <td class="operational-matrix-table__right">يحمل رموز أسباب عكس منظمة للمعالجة في المراحل اللاحقة</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — مرجع المعاملة الأصلية للتتبع من طرف إلى طرف</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — مرجع المعاملة الأصلية للتتبع من طرف إلى طرف</td>
           <td class="operational-matrix-table__right">يرسل الوكيل المُرسل الأصلي pacs.007 عبر سلسلة الدفع لعكس دفعة مُرسلة سابقاً. يعالج كل وكيل تعليمات العكس ويعدّل التسوية وفقاً لذلك.</td>
         </tr>
     </tbody>

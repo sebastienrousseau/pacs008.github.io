@@ -50,23 +50,23 @@ pacs.008 mesajı, bir müşteri adına fon transfer etmek üzere finans kuruluş
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Mesaj kimliği, oluşturma tarihi, işlem sayısı ve takas bilgisi içeren Grup Başlığı</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Mesaj kimliği, oluşturma tarihi, işlem sayısı ve takas bilgisi içeren Grup Başlığı</td>
           <td class="operational-matrix-table__right">Müşteri tarafından başlatılan sınır ötesi ve yurt içi kredi transferleri için birincil mesajdır</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Tutar, masraflar ve amaç içeren Kredi Transferi İşlem Bilgisi</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Tutar, masraflar ve amaç içeren Kredi Transferi İşlem Bilgisi</td>
           <td class="operational-matrix-table__right">SEPA SCT, SEPA Instant, CBPR+ ve ulusal takas sistemlerinde kullanılır</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Borçlu ve Borçlu Aracısı kimlik bilgileri ve hesap detayları</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Borçlu ve Borçlu Aracısı kimlik bilgileri ve hesap detayları</td>
           <td class="operational-matrix-table__right">Doğrudan mutabakatı desteklemek için yapılandırılmış havale bilgisi taşır</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Alacaklı ve Alacaklı Aracısı kimlik bilgileri ve hesap detayları</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Alacaklı ve Alacaklı Aracısı kimlik bilgileri ve hesap detayları</td>
           <td class="operational-matrix-table__right">Çok bacaklı ödeme zincirleri için sıralı, teminat ve doğrudan takas yöntemlerini destekler</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RmtInf** — Yapılandırılmış veya yapılandırılmamış ödeme referansları için Havale Bilgisi</td>
+          <td class="operational-matrix-table__left"><strong>RmtInf</strong> — Yapılandırılmış veya yapılandırılmamış ödeme referansları için Havale Bilgisi</td>
           <td class="operational-matrix-table__right">Borçlu aracı bir pacs.008 oluşturur ve alacaklı aracıya gönderir (doğrudan veya aracılar üzerinden). Zincirdeki her aracı talimatı doğrular, zenginleştirir ve iletir; alacaklı aracı lehdarın hesabına alacak kaydedene kadar süreç devam eder.</td>
         </tr>
     </tbody>

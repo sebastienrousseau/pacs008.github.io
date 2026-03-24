@@ -50,23 +50,23 @@ Pesan pacs.002 dikirim oleh lembaga keuangan untuk melaporkan status instruksi p
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Group Header dengan identifikasi pesan dan stempel waktu pembuatan</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header dengan identifikasi pesan dan stempel waktu pembuatan</td>
           <td class="operational-matrix-table__right">Digunakan untuk mengonfirmasi penyelesaian atau melaporkan penolakan transfer kredit, debit langsung, dan pengembalian pembayaran</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInfAndSts** — Informasi Grup Asli dan Status untuk pelaporan tingkat massal</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInfAndSts</strong> — Informasi Grup Asli dan Status untuk pelaporan tingkat massal</td>
           <td class="operational-matrix-table__right">Memungkinkan rekonsiliasi antara agen yang memberi instruksi dan agen yang diinstruksikan</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInfAndSts** — Informasi Transaksi dan Status untuk hasil transaksi individual</td>
+          <td class="operational-matrix-table__left"><strong>TxInfAndSts</strong> — Informasi Transaksi dan Status untuk hasil transaksi individual</td>
           <td class="operational-matrix-table__right">Diperlukan dalam alur CBPR+ untuk mengakui pemrosesan pesan pacs.008 dan pacs.009</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**StsRsnInf** — Informasi Alasan Status dengan kode alasan terstruktur</td>
+          <td class="operational-matrix-table__left"><strong>StsRsnInf</strong> — Informasi Alasan Status dengan kode alasan terstruktur</td>
           <td class="operational-matrix-table__right">Mendukung pelaporan status baik tingkat grup massal maupun tingkat transaksi individual</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Referensi Transaksi Asli yang menghubungkan kembali ke instruksi sumber</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Referensi Transaksi Asli yang menghubungkan kembali ke instruksi sumber</td>
           <td class="operational-matrix-table__right">Agen yang diinstruksikan (penerima) mengirim pacs.002 kembali ke agen yang memberi instruksi (pengirim) untuk mengonfirmasi penerimaan, penyelesaian, atau penolakan instruksi pembayaran yang diterima seperti pacs.008 atau pacs.009.</td>
         </tr>
     </tbody>

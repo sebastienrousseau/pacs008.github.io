@@ -50,23 +50,23 @@ Die Nachricht pacs.009 wird für Überweisungen zwischen Finanzinstituten verwen
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Gruppenkopf mit Nachrichtenidentifikation und Abwicklungsinformationen</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Gruppenkopf mit Nachrichtenidentifikation und Abwicklungsinformationen</td>
           <td class="operational-matrix-table__right">Wird für eigene Kontoüberweisungen zwischen Banken und Deckungszahlungen verwendet</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Überweisungstransaktionsinformationen mit Interbanken-Abwicklungsbetrag</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Überweisungstransaktionsinformationen mit Interbanken-Abwicklungsbetrag</td>
           <td class="operational-matrix-table__right">Unterstützt Liquiditätsmanagement zwischen Korrespondenzbankpartnern</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Schuldnerinstitut und Agentenidentifikation</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Schuldnerinstitut und Agentenidentifikation</td>
           <td class="operational-matrix-table__right">Trägt das Deckungsbein von Kundenüberweisungen, die über die Deckungsmethode abgewickelt werden</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Gläubigerinstitut und Agentenidentifikation</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Gläubigerinstitut und Agentenidentifikation</td>
           <td class="operational-matrix-table__right">Ermöglicht Treasury- und Finanzierungsoperationen zwischen Finanzinstituten</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Interbanken-Abwicklungsbetrag in der Abwicklungswährung</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Interbanken-Abwicklungsbetrag in der Abwicklungswährung</td>
           <td class="operational-matrix-table__right">Das Schuldnerinstitut sendet pacs.009 an das Gläubigerinstitut, um eigene Mittel zu überweisen. Bei Deckungsmethoden-Zahlungen stellt pacs.009 das Finanzierungsbein bereit, während pacs.008 die Kundenanweisung über einen separaten Pfad trägt.</td>
         </tr>
     </tbody>

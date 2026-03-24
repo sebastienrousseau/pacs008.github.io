@@ -50,23 +50,23 @@ Il messaggio pacs.004 viene utilizzato per restituire una transazione di pagamen
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Intestazione di gruppo con identificazione del messaggio e marca temporale di creazione</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Intestazione di gruppo con identificazione del messaggio e marca temporale di creazione</td>
           <td class="operational-matrix-table__right">Gestisce le restituzioni post-regolamento quando il conto del beneficiario non può essere accreditato</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Informazioni sulla transazione con importo della restituzione e parti coinvolte</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Informazioni sulla transazione con importo della restituzione e parti coinvolte</td>
           <td class="operational-matrix-table__right">Supporta scenari di richiamo in cui l&#39;ordinante richiede la restituzione dei fondi</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Informazioni sul gruppo originale con collegamento al messaggio di origine</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Informazioni sul gruppo originale con collegamento al messaggio di origine</td>
           <td class="operational-matrix-table__right">Trasporta codici motivo di restituzione strutturati per la trasparenza normativa e operativa</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RtrRsnInf** — Informazioni sul motivo della restituzione con codici motivo strutturati</td>
+          <td class="operational-matrix-table__left"><strong>RtrRsnInf</strong> — Informazioni sul motivo della restituzione con codici motivo strutturati</td>
           <td class="operational-matrix-table__right">Si applica sia alle restituzioni di bonifici (pacs.008) che alle restituzioni di addebiti diretti (pacs.003)</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Riferimento alla transazione originale per abbinamento e riconciliazione</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Riferimento alla transazione originale per abbinamento e riconciliazione</td>
           <td class="operational-matrix-table__right">L&#39;agente incaricato invia pacs.004 attraverso la catena di pagamento per restituire fondi precedentemente regolati. Ogni agente nella catena elabora la restituzione e riaccredita i conti pertinenti.</td>
         </tr>
     </tbody>

@@ -50,23 +50,23 @@ Het pacs.009-bericht wordt gebruikt voor overboekingen tussen financiële instel
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Groepskoptekst met berichtidentificatie en afwikkelingsinformatie</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Groepskoptekst met berichtidentificatie en afwikkelingsinformatie</td>
           <td class="operational-matrix-table__right">Gebruikt voor interbancaire overboekingen voor eigen rekening en dekkingsbetalingen</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Overboekingstransactie-informatie met interbancair afwikkelingsbedrag</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Overboekingstransactie-informatie met interbancair afwikkelingsbedrag</td>
           <td class="operational-matrix-table__right">Ondersteunt liquiditeitsbeheer tussen correspondentbankpartners</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identificatie van de debiteurinstelling en haar agent</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Identificatie van de debiteurinstelling en haar agent</td>
           <td class="operational-matrix-table__right">Bevat het dekkingsdeel van klantenoverboekingen die via de dekkingsmethode worden afgewikkeld</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identificatie van de crediteurinstelling en haar agent</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Identificatie van de crediteurinstelling en haar agent</td>
           <td class="operational-matrix-table__right">Maakt treasury- en financieringsoperaties tussen financiële instellingen mogelijk</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Interbancair afwikkelingsbedrag in de afwikkelingsvaluta</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Interbancair afwikkelingsbedrag in de afwikkelingsvaluta</td>
           <td class="operational-matrix-table__right">De debiteurinstelling stuurt pacs.009 naar de crediteurinstelling om eigen gelden over te maken. Bij betalingen via de dekkingsmethode voorziet pacs.009 in het financieringsdeel terwijl pacs.008 de klantinstructie via een apart pad vervoert.</td>
         </tr>
     </tbody>

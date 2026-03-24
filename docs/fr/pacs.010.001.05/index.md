@@ -50,23 +50,23 @@ Le message pacs.010 est utilisé entre institutions financières pour les transa
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — En-tête de groupe avec identification du message et informations de règlement</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — En-tête de groupe avec identification du message et informations de règlement</td>
           <td class="operational-matrix-table__right">Prend en charge la collecte de prélèvement interbancaire entre institutions financières</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Informations de transaction de prélèvement avec montant de collecte</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Informations de transaction de prélèvement avec montant de collecte</td>
           <td class="operational-matrix-table__right">Utilisé pour la collecte de frais, les appels de marge et les obligations de règlement institutionnel</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Institution créancière et identification de son agent</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Institution créancière et identification de son agent</td>
           <td class="operational-matrix-table__right">Nécessite des arrangements bilatéraux préétablis entre institutions participantes</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Institution débitrice et identification de son agent</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Institution débitrice et identification de son agent</td>
           <td class="operational-matrix-table__right">Essentiel pour la gestion de trésorerie institutionnelle et les cycles de règlement interbancaire</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Montant de règlement interbancaire dans la devise de règlement</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Montant de règlement interbancaire dans la devise de règlement</td>
           <td class="operational-matrix-table__right">L&#39;institution créancière envoie pacs.010 à l&#39;institution débitrice pour collecter des fonds selon un accord préétabli. L&#39;institution débitrice valide la demande et règle ou rejette le prélèvement.</td>
         </tr>
     </tbody>

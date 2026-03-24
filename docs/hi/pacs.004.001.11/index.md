@@ -50,23 +50,23 @@ pacs.004 संदेश का उपयोग पहले से निपट
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — संदेश पहचान और निर्माण टाइमस्टैम्प के साथ ग्रुप हेडर</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — संदेश पहचान और निर्माण टाइमस्टैम्प के साथ ग्रुप हेडर</td>
           <td class="operational-matrix-table__right">जब लाभार्थी के खाते में जमा नहीं किया जा सकता तब निपटान-पश्चात वापसी को संभालता है</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — वापसी राशि और पक्षों के साथ लेनदेन सूचना</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — वापसी राशि और पक्षों के साथ लेनदेन सूचना</td>
           <td class="operational-matrix-table__right">मूल प्रेषक द्वारा धन वापसी का अनुरोध करने वाले वापसी बुलावा परिदृश्यों का समर्थन करता है</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — स्रोत संदेश से जोड़ने वाली मूल समूह सूचना</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — स्रोत संदेश से जोड़ने वाली मूल समूह सूचना</td>
           <td class="operational-matrix-table__right">नियामक और परिचालन पारदर्शिता के लिए संरचित वापसी कारण कोड वहन करता है</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RtrRsnInf** — संरचित कारण कोड के साथ वापसी कारण सूचना</td>
+          <td class="operational-matrix-table__left"><strong>RtrRsnInf</strong> — संरचित कारण कोड के साथ वापसी कारण सूचना</td>
           <td class="operational-matrix-table__right">क्रेडिट ट्रांसफर वापसी (pacs.008) और प्रत्यक्ष डेबिट वापसी (pacs.003) दोनों पर लागू होता है</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — मिलान और समाधान के लिए मूल लेनदेन संदर्भ</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — मिलान और समाधान के लिए मूल लेनदेन संदर्भ</td>
           <td class="operational-matrix-table__right">निर्देशित एजेंट पहले से निपटाए गए धन को वापस करने के लिए भुगतान शृंखला के माध्यम से pacs.004 वापस भेजता है। शृंखला का प्रत्येक एजेंट वापसी को संसाधित करता है और संबंधित खातों में वापस जमा करता है।</td>
         </tr>
     </tbody>

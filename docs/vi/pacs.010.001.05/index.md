@@ -50,23 +50,23 @@ Thông điệp pacs.010 được sử dụng giữa các tổ chức tài chính
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Tiêu đề nhóm với mã nhận dạng thông điệp và thông tin quyết toán</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Tiêu đề nhóm với mã nhận dạng thông điệp và thông tin quyết toán</td>
           <td class="operational-matrix-table__right">Hỗ trợ thu ghi nợ trực tiếp liên ngân hàng giữa các tổ chức tài chính</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Thông tin giao dịch ghi nợ trực tiếp với số tiền thu</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Thông tin giao dịch ghi nợ trực tiếp với số tiền thu</td>
           <td class="operational-matrix-table__right">Được sử dụng cho thu phí, margin call và nghĩa vụ quyết toán tổ chức</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Nhận dạng tổ chức chủ nợ và đại lý</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Nhận dạng tổ chức chủ nợ và đại lý</td>
           <td class="operational-matrix-table__right">Yêu cầu thỏa thuận song phương đã được đồng ý trước giữa các tổ chức tham gia</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Nhận dạng tổ chức con nợ và đại lý</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Nhận dạng tổ chức con nợ và đại lý</td>
           <td class="operational-matrix-table__right">Quan trọng cho quản lý tiền mặt tổ chức và chu kỳ quyết toán liên ngân hàng</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Số tiền quyết toán liên ngân hàng bằng đồng tiền quyết toán</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Số tiền quyết toán liên ngân hàng bằng đồng tiền quyết toán</td>
           <td class="operational-matrix-table__right">Tổ chức chủ nợ gửi pacs.010 đến tổ chức con nợ để thu tiền theo thỏa thuận đã đồng ý trước. Tổ chức con nợ xác thực yêu cầu và quyết toán hoặc từ chối ghi nợ trực tiếp.</td>
         </tr>
     </tbody>

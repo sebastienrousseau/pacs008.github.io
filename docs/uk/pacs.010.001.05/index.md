@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Заголовок групи з ідентифікацією повідомлення та інформацією про розрахунок</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Заголовок групи з ідентифікацією повідомлення та інформацією про розрахунок</td>
           <td class="operational-matrix-table__right">Підтримує міжбанківське пряме дебетування між фінансовими установами</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Інформація про транзакцію прямого дебетування з сумою інкасування</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Інформація про транзакцію прямого дебетування з сумою інкасування</td>
           <td class="operational-matrix-table__right">Використовується для стягнення комісій, маржинальних вимог та інституційних розрахункових зобов&#39;язань</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Ідентифікація установи-кредитора та її агента</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Ідентифікація установи-кредитора та її агента</td>
           <td class="operational-matrix-table__right">Вимагає попередньо узгоджених двосторонніх домовленостей між установами-учасниками</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Ідентифікація установи-дебітора та її агента</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Ідентифікація установи-дебітора та її агента</td>
           <td class="operational-matrix-table__right">Критично важливе для інституційного управління грошовими коштами та міжбанківських розрахункових циклів</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Сума міжбанківського розрахунку у валюті розрахунку</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Сума міжбанківського розрахунку у валюті розрахунку</td>
           <td class="operational-matrix-table__right">Установа-кредитор надсилає pacs.010 установі-дебітору для інкасування коштів за попередньо узгодженою домовленістю. Установа-дебітор перевіряє запит та здійснює розрахунок або відхиляє пряме дебетування.</td>
         </tr>
     </tbody>

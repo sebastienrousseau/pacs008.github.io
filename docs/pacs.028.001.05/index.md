@@ -50,23 +50,23 @@ The pacs.028 message is sent by a financial institution to request the status of
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Group Header with message identification and creation timestamp</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message identification and creation timestamp</td>
           <td class="operational-matrix-table__right">Enables proactive status enquiry for payment instructions in transit</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Transaction Information identifying the payment to enquire about</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Transaction Information identifying the payment to enquire about</td>
           <td class="operational-matrix-table__right">Supports operations teams investigating delayed or missing payments</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Original Group Information referencing the source message</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Original Group Information referencing the source message</td>
           <td class="operational-matrix-table__right">Complements pacs.002 by initiating status communication rather than waiting</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlInstrId** — Original Instruction Identification from the source payment</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlInstrId</strong> — Original Instruction Identification from the source payment</td>
           <td class="operational-matrix-table__right">Used in exception-handling and SLA-monitoring workflows</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlEndToEndId** — Original End to End Identification for traceability</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlEndToEndId</strong> — Original End to End Identification for traceability</td>
           <td class="operational-matrix-table__right">The instructing agent sends pacs.028 to the instructed agent to request status of a specific payment. The instructed agent responds with a pacs.002 containing the current processing status.</td>
         </tr>
     </tbody>

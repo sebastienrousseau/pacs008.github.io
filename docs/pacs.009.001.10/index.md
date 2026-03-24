@@ -50,23 +50,23 @@ The pacs.009 message is used for credit transfers between financial institutions
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Group Header with message identification and settlement information</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message identification and settlement information</td>
           <td class="operational-matrix-table__right">Used for bank-to-bank own-account transfers and cover payments</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Credit Transfer Transaction Information with interbank settlement amount</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Credit Transfer Transaction Information with interbank settlement amount</td>
           <td class="operational-matrix-table__right">Supports liquidity management between correspondent banking partners</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Debtor institution and its agent identification</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Debtor institution and its agent identification</td>
           <td class="operational-matrix-table__right">Carries the cover leg of customer credit transfers settled via cover method</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Creditor institution and its agent identification</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Creditor institution and its agent identification</td>
           <td class="operational-matrix-table__right">Enables treasury and funding operations between financial institutions</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Interbank Settlement Amount in the settlement currency</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Interbank Settlement Amount in the settlement currency</td>
           <td class="operational-matrix-table__right">The debtor institution sends pacs.009 to the creditor institution to transfer its own funds. For cover-method payments, pacs.009 provides the funding leg while pacs.008 carries the customer instruction through a separate path.</td>
         </tr>
     </tbody>

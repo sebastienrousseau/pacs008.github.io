@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Group Header พร้อม ID ข้อความ วันที่สร้าง จำนวนธุรกรรม และข้อมูลการชำระบัญชี</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header พร้อม ID ข้อความ วันที่สร้าง จำนวนธุรกรรม และข้อมูลการชำระบัญชี</td>
           <td class="operational-matrix-table__right">ข้อความหลักสำหรับการโอนเครดิตข้ามพรมแดนและภายในประเทศที่ริเริ่มโดยลูกค้า</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — ข้อมูลธุรกรรมโอนเครดิตพร้อมจำนวนเงิน ค่าธรรมเนียม และวัตถุประสงค์</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — ข้อมูลธุรกรรมโอนเครดิตพร้อมจำนวนเงิน ค่าธรรมเนียม และวัตถุประสงค์</td>
           <td class="operational-matrix-table__right">ใช้ทั่วทั้ง SEPA SCT, SEPA Instant, CBPR+ และระบบหักบัญชีแห่งชาติ</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — การระบุตัวตนและรายละเอียดบัญชีของลูกหนี้และตัวแทนลูกหนี้</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — การระบุตัวตนและรายละเอียดบัญชีของลูกหนี้และตัวแทนลูกหนี้</td>
           <td class="operational-matrix-table__right">มีข้อมูลการโอนเงินแบบมีโครงสร้างเพื่อรองรับการกระทบยอดอัตโนมัติ</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — การระบุตัวตนและรายละเอียดบัญชีของเจ้าหนี้และตัวแทนเจ้าหนี้</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — การระบุตัวตนและรายละเอียดบัญชีของเจ้าหนี้และตัวแทนเจ้าหนี้</td>
           <td class="operational-matrix-table__right">รองรับวิธีการชำระบัญชีแบบอนุกรม แบบ cover และแบบตรงสำหรับสายการชำระเงินหลายขา</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RmtInf** — ข้อมูลการโอนเงินสำหรับการอ้างอิงการชำระเงินแบบมีโครงสร้างหรือไม่มีโครงสร้าง</td>
+          <td class="operational-matrix-table__left"><strong>RmtInf</strong> — ข้อมูลการโอนเงินสำหรับการอ้างอิงการชำระเงินแบบมีโครงสร้างหรือไม่มีโครงสร้าง</td>
           <td class="operational-matrix-table__right">ตัวแทนลูกหนี้สร้าง pacs.008 และส่งไปยังตัวแทนเจ้าหนี้ (โดยตรงหรือผ่านตัวกลาง) ตัวแทนแต่ละรายในสายตรวจสอบ เพิ่มข้อมูล และส่งต่อคำสั่งจนกว่าตัวแทนเจ้าหนี้จะเครดิตเข้าบัญชีผู้รับผลประโยชน์</td>
         </tr>
     </tbody>

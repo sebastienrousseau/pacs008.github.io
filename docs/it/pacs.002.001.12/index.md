@@ -50,23 +50,23 @@ Il messaggio pacs.002 viene inviato da un istituto finanziario per comunicare lo
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Intestazione di gruppo con identificazione del messaggio e marca temporale di creazione</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Intestazione di gruppo con identificazione del messaggio e marca temporale di creazione</td>
           <td class="operational-matrix-table__right">Utilizzato per confermare il regolamento o segnalare il rifiuto di bonifici, addebiti diretti e restituzioni di pagamento</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInfAndSts** — Informazioni e stato del gruppo originale per la reportistica a livello aggregato</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInfAndSts</strong> — Informazioni e stato del gruppo originale per la reportistica a livello aggregato</td>
           <td class="operational-matrix-table__right">Consente la riconciliazione tra agenti ordinanti e agenti incaricati</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInfAndSts** — Informazioni e stato della transazione per gli esiti delle singole transazioni</td>
+          <td class="operational-matrix-table__left"><strong>TxInfAndSts</strong> — Informazioni e stato della transazione per gli esiti delle singole transazioni</td>
           <td class="operational-matrix-table__right">Obbligatorio nei flussi CBPR+ per confermare l&#39;elaborazione dei messaggi pacs.008 e pacs.009</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**StsRsnInf** — Informazioni sul motivo dello stato con codici motivo strutturati</td>
+          <td class="operational-matrix-table__left"><strong>StsRsnInf</strong> — Informazioni sul motivo dello stato con codici motivo strutturati</td>
           <td class="operational-matrix-table__right">Supporta la reportistica di stato sia a livello di gruppo aggregato che a livello di singola transazione</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Riferimento alla transazione originale che collega all&#39;istruzione di origine</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Riferimento alla transazione originale che collega all&#39;istruzione di origine</td>
           <td class="operational-matrix-table__right">L&#39;agente incaricato (destinatario) invia pacs.002 all&#39;agente ordinante (mittente) per confermare l&#39;accettazione, il regolamento o il rifiuto di un&#39;istruzione di pagamento ricevuta come pacs.008 o pacs.009.</td>
         </tr>
     </tbody>

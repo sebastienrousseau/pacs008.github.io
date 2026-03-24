@@ -50,23 +50,23 @@ pacs.028 消息由金融机构发送，用于查询先前发送的支付指令�
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — 包含消息标识和创建时间戳的组头</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — 包含消息标识和创建时间戳的组头</td>
           <td class="operational-matrix-table__right">支持对在途支付指令进行主动状态查询</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — 标识待查询支付的交易信息</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — 标识待查询支付的交易信息</td>
           <td class="operational-matrix-table__right">帮助运营团队调查延迟或丢失的支付</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — 引用源消息的原始组信息</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — 引用源消息的原始组信息</td>
           <td class="operational-matrix-table__right">通过主动发起状态通信而非被动等待来补充 pacs.002</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlInstrId** — 来自源支付的原始指令标识</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlInstrId</strong> — 来自源支付的原始指令标识</td>
           <td class="operational-matrix-table__right">用于异常处理和 SLA 监控工作流</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlEndToEndId** — 用于可追溯性的原始端到端标识</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlEndToEndId</strong> — 用于可追溯性的原始端到端标识</td>
           <td class="operational-matrix-table__right">指示代理向被指示代理发送 pacs.028 以请求特定支付的状态。被指示代理以包含当前处理状态的 pacs.002 进行响应。</td>
         </tr>
     </tbody>

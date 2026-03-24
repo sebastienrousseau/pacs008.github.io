@@ -50,23 +50,23 @@ El mensaje pacs.004 se utiliza para devolver una transacción de pago liquidada 
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Cabecera de grupo con identificación del mensaje y marca temporal de creación</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Cabecera de grupo con identificación del mensaje y marca temporal de creación</td>
           <td class="operational-matrix-table__right">Gestiona devoluciones posteriores a la liquidación cuando la cuenta del beneficiario no puede ser abonada</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Información de transacción con importe de devolución y partes</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Información de transacción con importe de devolución y partes</td>
           <td class="operational-matrix-table__right">Soporta escenarios de reclamación donde el originador solicita la devolución de fondos</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Información del grupo original vinculada al mensaje fuente</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Información del grupo original vinculada al mensaje fuente</td>
           <td class="operational-matrix-table__right">Lleva códigos de motivo de devolución estructurados para transparencia regulatoria y operativa</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RtrRsnInf** — Información del motivo de devolución con códigos de razón estructurados</td>
+          <td class="operational-matrix-table__left"><strong>RtrRsnInf</strong> — Información del motivo de devolución con códigos de razón estructurados</td>
           <td class="operational-matrix-table__right">Se aplica tanto a devoluciones de transferencias (pacs.008) como a devoluciones de adeudos directos (pacs.003)</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Referencia de la transacción original para emparejamiento y conciliación</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Referencia de la transacción original para emparejamiento y conciliación</td>
           <td class="operational-matrix-table__right">El agente instruido envía pacs.004 a través de la cadena de pago para devolver fondos liquidados previamente. Cada agente en la cadena procesa la devolución y abona las cuentas correspondientes.</td>
         </tr>
     </tbody>

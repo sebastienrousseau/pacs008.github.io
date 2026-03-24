@@ -50,23 +50,23 @@ Le message pacs.003 est échangé entre institutions financières pour exécuter
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — En-tête de groupe avec identification du message et informations de règlement</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — En-tête de groupe avec identification du message et informations de règlement</td>
           <td class="operational-matrix-table__right">Prend en charge les schémas SEPA Core et B2B de prélèvement</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Informations de transaction de prélèvement avec montant et parties</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Informations de transaction de prélèvement avec montant et parties</td>
           <td class="operational-matrix-table__right">Utilisé pour la collecte de paiements récurrents tels que les abonnements, factures et remboursements de prêts</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr** — Identification et coordonnées du compte du créancier</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr</strong> — Identification et coordonnées du compte du créancier</td>
           <td class="operational-matrix-table__right">Nécessite une référence de mandat valide entre débiteur et créancier</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtrAgt** — Identification de l&#39;agent du créancier (institution collectrice)</td>
+          <td class="operational-matrix-table__left"><strong>CdtrAgt</strong> — Identification de l&#39;agent du créancier (institution collectrice)</td>
           <td class="operational-matrix-table__right">Permet la collecte en masse de plusieurs instructions de prélèvement dans un seul message</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DbtrAgt** — Identification de l&#39;agent du débiteur (institution payeuse)</td>
+          <td class="operational-matrix-table__left"><strong>DbtrAgt</strong> — Identification de l&#39;agent du débiteur (institution payeuse)</td>
           <td class="operational-matrix-table__right">L&#39;agent du créancier initie pacs.003 vers l&#39;agent du débiteur pour collecter des fonds. L&#39;agent du débiteur valide le mandat, vérifie la couverture du compte et règle ou retourne la transaction.</td>
         </tr>
     </tbody>

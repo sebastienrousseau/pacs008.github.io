@@ -50,23 +50,23 @@ Le message pacs.008 est l'instruction de paiement centrale échangée entre inst
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — En-tête de groupe avec ID de message, date de création, nombre de transactions et informations de règlement</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — En-tête de groupe avec ID de message, date de création, nombre de transactions et informations de règlement</td>
           <td class="operational-matrix-table__right">Le message principal pour les virements transfrontaliers et nationaux initiés par les clients</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Informations de transaction de virement avec montant, frais et objet</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Informations de transaction de virement avec montant, frais et objet</td>
           <td class="operational-matrix-table__right">Utilisé dans SEPA SCT, SEPA Instant, CBPR+ et les systèmes de compensation nationaux</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identification et coordonnées du compte du débiteur et de son agent</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Identification et coordonnées du compte du débiteur et de son agent</td>
           <td class="operational-matrix-table__right">Porte des informations de remise structurées pour la réconciliation automatique</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identification et coordonnées du compte du créancier et de son agent</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Identification et coordonnées du compte du créancier et de son agent</td>
           <td class="operational-matrix-table__right">Prend en charge les méthodes de règlement série, couverture et directe pour les chaînes de paiement multi-étapes</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RmtInf** — Informations de remise pour les références de paiement structurées ou non structurées</td>
+          <td class="operational-matrix-table__left"><strong>RmtInf</strong> — Informations de remise pour les références de paiement structurées ou non structurées</td>
           <td class="operational-matrix-table__right">L&#39;agent du débiteur crée un pacs.008 et l&#39;envoie à l&#39;agent du créancier (directement ou via des intermédiaires). Chaque agent de la chaîne valide, enrichit et transmet l&#39;instruction jusqu&#39;à ce que l&#39;agent du créancier crédite le compte du bénéficiaire.</td>
         </tr>
     </tbody>

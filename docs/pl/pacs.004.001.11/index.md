@@ -50,23 +50,23 @@ Komunikat pacs.004 jest używany do zwrotu wcześniej rozliczonej transakcji pł
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Nagłówek grupy z identyfikacją komunikatu i znacznikiem czasu utworzenia</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Nagłówek grupy z identyfikacją komunikatu i znacznikiem czasu utworzenia</td>
           <td class="operational-matrix-table__right">Obsługuje zwroty po rozrachunku, gdy rachunek beneficjenta nie może zostać uznany</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Informacje o transakcji z kwotą zwrotu i stronami</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Informacje o transakcji z kwotą zwrotu i stronami</td>
           <td class="operational-matrix-table__right">Obsługuje scenariusze przywołania, w których zleceniodawca żąda zwrotu środków</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Informacje o oryginalnej grupie z odniesieniem do komunikatu źródłowego</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Informacje o oryginalnej grupie z odniesieniem do komunikatu źródłowego</td>
           <td class="operational-matrix-table__right">Zawiera strukturyzowane kody przyczyn zwrotu dla przejrzystości regulacyjnej i operacyjnej</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RtrRsnInf** — Informacje o przyczynie zwrotu ze strukturyzowanymi kodami przyczyn</td>
+          <td class="operational-matrix-table__left"><strong>RtrRsnInf</strong> — Informacje o przyczynie zwrotu ze strukturyzowanymi kodami przyczyn</td>
           <td class="operational-matrix-table__right">Ma zastosowanie zarówno do zwrotów poleceń przelewu (pacs.008), jak i zwrotów poleceń zapłaty (pacs.003)</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Referencja oryginalnej transakcji do dopasowania i uzgadniania</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Referencja oryginalnej transakcji do dopasowania i uzgadniania</td>
           <td class="operational-matrix-table__right">Agent zlecony wysyła pacs.004 wstecz przez łańcuch płatniczy w celu zwrotu wcześniej rozliczonych środków. Każdy agent w łańcuchu przetwarza zwrot i ponownie uznaje odpowiednie rachunki.</td>
         </tr>
     </tbody>

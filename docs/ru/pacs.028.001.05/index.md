@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Заголовок группы с идентификацией сообщения и меткой времени создания</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Заголовок группы с идентификацией сообщения и меткой времени создания</td>
           <td class="operational-matrix-table__right">Обеспечивает проактивный запрос статуса для платёжных поручений в обработке</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Информация о транзакции, идентифицирующая платёж для запроса</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Информация о транзакции, идентифицирующая платёж для запроса</td>
           <td class="operational-matrix-table__right">Поддерживает операционные команды, расследующие задержанные или пропавшие платежи</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Информация об исходной группе со ссылкой на исходное сообщение</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Информация об исходной группе со ссылкой на исходное сообщение</td>
           <td class="operational-matrix-table__right">Дополняет pacs.002, инициируя коммуникацию о статусе вместо ожидания</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlInstrId** — Идентификатор исходной инструкции из исходного платежа</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlInstrId</strong> — Идентификатор исходной инструкции из исходного платежа</td>
           <td class="operational-matrix-table__right">Используется в процессах обработки исключений и мониторинга SLA</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlEndToEndId** — Исходный сквозной идентификатор для отслеживаемости</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlEndToEndId</strong> — Исходный сквозной идентификатор для отслеживаемости</td>
           <td class="operational-matrix-table__right">Инструктирующий агент отправляет pacs.028 инструктируемому агенту для запроса статуса конкретного платежа. Инструктируемый агент отвечает сообщением pacs.002 с текущим статусом обработки.</td>
         </tr>
     </tbody>

@@ -50,23 +50,23 @@ Komunikat pacs.002 jest wysyłany przez instytucję finansową w celu raportowan
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Nagłówek grupy z identyfikacją komunikatu i znacznikiem czasu utworzenia</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Nagłówek grupy z identyfikacją komunikatu i znacznikiem czasu utworzenia</td>
           <td class="operational-matrix-table__right">Używany do potwierdzania rozrachunku lub raportowania odrzucenia poleceń przelewu, poleceń zapłaty i zwrotów płatności</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInfAndSts** — Informacje i status oryginalnej grupy do raportowania na poziomie zbiorczym</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInfAndSts</strong> — Informacje i status oryginalnej grupy do raportowania na poziomie zbiorczym</td>
           <td class="operational-matrix-table__right">Umożliwia uzgadnianie między agentem zlecającym a agentem zleconym</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInfAndSts** — Informacje i status transakcji dla wyników poszczególnych transakcji</td>
+          <td class="operational-matrix-table__left"><strong>TxInfAndSts</strong> — Informacje i status transakcji dla wyników poszczególnych transakcji</td>
           <td class="operational-matrix-table__right">Wymagany w przepływach CBPR+ w celu potwierdzenia przetwarzania komunikatów pacs.008 i pacs.009</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**StsRsnInf** — Informacje o przyczynie statusu ze strukturyzowanymi kodami przyczyn</td>
+          <td class="operational-matrix-table__left"><strong>StsRsnInf</strong> — Informacje o przyczynie statusu ze strukturyzowanymi kodami przyczyn</td>
           <td class="operational-matrix-table__right">Obsługuje raportowanie statusu zarówno na poziomie zbiorczym grupy, jak i na poziomie poszczególnych transakcji</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Referencja oryginalnej transakcji łącząca z instrukcją źródłową</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Referencja oryginalnej transakcji łącząca z instrukcją źródłową</td>
           <td class="operational-matrix-table__right">Agent zlecony (odbiorca) wysyła pacs.002 z powrotem do agenta zlecającego (nadawcy) w celu potwierdzenia akceptacji, rozrachunku lub odrzucenia otrzymanej instrukcji płatniczej, takiej jak pacs.008 lub pacs.009.</td>
         </tr>
     </tbody>

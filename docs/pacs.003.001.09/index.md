@@ -50,23 +50,23 @@ The pacs.003 message is exchanged between financial institutions to execute a cu
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Group Header with message identification and settlement information</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message identification and settlement information</td>
           <td class="operational-matrix-table__right">Supports SEPA Core and B2B direct debit schemes</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Direct Debit Transaction Information with amount and parties</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Direct Debit Transaction Information with amount and parties</td>
           <td class="operational-matrix-table__right">Used for recurring payment collection such as subscriptions, utility bills, and loan repayments</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr** — Creditor identification and account details</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr</strong> — Creditor identification and account details</td>
           <td class="operational-matrix-table__right">Requires a valid mandate reference between debtor and creditor</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtrAgt** — Creditor Agent (collecting institution) identification</td>
+          <td class="operational-matrix-table__left"><strong>CdtrAgt</strong> — Creditor Agent (collecting institution) identification</td>
           <td class="operational-matrix-table__right">Enables bulk collection of multiple direct debit instructions in a single message</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DbtrAgt** — Debtor Agent (paying institution) identification</td>
+          <td class="operational-matrix-table__left"><strong>DbtrAgt</strong> — Debtor Agent (paying institution) identification</td>
           <td class="operational-matrix-table__right">The creditor agent initiates pacs.003 toward the debtor agent to collect funds. The debtor agent validates the mandate, checks account coverage, and either settles or returns the transaction.</td>
         </tr>
     </tbody>

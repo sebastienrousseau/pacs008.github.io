@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — כותרת קבוצה עם זיהוי הודעה ומידע סליקה</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — כותרת קבוצה עם זיהוי הודעה ומידע סליקה</td>
           <td class="operational-matrix-table__right">משמשת להעברות בין בנקים בחשבון עצמי ותשלומי כיסוי</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — מידע עסקת העברת זכות עם סכום סליקה בין-בנקאי</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — מידע עסקת העברת זכות עם סכום סליקה בין-בנקאי</td>
           <td class="operational-matrix-table__right">תומכת בניהול נזילות בין שותפי בנקאות קורספונדנטית</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — זיהוי מוסד החייב וסוכנו</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — זיהוי מוסד החייב וסוכנו</td>
           <td class="operational-matrix-table__right">נושאת את רגל הכיסוי של העברות זכות לקוח המסולקות בשיטת כיסוי</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — זיהוי מוסד הנושה וסוכנו</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — זיהוי מוסד הנושה וסוכנו</td>
           <td class="operational-matrix-table__right">מאפשרת פעולות אוצר ומימון בין מוסדות פיננסיים</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — סכום סליקה בין-בנקאי במטבע הסליקה</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — סכום סליקה בין-בנקאי במטבע הסליקה</td>
           <td class="operational-matrix-table__right">מוסד החייב שולח pacs.009 למוסד הנושה להעברת כספיו. לתשלומי שיטת כיסוי, pacs.009 מספקת את רגל המימון בעוד pacs.008 נושאת את הוראת הלקוח בנתיב נפרד.</td>
         </tr>
     </tbody>

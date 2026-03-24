@@ -50,23 +50,23 @@ El mensaje pacs.008 es la instrucción de pago central intercambiada entre insti
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Cabecera de grupo con ID de mensaje, fecha de creación, número de transacciones e información de liquidación</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Cabecera de grupo con ID de mensaje, fecha de creación, número de transacciones e información de liquidación</td>
           <td class="operational-matrix-table__right">El mensaje principal para transferencias transfronterizas y nacionales iniciadas por clientes</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Información de transacción de transferencia con importe, cargos y propósito</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Información de transacción de transferencia con importe, cargos y propósito</td>
           <td class="operational-matrix-table__right">Se utiliza en SEPA SCT, SEPA Instant, CBPR+ y sistemas de compensación nacionales</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identificación y datos de cuenta del deudor y su agente</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Identificación y datos de cuenta del deudor y su agente</td>
           <td class="operational-matrix-table__right">Lleva información de remesa estructurada para la conciliación automatizada</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identificación y datos de cuenta del acreedor y su agente</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Identificación y datos de cuenta del acreedor y su agente</td>
           <td class="operational-matrix-table__right">Soporta métodos de liquidación serial, cobertura y directo para cadenas de pago multietapa</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RmtInf** — Información de remesa para referencias de pago estructuradas o no estructuradas</td>
+          <td class="operational-matrix-table__left"><strong>RmtInf</strong> — Información de remesa para referencias de pago estructuradas o no estructuradas</td>
           <td class="operational-matrix-table__right">El agente del deudor crea un pacs.008 y lo envía al agente del acreedor (directamente o a través de intermediarios). Cada agente en la cadena valida, enriquece y reenvía la instrucción hasta que el agente del acreedor abona la cuenta del beneficiario.</td>
         </tr>
     </tbody>

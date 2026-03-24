@@ -50,23 +50,23 @@ A mensagem pacs.008 é a instrução de pagamento principal trocada entre instit
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Cabeçalho de grupo com ID da mensagem, data de criação, número de transações e informações de liquidação</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Cabeçalho de grupo com ID da mensagem, data de criação, número de transações e informações de liquidação</td>
           <td class="operational-matrix-table__right">A mensagem principal para transferências de crédito transfronteiriças e domésticas iniciadas pelo cliente</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Informações da transação de transferência de crédito com valor, encargos e finalidade</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Informações da transação de transferência de crédito com valor, encargos e finalidade</td>
           <td class="operational-matrix-table__right">Utilizada em SEPA SCT, SEPA Instant, CBPR+ e sistemas de compensação nacionais</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identificação do devedor e do agente do devedor com dados da conta</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Identificação do devedor e do agente do devedor com dados da conta</td>
           <td class="operational-matrix-table__right">Contém informações de remessa estruturadas para suportar a reconciliação automatizada</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identificação do credor e do agente do credor com dados da conta</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Identificação do credor e do agente do credor com dados da conta</td>
           <td class="operational-matrix-table__right">Suporta métodos de liquidação serial, por cobertura e direto para cadeias de pagamento com múltiplas etapas</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RmtInf** — Informações de remessa para referências de pagamento estruturadas ou não estruturadas</td>
+          <td class="operational-matrix-table__left"><strong>RmtInf</strong> — Informações de remessa para referências de pagamento estruturadas ou não estruturadas</td>
           <td class="operational-matrix-table__right">O agente do devedor cria um pacs.008 e o envia ao agente do credor (diretamente ou via intermediários). Cada agente na cadeia valida, enriquece e encaminha a instrução até que o agente do credor credite a conta do beneficiário.</td>
         </tr>
     </tbody>

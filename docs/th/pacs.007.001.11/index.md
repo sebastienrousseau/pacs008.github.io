@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Group Header พร้อมรหัสระบุข้อความและประทับเวลาการสร้าง</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header พร้อมรหัสระบุข้อความและประทับเวลาการสร้าง</td>
           <td class="operational-matrix-table__right">ริเริ่มเมื่อผู้ส่งต้นฉบับระบุข้อผิดพลาดก่อนหรือหลังการชำระบัญชี</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — ข้อมูลธุรกรรมพร้อมจำนวนเงินย้อนกลับและคู่สัญญา</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — ข้อมูลธุรกรรมพร้อมจำนวนเงินย้อนกลับและคู่สัญญา</td>
           <td class="operational-matrix-table__right">ใช้ในสถานการณ์การฉ้อโกงที่ต้องการการย้อนกลับอย่างรวดเร็ว</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — ข้อมูลกลุ่มต้นฉบับที่อ้างอิงข้อความต้นทาง</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — ข้อมูลกลุ่มต้นฉบับที่อ้างอิงข้อความต้นทาง</td>
           <td class="operational-matrix-table__right">รองรับการย้อนกลับทั้งเต็มจำนวนและบางส่วนของจำนวนเงินชำระเดิม</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RvslRsnInf** — ข้อมูลเหตุผลการย้อนกลับพร้อมรหัสเหตุผลที่มีโครงสร้าง</td>
+          <td class="operational-matrix-table__left"><strong>RvslRsnInf</strong> — ข้อมูลเหตุผลการย้อนกลับพร้อมรหัสเหตุผลที่มีโครงสร้าง</td>
           <td class="operational-matrix-table__right">มีรหัสเหตุผลการย้อนกลับที่มีโครงสร้างสำหรับการประมวลผลปลายทาง</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — การอ้างอิงธุรกรรมต้นฉบับสำหรับการตรวจสอบย้อนกลับแบบครบวงจร</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — การอ้างอิงธุรกรรมต้นฉบับสำหรับการตรวจสอบย้อนกลับแบบครบวงจร</td>
           <td class="operational-matrix-table__right">ตัวแทนผู้สั่ง (ผู้ส่งต้นฉบับ) ส่ง pacs.007 ไปข้างหน้าผ่านสายการชำระเงินเพื่อย้อนกลับการชำระเงินที่สั่งไว้ก่อนหน้านี้ ตัวแทนแต่ละรายประมวลผลคำสั่งย้อนกลับและปรับการชำระบัญชีตามความเหมาะสม</td>
         </tr>
     </tbody>

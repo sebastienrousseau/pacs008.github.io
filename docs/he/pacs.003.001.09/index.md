@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — כותרת קבוצה עם זיהוי הודעה ומידע סליקה</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — כותרת קבוצה עם זיהוי הודעה ומידע סליקה</td>
           <td class="operational-matrix-table__right">תומכת בתוכניות חיוב ישיר SEPA Core ו-B2B</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — מידע עסקת חיוב ישיר עם סכום וצדדים</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — מידע עסקת חיוב ישיר עם סכום וצדדים</td>
           <td class="operational-matrix-table__right">משמשת לגביית תשלומים חוזרים כגון מנויים, חשבונות שירותים ותשלומי הלוואות</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr** — זיהוי הנושה ופרטי חשבון</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr</strong> — זיהוי הנושה ופרטי חשבון</td>
           <td class="operational-matrix-table__right">דורשת הפניית הרשאה תקפה בין החייב לנושה</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtrAgt** — זיהוי סוכן הנושה (מוסד הגבייה)</td>
+          <td class="operational-matrix-table__left"><strong>CdtrAgt</strong> — זיהוי סוכן הנושה (מוסד הגבייה)</td>
           <td class="operational-matrix-table__right">מאפשרת גביית צרור של הוראות חיוב ישיר מרובות בהודעה אחת</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DbtrAgt** — זיהוי סוכן החייב (מוסד המשלם)</td>
+          <td class="operational-matrix-table__left"><strong>DbtrAgt</strong> — זיהוי סוכן החייב (מוסד המשלם)</td>
           <td class="operational-matrix-table__right">סוכן הנושה יוזם pacs.003 כלפי סוכן החייב לגביית כספים. סוכן החייב מאמת את ההרשאה, בודק כיסוי חשבון, ומסלק או מחזיר את העסקה.</td>
         </tr>
     </tbody>

@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — رأس المجموعة مع معرف الرسالة وتاريخ الإنشاء وعدد المعاملات ومعلومات التسوية</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — رأس المجموعة مع معرف الرسالة وتاريخ الإنشاء وعدد المعاملات ومعلومات التسوية</td>
           <td class="operational-matrix-table__right">الرسالة الأساسية للتحويلات عبر الحدود والمحلية التي يبدؤها العملاء</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — معلومات معاملة التحويل مع المبلغ والرسوم والغرض</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — معلومات معاملة التحويل مع المبلغ والرسوم والغرض</td>
           <td class="operational-matrix-table__right">تُستخدم عبر SEPA SCT و SEPA Instant و CBPR+ وأنظمة المقاصة الوطنية</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — تعريف وتفاصيل حساب المدين ووكيله</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — تعريف وتفاصيل حساب المدين ووكيله</td>
           <td class="operational-matrix-table__right">تحمل معلومات تحويل منظمة لدعم المصالحة المباشرة</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — تعريف وتفاصيل حساب الدائن ووكيله</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — تعريف وتفاصيل حساب الدائن ووكيله</td>
           <td class="operational-matrix-table__right">تدعم طرق التسوية التسلسلية والتغطية والمباشرة لسلاسل الدفع متعددة المراحل</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RmtInf** — معلومات التحويل لمراجع الدفع المنظمة أو غير المنظمة</td>
+          <td class="operational-matrix-table__left"><strong>RmtInf</strong> — معلومات التحويل لمراجع الدفع المنظمة أو غير المنظمة</td>
           <td class="operational-matrix-table__right">ينشئ وكيل المدين pacs.008 ويرسله إلى وكيل الدائن (مباشرة أو عبر وسطاء). يتحقق كل وكيل في السلسلة ويثري ويمرر التعليمات حتى يقيد وكيل الدائن المبلغ في حساب المستفيد.</td>
         </tr>
     </tbody>

@@ -50,23 +50,23 @@ The pacs.004 message is used to return a previously settled payment transaction.
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Group Header with message identification and creation timestamp</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message identification and creation timestamp</td>
           <td class="operational-matrix-table__right">Handles post-settlement returns when the beneficiary&#39;s account cannot be credited</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Transaction Information with return amount and parties</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Transaction Information with return amount and parties</td>
           <td class="operational-matrix-table__right">Supports recall scenarios where the originator requests return of funds</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Original Group Information linking to the source message</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Original Group Information linking to the source message</td>
           <td class="operational-matrix-table__right">Carries structured return reason codes for regulatory and operational transparency</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RtrRsnInf** — Return Reason Information with structured reason codes</td>
+          <td class="operational-matrix-table__left"><strong>RtrRsnInf</strong> — Return Reason Information with structured reason codes</td>
           <td class="operational-matrix-table__right">Applies to both credit transfer returns (pacs.008) and direct debit returns (pacs.003)</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Original Transaction Reference for matching and reconciliation</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Original Transaction Reference for matching and reconciliation</td>
           <td class="operational-matrix-table__right">The instructed agent sends pacs.004 back through the payment chain to return previously settled funds. Each agent in the chain processes the return and credits back the relevant accounts.</td>
         </tr>
     </tbody>

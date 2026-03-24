@@ -50,23 +50,23 @@ Il messaggio pacs.007 viene utilizzato per stornare un'istruzione di pagamento p
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Intestazione di gruppo con identificazione del messaggio e marca temporale di creazione</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Intestazione di gruppo con identificazione del messaggio e marca temporale di creazione</td>
           <td class="operational-matrix-table__right">Avviato quando il mittente originale identifica un errore prima o dopo il regolamento</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Informazioni sulla transazione con importo dello storno e parti coinvolte</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Informazioni sulla transazione con importo dello storno e parti coinvolte</td>
           <td class="operational-matrix-table__right">Utilizzato in scenari di frode in cui è richiesto uno storno rapido</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Informazioni sul gruppo originale con riferimento al messaggio di origine</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Informazioni sul gruppo originale con riferimento al messaggio di origine</td>
           <td class="operational-matrix-table__right">Supporta lo storno sia totale che parziale degli importi del pagamento originale</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RvslRsnInf** — Informazioni sul motivo dello storno con codici motivo strutturati</td>
+          <td class="operational-matrix-table__left"><strong>RvslRsnInf</strong> — Informazioni sul motivo dello storno con codici motivo strutturati</td>
           <td class="operational-matrix-table__right">Trasporta codici motivo di storno strutturati per l&#39;elaborazione a valle</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Riferimento alla transazione originale per la tracciabilità end-to-end</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Riferimento alla transazione originale per la tracciabilità end-to-end</td>
           <td class="operational-matrix-table__right">L&#39;agente ordinante (mittente originale) invia pacs.007 in avanti attraverso la catena di pagamento per stornare un pagamento precedentemente istruito. Ogni agente elabora l&#39;istruzione di storno e adegua il regolamento di conseguenza.</td>
         </tr>
     </tbody>

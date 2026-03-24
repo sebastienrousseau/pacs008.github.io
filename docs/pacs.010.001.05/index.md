@@ -50,23 +50,23 @@ The pacs.010 message is used between financial institutions for direct debit tra
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Group Header with message identification and settlement information</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message identification and settlement information</td>
           <td class="operational-matrix-table__right">Supports interbank direct debit collection between financial institutions</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Direct Debit Transaction Information with collection amount</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Direct Debit Transaction Information with collection amount</td>
           <td class="operational-matrix-table__right">Used for fee collection, margin calls, and institutional settlement obligations</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Creditor institution and its agent identification</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Creditor institution and its agent identification</td>
           <td class="operational-matrix-table__right">Requires pre-agreed bilateral arrangements between participating institutions</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Debtor institution and its agent identification</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Debtor institution and its agent identification</td>
           <td class="operational-matrix-table__right">Critical for institutional cash management and interbank settlement cycles</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Interbank Settlement Amount in the settlement currency</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Interbank Settlement Amount in the settlement currency</td>
           <td class="operational-matrix-table__right">The creditor institution sends pacs.010 to the debtor institution to collect funds under a pre-agreed arrangement. The debtor institution validates the request and settles or rejects the direct debit.</td>
         </tr>
     </tbody>

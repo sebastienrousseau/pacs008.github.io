@@ -50,23 +50,23 @@ Thông điệp pacs.009 được sử dụng cho chuyển khoản tín dụng gi
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Tiêu đề nhóm với mã nhận dạng thông điệp và thông tin quyết toán</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Tiêu đề nhóm với mã nhận dạng thông điệp và thông tin quyết toán</td>
           <td class="operational-matrix-table__right">Được sử dụng cho chuyển khoản tài khoản tự thân giữa ngân hàng và thanh toán bù đắp</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Thông tin giao dịch chuyển khoản tín dụng với số tiền quyết toán liên ngân hàng</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Thông tin giao dịch chuyển khoản tín dụng với số tiền quyết toán liên ngân hàng</td>
           <td class="operational-matrix-table__right">Hỗ trợ quản lý thanh khoản giữa các đối tác ngân hàng đại lý</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Nhận dạng tổ chức con nợ và đại lý</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Nhận dạng tổ chức con nợ và đại lý</td>
           <td class="operational-matrix-table__right">Mang chặng bù đắp của chuyển khoản tín dụng khách hàng được quyết toán theo phương thức bù đắp</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Nhận dạng tổ chức chủ nợ và đại lý</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Nhận dạng tổ chức chủ nợ và đại lý</td>
           <td class="operational-matrix-table__right">Cho phép các hoạt động ngân quỹ và cấp vốn giữa các tổ chức tài chính</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Số tiền quyết toán liên ngân hàng bằng đồng tiền quyết toán</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Số tiền quyết toán liên ngân hàng bằng đồng tiền quyết toán</td>
           <td class="operational-matrix-table__right">Tổ chức con nợ gửi pacs.009 đến tổ chức chủ nợ để chuyển tiền của chính mình. Đối với thanh toán theo phương thức bù đắp, pacs.009 cung cấp chặng cấp vốn trong khi pacs.008 mang lệnh khách hàng qua đường dẫn riêng biệt.</td>
         </tr>
     </tbody>

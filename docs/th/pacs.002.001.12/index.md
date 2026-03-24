@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Group Header พร้อมรหัสระบุข้อความและประทับเวลาการสร้าง</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header พร้อมรหัสระบุข้อความและประทับเวลาการสร้าง</td>
           <td class="operational-matrix-table__right">ใช้เพื่อยืนยันการชำระบัญชีหรือรายงานการปฏิเสธของการโอนเครดิต การหักบัญชีโดยตรง และการคืนเงิน</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInfAndSts** — ข้อมูลกลุ่มต้นฉบับและสถานะสำหรับการรายงานระดับกลุ่ม</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInfAndSts</strong> — ข้อมูลกลุ่มต้นฉบับและสถานะสำหรับการรายงานระดับกลุ่ม</td>
           <td class="operational-matrix-table__right">เปิดใช้งานการกระทบยอดระหว่างตัวแทนผู้สั่งและตัวแทนผู้รับคำสั่ง</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInfAndSts** — ข้อมูลธุรกรรมและสถานะสำหรับผลลัพธ์ธุรกรรมแต่ละรายการ</td>
+          <td class="operational-matrix-table__left"><strong>TxInfAndSts</strong> — ข้อมูลธุรกรรมและสถานะสำหรับผลลัพธ์ธุรกรรมแต่ละรายการ</td>
           <td class="operational-matrix-table__right">จำเป็นในขั้นตอน CBPR+ เพื่อตอบรับการประมวลผลข้อความ pacs.008 และ pacs.009</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**StsRsnInf** — ข้อมูลเหตุผลสถานะพร้อมรหัสเหตุผลที่มีโครงสร้าง</td>
+          <td class="operational-matrix-table__left"><strong>StsRsnInf</strong> — ข้อมูลเหตุผลสถานะพร้อมรหัสเหตุผลที่มีโครงสร้าง</td>
           <td class="operational-matrix-table__right">รองรับการรายงานสถานะทั้งระดับกลุ่มและระดับธุรกรรมแต่ละรายการ</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — การอ้างอิงธุรกรรมต้นฉบับที่เชื่อมโยงกลับไปยังคำสั่งต้นทาง</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — การอ้างอิงธุรกรรมต้นฉบับที่เชื่อมโยงกลับไปยังคำสั่งต้นทาง</td>
           <td class="operational-matrix-table__right">ตัวแทนผู้รับคำสั่ง (ผู้รับ) ส่ง pacs.002 กลับไปยังตัวแทนผู้สั่ง (ผู้ส่ง) เพื่อยืนยันการรับ การชำระบัญชี หรือการปฏิเสธคำสั่งชำระเงินที่ได้รับ เช่น pacs.008 หรือ pacs.009</td>
         </tr>
     </tbody>

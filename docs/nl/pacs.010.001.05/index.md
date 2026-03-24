@@ -50,23 +50,23 @@ Het pacs.010-bericht wordt tussen financiële instellingen gebruikt voor incasso
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Groepskoptekst met berichtidentificatie en afwikkelingsinformatie</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Groepskoptekst met berichtidentificatie en afwikkelingsinformatie</td>
           <td class="operational-matrix-table__right">Ondersteunt interbancaire incasso-inning tussen financiële instellingen</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Incassotransactie-informatie met incassobedrag</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Incassotransactie-informatie met incassobedrag</td>
           <td class="operational-matrix-table__right">Gebruikt voor vergoedingsinning, margestortingen en institutionele afwikkelingsverplichtingen</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identificatie van de crediteurinstelling en haar agent</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Identificatie van de crediteurinstelling en haar agent</td>
           <td class="operational-matrix-table__right">Vereist vooraf overeengekomen bilaterale overeenkomsten tussen deelnemende instellingen</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identificatie van de debiteurinstelling en haar agent</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Identificatie van de debiteurinstelling en haar agent</td>
           <td class="operational-matrix-table__right">Essentieel voor institutioneel kasbeheer en interbancaire afwikkelingscycli</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Interbancair afwikkelingsbedrag in de afwikkelingsvaluta</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Interbancair afwikkelingsbedrag in de afwikkelingsvaluta</td>
           <td class="operational-matrix-table__right">De crediteurinstelling stuurt pacs.010 naar de debiteurinstelling om gelden te innen op basis van een vooraf overeengekomen regeling. De debiteurinstelling valideert het verzoek en wikkelt de incasso af of wijst deze af.</td>
         </tr>
     </tbody>

@@ -50,23 +50,23 @@ Het pacs.003-bericht wordt uitgewisseld tussen financiële instellingen om een i
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Groepskoptekst met berichtidentificatie en afwikkelingsinformatie</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Groepskoptekst met berichtidentificatie en afwikkelingsinformatie</td>
           <td class="operational-matrix-table__right">Ondersteunt SEPA Core- en B2B-incassoschema&#39;s</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Incassotransactie-informatie met bedrag en partijen</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Incassotransactie-informatie met bedrag en partijen</td>
           <td class="operational-matrix-table__right">Gebruikt voor terugkerende betalingsincasso&#39;s zoals abonnementen, energierekeningen en leningaflossingen</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr** — Identificatie van de crediteur en rekeninggegevens</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr</strong> — Identificatie van de crediteur en rekeninggegevens</td>
           <td class="operational-matrix-table__right">Vereist een geldige mandaatreferentie tussen debiteur en crediteur</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtrAgt** — Identificatie van de crediteuragent (incasserende instelling)</td>
+          <td class="operational-matrix-table__left"><strong>CdtrAgt</strong> — Identificatie van de crediteuragent (incasserende instelling)</td>
           <td class="operational-matrix-table__right">Maakt bulkincasso van meerdere incasso-instructies in één bericht mogelijk</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DbtrAgt** — Identificatie van de debiteuragent (betalende instelling)</td>
+          <td class="operational-matrix-table__left"><strong>DbtrAgt</strong> — Identificatie van de debiteuragent (betalende instelling)</td>
           <td class="operational-matrix-table__right">De crediteuragent initieert pacs.003 richting de debiteuragent om gelden te innen. De debiteuragent valideert het mandaat, controleert de rekeningdekking en wikkelt de transactie af of retourneert deze.</td>
         </tr>
     </tbody>

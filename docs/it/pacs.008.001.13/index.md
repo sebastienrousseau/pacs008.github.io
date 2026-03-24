@@ -50,23 +50,23 @@ Il messaggio pacs.008 è l'istruzione di pagamento principale scambiata tra isti
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Intestazione di gruppo con ID messaggio, data di creazione, numero di transazioni e informazioni di regolamento</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Intestazione di gruppo con ID messaggio, data di creazione, numero di transazioni e informazioni di regolamento</td>
           <td class="operational-matrix-table__right">Il messaggio principale per bonifici transfrontalieri e domestici avviati dal cliente</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Informazioni sulla transazione di bonifico con importo, commissioni e finalità</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Informazioni sulla transazione di bonifico con importo, commissioni e finalità</td>
           <td class="operational-matrix-table__right">Utilizzato attraverso SEPA SCT, SEPA Instant, CBPR+ e i sistemi di compensazione nazionali</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identificazione del debitore e dell&#39;agente del debitore con dettagli del conto</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Identificazione del debitore e dell&#39;agente del debitore con dettagli del conto</td>
           <td class="operational-matrix-table__right">Trasporta informazioni di rimessa strutturate per supportare la riconciliazione automatica</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identificazione del creditore e dell&#39;agente del creditore con dettagli del conto</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Identificazione del creditore e dell&#39;agente del creditore con dettagli del conto</td>
           <td class="operational-matrix-table__right">Supporta metodi di regolamento seriale, copertura e diretto per catene di pagamento multi-tratta</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RmtInf** — Informazioni di rimessa per riferimenti di pagamento strutturati o non strutturati</td>
+          <td class="operational-matrix-table__left"><strong>RmtInf</strong> — Informazioni di rimessa per riferimenti di pagamento strutturati o non strutturati</td>
           <td class="operational-matrix-table__right">L&#39;agente del debitore crea un pacs.008 e lo invia all&#39;agente del creditore (direttamente o tramite intermediari). Ogni agente nella catena convalida, arricchisce e inoltra l&#39;istruzione fino a quando l&#39;agente del creditore accredita il conto del beneficiario.</td>
         </tr>
     </tbody>

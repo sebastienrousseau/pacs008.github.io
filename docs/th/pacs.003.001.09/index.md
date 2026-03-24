@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Group Header พร้อมรหัสระบุข้อความและข้อมูลการชำระบัญชี</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header พร้อมรหัสระบุข้อความและข้อมูลการชำระบัญชี</td>
           <td class="operational-matrix-table__right">รองรับโครงการหักบัญชีโดยตรง SEPA Core และ B2B</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — ข้อมูลธุรกรรมหักบัญชีโดยตรงพร้อมจำนวนเงินและคู่สัญญา</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — ข้อมูลธุรกรรมหักบัญชีโดยตรงพร้อมจำนวนเงินและคู่สัญญา</td>
           <td class="operational-matrix-table__right">ใช้สำหรับการเรียกเก็บเงินแบบเป็นงวด เช่น การสมัครสมาชิก ค่าสาธารณูปโภค และการชำระคืนเงินกู้</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr** — การระบุตัวตนเจ้าหนี้และรายละเอียดบัญชี</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr</strong> — การระบุตัวตนเจ้าหนี้และรายละเอียดบัญชี</td>
           <td class="operational-matrix-table__right">ต้องมีการอ้างอิงคำสั่งมอบอำนาจที่ถูกต้องระหว่างลูกหนี้และเจ้าหนี้</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtrAgt** — การระบุตัวตนตัวแทนเจ้าหนี้ (สถาบันเรียกเก็บเงิน)</td>
+          <td class="operational-matrix-table__left"><strong>CdtrAgt</strong> — การระบุตัวตนตัวแทนเจ้าหนี้ (สถาบันเรียกเก็บเงิน)</td>
           <td class="operational-matrix-table__right">เปิดใช้งานการเรียกเก็บเงินแบบกลุ่มของคำสั่งหักบัญชีโดยตรงหลายรายการในข้อความเดียว</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DbtrAgt** — การระบุตัวตนตัวแทนลูกหนี้ (สถาบันชำระเงิน)</td>
+          <td class="operational-matrix-table__left"><strong>DbtrAgt</strong> — การระบุตัวตนตัวแทนลูกหนี้ (สถาบันชำระเงิน)</td>
           <td class="operational-matrix-table__right">ตัวแทนเจ้าหนี้เริ่มต้น pacs.003 ไปยังตัวแทนลูกหนี้เพื่อเรียกเก็บเงิน ตัวแทนลูกหนี้ตรวจสอบคำสั่งมอบอำนาจ ตรวจสอบยอดเงินในบัญชี และทำการชำระบัญชีหรือส่งคืนธุรกรรม</td>
         </tr>
     </tbody>

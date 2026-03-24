@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — رأس المجموعة مع تعريف الرسالة والطابع الزمني للإنشاء</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — رأس المجموعة مع تعريف الرسالة والطابع الزمني للإنشاء</td>
           <td class="operational-matrix-table__right">يتعامل مع المرتجعات بعد التسوية عندما لا يمكن إيداع المبلغ في حساب المستفيد</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — معلومات المعاملة مع مبلغ الإرجاع والأطراف</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — معلومات المعاملة مع مبلغ الإرجاع والأطراف</td>
           <td class="operational-matrix-table__right">يدعم سيناريوهات الاسترداد حيث يطلب المُرسل إرجاع الأموال</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — معلومات المجموعة الأصلية المرتبطة بالرسالة المصدرية</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — معلومات المجموعة الأصلية المرتبطة بالرسالة المصدرية</td>
           <td class="operational-matrix-table__right">يحمل رموز أسباب إرجاع منظمة للشفافية التنظيمية والتشغيلية</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RtrRsnInf** — معلومات سبب الإرجاع مع رموز أسباب منظمة</td>
+          <td class="operational-matrix-table__left"><strong>RtrRsnInf</strong> — معلومات سبب الإرجاع مع رموز أسباب منظمة</td>
           <td class="operational-matrix-table__right">ينطبق على مرتجعات التحويلات (pacs.008) ومرتجعات الخصم المباشر (pacs.003)</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — مرجع المعاملة الأصلية للمطابقة والمصالحة</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — مرجع المعاملة الأصلية للمطابقة والمصالحة</td>
           <td class="operational-matrix-table__right">يرسل الوكيل المُستلم pacs.004 عبر سلسلة الدفع لإرجاع الأموال المسوّاة سابقاً. يعالج كل وكيل في السلسلة الإرجاع ويعيد إيداع المبالغ في الحسابات المعنية.</td>
         </tr>
     </tbody>

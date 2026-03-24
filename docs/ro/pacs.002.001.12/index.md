@@ -50,23 +50,23 @@ Mesajul pacs.002 este trimis de o instituție financiară pentru a raporta statu
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Antet de grup cu identificarea mesajului și marca temporală de creare</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Antet de grup cu identificarea mesajului și marca temporală de creare</td>
           <td class="operational-matrix-table__right">Utilizat pentru confirmarea decontării sau raportarea respingerii transferurilor de credit, debitărilor directe și returnărilor de plăți</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInfAndSts** — Informații și status ale grupului original pentru raportarea la nivel agregat</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInfAndSts</strong> — Informații și status ale grupului original pentru raportarea la nivel agregat</td>
           <td class="operational-matrix-table__right">Permite reconcilierea între agentul ordonator și agentul instruit</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInfAndSts** — Informații și status ale tranzacției pentru rezultatele tranzacțiilor individuale</td>
+          <td class="operational-matrix-table__left"><strong>TxInfAndSts</strong> — Informații și status ale tranzacției pentru rezultatele tranzacțiilor individuale</td>
           <td class="operational-matrix-table__right">Obligatoriu în fluxurile CBPR+ pentru confirmarea procesării mesajelor pacs.008 și pacs.009</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**StsRsnInf** — Informații privind motivul statusului cu coduri de motiv structurate</td>
+          <td class="operational-matrix-table__left"><strong>StsRsnInf</strong> — Informații privind motivul statusului cu coduri de motiv structurate</td>
           <td class="operational-matrix-table__right">Suportă raportarea statusului atât la nivel de grup agregat, cât și la nivel de tranzacție individuală</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Referința tranzacției originale care face legătura cu instrucțiunea sursă</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Referința tranzacției originale care face legătura cu instrucțiunea sursă</td>
           <td class="operational-matrix-table__right">Agentul instruit (receptorul) trimite pacs.002 înapoi către agentul ordonator (expeditorul) pentru a confirma acceptarea, decontarea sau respingerea unei instrucțiuni de plată primite, cum ar fi pacs.008 sau pacs.009.</td>
         </tr>
     </tbody>

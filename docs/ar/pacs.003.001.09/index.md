@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — رأس المجموعة مع تعريف الرسالة ومعلومات التسوية</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — رأس المجموعة مع تعريف الرسالة ومعلومات التسوية</td>
           <td class="operational-matrix-table__right">يدعم أنظمة الخصم المباشر SEPA Core و B2B</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — معلومات معاملة الخصم المباشر مع المبلغ والأطراف</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — معلومات معاملة الخصم المباشر مع المبلغ والأطراف</td>
           <td class="operational-matrix-table__right">يُستخدم لتحصيل المدفوعات المتكررة مثل الاشتراكات وفواتير الخدمات وسداد القروض</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr** — تعريف الدائن وتفاصيل الحساب</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr</strong> — تعريف الدائن وتفاصيل الحساب</td>
           <td class="operational-matrix-table__right">يتطلب مرجع تفويض صالح بين المدين والدائن</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtrAgt** — تعريف وكيل الدائن (المؤسسة المحصّلة)</td>
+          <td class="operational-matrix-table__left"><strong>CdtrAgt</strong> — تعريف وكيل الدائن (المؤسسة المحصّلة)</td>
           <td class="operational-matrix-table__right">يمكّن التحصيل الجماعي لتعليمات خصم مباشر متعددة في رسالة واحدة</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DbtrAgt** — تعريف وكيل المدين (المؤسسة الدافعة)</td>
+          <td class="operational-matrix-table__left"><strong>DbtrAgt</strong> — تعريف وكيل المدين (المؤسسة الدافعة)</td>
           <td class="operational-matrix-table__right">يبادر وكيل الدائن بإرسال pacs.003 نحو وكيل المدين لتحصيل الأموال. يتحقق وكيل المدين من التفويض ويفحص تغطية الحساب ثم يسوّي أو يرجع المعاملة.</td>
         </tr>
     </tbody>

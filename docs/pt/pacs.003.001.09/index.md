@@ -50,23 +50,23 @@ A mensagem pacs.003 é trocada entre instituições financeiras para executar um
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Cabeçalho de grupo com identificação da mensagem e informações de liquidação</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Cabeçalho de grupo com identificação da mensagem e informações de liquidação</td>
           <td class="operational-matrix-table__right">Suporta os esquemas de débito direto SEPA Core e B2B</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Informações da transação de débito direto com valor e partes envolvidas</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Informações da transação de débito direto com valor e partes envolvidas</td>
           <td class="operational-matrix-table__right">Utilizado para cobrança de pagamentos recorrentes, como assinaturas, contas de serviços públicos e amortizações de empréstimos</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr** — Identificação do credor e dados da conta</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr</strong> — Identificação do credor e dados da conta</td>
           <td class="operational-matrix-table__right">Requer uma referência de mandato válida entre devedor e credor</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtrAgt** — Identificação do agente do credor (instituição coletora)</td>
+          <td class="operational-matrix-table__left"><strong>CdtrAgt</strong> — Identificação do agente do credor (instituição coletora)</td>
           <td class="operational-matrix-table__right">Permite a cobrança em lote de múltiplas instruções de débito direto em uma única mensagem</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DbtrAgt** — Identificação do agente do devedor (instituição pagadora)</td>
+          <td class="operational-matrix-table__left"><strong>DbtrAgt</strong> — Identificação do agente do devedor (instituição pagadora)</td>
           <td class="operational-matrix-table__right">O agente do credor inicia pacs.003 em direção ao agente do devedor para coletar fundos. O agente do devedor valida o mandato, verifica a cobertura da conta e liquida ou devolve a transação.</td>
         </tr>
     </tbody>

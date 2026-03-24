@@ -50,23 +50,23 @@ Mesajul pacs.004 este utilizat pentru returnarea unei tranzacții de plată deco
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Antet de grup cu identificarea mesajului și marca temporală de creare</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Antet de grup cu identificarea mesajului și marca temporală de creare</td>
           <td class="operational-matrix-table__right">Gestionează returnările post-decontare când contul beneficiarului nu poate fi creditat</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Informații privind tranzacția cu suma returnării și părțile implicate</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Informații privind tranzacția cu suma returnării și părțile implicate</td>
           <td class="operational-matrix-table__right">Suportă scenarii de reclamare în care inițiatorul solicită returnarea fondurilor</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Informații ale grupului original cu legătura către mesajul sursă</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Informații ale grupului original cu legătura către mesajul sursă</td>
           <td class="operational-matrix-table__right">Conține coduri de motiv de returnare structurate pentru transparență reglementară și operațională</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RtrRsnInf** — Informații privind motivul returnării cu coduri de motiv structurate</td>
+          <td class="operational-matrix-table__left"><strong>RtrRsnInf</strong> — Informații privind motivul returnării cu coduri de motiv structurate</td>
           <td class="operational-matrix-table__right">Se aplică atât returnărilor de transferuri de credit (pacs.008), cât și returnărilor de debitări directe (pacs.003)</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Referința tranzacției originale pentru potrivire și reconciliere</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Referința tranzacției originale pentru potrivire și reconciliere</td>
           <td class="operational-matrix-table__right">Agentul instruit trimite pacs.004 înapoi prin lanțul de plăți pentru a returna fonduri decontate anterior. Fiecare agent din lanț procesează returnarea și recreditează conturile relevante.</td>
         </tr>
     </tbody>

@@ -50,23 +50,23 @@ Pesan pacs.028 dikirim oleh lembaga keuangan untuk meminta status instruksi pemb
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Group Header dengan identifikasi pesan dan stempel waktu pembuatan</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header dengan identifikasi pesan dan stempel waktu pembuatan</td>
           <td class="operational-matrix-table__right">Memungkinkan pertanyaan status proaktif untuk instruksi pembayaran yang sedang dalam perjalanan</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Informasi Transaksi yang mengidentifikasi pembayaran yang akan ditanyakan</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Informasi Transaksi yang mengidentifikasi pembayaran yang akan ditanyakan</td>
           <td class="operational-matrix-table__right">Mendukung tim operasi yang menyelidiki pembayaran yang tertunda atau hilang</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Informasi Grup Asli yang merujuk pesan sumber</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Informasi Grup Asli yang merujuk pesan sumber</td>
           <td class="operational-matrix-table__right">Melengkapi pacs.002 dengan menginisiasi komunikasi status alih-alih menunggu</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlInstrId** — Identifikasi Instruksi Asli dari pembayaran sumber</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlInstrId</strong> — Identifikasi Instruksi Asli dari pembayaran sumber</td>
           <td class="operational-matrix-table__right">Digunakan dalam alur kerja penanganan pengecualian dan pemantauan SLA</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlEndToEndId** — Identifikasi Ujung ke Ujung Asli untuk ketertelusuran</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlEndToEndId</strong> — Identifikasi Ujung ke Ujung Asli untuk ketertelusuran</td>
           <td class="operational-matrix-table__right">Agen yang memberi instruksi mengirim pacs.028 ke agen yang diinstruksikan untuk meminta status pembayaran tertentu. Agen yang diinstruksikan merespons dengan pacs.002 yang berisi status pemrosesan terkini.</td>
         </tr>
     </tbody>

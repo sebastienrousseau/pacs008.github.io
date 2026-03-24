@@ -50,23 +50,23 @@ Die Nachricht pacs.010 wird zwischen Finanzinstituten für Lastschrifttransaktio
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Gruppenkopf mit Nachrichtenidentifikation und Abwicklungsinformationen</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Gruppenkopf mit Nachrichtenidentifikation und Abwicklungsinformationen</td>
           <td class="operational-matrix-table__right">Unterstützt Interbanken-Lastschrifteinzug zwischen Finanzinstituten</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Lastschrifttransaktionsinformationen mit Einzugsbetrag</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Lastschrifttransaktionsinformationen mit Einzugsbetrag</td>
           <td class="operational-matrix-table__right">Wird für Gebühreneinzug, Margin Calls und institutionelle Abwicklungsverpflichtungen verwendet</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Gläubigerinstitut und Agentenidentifikation</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Gläubigerinstitut und Agentenidentifikation</td>
           <td class="operational-matrix-table__right">Erfordert vorab vereinbarte bilaterale Vereinbarungen zwischen teilnehmenden Instituten</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Schuldnerinstitut und Agentenidentifikation</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Schuldnerinstitut und Agentenidentifikation</td>
           <td class="operational-matrix-table__right">Entscheidend für institutionelles Cash Management und Interbanken-Abwicklungszyklen</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Interbanken-Abwicklungsbetrag in der Abwicklungswährung</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Interbanken-Abwicklungsbetrag in der Abwicklungswährung</td>
           <td class="operational-matrix-table__right">Das Gläubigerinstitut sendet pacs.010 an das Schuldnerinstitut, um Gelder im Rahmen einer vorab vereinbarten Regelung einzuziehen. Das Schuldnerinstitut validiert die Anforderung und wickelt die Lastschrift ab oder lehnt sie ab.</td>
         </tr>
     </tbody>

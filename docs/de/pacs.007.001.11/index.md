@@ -50,23 +50,23 @@ Die Nachricht pacs.007 wird verwendet, um eine zuvor gesendete Zahlungsanweisung
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Gruppenkopf mit Nachrichtenidentifikation und Erstellungszeitstempel</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Gruppenkopf mit Nachrichtenidentifikation und Erstellungszeitstempel</td>
           <td class="operational-matrix-table__right">Wird initiiert, wenn der ursprüngliche Sender einen Fehler vor oder nach der Abwicklung feststellt</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Transaktionsinformationen mit Umkehrbetrag und Parteien</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Transaktionsinformationen mit Umkehrbetrag und Parteien</td>
           <td class="operational-matrix-table__right">Wird in Betrugsfällen verwendet, bei denen eine schnelle Umkehrung erforderlich ist</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Originalgruppendaten mit Bezug auf die Quellnachricht</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Originalgruppendaten mit Bezug auf die Quellnachricht</td>
           <td class="operational-matrix-table__right">Unterstützt sowohl vollständige als auch teilweise Umkehrung von Originalzahlungsbeträgen</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RvslRsnInf** — Umkehrgrundinformationen mit strukturierten Grundcodes</td>
+          <td class="operational-matrix-table__left"><strong>RvslRsnInf</strong> — Umkehrgrundinformationen mit strukturierten Grundcodes</td>
           <td class="operational-matrix-table__right">Trägt strukturierte Umkehrgrundcodes für die nachgelagerte Verarbeitung</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Originaltransaktionsreferenz für End-to-End-Nachverfolgbarkeit</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Originaltransaktionsreferenz für End-to-End-Nachverfolgbarkeit</td>
           <td class="operational-matrix-table__right">Der beauftragende Agent (ursprünglicher Sender) sendet pacs.007 durch die Zahlungskette, um eine zuvor beauftragte Zahlung umzukehren. Jeder Agent verarbeitet die Umkehranweisung und passt die Abwicklung entsprechend an.</td>
         </tr>
     </tbody>

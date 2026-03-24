@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Заголовок групи з ідентифікацією повідомлення та міткою часу створення</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Заголовок групи з ідентифікацією повідомлення та міткою часу створення</td>
           <td class="operational-matrix-table__right">Ініціюється, коли первинний відправник виявляє помилку до або після розрахунку</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Інформація про транзакцію з сумою сторнування та сторонами</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Інформація про транзакцію з сумою сторнування та сторонами</td>
           <td class="operational-matrix-table__right">Використовується в сценаріях шахрайства, коли потрібне швидке сторнування</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Інформація про вихідну групу з посиланням на вихідне повідомлення</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Інформація про вихідну групу з посиланням на вихідне повідомлення</td>
           <td class="operational-matrix-table__right">Підтримує як повне, так і часткове сторнування суми первинного платежу</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RvslRsnInf** — Інформація про причину сторнування зі структурованими кодами причин</td>
+          <td class="operational-matrix-table__left"><strong>RvslRsnInf</strong> — Інформація про причину сторнування зі структурованими кодами причин</td>
           <td class="operational-matrix-table__right">Містить структуровані коди причин сторнування для подальшої обробки</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Посилання на вихідну транзакцію для наскрізної відстежуваності</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Посилання на вихідну транзакцію для наскрізної відстежуваності</td>
           <td class="operational-matrix-table__right">Інструктуючий агент (первинний відправник) надсилає pacs.007 вперед через платіжний ланцюг для сторнування раніше доручeного платежу. Кожен агент обробляє інструкцію сторнування та коригує розрахунок відповідно.</td>
         </tr>
     </tbody>

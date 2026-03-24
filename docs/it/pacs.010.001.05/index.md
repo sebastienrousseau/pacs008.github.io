@@ -50,23 +50,23 @@ Il messaggio pacs.010 viene utilizzato tra istituti finanziari per transazioni d
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Intestazione di gruppo con identificazione del messaggio e informazioni di regolamento</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Intestazione di gruppo con identificazione del messaggio e informazioni di regolamento</td>
           <td class="operational-matrix-table__right">Supporta la riscossione interbancaria tramite addebito diretto tra istituti finanziari</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Informazioni sulla transazione di addebito diretto con importo di riscossione</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Informazioni sulla transazione di addebito diretto con importo di riscossione</td>
           <td class="operational-matrix-table__right">Utilizzato per la riscossione di commissioni, richieste di margine e obblighi di regolamento istituzionale</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identificazione dell&#39;istituto creditore e del suo agente</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Identificazione dell&#39;istituto creditore e del suo agente</td>
           <td class="operational-matrix-table__right">Richiede accordi bilaterali prestabiliti tra gli istituti partecipanti</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identificazione dell&#39;istituto debitore e del suo agente</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Identificazione dell&#39;istituto debitore e del suo agente</td>
           <td class="operational-matrix-table__right">Essenziale per la gestione della liquidità istituzionale e i cicli di regolamento interbancario</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Importo di regolamento interbancario nella valuta di regolamento</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Importo di regolamento interbancario nella valuta di regolamento</td>
           <td class="operational-matrix-table__right">L&#39;istituto creditore invia pacs.010 all&#39;istituto debitore per raccogliere fondi in base a un accordo prestabilito. L&#39;istituto debitore convalida la richiesta e regola o rifiuta l&#39;addebito diretto.</td>
         </tr>
     </tbody>

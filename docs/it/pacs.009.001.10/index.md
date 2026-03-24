@@ -50,23 +50,23 @@ Il messaggio pacs.009 viene utilizzato per bonifici tra istituti finanziari in c
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Intestazione di gruppo con identificazione del messaggio e informazioni di regolamento</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Intestazione di gruppo con identificazione del messaggio e informazioni di regolamento</td>
           <td class="operational-matrix-table__right">Utilizzato per trasferimenti bancari su conto proprio e pagamenti di copertura</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Informazioni sulla transazione di bonifico con importo di regolamento interbancario</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Informazioni sulla transazione di bonifico con importo di regolamento interbancario</td>
           <td class="operational-matrix-table__right">Supporta la gestione della liquidità tra partner di corrispondenza bancaria</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identificazione dell&#39;istituto debitore e del suo agente</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Identificazione dell&#39;istituto debitore e del suo agente</td>
           <td class="operational-matrix-table__right">Trasporta la tratta di copertura dei bonifici della clientela regolati con metodo copertura</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identificazione dell&#39;istituto creditore e del suo agente</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Identificazione dell&#39;istituto creditore e del suo agente</td>
           <td class="operational-matrix-table__right">Consente operazioni di tesoreria e provvista tra istituti finanziari</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Importo di regolamento interbancario nella valuta di regolamento</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Importo di regolamento interbancario nella valuta di regolamento</td>
           <td class="operational-matrix-table__right">L&#39;istituto debitore invia pacs.009 all&#39;istituto creditore per trasferire i propri fondi. Per i pagamenti con metodo copertura, pacs.009 fornisce la tratta di provvista mentre pacs.008 trasporta l&#39;istruzione del cliente attraverso un percorso separato.</td>
         </tr>
     </tbody>

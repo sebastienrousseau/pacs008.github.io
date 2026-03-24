@@ -50,23 +50,23 @@ pacs.010 mesajı, kuruluşun kendi hesabındaki doğrudan borçlandırma işleml
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Mesaj tanımlama ve takas bilgisi içeren Grup Başlığı</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Mesaj tanımlama ve takas bilgisi içeren Grup Başlığı</td>
           <td class="operational-matrix-table__right">Finans kuruluşları arasında bankalar arası doğrudan borçlandırma tahsilatını destekler</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Tahsilat tutarı içeren Doğrudan Borçlandırma İşlem Bilgisi</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Tahsilat tutarı içeren Doğrudan Borçlandırma İşlem Bilgisi</td>
           <td class="operational-matrix-table__right">Ücret tahsilatı, teminat tamamlama çağrıları ve kurumsal takas yükümlülükleri için kullanılır</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Alacaklı kuruluş ve aracısının kimlik bilgileri</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Alacaklı kuruluş ve aracısının kimlik bilgileri</td>
           <td class="operational-matrix-table__right">Katılımcı kuruluşlar arasında önceden üzerinde anlaşılmış ikili düzenlemeler gerektirir</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Borçlu kuruluş ve aracısının kimlik bilgileri</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Borçlu kuruluş ve aracısının kimlik bilgileri</td>
           <td class="operational-matrix-table__right">Kurumsal nakit yönetimi ve bankalar arası takas döngüleri için kritik öneme sahiptir</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Takas para birimi cinsinden Bankalar Arası Takas Tutarı</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Takas para birimi cinsinden Bankalar Arası Takas Tutarı</td>
           <td class="operational-matrix-table__right">Alacaklı kuruluş, önceden üzerinde anlaşılmış bir düzenleme kapsamında fon tahsil etmek üzere borçlu kuruluşa pacs.010 gönderir. Borçlu kuruluş talebi doğrular ve doğrudan borçlandırmayı takas eder veya reddeder.</td>
         </tr>
     </tbody>

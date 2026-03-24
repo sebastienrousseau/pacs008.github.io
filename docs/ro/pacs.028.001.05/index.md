@@ -50,23 +50,23 @@ Mesajul pacs.028 este trimis de o instituție financiară pentru a solicita stat
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Antet de grup cu identificarea mesajului și marca temporală de creare</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Antet de grup cu identificarea mesajului și marca temporală de creare</td>
           <td class="operational-matrix-table__right">Permite interogarea proactivă a statusului pentru instrucțiunile de plată în tranzit</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Informații privind tranzacția care identifică plata despre care se solicită informații</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Informații privind tranzacția care identifică plata despre care se solicită informații</td>
           <td class="operational-matrix-table__right">Susține echipele operaționale în investigarea plăților întârziate sau lipsă</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Informații ale grupului original cu referință la mesajul sursă</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Informații ale grupului original cu referință la mesajul sursă</td>
           <td class="operational-matrix-table__right">Completează pacs.002 prin inițierea comunicării de status în loc de așteptare</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlInstrId** — Identificarea instrucțiunii originale din plata sursă</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlInstrId</strong> — Identificarea instrucțiunii originale din plata sursă</td>
           <td class="operational-matrix-table__right">Utilizat în fluxurile de gestionare a excepțiilor și monitorizare a SLA</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlEndToEndId** — Identificarea de la un capăt la altul originală pentru trasabilitate</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlEndToEndId</strong> — Identificarea de la un capăt la altul originală pentru trasabilitate</td>
           <td class="operational-matrix-table__right">Agentul ordonator trimite pacs.028 agentului instruit pentru a solicita statusul unei plăți specifice. Agentul instruit răspunde cu un pacs.002 care conține statusul curent de procesare.</td>
         </tr>
     </tbody>

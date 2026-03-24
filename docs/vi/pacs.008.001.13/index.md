@@ -50,23 +50,23 @@ Thông điệp pacs.008 là lệnh thanh toán cốt lõi được trao đổi g
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Tiêu đề nhóm với ID thông điệp, ngày tạo, số lượng giao dịch và thông tin quyết toán</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Tiêu đề nhóm với ID thông điệp, ngày tạo, số lượng giao dịch và thông tin quyết toán</td>
           <td class="operational-matrix-table__right">Thông điệp chính cho chuyển khoản tín dụng xuyên biên giới và nội địa do khách hàng khởi tạo</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Thông tin giao dịch chuyển khoản tín dụng với số tiền, phí và mục đích</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Thông tin giao dịch chuyển khoản tín dụng với số tiền, phí và mục đích</td>
           <td class="operational-matrix-table__right">Được sử dụng trên toàn bộ SEPA SCT, SEPA Instant, CBPR+ và các hệ thống thanh toán bù trừ quốc gia</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Nhận dạng và chi tiết tài khoản con nợ và đại lý con nợ</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Nhận dạng và chi tiết tài khoản con nợ và đại lý con nợ</td>
           <td class="operational-matrix-table__right">Mang thông tin chuyển tiền có cấu trúc để hỗ trợ đối chiếu tự động</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Nhận dạng và chi tiết tài khoản chủ nợ và đại lý chủ nợ</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Nhận dạng và chi tiết tài khoản chủ nợ và đại lý chủ nợ</td>
           <td class="operational-matrix-table__right">Hỗ trợ phương thức quyết toán nối tiếp, bù đắp và trực tiếp cho chuỗi thanh toán nhiều chặng</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RmtInf** — Thông tin chuyển tiền cho tham chiếu thanh toán có cấu trúc hoặc không có cấu trúc</td>
+          <td class="operational-matrix-table__left"><strong>RmtInf</strong> — Thông tin chuyển tiền cho tham chiếu thanh toán có cấu trúc hoặc không có cấu trúc</td>
           <td class="operational-matrix-table__right">Đại lý con nợ tạo pacs.008 và gửi đến đại lý chủ nợ (trực tiếp hoặc qua trung gian). Mỗi đại lý trong chuỗi xác thực, bổ sung và chuyển tiếp lệnh cho đến khi đại lý chủ nợ ghi có vào tài khoản người thụ hưởng.</td>
         </tr>
     </tbody>

@@ -50,23 +50,23 @@ Het pacs.002-bericht wordt door een financiële instelling verzonden om de statu
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Groepskoptekst met berichtidentificatie en aanmaaktijdstempel</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Groepskoptekst met berichtidentificatie en aanmaaktijdstempel</td>
           <td class="operational-matrix-table__right">Gebruikt om afwikkeling te bevestigen of afwijzing te rapporteren van overboekingen, incasso&#39;s en betalingsretourzendingen</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInfAndSts** — Oorspronkelijke groepsinformatie en status voor rapportage op groepsniveau</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInfAndSts</strong> — Oorspronkelijke groepsinformatie en status voor rapportage op groepsniveau</td>
           <td class="operational-matrix-table__right">Maakt reconciliatie mogelijk tussen opdrachtgevende en opdrachthebbende agenten</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInfAndSts** — Transactie-informatie en status voor individuele transactieresultaten</td>
+          <td class="operational-matrix-table__left"><strong>TxInfAndSts</strong> — Transactie-informatie en status voor individuele transactieresultaten</td>
           <td class="operational-matrix-table__right">Vereist in CBPR+-stromen om verwerking van pacs.008- en pacs.009-berichten te bevestigen</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**StsRsnInf** — Statusredeninformatie met gestructureerde redencodes</td>
+          <td class="operational-matrix-table__left"><strong>StsRsnInf</strong> — Statusredeninformatie met gestructureerde redencodes</td>
           <td class="operational-matrix-table__right">Ondersteunt zowel statusrapportage op groepsniveau als op individueel transactieniveau</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Oorspronkelijke transactiereferentie die terugverwijst naar de broninstructie</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Oorspronkelijke transactiereferentie die terugverwijst naar de broninstructie</td>
           <td class="operational-matrix-table__right">De opdrachthebbende agent (ontvanger) stuurt pacs.002 terug naar de opdrachtgevende agent (verzender) om acceptatie, afwikkeling of afwijzing te bevestigen van een ontvangen betalingsinstructie zoals pacs.008 of pacs.009.</td>
         </tr>
     </tbody>

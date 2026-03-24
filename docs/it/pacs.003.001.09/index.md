@@ -50,23 +50,23 @@ Il messaggio pacs.003 viene scambiato tra istituti finanziari per eseguire un'is
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Intestazione di gruppo con identificazione del messaggio e informazioni di regolamento</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Intestazione di gruppo con identificazione del messaggio e informazioni di regolamento</td>
           <td class="operational-matrix-table__right">Supporta gli schemi di addebito diretto SEPA Core e B2B</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Informazioni sulla transazione di addebito diretto con importo e parti coinvolte</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Informazioni sulla transazione di addebito diretto con importo e parti coinvolte</td>
           <td class="operational-matrix-table__right">Utilizzato per la riscossione di pagamenti ricorrenti come abbonamenti, bollette e rimborsi di prestiti</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr** — Identificazione del creditore e dettagli del conto</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr</strong> — Identificazione del creditore e dettagli del conto</td>
           <td class="operational-matrix-table__right">Richiede un riferimento di mandato valido tra debitore e creditore</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtrAgt** — Identificazione dell&#39;agente del creditore (istituto di incasso)</td>
+          <td class="operational-matrix-table__left"><strong>CdtrAgt</strong> — Identificazione dell&#39;agente del creditore (istituto di incasso)</td>
           <td class="operational-matrix-table__right">Consente la riscossione massiva di molteplici istruzioni di addebito diretto in un unico messaggio</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DbtrAgt** — Identificazione dell&#39;agente del debitore (istituto pagante)</td>
+          <td class="operational-matrix-table__left"><strong>DbtrAgt</strong> — Identificazione dell&#39;agente del debitore (istituto pagante)</td>
           <td class="operational-matrix-table__right">L&#39;agente del creditore avvia pacs.003 verso l&#39;agente del debitore per raccogliere i fondi. L&#39;agente del debitore convalida il mandato, verifica la copertura del conto e procede al regolamento o alla restituzione della transazione.</td>
         </tr>
     </tbody>

@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — כותרת קבוצה עם זיהוי הודעה וחותמת זמן יצירה</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — כותרת קבוצה עם זיהוי הודעה וחותמת זמן יצירה</td>
           <td class="operational-matrix-table__right">מטפלת בהחזרות לאחר סליקה כאשר לא ניתן לזכות את חשבון המוטב</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — מידע עסקה עם סכום ההחזרה והצדדים</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — מידע עסקה עם סכום ההחזרה והצדדים</td>
           <td class="operational-matrix-table__right">תומכת בתרחישי ביטול כאשר המקור מבקש החזרת כספים</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — מידע על הקבוצה המקורית המקשר להודעת המקור</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — מידע על הקבוצה המקורית המקשר להודעת המקור</td>
           <td class="operational-matrix-table__right">נושאת קודי סיבת החזרה מובנים לשקיפות רגולטורית ותפעולית</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RtrRsnInf** — מידע על סיבת ההחזרה עם קודי סיבה מובנים</td>
+          <td class="operational-matrix-table__left"><strong>RtrRsnInf</strong> — מידע על סיבת ההחזרה עם קודי סיבה מובנים</td>
           <td class="operational-matrix-table__right">חלה הן על החזרות העברות זכות (pacs.008) והן על החזרות חיוב ישיר (pacs.003)</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — הפניה לעסקה המקורית להתאמה וסיווג</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — הפניה לעסקה המקורית להתאמה וסיווג</td>
           <td class="operational-matrix-table__right">הסוכן מקבל ההוראות שולח pacs.004 בחזרה דרך שרשרת התשלום להחזרת כספים שנסלקו בעבר. כל סוכן בשרשרת מעבד את ההחזרה ומזכה בחזרה את החשבונות הרלוונטיים.</td>
         </tr>
     </tbody>

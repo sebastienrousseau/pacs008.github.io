@@ -50,23 +50,23 @@ pacs.009 mesajı, transferin bir müşteri adına değil kurumun kendi adına ge
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Mesaj tanımlama ve takas bilgisi içeren Grup Başlığı</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Mesaj tanımlama ve takas bilgisi içeren Grup Başlığı</td>
           <td class="operational-matrix-table__right">Bankaların kendi hesapları arasındaki transferler ve teminat ödemeleri için kullanılır</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Bankalar arası takas tutarı içeren Kredi Transferi İşlem Bilgisi</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Bankalar arası takas tutarı içeren Kredi Transferi İşlem Bilgisi</td>
           <td class="operational-matrix-table__right">Muhabir bankacılık ortakları arasında likidite yönetimini destekler</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Borçlu kuruluş ve aracısının kimlik bilgileri</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Borçlu kuruluş ve aracısının kimlik bilgileri</td>
           <td class="operational-matrix-table__right">Teminat yöntemiyle takas edilen müşteri kredi transferlerinin teminat bacağını taşır</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Alacaklı kuruluş ve aracısının kimlik bilgileri</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Alacaklı kuruluş ve aracısının kimlik bilgileri</td>
           <td class="operational-matrix-table__right">Finans kuruluşları arasında hazine ve fonlama operasyonlarını mümkün kılar</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Takas para birimi cinsinden Bankalar Arası Takas Tutarı</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Takas para birimi cinsinden Bankalar Arası Takas Tutarı</td>
           <td class="operational-matrix-table__right">Borçlu kuruluş, kendi fonlarını transfer etmek üzere alacaklı kuruluşa pacs.009 gönderir. Teminat yöntemi ödemelerinde pacs.009 fonlama bacağını sağlarken, pacs.008 müşteri talimatını ayrı bir yoldan taşır.</td>
         </tr>
     </tbody>

@@ -50,23 +50,23 @@ A mensagem pacs.009 é utilizada para transferências de crédito entre institui
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Cabeçalho de grupo com identificação da mensagem e informações de liquidação</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Cabeçalho de grupo com identificação da mensagem e informações de liquidação</td>
           <td class="operational-matrix-table__right">Utilizado para transferências interbancárias por conta própria e pagamentos de cobertura</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Informações da transação de transferência de crédito com valor de liquidação interbancária</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Informações da transação de transferência de crédito com valor de liquidação interbancária</td>
           <td class="operational-matrix-table__right">Suporta a gestão de liquidez entre parceiros de correspondência bancária</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identificação da instituição devedora e de seu agente</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Identificação da instituição devedora e de seu agente</td>
           <td class="operational-matrix-table__right">Contém a etapa de cobertura de transferências de crédito de clientes liquidadas pelo método de cobertura</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identificação da instituição credora e de seu agente</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Identificação da instituição credora e de seu agente</td>
           <td class="operational-matrix-table__right">Permite operações de tesouraria e financiamento entre instituições financeiras</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Valor de liquidação interbancária na moeda de liquidação</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Valor de liquidação interbancária na moeda de liquidação</td>
           <td class="operational-matrix-table__right">A instituição devedora envia pacs.009 à instituição credora para transferir seus próprios fundos. Para pagamentos pelo método de cobertura, pacs.009 fornece a etapa de financiamento enquanto pacs.008 transporta a instrução do cliente por um caminho separado.</td>
         </tr>
     </tbody>

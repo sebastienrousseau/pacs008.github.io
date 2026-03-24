@@ -50,23 +50,23 @@ El mensaje pacs.009 se utiliza para transferencias entre instituciones financier
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Cabecera de grupo con identificación del mensaje e información de liquidación</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Cabecera de grupo con identificación del mensaje e información de liquidación</td>
           <td class="operational-matrix-table__right">Se utiliza para transferencias de cuenta propia entre bancos y pagos de cobertura</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Información de transacción de transferencia con importe de liquidación interbancaria</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Información de transacción de transferencia con importe de liquidación interbancaria</td>
           <td class="operational-matrix-table__right">Soporta gestión de liquidez entre socios de banca corresponsal</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Institución deudora e identificación de su agente</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Institución deudora e identificación de su agente</td>
           <td class="operational-matrix-table__right">Lleva el tramo de cobertura de las transferencias de clientes liquidadas por método de cobertura</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Institución acreedora e identificación de su agente</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Institución acreedora e identificación de su agente</td>
           <td class="operational-matrix-table__right">Permite operaciones de tesorería y financiación entre instituciones financieras</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Importe de liquidación interbancaria en la divisa de liquidación</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Importe de liquidación interbancaria en la divisa de liquidación</td>
           <td class="operational-matrix-table__right">La institución deudora envía pacs.009 a la institución acreedora para transferir sus propios fondos. Para pagos por cobertura, pacs.009 proporciona el tramo de financiación mientras pacs.008 lleva la instrucción del cliente por un camino separado.</td>
         </tr>
     </tbody>

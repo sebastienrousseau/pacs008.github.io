@@ -50,23 +50,23 @@ The pacs.008 message is the core payment instruction exchanged between financial
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Group Header with message ID, creation date, number of transactions, and settlement information</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message ID, creation date, number of transactions, and settlement information</td>
           <td class="operational-matrix-table__right">The primary message for customer-initiated cross-border and domestic credit transfers</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Credit Transfer Transaction Information with amount, charges, and purpose</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Credit Transfer Transaction Information with amount, charges, and purpose</td>
           <td class="operational-matrix-table__right">Used across SEPA SCT, SEPA Instant, CBPR+, and national clearing systems</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Debtor and Debtor Agent identification and account details</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Debtor and Debtor Agent identification and account details</td>
           <td class="operational-matrix-table__right">Carries structured remittance information to support straight-through reconciliation</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Creditor and Creditor Agent identification and account details</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Creditor and Creditor Agent identification and account details</td>
           <td class="operational-matrix-table__right">Supports serial, cover, and direct settlement methods for multi-leg payment chains</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RmtInf** — Remittance Information for structured or unstructured payment references</td>
+          <td class="operational-matrix-table__left"><strong>RmtInf</strong> — Remittance Information for structured or unstructured payment references</td>
           <td class="operational-matrix-table__right">The debtor agent creates a pacs.008 and sends it to the creditor agent (directly or via intermediaries). Each agent in the chain validates, enriches, and forwards the instruction until the creditor agent credits the beneficiary&#39;s account.</td>
         </tr>
     </tbody>

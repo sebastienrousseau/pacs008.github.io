@@ -50,23 +50,23 @@ Pesan pacs.004 digunakan untuk mengembalikan transaksi pembayaran yang sebelumny
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Group Header dengan identifikasi pesan dan stempel waktu pembuatan</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header dengan identifikasi pesan dan stempel waktu pembuatan</td>
           <td class="operational-matrix-table__right">Menangani pengembalian pasca-penyelesaian ketika rekening penerima manfaat tidak dapat dikreditkan</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Informasi Transaksi dengan jumlah pengembalian dan pihak-pihak</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Informasi Transaksi dengan jumlah pengembalian dan pihak-pihak</td>
           <td class="operational-matrix-table__right">Mendukung skenario penarikan kembali di mana pengirim asal meminta pengembalian dana</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Informasi Grup Asli yang menghubungkan ke pesan sumber</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Informasi Grup Asli yang menghubungkan ke pesan sumber</td>
           <td class="operational-matrix-table__right">Membawa kode alasan pengembalian terstruktur untuk transparansi regulasi dan operasional</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RtrRsnInf** — Informasi Alasan Pengembalian dengan kode alasan terstruktur</td>
+          <td class="operational-matrix-table__left"><strong>RtrRsnInf</strong> — Informasi Alasan Pengembalian dengan kode alasan terstruktur</td>
           <td class="operational-matrix-table__right">Berlaku untuk pengembalian transfer kredit (pacs.008) dan pengembalian debit langsung (pacs.003)</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Referensi Transaksi Asli untuk pencocokan dan rekonsiliasi</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Referensi Transaksi Asli untuk pencocokan dan rekonsiliasi</td>
           <td class="operational-matrix-table__right">Agen yang diinstruksikan mengirim pacs.004 kembali melalui rantai pembayaran untuk mengembalikan dana yang sebelumnya telah diselesaikan. Setiap agen dalam rantai memproses pengembalian dan mengkreditkan kembali rekening yang relevan.</td>
         </tr>
     </tbody>

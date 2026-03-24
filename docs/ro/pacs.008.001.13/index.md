@@ -50,23 +50,23 @@ Mesajul pacs.008 este instrucțiunea de plată principală schimbată între ins
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Antet de grup cu ID-ul mesajului, data creării, numărul de tranzacții și informații de decontare</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Antet de grup cu ID-ul mesajului, data creării, numărul de tranzacții și informații de decontare</td>
           <td class="operational-matrix-table__right">Mesajul principal pentru transferurile de credit transfrontaliere și interne inițiate de client</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Informații privind tranzacția de transfer de credit cu sumă, comisioane și scop</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Informații privind tranzacția de transfer de credit cu sumă, comisioane și scop</td>
           <td class="operational-matrix-table__right">Utilizat în SEPA SCT, SEPA Instant, CBPR+ și sistemele de compensare naționale</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identificarea debitorului și a agentului debitorului cu detaliile contului</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Identificarea debitorului și a agentului debitorului cu detaliile contului</td>
           <td class="operational-matrix-table__right">Conține informații de remitere structurate pentru a susține reconcilierea automată</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identificarea creditorului și a agentului creditorului cu detaliile contului</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Identificarea creditorului și a agentului creditorului cu detaliile contului</td>
           <td class="operational-matrix-table__right">Suportă metode de decontare serială, prin acoperire și directă pentru lanțuri de plăți cu mai multe etape</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RmtInf** — Informații de remitere pentru referințe de plată structurate sau nestructurate</td>
+          <td class="operational-matrix-table__left"><strong>RmtInf</strong> — Informații de remitere pentru referințe de plată structurate sau nestructurate</td>
           <td class="operational-matrix-table__right">Agentul debitorului creează un pacs.008 și îl trimite agentului creditorului (direct sau prin intermediari). Fiecare agent din lanț validează, îmbogățește și transmite instrucțiunea până când agentul creditorului creditează contul beneficiarului.</td>
         </tr>
     </tbody>

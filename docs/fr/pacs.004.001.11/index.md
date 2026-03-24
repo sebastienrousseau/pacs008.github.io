@@ -50,23 +50,23 @@ Le message pacs.004 est utilisé pour retourner une transaction de paiement pré
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — En-tête de groupe avec identification du message et horodatage de création</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — En-tête de groupe avec identification du message et horodatage de création</td>
           <td class="operational-matrix-table__right">Gère les retours post-règlement lorsque le compte du bénéficiaire ne peut être crédité</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Informations de transaction avec montant de retour et parties</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Informations de transaction avec montant de retour et parties</td>
           <td class="operational-matrix-table__right">Prend en charge les scénarios de rappel lorsque l&#39;expéditeur demande le retour des fonds</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Informations du groupe d&#39;origine reliant au message source</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Informations du groupe d&#39;origine reliant au message source</td>
           <td class="operational-matrix-table__right">Porte des codes de raison de retour structurés pour la transparence réglementaire et opérationnelle</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RtrRsnInf** — Informations sur le motif de retour avec codes de raison structurés</td>
+          <td class="operational-matrix-table__left"><strong>RtrRsnInf</strong> — Informations sur le motif de retour avec codes de raison structurés</td>
           <td class="operational-matrix-table__right">S&#39;applique aux retours de virements (pacs.008) et aux retours de prélèvements (pacs.003)</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Référence de la transaction d&#39;origine pour appariement et réconciliation</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Référence de la transaction d&#39;origine pour appariement et réconciliation</td>
           <td class="operational-matrix-table__right">L&#39;agent instruit envoie pacs.004 en retour à travers la chaîne de paiement pour restituer les fonds précédemment réglés. Chaque agent de la chaîne traite le retour et recrédite les comptes concernés.</td>
         </tr>
     </tbody>

@@ -50,23 +50,23 @@ Komunikat pacs.010 jest używany między instytucjami finansowymi do transakcji 
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Nagłówek grupy z identyfikacją komunikatu i informacjami o rozrachunku</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Nagłówek grupy z identyfikacją komunikatu i informacjami o rozrachunku</td>
           <td class="operational-matrix-table__right">Obsługuje międzybankowe inkaso poleceń zapłaty między instytucjami finansowymi</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Informacje o transakcji polecenia zapłaty z kwotą inkasa</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Informacje o transakcji polecenia zapłaty z kwotą inkasa</td>
           <td class="operational-matrix-table__right">Używany do inkasa opłat, wezwań do uzupełnienia depozytu zabezpieczającego i zobowiązań rozrachunkowych instytucji</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identyfikacja instytucji wierzyciela i jej agenta</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Identyfikacja instytucji wierzyciela i jej agenta</td>
           <td class="operational-matrix-table__right">Wymaga wcześniej uzgodnionych dwustronnych ustaleń między uczestniczącymi instytucjami</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identyfikacja instytucji dłużnika i jej agenta</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Identyfikacja instytucji dłużnika i jej agenta</td>
           <td class="operational-matrix-table__right">Kluczowy dla instytucjonalnego zarządzania gotówką i międzybankowych cykli rozrachunkowych</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Kwota rozrachunku międzybankowego w walucie rozrachunku</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Kwota rozrachunku międzybankowego w walucie rozrachunku</td>
           <td class="operational-matrix-table__right">Instytucja wierzyciela wysyła pacs.010 do instytucji dłużnika w celu pobrania środków na podstawie wcześniej uzgodnionych ustaleń. Instytucja dłużnika waliduje żądanie i dokonuje rozrachunku lub odrzuca polecenie zapłaty.</td>
         </tr>
     </tbody>

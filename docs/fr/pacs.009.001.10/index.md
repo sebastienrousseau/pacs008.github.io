@@ -50,23 +50,23 @@ Le message pacs.009 est utilisé pour les virements entre institutions financiè
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — En-tête de groupe avec identification du message et informations de règlement</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — En-tête de groupe avec identification du message et informations de règlement</td>
           <td class="operational-matrix-table__right">Utilisé pour les virements de compte propre banque à banque et les paiements de couverture</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Informations de transaction de virement avec montant de règlement interbancaire</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Informations de transaction de virement avec montant de règlement interbancaire</td>
           <td class="operational-matrix-table__right">Prend en charge la gestion de liquidité entre partenaires de banque correspondante</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Institution débitrice et identification de son agent</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Institution débitrice et identification de son agent</td>
           <td class="operational-matrix-table__right">Porte le volet couverture des virements clients réglés par méthode de couverture</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Institution créancière et identification de son agent</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Institution créancière et identification de son agent</td>
           <td class="operational-matrix-table__right">Permet les opérations de trésorerie et de financement entre institutions financières</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Montant de règlement interbancaire dans la devise de règlement</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Montant de règlement interbancaire dans la devise de règlement</td>
           <td class="operational-matrix-table__right">L&#39;institution débitrice envoie pacs.009 à l&#39;institution créancière pour transférer ses propres fonds. Pour les paiements par couverture, pacs.009 fournit le volet financement tandis que pacs.008 porte l&#39;instruction client par un chemin séparé.</td>
         </tr>
     </tbody>

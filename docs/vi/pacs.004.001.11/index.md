@@ -50,23 +50,23 @@ Thông điệp pacs.004 được sử dụng để hoàn trả giao dịch thanh
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Tiêu đề nhóm với mã nhận dạng thông điệp và dấu thời gian tạo</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Tiêu đề nhóm với mã nhận dạng thông điệp và dấu thời gian tạo</td>
           <td class="operational-matrix-table__right">Xử lý hoàn trả sau quyết toán khi tài khoản người thụ hưởng không thể ghi có</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Thông tin giao dịch với số tiền hoàn trả và các bên</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Thông tin giao dịch với số tiền hoàn trả và các bên</td>
           <td class="operational-matrix-table__right">Hỗ trợ các tình huống thu hồi khi bên gửi gốc yêu cầu hoàn trả tiền</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Thông tin nhóm gốc liên kết đến thông điệp nguồn</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Thông tin nhóm gốc liên kết đến thông điệp nguồn</td>
           <td class="operational-matrix-table__right">Mang mã lý do hoàn trả có cấu trúc để đảm bảo minh bạch về quy định và vận hành</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RtrRsnInf** — Thông tin lý do hoàn trả với mã lý do có cấu trúc</td>
+          <td class="operational-matrix-table__left"><strong>RtrRsnInf</strong> — Thông tin lý do hoàn trả với mã lý do có cấu trúc</td>
           <td class="operational-matrix-table__right">Áp dụng cho cả hoàn trả chuyển khoản tín dụng (pacs.008) và hoàn trả ghi nợ trực tiếp (pacs.003)</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Tham chiếu giao dịch gốc để đối chiếu và khớp lệnh</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Tham chiếu giao dịch gốc để đối chiếu và khớp lệnh</td>
           <td class="operational-matrix-table__right">Đại lý nhận lệnh gửi pacs.004 ngược lại qua chuỗi thanh toán để hoàn trả tiền đã quyết toán trước đó. Mỗi đại lý trong chuỗi xử lý hoàn trả và ghi có lại vào tài khoản liên quan.</td>
         </tr>
     </tbody>

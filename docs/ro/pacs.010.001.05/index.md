@@ -50,23 +50,23 @@ Mesajul pacs.010 este utilizat între instituții financiare pentru tranzacții 
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Antet de grup cu identificarea mesajului și informații de decontare</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Antet de grup cu identificarea mesajului și informații de decontare</td>
           <td class="operational-matrix-table__right">Suportă colectarea interbancară prin debitare directă între instituții financiare</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Informații privind tranzacția de debitare directă cu suma de colectare</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Informații privind tranzacția de debitare directă cu suma de colectare</td>
           <td class="operational-matrix-table__right">Utilizat pentru colectarea comisioanelor, apelurile în marjă și obligațiile de decontare instituționale</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identificarea instituției creditoare și a agentului acesteia</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Identificarea instituției creditoare și a agentului acesteia</td>
           <td class="operational-matrix-table__right">Necesită acorduri bilaterale prestabilite între instituțiile participante</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identificarea instituției debitoare și a agentului acesteia</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Identificarea instituției debitoare și a agentului acesteia</td>
           <td class="operational-matrix-table__right">Esențial pentru gestionarea numerarului instituțional și ciclurile de decontare interbancară</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Suma de decontare interbancară în moneda de decontare</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Suma de decontare interbancară în moneda de decontare</td>
           <td class="operational-matrix-table__right">Instituția creditoare trimite pacs.010 instituției debitoare pentru a colecta fonduri în baza unui acord prestabilit. Instituția debitoare validează cererea și decontează sau respinge debitarea directă.</td>
         </tr>
     </tbody>

@@ -50,23 +50,23 @@ Pesan pacs.008 adalah instruksi pembayaran inti yang dipertukarkan antara lembag
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Group Header dengan ID pesan, tanggal pembuatan, jumlah transaksi, dan informasi penyelesaian</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header dengan ID pesan, tanggal pembuatan, jumlah transaksi, dan informasi penyelesaian</td>
           <td class="operational-matrix-table__right">Pesan utama untuk transfer kredit lintas batas dan domestik yang diinisiasi pelanggan</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Informasi Transaksi Transfer Kredit dengan jumlah, biaya, dan tujuan</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Informasi Transaksi Transfer Kredit dengan jumlah, biaya, dan tujuan</td>
           <td class="operational-matrix-table__right">Digunakan di seluruh SEPA SCT, SEPA Instant, CBPR+, dan sistem kliring nasional</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identifikasi dan rincian rekening Debitur dan Agen Debitur</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Identifikasi dan rincian rekening Debitur dan Agen Debitur</td>
           <td class="operational-matrix-table__right">Membawa informasi remitansi terstruktur untuk mendukung rekonsiliasi langsung otomatis</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identifikasi dan rincian rekening Kreditur dan Agen Kreditur</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Identifikasi dan rincian rekening Kreditur dan Agen Kreditur</td>
           <td class="operational-matrix-table__right">Mendukung metode penyelesaian serial, cover, dan langsung untuk rantai pembayaran multi-kaki</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RmtInf** — Informasi Remitansi untuk referensi pembayaran terstruktur atau tidak terstruktur</td>
+          <td class="operational-matrix-table__left"><strong>RmtInf</strong> — Informasi Remitansi untuk referensi pembayaran terstruktur atau tidak terstruktur</td>
           <td class="operational-matrix-table__right">Agen debitur membuat pacs.008 dan mengirimkannya ke agen kreditur (langsung atau melalui perantara). Setiap agen dalam rantai memvalidasi, memperkaya, dan meneruskan instruksi hingga agen kreditur mengkreditkan rekening penerima manfaat.</td>
         </tr>
     </tbody>

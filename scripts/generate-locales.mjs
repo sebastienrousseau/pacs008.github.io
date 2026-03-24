@@ -10761,6 +10761,12 @@ function escapeHtml(value) {
     .replaceAll("'", "&#39;");
 }
 
+function formatInlineMarkup(value) {
+  return escapeHtml(value)
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+    .replace(/`([^`]+)`/g, "<code>$1</code>");
+}
+
 function htmlTable({ className, ariaLabel, columns, rows }) {
   const colgroup = columns.map((column) => `      <col class="${column.className}">`).join("\n");
   const head = columns.map((column) => `        <th>${escapeHtml(column.label)}</th>`).join("\n");
@@ -10860,7 +10866,7 @@ function messageOperationalMatrix(localeKey, msgType) {
       { className: "operational-matrix-table__col-right", label: t.msgDetailBusinessContext }
     ],
     rows: rows.map(([left, right]) => [
-      { className: "operational-matrix-table__left", html: escapeHtml(left) },
+      { className: "operational-matrix-table__left", html: formatInlineMarkup(left) },
       { className: "operational-matrix-table__right", html: escapeHtml(right) }
     ])
   });

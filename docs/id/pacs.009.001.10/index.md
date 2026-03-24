@@ -50,23 +50,23 @@ Pesan pacs.009 digunakan untuk transfer kredit antara lembaga keuangan di mana t
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Group Header dengan identifikasi pesan dan informasi penyelesaian</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header dengan identifikasi pesan dan informasi penyelesaian</td>
           <td class="operational-matrix-table__right">Digunakan untuk transfer rekening sendiri bank-ke-bank dan pembayaran cover</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Informasi Transaksi Transfer Kredit dengan jumlah penyelesaian antarbank</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Informasi Transaksi Transfer Kredit dengan jumlah penyelesaian antarbank</td>
           <td class="operational-matrix-table__right">Mendukung manajemen likuiditas antara mitra perbankan koresponden</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identifikasi lembaga debitur dan agennya</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Identifikasi lembaga debitur dan agennya</td>
           <td class="operational-matrix-table__right">Membawa kaki cover dari transfer kredit pelanggan yang diselesaikan melalui metode cover</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identifikasi lembaga kreditur dan agennya</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Identifikasi lembaga kreditur dan agennya</td>
           <td class="operational-matrix-table__right">Memungkinkan operasi perbendaharaan dan pendanaan antara lembaga keuangan</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Jumlah Penyelesaian Antarbank dalam mata uang penyelesaian</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Jumlah Penyelesaian Antarbank dalam mata uang penyelesaian</td>
           <td class="operational-matrix-table__right">Lembaga debitur mengirim pacs.009 ke lembaga kreditur untuk mentransfer dananya sendiri. Untuk pembayaran metode cover, pacs.009 menyediakan kaki pendanaan sementara pacs.008 membawa instruksi pelanggan melalui jalur terpisah.</td>
         </tr>
     </tbody>

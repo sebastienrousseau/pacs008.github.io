@@ -50,23 +50,23 @@ Il messaggio pacs.028 viene inviato da un istituto finanziario per richiedere lo
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Intestazione di gruppo con identificazione del messaggio e marca temporale di creazione</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Intestazione di gruppo con identificazione del messaggio e marca temporale di creazione</td>
           <td class="operational-matrix-table__right">Consente l&#39;indagine proattiva sullo stato delle istruzioni di pagamento in transito</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Informazioni sulla transazione che identificano il pagamento oggetto dell&#39;indagine</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Informazioni sulla transazione che identificano il pagamento oggetto dell&#39;indagine</td>
           <td class="operational-matrix-table__right">Supporta i team operativi nell&#39;indagine su pagamenti ritardati o mancanti</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Informazioni sul gruppo originale con riferimento al messaggio di origine</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Informazioni sul gruppo originale con riferimento al messaggio di origine</td>
           <td class="operational-matrix-table__right">Integra pacs.002 avviando la comunicazione sullo stato anziché attendere</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlInstrId** — Identificazione dell&#39;istruzione originale dal pagamento di origine</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlInstrId</strong> — Identificazione dell&#39;istruzione originale dal pagamento di origine</td>
           <td class="operational-matrix-table__right">Utilizzato nei flussi di lavoro di gestione delle eccezioni e monitoraggio degli SLA</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlEndToEndId** — Identificazione end-to-end originale per la tracciabilità</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlEndToEndId</strong> — Identificazione end-to-end originale per la tracciabilità</td>
           <td class="operational-matrix-table__right">L&#39;agente ordinante invia pacs.028 all&#39;agente incaricato per richiedere lo stato di un pagamento specifico. L&#39;agente incaricato risponde con un pacs.002 contenente lo stato di elaborazione attuale.</td>
         </tr>
     </tbody>

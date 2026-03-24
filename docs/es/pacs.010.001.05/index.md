@@ -50,23 +50,23 @@ El mensaje pacs.010 se utiliza entre instituciones financieras para transaccione
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Cabecera de grupo con identificación del mensaje e información de liquidación</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Cabecera de grupo con identificación del mensaje e información de liquidación</td>
           <td class="operational-matrix-table__right">Soporta cobro de adeudos directos interbancarios entre instituciones financieras</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Información de transacción de adeudo directo con importe de cobro</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Información de transacción de adeudo directo con importe de cobro</td>
           <td class="operational-matrix-table__right">Se utiliza para cobro de comisiones, llamadas de margen y obligaciones de liquidación institucional</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Institución acreedora e identificación de su agente</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Institución acreedora e identificación de su agente</td>
           <td class="operational-matrix-table__right">Requiere acuerdos bilaterales preestablecidos entre instituciones participantes</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Institución deudora e identificación de su agente</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Institución deudora e identificación de su agente</td>
           <td class="operational-matrix-table__right">Crítico para la gestión de tesorería institucional y ciclos de liquidación interbancaria</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — Importe de liquidación interbancaria en la divisa de liquidación</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Importe de liquidación interbancaria en la divisa de liquidación</td>
           <td class="operational-matrix-table__right">La institución acreedora envía pacs.010 a la institución deudora para cobrar fondos bajo un acuerdo preestablecido. La institución deudora valida la solicitud y liquida o rechaza el adeudo directo.</td>
         </tr>
     </tbody>

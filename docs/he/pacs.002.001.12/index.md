@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — כותרת קבוצה עם זיהוי הודעה וחותמת זמן יצירה</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — כותרת קבוצה עם זיהוי הודעה וחותמת זמן יצירה</td>
           <td class="operational-matrix-table__right">משמשת לאישור סליקה או דיווח על דחיית העברות זכות, חיובים ישירים והחזרות תשלום</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInfAndSts** — מידע על הקבוצה המקורית וסטטוס לדיווח ברמת הצרור</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInfAndSts</strong> — מידע על הקבוצה המקורית וסטטוס לדיווח ברמת הצרור</td>
           <td class="operational-matrix-table__right">מאפשרת התאמה בין סוכנים מורים לסוכנים מקבלי הוראות</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInfAndSts** — מידע על העסקה וסטטוס לתוצאות עסקאות בודדות</td>
+          <td class="operational-matrix-table__left"><strong>TxInfAndSts</strong> — מידע על העסקה וסטטוס לתוצאות עסקאות בודדות</td>
           <td class="operational-matrix-table__right">נדרשת בתהליכי CBPR+ לאישור עיבוד הודעות pacs.008 ו-pacs.009</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**StsRsnInf** — מידע על סיבת הסטטוס עם קודי סיבה מובנים</td>
+          <td class="operational-matrix-table__left"><strong>StsRsnInf</strong> — מידע על סיבת הסטטוס עם קודי סיבה מובנים</td>
           <td class="operational-matrix-table__right">תומכת בדיווח סטטוס הן ברמת קבוצת הצרור והן ברמת העסקה הבודדת</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — הפניה לעסקה המקורית המקשרת חזרה להוראת המקור</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — הפניה לעסקה המקורית המקשרת חזרה להוראת המקור</td>
           <td class="operational-matrix-table__right">הסוכן מקבל ההוראות (המקבל) שולח pacs.002 בחזרה לסוכן המורה (השולח) לאישור קבלה, סליקה או דחייה של הוראת תשלום שהתקבלה כגון pacs.008 או pacs.009.</td>
         </tr>
     </tbody>

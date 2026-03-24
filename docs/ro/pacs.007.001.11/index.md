@@ -50,23 +50,23 @@ Mesajul pacs.007 este utilizat pentru a inversa o instrucțiune de plată trimis
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Antet de grup cu identificarea mesajului și marca temporală de creare</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Antet de grup cu identificarea mesajului și marca temporală de creare</td>
           <td class="operational-matrix-table__right">Inițiat când expeditorul original identifică o eroare înainte sau după decontare</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Informații privind tranzacția cu suma inversării și părțile implicate</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Informații privind tranzacția cu suma inversării și părțile implicate</td>
           <td class="operational-matrix-table__right">Utilizat în scenarii de fraudă unde este necesară inversarea rapidă</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Informații ale grupului original cu referință la mesajul sursă</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Informații ale grupului original cu referință la mesajul sursă</td>
           <td class="operational-matrix-table__right">Suportă atât inversarea totală, cât și parțială a sumelor plății originale</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RvslRsnInf** — Informații privind motivul inversării cu coduri de motiv structurate</td>
+          <td class="operational-matrix-table__left"><strong>RvslRsnInf</strong> — Informații privind motivul inversării cu coduri de motiv structurate</td>
           <td class="operational-matrix-table__right">Conține coduri de motiv de inversare structurate pentru procesarea în aval</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Referința tranzacției originale pentru trasabilitate de la un capăt la altul</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Referința tranzacției originale pentru trasabilitate de la un capăt la altul</td>
           <td class="operational-matrix-table__right">Agentul ordonator (expeditorul original) trimite pacs.007 înainte prin lanțul de plăți pentru a inversa o plată instruită anterior. Fiecare agent procesează instrucțiunea de inversare și ajustează decontarea în consecință.</td>
         </tr>
     </tbody>

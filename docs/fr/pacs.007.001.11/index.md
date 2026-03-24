@@ -50,23 +50,23 @@ Le message pacs.007 est utilisé pour annuler une instruction de paiement préc�
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — En-tête de groupe avec identification du message et horodatage de création</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — En-tête de groupe avec identification du message et horodatage de création</td>
           <td class="operational-matrix-table__right">Initié lorsque l&#39;expéditeur d&#39;origine identifie une erreur avant ou après le règlement</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Informations de transaction avec montant d&#39;annulation et parties</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Informations de transaction avec montant d&#39;annulation et parties</td>
           <td class="operational-matrix-table__right">Utilisé dans les scénarios de fraude nécessitant une annulation rapide</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Informations du groupe d&#39;origine référençant le message source</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Informations du groupe d&#39;origine référençant le message source</td>
           <td class="operational-matrix-table__right">Prend en charge l&#39;annulation totale et partielle des montants de paiement d&#39;origine</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RvslRsnInf** — Informations sur le motif d&#39;annulation avec codes de raison structurés</td>
+          <td class="operational-matrix-table__left"><strong>RvslRsnInf</strong> — Informations sur le motif d&#39;annulation avec codes de raison structurés</td>
           <td class="operational-matrix-table__right">Porte des codes de raison d&#39;annulation structurés pour le traitement en aval</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Référence de la transaction d&#39;origine pour la traçabilité de bout en bout</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Référence de la transaction d&#39;origine pour la traçabilité de bout en bout</td>
           <td class="operational-matrix-table__right">L&#39;agent instructeur (expéditeur d&#39;origine) envoie pacs.007 à travers la chaîne de paiement pour annuler un paiement précédemment instruit. Chaque agent traite l&#39;instruction d&#39;annulation et ajuste le règlement en conséquence.</td>
         </tr>
     </tbody>

@@ -50,23 +50,23 @@ Thông điệp pacs.002 được gửi bởi tổ chức tài chính để báo 
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Tiêu đề nhóm với mã nhận dạng thông điệp và dấu thời gian tạo</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Tiêu đề nhóm với mã nhận dạng thông điệp và dấu thời gian tạo</td>
           <td class="operational-matrix-table__right">Được sử dụng để xác nhận quyết toán hoặc báo cáo từ chối chuyển khoản tín dụng, ghi nợ trực tiếp và hoàn trả thanh toán</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInfAndSts** — Thông tin nhóm gốc và trạng thái cho báo cáo cấp nhóm</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInfAndSts</strong> — Thông tin nhóm gốc và trạng thái cho báo cáo cấp nhóm</td>
           <td class="operational-matrix-table__right">Cho phép đối chiếu giữa đại lý ra lệnh và đại lý nhận lệnh</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInfAndSts** — Thông tin giao dịch và trạng thái cho kết quả giao dịch riêng lẻ</td>
+          <td class="operational-matrix-table__left"><strong>TxInfAndSts</strong> — Thông tin giao dịch và trạng thái cho kết quả giao dịch riêng lẻ</td>
           <td class="operational-matrix-table__right">Bắt buộc trong quy trình CBPR+ để xác nhận việc xử lý thông điệp pacs.008 và pacs.009</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**StsRsnInf** — Thông tin lý do trạng thái với mã lý do có cấu trúc</td>
+          <td class="operational-matrix-table__left"><strong>StsRsnInf</strong> — Thông tin lý do trạng thái với mã lý do có cấu trúc</td>
           <td class="operational-matrix-table__right">Hỗ trợ báo cáo trạng thái cả ở cấp nhóm và cấp giao dịch riêng lẻ</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Tham chiếu giao dịch gốc liên kết ngược về lệnh nguồn</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Tham chiếu giao dịch gốc liên kết ngược về lệnh nguồn</td>
           <td class="operational-matrix-table__right">Đại lý nhận lệnh (bên nhận) gửi pacs.002 trở lại đại lý ra lệnh (bên gửi) để xác nhận việc chấp nhận, quyết toán hoặc từ chối lệnh thanh toán đã nhận như pacs.008 hoặc pacs.009.</td>
         </tr>
     </tbody>

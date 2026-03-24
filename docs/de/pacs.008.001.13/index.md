@@ -50,23 +50,23 @@ Die Nachricht pacs.008 ist die zentrale Zahlungsanweisung, die zwischen Finanzin
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Gruppenkopf mit Nachrichten-ID, Erstellungsdatum, Transaktionsanzahl und Abwicklungsinformationen</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Gruppenkopf mit Nachrichten-ID, Erstellungsdatum, Transaktionsanzahl und Abwicklungsinformationen</td>
           <td class="operational-matrix-table__right">Die primäre Nachricht für kundeninitiierte grenzüberschreitende und inländische Überweisungen</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — Überweisungstransaktionsinformationen mit Betrag, Gebühren und Zweck</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Überweisungstransaktionsinformationen mit Betrag, Gebühren und Zweck</td>
           <td class="operational-matrix-table__right">Wird in SEPA SCT, SEPA Instant, CBPR+ und nationalen Clearingsystemen verwendet</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — Identifikation und Kontodaten von Schuldner und Schuldneragent</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Identifikation und Kontodaten von Schuldner und Schuldneragent</td>
           <td class="operational-matrix-table__right">Trägt strukturierte Überweisungsinformationen für automatische Abstimmung</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — Identifikation und Kontodaten von Gläubiger und Gläubigeragent</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Identifikation und Kontodaten von Gläubiger und Gläubigeragent</td>
           <td class="operational-matrix-table__right">Unterstützt serielle, Deckungs- und Direktabwicklungsmethoden für mehrstufige Zahlungsketten</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RmtInf** — Überweisungsinformationen für strukturierte oder unstrukturierte Zahlungsreferenzen</td>
+          <td class="operational-matrix-table__left"><strong>RmtInf</strong> — Überweisungsinformationen für strukturierte oder unstrukturierte Zahlungsreferenzen</td>
           <td class="operational-matrix-table__right">Der Schuldneragent erstellt einen pacs.008 und sendet ihn an den Gläubigeragent (direkt oder über Vermittler). Jeder Agent in der Kette validiert, ergänzt und leitet die Anweisung weiter, bis der Gläubigeragent das Konto des Begünstigten gutschreibt.</td>
         </tr>
     </tbody>

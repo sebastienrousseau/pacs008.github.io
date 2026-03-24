@@ -50,23 +50,23 @@ Het pacs.028-bericht wordt door een financiële instelling verzonden om de statu
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Groepskoptekst met berichtidentificatie en aanmaaktijdstempel</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Groepskoptekst met berichtidentificatie en aanmaaktijdstempel</td>
           <td class="operational-matrix-table__right">Maakt proactieve statusopvraging mogelijk voor betalingsinstructies in transit</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Transactie-informatie die de betaling identificeert waarover wordt geïnformeerd</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Transactie-informatie die de betaling identificeert waarover wordt geïnformeerd</td>
           <td class="operational-matrix-table__right">Ondersteunt operationele teams bij het onderzoeken van vertraagde of ontbrekende betalingen</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Oorspronkelijke groepsinformatie met verwijzing naar het bronbericht</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Oorspronkelijke groepsinformatie met verwijzing naar het bronbericht</td>
           <td class="operational-matrix-table__right">Vult pacs.002 aan door statuscommunicatie te initiëren in plaats van af te wachten</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlInstrId** — Oorspronkelijke instructie-identificatie uit de bronbetaling</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlInstrId</strong> — Oorspronkelijke instructie-identificatie uit de bronbetaling</td>
           <td class="operational-matrix-table__right">Gebruikt in processen voor uitzonderingsafhandeling en SLA-monitoring</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlEndToEndId** — Oorspronkelijke end-to-end-identificatie voor traceerbaarheid</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlEndToEndId</strong> — Oorspronkelijke end-to-end-identificatie voor traceerbaarheid</td>
           <td class="operational-matrix-table__right">De opdrachtgevende agent stuurt pacs.028 naar de opdrachthebbende agent om de status van een specifieke betaling op te vragen. De opdrachthebbende agent antwoordt met een pacs.002 met de huidige verwerkingsstatus.</td>
         </tr>
     </tbody>

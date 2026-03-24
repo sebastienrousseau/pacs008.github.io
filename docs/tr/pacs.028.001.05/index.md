@@ -50,23 +50,23 @@ pacs.028 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu tal
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Mesaj tanımlama ve oluşturma zaman damgası içeren Grup Başlığı</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Mesaj tanımlama ve oluşturma zaman damgası içeren Grup Başlığı</td>
           <td class="operational-matrix-table__right">Transit halindeki ödeme talimatları için proaktif durum sorgusunu sağlar</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Sorgulanacak ödemeyi tanımlayan İşlem Bilgisi</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Sorgulanacak ödemeyi tanımlayan İşlem Bilgisi</td>
           <td class="operational-matrix-table__right">Gecikmiş veya eksik ödemeleri araştıran operasyon ekiplerini destekler</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Kaynak mesaja referans veren Orijinal Grup Bilgisi</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Kaynak mesaja referans veren Orijinal Grup Bilgisi</td>
           <td class="operational-matrix-table__right">Beklemek yerine durum iletişimini başlatarak pacs.002&#39;yi tamamlar</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlInstrId** — Kaynak ödemeden gelen Orijinal Talimat Tanımlayıcısı</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlInstrId</strong> — Kaynak ödemeden gelen Orijinal Talimat Tanımlayıcısı</td>
           <td class="operational-matrix-table__right">İstisna işleme ve SLA izleme iş akışlarında kullanılır</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlEndToEndId** — İzlenebilirlik için Orijinal Uçtan Uca Tanımlayıcı</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlEndToEndId</strong> — İzlenebilirlik için Orijinal Uçtan Uca Tanımlayıcı</td>
           <td class="operational-matrix-table__right">Talimat veren aracı, belirli bir ödemenin durumunu talep etmek üzere talimat alan aracıya pacs.028 gönderir. Talimat alan aracı, mevcut işleme durumunu içeren bir pacs.002 ile yanıt verir.</td>
         </tr>
     </tbody>

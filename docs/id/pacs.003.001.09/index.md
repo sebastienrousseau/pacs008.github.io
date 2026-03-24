@@ -50,23 +50,23 @@ Pesan pacs.003 dipertukarkan antara lembaga keuangan untuk mengeksekusi instruks
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Group Header dengan identifikasi pesan dan informasi penyelesaian</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header dengan identifikasi pesan dan informasi penyelesaian</td>
           <td class="operational-matrix-table__right">Mendukung skema debit langsung SEPA Core dan B2B</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Informasi Transaksi Debit Langsung dengan jumlah dan pihak-pihak</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Informasi Transaksi Debit Langsung dengan jumlah dan pihak-pihak</td>
           <td class="operational-matrix-table__right">Digunakan untuk penagihan pembayaran berulang seperti langganan, tagihan utilitas, dan pembayaran cicilan pinjaman</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr** — Identifikasi kreditur dan rincian rekening</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr</strong> — Identifikasi kreditur dan rincian rekening</td>
           <td class="operational-matrix-table__right">Memerlukan referensi mandat yang valid antara debitur dan kreditur</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtrAgt** — Identifikasi Agen Kreditur (lembaga penagih)</td>
+          <td class="operational-matrix-table__left"><strong>CdtrAgt</strong> — Identifikasi Agen Kreditur (lembaga penagih)</td>
           <td class="operational-matrix-table__right">Memungkinkan penagihan massal beberapa instruksi debit langsung dalam satu pesan</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DbtrAgt** — Identifikasi Agen Debitur (lembaga pembayar)</td>
+          <td class="operational-matrix-table__left"><strong>DbtrAgt</strong> — Identifikasi Agen Debitur (lembaga pembayar)</td>
           <td class="operational-matrix-table__right">Agen kreditur menginisiasi pacs.003 menuju agen debitur untuk menagih dana. Agen debitur memvalidasi mandat, memeriksa cakupan rekening, dan menyelesaikan atau mengembalikan transaksi.</td>
         </tr>
     </tbody>

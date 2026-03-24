@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Заголовок группы с идентификацией сообщения и меткой времени создания</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Заголовок группы с идентификацией сообщения и меткой времени создания</td>
           <td class="operational-matrix-table__right">Используется для подтверждения расчёта или отчёта об отклонении кредитовых переводов, прямых дебетований и возвратов платежей</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInfAndSts** — Информация об исходной группе и статус для отчётности на уровне пакета</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInfAndSts</strong> — Информация об исходной группе и статус для отчётности на уровне пакета</td>
           <td class="operational-matrix-table__right">Обеспечивает сверку между инструктирующими и инструктируемыми агентами</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInfAndSts** — Информация о транзакции и статус для результатов отдельных транзакций</td>
+          <td class="operational-matrix-table__left"><strong>TxInfAndSts</strong> — Информация о транзакции и статус для результатов отдельных транзакций</td>
           <td class="operational-matrix-table__right">Требуется в потоках CBPR+ для подтверждения обработки сообщений pacs.008 и pacs.009</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**StsRsnInf** — Информация о причине статуса со структурированными кодами причин</td>
+          <td class="operational-matrix-table__left"><strong>StsRsnInf</strong> — Информация о причине статуса со структурированными кодами причин</td>
           <td class="operational-matrix-table__right">Поддерживает отчётность о статусе как на уровне группы пакета, так и на уровне отдельных транзакций</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Ссылка на исходную транзакцию, связывающая с исходным поручением</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Ссылка на исходную транзакцию, связывающая с исходным поручением</td>
           <td class="operational-matrix-table__right">Инструктируемый агент (получатель) отправляет pacs.002 обратно инструктирующему агенту (отправителю) для подтверждения принятия, расчёта или отклонения полученного платёжного поручения, такого как pacs.008 или pacs.009.</td>
         </tr>
     </tbody>

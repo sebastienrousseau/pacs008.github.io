@@ -50,23 +50,23 @@ Thông điệp pacs.007 được sử dụng để đảo ngược lệnh thanh 
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Tiêu đề nhóm với mã nhận dạng thông điệp và dấu thời gian tạo</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Tiêu đề nhóm với mã nhận dạng thông điệp và dấu thời gian tạo</td>
           <td class="operational-matrix-table__right">Được khởi tạo khi bên gửi gốc phát hiện lỗi trước hoặc sau quyết toán</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Thông tin giao dịch với số tiền đảo ngược và các bên</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Thông tin giao dịch với số tiền đảo ngược và các bên</td>
           <td class="operational-matrix-table__right">Được sử dụng trong các tình huống gian lận khi cần đảo ngược nhanh chóng</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Thông tin nhóm gốc tham chiếu đến thông điệp nguồn</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Thông tin nhóm gốc tham chiếu đến thông điệp nguồn</td>
           <td class="operational-matrix-table__right">Hỗ trợ đảo ngược toàn bộ và một phần số tiền thanh toán gốc</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RvslRsnInf** — Thông tin lý do đảo ngược với mã lý do có cấu trúc</td>
+          <td class="operational-matrix-table__left"><strong>RvslRsnInf</strong> — Thông tin lý do đảo ngược với mã lý do có cấu trúc</td>
           <td class="operational-matrix-table__right">Mang mã lý do đảo ngược có cấu trúc cho xử lý hạ nguồn</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Tham chiếu giao dịch gốc để truy vết từ đầu đến cuối</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Tham chiếu giao dịch gốc để truy vết từ đầu đến cuối</td>
           <td class="operational-matrix-table__right">Đại lý ra lệnh (bên gửi gốc) gửi pacs.007 xuôi qua chuỗi thanh toán để đảo ngược khoản thanh toán đã ra lệnh trước đó. Mỗi đại lý xử lý lệnh đảo ngược và điều chỉnh quyết toán tương ứng.</td>
         </tr>
     </tbody>

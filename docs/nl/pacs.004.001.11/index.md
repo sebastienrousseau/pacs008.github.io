@@ -50,23 +50,23 @@ Het pacs.004-bericht wordt gebruikt om een eerder afgewikkelde betalingstransact
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Groepskoptekst met berichtidentificatie en aanmaaktijdstempel</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Groepskoptekst met berichtidentificatie en aanmaaktijdstempel</td>
           <td class="operational-matrix-table__right">Behandelt retourzendingen na afwikkeling wanneer de rekening van de begunstigde niet kan worden gecrediteerd</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Transactie-informatie met retourbedrag en partijen</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Transactie-informatie met retourbedrag en partijen</td>
           <td class="operational-matrix-table__right">Ondersteunt terugvorderingsscenario&#39;s waarbij de opdrachtgever restitutie van gelden verzoekt</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Oorspronkelijke groepsinformatie met verwijzing naar het bronbericht</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Oorspronkelijke groepsinformatie met verwijzing naar het bronbericht</td>
           <td class="operational-matrix-table__right">Bevat gestructureerde retourredencodes voor regelgevende en operationele transparantie</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RtrRsnInf** — Retourredeninformatie met gestructureerde redencodes</td>
+          <td class="operational-matrix-table__left"><strong>RtrRsnInf</strong> — Retourredeninformatie met gestructureerde redencodes</td>
           <td class="operational-matrix-table__right">Is van toepassing op zowel retourzendingen van overboekingen (pacs.008) als retourzendingen van incasso&#39;s (pacs.003)</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Oorspronkelijke transactiereferentie voor matching en reconciliatie</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Oorspronkelijke transactiereferentie voor matching en reconciliatie</td>
           <td class="operational-matrix-table__right">De opdrachthebbende agent stuurt pacs.004 terug door de betalingsketen om eerder afgewikkelde gelden te retourneren. Elke agent in de keten verwerkt de retourzending en crediteert de betreffende rekeningen terug.</td>
         </tr>
     </tbody>

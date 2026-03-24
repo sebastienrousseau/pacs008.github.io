@@ -50,23 +50,23 @@ El mensaje pacs.003 se intercambia entre instituciones financieras para ejecutar
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Cabecera de grupo con identificación del mensaje e información de liquidación</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Cabecera de grupo con identificación del mensaje e información de liquidación</td>
           <td class="operational-matrix-table__right">Soporta esquemas SEPA Core y B2B de adeudo directo</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DrctDbtTxInf** — Información de transacción de adeudo directo con importe y partes</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Información de transacción de adeudo directo con importe y partes</td>
           <td class="operational-matrix-table__right">Se utiliza para cobro de pagos recurrentes como suscripciones, facturas y amortizaciones de préstamos</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr** — Identificación del acreedor y datos de cuenta</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr</strong> — Identificación del acreedor y datos de cuenta</td>
           <td class="operational-matrix-table__right">Requiere una referencia de mandato válida entre deudor y acreedor</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtrAgt** — Identificación del agente del acreedor (institución cobradora)</td>
+          <td class="operational-matrix-table__left"><strong>CdtrAgt</strong> — Identificación del agente del acreedor (institución cobradora)</td>
           <td class="operational-matrix-table__right">Permite el cobro masivo de múltiples instrucciones de adeudo directo en un solo mensaje</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**DbtrAgt** — Identificación del agente del deudor (institución pagadora)</td>
+          <td class="operational-matrix-table__left"><strong>DbtrAgt</strong> — Identificación del agente del deudor (institución pagadora)</td>
           <td class="operational-matrix-table__right">El agente del acreedor inicia pacs.003 hacia el agente del deudor para cobrar fondos. El agente del deudor valida el mandato, comprueba la cobertura de la cuenta y liquida o devuelve la transacción.</td>
         </tr>
     </tbody>

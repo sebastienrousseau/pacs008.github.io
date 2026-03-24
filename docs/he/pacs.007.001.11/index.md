@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — כותרת קבוצה עם זיהוי הודעה וחותמת זמן יצירה</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — כותרת קבוצה עם זיהוי הודעה וחותמת זמן יצירה</td>
           <td class="operational-matrix-table__right">מיוזמת כאשר השולח המקורי מזהה שגיאה לפני או אחרי סליקה</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — מידע עסקה עם סכום הביטול והצדדים</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — מידע עסקה עם סכום הביטול והצדדים</td>
           <td class="operational-matrix-table__right">משמשת בתרחישי הונאה כאשר נדרש ביטול מהיר</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — מידע על הקבוצה המקורית המפנה להודעת המקור</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — מידע על הקבוצה המקורית המפנה להודעת המקור</td>
           <td class="operational-matrix-table__right">תומכת בביטול מלא וחלקי של סכומי התשלום המקוריים</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**RvslRsnInf** — מידע על סיבת הביטול עם קודי סיבה מובנים</td>
+          <td class="operational-matrix-table__left"><strong>RvslRsnInf</strong> — מידע על סיבת הביטול עם קודי סיבה מובנים</td>
           <td class="operational-matrix-table__right">נושאת קודי סיבת ביטול מובנים לעיבוד במורד השרשרת</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — הפניה לעסקה המקורית לעקיבות מקצה לקצה</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — הפניה לעסקה המקורית לעקיבות מקצה לקצה</td>
           <td class="operational-matrix-table__right">הסוכן המורה (השולח המקורי) שולח pacs.007 קדימה דרך שרשרת התשלום לביטול תשלום שהוזמן בעבר. כל סוכן מעבד את הוראת הביטול ומתאים את הסליקה בהתאם.</td>
         </tr>
     </tbody>

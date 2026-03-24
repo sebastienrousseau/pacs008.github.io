@@ -50,23 +50,23 @@ A mensagem pacs.028 é enviada por uma instituição financeira para solicitar o
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Cabeçalho de grupo com identificação da mensagem e registro de data/hora de criação</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Cabeçalho de grupo com identificação da mensagem e registro de data/hora de criação</td>
           <td class="operational-matrix-table__right">Permite consulta proativa de status para instruções de pagamento em trânsito</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInf** — Informações da transação identificando o pagamento a ser consultado</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Informações da transação identificando o pagamento a ser consultado</td>
           <td class="operational-matrix-table__right">Suporta equipes operacionais na investigação de pagamentos atrasados ou ausentes</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInf** — Informações do grupo original com referência à mensagem de origem</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Informações do grupo original com referência à mensagem de origem</td>
           <td class="operational-matrix-table__right">Complementa pacs.002 ao iniciar a comunicação de status em vez de aguardar</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlInstrId** — Identificação da instrução original do pagamento de origem</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlInstrId</strong> — Identificação da instrução original do pagamento de origem</td>
           <td class="operational-matrix-table__right">Utilizado em fluxos de trabalho de tratamento de exceções e monitoramento de SLA</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlEndToEndId** — Identificação de ponta a ponta original para rastreabilidade</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlEndToEndId</strong> — Identificação de ponta a ponta original para rastreabilidade</td>
           <td class="operational-matrix-table__right">O agente instruente envia pacs.028 ao agente instruído para solicitar o status de um pagamento específico. O agente instruído responde com um pacs.002 contendo o status de processamento atual.</td>
         </tr>
     </tbody>

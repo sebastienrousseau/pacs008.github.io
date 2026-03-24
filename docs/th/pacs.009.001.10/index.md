@@ -50,23 +50,23 @@ image: /logo.svg
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Group Header พร้อมรหัสระบุข้อความและข้อมูลการชำระบัญชี</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header พร้อมรหัสระบุข้อความและข้อมูลการชำระบัญชี</td>
           <td class="operational-matrix-table__right">ใช้สำหรับการโอนบัญชีตนเองระหว่างธนาคารและการชำระเงินแบบ cover</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**CdtTrfTxInf** — ข้อมูลธุรกรรมโอนเครดิตพร้อมจำนวนเงินชำระบัญชีระหว่างธนาคาร</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — ข้อมูลธุรกรรมโอนเครดิตพร้อมจำนวนเงินชำระบัญชีระหว่างธนาคาร</td>
           <td class="operational-matrix-table__right">รองรับการจัดการสภาพคล่องระหว่างคู่ค้าธนาคารตัวแทน</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Dbtr / DbtrAgt** — การระบุตัวตนสถาบันลูกหนี้และตัวแทน</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — การระบุตัวตนสถาบันลูกหนี้และตัวแทน</td>
           <td class="operational-matrix-table__right">มีขาการชำระเงิน cover ของการโอนเครดิตลูกค้าที่ชำระบัญชีผ่านวิธี cover</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**Cdtr / CdtrAgt** — การระบุตัวตนสถาบันเจ้าหนี้และตัวแทน</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — การระบุตัวตนสถาบันเจ้าหนี้และตัวแทน</td>
           <td class="operational-matrix-table__right">เปิดใช้งานการดำเนินงานคลังเงินและการจัดหาเงินทุนระหว่างสถาบันการเงิน</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**IntrBkSttlmAmt** — จำนวนเงินชำระบัญชีระหว่างธนาคารในสกุลเงินชำระบัญชี</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — จำนวนเงินชำระบัญชีระหว่างธนาคารในสกุลเงินชำระบัญชี</td>
           <td class="operational-matrix-table__right">สถาบันลูกหนี้ส่ง pacs.009 ไปยังสถาบันเจ้าหนี้เพื่อโอนเงินของตนเอง สำหรับการชำระเงินแบบ cover method pacs.009 ให้ขาการจัดหาเงินทุนในขณะที่ pacs.008 มีคำสั่งของลูกค้าผ่านเส้นทางแยกต่างหาก</td>
         </tr>
     </tbody>

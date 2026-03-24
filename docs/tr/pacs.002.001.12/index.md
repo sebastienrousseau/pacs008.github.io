@@ -50,23 +50,23 @@ pacs.002 mesajı, daha önce gönderilmiş bir ödeme talimatının durumunu bil
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left">**GrpHdr** — Mesaj tanımlama ve oluşturma zaman damgası içeren Grup Başlığı</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Mesaj tanımlama ve oluşturma zaman damgası içeren Grup Başlığı</td>
           <td class="operational-matrix-table__right">Kredi transferlerinin, doğrudan borçlandırmaların ve ödeme iadelerinin takas onayı veya ret bildirimi için kullanılır</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlGrpInfAndSts** — Toplu düzeyde raporlama için Orijinal Grup Bilgisi ve Durumu</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInfAndSts</strong> — Toplu düzeyde raporlama için Orijinal Grup Bilgisi ve Durumu</td>
           <td class="operational-matrix-table__right">Talimat veren ve talimat alan aracılar arasında mutabakatı sağlar</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**TxInfAndSts** — Bireysel işlem sonuçları için İşlem Bilgisi ve Durumu</td>
+          <td class="operational-matrix-table__left"><strong>TxInfAndSts</strong> — Bireysel işlem sonuçları için İşlem Bilgisi ve Durumu</td>
           <td class="operational-matrix-table__right">pacs.008 ve pacs.009 mesajlarının işlendiğini onaylamak için CBPR+ akışlarında gereklidir</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**StsRsnInf** — Yapılandırılmış neden kodları içeren Durum Nedeni Bilgisi</td>
+          <td class="operational-matrix-table__left"><strong>StsRsnInf</strong> — Yapılandırılmış neden kodları içeren Durum Nedeni Bilgisi</td>
           <td class="operational-matrix-table__right">Hem toplu grup düzeyinde hem de bireysel işlem düzeyinde durum raporlamasını destekler</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left">**OrgnlTxRef** — Kaynak talimata geri bağlayan Orijinal İşlem Referansı</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Kaynak talimata geri bağlayan Orijinal İşlem Referansı</td>
           <td class="operational-matrix-table__right">Talimat alan aracı (alıcı), pacs.008 veya pacs.009 gibi alınan bir ödeme talimatının kabulünü, takasını veya reddini onaylamak üzere talimat veren aracıya (gönderici) pacs.002 gönderir.</td>
         </tr>
     </tbody>
