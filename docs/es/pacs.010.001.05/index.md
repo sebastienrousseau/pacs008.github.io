@@ -159,9 +159,9 @@ La institución acreedora envía pacs.010 a la institución deudora para cobrar 
 
 ### Comentarios de campos
 
-- `InstrId`: Use an identifier that can be traced back to the bilateral collection arrangement.
-- `IntrBkSttlmAmt`: Los importes de adeudo directo entre instituciones suelen requerir controles bilaterales explícitos de tolerancia.
-- `Cdtr` / `Dbtr`: Defina con claridad los roles institucionales; este no es un modelo de adeudo para clientes minoristas.
+- `InstrId`: Use an identifier that links back to the bilateral collection arrangement.
+- `IntrBkSttlmAmt`: Institution direct-debit amounts often need clear bilateral tolerance controls.
+- `Cdtr` / `Dbtr`: Capture institutional roles clearly. This is not a retail-customer debit model.
 
 ## Referencias primarias
 

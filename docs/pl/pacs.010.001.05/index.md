@@ -159,9 +159,9 @@ Instytucja wierzyciela wysyła pacs.010 do instytucji dłużnika w celu pobrania
 
 ### Komentarze do pól
 
-- `InstrId`: Use an identifier that can be traced back to the bilateral collection arrangement.
-- `IntrBkSttlmAmt`: Kwoty polecenia zapłaty między instytucjami często wymagają wyraźnych dwustronnych progów tolerancji.
-- `Cdtr` / `Dbtr`: Wyraźnie opisz role instytucji; to nie jest model obciążenia dla klienta detalicznego.
+- `InstrId`: Use an identifier that links back to the bilateral collection arrangement.
+- `IntrBkSttlmAmt`: Institution direct-debit amounts often need clear bilateral tolerance controls.
+- `Cdtr` / `Dbtr`: Capture institutional roles clearly. This is not a retail-customer debit model.
 
 ## Źródła podstawowe
 

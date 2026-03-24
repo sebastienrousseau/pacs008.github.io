@@ -159,8 +159,8 @@ Der Gläubigeragent initiiert pacs.003 gegenüber dem Schuldneragent zum Einzug 
 
 ### Hinweise zu den Feldern
 
-- `EndToEndId`: Halten Sie Mandats- und Einzugskennungen getrennt von geschäftlichen Rechnungsreferenzen.
-- `IntrBkSttlmAmt`: Prüfen Sie Präzision des Lastschriftbetrags und Währungsregeln, bevor XML erzeugt wird.
+- `EndToEndId`: Keep mandate and collection identifiers separate from invoice references.
+- `IntrBkSttlmAmt`: Check amount precision and currency rules before rendering XML.
 - `Dbtr` / `Cdtr`: Der Erfolg einer Lastschrift hängt oft stärker von Konto- und Mandatsqualität als von der XML-Struktur ab.
 
 ## Primärquellen

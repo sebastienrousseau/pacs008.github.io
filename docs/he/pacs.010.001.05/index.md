@@ -159,9 +159,9 @@ image: /logo.svg
 
 ### הערות לשדות
 
-- `InstrId`: Use an identifier that can be traced back to the bilateral collection arrangement.
-- `IntrBkSttlmAmt`: סכומי חיוב ישיר בין מוסדות דורשים לעיתים קרובות בקרות סבילות דו-צדדיות מפורשות.
-- `Cdtr` / `Dbtr`: תעדו בבירור את תפקידי המוסדות; זה אינו מודל חיוב ללקוח קמעונאי.
+- `InstrId`: Use an identifier that links back to the bilateral collection arrangement.
+- `IntrBkSttlmAmt`: Institution direct-debit amounts often need clear bilateral tolerance controls.
+- `Cdtr` / `Dbtr`: Capture institutional roles clearly. This is not a retail-customer debit model.
 
 ## מקורות ראשיים
 

@@ -159,8 +159,8 @@ O agente do credor inicia pacs.003 em direção ao agente do devedor para coleta
 
 ### Comentários de campo
 
-- `EndToEndId`: Mantenha identificadores de mandato e de cobrança separados das referências de faturas comerciais.
-- `IntrBkSttlmAmt`: Valide a precisão do valor do débito e as regras de moeda antes de gerar o XML.
+- `EndToEndId`: Keep mandate and collection identifiers separate from invoice references.
+- `IntrBkSttlmAmt`: Check amount precision and currency rules before rendering XML.
 - `Dbtr` / `Cdtr`: O sucesso do débito direto costuma depender mais da qualidade da conta e do mandato do que da estrutura do XML.
 
 ## Referências primárias

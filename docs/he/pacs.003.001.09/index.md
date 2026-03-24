@@ -159,8 +159,8 @@ image: /logo.svg
 
 ### הערות לשדות
 
-- `EndToEndId`: שמרו על הפרדה בין מזהי הרשאה וגבייה לבין אסמכתאות חשבונית עסקיות.
-- `IntrBkSttlmAmt`: אמתו את דיוק סכום החיוב ואת כללי המטבע לפני יצירת XML.
+- `EndToEndId`: Keep mandate and collection identifiers separate from invoice references.
+- `IntrBkSttlmAmt`: Check amount precision and currency rules before rendering XML.
 - `Dbtr` / `Cdtr`: הצלחת חיוב ישיר תלויה לעיתים קרובות יותר באיכות החשבון וההרשאה מאשר במבנה ה-XML.
 
 ## מקורות ראשיים

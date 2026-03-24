@@ -112,9 +112,9 @@ The sending institution asks the receiving institution for the status of one pay
 
 ## Version commentary
 
-ISO 20022 last updated this business area on 2025-02-27. This site documents `pacs.028.001.05`, while the latest catalogue version is `pacs.028.001.06`.
+ISO 20022 last updated this business area on 2025-02-27. This site documents `pacs.028.001.05`. The latest catalogue version is `pacs.028.001.06`.
 
-Use this page for the version that pacs008 implements today, but keep the newer catalogue version in mind for roadmap planning.
+Use this page for the version that pacs008 implements today, and review the newer catalogue version for roadmap planning.
 
 ## Version-diff table
 

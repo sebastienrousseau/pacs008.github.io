@@ -114,7 +114,7 @@ The debtor agent creates a pacs.008 and sends it to the creditor agent (directly
 
 ISO 20022 last updated this business area on 2025-02-27. This site documents `pacs.008.001.13`, which still matches the latest catalogue version.
 
-Use this page for current implementation work, but still check scheme guidance before production rollout.
+Use this page for current implementation work, but still check scheme guidance before production use.
 
 ## Version-diff table
 

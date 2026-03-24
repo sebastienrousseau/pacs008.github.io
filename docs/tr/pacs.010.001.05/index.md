@@ -159,9 +159,9 @@ Alacaklı kuruluş, önceden üzerinde anlaşılmış bir düzenleme kapsamında
 
 ### Alan açıklamaları
 
-- `InstrId`: Use an identifier that can be traced back to the bilateral collection arrangement.
-- `IntrBkSttlmAmt`: Kurumlar arası doğrudan borçlandırma tutarları çoğu zaman açık iki taraflı tolerans kontrolleri gerektirir.
-- `Cdtr` / `Dbtr`: Kurumsal rolleri açıkça belirtin; bu, perakende müşteri borçlandırma modeli değildir.
+- `InstrId`: Use an identifier that links back to the bilateral collection arrangement.
+- `IntrBkSttlmAmt`: Institution direct-debit amounts often need clear bilateral tolerance controls.
+- `Cdtr` / `Dbtr`: Capture institutional roles clearly. This is not a retail-customer debit model.
 
 ## Birincil referanslar
 

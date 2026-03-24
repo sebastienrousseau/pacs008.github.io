@@ -159,9 +159,9 @@ image: /logo.svg
 
 ### تعليقات الحقول
 
-- `InstrId`: Use an identifier that can be traced back to the bilateral collection arrangement.
-- `IntrBkSttlmAmt`: تحتاج مبالغ الخصم المباشر بين المؤسسات غالباً إلى ضوابط سماح ثنائية صريحة.
-- `Cdtr` / `Dbtr`: حدّد أدوار المؤسسات بوضوح؛ فهذا ليس نموذج خصم لعميل تجزئة.
+- `InstrId`: Use an identifier that links back to the bilateral collection arrangement.
+- `IntrBkSttlmAmt`: Institution direct-debit amounts often need clear bilateral tolerance controls.
+- `Cdtr` / `Dbtr`: Capture institutional roles clearly. This is not a retail-customer debit model.
 
 ## المراجع الأساسية
 

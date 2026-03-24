@@ -159,9 +159,9 @@ Das Gläubigerinstitut sendet pacs.010 an das Schuldnerinstitut, um Gelder im Ra
 
 ### Hinweise zu den Feldern
 
-- `InstrId`: Use an identifier that can be traced back to the bilateral collection arrangement.
-- `IntrBkSttlmAmt`: Beträge bei institutionellen Lastschriften benötigen oft explizite bilaterale Toleranzgrenzen.
-- `Cdtr` / `Dbtr`: Erfassen Sie institutionelle Rollen klar; dies ist kein Lastschriftmodell für Privatkunden.
+- `InstrId`: Use an identifier that links back to the bilateral collection arrangement.
+- `IntrBkSttlmAmt`: Institution direct-debit amounts often need clear bilateral tolerance controls.
+- `Cdtr` / `Dbtr`: Capture institutional roles clearly. This is not a retail-customer debit model.
 
 ## Primärquellen
 

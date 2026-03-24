@@ -112,9 +112,9 @@ The debtor institution sends pacs.009 to the creditor institution to transfer it
 
 ## Version commentary
 
-ISO 20022 last updated this business area on 2025-02-27. This site documents `pacs.009.001.10`, while the latest catalogue version is `pacs.009.001.12`.
+ISO 20022 last updated this business area on 2025-02-27. This site documents `pacs.009.001.10`. The latest catalogue version is `pacs.009.001.12`.
 
-Use this page for the version that pacs008 implements today, but keep the newer catalogue version in mind for roadmap planning.
+Use this page for the version that pacs008 implements today, and review the newer catalogue version for roadmap planning.
 
 ## Version-diff table
 

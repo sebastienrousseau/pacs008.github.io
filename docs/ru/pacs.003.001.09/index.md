@@ -159,8 +159,8 @@ image: /logo.svg
 
 ### Комментарии к полям
 
-- `EndToEndId`: Держите идентификаторы мандата и инкассо отдельно от бизнес-ссылок на счета-фактуры.
-- `IntrBkSttlmAmt`: Проверьте точность суммы списания и валютные правила до формирования XML.
+- `EndToEndId`: Keep mandate and collection identifiers separate from invoice references.
+- `IntrBkSttlmAmt`: Check amount precision and currency rules before rendering XML.
 - `Dbtr` / `Cdtr`: Успех прямого дебетования часто больше зависит от качества счёта и мандата, чем от структуры XML.
 
 ## Первичные источники

@@ -159,8 +159,8 @@ Thông điệp pacs.003 được trao đổi giữa các tổ chức tài chính
 
 ### Chú thích trường
 
-- `EndToEndId`: Hãy giữ tách biệt các mã định danh ủy quyền và thu hộ khỏi các tham chiếu hóa đơn nghiệp vụ.
-- `IntrBkSttlmAmt`: Hãy xác thực độ chính xác của số tiền ghi nợ và các quy tắc tiền tệ trước khi tạo XML.
+- `EndToEndId`: Keep mandate and collection identifiers separate from invoice references.
+- `IntrBkSttlmAmt`: Check amount precision and currency rules before rendering XML.
 - `Dbtr` / `Cdtr`: Thành công của ghi nợ trực tiếp thường phụ thuộc nhiều hơn vào chất lượng tài khoản và ủy quyền so với cấu trúc XML.
 
 ## Tài liệu tham chiếu gốc

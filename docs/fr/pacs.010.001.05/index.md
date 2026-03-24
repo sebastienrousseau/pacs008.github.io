@@ -159,9 +159,9 @@ L'institution créancière envoie pacs.010 à l'institution débitrice pour coll
 
 ### Commentaires sur les champs
 
-- `InstrId`: Use an identifier that can be traced back to the bilateral collection arrangement.
-- `IntrBkSttlmAmt`: Les montants de prélèvement interbancaire nécessitent souvent des contrôles bilatéraux explicites de tolérance.
-- `Cdtr` / `Dbtr`: Définissez clairement les rôles des établissements ; il ne s'agit pas d'un modèle de débit pour clientèle de détail.
+- `InstrId`: Use an identifier that links back to the bilateral collection arrangement.
+- `IntrBkSttlmAmt`: Institution direct-debit amounts often need clear bilateral tolerance controls.
+- `Cdtr` / `Dbtr`: Capture institutional roles clearly. This is not a retail-customer debit model.
 
 ## Références primaires
 

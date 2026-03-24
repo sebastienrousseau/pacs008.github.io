@@ -159,9 +159,9 @@ Lembaga kreditur mengirim pacs.010 ke lembaga debitur untuk menagih dana berdasa
 
 ### Komentar bidang
 
-- `InstrId`: Use an identifier that can be traced back to the bilateral collection arrangement.
-- `IntrBkSttlmAmt`: Jumlah debit langsung antar lembaga sering memerlukan kontrol toleransi bilateral yang eksplisit.
-- `Cdtr` / `Dbtr`: Catat peran institusi dengan jelas; ini bukan model debit untuk nasabah ritel.
+- `InstrId`: Use an identifier that links back to the bilateral collection arrangement.
+- `IntrBkSttlmAmt`: Institution direct-debit amounts often need clear bilateral tolerance controls.
+- `Cdtr` / `Dbtr`: Capture institutional roles clearly. This is not a retail-customer debit model.
 
 ## Referensi primer
 

@@ -395,8 +395,8 @@ const pageCopy = {
     deliveryModel: "Delivery model",
     deliveryText: "Each supported message comes with templates and validation rules. Teams can use the same assets in local tests, CI, and internal payment services.",
     apiTitle: "API",
-    apiDescription: "Use the pacs008 REST API, CLI, and Python library to validate payment data, check schemas, and generate ISO 20022 XML.",
-    apiIntro: "pacs008 gives you three entry points: a REST API, a CLI, and a Python library.",
+    apiDescription: "Use the pacs008 REST API, CLI, and Python library to validate payment data and generate ISO 20022 XML.",
+    apiIntro: "pacs008 gives you three entry points: REST API, CLI, and Python library.",
     apiCapabilities: "API capabilities",
     cliCapabilities: "CLI capabilities",
     contactTitle: "Contact",
@@ -452,7 +452,7 @@ const pageCopy = {
     apiInstallTitle: "Installation",
     apiInstallText: "Install the package from PyPI. You need Python 3.9.2 or later.",
     apiRestTitle: "REST API",
-    apiRestIntro: "Start the built-in FastAPI server when you need HTTP endpoints for validation and XML generation.",
+    apiRestIntro: "Start the built-in FastAPI server for validation and XML generation over HTTP.",
     apiRestStart: "Start the server",
     apiEndpointsTitle: "Endpoints",
     apiEndpointHealth: "Health check that returns service status",
@@ -565,14 +565,14 @@ const pageCopy = {
     pacs003Element4: "**CdtrAgt** — Creditor Agent (collecting institution) identification",
     pacs003Element5: "**DbtrAgt** — Debtor Agent (paying institution) identification",
     pacs003Business1: "Supports SEPA Core and B2B direct debit schemes",
-    pacs003Business2: "Used for recurring payment collection such as subscriptions, utility bills, and loan repayments",
-    pacs003Business3: "Requires a valid mandate reference between debtor and creditor",
-    pacs003Business4: "Enables bulk collection of multiple direct debit instructions in a single message",
-    pacs003Cbpr1: "Structured address and party identification requirements apply equally to direct debits",
-    pacs003Cbpr2: "Mandate-related data must be fully structured from November 2026",
-    pacs003Cbpr3: "Replaces legacy MT104-style direct debit formats in cross-border flows",
-    pacs003Cbpr4: "Validation of creditor scheme identification is increasingly enforced",
-    pacs003Flow: "The creditor agent initiates pacs.003 toward the debtor agent to collect funds. The debtor agent validates the mandate, checks account coverage, and either settles or returns the transaction.",
+    pacs003Business2: "Used for recurring collections such as subscriptions, utility bills, and loan repayments",
+    pacs003Business3: "Needs a valid mandate reference between debtor and creditor",
+    pacs003Business4: "Supports bulk collection of multiple direct debits in one message",
+    pacs003Cbpr1: "Structured address and party data rules apply to direct debits as well.",
+    pacs003Cbpr2: "Mandate-related data must be fully structured from November 2026.",
+    pacs003Cbpr3: "It replaces older MT104-style direct-debit formats in cross-border flows.",
+    pacs003Cbpr4: "Creditor scheme identifiers are under closer validation.",
+    pacs003Flow: "The creditor agent sends pacs.003 to the debtor agent to collect funds. The debtor agent checks the mandate and either settles or returns the transaction.",
     pacs004Overview: "The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied or must be sent back.",
     pacs004Element1: "**GrpHdr** — Group Header with message identification and creation timestamp",
     pacs004Element2: "**TxInf** — Transaction Information with return amount and parties",
@@ -640,14 +640,14 @@ const pageCopy = {
     pacs010Element4: "**Dbtr / DbtrAgt** — Debtor institution and its agent identification",
     pacs010Element5: "**IntrBkSttlmAmt** — Interbank Settlement Amount in the settlement currency",
     pacs010Business1: "Supports direct-debit collection between financial institutions",
-    pacs010Business2: "Used for fees, margin calls, and other institution-level obligations",
+    pacs010Business2: "Used for fees, margin calls, and other institution obligations",
     pacs010Business3: "Needs a bilateral agreement between the participating institutions",
-    pacs010Business4: "Often sits inside treasury and liquidity workflows",
-    pacs010Cbpr1: "Maps legacy interbank direct-debit processing into ISO 20022",
-    pacs010Cbpr2: "Uses the same structured party data rules as other pacs messages",
-    pacs010Cbpr3: "Institution identifiers such as BIC and LEI still need validation",
-    pacs010Cbpr4: "Appears in broader ISO 20022 migration plans across market infrastructures",
-    pacs010Flow: "The collecting institution sends pacs.010 to the debited institution under a pre-agreed setup. The receiving institution checks the request and either settles or rejects it.",
+    pacs010Business4: "Often sits in treasury and liquidity workflows",
+    pacs010Cbpr1: "It maps older interbank direct-debit processing into ISO 20022.",
+    pacs010Cbpr2: "It uses the same structured party-data rules as other pacs messages.",
+    pacs010Cbpr3: "Institution identifiers such as BIC and LEI still need validation.",
+    pacs010Cbpr4: "It appears in broader ISO 20022 migration plans across market infrastructures.",
+    pacs010Flow: "The collecting institution sends pacs.010 under a pre-agreed setup. The receiving institution checks the request and either settles or rejects it.",
     pacs028Overview: "The pacs.028 message asks another institution for the status of an earlier payment. It is a targeted status query for delayed, unclear, or missing payment updates.",
     pacs028Element1: "**GrpHdr** — Group Header with message identification and creation timestamp",
     pacs028Element2: "**TxInf** — Transaction Information identifying the payment to enquire about",
@@ -7173,12 +7173,12 @@ const EN_EDITORIAL = {
       ]
     },
     "pacs.003.001.09": {
-      whenToUse: "Use pacs.003 for customer direct-debit collection flows between financial institutions where the creditor bank initiates collection from the debtor bank.",
-      avoidUsing: "Do not use pacs.003 for institution-own-account debits or for customer credit-transfer use cases.",
+      whenToUse: "Use pacs.003 for customer direct-debit collection between financial institutions.",
+      avoidUsing: "Do not use pacs.003 for institution-own-account debits or customer credit transfers.",
       implementationNotes: [
-        "Mandate and debtor account data quality usually determines straight-through rates more than XML correctness alone.",
-        "Collection timing windows, cutoff handling, and return rights vary by scheme, so keep scheme logic outside the generic message model.",
-        "Store collection references separately from end-customer invoice references for downstream return and investigation handling."
+        "Mandate and debtor-account data usually matter more than XML alone.",
+        "Scheme timing, cutoffs, and return rights vary, so keep that logic outside the generic message model.",
+        "Store collection references separately from invoice references."
       ],
       commonPitfalls: [
         "Treating mandate data as optional operational context.",
@@ -7246,9 +7246,9 @@ const EN_EDITORIAL = {
       whenToUse: "Use pacs.010 when one institution must debit another institution's own account.",
       avoidUsing: "Do not use pacs.010 for customer mandate collections or credit-transfer flows.",
       implementationNotes: [
-        "Keep the bilateral approval logic outside the message because it usually sits in treasury or correspondent agreements.",
-        "Treat institution-own-account debits as high-control flows because counterparty and liquidity risk are higher than in retail collections.",
-        "Design status and exception handling with the collection flow so teams can trace the debit later."
+        "Keep bilateral approval logic outside the message.",
+        "Treat institution-own-account debits as high-control flows.",
+        "Design status and exception handling with the collection flow."
       ],
       commonPitfalls: [
         "Treating pacs.010 as the debit mirror of pacs.009.",
@@ -10557,8 +10557,8 @@ const EN_ADVANCED = {
   </DrctDbtTxInf>
 </FIToFICstmrDrctDbt>`,
       notes: [
-        ["`EndToEndId`", "Keep mandate and collection identifiers separate from business invoice references."],
-        ["`IntrBkSttlmAmt`", "Validate debit amount precision and currency rules before rendering XML."],
+        ["`EndToEndId`", "Keep mandate and collection identifiers separate from invoice references."],
+        ["`IntrBkSttlmAmt`", "Check amount precision and currency rules before rendering XML."],
         ["`Dbtr` / `Cdtr`", "Direct-debit success often depends more on account and mandate quality than on XML structure."]
       ]
     },
@@ -10654,9 +10654,9 @@ const EN_ADVANCED = {
   </DrctDbtTxInf>
 </FIDrctDbt>`,
       notes: [
-        ["`InstrId`", "Use an identifier that can be traced back to the bilateral collection arrangement."],
-        ["`IntrBkSttlmAmt`", "Institution direct-debit amounts often need explicit bilateral tolerance controls."],
-        ["`Cdtr` / `Dbtr`", "Capture institutional roles clearly; this is not a retail-customer debit model."]
+        ["`InstrId`", "Use an identifier that links back to the bilateral collection arrangement."],
+        ["`IntrBkSttlmAmt`", "Institution direct-debit amounts often need clear bilateral tolerance controls."],
+        ["`Cdtr` / `Dbtr`", "Capture institutional roles clearly. This is not a retail-customer debit model."]
       ]
     },
     "pacs.028.001.05": {
@@ -11035,10 +11035,10 @@ function englishApiEditorial() {
   return `
 ## Implementation notes
 
-- Use synchronous generation for operator checks and small batches.
+- Use sync generation for operator checks and small batches.
 - Use async generation for large files and workflow engines.
-- Keep the input payload and validation report so support teams can reproduce the output.
-- Pin template and XSD paths in deployment config so releases do not change without notice.
+- Keep the input payload and validation report.
+- Pin template and XSD paths in deployment config.
 `;
 }
 
@@ -11060,11 +11060,11 @@ function englishVersionDiffCommentary(msgType) {
   return `
 ## Version commentary
 
-ISO 20022 last updated this business area on ${latestInfo.date}. This site documents \`${msgType.slug}\`${isCurrent ? `, which still matches the latest catalogue version.` : `, while the latest catalogue version is \`${latestInfo.latest}\`.`}
+ISO 20022 last updated this business area on ${latestInfo.date}. This site documents \`${msgType.slug}\`${isCurrent ? `, which still matches the latest catalogue version.` : `. The latest catalogue version is \`${latestInfo.latest}\`.`}
 
 ${isCurrent
-    ? `Use this page for current implementation work, but still check scheme guidance before production rollout.`
-    : `Use this page for the version that pacs008 implements today, but keep the newer catalogue version in mind for roadmap planning.`}
+    ? `Use this page for current implementation work, but still check scheme guidance before production use.`
+    : `Use this page for the version that pacs008 implements today, and review the newer catalogue version for roadmap planning.`}
 `;
 }
 
@@ -11077,8 +11077,8 @@ function englishSchemeNotes(msgType) {
       `In CBPR+, pacs.002 sits alongside pacs.008, pacs.009, and pacs.004 in the official Swift usage-guideline rollout. See [Swift's CBPR+ ISO 20022 usage-guidelines announcement](${PRIMARY_SOURCES.swiftGuidelines}).`
     ],
     "pacs.003.001.09": [
-      `This message is not part of the SCT or SCT Inst credit-transfer rulebooks, so teams should treat it as a separate direct-debit track rather than reusing credit-transfer assumptions. That is an implementation inference from the EPC credit-transfer rulebooks.`,
-      `This page is best used as a message-reference and implementation page, not as a stand-in for scheme rulebooks.`
+      `This message is outside the SCT and SCT Inst credit-transfer rulebooks, so treat it as a separate direct-debit track.`,
+      `Use this page as a message guide, not as a substitute for scheme rulebooks.`
     ],
     "pacs.004.001.11": [
       `For SEPA credit-transfer flows, pacs.004 is part of the wider return and exception-management picture around executed payments. The [EPC SCT rulebook](${PRIMARY_SOURCES.epcSct}) and [EPC SCT Inst rulebook](${PRIMARY_SOURCES.epcSctInst}) define scheme behaviour around those operational flows.`,
@@ -11129,8 +11129,8 @@ function englishFaq(msgType) {
       ["Should pacs.002 replace internal workflow states?", "No. It should inform them, but internal case states still need their own operational logic."]
     ],
     "pacs.003.001.09": [
-      ["Is pacs.003 the direct-debit mirror of pacs.008?", "Not exactly. It serves customer direct-debit flows, which have different mandate, timing, and exception semantics."],
-      ["What matters most operationally?", "Mandate quality, debtor-account rules, and return handling usually matter more than XML generation alone."]
+      ["Is pacs.003 the direct-debit mirror of pacs.008?", "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."],
+      ["What matters most operationally?", "Mandate quality, debtor-account rules, and return handling matter more than XML generation alone."]
     ],
     "pacs.004.001.11": [
       ["What is the difference between pacs.004 and pacs.007?", "pacs.004 returns settled funds from the receiving side, while pacs.007 requests reversal from the original instructing side."],
@@ -11344,7 +11344,9 @@ ${comparisonTable}
 
 ## ${copy.supportedMessagePages}
 
-${messageCoverageList(localeKey)}
+${localeKey === "en"
+    ? `Supported message pages are listed in [Message Types](/message-types/).`
+    : messageCoverageList(localeKey)}
 `;
 }
 

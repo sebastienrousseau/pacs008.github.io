@@ -159,8 +159,8 @@ De crediteuragent initieert pacs.003 richting de debiteuragent om gelden te inne
 
 ### Veldtoelichting
 
-- `EndToEndId`: Houd mandaat- en incasso-identificaties gescheiden van zakelijke factuurreferenties.
-- `IntrBkSttlmAmt`: Valideer de precisie van het incassobedrag en de valutaregels voordat XML wordt gegenereerd.
+- `EndToEndId`: Keep mandate and collection identifiers separate from invoice references.
+- `IntrBkSttlmAmt`: Check amount precision and currency rules before rendering XML.
 - `Dbtr` / `Cdtr`: Het succes van een incasso hangt vaak meer af van de kwaliteit van rekening en mandaat dan van de XML-structuur.
 
 ## Primaire referenties

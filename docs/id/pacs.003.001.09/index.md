@@ -159,8 +159,8 @@ Agen kreditur menginisiasi pacs.003 menuju agen debitur untuk menagih dana. Agen
 
 ### Komentar bidang
 
-- `EndToEndId`: Pisahkan pengenal mandat dan penagihan dari referensi faktur bisnis.
-- `IntrBkSttlmAmt`: Validasi ketepatan jumlah debit dan aturan mata uang sebelum menghasilkan XML.
+- `EndToEndId`: Keep mandate and collection identifiers separate from invoice references.
+- `IntrBkSttlmAmt`: Check amount precision and currency rules before rendering XML.
 - `Dbtr` / `Cdtr`: Keberhasilan debit langsung sering lebih bergantung pada kualitas rekening dan mandat daripada pada struktur XML.
 
 ## Referensi primer

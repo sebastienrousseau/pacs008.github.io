@@ -112,9 +112,9 @@ The instructing agent (original sender) sends pacs.007 forward through the payme
 
 ## Version commentary
 
-ISO 20022 last updated this business area on 2025-02-27. This site documents `pacs.007.001.11`, while the latest catalogue version is `pacs.007.001.13`.
+ISO 20022 last updated this business area on 2025-02-27. This site documents `pacs.007.001.11`. The latest catalogue version is `pacs.007.001.13`.
 
-Use this page for the version that pacs008 implements today, but keep the newer catalogue version in mind for roadmap planning.
+Use this page for the version that pacs008 implements today, and review the newer catalogue version for roadmap planning.
 
 ## Version-diff table
 

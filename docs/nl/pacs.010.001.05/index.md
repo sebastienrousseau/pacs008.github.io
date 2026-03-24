@@ -159,9 +159,9 @@ De crediteurinstelling stuurt pacs.010 naar de debiteurinstelling om gelden te i
 
 ### Veldtoelichting
 
-- `InstrId`: Use an identifier that can be traced back to the bilateral collection arrangement.
-- `IntrBkSttlmAmt`: Bedragen bij institutionele incasso's vereisen vaak expliciete bilaterale tolerantielimieten.
-- `Cdtr` / `Dbtr`: Leg institutionele rollen duidelijk vast; dit is geen debetmodel voor retailklanten.
+- `InstrId`: Use an identifier that links back to the bilateral collection arrangement.
+- `IntrBkSttlmAmt`: Institution direct-debit amounts often need clear bilateral tolerance controls.
+- `Cdtr` / `Dbtr`: Capture institutional roles clearly. This is not a retail-customer debit model.
 
 ## Primaire referenties
 

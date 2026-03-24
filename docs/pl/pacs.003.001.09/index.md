@@ -159,8 +159,8 @@ Agent wierzyciela inicjuje pacs.003 w kierunku agenta dłużnika w celu pobrania
 
 ### Komentarze do pól
 
-- `EndToEndId`: Oddziel identyfikatory mandatu i inkasa od biznesowych odniesień do faktur.
-- `IntrBkSttlmAmt`: Zweryfikuj precyzję kwoty obciążenia i reguły walutowe przed wygenerowaniem XML.
+- `EndToEndId`: Keep mandate and collection identifiers separate from invoice references.
+- `IntrBkSttlmAmt`: Check amount precision and currency rules before rendering XML.
 - `Dbtr` / `Cdtr`: Powodzenie polecenia zapłaty częściej zależy od jakości rachunku i mandatu niż od struktury XML.
 
 ## Źródła podstawowe

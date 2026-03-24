@@ -159,8 +159,8 @@ El agente del acreedor inicia pacs.003 hacia el agente del deudor para cobrar fo
 
 ### Comentarios de campos
 
-- `EndToEndId`: Mantenga separados los identificadores de mandato y cobro de las referencias de facturas comerciales.
-- `IntrBkSttlmAmt`: Valide la precisión del importe del adeudo y las reglas de divisa antes de generar el XML.
+- `EndToEndId`: Keep mandate and collection identifiers separate from invoice references.
+- `IntrBkSttlmAmt`: Check amount precision and currency rules before rendering XML.
 - `Dbtr` / `Cdtr`: El éxito del adeudo directo suele depender más de la calidad de la cuenta y del mandato que de la estructura XML.
 
 ## Referencias primarias

@@ -58,9 +58,9 @@ The pacs.010 message lets one financial institution debit another institution's 
 ## Business context
 
 - Supports direct-debit collection between financial institutions.
-- Used for fees, margin calls, and other institution-level obligations.
+- Used for fees, margin calls, and other institution obligations.
 - Needs a bilateral agreement between the participating institutions.
-- Often sits inside treasury and liquidity workflows.
+- Often sits in treasury and liquidity workflows.
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Key data elements Business context">
   <table>
@@ -81,7 +81,7 @@ The pacs.010 message lets one financial institution debit another institution's 
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Direct Debit Transaction Information with collection amount</td>
-          <td class="operational-matrix-table__right">Used for fees, margin calls, and other institution-level obligations</td>
+          <td class="operational-matrix-table__right">Used for fees, margin calls, and other institution obligations</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Creditor institution and its agent identification</td>
@@ -89,11 +89,11 @@ The pacs.010 message lets one financial institution debit another institution's 
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Debtor institution and its agent identification</td>
-          <td class="operational-matrix-table__right">Often sits inside treasury and liquidity workflows</td>
+          <td class="operational-matrix-table__right">Often sits in treasury and liquidity workflows</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Interbank Settlement Amount in the settlement currency</td>
-          <td class="operational-matrix-table__right">The collecting institution sends pacs.010 to the debited institution under a pre-agreed setup. The receiving institution checks the request and either settles or rejects it.</td>
+          <td class="operational-matrix-table__right">The collecting institution sends pacs.010 under a pre-agreed setup. The receiving institution checks the request and either settles or rejects it.</td>
         </tr>
     </tbody>
   </table>
@@ -101,20 +101,20 @@ The pacs.010 message lets one financial institution debit another institution's 
 
 ## CBPR+ and scheme context
 
-- Maps legacy interbank direct-debit processing into ISO 20022.
-- Uses the same structured party data rules as other pacs messages.
+- It maps older interbank direct-debit processing into ISO 20022.
+- It uses the same structured party-data rules as other pacs messages.
 - Institution identifiers such as BIC and LEI still need validation.
-- Appears in broader ISO 20022 migration plans across market infrastructures.
+- It appears in broader ISO 20022 migration plans across market infrastructures.
 
 ## Message flow
 
-The collecting institution sends pacs.010 to the debited institution under a pre-agreed setup. The receiving institution checks the request and either settles or rejects it.
+The collecting institution sends pacs.010 under a pre-agreed setup. The receiving institution checks the request and either settles or rejects it.
 
 ## Version commentary
 
-ISO 20022 last updated this business area on 2025-02-27. This site documents `pacs.010.001.05`, while the latest catalogue version is `pacs.010.001.06`.
+ISO 20022 last updated this business area on 2025-02-27. This site documents `pacs.010.001.05`. The latest catalogue version is `pacs.010.001.06`.
 
-Use this page for the version that pacs008 implements today, but keep the newer catalogue version in mind for roadmap planning.
+Use this page for the version that pacs008 implements today, and review the newer catalogue version for roadmap planning.
 
 ## Version-diff table
 
@@ -164,9 +164,9 @@ Do not use pacs.010 for customer mandate collections or credit-transfer flows.
 
 ## Implementation notes
 
-- Keep the bilateral approval logic outside the message because it usually sits in treasury or correspondent agreements.
-- Treat institution-own-account debits as high-control flows because counterparty and liquidity risk are higher than in retail collections.
-- Design status and exception handling with the collection flow so teams can trace the debit later.
+- Keep bilateral approval logic outside the message.
+- Treat institution-own-account debits as high-control flows.
+- Design status and exception handling with the collection flow.
 
 ## Common failure modes
 
@@ -192,9 +192,9 @@ Do not use pacs.010 for customer mandate collections or credit-transfer flows.
 
 ### Field commentary
 
-- `InstrId`: Use an identifier that can be traced back to the bilateral collection arrangement.
-- `IntrBkSttlmAmt`: Institution direct-debit amounts often need explicit bilateral tolerance controls.
-- `Cdtr` / `Dbtr`: Capture institutional roles clearly; this is not a retail-customer debit model.
+- `InstrId`: Use an identifier that links back to the bilateral collection arrangement.
+- `IntrBkSttlmAmt`: Institution direct-debit amounts often need clear bilateral tolerance controls.
+- `Cdtr` / `Dbtr`: Capture institutional roles clearly. This is not a retail-customer debit model.
 
 ## Decision flow
 

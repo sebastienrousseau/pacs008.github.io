@@ -159,8 +159,8 @@ image: /logo.svg
 
 ### تعليقات الحقول
 
-- `EndToEndId`: افصل بين معرّفات التفويض والتحصيل وبين مراجع الفواتير التجارية.
-- `IntrBkSttlmAmt`: تحقق من دقة مبلغ الخصم وقواعد العملة قبل إنشاء XML.
+- `EndToEndId`: Keep mandate and collection identifiers separate from invoice references.
+- `IntrBkSttlmAmt`: Check amount precision and currency rules before rendering XML.
 - `Dbtr` / `Cdtr`: نجاح الخصم المباشر يعتمد غالباً على جودة الحساب والتفويض أكثر من اعتماده على بنية XML.
 
 ## المراجع الأساسية

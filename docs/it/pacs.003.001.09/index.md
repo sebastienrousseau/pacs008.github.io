@@ -159,8 +159,8 @@ L'agente del creditore avvia pacs.003 verso l'agente del debitore per raccoglier
 
 ### Commenti sui campi
 
-- `EndToEndId`: Mantieni separati gli identificatori di mandato e di incasso dai riferimenti delle fatture aziendali.
-- `IntrBkSttlmAmt`: Valida la precisione dell'importo di addebito e le regole di valuta prima di generare l'XML.
+- `EndToEndId`: Keep mandate and collection identifiers separate from invoice references.
+- `IntrBkSttlmAmt`: Check amount precision and currency rules before rendering XML.
 - `Dbtr` / `Cdtr`: Il buon esito di un addebito diretto dipende spesso piu dalla qualita del conto e del mandato che dalla struttura XML.
 
 ## Riferimenti primari

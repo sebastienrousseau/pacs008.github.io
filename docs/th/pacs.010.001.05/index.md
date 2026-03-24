@@ -159,9 +159,9 @@ image: /logo.svg
 
 ### คำอธิบายฟิลด์
 
-- `InstrId`: Use an identifier that can be traced back to the bilateral collection arrangement.
-- `IntrBkSttlmAmt`: จำนวนเงินของการหักบัญชีโดยตรงระหว่างสถาบันมักต้องมีการควบคุมค่าความคลาดเคลื่อนแบบทวิภาคีอย่างชัดเจน
-- `Cdtr` / `Dbtr`: ระบุบทบาทของสถาบันให้ชัดเจน นี่ไม่ใช่โมเดลการหักบัญชีของลูกค้ารายย่อย
+- `InstrId`: Use an identifier that links back to the bilateral collection arrangement.
+- `IntrBkSttlmAmt`: Institution direct-debit amounts often need clear bilateral tolerance controls.
+- `Cdtr` / `Dbtr`: Capture institutional roles clearly. This is not a retail-customer debit model.
 
 ## เอกสารอ้างอิงหลัก
 

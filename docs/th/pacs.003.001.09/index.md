@@ -159,8 +159,8 @@ image: /logo.svg
 
 ### คำอธิบายฟิลด์
 
-- `EndToEndId`: แยกตัวระบุคำสั่งมอบหมายและการเรียกเก็บออกจากข้อมูลอ้างอิงใบแจ้งหนี้ทางธุรกิจ
-- `IntrBkSttlmAmt`: ตรวจสอบความแม่นยำของจำนวนเงินหักบัญชีและกฎของสกุลเงินก่อนสร้าง XML
+- `EndToEndId`: Keep mandate and collection identifiers separate from invoice references.
+- `IntrBkSttlmAmt`: Check amount precision and currency rules before rendering XML.
 - `Dbtr` / `Cdtr`: ความสำเร็จของการหักบัญชีโดยตรงมักขึ้นอยู่กับคุณภาพของบัญชีและคำสั่งมอบหมายมากกว่าโครงสร้าง XML
 
 ## เอกสารอ้างอิงหลัก

@@ -159,8 +159,8 @@ Alacaklı aracı, fon tahsil etmek üzere borçlu aracıya pacs.003 başlatır. 
 
 ### Alan açıklamaları
 
-- `EndToEndId`: Talimat ve tahsilat tanımlayıcılarını ticari fatura referanslarından ayrı tutun.
-- `IntrBkSttlmAmt`: XML oluşturmadan önce borç tutarı hassasiyetini ve para birimi kurallarını doğrulayın.
+- `EndToEndId`: Keep mandate and collection identifiers separate from invoice references.
+- `IntrBkSttlmAmt`: Check amount precision and currency rules before rendering XML.
 - `Dbtr` / `Cdtr`: Doğrudan borçlandırmanın başarısı çoğu zaman XML yapısından çok hesap ve talimat kalitesine bağlıdır.
 
 ## Birincil referanslar

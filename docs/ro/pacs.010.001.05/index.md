@@ -159,9 +159,9 @@ Instituția creditoare trimite pacs.010 instituției debitoare pentru a colecta 
 
 ### Comentarii pe câmpuri
 
-- `InstrId`: Use an identifier that can be traced back to the bilateral collection arrangement.
-- `IntrBkSttlmAmt`: Sumele de debit direct între instituții necesită adesea controale bilaterale explicite de toleranță.
-- `Cdtr` / `Dbtr`: Descrie clar rolurile instituționale; acesta nu este un model de debit pentru clienți retail.
+- `InstrId`: Use an identifier that links back to the bilateral collection arrangement.
+- `IntrBkSttlmAmt`: Institution direct-debit amounts often need clear bilateral tolerance controls.
+- `Cdtr` / `Dbtr`: Capture institutional roles clearly. This is not a retail-customer debit model.
 
 ## Referințe primare
 

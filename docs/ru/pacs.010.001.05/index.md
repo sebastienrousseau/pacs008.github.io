@@ -159,9 +159,9 @@ image: /logo.svg
 
 ### Комментарии к полям
 
-- `InstrId`: Use an identifier that can be traced back to the bilateral collection arrangement.
-- `IntrBkSttlmAmt`: Суммы межбанковского прямого дебетования часто требуют явных двусторонних допусков.
-- `Cdtr` / `Dbtr`: Чётко фиксируйте роли учреждений; это не модель списания для розничного клиента.
+- `InstrId`: Use an identifier that links back to the bilateral collection arrangement.
+- `IntrBkSttlmAmt`: Institution direct-debit amounts often need clear bilateral tolerance controls.
+- `Cdtr` / `Dbtr`: Capture institutional roles clearly. This is not a retail-customer debit model.
 
 ## Первичные источники
 

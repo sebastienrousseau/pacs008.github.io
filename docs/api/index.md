@@ -1,6 +1,6 @@
 ---
 title: pacs008 API - validate data and generate XML | pacs008
-description: Use the pacs008 REST API, CLI, and Python library to validate payment data, check schemas, and generate ISO 20022 XML.
+description: Use the pacs008 REST API, CLI, and Python library to validate payment data and generate ISO 20022 XML.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
@@ -8,16 +8,16 @@ image: /logo.svg
 
 # API
 
-pacs008 gives you three entry points: a REST API, a CLI, and a Python library.
+pacs008 gives you three entry points: REST API, CLI, and Python library.
 
 > Last reviewed against primary sources on 23 March 2026 using ISO 20022, EPC, and Swift public materials referenced on this page.
 
 ## Implementation notes
 
-- Use synchronous generation for operator checks and small batches.
+- Use sync generation for operator checks and small batches.
 - Use async generation for large files and workflow engines.
-- Keep the input payload and validation report so support teams can reproduce the output.
-- Pin template and XSD paths in deployment config so releases do not change without notice.
+- Keep the input payload and validation report.
+- Pin template and XSD paths in deployment config.
 
 ## Installation
 
@@ -31,7 +31,7 @@ python -m pip install pacs008
 
 ## REST API
 
-Start the built-in FastAPI server when you need HTTP endpoints for validation and XML generation.
+Start the built-in FastAPI server for validation and XML generation over HTTP.
 
 ### Start the server
 

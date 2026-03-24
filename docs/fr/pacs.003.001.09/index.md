@@ -159,8 +159,8 @@ L'agent du créancier initie pacs.003 vers l'agent du débiteur pour collecter d
 
 ### Commentaires sur les champs
 
-- `EndToEndId`: Gardez les identifiants de mandat et de recouvrement distincts des références de facture métier.
-- `IntrBkSttlmAmt`: Validez la précision du montant débité et les règles de devise avant de générer le XML.
+- `EndToEndId`: Keep mandate and collection identifiers separate from invoice references.
+- `IntrBkSttlmAmt`: Check amount precision and currency rules before rendering XML.
 - `Dbtr` / `Cdtr`: La réussite d'un prélèvement dépend souvent davantage de la qualité du compte et du mandat que de la structure XML.
 
 ## Références primaires

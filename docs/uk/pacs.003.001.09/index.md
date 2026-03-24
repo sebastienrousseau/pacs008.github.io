@@ -159,8 +159,8 @@ image: /logo.svg
 
 ### Коментарі до полів
 
-- `EndToEndId`: Тримайте ідентифікатори мандата та інкасації окремо від бізнес-посилань на рахунки-фактури.
-- `IntrBkSttlmAmt`: Перевіряйте точність суми списання та валютні правила до формування XML.
+- `EndToEndId`: Keep mandate and collection identifiers separate from invoice references.
+- `IntrBkSttlmAmt`: Check amount precision and currency rules before rendering XML.
 - `Dbtr` / `Cdtr`: Успішність прямого дебетування часто більше залежить від якості рахунку та мандата, ніж від структури XML.
 
 ## Первинні джерела

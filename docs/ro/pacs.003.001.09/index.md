@@ -159,8 +159,8 @@ Agentul creditorului inițiază pacs.003 către agentul debitorului pentru a col
 
 ### Comentarii pe câmpuri
 
-- `EndToEndId`: Păstrează separate identificatoarele de mandat și colectare față de referințele comerciale ale facturilor.
-- `IntrBkSttlmAmt`: Validează precizia sumei debitate și regulile valutare înainte de a genera XML-ul.
+- `EndToEndId`: Keep mandate and collection identifiers separate from invoice references.
+- `IntrBkSttlmAmt`: Check amount precision and currency rules before rendering XML.
 - `Dbtr` / `Cdtr`: Succesul debitării directe depinde adesea mai mult de calitatea contului și a mandatului decât de structura XML.
 
 ## Referințe primare
