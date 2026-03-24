@@ -7,7 +7,8 @@
     "build": "npm run generate && vitepress build docs",
     "postbuild": "node scripts/postbuild-seo.mjs",
     "preview": "vitepress preview docs",
-    "generate": "node scripts/generate-locales.mjs"
+    "generate": "node scripts/generate-locales.mjs",
+    "audit:site": "node scripts/audit-site.mjs"
   },
   "devDependencies": {
     "vitepress": "^1.6.3"

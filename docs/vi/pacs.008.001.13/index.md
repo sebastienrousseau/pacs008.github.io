@@ -8,12 +8,38 @@ image: /logo.svg
 
 # pacs.008.001.13 — Chuyển khoản tín dụng khách hàng giữa các tổ chức tài chính
 
-| | |
-|---|---|
-| **Tên ISO** | FIToFICustomerCreditTransferV13 |
-| **Trạng thái đăng ký** | Registered |
-| **Năm** | 2023 |
-| **Phiên bản** | 13 |
+<div class="message-metadata-table" tabindex="0" aria-label="pacs.008.001.13 metadata">
+  <table>
+    <colgroup>
+      <col class="message-metadata-table__col-label">
+      <col class="message-metadata-table__col-value">
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Tên ISO</strong></td>
+          <td class="message-metadata-table__value">FIToFICustomerCreditTransferV13</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Trạng thái đăng ký</strong></td>
+          <td class="message-metadata-table__value">Registered</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Năm</strong></td>
+          <td class="message-metadata-table__value">2023</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Phiên bản</strong></td>
+          <td class="message-metadata-table__value">13</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Tổng quan
 
@@ -204,21 +230,74 @@ Thông điệp pacs.008 là lệnh thanh toán cốt lõi được trao đổi g
 
 ## Phiên bản được hỗ trợ
 
-| Phiên bản | |
-|---|---|
-| `pacs.008.001.01` |  |
-| `pacs.008.001.02` |  |
-| `pacs.008.001.03` |  |
-| `pacs.008.001.04` |  |
-| `pacs.008.001.05` |  |
-| `pacs.008.001.06` |  |
-| `pacs.008.001.07` |  |
-| `pacs.008.001.08` |  |
-| `pacs.008.001.09` |  |
-| `pacs.008.001.10` |  |
-| `pacs.008.001.11` |  |
-| `pacs.008.001.12` |  |
-| `pacs.008.001.13` | **Hiện tại** |
+<div class="message-versions-table" tabindex="0" aria-label="Phiên bản được hỗ trợ">
+  <table>
+    <colgroup>
+      <col class="message-versions-table__col-version">
+      <col class="message-versions-table__col-status">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Phiên bản</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.01</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.02</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.03</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.04</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.05</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.06</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.07</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.08</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.09</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.10</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.11</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.12</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.13</code></td>
+          <td class="message-versions-table__status"><strong>Hiện tại</strong></td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Thông điệp liên quan
 <div class="related-messages-table" tabindex="0" aria-label="Thông điệp liên quan">

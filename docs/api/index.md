@@ -1,6 +1,6 @@
 ---
-title: API | pacs008
-description: REST and CLI workflow support in pacs008. Generation, validation, API orchestration, and compliance support for FI-to-FI customer credit transfer workflows.
+title: pacs008 API - validate data and generate XML | pacs008
+description: Use the pacs008 REST API, CLI, and Python library to validate payment data, check schemas, and generate ISO 20022 XML.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
@@ -8,20 +8,20 @@ image: /logo.svg
 
 # API
 
-The project provides both a REST API and a CLI for operational payment message workflows.
+pacs008 gives you three entry points: a REST API, a CLI, and a Python library.
 
 > Last reviewed against primary sources on 23 March 2026 using ISO 20022, EPC, and Swift public materials referenced on this page.
 
 ## Implementation notes
 
-- Use synchronous generation for operator-driven checks and small batches where the caller expects an immediate XML file.
-- Use asynchronous generation when input files are large, when jobs need retry semantics, or when generation is part of a broader workflow engine.
-- Persist both the source payload and validation report so support teams can reproduce XML output during incident review.
-- Version-lock template and XSD file paths in deployment configuration to avoid silent upgrades during releases.
+- Use synchronous generation for operator checks and small batches.
+- Use async generation for large files and workflow engines.
+- Keep the input payload and validation report so support teams can reproduce the output.
+- Pin template and XSD paths in deployment config so releases do not change without notice.
 
 ## Installation
 
-Install the package from PyPI. Python 3.9.2 or higher is required.
+Install the package from PyPI. You need Python 3.9.2 or later.
 
 ```bash
 python -m pip install pacs008
@@ -31,7 +31,7 @@ python -m pip install pacs008
 
 ## REST API
 
-Start the built-in FastAPI server to expose HTTP endpoints for validation and generation.
+Start the built-in FastAPI server when you need HTTP endpoints for validation and XML generation.
 
 ### Start the server
 
@@ -56,27 +56,27 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
     <tbody>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /health</code></td>
-          <td class="api-endpoints-table__desc">Health check — returns service status</td>
+          <td class="api-endpoints-table__desc">Health check that returns service status</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>POST /validate</code></td>
-          <td class="api-endpoints-table__desc">Validate payment data against the schema without generating XML</td>
+          <td class="api-endpoints-table__desc">Validate payment data without generating XML</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>POST /generate</code></td>
-          <td class="api-endpoints-table__desc">Generate XML synchronously and return the file</td>
+          <td class="api-endpoints-table__desc">Generate XML now and return the file</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>POST /generate/async</code></td>
-          <td class="api-endpoints-table__desc">Submit an asynchronous generation job</td>
+          <td class="api-endpoints-table__desc">Submit an async generation job</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /status/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">Poll job status by ID</td>
+          <td class="api-endpoints-table__desc">Check job status by ID</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /download/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">Download the generated XML once the job completes</td>
+          <td class="api-endpoints-table__desc">Download XML after the job completes</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>DELETE /jobs/{job_id}</code></td>
@@ -84,7 +84,7 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /docs</code></td>
-          <td class="api-endpoints-table__desc">Interactive Swagger UI for exploring and testing all endpoints</td>
+          <td class="api-endpoints-table__desc">Swagger UI for testing all endpoints</td>
         </tr>
     </tbody>
   </table>
@@ -101,7 +101,7 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 
 ### Validation example
 
-Submit payment data for validation before generating XML.
+Validate payment data before you generate XML.
 
 ```bash
 curl -X POST http://localhost:8000/api/validate \
@@ -137,7 +137,7 @@ curl -X POST http://localhost:8000/api/validate \
 
 ### Synchronous generation example
 
-Generate a pacs.008.001.13 XML file from a JSON payload.
+Generate a `pacs.008.001.13` XML file from JSON data.
 
 ```bash
 curl -X POST http://localhost:8000/api/generate \
@@ -167,7 +167,7 @@ curl -X POST http://localhost:8000/api/generate \
 
 ### Asynchronous generation
 
-For larger files or pipeline use, submit an async job and poll for completion.
+For larger files or workflow engines, submit an async job and poll until it finishes.
 
 ```bash
 # Submit the job
@@ -197,7 +197,7 @@ curl http://localhost:8000/api/download/$JOB_ID --output result.xml
 
 ## CLI
 
-The command-line interface accepts a data file, a message version, a template, and a schema. It validates the input and writes the generated XML to the output directory.
+The CLI takes a data file, message version, template, and schema. It validates the input and writes XML to the output directory.
 
 ### Basic usage
 
@@ -219,7 +219,7 @@ pacs008 -t pacs.008.001.13 \
 
 ### Dry-run mode
 
-Use `--dry-run` to validate input data without generating XML. The exit code indicates whether validation passed (`0`) or failed (`1`).
+Use `--dry-run` to validate input data without generating XML. The exit code shows whether validation passed (`0`) or failed (`1`).
 
 ```bash
 pacs008 -t pacs.008.001.13 \
@@ -270,7 +270,7 @@ print(xml)
 
 ### SWIFT compliance check
 
-Validate and cleanse data against SWIFT character-set and field-length rules before generation.
+Check and clean data against SWIFT character and field-length rules before generation.
 
 ```python
 from pacs008.compliance import cleanse_data_with_report
@@ -352,7 +352,7 @@ print(report.is_valid, report.errors)
 
 ## Required data fields
 
-Every payment record must include the following fields. Version-specific fields are noted where applicable.
+Each payment record must include these fields. Version-specific fields are listed below.
 
 <div class="api-fields-table" tabindex="0" aria-label="Required data fields">
   <table>

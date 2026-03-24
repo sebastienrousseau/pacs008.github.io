@@ -356,7 +356,7 @@ strong {
 }
 
 /* Code blocks */
-.vp-doc code {
+.vp-doc :not(pre) > code {
   background: #f9f9f9;
   border: none;
   color: #666;
@@ -365,11 +365,12 @@ strong {
   font-family: monospace;
 }
 
-.dark .vp-doc code {
+.dark .vp-doc :not(pre) > code {
+  background: rgba(255, 255, 255, 0.08);
   color: var(--pacs-text-secondary);
 }
 
-.vp-doc [class*="language-"] {
+.vp-doc div[class*="language-"] {
   background: #f9f9f9;
   border: 1px solid #ddd;
   border-left: 3px solid var(--pacs-theme);
@@ -378,13 +379,28 @@ strong {
   font-family: monospace;
   font-size: 15px;
   line-height: 1.618;
+  overflow: hidden;
 }
 
-.dark .vp-doc [class*="language-"] {
+.vp-doc div[class*="language-"] pre,
+.vp-doc div[class*="language-"] code,
+.vp-doc .shiki,
+.vp-doc .shiki code {
+  background: transparent !important;
+}
+
+.dark .vp-doc div[class*="language-"] {
   background: var(--pacs-bg-secondary);
   border-color: var(--pacs-border);
   border-left-color: var(--pacs-theme);
   color: var(--pacs-text-secondary);
+}
+
+.dark .vp-doc div[class*="language-"] pre,
+.dark .vp-doc div[class*="language-"] code,
+.dark .vp-doc .shiki,
+.dark .vp-doc .shiki code {
+  background: var(--pacs-bg-secondary) !important;
 }
 
 .vp-doc blockquote {
@@ -461,7 +477,9 @@ strong {
 .related-messages-table,
 .version-diff-table,
 .message-comparison-table,
-.operational-matrix-table {
+.operational-matrix-table,
+.message-metadata-table,
+.message-versions-table {
   margin: 1.5rem 0 2rem;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -474,7 +492,9 @@ strong {
 .related-messages-table table,
 .version-diff-table table,
 .message-comparison-table table,
-.operational-matrix-table table {
+.operational-matrix-table table,
+.message-metadata-table table,
+.message-versions-table table {
   width: 100%;
   table-layout: fixed;
   border-collapse: collapse;
@@ -495,7 +515,9 @@ strong {
 .api-endpoints-table table,
 .related-messages-table table,
 .message-comparison-table table,
-.operational-matrix-table table {
+.operational-matrix-table table,
+.message-metadata-table table,
+.message-versions-table table {
   min-width: 820px;
 }
 
@@ -518,7 +540,11 @@ strong {
 .message-comparison-table th,
 .message-comparison-table td,
 .operational-matrix-table th,
-.operational-matrix-table td {
+.operational-matrix-table td,
+.message-metadata-table th,
+.message-metadata-table td,
+.message-versions-table th,
+.message-versions-table td {
   vertical-align: top;
   font-size: 1rem;
   line-height: 1.55;
@@ -534,7 +560,9 @@ strong {
 .related-messages-table th,
 .version-diff-table th,
 .message-comparison-table th,
-.operational-matrix-table th {
+.operational-matrix-table th,
+.message-metadata-table th,
+.message-versions-table th {
   text-align: left;
 }
 
@@ -635,6 +663,30 @@ strong {
   width: 64%;
 }
 
+.message-metadata-table {
+  margin-top: 0.5rem;
+}
+
+.message-metadata-table__col-label {
+  width: 32%;
+}
+
+.message-metadata-table__col-value {
+  width: 68%;
+}
+
+.message-versions-table table {
+  min-width: 420px;
+}
+
+.message-versions-table__col-version {
+  width: 70%;
+}
+
+.message-versions-table__col-status {
+  width: 30%;
+}
+
 @media (max-width: 768px) {
   .message-coverage-table,
   .decision-matrix-table,
@@ -644,7 +696,9 @@ strong {
   .related-messages-table,
   .version-diff-table,
   .message-comparison-table,
-  .operational-matrix-table {
+  .operational-matrix-table,
+  .message-metadata-table,
+  .message-versions-table {
     margin-inline: -0.25rem;
     padding-inline: 0.25rem;
   }

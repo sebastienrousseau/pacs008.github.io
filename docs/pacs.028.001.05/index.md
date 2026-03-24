@@ -1,6 +1,6 @@
 ---
 title: pacs.028.001.05 | FI to FI Payment Status Request | pacs008
-description: The pacs.028 message is sent by a financial institution to request the status of a previously sent payment instruction. It enables proactive tracking of...
+description: The pacs.028 message asks another institution for the status of an earlier payment. It is a targeted status query for delayed, unclear, or missing payment...
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
@@ -8,33 +8,59 @@ image: /logo.svg
 
 # pacs.028.001.05 — FI to FI Payment Status Request
 
-| | |
-|---|---|
-| **ISO name** | FIToFIPaymentStatusRequestV05 |
-| **Registration status** | Registered |
-| **Year** | 2019 |
-| **Version** | 5 |
+<div class="message-metadata-table" tabindex="0" aria-label="pacs.028.001.05 metadata">
+  <table>
+    <colgroup>
+      <col class="message-metadata-table__col-label">
+      <col class="message-metadata-table__col-value">
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-metadata-table__label"><strong>ISO name</strong></td>
+          <td class="message-metadata-table__value">FIToFIPaymentStatusRequestV05</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Registration status</strong></td>
+          <td class="message-metadata-table__value">Registered</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Year</strong></td>
+          <td class="message-metadata-table__value">2019</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Version</strong></td>
+          <td class="message-metadata-table__value">5</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Overview
 
-The pacs.028 message is sent by a financial institution to request the status of a previously sent payment instruction. It enables proactive tracking of payment processing without waiting for an unsolicited status report.
+The pacs.028 message asks another institution for the status of an earlier payment. It is a targeted status query for delayed, unclear, or missing payment updates.
 
 > Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
 
 ## Key data elements
 
-- **GrpHdr** — Group Header with message identification and creation timestamp
-- **TxInf** — Transaction Information identifying the payment to enquire about
-- **OrgnlGrpInf** — Original Group Information referencing the source message
-- **OrgnlInstrId** — Original Instruction Identification from the source payment
-- **OrgnlEndToEndId** — Original End to End Identification for traceability
+- **GrpHdr** — Group Header with message identification and creation timestamp.
+- **TxInf** — Transaction Information identifying the payment to enquire about.
+- **OrgnlGrpInf** — Original Group Information referencing the source message.
+- **OrgnlInstrId** — Original Instruction Identification from the source payment.
+- **OrgnlEndToEndId** — Original End to End Identification for traceability.
 
 ## Business context
 
-- Enables proactive status enquiry for payment instructions in transit
-- Supports operations teams investigating delayed or missing payments
-- Complements pacs.002 by initiating status communication rather than waiting
-- Used in exception-handling and SLA-monitoring workflows
+- Lets teams ask for status on a payment that is still in flight.
+- Helps operations teams investigate delayed or missing payments.
+- Works with pacs.002 when a passive status update is not enough.
+- Fits exception handling and SLA monitoring.
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Key data elements Business context">
   <table>
@@ -51,23 +77,23 @@ The pacs.028 message is sent by a financial institution to request the status of
     <tbody>
         <tr>
           <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message identification and creation timestamp</td>
-          <td class="operational-matrix-table__right">Enables proactive status enquiry for payment instructions in transit</td>
+          <td class="operational-matrix-table__right">Lets teams ask for status on a payment that is still in flight</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>TxInf</strong> — Transaction Information identifying the payment to enquire about</td>
-          <td class="operational-matrix-table__right">Supports operations teams investigating delayed or missing payments</td>
+          <td class="operational-matrix-table__right">Helps operations teams investigate delayed or missing payments</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Original Group Information referencing the source message</td>
-          <td class="operational-matrix-table__right">Complements pacs.002 by initiating status communication rather than waiting</td>
+          <td class="operational-matrix-table__right">Works with pacs.002 when a passive status update is not enough</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>OrgnlInstrId</strong> — Original Instruction Identification from the source payment</td>
-          <td class="operational-matrix-table__right">Used in exception-handling and SLA-monitoring workflows</td>
+          <td class="operational-matrix-table__right">Fits exception handling and SLA monitoring</td>
         </tr>
         <tr>
           <td class="operational-matrix-table__left"><strong>OrgnlEndToEndId</strong> — Original End to End Identification for traceability</td>
-          <td class="operational-matrix-table__right">The instructing agent sends pacs.028 to the instructed agent to request status of a specific payment. The instructed agent responds with a pacs.002 containing the current processing status.</td>
+          <td class="operational-matrix-table__right">The sending institution asks the receiving institution for the status of one payment. The answer usually comes back in pacs.002.</td>
         </tr>
     </tbody>
   </table>
@@ -75,20 +101,20 @@ The pacs.028 message is sent by a financial institution to request the status of
 
 ## CBPR+ and scheme context
 
-- Replaces MT199 status enquiry patterns and manual SWIFT message queries
-- CBPR+ supports structured status requests linked to original message identifiers
-- UETR-based tracking through gpi reduces the need for manual enquiries
-- Increasingly integrated into automated payment operations dashboards
+- Replaces older manual status-enquiry patterns.
+- Links the request to the original payment identifiers.
+- UETR and gpi tracking can reduce how often teams need to send it.
+- Often appears in automated payment-operations tooling.
 
 ## Message flow
 
-The instructing agent sends pacs.028 to the instructed agent to request status of a specific payment. The instructed agent responds with a pacs.002 containing the current processing status.
+The sending institution asks the receiving institution for the status of one payment. The answer usually comes back in pacs.002.
 
 ## Version commentary
 
-The ISO 20022 catalogue entry for this business area was last updated on 2025-02-27. The pacs008 site currently documents `pacs.028.001.05`, while the ISO 20022 catalogue lists `pacs.028.001.06` as the latest published version.
+ISO 20022 last updated this business area on 2025-02-27. This site documents `pacs.028.001.05`, while the latest catalogue version is `pacs.028.001.06`.
 
-That means this page is useful for understanding the currently implemented version in pacs008, but roadmap and interoperability planning should account for the later catalogue revision as well.
+Use this page for the version that pacs008 implements today, but keep the newer catalogue version in mind for roadmap planning.
 
 ## Version-diff table
 
@@ -123,30 +149,30 @@ That means this page is useful for understanding the currently implemented versi
 
 ## Scheme-specific notes
 
-- pacs.028 is the proactive status-request counterpart to status-reporting flows such as pacs.002, and it becomes operationally relevant where institutions need explicit query behaviour rather than waiting for unsolicited updates.
-- In practice, this message is most useful when paired with clear exception-management timing rules defined by a scheme, counterparty agreement, or internal operations model.
+- pacs.028 is the active status-request partner to pacs.002. Use it when a team must ask for status instead of waiting for an update.
+- It works best when the scheme, counterparty agreement, or internal operations model defines clear timing and escalation rules.
 
 Source links below point to primary standards bodies or scheme operators. Where a note goes beyond a direct statement, it is an implementation inference from those sources.
 
 ## When to use this message
 
-Use pacs.028 when an institution needs to actively request the status of an earlier payment instruction instead of waiting for an unsolicited status update.
+Use pacs.028 when a team must ask another institution for the current status of an earlier payment.
 
 ## When not to use this message
 
-Do not use pacs.028 as a replacement for routine event-driven status messaging when pacs.002 is already available and timely.
+Do not use pacs.028 as a routine substitute for pacs.002 status reporting.
 
 ## Implementation notes
 
-- Issue status requests selectively; overusing them can create duplicate operational traffic without improving resolution times.
-- Pair pacs.028 with robust timeout and escalation rules so investigations do not stall after the request is sent.
-- Store the reason for the request alongside the original payment identifiers for auditability and case handling.
+- Send status requests only when operations needs them. Too many requests add traffic without helping resolution.
+- Set timeout and escalation rules so investigations do not stall after the request is sent.
+- Store the reason for the request with the original payment identifiers so the case stays auditable.
 
 ## Common failure modes
 
-- Sending status requests too early, before the receiving institution could reasonably have progressed the payment.
-- Using pacs.028 without a clear exception-management workflow behind it.
-- Not reconciling requested statuses back into the original case record.
+- Sending the request too early.
+- Using pacs.028 without a clear exception workflow.
+- Not linking the answer back to the original case record.
 
 ## Worked XML fragment
 
@@ -221,11 +247,11 @@ No -> Keep the case in normal operational monitoring.
 
 ## Implementation FAQ
 
-### Should pacs.028 be sent automatically after every payment?
+### Should pacs.028 be sent after every payment?
 
-Usually no. It is most effective as a targeted exception tool, not as blanket traffic.
+Usually no. It works best as a targeted exception tool, not as blanket traffic.
 
-### What makes pacs.028 valuable?
+### What makes pacs.028 useful?
 
 Clear timeout, escalation, and reconciliation rules around the original payment case.
 
@@ -255,17 +281,17 @@ Clear timeout, escalation, and reconciliation rules around the original payment 
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="related-messages-table__name">FI to FI Payment Status Report</td>
-          <td class="related-messages-table__overview">The pacs.002 message is sent by a financial institution to report the status of a previously sent payment instruction. It provides confirmation, rejection, or pending status information for individual transactions within a payment message.</td>
+          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether processing was accepted, rejected, pending, or settled.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
           <td class="related-messages-table__name">FI to FI Customer Credit Transfer</td>
-          <td class="related-messages-table__overview">The pacs.008 message is the core payment instruction exchanged between financial institutions to transfer funds on behalf of a customer. It carries debtor, creditor, amount, and remittance information for one or more credit transfer transactions.</td>
+          <td class="related-messages-table__overview">The pacs.008 message is the main customer credit-transfer instruction between financial institutions. It carries party, amount, and remittance data.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
           <td class="related-messages-table__name">Financial Institution Credit Transfer</td>
-          <td class="related-messages-table__overview">The pacs.009 message is used for credit transfers between financial institutions where the transfer is on the institution&#39;s own behalf rather than on behalf of a customer. It supports interbank funding, cover payments, and liquidity management.</td>
+          <td class="related-messages-table__overview">The pacs.009 message moves funds between financial institutions on their own behalf. It supports interbank funding, cover payments, and liquidity management.</td>
         </tr>
     </tbody>
   </table>

@@ -8,12 +8,38 @@ image: /logo.svg
 
 # pacs.002.001.12 — FI'dan FI'ya ödeme durumu raporu
 
-| | |
-|---|---|
-| **ISO adı** | FIToFIPaymentStatusReportV12 |
-| **Kayıt durumu** | Registered |
-| **Yıl** | 2019 |
-| **Sürüm** | 12 |
+<div class="message-metadata-table" tabindex="0" aria-label="pacs.002.001.12 metadata">
+  <table>
+    <colgroup>
+      <col class="message-metadata-table__col-label">
+      <col class="message-metadata-table__col-value">
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-metadata-table__label"><strong>ISO adı</strong></td>
+          <td class="message-metadata-table__value">FIToFIPaymentStatusReportV12</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Kayıt durumu</strong></td>
+          <td class="message-metadata-table__value">Registered</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Yıl</strong></td>
+          <td class="message-metadata-table__value">2019</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Sürüm</strong></td>
+          <td class="message-metadata-table__value">12</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Genel bakış
 

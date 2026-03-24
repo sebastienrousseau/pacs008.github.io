@@ -1,6 +1,6 @@
 ---
-title: Terms | pacs008
-description: Terms information for the pacs008 website. Generation, validation, API orchestration, and compliance support for FI-to-FI customer credit transfer workflows.
+title: Terms of use for pacs008 | pacs008
+description: Read the pacs008.com terms of use, intellectual property notice, third-party link terms, and liability limits.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
@@ -8,7 +8,7 @@ image: /logo.svg
 
 # Terms
 
-By accessing pacs008.com, you agree to be bound by these terms of use.
+By using pacs008.com, you agree to these terms of use.
 
 ## Intellectual property
 

@@ -1,6 +1,6 @@
 ---
-title: Privacy | pacs008
-description: Privacy information for the pacs008 website. Generation, validation, API orchestration, and compliance support for FI-to-FI customer credit transfer...
+title: Privacy notice for pacs008 | pacs008
+description: Read how pacs008.com handles website data, uses basic analytics, and explains visitor privacy rights and limits.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
@@ -8,19 +8,19 @@ image: /logo.svg
 
 # Privacy
 
-This privacy statement explains how pacs008.com handles information when you visit the website.
+This page explains what data pacs008.com handles when you visit the site.
 
 ## Information we collect
 
-pacs008.com does not collect personal data. The website does not use cookies or tracking technologies to identify individual visitors.
+pacs008.com does not collect personal data. The site does not use cookies or tracking tools to identify visitors.
 
 ## Analytics
 
-Third-party analytics services may collect anonymised, aggregate data such as page views and referring URLs. This data cannot be used to identify individual visitors.
+Third-party analytics services may collect anonymised page views and referring URLs. This data does not identify individual visitors.
 
 ## Your rights
 
-Depending on your jurisdiction, you may have rights regarding your personal data, including the right to access, correct, or delete information. Because pacs008.com does not collect personal data, these rights are unlikely to be applicable.
+Depending on your jurisdiction, you may have rights over personal data, such as access, correction, or deletion. Because pacs008.com does not collect personal data, those rights are unlikely to apply here.
 
 ## Changes to this statement
 

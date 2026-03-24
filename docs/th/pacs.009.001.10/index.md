@@ -8,12 +8,38 @@ image: /logo.svg
 
 # pacs.009.001.10 — การโอนเครดิตระหว่างสถาบันการเงิน
 
-| | |
-|---|---|
-| **ชื่อ ISO** | FinancialInstitutionCreditTransferV10 |
-| **สถานะการลงทะเบียน** | Registered |
-| **ปี** | 2019 |
-| **เวอร์ชัน** | 10 |
+<div class="message-metadata-table" tabindex="0" aria-label="pacs.009.001.10 metadata">
+  <table>
+    <colgroup>
+      <col class="message-metadata-table__col-label">
+      <col class="message-metadata-table__col-value">
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-metadata-table__label"><strong>ชื่อ ISO</strong></td>
+          <td class="message-metadata-table__value">FinancialInstitutionCreditTransferV10</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>สถานะการลงทะเบียน</strong></td>
+          <td class="message-metadata-table__value">Registered</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>ปี</strong></td>
+          <td class="message-metadata-table__value">2019</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>เวอร์ชัน</strong></td>
+          <td class="message-metadata-table__value">10</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## ภาพรวม
 

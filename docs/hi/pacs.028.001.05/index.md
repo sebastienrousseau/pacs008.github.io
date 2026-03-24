@@ -8,12 +8,38 @@ image: /logo.svg
 
 # pacs.028.001.05 — FI-से-FI भुगतान स्थिति अनुरोध
 
-| | |
-|---|---|
-| **ISO नाम** | FIToFIPaymentStatusRequestV05 |
-| **पंजीकरण स्थिति** | Registered |
-| **वर्ष** | 2019 |
-| **संस्करण** | 5 |
+<div class="message-metadata-table" tabindex="0" aria-label="pacs.028.001.05 metadata">
+  <table>
+    <colgroup>
+      <col class="message-metadata-table__col-label">
+      <col class="message-metadata-table__col-value">
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-metadata-table__label"><strong>ISO नाम</strong></td>
+          <td class="message-metadata-table__value">FIToFIPaymentStatusRequestV05</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>पंजीकरण स्थिति</strong></td>
+          <td class="message-metadata-table__value">Registered</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>वर्ष</strong></td>
+          <td class="message-metadata-table__value">2019</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>संस्करण</strong></td>
+          <td class="message-metadata-table__value">5</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## अवलोकन
 

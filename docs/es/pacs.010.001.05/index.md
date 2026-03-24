@@ -8,12 +8,38 @@ image: /logo.svg
 
 # pacs.010.001.05 — Débito directo entre instituciones financieras
 
-| | |
-|---|---|
-| **Nombre ISO** | FinancialInstitutionDirectDebitV05 |
-| **Estado de registro** | Registered |
-| **Año** | 2019 |
-| **Versión** | 5 |
+<div class="message-metadata-table" tabindex="0" aria-label="pacs.010.001.05 metadata">
+  <table>
+    <colgroup>
+      <col class="message-metadata-table__col-label">
+      <col class="message-metadata-table__col-value">
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Nombre ISO</strong></td>
+          <td class="message-metadata-table__value">FinancialInstitutionDirectDebitV05</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Estado de registro</strong></td>
+          <td class="message-metadata-table__value">Registered</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Año</strong></td>
+          <td class="message-metadata-table__value">2019</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Versión</strong></td>
+          <td class="message-metadata-table__value">5</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Descripción general
 

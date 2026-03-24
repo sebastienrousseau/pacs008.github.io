@@ -8,12 +8,38 @@ image: /logo.svg
 
 # pacs.009.001.10 — Transfer Kredit Antar Lembaga Keuangan
 
-| | |
-|---|---|
-| **Nama ISO** | FinancialInstitutionCreditTransferV10 |
-| **Status pendaftaran** | Registered |
-| **Tahun** | 2019 |
-| **Versi** | 10 |
+<div class="message-metadata-table" tabindex="0" aria-label="pacs.009.001.10 metadata">
+  <table>
+    <colgroup>
+      <col class="message-metadata-table__col-label">
+      <col class="message-metadata-table__col-value">
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Nama ISO</strong></td>
+          <td class="message-metadata-table__value">FinancialInstitutionCreditTransferV10</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Status pendaftaran</strong></td>
+          <td class="message-metadata-table__value">Registered</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Tahun</strong></td>
+          <td class="message-metadata-table__value">2019</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Versi</strong></td>
+          <td class="message-metadata-table__value">10</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Ikhtisar
 

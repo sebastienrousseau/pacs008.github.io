@@ -8,12 +8,38 @@ image: /logo.svg
 
 # pacs.007.001.11 — Storno di pagamento tra istituzioni finanziarie
 
-| | |
-|---|---|
-| **Nome ISO** | FIToFIPaymentReversalV11 |
-| **Stato di registrazione** | Registered |
-| **Anno** | 2019 |
-| **Versione** | 11 |
+<div class="message-metadata-table" tabindex="0" aria-label="pacs.007.001.11 metadata">
+  <table>
+    <colgroup>
+      <col class="message-metadata-table__col-label">
+      <col class="message-metadata-table__col-value">
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Nome ISO</strong></td>
+          <td class="message-metadata-table__value">FIToFIPaymentReversalV11</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Stato di registrazione</strong></td>
+          <td class="message-metadata-table__value">Registered</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Anno</strong></td>
+          <td class="message-metadata-table__value">2019</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Versione</strong></td>
+          <td class="message-metadata-table__value">11</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Panoramica
 

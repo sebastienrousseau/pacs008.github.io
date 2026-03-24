@@ -8,12 +8,38 @@ image: /logo.svg
 
 # pacs.004.001.11 — Retorno de pagamento
 
-| | |
-|---|---|
-| **Nome ISO** | PaymentReturnV11 |
-| **Status de registro** | Registered |
-| **Ano** | 2019 |
-| **Versão** | 11 |
+<div class="message-metadata-table" tabindex="0" aria-label="pacs.004.001.11 metadata">
+  <table>
+    <colgroup>
+      <col class="message-metadata-table__col-label">
+      <col class="message-metadata-table__col-value">
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Nome ISO</strong></td>
+          <td class="message-metadata-table__value">PaymentReturnV11</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Status de registro</strong></td>
+          <td class="message-metadata-table__value">Registered</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Ano</strong></td>
+          <td class="message-metadata-table__value">2019</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Versão</strong></td>
+          <td class="message-metadata-table__value">11</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Visão geral
 

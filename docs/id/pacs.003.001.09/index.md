@@ -8,12 +8,38 @@ image: /logo.svg
 
 # pacs.003.001.09 — Direct Debit Pelanggan FI ke FI
 
-| | |
-|---|---|
-| **Nama ISO** | FIToFICustomerDirectDebitV09 |
-| **Status pendaftaran** | Registered |
-| **Tahun** | 2019 |
-| **Versi** | 9 |
+<div class="message-metadata-table" tabindex="0" aria-label="pacs.003.001.09 metadata">
+  <table>
+    <colgroup>
+      <col class="message-metadata-table__col-label">
+      <col class="message-metadata-table__col-value">
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Nama ISO</strong></td>
+          <td class="message-metadata-table__value">FIToFICustomerDirectDebitV09</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Status pendaftaran</strong></td>
+          <td class="message-metadata-table__value">Registered</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Tahun</strong></td>
+          <td class="message-metadata-table__value">2019</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Versi</strong></td>
+          <td class="message-metadata-table__value">9</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Ikhtisar
 

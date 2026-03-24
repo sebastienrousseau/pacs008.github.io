@@ -8,12 +8,38 @@ image: /logo.svg
 
 # pacs.003.001.09 — Addebito diretto cliente tra istituzioni finanziarie
 
-| | |
-|---|---|
-| **Nome ISO** | FIToFICustomerDirectDebitV09 |
-| **Stato di registrazione** | Registered |
-| **Anno** | 2019 |
-| **Versione** | 9 |
+<div class="message-metadata-table" tabindex="0" aria-label="pacs.003.001.09 metadata">
+  <table>
+    <colgroup>
+      <col class="message-metadata-table__col-label">
+      <col class="message-metadata-table__col-value">
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Nome ISO</strong></td>
+          <td class="message-metadata-table__value">FIToFICustomerDirectDebitV09</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Stato di registrazione</strong></td>
+          <td class="message-metadata-table__value">Registered</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Anno</strong></td>
+          <td class="message-metadata-table__value">2019</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Versione</strong></td>
+          <td class="message-metadata-table__value">9</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Panoramica
 

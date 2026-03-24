@@ -8,12 +8,38 @@ image: /logo.svg
 
 # pacs.009.001.10 — Przelew kredytowy między instytucjami finansowymi
 
-| | |
-|---|---|
-| **Nazwa ISO** | FinancialInstitutionCreditTransferV10 |
-| **Status rejestracji** | Registered |
-| **Rok** | 2019 |
-| **Wersja** | 10 |
+<div class="message-metadata-table" tabindex="0" aria-label="pacs.009.001.10 metadata">
+  <table>
+    <colgroup>
+      <col class="message-metadata-table__col-label">
+      <col class="message-metadata-table__col-value">
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Nazwa ISO</strong></td>
+          <td class="message-metadata-table__value">FinancialInstitutionCreditTransferV10</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Status rejestracji</strong></td>
+          <td class="message-metadata-table__value">Registered</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Rok</strong></td>
+          <td class="message-metadata-table__value">2019</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Wersja</strong></td>
+          <td class="message-metadata-table__value">10</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Przegląd
 

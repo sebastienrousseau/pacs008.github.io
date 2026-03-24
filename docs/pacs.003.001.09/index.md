@@ -1,6 +1,6 @@
 ---
 title: pacs.003.001.09 | FI to FI Customer Direct Debit | pacs008
-description: The pacs.003 message is exchanged between financial institutions to execute a customer direct debit instruction. It enables the creditor's bank to collect...
+description: The pacs.003 message executes a customer direct debit between financial institutions. It lets the creditor bank collect funds from the debtor bank.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
@@ -8,33 +8,59 @@ image: /logo.svg
 
 # pacs.003.001.09 — FI to FI Customer Direct Debit
 
-| | |
-|---|---|
-| **ISO name** | FIToFICustomerDirectDebitV09 |
-| **Registration status** | Registered |
-| **Year** | 2019 |
-| **Version** | 9 |
+<div class="message-metadata-table" tabindex="0" aria-label="pacs.003.001.09 metadata">
+  <table>
+    <colgroup>
+      <col class="message-metadata-table__col-label">
+      <col class="message-metadata-table__col-value">
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-metadata-table__label"><strong>ISO name</strong></td>
+          <td class="message-metadata-table__value">FIToFICustomerDirectDebitV09</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Registration status</strong></td>
+          <td class="message-metadata-table__value">Registered</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Year</strong></td>
+          <td class="message-metadata-table__value">2019</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Version</strong></td>
+          <td class="message-metadata-table__value">9</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Overview
 
-The pacs.003 message is exchanged between financial institutions to execute a customer direct debit instruction. It enables the creditor's bank to collect funds from the debtor's bank on behalf of the creditor.
+The pacs.003 message executes a customer direct debit between financial institutions. It lets the creditor bank collect funds from the debtor bank.
 
 > Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
 
 ## Key data elements
 
-- **GrpHdr** — Group Header with message identification and settlement information
-- **DrctDbtTxInf** — Direct Debit Transaction Information with amount and parties
-- **Cdtr** — Creditor identification and account details
-- **CdtrAgt** — Creditor Agent (collecting institution) identification
-- **DbtrAgt** — Debtor Agent (paying institution) identification
+- **GrpHdr** — Group Header with message identification and settlement information.
+- **DrctDbtTxInf** — Direct Debit Transaction Information with amount and parties.
+- **Cdtr** — Creditor identification and account details.
+- **CdtrAgt** — Creditor Agent (collecting institution) identification.
+- **DbtrAgt** — Debtor Agent (paying institution) identification.
 
 ## Business context
 
-- Supports SEPA Core and B2B direct debit schemes
-- Used for recurring payment collection such as subscriptions, utility bills, and loan repayments
-- Requires a valid mandate reference between debtor and creditor
-- Enables bulk collection of multiple direct debit instructions in a single message
+- Supports SEPA Core and B2B direct debit schemes.
+- Used for recurring payment collection such as subscriptions, utility bills, and loan repayments.
+- Requires a valid mandate reference between debtor and creditor.
+- Enables bulk collection of multiple direct debit instructions in a single message.
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Key data elements Business context">
   <table>
@@ -75,10 +101,10 @@ The pacs.003 message is exchanged between financial institutions to execute a cu
 
 ## CBPR+ and scheme context
 
-- Structured address and party identification requirements apply equally to direct debits
-- Mandate-related data must be fully structured from November 2026
-- Replaces legacy MT104-style direct debit formats in cross-border flows
-- Validation of creditor scheme identification is increasingly enforced
+- Structured address and party identification requirements apply equally to direct debits.
+- Mandate-related data must be fully structured from November 2026.
+- Replaces legacy MT104-style direct debit formats in cross-border flows.
+- Validation of creditor scheme identification is increasingly enforced.
 
 ## Message flow
 
@@ -86,9 +112,9 @@ The creditor agent initiates pacs.003 toward the debtor agent to collect funds. 
 
 ## Version commentary
 
-The ISO 20022 catalogue entry for this business area was last updated on 2025-02-27. The pacs008 site currently documents `pacs.003.001.09`, while the ISO 20022 catalogue lists `pacs.003.001.11` as the latest published version.
+ISO 20022 last updated this business area on 2025-02-27. This site documents `pacs.003.001.09`, while the latest catalogue version is `pacs.003.001.11`.
 
-That means this page is useful for understanding the currently implemented version in pacs008, but roadmap and interoperability planning should account for the later catalogue revision as well.
+Use this page for the version that pacs008 implements today, but keep the newer catalogue version in mind for roadmap planning.
 
 ## Version-diff table
 
@@ -216,17 +242,17 @@ Mandate quality, debtor-account rules, and return handling usually matter more t
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
           <td class="related-messages-table__name">Payment Return</td>
-          <td class="related-messages-table__overview">The pacs.004 message is used to return a previously settled payment transaction. It reverses the flow of funds when a payment cannot be applied, was sent in error, or is being recalled by the originating institution.</td>
+          <td class="related-messages-table__overview">The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied or must be sent back.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.007.001.11/"><code>pacs.007.001.11</code></a></td>
           <td class="related-messages-table__name">FI to FI Payment Reversal</td>
-          <td class="related-messages-table__overview">The pacs.007 message is used to reverse a previously sent payment instruction that has not yet been settled or to request reversal of a settled payment. Unlike pacs.004 (return), it is initiated by the original instructing agent.</td>
+          <td class="related-messages-table__overview">The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, it starts from the original instructing side.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="related-messages-table__name">FI to FI Payment Status Report</td>
-          <td class="related-messages-table__overview">The pacs.002 message is sent by a financial institution to report the status of a previously sent payment instruction. It provides confirmation, rejection, or pending status information for individual transactions within a payment message.</td>
+          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether processing was accepted, rejected, pending, or settled.</td>
         </tr>
     </tbody>
   </table>

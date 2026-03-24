@@ -1,6 +1,6 @@
 ---
 title: pacs.009.001.10 | Financial Institution Credit Transfer | pacs008
-description: The pacs.009 message is used for credit transfers between financial institutions where the transfer is on the institution's own behalf rather than on...
+description: The pacs.009 message moves funds between financial institutions on their own behalf. It supports interbank funding, cover payments, and liquidity management.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
@@ -8,33 +8,59 @@ image: /logo.svg
 
 # pacs.009.001.10 — Financial Institution Credit Transfer
 
-| | |
-|---|---|
-| **ISO name** | FinancialInstitutionCreditTransferV10 |
-| **Registration status** | Registered |
-| **Year** | 2019 |
-| **Version** | 10 |
+<div class="message-metadata-table" tabindex="0" aria-label="pacs.009.001.10 metadata">
+  <table>
+    <colgroup>
+      <col class="message-metadata-table__col-label">
+      <col class="message-metadata-table__col-value">
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-metadata-table__label"><strong>ISO name</strong></td>
+          <td class="message-metadata-table__value">FinancialInstitutionCreditTransferV10</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Registration status</strong></td>
+          <td class="message-metadata-table__value">Registered</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Year</strong></td>
+          <td class="message-metadata-table__value">2019</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Version</strong></td>
+          <td class="message-metadata-table__value">10</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Overview
 
-The pacs.009 message is used for credit transfers between financial institutions where the transfer is on the institution's own behalf rather than on behalf of a customer. It supports interbank funding, cover payments, and liquidity management.
+The pacs.009 message moves funds between financial institutions on their own behalf. It supports interbank funding, cover payments, and liquidity management.
 
 > Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
 
 ## Key data elements
 
-- **GrpHdr** — Group Header with message identification and settlement information
-- **CdtTrfTxInf** — Credit Transfer Transaction Information with interbank settlement amount
-- **Dbtr / DbtrAgt** — Debtor institution and its agent identification
-- **Cdtr / CdtrAgt** — Creditor institution and its agent identification
-- **IntrBkSttlmAmt** — Interbank Settlement Amount in the settlement currency
+- **GrpHdr** — Group Header with message identification and settlement information.
+- **CdtTrfTxInf** — Credit Transfer Transaction Information with interbank settlement amount.
+- **Dbtr / DbtrAgt** — Debtor institution and its agent identification.
+- **Cdtr / CdtrAgt** — Creditor institution and its agent identification.
+- **IntrBkSttlmAmt** — Interbank Settlement Amount in the settlement currency.
 
 ## Business context
 
-- Used for bank-to-bank own-account transfers and cover payments
-- Supports liquidity management between correspondent banking partners
-- Carries the cover leg of customer credit transfers settled via cover method
-- Enables treasury and funding operations between financial institutions
+- Used for bank-to-bank own-account transfers and cover payments.
+- Supports liquidity management between correspondent banking partners.
+- Carries the cover leg of customer credit transfers settled via cover method.
+- Enables treasury and funding operations between financial institutions.
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Key data elements Business context">
   <table>
@@ -75,10 +101,10 @@ The pacs.009 message is used for credit transfers between financial institutions
 
 ## CBPR+ and scheme context
 
-- Replaces MT202 and MT202COV for institution-to-institution transfers
-- Cover method flows pair pacs.009 with the underlying pacs.008 customer instruction
-- Structured party data and LEI identification increasingly required
-- SWIFT gpi covers pacs.009 for correspondent banking transparency
+- Replaces MT202 and MT202COV for institution-to-institution transfers.
+- Cover method flows pair pacs.009 with the underlying pacs.008 customer instruction.
+- Structured party data and LEI identification increasingly required.
+- SWIFT gpi covers pacs.009 for correspondent banking transparency.
 
 ## Message flow
 
@@ -86,9 +112,9 @@ The debtor institution sends pacs.009 to the creditor institution to transfer it
 
 ## Version commentary
 
-The ISO 20022 catalogue entry for this business area was last updated on 2025-02-27. The pacs008 site currently documents `pacs.009.001.10`, while the ISO 20022 catalogue lists `pacs.009.001.12` as the latest published version.
+ISO 20022 last updated this business area on 2025-02-27. This site documents `pacs.009.001.10`, while the latest catalogue version is `pacs.009.001.12`.
 
-That means this page is useful for understanding the currently implemented version in pacs008, but roadmap and interoperability planning should account for the later catalogue revision as well.
+Use this page for the version that pacs008 implements today, but keep the newer catalogue version in mind for roadmap planning.
 
 ## Version-diff table
 
@@ -260,17 +286,17 @@ Because institutions must preserve the relationship between treasury funding, co
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
           <td class="related-messages-table__name">FI to FI Customer Credit Transfer</td>
-          <td class="related-messages-table__overview">The pacs.008 message is the core payment instruction exchanged between financial institutions to transfer funds on behalf of a customer. It carries debtor, creditor, amount, and remittance information for one or more credit transfer transactions.</td>
+          <td class="related-messages-table__overview">The pacs.008 message is the main customer credit-transfer instruction between financial institutions. It carries party, amount, and remittance data.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="related-messages-table__name">FI to FI Payment Status Report</td>
-          <td class="related-messages-table__overview">The pacs.002 message is sent by a financial institution to report the status of a previously sent payment instruction. It provides confirmation, rejection, or pending status information for individual transactions within a payment message.</td>
+          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether processing was accepted, rejected, pending, or settled.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.010.001.05/"><code>pacs.010.001.05</code></a></td>
           <td class="related-messages-table__name">Financial Institution Direct Debit</td>
-          <td class="related-messages-table__overview">The pacs.010 message is used between financial institutions for direct debit transactions on the institution&#39;s own account. It enables one institution to collect funds directly from another institution&#39;s account.</td>
+          <td class="related-messages-table__overview">The pacs.010 message lets one financial institution debit another institution&#39;s own account. It is used for institution-to-institution collections, not for customer mandate payments.</td>
         </tr>
     </tbody>
   </table>

@@ -384,65 +384,65 @@ for (const mt of messageTypes) {
 const pageCopy = {
   en: {
     aboutTitle: "About pacs008",
-    aboutDescription: "What pacs008 does and who it is for.",
-    aboutIntro: "pacs008 is a Python toolkit for automating ISO 20022 FI-to-FI customer credit transfer workflows.",
+    aboutDescription: "Learn what pacs008 does, who it helps, and how it supports ISO 20022 payment generation, validation, and operational delivery.",
+    aboutIntro: "pacs008 helps teams create and check ISO 20022 payment messages. It is a Python toolkit for day-to-day payment operations.",
     whatItDoes: "What it does",
     whoItIsFor: "Who it is for",
     messageTitle: "Message Types",
-    messageDescription: "Supported ISO 20022 pacs message definitions and versions.",
-    messageIntro: "pacs008 covers the core pacs.008 message definition and related messages used in orchestration and reconciliation flows.",
+    messageDescription: "Browse the ISO 20022 pacs messages supported by pacs008 and see where each message fits in the payment lifecycle.",
+    messageIntro: "pacs008 covers the core pacs.008 message and the related pacs messages used for status, returns, reversals, and enquiries.",
     includedSupport: "Included support",
     deliveryModel: "Delivery model",
-    deliveryText: "Each supported message type is backed by template assets and validation logic so teams can standardise generation and regression testing across multiple downstream channels.",
+    deliveryText: "Each supported message comes with templates and validation rules. Teams can use the same assets in local tests, CI, and internal payment services.",
     apiTitle: "API",
-    apiDescription: "REST and CLI workflow support in pacs008.",
-    apiIntro: "The project provides both a REST API and a CLI for operational payment message workflows.",
+    apiDescription: "Use the pacs008 REST API, CLI, and Python library to validate payment data, check schemas, and generate ISO 20022 XML.",
+    apiIntro: "pacs008 gives you three entry points: a REST API, a CLI, and a Python library.",
     apiCapabilities: "API capabilities",
     cliCapabilities: "CLI capabilities",
     contactTitle: "Contact",
-    contactDescription: "How to reach the pacs008 project.",
-    contactIntro: "For repository issues, feature requests, and implementation questions, use the project links below.",
+    contactDescription: "Find the pacs008 repository, releases, and package links for support, issue tracking, and implementation questions.",
+    contactIntro: "Use the links below for issues, release notes, package details, and implementation questions.",
     privacyTitle: "Privacy",
-    privacyDescription: "Privacy information for the pacs008 website.",
+    privacyDescription: "Read how pacs008.com handles website data, uses basic analytics, and explains visitor privacy rights and limits.",
     termsTitle: "Terms",
-    termsDescription: "Terms information for the pacs008 website.",
-    privacyIntro: "This privacy statement explains how pacs008.com handles information when you visit the website.",
+    termsDescription: "Read the pacs008.com terms of use, intellectual property notice, third-party link terms, and liability limits.",
+    privacyIntro: "This page explains what data pacs008.com handles when you visit the site.",
     privacyCollectionTitle: "Information we collect",
-    privacyCollectionText: "pacs008.com does not collect personal data. The website does not use cookies or tracking technologies to identify individual visitors.",
+    privacyCollectionText: "pacs008.com does not collect personal data. The site does not use cookies or tracking tools to identify visitors.",
     privacyAnalyticsTitle: "Analytics",
-    privacyAnalyticsText: "Third-party analytics services may collect anonymised, aggregate data such as page views and referring URLs. This data cannot be used to identify individual visitors.",
+    privacyAnalyticsText: "Third-party analytics services may collect anonymised page views and referring URLs. This data does not identify individual visitors.",
     privacyRightsTitle: "Your rights",
-    privacyRightsText: "Depending on your jurisdiction, you may have rights regarding your personal data, including the right to access, correct, or delete information. Because pacs008.com does not collect personal data, these rights are unlikely to be applicable.",
+    privacyRightsText: "Depending on your jurisdiction, you may have rights over personal data, such as access, correction, or deletion. Because pacs008.com does not collect personal data, those rights are unlikely to apply here.",
     privacyChangesTitle: "Changes to this statement",
     privacyChangesText: "This privacy statement may be revised periodically. Any changes will be published on this page.",
     privacyContactTitle: "Contact",
     privacyContactText: "If you have questions about this privacy statement, please visit the [contact page](/contact/).",
-    aboutBullet1: "Generates XML for `pacs.008` and related pacs message definitions",
-    aboutBullet2: "Validates data and XML against schemas",
+    aboutBullet1: "Generates XML for `pacs.008` and related pacs messages",
+    aboutBullet2: "Checks business data and XML before release",
     aboutBullet3: "Exposes a FastAPI service for automated workflows",
-    aboutBullet4: "Provides a CLI for local execution and CI pipelines",
-    aboutBullet5: "Supports structured data sources including CSV, JSON, JSONL, SQLite, and Parquet",
+    aboutBullet4: "Provides a CLI for local runs and CI pipelines",
+    aboutBullet5: "Reads structured data from CSV, JSON, JSONL, SQLite, and Parquet",
     audience1: "payment operations teams",
-    audience2: "platform engineers building internal payment processing infrastructure",
-    audience3: "migration programmes moving toward ISO 20022",
-    audience4: "compliance and QA teams validating outbound payment messages",
+    audience2: "platform engineers building internal payment systems",
+    audience3: "migration programmes moving to ISO 20022",
+    audience4: "compliance and QA teams checking outbound payment messages",
     readinessTitle: "2026 readiness",
-    readinessIntro: "pacs008 is designed around the operational deadlines and data-quality requirements relevant to 2026:",
-    readiness1: "structured and hybrid postal address handling for CBPR+ and scheme migrations",
-    readiness2: "stronger validation around debtor, creditor, and agent data quality",
-    readiness3: "version-aware generation across legacy and current pacs.008 revisions",
-    readiness4: "automation paths that fit CI, batch operations, and internal payment services",
+    readinessIntro: "pacs008 is built around the 2026 deadlines and data checks that matter most:",
+    readiness1: "structured and hybrid postal address support for CBPR+ and scheme migrations",
+    readiness2: "stronger checks for debtor, creditor, and agent data",
+    readiness3: "version-aware generation across older and current pacs.008 revisions",
+    readiness4: "automation paths for CI, batch runs, and internal payment services",
     differenceTitle: "Operational focus",
-    differenceIntro: "pacs008 goes beyond message definition reference to support operational implementation:",
+    differenceIntro: "pacs008 is not just a message reference. It helps teams run payment workflows:",
     difference1: "generate XML from real source data",
     difference2: "validate before delivery",
     difference3: "model payment chains and downstream formats",
     difference4: "make scheme-specific changes testable in code",
     marketTitle: "2026 market context",
-    market1: "**SEPA SCT / SCT Inst**: pacs.008 remains central for credit transfer exchange and instant-payment processing.",
-    market2: "**CBPR+**: pacs.008 continues to replace MT103-style cross-border payloads with richer structured data.",
-    market3: "**Structured addresses**: current market guidance and bank readiness material point to the November 2026 cutover away from fully unstructured postal addresses.",
-    market4: "**Serial method and STP**: multi-leg bank-to-bank chains still matter, and straight-through variants remain important for operational efficiency.",
+    market1: "**SEPA SCT / SCT Inst**: pacs.008 remains central to credit transfers and instant payments.",
+    market2: "**CBPR+**: pacs.008 keeps replacing MT103-style cross-border traffic with more structured data.",
+    market3: "**Structured addresses**: market guidance points to a November 2026 move away from fully unstructured postal addresses.",
+    market4: "**Serial method and STP**: multi-leg bank chains still matter, and straight-through processing still drives efficiency.",
     addsTitle: "Operational capabilities",
     addsIntro: "pacs008 provides template-backed generation and validation across supported message definition revisions:",
     adds1: "compare versions",
@@ -450,38 +450,38 @@ const pageCopy = {
     adds3: "strengthen outbound payment message data before release",
     adds4: "support product, operations, and migration teams from one codebase",
     apiInstallTitle: "Installation",
-    apiInstallText: "Install the package from PyPI. Python 3.9.2 or higher is required.",
+    apiInstallText: "Install the package from PyPI. You need Python 3.9.2 or later.",
     apiRestTitle: "REST API",
-    apiRestIntro: "Start the built-in FastAPI server to expose HTTP endpoints for validation and generation.",
+    apiRestIntro: "Start the built-in FastAPI server when you need HTTP endpoints for validation and XML generation.",
     apiRestStart: "Start the server",
     apiEndpointsTitle: "Endpoints",
-    apiEndpointHealth: "Health check — returns service status",
-    apiEndpointValidate: "Validate payment data against the schema without generating XML",
-    apiEndpointGenerate: "Generate XML synchronously and return the file",
-    apiEndpointAsync: "Submit an asynchronous generation job",
-    apiEndpointStatus: "Poll job status by ID",
-    apiEndpointDownload: "Download the generated XML once the job completes",
-    apiEndpointDocs: "Interactive Swagger UI for exploring and testing all endpoints",
+    apiEndpointHealth: "Health check that returns service status",
+    apiEndpointValidate: "Validate payment data without generating XML",
+    apiEndpointGenerate: "Generate XML now and return the file",
+    apiEndpointAsync: "Submit an async generation job",
+    apiEndpointStatus: "Check job status by ID",
+    apiEndpointDownload: "Download XML after the job completes",
+    apiEndpointDocs: "Swagger UI for testing all endpoints",
     apiValidateExample: "Validation example",
-    apiValidateDesc: "Submit payment data for validation before generating XML.",
+    apiValidateDesc: "Validate payment data before you generate XML.",
     apiGenerateExample: "Synchronous generation example",
-    apiGenerateDesc: "Generate a pacs.008.001.13 XML file from a JSON payload.",
+    apiGenerateDesc: "Generate a `pacs.008.001.13` XML file from JSON data.",
     apiAsyncExample: "Asynchronous generation",
-    apiAsyncDesc: "For larger files or pipeline use, submit an async job and poll for completion.",
+    apiAsyncDesc: "For larger files or workflow engines, submit an async job and poll until it finishes.",
     apiCliTitle: "CLI",
-    apiCliIntro: "The command-line interface accepts a data file, a message version, a template, and a schema. It validates the input and writes the generated XML to the output directory.",
+    apiCliIntro: "The CLI takes a data file, message version, template, and schema. It validates the input and writes XML to the output directory.",
     apiCliBasic: "Basic usage",
     apiCliExample: "Example",
     apiCliDryRun: "Dry-run mode",
-    apiCliDryRunDesc: "Use `--dry-run` to validate input data without generating XML. The exit code indicates whether validation passed (`0`) or failed (`1`).",
+    apiCliDryRunDesc: "Use `--dry-run` to validate input data without generating XML. The exit code shows whether validation passed (`0`) or failed (`1`).",
     apiCliVerbose: "Add `--verbose` for detailed output during generation.",
     apiPythonTitle: "Python API",
     apiPythonIntro: "Use the library directly in Python scripts or services.",
     apiPythonGenerate: "Generate XML from a list of payment records",
     apiPythonCompliance: "SWIFT compliance check",
-    apiPythonComplianceDesc: "Validate and cleanse data against SWIFT character-set and field-length rules before generation.",
+    apiPythonComplianceDesc: "Check and clean data against SWIFT character and field-length rules before generation.",
     apiFieldsTitle: "Required data fields",
-    apiFieldsIntro: "Every payment record must include the following fields. Version-specific fields are noted where applicable.",
+    apiFieldsIntro: "Each payment record must include these fields. Version-specific fields are listed below.",
     apiFieldCol1: "Field",
     apiFieldCol2: "Description",
     apiFieldCol3: "Constraint",
@@ -516,7 +516,7 @@ const pageCopy = {
     apiFieldMandateC: "Available from v10",
     apiFieldExpiry: "Message expiry timestamp",
     apiFieldExpiryC: "Available in v13",
-    termsIntro: "By accessing pacs008.com, you agree to be bound by these terms of use.",
+    termsIntro: "By using pacs008.com, you agree to these terms of use.",
     termsIpTitle: "Intellectual property",
     termsIpText: "All content on pacs008.com, including text, graphics, logos, and software, is the property of its respective owners and is protected by copyright and trademark laws.",
     termsLinksTitle: "Third-party links",
@@ -543,7 +543,7 @@ const pageCopy = {
     msgDetailRelated: "Related messages",
     msgTypeColId: "Message type",
     msgTypeColDesc: "Description",
-    pacs002Overview: "The pacs.002 message is sent by a financial institution to report the status of a previously sent payment instruction. It provides confirmation, rejection, or pending status information for individual transactions within a payment message.",
+    pacs002Overview: "The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether processing was accepted, rejected, pending, or settled.",
     pacs002Element1: "**GrpHdr** — Group Header with message identification and creation timestamp",
     pacs002Element2: "**OrgnlGrpInfAndSts** — Original Group Information and Status for bulk-level reporting",
     pacs002Element3: "**TxInfAndSts** — Transaction Information and Status for individual transaction outcomes",
@@ -558,7 +558,7 @@ const pageCopy = {
     pacs002Cbpr3: "Structured reason codes replace free-text rejection explanations",
     pacs002Cbpr4: "SWIFT gpi tracking integration requires pacs.002 for end-to-end transparency",
     pacs002Flow: "The instructed agent (receiver) sends pacs.002 back to the instructing agent (sender) to confirm acceptance, settlement, or rejection of a received payment instruction such as pacs.008 or pacs.009.",
-    pacs003Overview: "The pacs.003 message is exchanged between financial institutions to execute a customer direct debit instruction. It enables the creditor's bank to collect funds from the debtor's bank on behalf of the creditor.",
+    pacs003Overview: "The pacs.003 message executes a customer direct debit between financial institutions. It lets the creditor bank collect funds from the debtor bank.",
     pacs003Element1: "**GrpHdr** — Group Header with message identification and settlement information",
     pacs003Element2: "**DrctDbtTxInf** — Direct Debit Transaction Information with amount and parties",
     pacs003Element3: "**Cdtr** — Creditor identification and account details",
@@ -573,7 +573,7 @@ const pageCopy = {
     pacs003Cbpr3: "Replaces legacy MT104-style direct debit formats in cross-border flows",
     pacs003Cbpr4: "Validation of creditor scheme identification is increasingly enforced",
     pacs003Flow: "The creditor agent initiates pacs.003 toward the debtor agent to collect funds. The debtor agent validates the mandate, checks account coverage, and either settles or returns the transaction.",
-    pacs004Overview: "The pacs.004 message is used to return a previously settled payment transaction. It reverses the flow of funds when a payment cannot be applied, was sent in error, or is being recalled by the originating institution.",
+    pacs004Overview: "The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied or must be sent back.",
     pacs004Element1: "**GrpHdr** — Group Header with message identification and creation timestamp",
     pacs004Element2: "**TxInf** — Transaction Information with return amount and parties",
     pacs004Element3: "**OrgnlGrpInf** — Original Group Information linking to the source message",
@@ -588,7 +588,7 @@ const pageCopy = {
     pacs004Cbpr3: "CBPR+ requires full original transaction reference data for matching",
     pacs004Cbpr4: "SWIFT gpi tracking extends to return transactions for end-to-end visibility",
     pacs004Flow: "The instructed agent sends pacs.004 back through the payment chain to return previously settled funds. Each agent in the chain processes the return and credits back the relevant accounts.",
-    pacs007Overview: "The pacs.007 message is used to reverse a previously sent payment instruction that has not yet been settled or to request reversal of a settled payment. Unlike pacs.004 (return), it is initiated by the original instructing agent.",
+    pacs007Overview: "The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, it starts from the original instructing side.",
     pacs007Element1: "**GrpHdr** — Group Header with message identification and creation timestamp",
     pacs007Element2: "**TxInf** — Transaction Information with reversal amount and parties",
     pacs007Element3: "**OrgnlGrpInf** — Original Group Information referencing the source message",
@@ -603,7 +603,7 @@ const pageCopy = {
     pacs007Cbpr3: "Structured reason codes replace free-text narratives from legacy MT messages",
     pacs007Cbpr4: "Increasingly used in instant payment recall and fraud prevention workflows",
     pacs007Flow: "The instructing agent (original sender) sends pacs.007 forward through the payment chain to reverse a previously instructed payment. Each agent processes the reversal instruction and adjusts settlement accordingly.",
-    pacs008dOverview: "The pacs.008 message is the core payment instruction exchanged between financial institutions to transfer funds on behalf of a customer. It carries debtor, creditor, amount, and remittance information for one or more credit transfer transactions.",
+    pacs008dOverview: "The pacs.008 message is the main customer credit-transfer instruction between financial institutions. It carries party, amount, and remittance data.",
     pacs008dElement1: "**GrpHdr** — Group Header with message ID, creation date, number of transactions, and settlement information",
     pacs008dElement2: "**CdtTrfTxInf** — Credit Transfer Transaction Information with amount, charges, and purpose",
     pacs008dElement3: "**Dbtr / DbtrAgt** — Debtor and Debtor Agent identification and account details",
@@ -618,7 +618,7 @@ const pageCopy = {
     pacs008dCbpr3: "SWIFT gpi requires pacs.008 for UETR-based end-to-end tracking",
     pacs008dCbpr4: "13 revisions reflect ongoing schema evolution across market infrastructures",
     pacs008dFlow: "The debtor agent creates a pacs.008 and sends it to the creditor agent (directly or via intermediaries). Each agent in the chain validates, enriches, and forwards the instruction until the creditor agent credits the beneficiary's account.",
-    pacs009Overview: "The pacs.009 message is used for credit transfers between financial institutions where the transfer is on the institution's own behalf rather than on behalf of a customer. It supports interbank funding, cover payments, and liquidity management.",
+    pacs009Overview: "The pacs.009 message moves funds between financial institutions on their own behalf. It supports interbank funding, cover payments, and liquidity management.",
     pacs009Element1: "**GrpHdr** — Group Header with message identification and settlement information",
     pacs009Element2: "**CdtTrfTxInf** — Credit Transfer Transaction Information with interbank settlement amount",
     pacs009Element3: "**Dbtr / DbtrAgt** — Debtor institution and its agent identification",
@@ -633,52 +633,52 @@ const pageCopy = {
     pacs009Cbpr3: "Structured party data and LEI identification increasingly required",
     pacs009Cbpr4: "SWIFT gpi covers pacs.009 for correspondent banking transparency",
     pacs009Flow: "The debtor institution sends pacs.009 to the creditor institution to transfer its own funds. For cover-method payments, pacs.009 provides the funding leg while pacs.008 carries the customer instruction through a separate path.",
-    pacs010Overview: "The pacs.010 message is used between financial institutions for direct debit transactions on the institution's own account. It enables one institution to collect funds directly from another institution's account.",
+    pacs010Overview: "The pacs.010 message lets one financial institution debit another institution's own account. It is used for institution-to-institution collections, not for customer mandate payments.",
     pacs010Element1: "**GrpHdr** — Group Header with message identification and settlement information",
     pacs010Element2: "**DrctDbtTxInf** — Direct Debit Transaction Information with collection amount",
     pacs010Element3: "**Cdtr / CdtrAgt** — Creditor institution and its agent identification",
     pacs010Element4: "**Dbtr / DbtrAgt** — Debtor institution and its agent identification",
     pacs010Element5: "**IntrBkSttlmAmt** — Interbank Settlement Amount in the settlement currency",
-    pacs010Business1: "Supports interbank direct debit collection between financial institutions",
-    pacs010Business2: "Used for fee collection, margin calls, and institutional settlement obligations",
-    pacs010Business3: "Requires pre-agreed bilateral arrangements between participating institutions",
-    pacs010Business4: "Critical for institutional cash management and interbank settlement cycles",
-    pacs010Cbpr1: "Replaces elements of MT204 for interbank direct debit processing",
-    pacs010Cbpr2: "Structured party identification follows the same requirements as other pacs messages",
-    pacs010Cbpr3: "Validation of institutional identifiers (BIC, LEI) is mandatory",
-    pacs010Cbpr4: "Included in full ISO 20022 adoption roadmaps across market infrastructures",
-    pacs010Flow: "The creditor institution sends pacs.010 to the debtor institution to collect funds under a pre-agreed arrangement. The debtor institution validates the request and settles or rejects the direct debit.",
-    pacs028Overview: "The pacs.028 message is sent by a financial institution to request the status of a previously sent payment instruction. It enables proactive tracking of payment processing without waiting for an unsolicited status report.",
+    pacs010Business1: "Supports direct-debit collection between financial institutions",
+    pacs010Business2: "Used for fees, margin calls, and other institution-level obligations",
+    pacs010Business3: "Needs a bilateral agreement between the participating institutions",
+    pacs010Business4: "Often sits inside treasury and liquidity workflows",
+    pacs010Cbpr1: "Maps legacy interbank direct-debit processing into ISO 20022",
+    pacs010Cbpr2: "Uses the same structured party data rules as other pacs messages",
+    pacs010Cbpr3: "Institution identifiers such as BIC and LEI still need validation",
+    pacs010Cbpr4: "Appears in broader ISO 20022 migration plans across market infrastructures",
+    pacs010Flow: "The collecting institution sends pacs.010 to the debited institution under a pre-agreed setup. The receiving institution checks the request and either settles or rejects it.",
+    pacs028Overview: "The pacs.028 message asks another institution for the status of an earlier payment. It is a targeted status query for delayed, unclear, or missing payment updates.",
     pacs028Element1: "**GrpHdr** — Group Header with message identification and creation timestamp",
     pacs028Element2: "**TxInf** — Transaction Information identifying the payment to enquire about",
     pacs028Element3: "**OrgnlGrpInf** — Original Group Information referencing the source message",
     pacs028Element4: "**OrgnlInstrId** — Original Instruction Identification from the source payment",
     pacs028Element5: "**OrgnlEndToEndId** — Original End to End Identification for traceability",
-    pacs028Business1: "Enables proactive status enquiry for payment instructions in transit",
-    pacs028Business2: "Supports operations teams investigating delayed or missing payments",
-    pacs028Business3: "Complements pacs.002 by initiating status communication rather than waiting",
-    pacs028Business4: "Used in exception-handling and SLA-monitoring workflows",
-    pacs028Cbpr1: "Replaces MT199 status enquiry patterns and manual SWIFT message queries",
-    pacs028Cbpr2: "CBPR+ supports structured status requests linked to original message identifiers",
-    pacs028Cbpr3: "UETR-based tracking through gpi reduces the need for manual enquiries",
-    pacs028Cbpr4: "Increasingly integrated into automated payment operations dashboards",
-    pacs028Flow: "The instructing agent sends pacs.028 to the instructed agent to request status of a specific payment. The instructed agent responds with a pacs.002 containing the current processing status.",
-    aboutBullet6: "Validates IBAN (75 countries, ISO 7064 checksum) and BIC (ISO 9362) identifiers",
-    aboutBullet7: "Cleanses payment data for SWIFT compliance with transliteration and field-length enforcement",
-    aboutBullet8: "Streams large datasets in configurable chunks for memory-efficient processing",
-    aboutBullet9: "Ships a Docker image for containerised API deployment",
+    pacs028Business1: "Lets teams ask for status on a payment that is still in flight",
+    pacs028Business2: "Helps operations teams investigate delayed or missing payments",
+    pacs028Business3: "Works with pacs.002 when a passive status update is not enough",
+    pacs028Business4: "Fits exception handling and SLA monitoring",
+    pacs028Cbpr1: "Replaces older manual status-enquiry patterns",
+    pacs028Cbpr2: "Links the request to the original payment identifiers",
+    pacs028Cbpr3: "UETR and gpi tracking can reduce how often teams need to send it",
+    pacs028Cbpr4: "Often appears in automated payment-operations tooling",
+    pacs028Flow: "The sending institution asks the receiving institution for the status of one payment. The answer usually comes back in pacs.002.",
+    aboutBullet6: "Checks IBAN and BIC identifiers before message generation",
+    aboutBullet7: "Cleans payment text for SWIFT character and length rules",
+    aboutBullet8: "Processes large datasets in batches to limit memory use",
+    aboutBullet9: "Ships a Docker image for API deployment",
     validationTitle: "Validation",
-    validationIntro: "Multiple validation layers operate before any XML is written:",
-    validation1: "JSON Schema validation against 20 message-specific schemas",
-    validation2: "IBAN format and checksum verification covering 75 countries",
-    validation3: "BIC structure and country-code validation per ISO 9362",
-    validation4: "XSD validation of generated XML against the official ISO 20022 schemas",
+    validationIntro: "The toolkit checks data before it writes XML:",
+    validation1: "JSON Schema checks for 20 message-specific schemas",
+    validation2: "IBAN format and checksum checks",
+    validation3: "BIC structure and country-code checks",
+    validation4: "XSD validation against official ISO 20022 schemas",
     securityTitle: "Security",
-    securityIntro: "pacs008 applies defence-in-depth across every layer of the processing pipeline:",
-    security1: "XXE prevention through defusedxml for all XML parsing operations",
-    security2: "path-traversal protection with strict directory allowlisting",
-    security3: "PII masking in structured JSON logs to support GDPR and PCI DSS compliance",
-    security4: "SQL injection prevention with strict table-name sanitisation for SQLite sources",
+    securityIntro: "The toolkit also blocks common parsing and file-handling risks:",
+    security1: "XXE protection for XML parsing",
+    security2: "Path allowlists to reduce traversal risk",
+    security3: "PII masking in structured logs",
+    security4: "Strict SQLite table-name sanitisation",
     apiEndpointCancel: "Cancel a pending or running job",
     apiDockerTitle: "Docker",
     apiDockerIntro: "Run the API in a container using the bundled Dockerfile.",
@@ -7243,31 +7243,31 @@ const EN_EDITORIAL = {
       ]
     },
     "pacs.010.001.05": {
-      whenToUse: "Use pacs.010 for direct-debit style institution-to-institution collections where the debit occurs on the institution's own account rather than for a retail customer mandate.",
-      avoidUsing: "Do not use pacs.010 for customer mandate collections or for credit-transfer use cases.",
+      whenToUse: "Use pacs.010 when one institution must debit another institution's own account.",
+      avoidUsing: "Do not use pacs.010 for customer mandate collections or credit-transfer flows.",
       implementationNotes: [
-        "Model authorization and bilateral agreement logic outside the message itself because those controls often sit in treasury or correspondent agreements.",
-        "Institution-own-account debits usually need tighter governance than retail direct debits due to counterparty and liquidity risk.",
-        "Design reporting and status handling alongside the collection flow; investigations are expensive when debit provenance is weak."
+        "Keep the bilateral approval logic outside the message because it usually sits in treasury or correspondent agreements.",
+        "Treat institution-own-account debits as high-control flows because counterparty and liquidity risk are higher than in retail collections.",
+        "Design status and exception handling with the collection flow so teams can trace the debit later."
       ],
       commonPitfalls: [
-        "Treating pacs.010 as just the direct-debit equivalent of pacs.009.",
+        "Treating pacs.010 as the debit mirror of pacs.009.",
         "Not capturing bilateral authorization context.",
         "Ignoring downstream status and exception flows."
       ]
     },
     "pacs.028.001.05": {
-      whenToUse: "Use pacs.028 when an institution needs to actively request the status of an earlier payment instruction instead of waiting for an unsolicited status update.",
-      avoidUsing: "Do not use pacs.028 as a replacement for routine event-driven status messaging when pacs.002 is already available and timely.",
+      whenToUse: "Use pacs.028 when a team must ask another institution for the current status of an earlier payment.",
+      avoidUsing: "Do not use pacs.028 as a routine substitute for pacs.002 status reporting.",
       implementationNotes: [
-        "Issue status requests selectively; overusing them can create duplicate operational traffic without improving resolution times.",
-        "Pair pacs.028 with robust timeout and escalation rules so investigations do not stall after the request is sent.",
-        "Store the reason for the request alongside the original payment identifiers for auditability and case handling."
+        "Send status requests only when operations needs them. Too many requests add traffic without helping resolution.",
+        "Set timeout and escalation rules so investigations do not stall after the request is sent.",
+        "Store the reason for the request with the original payment identifiers so the case stays auditable."
       ],
       commonPitfalls: [
-        "Sending status requests too early, before the receiving institution could reasonably have progressed the payment.",
-        "Using pacs.028 without a clear exception-management workflow behind it.",
-        "Not reconciling requested statuses back into the original case record."
+        "Sending the request too early.",
+        "Using pacs.028 without a clear exception workflow.",
+        "Not linking the answer back to the original case record."
       ]
     }
   }
@@ -7295,7 +7295,7 @@ function isoCatalogueLink(msgType = null) {
 const LOCALE_SEO_COPY = {
   en: {
     selectionGuideTitle: "Message Selection Guide",
-    selectionGuideDescription: "Choose the right ISO 20022 pacs message for generation, status reporting, returns, reversals, and enquiries.",
+    selectionGuideDescription: "Choose the right ISO 20022 pacs message for generation, status reporting, returns, reversals, and payment enquiries.",
     selectionGuideIntro: "Choose the pacs family by business event first, then by scheme and operating model.",
     quickDecisionMatrix: "Quick decision matrix",
     commonComparisonPoints: "Common comparison points",
@@ -10872,6 +10872,46 @@ function messageOperationalMatrix(localeKey, msgType) {
   });
 }
 
+function messageMetadataTable(localeKey, msgType) {
+  const t = copyFor(localeKey);
+  return htmlTable({
+    className: "message-metadata-table",
+    ariaLabel: `${msgType.slug} metadata`,
+    columns: [
+      { className: "message-metadata-table__col-label", label: "" },
+      { className: "message-metadata-table__col-value", label: "" }
+    ],
+    rows: [
+      [`**${t.msgDetailIsoName}**`, msgType.isoName],
+      [`**${t.msgDetailStatus}**`, msgType.registrationStatus],
+      [`**${t.msgDetailYear}**`, String(msgType.year)],
+      [`**${t.msgDetailVersion}**`, String(msgType.version)]
+    ].map(([label, value]) => [
+      { className: "message-metadata-table__label", html: formatInlineMarkup(label) },
+      { className: "message-metadata-table__value", html: escapeHtml(value) }
+    ])
+  });
+}
+
+function messageVersionsTable(localeKey, msgType) {
+  const t = copyFor(localeKey);
+  return htmlTable({
+    className: "message-versions-table",
+    ariaLabel: t.msgDetailVersions,
+    columns: [
+      { className: "message-versions-table__col-version", label: t.msgDetailVersion },
+      { className: "message-versions-table__col-status", label: "" }
+    ],
+    rows: msgType.versions.map((version) => [
+      { className: "message-versions-table__version", html: `<code>${escapeHtml(version)}</code>` },
+      {
+        className: "message-versions-table__status",
+        html: version === msgType.slug ? `<strong>${escapeHtml(localeKey === "en" ? "Current" : advancedTranslate(localeKey, "Current"))}</strong>` : ""
+      }
+    ])
+  });
+}
+
 function relatedMessageTable(localeKey, msgType) {
   const t = copyFor(localeKey);
   const rows = msgType.relatedSlugs
@@ -10942,7 +10982,7 @@ function englishMessageTypeEditorial() {
   return `
 ## Choosing the right message
 
-${EN_EDITORIAL.messageTypesPerspectiveIntro}
+Start with the business event, not the message code.
 
 - \`pacs.008\` starts the customer credit-transfer flow.
 - \`pacs.009\` handles institution-own-account credit transfers and cover flows.
@@ -10951,7 +10991,7 @@ ${EN_EDITORIAL.messageTypesPerspectiveIntro}
 - \`pacs.004\` returns settled funds.
 - \`pacs.007\` reverses an earlier payment instruction.
 
-See the dedicated [message selection guide](/message-selection/) for a one-page decision view across all supported pacs flows.
+Use the [message selection guide](/message-selection/) for a one-page view across the supported pacs flows.
 `;
 }
 
@@ -10995,7 +11035,10 @@ function englishApiEditorial() {
   return `
 ## Implementation notes
 
-${EN_EDITORIAL.apiImplementationNotes.map((item) => `- ${item}`).join("\n")}
+- Use synchronous generation for operator checks and small batches.
+- Use async generation for large files and workflow engines.
+- Keep the input payload and validation report so support teams can reproduce the output.
+- Pin template and XSD paths in deployment config so releases do not change without notice.
 `;
 }
 
@@ -11017,11 +11060,11 @@ function englishVersionDiffCommentary(msgType) {
   return `
 ## Version commentary
 
-The ISO 20022 catalogue entry for this business area was last updated on ${latestInfo.date}. The pacs008 site currently documents \`${msgType.slug}\`${isCurrent ? `, which matches the latest catalogue version listed by ISO 20022.` : `, while the ISO 20022 catalogue lists \`${latestInfo.latest}\` as the latest published version.`}
+ISO 20022 last updated this business area on ${latestInfo.date}. This site documents \`${msgType.slug}\`${isCurrent ? `, which still matches the latest catalogue version.` : `, while the latest catalogue version is \`${latestInfo.latest}\`.`}
 
 ${isCurrent
-    ? `That makes this page suitable for current-version implementation planning, but scheme usage guidelines and market practice should still be checked before production rollout.`
-    : `That means this page is useful for understanding the currently implemented version in pacs008, but roadmap and interoperability planning should account for the later catalogue revision as well.`}
+    ? `Use this page for current implementation work, but still check scheme guidance before production rollout.`
+    : `Use this page for the version that pacs008 implements today, but keep the newer catalogue version in mind for roadmap planning.`}
 `;
 }
 
@@ -11058,12 +11101,12 @@ function englishSchemeNotes(msgType) {
       `This message is outside the SCT/SCT Inst customer credit-transfer rulebooks, so teams should not assume SEPA customer-payment rules apply unchanged to pacs.009.`
     ],
     "pacs.010.001.05": [
-      `pacs.010 is not part of the SCT or SCT Inst credit-transfer rulebooks, so credit-transfer implementation shortcuts do not carry over automatically.`,
-      `Use this page as a technical-reference and implementation guide for institution direct-debit scenarios rather than as a substitute for market-scheme documentation.`
+      `pacs.010 is not part of the SCT or SCT Inst credit-transfer rulebooks, so credit-transfer shortcuts do not carry over here.`,
+      `Use this page as a technical guide for institution direct-debit scenarios, not as a substitute for market-scheme documentation.`
     ],
     "pacs.028.001.05": [
-      `pacs.028 is the proactive status-request counterpart to status-reporting flows such as pacs.002, and it becomes operationally relevant where institutions need explicit query behaviour rather than waiting for unsolicited updates.`,
-      `In practice, this message is most useful when paired with clear exception-management timing rules defined by a scheme, counterparty agreement, or internal operations model.`
+      `pacs.028 is the active status-request partner to pacs.002. Use it when a team must ask for status instead of waiting for an update.`,
+      `It works best when the scheme, counterparty agreement, or internal operations model defines clear timing and escalation rules.`
     ]
   };
 
@@ -11106,12 +11149,12 @@ function englishFaq(msgType) {
       ["Why is pacs.009 often harder to reconcile than expected?", "Because institutions must preserve the relationship between treasury funding, correspondent legs, and any linked customer payment."]
     ],
     "pacs.010.001.05": [
-      ["Is pacs.010 commonly used in retail payment products?", "It is more naturally aligned to institution-own-account direct-debit scenarios than to standard retail products."],
-      ["What should teams design first?", "Authorization context, bilateral controls, and exception handling should be clear before XML templates are finalised."]
+      ["Is pacs.010 common in retail payment products?", "Usually no. It fits institution direct-debit scenarios better than standard retail products."],
+      ["What should teams design first?", "Start with authorization, bilateral controls, and exception handling before finalising XML templates."]
     ],
     "pacs.028.001.05": [
-      ["Should pacs.028 be sent automatically after every payment?", "Usually no. It is most effective as a targeted exception tool, not as blanket traffic."],
-      ["What makes pacs.028 valuable?", "Clear timeout, escalation, and reconciliation rules around the original payment case."]
+      ["Should pacs.028 be sent after every payment?", "Usually no. It works best as a targeted exception tool, not as blanket traffic."],
+      ["What makes pacs.028 useful?", "Clear timeout, escalation, and reconciliation rules around the original payment case."]
     ]
   };
 
@@ -11484,6 +11527,9 @@ function clampDescription(value, max = 158) {
 }
 
 function localeSectionDescription(locale, summary) {
+  if (locale.key === "en") {
+    return clampDescription(summary);
+  }
   return clampDescription(`${summary} ${locale.tagline}`);
 }
 
@@ -11498,6 +11544,27 @@ function pageTitle(primary, suffix = "pacs008") {
     return primary;
   }
   return `${primary} | ${suffix}`;
+}
+
+function sectionPageTitle(localeKey, section, fallback) {
+  if (localeKey !== "en") return fallback;
+
+  const titles = {
+    about: "About pacs008 - ISO 20022 toolkit",
+    "message-types": "Supported ISO 20022 message types",
+    "message-selection": "Choose the right ISO 20022 pacs message",
+    api: "pacs008 API - validate data and generate XML",
+    contact: "Contact the pacs008 project",
+    privacy: "Privacy notice for pacs008",
+    terms: "Terms of use for pacs008"
+  };
+
+  return pageTitle(titles[section] ?? fallback);
+}
+
+function sentenceListItem(localeKey, value) {
+  if (localeKey !== "en") return value;
+  return /[.!?]$/.test(value) ? value : `${value}.`;
 }
 
 function homeFrontmatter(locale) {
@@ -11547,15 +11614,15 @@ ${introBlock(localeKey, t.aboutIntro)}
 
 ## ${t.whatItDoes}
 
-- ${t.aboutBullet1}
-- ${t.aboutBullet2}
-- ${t.aboutBullet3}
-- ${t.aboutBullet4}
-- ${t.aboutBullet5}
-- ${t.aboutBullet6}
-- ${t.aboutBullet7}
-- ${t.aboutBullet8}
-- ${t.aboutBullet9}
+- ${sentenceListItem(localeKey, t.aboutBullet1)}
+- ${sentenceListItem(localeKey, t.aboutBullet2)}
+- ${sentenceListItem(localeKey, t.aboutBullet3)}
+- ${sentenceListItem(localeKey, t.aboutBullet4)}
+- ${sentenceListItem(localeKey, t.aboutBullet5)}
+- ${sentenceListItem(localeKey, t.aboutBullet6)}
+- ${sentenceListItem(localeKey, t.aboutBullet7)}
+- ${sentenceListItem(localeKey, t.aboutBullet8)}
+- ${sentenceListItem(localeKey, t.aboutBullet9)}
 
 ## ${t.whoItIsFor}
 
@@ -11568,37 +11635,37 @@ ${introBlock(localeKey, t.aboutIntro)}
 
 ${t.validationIntro}
 
-- ${t.validation1}
-- ${t.validation2}
-- ${t.validation3}
-- ${t.validation4}
+- ${sentenceListItem(localeKey, t.validation1)}
+- ${sentenceListItem(localeKey, t.validation2)}
+- ${sentenceListItem(localeKey, t.validation3)}
+- ${sentenceListItem(localeKey, t.validation4)}
 
 ## ${t.securityTitle}
 
 ${t.securityIntro}
 
-- ${t.security1}
-- ${t.security2}
-- ${t.security3}
-- ${t.security4}
+- ${sentenceListItem(localeKey, t.security1)}
+- ${sentenceListItem(localeKey, t.security2)}
+- ${sentenceListItem(localeKey, t.security3)}
+- ${sentenceListItem(localeKey, t.security4)}
 
 ## ${t.readinessTitle}
 
 ${t.readinessIntro}
 
-- ${t.readiness1}
-- ${t.readiness2}
-- ${t.readiness3}
-- ${t.readiness4}
+- ${sentenceListItem(localeKey, t.readiness1)}
+- ${sentenceListItem(localeKey, t.readiness2)}
+- ${sentenceListItem(localeKey, t.readiness3)}
+- ${sentenceListItem(localeKey, t.readiness4)}
 
 ## ${t.differenceTitle}
 
 ${t.differenceIntro}
 
-- ${t.difference1}
-- ${t.difference2}
-- ${t.difference3}
-- ${t.difference4}
+- ${sentenceListItem(localeKey, t.difference1)}
+- ${sentenceListItem(localeKey, t.difference2)}
+- ${sentenceListItem(localeKey, t.difference3)}
+- ${sentenceListItem(localeKey, t.difference4)}
 ${localeKey === "en" ? englishAboutEditorial() : localizedAboutEditorial(localeKey)}
 `;
 }
@@ -11620,19 +11687,19 @@ ${localeKey === "en" ? englishMessageTypeEditorial() : localizedMessageTypeEdito
 
 ## ${t.marketTitle}
 
-- ${t.market1}
-- ${t.market2}
-- ${t.market3}
-- ${t.market4}
+- ${sentenceListItem(localeKey, t.market1)}
+- ${sentenceListItem(localeKey, t.market2)}
+- ${sentenceListItem(localeKey, t.market3)}
+- ${sentenceListItem(localeKey, t.market4)}
 
 ## ${t.addsTitle}
 
 ${t.addsIntro}
 
-- ${t.adds1}
-- ${t.adds2}
-- ${t.adds3}
-- ${t.adds4}
+- ${sentenceListItem(localeKey, t.adds1)}
+- ${sentenceListItem(localeKey, t.adds2)}
+- ${sentenceListItem(localeKey, t.adds3)}
+- ${sentenceListItem(localeKey, t.adds4)}
 `;
 }
 
@@ -11642,12 +11709,7 @@ function messageTypeDetailBody(localeKey, msgType) {
 
   let body = `# ${msgType.slug} — ${localizedMessageName(localeKey, msgType)}
 
-| | |
-|---|---|
-| **${t.msgDetailIsoName}** | ${msgType.isoName} |
-| **${t.msgDetailStatus}** | ${msgType.registrationStatus} |
-| **${t.msgDetailYear}** | ${msgType.year} |
-| **${t.msgDetailVersion}** | ${msgType.version} |
+${messageMetadataTable(localeKey, msgType)}
 
 ## ${t.msgDetailOverview}
 
@@ -11655,27 +11717,27 @@ ${introBlock(localeKey, t[p + "Overview"], msgType)}
 
 ## ${t.msgDetailKeyElements}
 
-- ${t[p + "Element1"]}
-- ${t[p + "Element2"]}
-- ${t[p + "Element3"]}
-- ${t[p + "Element4"]}
-- ${t[p + "Element5"]}
+- ${sentenceListItem(localeKey, t[p + "Element1"])}
+- ${sentenceListItem(localeKey, t[p + "Element2"])}
+- ${sentenceListItem(localeKey, t[p + "Element3"])}
+- ${sentenceListItem(localeKey, t[p + "Element4"])}
+- ${sentenceListItem(localeKey, t[p + "Element5"])}
 
 ## ${t.msgDetailBusinessContext}
 
-- ${t[p + "Business1"]}
-- ${t[p + "Business2"]}
-- ${t[p + "Business3"]}
-- ${t[p + "Business4"]}
+- ${sentenceListItem(localeKey, t[p + "Business1"])}
+- ${sentenceListItem(localeKey, t[p + "Business2"])}
+- ${sentenceListItem(localeKey, t[p + "Business3"])}
+- ${sentenceListItem(localeKey, t[p + "Business4"])}
 
 ${messageOperationalMatrix(localeKey, msgType)}
 
 ## ${t.msgDetailCbprContext}
 
-- ${t[p + "Cbpr1"]}
-- ${t[p + "Cbpr2"]}
-- ${t[p + "Cbpr3"]}
-- ${t[p + "Cbpr4"]}
+- ${sentenceListItem(localeKey, t[p + "Cbpr1"])}
+- ${sentenceListItem(localeKey, t[p + "Cbpr2"])}
+- ${sentenceListItem(localeKey, t[p + "Cbpr3"])}
+- ${sentenceListItem(localeKey, t[p + "Cbpr4"])}
 
 ## ${t.msgDetailFlow}
 
@@ -11690,9 +11752,7 @@ ${t[p + "Flow"]}${localeKey === "en"
 
 ## ${t.msgDetailVersions}
 
-| ${t.msgDetailVersion} | |
-|---|---|
-${msgType.versions.map((v) => `| \`${v}\` | ${v === msgType.slug ? `**${localeKey === "en" ? "Current" : advancedTranslate(localeKey, "Current")}**` : ""} |`).join("\n")}`;
+${messageVersionsTable(localeKey, msgType)}`;
   }
 
   const related = msgType.relatedSlugs
@@ -12392,6 +12452,18 @@ function translateContactLabel(localeKey, label) {
 
 function contactBody(localeKey) {
   const t = copyFor(localeKey);
+  if (localeKey === "en") {
+    return `# ${t.contactTitle}
+
+${t.contactIntro}
+
+Use the repository link to report bugs, ask for features, or review the source code. Use the releases page when you need version history or packaged deliverables. Use the PyPI page for install details and package metadata.
+
+- ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>
+- ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>
+- ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>`;
+  }
+
   return `# ${t.contactTitle}
 
 ${t.contactIntro}
@@ -12453,43 +12525,43 @@ for (const locale of locales) {
     await write(path.join(base, "index.md"), homeFrontmatter(locale));
   }
   await write(path.join(base, "about", "index.md"), pageTemplate({
-    title: pageTitle(t.aboutTitle),
+    title: sectionPageTitle(locale.key, "about", pageTitle(t.aboutTitle)),
     description: localeSectionDescription(locale, t.aboutDescription),
     lang: locale.lang,
     body: aboutBody(locale.key)
   }));
   await write(path.join(base, "message-types", "index.md"), pageTemplate({
-    title: pageTitle(t.messageTitle, "pacs008 ISO 20022"),
+    title: sectionPageTitle(locale.key, "message-types", pageTitle(t.messageTitle, "pacs008 ISO 20022")),
     description: localeSectionDescription(locale, t.messageDescription),
     lang: locale.lang,
     body: messageTypesBody(locale.key)
   }));
   await write(path.join(base, "message-selection", "index.md"), pageTemplate({
-    title: pageTitle(seoCopy(locale.key).selectionGuideTitle, "pacs008"),
+    title: sectionPageTitle(locale.key, "message-selection", pageTitle(seoCopy(locale.key).selectionGuideTitle, "pacs008")),
     description: clampDescription(seoCopy(locale.key).selectionGuideDescription),
     lang: locale.lang,
     body: localizedSelectionGuide(locale.key)
   }));
   await write(path.join(base, "api", "index.md"), pageTemplate({
-    title: pageTitle(t.apiTitle),
+    title: sectionPageTitle(locale.key, "api", pageTitle(t.apiTitle)),
     description: localeSectionDescription(locale, t.apiDescription),
     lang: locale.lang,
     body: apiBody(locale.key)
   }));
   await write(path.join(base, "contact", "index.md"), pageTemplate({
-    title: pageTitle(`${t.contactTitle} | pacs008`),
+    title: sectionPageTitle(locale.key, "contact", pageTitle(`${t.contactTitle} | pacs008`)),
     description: localeSectionDescription(locale, t.contactDescription),
     lang: locale.lang,
     body: contactBody(locale.key)
   }));
   await write(path.join(base, "privacy", "index.md"), pageTemplate({
-    title: pageTitle(`${t.privacyTitle} | pacs008`),
+    title: sectionPageTitle(locale.key, "privacy", pageTitle(`${t.privacyTitle} | pacs008`)),
     description: localeSectionDescription(locale, t.privacyDescription),
     lang: locale.lang,
     body: privacyBody(locale.key)
   }));
   await write(path.join(base, "terms", "index.md"), pageTemplate({
-    title: pageTitle(`${t.termsTitle} | pacs008`),
+    title: sectionPageTitle(locale.key, "terms", pageTitle(`${t.termsTitle} | pacs008`)),
     description: localeSectionDescription(locale, t.termsDescription),
     lang: locale.lang,
     body: termsBody(locale.key)

@@ -8,12 +8,38 @@ image: /logo.svg
 
 # pacs.009.001.10 — 金融機構信用轉帳
 
-| | |
-|---|---|
-| **ISO 名稱** | FinancialInstitutionCreditTransferV10 |
-| **註冊狀態** | Registered |
-| **年份** | 2019 |
-| **版本** | 10 |
+<div class="message-metadata-table" tabindex="0" aria-label="pacs.009.001.10 metadata">
+  <table>
+    <colgroup>
+      <col class="message-metadata-table__col-label">
+      <col class="message-metadata-table__col-value">
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-metadata-table__label"><strong>ISO 名稱</strong></td>
+          <td class="message-metadata-table__value">FinancialInstitutionCreditTransferV10</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>註冊狀態</strong></td>
+          <td class="message-metadata-table__value">Registered</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>年份</strong></td>
+          <td class="message-metadata-table__value">2019</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>版本</strong></td>
+          <td class="message-metadata-table__value">10</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## 概述
 

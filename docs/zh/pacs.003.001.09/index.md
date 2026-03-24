@@ -8,12 +8,38 @@ image: /logo.svg
 
 # pacs.003.001.09 — 金融机构间客户直接借记
 
-| | |
-|---|---|
-| **ISO 名称** | FIToFICustomerDirectDebitV09 |
-| **注册状态** | Registered |
-| **年份** | 2019 |
-| **版本** | 9 |
+<div class="message-metadata-table" tabindex="0" aria-label="pacs.003.001.09 metadata">
+  <table>
+    <colgroup>
+      <col class="message-metadata-table__col-label">
+      <col class="message-metadata-table__col-value">
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-metadata-table__label"><strong>ISO 名称</strong></td>
+          <td class="message-metadata-table__value">FIToFICustomerDirectDebitV09</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>注册状态</strong></td>
+          <td class="message-metadata-table__value">Registered</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>年份</strong></td>
+          <td class="message-metadata-table__value">2019</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>版本</strong></td>
+          <td class="message-metadata-table__value">9</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## 概述
 

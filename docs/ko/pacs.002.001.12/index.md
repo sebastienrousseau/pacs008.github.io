@@ -8,12 +8,38 @@ image: /logo.svg
 
 # pacs.002.001.12 — 금융기관 간 지급 상태 보고
 
-| | |
-|---|---|
-| **ISO 이름** | FIToFIPaymentStatusReportV12 |
-| **등록 상태** | Registered |
-| **연도** | 2019 |
-| **버전** | 12 |
+<div class="message-metadata-table" tabindex="0" aria-label="pacs.002.001.12 metadata">
+  <table>
+    <colgroup>
+      <col class="message-metadata-table__col-label">
+      <col class="message-metadata-table__col-value">
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-metadata-table__label"><strong>ISO 이름</strong></td>
+          <td class="message-metadata-table__value">FIToFIPaymentStatusReportV12</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>등록 상태</strong></td>
+          <td class="message-metadata-table__value">Registered</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>연도</strong></td>
+          <td class="message-metadata-table__value">2019</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>버전</strong></td>
+          <td class="message-metadata-table__value">12</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## 개요
 

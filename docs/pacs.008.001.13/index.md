@@ -1,6 +1,6 @@
 ---
 title: pacs.008.001.13 | FI to FI Customer Credit Transfer | pacs008
-description: The pacs.008 message is the core payment instruction exchanged between financial institutions to transfer funds on behalf of a customer. It carries...
+description: The pacs.008 message is the main customer credit-transfer instruction between financial institutions. It carries party, amount, and remittance data.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
@@ -8,33 +8,59 @@ image: /logo.svg
 
 # pacs.008.001.13 — FI to FI Customer Credit Transfer
 
-| | |
-|---|---|
-| **ISO name** | FIToFICustomerCreditTransferV13 |
-| **Registration status** | Registered |
-| **Year** | 2023 |
-| **Version** | 13 |
+<div class="message-metadata-table" tabindex="0" aria-label="pacs.008.001.13 metadata">
+  <table>
+    <colgroup>
+      <col class="message-metadata-table__col-label">
+      <col class="message-metadata-table__col-value">
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-metadata-table__label"><strong>ISO name</strong></td>
+          <td class="message-metadata-table__value">FIToFICustomerCreditTransferV13</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Registration status</strong></td>
+          <td class="message-metadata-table__value">Registered</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Year</strong></td>
+          <td class="message-metadata-table__value">2023</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Version</strong></td>
+          <td class="message-metadata-table__value">13</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Overview
 
-The pacs.008 message is the core payment instruction exchanged between financial institutions to transfer funds on behalf of a customer. It carries debtor, creditor, amount, and remittance information for one or more credit transfer transactions.
+The pacs.008 message is the main customer credit-transfer instruction between financial institutions. It carries party, amount, and remittance data.
 
 > Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
 
 ## Key data elements
 
-- **GrpHdr** — Group Header with message ID, creation date, number of transactions, and settlement information
-- **CdtTrfTxInf** — Credit Transfer Transaction Information with amount, charges, and purpose
-- **Dbtr / DbtrAgt** — Debtor and Debtor Agent identification and account details
-- **Cdtr / CdtrAgt** — Creditor and Creditor Agent identification and account details
-- **RmtInf** — Remittance Information for structured or unstructured payment references
+- **GrpHdr** — Group Header with message ID, creation date, number of transactions, and settlement information.
+- **CdtTrfTxInf** — Credit Transfer Transaction Information with amount, charges, and purpose.
+- **Dbtr / DbtrAgt** — Debtor and Debtor Agent identification and account details.
+- **Cdtr / CdtrAgt** — Creditor and Creditor Agent identification and account details.
+- **RmtInf** — Remittance Information for structured or unstructured payment references.
 
 ## Business context
 
-- The primary message for customer-initiated cross-border and domestic credit transfers
-- Used across SEPA SCT, SEPA Instant, CBPR+, and national clearing systems
-- Carries structured remittance information to support straight-through reconciliation
-- Supports serial, cover, and direct settlement methods for multi-leg payment chains
+- The primary message for customer-initiated cross-border and domestic credit transfers.
+- Used across SEPA SCT, SEPA Instant, CBPR+, and national clearing systems.
+- Carries structured remittance information to support straight-through reconciliation.
+- Supports serial, cover, and direct settlement methods for multi-leg payment chains.
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Key data elements Business context">
   <table>
@@ -75,10 +101,10 @@ The pacs.008 message is the core payment instruction exchanged between financial
 
 ## CBPR+ and scheme context
 
-- Replaces MT103 and MT103+ for cross-border customer credit transfers
-- Structured address deadline of November 2026 applies to all party postal addresses
-- SWIFT gpi requires pacs.008 for UETR-based end-to-end tracking
-- 13 revisions reflect ongoing schema evolution across market infrastructures
+- Replaces MT103 and MT103+ for cross-border customer credit transfers.
+- Structured address deadline of November 2026 applies to all party postal addresses.
+- SWIFT gpi requires pacs.008 for UETR-based end-to-end tracking.
+- 13 revisions reflect ongoing schema evolution across market infrastructures.
 
 ## Message flow
 
@@ -86,9 +112,9 @@ The debtor agent creates a pacs.008 and sends it to the creditor agent (directly
 
 ## Version commentary
 
-The ISO 20022 catalogue entry for this business area was last updated on 2025-02-27. The pacs008 site currently documents `pacs.008.001.13`, which matches the latest catalogue version listed by ISO 20022.
+ISO 20022 last updated this business area on 2025-02-27. This site documents `pacs.008.001.13`, which still matches the latest catalogue version.
 
-That makes this page suitable for current-version implementation planning, but scheme usage guidelines and market practice should still be checked before production rollout.
+Use this page for current implementation work, but still check scheme guidance before production rollout.
 
 ## Version-diff table
 
@@ -260,21 +286,74 @@ Weak party data, poor address structuring, inconsistent identifiers, and unstruc
 
 ## Supported versions
 
-| Version | |
-|---|---|
-| `pacs.008.001.01` |  |
-| `pacs.008.001.02` |  |
-| `pacs.008.001.03` |  |
-| `pacs.008.001.04` |  |
-| `pacs.008.001.05` |  |
-| `pacs.008.001.06` |  |
-| `pacs.008.001.07` |  |
-| `pacs.008.001.08` |  |
-| `pacs.008.001.09` |  |
-| `pacs.008.001.10` |  |
-| `pacs.008.001.11` |  |
-| `pacs.008.001.12` |  |
-| `pacs.008.001.13` | **Current** |
+<div class="message-versions-table" tabindex="0" aria-label="Supported versions">
+  <table>
+    <colgroup>
+      <col class="message-versions-table__col-version">
+      <col class="message-versions-table__col-status">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Version</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.01</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.02</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.03</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.04</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.05</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.06</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.07</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.08</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.09</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.10</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.11</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.12</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.13</code></td>
+          <td class="message-versions-table__status"><strong>Current</strong></td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Related messages
 <div class="related-messages-table" tabindex="0" aria-label="Related messages">
@@ -295,17 +374,17 @@ Weak party data, poor address structuring, inconsistent identifiers, and unstruc
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="related-messages-table__name">FI to FI Payment Status Report</td>
-          <td class="related-messages-table__overview">The pacs.002 message is sent by a financial institution to report the status of a previously sent payment instruction. It provides confirmation, rejection, or pending status information for individual transactions within a payment message.</td>
+          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether processing was accepted, rejected, pending, or settled.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
           <td class="related-messages-table__name">Payment Return</td>
-          <td class="related-messages-table__overview">The pacs.004 message is used to return a previously settled payment transaction. It reverses the flow of funds when a payment cannot be applied, was sent in error, or is being recalled by the originating institution.</td>
+          <td class="related-messages-table__overview">The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied or must be sent back.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
           <td class="related-messages-table__name">Financial Institution Credit Transfer</td>
-          <td class="related-messages-table__overview">The pacs.009 message is used for credit transfers between financial institutions where the transfer is on the institution&#39;s own behalf rather than on behalf of a customer. It supports interbank funding, cover payments, and liquidity management.</td>
+          <td class="related-messages-table__overview">The pacs.009 message moves funds between financial institutions on their own behalf. It supports interbank funding, cover payments, and liquidity management.</td>
         </tr>
     </tbody>
   </table>

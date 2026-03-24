@@ -1,6 +1,6 @@
 ---
 title: pacs.004.001.11 | Payment Return | pacs008
-description: The pacs.004 message is used to return a previously settled payment transaction. It reverses the flow of funds when a payment cannot be applied, was sent...
+description: The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied or must be sent back.
 lang: en-GB
 lastUpdated: true
 image: /logo.svg
@@ -8,33 +8,59 @@ image: /logo.svg
 
 # pacs.004.001.11 — Payment Return
 
-| | |
-|---|---|
-| **ISO name** | PaymentReturnV11 |
-| **Registration status** | Registered |
-| **Year** | 2019 |
-| **Version** | 11 |
+<div class="message-metadata-table" tabindex="0" aria-label="pacs.004.001.11 metadata">
+  <table>
+    <colgroup>
+      <col class="message-metadata-table__col-label">
+      <col class="message-metadata-table__col-value">
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-metadata-table__label"><strong>ISO name</strong></td>
+          <td class="message-metadata-table__value">PaymentReturnV11</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Registration status</strong></td>
+          <td class="message-metadata-table__value">Registered</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Year</strong></td>
+          <td class="message-metadata-table__value">2019</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>Version</strong></td>
+          <td class="message-metadata-table__value">11</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Overview
 
-The pacs.004 message is used to return a previously settled payment transaction. It reverses the flow of funds when a payment cannot be applied, was sent in error, or is being recalled by the originating institution.
+The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied or must be sent back.
 
 > Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
 
 ## Key data elements
 
-- **GrpHdr** — Group Header with message identification and creation timestamp
-- **TxInf** — Transaction Information with return amount and parties
-- **OrgnlGrpInf** — Original Group Information linking to the source message
-- **RtrRsnInf** — Return Reason Information with structured reason codes
-- **OrgnlTxRef** — Original Transaction Reference for matching and reconciliation
+- **GrpHdr** — Group Header with message identification and creation timestamp.
+- **TxInf** — Transaction Information with return amount and parties.
+- **OrgnlGrpInf** — Original Group Information linking to the source message.
+- **RtrRsnInf** — Return Reason Information with structured reason codes.
+- **OrgnlTxRef** — Original Transaction Reference for matching and reconciliation.
 
 ## Business context
 
-- Handles post-settlement returns when the beneficiary's account cannot be credited
-- Supports recall scenarios where the originator requests return of funds
-- Carries structured return reason codes for regulatory and operational transparency
-- Applies to both credit transfer returns (pacs.008) and direct debit returns (pacs.003)
+- Handles post-settlement returns when the beneficiary's account cannot be credited.
+- Supports recall scenarios where the originator requests return of funds.
+- Carries structured return reason codes for regulatory and operational transparency.
+- Applies to both credit transfer returns (pacs.008) and direct debit returns (pacs.003).
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Key data elements Business context">
   <table>
@@ -75,10 +101,10 @@ The pacs.004 message is used to return a previously settled payment transaction.
 
 ## CBPR+ and scheme context
 
-- Replaces MT103 RETURN and cover-method return messaging
-- Return reason codes are standardised and machine-readable under ISO 20022
-- CBPR+ requires full original transaction reference data for matching
-- SWIFT gpi tracking extends to return transactions for end-to-end visibility
+- Replaces MT103 RETURN and cover-method return messaging.
+- Return reason codes are standardised and machine-readable under ISO 20022.
+- CBPR+ requires full original transaction reference data for matching.
+- SWIFT gpi tracking extends to return transactions for end-to-end visibility.
 
 ## Message flow
 
@@ -86,9 +112,9 @@ The instructed agent sends pacs.004 back through the payment chain to return pre
 
 ## Version commentary
 
-The ISO 20022 catalogue entry for this business area was last updated on 2025-02-27. The pacs008 site currently documents `pacs.004.001.11`, while the ISO 20022 catalogue lists `pacs.004.001.14` as the latest published version.
+ISO 20022 last updated this business area on 2025-02-27. This site documents `pacs.004.001.11`, while the latest catalogue version is `pacs.004.001.14`.
 
-That means this page is useful for understanding the currently implemented version in pacs008, but roadmap and interoperability planning should account for the later catalogue revision as well.
+Use this page for the version that pacs008 implements today, but keep the newer catalogue version in mind for roadmap planning.
 
 ## Version-diff table
 
@@ -260,17 +286,17 @@ Not automatically. The right path depends on scheme rules, settlement stage, and
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
           <td class="related-messages-table__name">FI to FI Customer Credit Transfer</td>
-          <td class="related-messages-table__overview">The pacs.008 message is the core payment instruction exchanged between financial institutions to transfer funds on behalf of a customer. It carries debtor, creditor, amount, and remittance information for one or more credit transfer transactions.</td>
+          <td class="related-messages-table__overview">The pacs.008 message is the main customer credit-transfer instruction between financial institutions. It carries party, amount, and remittance data.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
           <td class="related-messages-table__name">FI to FI Customer Direct Debit</td>
-          <td class="related-messages-table__overview">The pacs.003 message is exchanged between financial institutions to execute a customer direct debit instruction. It enables the creditor&#39;s bank to collect funds from the debtor&#39;s bank on behalf of the creditor.</td>
+          <td class="related-messages-table__overview">The pacs.003 message executes a customer direct debit between financial institutions. It lets the creditor bank collect funds from the debtor bank.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="related-messages-table__name">FI to FI Payment Status Report</td>
-          <td class="related-messages-table__overview">The pacs.002 message is sent by a financial institution to report the status of a previously sent payment instruction. It provides confirmation, rejection, or pending status information for individual transactions within a payment message.</td>
+          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether processing was accepted, rejected, pending, or settled.</td>
         </tr>
     </tbody>
   </table>

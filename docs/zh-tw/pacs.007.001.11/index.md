@@ -8,12 +8,38 @@ image: /logo.svg
 
 # pacs.007.001.11 — 金融機構間付款撤銷
 
-| | |
-|---|---|
-| **ISO 名稱** | FIToFIPaymentReversalV11 |
-| **註冊狀態** | Registered |
-| **年份** | 2019 |
-| **版本** | 11 |
+<div class="message-metadata-table" tabindex="0" aria-label="pacs.007.001.11 metadata">
+  <table>
+    <colgroup>
+      <col class="message-metadata-table__col-label">
+      <col class="message-metadata-table__col-value">
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-metadata-table__label"><strong>ISO 名稱</strong></td>
+          <td class="message-metadata-table__value">FIToFIPaymentReversalV11</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>註冊狀態</strong></td>
+          <td class="message-metadata-table__value">Registered</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>年份</strong></td>
+          <td class="message-metadata-table__value">2019</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>版本</strong></td>
+          <td class="message-metadata-table__value">11</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## 概述
 

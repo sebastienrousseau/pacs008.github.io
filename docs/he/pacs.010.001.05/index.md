@@ -8,12 +8,38 @@ image: /logo.svg
 
 # pacs.010.001.05 — חיוב ישיר בין מוסדות פיננסיים
 
-| | |
-|---|---|
-| **שם ISO** | FinancialInstitutionDirectDebitV05 |
-| **סטטוס רישום** | Registered |
-| **שנה** | 2019 |
-| **גרסה** | 5 |
+<div class="message-metadata-table" tabindex="0" aria-label="pacs.010.001.05 metadata">
+  <table>
+    <colgroup>
+      <col class="message-metadata-table__col-label">
+      <col class="message-metadata-table__col-value">
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-metadata-table__label"><strong>שם ISO</strong></td>
+          <td class="message-metadata-table__value">FinancialInstitutionDirectDebitV05</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>סטטוס רישום</strong></td>
+          <td class="message-metadata-table__value">Registered</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>שנה</strong></td>
+          <td class="message-metadata-table__value">2019</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>גרסה</strong></td>
+          <td class="message-metadata-table__value">5</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## סקירה
 

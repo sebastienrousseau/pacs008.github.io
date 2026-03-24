@@ -8,12 +8,38 @@ image: /logo.svg
 
 # pacs.002.001.12 — 金融機関間支払ステータス報告
 
-| | |
-|---|---|
-| **ISO名称** | FIToFIPaymentStatusReportV12 |
-| **登録状況** | Registered |
-| **年** | 2019 |
-| **バージョン** | 12 |
+<div class="message-metadata-table" tabindex="0" aria-label="pacs.002.001.12 metadata">
+  <table>
+    <colgroup>
+      <col class="message-metadata-table__col-label">
+      <col class="message-metadata-table__col-value">
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-metadata-table__label"><strong>ISO名称</strong></td>
+          <td class="message-metadata-table__value">FIToFIPaymentStatusReportV12</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>登録状況</strong></td>
+          <td class="message-metadata-table__value">Registered</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>年</strong></td>
+          <td class="message-metadata-table__value">2019</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>バージョン</strong></td>
+          <td class="message-metadata-table__value">12</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## 概要
 

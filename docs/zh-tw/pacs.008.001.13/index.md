@@ -8,12 +8,38 @@ image: /logo.svg
 
 # pacs.008.001.13 — 金融機構間客戶信用轉帳
 
-| | |
-|---|---|
-| **ISO 名稱** | FIToFICustomerCreditTransferV13 |
-| **註冊狀態** | Registered |
-| **年份** | 2023 |
-| **版本** | 13 |
+<div class="message-metadata-table" tabindex="0" aria-label="pacs.008.001.13 metadata">
+  <table>
+    <colgroup>
+      <col class="message-metadata-table__col-label">
+      <col class="message-metadata-table__col-value">
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-metadata-table__label"><strong>ISO 名稱</strong></td>
+          <td class="message-metadata-table__value">FIToFICustomerCreditTransferV13</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>註冊狀態</strong></td>
+          <td class="message-metadata-table__value">Registered</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>年份</strong></td>
+          <td class="message-metadata-table__value">2023</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>版本</strong></td>
+          <td class="message-metadata-table__value">13</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## 概述
 
@@ -204,21 +230,74 @@ pacs.008 訊息是金融機構之間交換的核心付款指令，用於代表�
 
 ## 支援的版本
 
-| 版本 | |
-|---|---|
-| `pacs.008.001.01` |  |
-| `pacs.008.001.02` |  |
-| `pacs.008.001.03` |  |
-| `pacs.008.001.04` |  |
-| `pacs.008.001.05` |  |
-| `pacs.008.001.06` |  |
-| `pacs.008.001.07` |  |
-| `pacs.008.001.08` |  |
-| `pacs.008.001.09` |  |
-| `pacs.008.001.10` |  |
-| `pacs.008.001.11` |  |
-| `pacs.008.001.12` |  |
-| `pacs.008.001.13` | **目前** |
+<div class="message-versions-table" tabindex="0" aria-label="支援的版本">
+  <table>
+    <colgroup>
+      <col class="message-versions-table__col-version">
+      <col class="message-versions-table__col-status">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>版本</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.01</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.02</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.03</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.04</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.05</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.06</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.07</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.08</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.09</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.10</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.11</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.12</code></td>
+          <td class="message-versions-table__status"></td>
+        </tr>
+        <tr>
+          <td class="message-versions-table__version"><code>pacs.008.001.13</code></td>
+          <td class="message-versions-table__status"><strong>目前</strong></td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## 相關訊息
 <div class="related-messages-table" tabindex="0" aria-label="相關訊息">

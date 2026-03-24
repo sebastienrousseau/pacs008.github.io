@@ -8,12 +8,38 @@ image: /logo.svg
 
 # pacs.004.001.11 — 支付退回
 
-| | |
-|---|---|
-| **ISO 名称** | PaymentReturnV11 |
-| **注册状态** | Registered |
-| **年份** | 2019 |
-| **版本** | 11 |
+<div class="message-metadata-table" tabindex="0" aria-label="pacs.004.001.11 metadata">
+  <table>
+    <colgroup>
+      <col class="message-metadata-table__col-label">
+      <col class="message-metadata-table__col-value">
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="message-metadata-table__label"><strong>ISO 名称</strong></td>
+          <td class="message-metadata-table__value">PaymentReturnV11</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>注册状态</strong></td>
+          <td class="message-metadata-table__value">Registered</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>年份</strong></td>
+          <td class="message-metadata-table__value">2019</td>
+        </tr>
+        <tr>
+          <td class="message-metadata-table__label"><strong>版本</strong></td>
+          <td class="message-metadata-table__value">11</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## 概述
 
