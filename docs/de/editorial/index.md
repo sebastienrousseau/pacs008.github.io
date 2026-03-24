@@ -1,38 +1,36 @@
 ---
-title: Editorial policy | pacs008
-description: How pacs008.com content is created, reviewed, and maintained. Sources, review process, and update schedule.
+title: Redaktionelle Richtlinie | pacs008
+description: Wie Inhalte auf pacs008.com erstellt, geprüft und gepflegt werden. Quellen, Prüfverfahren und Aktualisierungsplan.
 lang: de-DE
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Editorial policy
+# Redaktionelle Richtlinie
 
-This page explains how content on pacs008.com is created, reviewed, and kept current.
+Diese Seite erklärt, wie Inhalte auf pacs008.com erstellt, geprüft und aktuell gehalten werden.
 
-## Sources
+## Quellen
 
-All message documentation is based on primary sources:
+Alle Nachrichtendokumentation basiert auf Primärquellen:
 
 - [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions) for message specifications and version history.
 - [SWIFT CBPR+ usage guidelines](https://www.swift.com/standards/iso-20022) for cross-border payment context.
 - [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) for euro credit transfer rules.
 - [EPC SEPA Instant Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) for instant payment rules.
 
-## Review process
+## Prüfverfahren
 
-Each message page shows a review date. Reviews check that version numbers, registration status, and scheme context still match the primary sources listed above.
+Jede Nachrichtenseite zeigt ein Prüfdatum. Prüfungen stellen sicher, dass Versionsnummern, Registrierungsstatus und Schemakontexte noch mit den zitierten Primärquellen übereinstimmen.
 
-Content is updated when ISO 20022 publishes new catalogue versions, when SWIFT releases updated usage guidelines, or when scheme rules change.
+## Inhaltsgenerierung
 
-## Content generation
+Seitenstruktur und übersetzte Inhalte werden aus geprüftem englischem Quellmaterial mittels eines Build-Skripts generiert. Dies gewährleistet strukturelle Konsistenz über alle 22 Sprachen hinweg, wobei technische Begriffe und ISO-Kennungen in ihrer Standardform erhalten bleiben.
 
-Page structure and translated content are generated from reviewed English source material using a build script. This ensures structural consistency across all 22 languages while keeping technical terms and ISO identifiers in their standard form.
+## Genauigkeit und Grenzen
 
-## Accuracy and limits
+pacs008.com strebt Genauigkeit und Aktualität an, ist aber kein Ersatz für Schema-Regelwerke, Gegenparteivereinbarungen oder Rechtsberatung. Bestätigen Sie Implementierungsdetails immer anhand der Primärquellen und der spezifischen Regeln des Marktes oder Schemas, in dem Sie tätig sind.
 
-pacs008.com aims to be accurate and current, but it is not a substitute for scheme rulebooks, counterparty agreements, or legal advice. Always confirm implementation details against the primary sources and the specific rules of the market or scheme you operate in.
+## Kontakt
 
-## Contact
-
-If you find an error or have a correction, please open an issue in the [pacs008 repository](https://github.com/sebastienrousseau/pacs008/issues).
+Wenn Sie einen Fehler finden oder eine Korrektur haben, öffnen Sie bitte ein Issue im [pacs008-Repository](https://github.com/sebastienrousseau/pacs008/issues).

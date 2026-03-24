@@ -4,6 +4,17 @@ description: pacs008 làm gì và dành cho ai. Tạo, xác thực, điều ph�
 lang: vi-VN
 lastUpdated: true
 image: /logo.svg
+howtoName: "How to implement ISO 20022 pacs.008 payment messages"
+howtoDescription: "Step-by-step checklist for rolling out ISO 20022 pacs.008 message generation and validation."
+howto:
+  - name: "Step 1"
+    text: "Pick the right message family for the business event before writing templates."
+  - name: "Step 2"
+    text: "Validate business data before XML generation so that schema errors are not the first signal."
+  - name: "Step 3"
+    text: "Treat BIC, IBAN, remittance, and postal-address quality as a release criterion, not a later cleanup."
+  - name: "Step 4"
+    text: "Regression-test each scheme or bank rule change with representative payment data."
 ---
 
 # Giới thiệu pacs008

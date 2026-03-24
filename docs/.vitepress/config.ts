@@ -19,6 +19,7 @@ function navFor(locale: string) {
     { text: t.messageTypes, link: `${prefix}/message-types/` },
     { text: t.selectionGuide, link: `${prefix}/message-selection/` },
     { text: t.api, link: `${prefix}/api/` },
+    { text: t.structuredAddress, link: `${prefix}/structured-address/` },
     { text: t.contact, link: `${prefix}/contact/` }
   ];
   return nav;
@@ -361,6 +362,22 @@ ${items.join("\n")}
           "@type": "Question",
           "name": item.question,
           "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+        }))
+      })] as unknown as [string, Record<string, string>]);
+    }
+
+    // JSON-LD: HowTo on pages with implementation checklists
+    if (Array.isArray(fm.howto) && fm.howto.length > 0) {
+      head.push(["script", { type: "application/ld+json" }, JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": typeof fm.howtoName === "string" ? fm.howtoName : `How to implement ${meta.title}`,
+        "description": typeof fm.howtoDescription === "string" ? fm.howtoDescription : meta.description,
+        "step": (fm.howto as Array<{ name: string; text: string }>).map((step, i) => ({
+          "@type": "HowToStep",
+          "position": i + 1,
+          "name": step.name,
+          "text": step.text
         }))
       })] as unknown as [string, Record<string, string>]);
     }

@@ -34,6 +34,7 @@ function localLink(path: string): string {
             <li><a :href="localLink('/message-types/')">{{ t.messageTypes }}</a></li>
             <li><a :href="localLink('/message-selection/')">{{ t.selectionGuide }}</a></li>
             <li><a :href="localLink('/api/')">{{ t.api }}</a></li>
+            <li><a :href="localLink('/structured-address/')">{{ t.structuredAddress }}</a></li>
             <li><a :href="localLink('/contact/')">{{ t.contact }}</a></li>
             <li><a :href="localLink('/editorial/')">{{ t.editorial }}</a></li>
           </ul>
