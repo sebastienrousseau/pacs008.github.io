@@ -16,8 +16,8 @@ image: /logo.svg
     </colgroup>
     <thead>
       <tr>
-        <th></th>
-        <th></th>
+        <th scope="col">फ़ील्ड</th>
+        <th scope="col">मान</th>
       </tr>
     </thead>
     <tbody>

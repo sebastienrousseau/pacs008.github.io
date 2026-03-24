@@ -16,8 +16,8 @@ image: /logo.svg
     </colgroup>
     <thead>
       <tr>
-        <th></th>
-        <th></th>
+        <th scope="col">Veld</th>
+        <th scope="col">Waarde</th>
       </tr>
     </thead>
     <tbody>
@@ -238,7 +238,7 @@ De debiteuragent maakt een pacs.008 aan en stuurt dit naar de crediteuragent (re
     <thead>
       <tr>
         <th>Versie</th>
-        <th></th>
+        <th>Status</th>
       </tr>
     </thead>
     <tbody>

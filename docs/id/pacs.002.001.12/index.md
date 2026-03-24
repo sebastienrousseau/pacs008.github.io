@@ -16,8 +16,8 @@ image: /logo.svg
     </colgroup>
     <thead>
       <tr>
-        <th></th>
-        <th></th>
+        <th scope="col">Bidang</th>
+        <th scope="col">Nilai</th>
       </tr>
     </thead>
     <tbody>

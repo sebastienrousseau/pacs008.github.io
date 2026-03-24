@@ -16,8 +16,8 @@ image: /logo.svg
     </colgroup>
     <thead>
       <tr>
-        <th></th>
-        <th></th>
+        <th scope="col">Pole</th>
+        <th scope="col">Wartość</th>
       </tr>
     </thead>
     <tbody>
@@ -238,7 +238,7 @@ Agent dłużnika tworzy pacs.008 i wysyła go do agenta wierzyciela (bezpośredn
     <thead>
       <tr>
         <th>Wersja</th>
-        <th></th>
+        <th>Status</th>
       </tr>
     </thead>
     <tbody>

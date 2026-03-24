@@ -16,8 +16,8 @@ image: /logo.svg
     </colgroup>
     <thead>
       <tr>
-        <th></th>
-        <th></th>
+        <th scope="col">الحقل</th>
+        <th scope="col">القيمة</th>
       </tr>
     </thead>
     <tbody>

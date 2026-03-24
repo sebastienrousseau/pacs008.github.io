@@ -16,8 +16,8 @@ image: /logo.svg
     </colgroup>
     <thead>
       <tr>
-        <th></th>
-        <th></th>
+        <th scope="col">Trường</th>
+        <th scope="col">Giá trị</th>
       </tr>
     </thead>
     <tbody>

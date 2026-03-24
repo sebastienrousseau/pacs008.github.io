@@ -16,8 +16,8 @@ image: /logo.svg
     </colgroup>
     <thead>
       <tr>
-        <th></th>
-        <th></th>
+        <th scope="col">Bidang</th>
+        <th scope="col">Nilai</th>
       </tr>
     </thead>
     <tbody>
@@ -238,7 +238,7 @@ Agen debitur membuat pacs.008 dan mengirimkannya ke agen kreditur (langsung atau
     <thead>
       <tr>
         <th>Versi</th>
-        <th></th>
+        <th>Status</th>
       </tr>
     </thead>
     <tbody>

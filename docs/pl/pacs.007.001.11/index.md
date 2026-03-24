@@ -16,8 +16,8 @@ image: /logo.svg
     </colgroup>
     <thead>
       <tr>
-        <th></th>
-        <th></th>
+        <th scope="col">Pole</th>
+        <th scope="col">Wartość</th>
       </tr>
     </thead>
     <tbody>

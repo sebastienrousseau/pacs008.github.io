@@ -16,8 +16,8 @@ image: /logo.svg
     </colgroup>
     <thead>
       <tr>
-        <th></th>
-        <th></th>
+        <th scope="col">欄位</th>
+        <th scope="col">值</th>
       </tr>
     </thead>
     <tbody>

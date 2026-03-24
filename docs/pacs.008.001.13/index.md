@@ -16,8 +16,8 @@ image: /logo.svg
     </colgroup>
     <thead>
       <tr>
-        <th></th>
-        <th></th>
+        <th scope="col">Field</th>
+        <th scope="col">Value</th>
       </tr>
     </thead>
     <tbody>
@@ -291,7 +291,7 @@ Weak party data, poor address structuring, inconsistent identifiers, and unstruc
     <thead>
       <tr>
         <th>Version</th>
-        <th></th>
+        <th>Status</th>
       </tr>
     </thead>
     <tbody>

@@ -16,8 +16,8 @@ image: /logo.svg
     </colgroup>
     <thead>
       <tr>
-        <th></th>
-        <th></th>
+        <th scope="col">Campo</th>
+        <th scope="col">Valor</th>
       </tr>
     </thead>
     <tbody>
@@ -238,7 +238,7 @@ O agente do devedor cria um pacs.008 e o envia ao agente do credor (diretamente 
     <thead>
       <tr>
         <th>Versão</th>
-        <th></th>
+        <th>Status</th>
       </tr>
     </thead>
     <tbody>

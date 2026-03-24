@@ -16,8 +16,8 @@ image: /logo.svg
     </colgroup>
     <thead>
       <tr>
-        <th></th>
-        <th></th>
+        <th scope="col">Champ</th>
+        <th scope="col">Valeur</th>
       </tr>
     </thead>
     <tbody>

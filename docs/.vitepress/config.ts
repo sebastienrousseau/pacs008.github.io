@@ -245,10 +245,14 @@ ${items.join("\n")}
       ["meta", { property: "og:locale", content: meta.localeOg }],
       ["meta", { property: "og:image", content: meta.ogImage }],
       ["meta", { property: "og:image:alt", content: meta.ogImageAlt }],
+      ["meta", { property: "og:image:width", content: "1200" }],
+      ["meta", { property: "og:image:height", content: "630" }],
+      ["meta", { property: "og:image:type", content: "image/png" }],
       ["meta", { name: "twitter:card", content: "summary_large_image" }],
       ["meta", { name: "twitter:title", content: meta.title }],
       ["meta", { name: "twitter:description", content: meta.description }],
       ["meta", { name: "twitter:image", content: meta.ogImage }],
+      ["meta", { name: "robots", content: typeof fm.robots === "string" ? fm.robots : "index, follow" }],
       ...buildHreflangTags(meta.routePath)
     ];
 
@@ -305,9 +309,9 @@ ${items.join("\n")}
       "@type": "WebPage",
       "author": { "@type": "Person", "@id": `${SITE_URL}/#sebastien-rousseau`, "name": "Sebastien Rousseau", "url": "https://sebastienrousseau.com/" },
       "copyrightHolder": { "@type": "Person", "@id": `${SITE_URL}/#sebastien-rousseau`, "name": "Sebastien Rousseau", "url": "https://sebastienrousseau.com/" },
-      "copyrightYear": "© 2025 pacs008. All rights reserved.",
+      "copyrightYear": new Date().getFullYear(),
       "creator": { "@type": "Person", "@id": `${SITE_URL}/#sebastien-rousseau`, "name": "Sebastien Rousseau", "url": "https://sebastienrousseau.com/" },
-      "dateModified": new Date().toISOString(),
+      "dateModified": pageData.lastUpdated ? new Date(pageData.lastUpdated).toISOString() : new Date().toISOString(),
       "datePublished": "2025-01-01T00:00:00.000Z",
       "description": meta.description,
       "headline": meta.title,

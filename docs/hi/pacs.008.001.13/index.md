@@ -16,8 +16,8 @@ image: /logo.svg
     </colgroup>
     <thead>
       <tr>
-        <th></th>
-        <th></th>
+        <th scope="col">फ़ील्ड</th>
+        <th scope="col">मान</th>
       </tr>
     </thead>
     <tbody>
@@ -238,7 +238,7 @@ pacs.008 संदेश वित्तीय संस्थानों क�
     <thead>
       <tr>
         <th>संस्करण</th>
-        <th></th>
+        <th>स्थिति</th>
       </tr>
     </thead>
     <tbody>

@@ -16,8 +16,8 @@ image: /logo.svg
     </colgroup>
     <thead>
       <tr>
-        <th></th>
-        <th></th>
+        <th scope="col">Câmp</th>
+        <th scope="col">Valoare</th>
       </tr>
     </thead>
     <tbody>
@@ -238,7 +238,7 @@ Agentul debitorului creează un pacs.008 și îl trimite agentului creditorului 
     <thead>
       <tr>
         <th>Versiune</th>
-        <th></th>
+        <th>Stare</th>
       </tr>
     </thead>
     <tbody>

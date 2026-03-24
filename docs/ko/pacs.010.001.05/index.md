@@ -16,8 +16,8 @@ image: /logo.svg
     </colgroup>
     <thead>
       <tr>
-        <th></th>
-        <th></th>
+        <th scope="col">필드</th>
+        <th scope="col">값</th>
       </tr>
     </thead>
     <tbody>

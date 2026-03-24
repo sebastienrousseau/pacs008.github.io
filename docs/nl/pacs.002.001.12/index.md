@@ -16,8 +16,8 @@ image: /logo.svg
     </colgroup>
     <thead>
       <tr>
-        <th></th>
-        <th></th>
+        <th scope="col">Veld</th>
+        <th scope="col">Waarde</th>
       </tr>
     </thead>
     <tbody>

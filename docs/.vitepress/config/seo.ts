@@ -1,7 +1,7 @@
 export const SITE_URL = "https://pacs008.com";
 export const SITE_NAME = "pacs008";
 export const DEFAULT_AUTHOR = "Sebastien Rousseau";
-export const DEFAULT_OG_IMAGE = "/logo.svg";
+export const DEFAULT_OG_IMAGE = "/images/og-image.png";
 
 export const LOCALE_META: Record<string, { lang: string; home: string }> = {
   en: { lang: "en-GB", home: "Home" },

@@ -16,8 +16,8 @@ image: /logo.svg
     </colgroup>
     <thead>
       <tr>
-        <th></th>
-        <th></th>
+        <th scope="col">Feld</th>
+        <th scope="col">Wert</th>
       </tr>
     </thead>
     <tbody>
@@ -238,7 +238,7 @@ Der Schuldneragent erstellt einen pacs.008 und sendet ihn an den Gläubigeragent
     <thead>
       <tr>
         <th>Version</th>
-        <th></th>
+        <th>Status</th>
       </tr>
     </thead>
     <tbody>

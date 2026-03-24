@@ -16,8 +16,8 @@ image: /logo.svg
     </colgroup>
     <thead>
       <tr>
-        <th></th>
-        <th></th>
+        <th scope="col">Поле</th>
+        <th scope="col">Значення</th>
       </tr>
     </thead>
     <tbody>
@@ -238,7 +238,7 @@ image: /logo.svg
     <thead>
       <tr>
         <th>Версія</th>
-        <th></th>
+        <th>Статус</th>
       </tr>
     </thead>
     <tbody>

@@ -12,53 +12,53 @@ pacs008 is a Python toolkit for teams that need to generate, validate, and ship 
 
 ## What it does
 
-- Generates XML for `pacs.008` and related pacs messages.
-- Checks business data and XML before release.
+- Generates XML for `pacs.008` and related pacs message definitions.
+- Validates data and XML against schemas.
 - Exposes a FastAPI service for automated workflows.
 - Provides a CLI for local runs and CI pipelines.
-- Reads structured data from CSV, JSON, JSONL, SQLite, and Parquet.
-- Checks IBAN and BIC identifiers before message generation.
-- Cleans payment text for SWIFT character and length rules.
-- Processes large datasets in batches to limit memory use.
-- Ships a Docker image for API deployment.
+- Supports structured data sources including CSV, JSON, JSONL, SQLite, and Parquet.
+- Validates IBAN (75 countries, ISO 7064 checksum) and BIC (ISO 9362) identifiers.
+- Cleans payment data for SWIFT compliance with transliteration and field-length control.
+- Processes large datasets in configurable batches to limit memory use.
+- Ships a Docker image for containerised API deployment.
 
 ## Who it is for
 
-- payment operations teams
-- platform engineers building internal payment systems
-- migration programmes moving to ISO 20022
-- compliance and QA teams checking outbound payment messages
+- Payment operations teams
+- Platform engineers building internal payment processing infrastructure
+- Migration programmes moving to ISO 20022
+- Compliance and QA teams validating outbound payment messages
 
 ## Validation
 
-The toolkit checks data before it writes XML:
+Multiple validation layers run before any XML is written:
 
-- JSON Schema checks for 20 message-specific schemas.
-- IBAN format and checksum checks.
-- BIC structure and country-code checks.
-- XSD validation against official ISO 20022 schemas.
+- JSON Schema validation against 20 message-specific schemas.
+- IBAN format and checksum verification covering 75 countries.
+- BIC structure and country-code validation per ISO 9362.
+- XSD validation of generated XML against official ISO 20022 schemas.
 
 ## Security
 
-The toolkit also blocks common parsing and file-handling risks:
+pacs008 applies defence in depth across every layer of the processing pipeline:
 
-- XXE protection for XML parsing.
-- Path allowlists to reduce traversal risk.
-- PII masking in structured logs.
-- Strict SQLite table-name sanitisation.
+- XXE prevention via defusedxml for all XML parsing operations.
+- Path-traversal protection with strict directory allowlists.
+- PII masking in structured JSON logs to support GDPR and PCI DSS compliance.
+- SQL-injection prevention with strict table-name sanitisation for SQLite sources.
 
 ## 2026 readiness
 
-pacs008 is built around the 2026 deadlines and data checks that matter most:
+pacs008 is built around the operational deadlines and data-quality requirements relevant to 2026:
 
-- structured and hybrid postal address support for CBPR+ and scheme migrations.
-- stronger checks for debtor, creditor, and agent data.
+- structured and hybrid postal-address handling for CBPR+ and scheme migrations.
+- stronger validation of debtor, creditor, and agent data quality.
 - version-aware generation across older and current pacs.008 revisions.
-- automation paths for CI, batch runs, and internal payment services.
+- automation paths that fit CI, batch operations, and internal payment services.
 
 ## Operational focus
 
-pacs008 is not just a message reference. It helps teams run payment workflows:
+pacs008 goes beyond message-definition reference to support operational implementation:
 
 - generate XML from real source data.
 - validate before delivery.
@@ -71,8 +71,8 @@ Use this list to keep rollout work simple and repeatable.
 
 Keep each release small, testable, and easy to trace.
 
-- Pick the right message family before you build templates.
-- Validate business data before you generate XML.
-- Treat BIC, IBAN, remittance, and postal-address quality as release criteria.
-- Regression-test each scheme or bank rule change with real payment samples.
+- Pick the right message family for the business event before writing templates.
+- Validate business data before XML generation so that schema errors are not the first signal.
+- Treat BIC, IBAN, remittance, and postal-address quality as a release criterion, not a later cleanup.
+- Regression-test each scheme or bank rule change with representative payment data.
 

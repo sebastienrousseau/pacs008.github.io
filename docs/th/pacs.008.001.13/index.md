@@ -16,8 +16,8 @@ image: /logo.svg
     </colgroup>
     <thead>
       <tr>
-        <th></th>
-        <th></th>
+        <th scope="col">ฟิลด์</th>
+        <th scope="col">ค่า</th>
       </tr>
     </thead>
     <tbody>
@@ -238,7 +238,7 @@ image: /logo.svg
     <thead>
       <tr>
         <th>เวอร์ชัน</th>
-        <th></th>
+        <th>สถานะ</th>
       </tr>
     </thead>
     <tbody>

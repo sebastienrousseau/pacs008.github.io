@@ -16,8 +16,8 @@ image: /logo.svg
     </colgroup>
     <thead>
       <tr>
-        <th></th>
-        <th></th>
+        <th scope="col">שדה</th>
+        <th scope="col">ערך</th>
       </tr>
     </thead>
     <tbody>
@@ -238,7 +238,7 @@ image: /logo.svg
     <thead>
       <tr>
         <th>גרסה</th>
-        <th></th>
+        <th>מצב</th>
       </tr>
     </thead>
     <tbody>

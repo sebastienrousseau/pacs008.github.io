@@ -16,8 +16,8 @@ image: /logo.svg
     </colgroup>
     <thead>
       <tr>
-        <th></th>
-        <th></th>
+        <th scope="col">Alan</th>
+        <th scope="col">Değer</th>
       </tr>
     </thead>
     <tbody>
@@ -238,7 +238,7 @@ Borçlu aracı bir pacs.008 oluşturur ve alacaklı aracıya gönderir (doğruda
     <thead>
       <tr>
         <th>Sürüm</th>
-        <th></th>
+        <th>Durum</th>
       </tr>
     </thead>
     <tbody>
