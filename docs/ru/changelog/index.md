@@ -1,54 +1,53 @@
 ---
-title: "Changelog | pacs008"
-description: Version history and release notes for the pacs008 toolkit. Track new features, improvements, and fixes across releases.
+title: "Журнал изменений | pacs008"
+description: История версий и примечания к выпускам инструментария pacs008. Отслеживайте новые функции, улучшения и исправления между версиями.
 lang: ru-RU
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Changelog
+# Журнал изменений
 
-This page tracks significant changes to the pacs008 toolkit and this documentation site.
+На этой странице отслеживаются значительные изменения в инструментарии pacs008 и на этом сайте документации.
 
 ## 2026
 
-### March 2026
+### Март 2026
 
-- Added comprehensive FAQ page with 25+ Q&A pairs covering ISO 20022 pacs messages.
-- Added PACS Messages Explained page with detailed technical reference for the entire pacs family.
-- Added glossary page defining 60+ ISO 20022 and payment messaging terms.
-- Added structured-address deadline page covering the November 2026 CBPR+ requirement.
-- Added editorial policy page explaining content sources, review process, and methodology.
-- Added FAQPage, TechArticle, SoftwareApplication, and HowTo JSON-LD schema markup.
-- Extended sitemap with hreflang annotations for all 22 locales.
-- Improved readability across all English pages (Flesch Reading Ease 55-58, Flesch-Kincaid Grade 8-9).
-- Fixed 374 empty table header elements across all locales for accessibility.
-- Added table captions to comparison, operational-matrix, and version-diff tables.
-- Optimised hero image from 2.7 MB to 32 KB.
-- Lighthouse scores: Accessibility 96-100, Best Practices 100, SEO 100.
+- Добавлена подробная страница FAQ с более чем 25 парами вопросов и ответов о сообщениях pacs ISO 20022.
+- Добавлена страница с объяснением сообщений PACS с подробным техническим справочником по всему семейству pacs.
+- Добавлена страница глоссария с определениями более 60 терминов ISO 20022 и платёжной корреспонденции.
+- Добавлена страница о сроке перехода на структурированные адреса, охватывающая требование CBPR+ с ноября 2026 года.
+- Добавлена страница редакционной политики с описанием источников контента, процесса проверки и методологии.
+- Добавлена разметка JSON-LD-схемы FAQPage, TechArticle, SoftwareApplication и HowTo.
+- Расширена карта сайта с аннотациями hreflang для всех 22 языков.
+- Улучшена читаемость всех англоязычных страниц (Flesch Reading Ease 55-58, Flesch-Kincaid Grade 8-9).
+- Исправлены 374 пустых элемента заголовков таблиц во всех языковых версиях для доступности.
+- Добавлены подписи к таблицам сравнения, операционной матрицы и различий версий.
+- Оптимизировано главное изображение с 2,7 МБ до 32 КБ.
+- Оценки Lighthouse: Доступность 96-100, Best Practices 100, SEO 100.
 
-### January 2026
+### Январь 2026
 
-- Launched pacs008.com with documentation for 8 ISO 20022 pacs message types.
-- Generated documentation in 22 languages.
-- Implemented hreflang tags, canonical URLs, and structured data (WebSite, BreadcrumbList, WebPage).
-- Published REST API, CLI, and Python library documentation.
-- Added IBAN and BIC validation documentation.
-- Shipped Docker deployment guide.
+- Запущен pacs008.com с документацией для 8 типов сообщений pacs ISO 20022.
+- Сгенерирована документация на 22 языках.
+- Реализованы теги hreflang, канонические URL-адреса и структурированные данные (WebSite, BreadcrumbList, WebPage).
+- Опубликована документация REST API, CLI и библиотеки Python.
+- Добавлена документация по валидации IBAN и BIC.
+- Выпущено руководство по развёртыванию с Docker.
 
 ## 2025
 
-### December 2025
+### Декабрь 2025
 
-- Initial release of the pacs008 Python toolkit on PyPI.
-- Support for pacs.008.001.13 XML generation and validation.
-- CSV, JSON, JSONL, SQLite, and Parquet data input.
-- JSON Schema and XSD validation pipeline.
-- SWIFT character compliance checking.
-- FastAPI REST API for automated workflows.
+- Первый выпуск Python-инструментария pacs008 на PyPI.
+- Поддержка генерации и валидации XML pacs.008.001.13.
+- Ввод данных CSV, JSON, JSONL, SQLite и Parquet.
+- Конвейер валидации JSON Schema и XSD.
+- Проверка соответствия символов SWIFT.
+- FastAPI REST API для автоматизированных рабочих процессов.
 
-## Links
+## Ссылки
 
 - [pacs008 releases on GitHub](https://github.com/sebastienrousseau/pacs008/releases)
 - [pacs008 on PyPI](https://pypi.org/project/pacs008/)
-

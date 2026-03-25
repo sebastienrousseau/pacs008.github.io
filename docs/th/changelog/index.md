@@ -1,54 +1,53 @@
 ---
-title: "Changelog | pacs008"
-description: Version history and release notes for the pacs008 toolkit. Track new features, improvements, and fixes across releases.
+title: "บันทึกการเปลี่ยนแปลง | pacs008"
+description: ประวัติเวอร์ชันและบันทึกรุ่นสำหรับชุดเครื่องมือ pacs008 ติดตามฟีเจอร์ใหม่ การปรับปรุง และการแก้ไขในแต่ละรุ่น
 lang: th-TH
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Changelog
+# บันทึกการเปลี่ยนแปลง
 
-This page tracks significant changes to the pacs008 toolkit and this documentation site.
+หน้านี้ติดตามการเปลี่ยนแปลงที่สำคัญของชุดเครื่องมือ pacs008 และเว็บไซต์เอกสารนี้
 
 ## 2026
 
-### March 2026
+### มีนาคม 2026
 
-- Added comprehensive FAQ page with 25+ Q&A pairs covering ISO 20022 pacs messages.
-- Added PACS Messages Explained page with detailed technical reference for the entire pacs family.
-- Added glossary page defining 60+ ISO 20022 and payment messaging terms.
-- Added structured-address deadline page covering the November 2026 CBPR+ requirement.
-- Added editorial policy page explaining content sources, review process, and methodology.
-- Added FAQPage, TechArticle, SoftwareApplication, and HowTo JSON-LD schema markup.
-- Extended sitemap with hreflang annotations for all 22 locales.
-- Improved readability across all English pages (Flesch Reading Ease 55-58, Flesch-Kincaid Grade 8-9).
-- Fixed 374 empty table header elements across all locales for accessibility.
-- Added table captions to comparison, operational-matrix, and version-diff tables.
-- Optimised hero image from 2.7 MB to 32 KB.
-- Lighthouse scores: Accessibility 96-100, Best Practices 100, SEO 100.
+- เพิ่มหน้าคำถามที่พบบ่อยที่ครอบคลุมพร้อมคู่คำถาม-คำตอบมากกว่า 25 คู่เกี่ยวกับข้อความ pacs ตามมาตรฐาน ISO 20022
+- เพิ่มหน้าอธิบายข้อความ PACS พร้อมข้อมูลอ้างอิงทางเทคนิคโดยละเอียดสำหรับตระกูล pacs ทั้งหมด
+- เพิ่มหน้าอภิธานศัพท์ที่นิยามคำศัพท์ ISO 20022 และข้อความการชำระเงินมากกว่า 60 คำ
+- เพิ่มหน้ากำหนดเวลาที่อยู่แบบมีโครงสร้างที่ครอบคลุมข้อกำหนด CBPR+ เดือนพฤศจิกายน 2026
+- เพิ่มหน้านโยบายบรรณาธิการที่อธิบายแหล่งเนื้อหา กระบวนการตรวจสอบ และระเบียบวิธี
+- เพิ่มมาร์กอัปสคีมา JSON-LD สำหรับ FAQPage, TechArticle, SoftwareApplication และ HowTo
+- ขยายแผนผังเว็บไซต์ด้วยคำอธิบาย hreflang สำหรับทั้ง 22 ภาษา
+- ปรับปรุงความสามารถในการอ่านในทุกหน้าภาษาอังกฤษ (Flesch Reading Ease 55-58, Flesch-Kincaid Grade 8-9)
+- แก้ไของค์ประกอบส่วนหัวตารางว่าง 374 รายการในทุกภาษาเพื่อการเข้าถึง
+- เพิ่มคำบรรยายตารางในตารางเปรียบเทียบ เมทริกซ์การดำเนินงาน และความแตกต่างของเวอร์ชัน
+- ปรับแต่งภาพหลักจาก 2.7 MB เป็น 32 KB
+- คะแนน Lighthouse: การเข้าถึง 96-100, แนวปฏิบัติที่ดี 100, SEO 100
 
-### January 2026
+### มกราคม 2026
 
-- Launched pacs008.com with documentation for 8 ISO 20022 pacs message types.
-- Generated documentation in 22 languages.
-- Implemented hreflang tags, canonical URLs, and structured data (WebSite, BreadcrumbList, WebPage).
-- Published REST API, CLI, and Python library documentation.
-- Added IBAN and BIC validation documentation.
-- Shipped Docker deployment guide.
+- เปิดตัว pacs008.com พร้อมเอกสารสำหรับข้อความ pacs ตามมาตรฐาน ISO 20022 จำนวน 8 ประเภท
+- สร้างเอกสารใน 22 ภาษา
+- นำแท็ก hreflang, URL มาตรฐาน และข้อมูลที่มีโครงสร้าง (WebSite, BreadcrumbList, WebPage) มาใช้
+- เผยแพร่เอกสาร REST API, CLI และไลบรารี Python
+- เพิ่มเอกสารการตรวจสอบ IBAN และ BIC
+- ออกคู่มือการติดตั้ง Docker
 
 ## 2025
 
-### December 2025
+### ธันวาคม 2025
 
-- Initial release of the pacs008 Python toolkit on PyPI.
-- Support for pacs.008.001.13 XML generation and validation.
-- CSV, JSON, JSONL, SQLite, and Parquet data input.
-- JSON Schema and XSD validation pipeline.
-- SWIFT character compliance checking.
-- FastAPI REST API for automated workflows.
+- เปิดตัวชุดเครื่องมือ Python pacs008 บน PyPI เป็นครั้งแรก
+- รองรับการสร้างและตรวจสอบ XML ของ pacs.008.001.13
+- ข้อมูลนำเข้า CSV, JSON, JSONL, SQLite และ Parquet
+- ไปป์ไลน์การตรวจสอบ JSON Schema และ XSD
+- การตรวจสอบความสอดคล้องของอักขระ SWIFT
+- FastAPI REST API สำหรับเวิร์กโฟลว์อัตโนมัติ
 
-## Links
+## ลิงก์
 
 - [pacs008 releases on GitHub](https://github.com/sebastienrousseau/pacs008/releases)
 - [pacs008 on PyPI](https://pypi.org/project/pacs008/)
-

@@ -1,54 +1,53 @@
 ---
-title: "Changelog | pacs008"
-description: Version history and release notes for the pacs008 toolkit. Track new features, improvements, and fixes across releases.
+title: "Catatan perubahan | pacs008"
+description: Riwayat versi dan catatan rilis untuk toolkit pacs008. Lacak fitur baru, peningkatan, dan perbaikan di setiap rilis.
 lang: id-ID
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Changelog
+# Catatan perubahan
 
-This page tracks significant changes to the pacs008 toolkit and this documentation site.
+Halaman ini melacak perubahan signifikan pada toolkit pacs008 dan situs dokumentasi ini.
 
 ## 2026
 
-### March 2026
+### Maret 2026
 
-- Added comprehensive FAQ page with 25+ Q&A pairs covering ISO 20022 pacs messages.
-- Added PACS Messages Explained page with detailed technical reference for the entire pacs family.
-- Added glossary page defining 60+ ISO 20022 and payment messaging terms.
-- Added structured-address deadline page covering the November 2026 CBPR+ requirement.
-- Added editorial policy page explaining content sources, review process, and methodology.
-- Added FAQPage, TechArticle, SoftwareApplication, and HowTo JSON-LD schema markup.
-- Extended sitemap with hreflang annotations for all 22 locales.
-- Improved readability across all English pages (Flesch Reading Ease 55-58, Flesch-Kincaid Grade 8-9).
-- Fixed 374 empty table header elements across all locales for accessibility.
-- Added table captions to comparison, operational-matrix, and version-diff tables.
-- Optimised hero image from 2.7 MB to 32 KB.
-- Lighthouse scores: Accessibility 96-100, Best Practices 100, SEO 100.
+- Ditambahkan halaman FAQ komprehensif dengan lebih dari 25 pasang tanya jawab tentang pesan pacs ISO 20022.
+- Ditambahkan halaman Penjelasan Pesan PACS dengan referensi teknis terperinci untuk seluruh keluarga pacs.
+- Ditambahkan halaman glosarium yang mendefinisikan lebih dari 60 istilah ISO 20022 dan pesan pembayaran.
+- Ditambahkan halaman tenggat waktu alamat terstruktur yang mencakup persyaratan CBPR+ November 2026.
+- Ditambahkan halaman kebijakan editorial yang menjelaskan sumber konten, proses peninjauan, dan metodologi.
+- Ditambahkan markup skema JSON-LD FAQPage, TechArticle, SoftwareApplication, dan HowTo.
+- Diperluas peta situs dengan anotasi hreflang untuk semua 22 bahasa.
+- Ditingkatkan keterbacaan di semua halaman berbahasa Inggris (Flesch Reading Ease 55-58, Flesch-Kincaid Grade 8-9).
+- Diperbaiki 374 elemen header tabel kosong di semua bahasa untuk aksesibilitas.
+- Ditambahkan keterangan tabel ke tabel perbandingan, matriks operasional, dan perbedaan versi.
+- Dioptimalkan gambar hero dari 2,7 MB menjadi 32 KB.
+- Skor Lighthouse: Aksesibilitas 96-100, Best Practices 100, SEO 100.
 
-### January 2026
+### Januari 2026
 
-- Launched pacs008.com with documentation for 8 ISO 20022 pacs message types.
-- Generated documentation in 22 languages.
-- Implemented hreflang tags, canonical URLs, and structured data (WebSite, BreadcrumbList, WebPage).
-- Published REST API, CLI, and Python library documentation.
-- Added IBAN and BIC validation documentation.
-- Shipped Docker deployment guide.
+- Diluncurkan pacs008.com dengan dokumentasi untuk 8 jenis pesan pacs ISO 20022.
+- Dihasilkan dokumentasi dalam 22 bahasa.
+- Diimplementasikan tag hreflang, URL kanonis, dan data terstruktur (WebSite, BreadcrumbList, WebPage).
+- Dipublikasikan dokumentasi REST API, CLI, dan pustaka Python.
+- Ditambahkan dokumentasi validasi IBAN dan BIC.
+- Dirilis panduan deployment Docker.
 
 ## 2025
 
-### December 2025
+### Desember 2025
 
-- Initial release of the pacs008 Python toolkit on PyPI.
-- Support for pacs.008.001.13 XML generation and validation.
-- CSV, JSON, JSONL, SQLite, and Parquet data input.
-- JSON Schema and XSD validation pipeline.
-- SWIFT character compliance checking.
-- FastAPI REST API for automated workflows.
+- Rilis awal toolkit Python pacs008 di PyPI.
+- Dukungan untuk pembuatan dan validasi XML pacs.008.001.13.
+- Input data CSV, JSON, JSONL, SQLite, dan Parquet.
+- Pipeline validasi JSON Schema dan XSD.
+- Pemeriksaan kepatuhan karakter SWIFT.
+- FastAPI REST API untuk alur kerja otomatis.
 
-## Links
+## Tautan
 
 - [pacs008 releases on GitHub](https://github.com/sebastienrousseau/pacs008/releases)
 - [pacs008 on PyPI](https://pypi.org/project/pacs008/)
-

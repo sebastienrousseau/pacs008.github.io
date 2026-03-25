@@ -1,54 +1,53 @@
 ---
-title: "Changelog | pacs008"
-description: Version history and release notes for the pacs008 toolkit. Track new features, improvements, and fixes across releases.
+title: "परिवर्तन लॉग | pacs008"
+description: pacs008 टूलकिट का संस्करण इतिहास और रिलीज़ नोट्स। संस्करणों में नई सुविधाएँ, सुधार और फ़िक्स ट्रैक करें।
 lang: hi-IN
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Changelog
+# परिवर्तन लॉग
 
-This page tracks significant changes to the pacs008 toolkit and this documentation site.
+यह पृष्ठ pacs008 टूलकिट और इस दस्तावेज़ीकरण साइट में महत्वपूर्ण परिवर्तनों को ट्रैक करता है।
 
 ## 2026
 
-### March 2026
+### मार्च 2026
 
-- Added comprehensive FAQ page with 25+ Q&A pairs covering ISO 20022 pacs messages.
-- Added PACS Messages Explained page with detailed technical reference for the entire pacs family.
-- Added glossary page defining 60+ ISO 20022 and payment messaging terms.
-- Added structured-address deadline page covering the November 2026 CBPR+ requirement.
-- Added editorial policy page explaining content sources, review process, and methodology.
-- Added FAQPage, TechArticle, SoftwareApplication, and HowTo JSON-LD schema markup.
-- Extended sitemap with hreflang annotations for all 22 locales.
-- Improved readability across all English pages (Flesch Reading Ease 55-58, Flesch-Kincaid Grade 8-9).
-- Fixed 374 empty table header elements across all locales for accessibility.
-- Added table captions to comparison, operational-matrix, and version-diff tables.
-- Optimised hero image from 2.7 MB to 32 KB.
-- Lighthouse scores: Accessibility 96-100, Best Practices 100, SEO 100.
+- ISO 20022 pacs संदेशों पर 25+ प्रश्न-उत्तर जोड़ों के साथ व्यापक FAQ पृष्ठ जोड़ा गया।
+- संपूर्ण pacs परिवार के लिए विस्तृत तकनीकी संदर्भ के साथ PACS संदेश व्याख्या पृष्ठ जोड़ा गया।
+- 60+ ISO 20022 और भुगतान संदेश शब्दों को परिभाषित करने वाला शब्दावली पृष्ठ जोड़ा गया।
+- नवंबर 2026 CBPR+ आवश्यकता को कवर करने वाला संरचित-पता समय सीमा पृष्ठ जोड़ा गया।
+- सामग्री स्रोतों, समीक्षा प्रक्रिया और कार्यप्रणाली की व्याख्या करने वाला संपादकीय नीति पृष्ठ जोड़ा गया।
+- FAQPage, TechArticle, SoftwareApplication और HowTo JSON-LD स्कीमा मार्कअप जोड़ा गया।
+- सभी 22 भाषाओं के लिए hreflang एनोटेशन के साथ साइटमैप का विस्तार किया गया।
+- सभी अंग्रेजी पृष्ठों पर पठनीयता में सुधार किया गया (Flesch Reading Ease 55-58, Flesch-Kincaid Grade 8-9)।
+- पहुँच के लिए सभी भाषाओं में 374 खाली तालिका शीर्षक तत्व ठीक किए गए।
+- तुलना, परिचालन-मैट्रिक्स और संस्करण-अंतर तालिकाओं में तालिका कैप्शन जोड़े गए।
+- हीरो इमेज को 2.7 MB से 32 KB में ऑप्टिमाइज़ किया गया।
+- Lighthouse स्कोर: पहुँच 96-100, Best Practices 100, SEO 100।
 
-### January 2026
+### जनवरी 2026
 
-- Launched pacs008.com with documentation for 8 ISO 20022 pacs message types.
-- Generated documentation in 22 languages.
-- Implemented hreflang tags, canonical URLs, and structured data (WebSite, BreadcrumbList, WebPage).
-- Published REST API, CLI, and Python library documentation.
-- Added IBAN and BIC validation documentation.
-- Shipped Docker deployment guide.
+- 8 ISO 20022 pacs संदेश प्रकारों के लिए दस्तावेज़ीकरण के साथ pacs008.com लॉन्च किया गया।
+- 22 भाषाओं में दस्तावेज़ीकरण तैयार किया गया।
+- hreflang टैग, कैनोनिकल URL और संरचित डेटा (WebSite, BreadcrumbList, WebPage) लागू किए गए।
+- REST API, CLI और Python लाइब्रेरी दस्तावेज़ीकरण प्रकाशित किया गया।
+- IBAN और BIC सत्यापन दस्तावेज़ीकरण जोड़ा गया।
+- Docker डिप्लॉयमेंट गाइड जारी की गई।
 
 ## 2025
 
-### December 2025
+### दिसंबर 2025
 
-- Initial release of the pacs008 Python toolkit on PyPI.
-- Support for pacs.008.001.13 XML generation and validation.
-- CSV, JSON, JSONL, SQLite, and Parquet data input.
-- JSON Schema and XSD validation pipeline.
-- SWIFT character compliance checking.
-- FastAPI REST API for automated workflows.
+- PyPI पर pacs008 Python टूलकिट का प्रारंभिक रिलीज़।
+- pacs.008.001.13 XML जनरेशन और सत्यापन के लिए सहायता।
+- CSV, JSON, JSONL, SQLite और Parquet डेटा इनपुट।
+- JSON Schema और XSD सत्यापन पाइपलाइन।
+- SWIFT वर्ण अनुपालन जाँच।
+- स्वचालित कार्यप्रवाहों के लिए FastAPI REST API।
 
-## Links
+## लिंक
 
 - [pacs008 releases on GitHub](https://github.com/sebastienrousseau/pacs008/releases)
 - [pacs008 on PyPI](https://pypi.org/project/pacs008/)
-

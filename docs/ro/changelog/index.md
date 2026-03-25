@@ -1,54 +1,53 @@
 ---
-title: "Changelog | pacs008"
-description: Version history and release notes for the pacs008 toolkit. Track new features, improvements, and fixes across releases.
+title: "Jurnal de modificări | pacs008"
+description: Istoricul versiunilor și notele de lansare pentru toolkit-ul pacs008. Urmăriți funcționalități noi, îmbunătățiri și corecții între versiuni.
 lang: ro-RO
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Changelog
+# Jurnal de modificări
 
-This page tracks significant changes to the pacs008 toolkit and this documentation site.
+Această pagină urmărește modificările semnificative aduse toolkit-ului pacs008 și acestui site de documentație.
 
 ## 2026
 
-### March 2026
+### Martie 2026
 
-- Added comprehensive FAQ page with 25+ Q&A pairs covering ISO 20022 pacs messages.
-- Added PACS Messages Explained page with detailed technical reference for the entire pacs family.
-- Added glossary page defining 60+ ISO 20022 and payment messaging terms.
-- Added structured-address deadline page covering the November 2026 CBPR+ requirement.
-- Added editorial policy page explaining content sources, review process, and methodology.
-- Added FAQPage, TechArticle, SoftwareApplication, and HowTo JSON-LD schema markup.
-- Extended sitemap with hreflang annotations for all 22 locales.
-- Improved readability across all English pages (Flesch Reading Ease 55-58, Flesch-Kincaid Grade 8-9).
-- Fixed 374 empty table header elements across all locales for accessibility.
-- Added table captions to comparison, operational-matrix, and version-diff tables.
-- Optimised hero image from 2.7 MB to 32 KB.
-- Lighthouse scores: Accessibility 96-100, Best Practices 100, SEO 100.
+- Adăugată pagină FAQ cuprinzătoare cu peste 25 de perechi întrebare-răspuns despre mesajele pacs ISO 20022.
+- Adăugată pagină de explicare a mesajelor PACS cu referință tehnică detaliată pentru întreaga familie pacs.
+- Adăugată pagină de glosar cu definițiile a peste 60 de termeni ISO 20022 și de mesagerie de plăți.
+- Adăugată pagină privind termenul limită pentru adresele structurate, acoperind cerința CBPR+ din noiembrie 2026.
+- Adăugată pagină de politică editorială care explică sursele de conținut, procesul de revizuire și metodologia.
+- Adăugate marcaje de schemă JSON-LD FAQPage, TechArticle, SoftwareApplication și HowTo.
+- Extins sitemap-ul cu adnotări hreflang pentru toate cele 22 de limbi.
+- Îmbunătățită lizibilitatea pe toate paginile în limba engleză (Flesch Reading Ease 55-58, Flesch-Kincaid Grade 8-9).
+- Corectate 374 de elemente goale de antet de tabel în toate limbile pentru accesibilitate.
+- Adăugate legende de tabel la tabelele de comparație, matricea operațională și diferențele între versiuni.
+- Optimizată imaginea hero de la 2,7 MB la 32 KB.
+- Scoruri Lighthouse: Accesibilitate 96-100, Best Practices 100, SEO 100.
 
-### January 2026
+### Ianuarie 2026
 
-- Launched pacs008.com with documentation for 8 ISO 20022 pacs message types.
-- Generated documentation in 22 languages.
-- Implemented hreflang tags, canonical URLs, and structured data (WebSite, BreadcrumbList, WebPage).
-- Published REST API, CLI, and Python library documentation.
-- Added IBAN and BIC validation documentation.
-- Shipped Docker deployment guide.
+- Lansat pacs008.com cu documentație pentru 8 tipuri de mesaje pacs ISO 20022.
+- Generată documentație în 22 de limbi.
+- Implementate etichete hreflang, URL-uri canonice și date structurate (WebSite, BreadcrumbList, WebPage).
+- Publicată documentația pentru REST API, CLI și biblioteca Python.
+- Adăugată documentație pentru validarea IBAN și BIC.
+- Livrat ghidul de implementare Docker.
 
 ## 2025
 
-### December 2025
+### Decembrie 2025
 
-- Initial release of the pacs008 Python toolkit on PyPI.
-- Support for pacs.008.001.13 XML generation and validation.
-- CSV, JSON, JSONL, SQLite, and Parquet data input.
-- JSON Schema and XSD validation pipeline.
-- SWIFT character compliance checking.
-- FastAPI REST API for automated workflows.
+- Lansarea inițială a toolkit-ului Python pacs008 pe PyPI.
+- Suport pentru generarea și validarea XML pacs.008.001.13.
+- Date de intrare CSV, JSON, JSONL, SQLite și Parquet.
+- Pipeline de validare JSON Schema și XSD.
+- Verificarea conformității cu caracterele SWIFT.
+- REST API FastAPI pentru fluxuri de lucru automatizate.
 
-## Links
+## Linkuri
 
 - [pacs008 releases on GitHub](https://github.com/sebastienrousseau/pacs008/releases)
 - [pacs008 on PyPI](https://pypi.org/project/pacs008/)
-

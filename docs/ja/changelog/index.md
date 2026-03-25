@@ -1,54 +1,53 @@
 ---
-title: "Changelog | pacs008"
-description: Version history and release notes for the pacs008 toolkit. Track new features, improvements, and fixes across releases.
+title: "変更履歴 | pacs008"
+description: pacs008ツールキットのバージョン履歴とリリースノート。リリースごとの新機能、改善、修正を追跡します。
 lang: ja-JP
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Changelog
+# 変更履歴
 
-This page tracks significant changes to the pacs008 toolkit and this documentation site.
+このページでは、pacs008ツールキットおよびこのドキュメントサイトの重要な変更を追跡しています。
 
 ## 2026
 
-### March 2026
+### 2026年3月
 
-- Added comprehensive FAQ page with 25+ Q&A pairs covering ISO 20022 pacs messages.
-- Added PACS Messages Explained page with detailed technical reference for the entire pacs family.
-- Added glossary page defining 60+ ISO 20022 and payment messaging terms.
-- Added structured-address deadline page covering the November 2026 CBPR+ requirement.
-- Added editorial policy page explaining content sources, review process, and methodology.
-- Added FAQPage, TechArticle, SoftwareApplication, and HowTo JSON-LD schema markup.
-- Extended sitemap with hreflang annotations for all 22 locales.
-- Improved readability across all English pages (Flesch Reading Ease 55-58, Flesch-Kincaid Grade 8-9).
-- Fixed 374 empty table header elements across all locales for accessibility.
-- Added table captions to comparison, operational-matrix, and version-diff tables.
-- Optimised hero image from 2.7 MB to 32 KB.
-- Lighthouse scores: Accessibility 96-100, Best Practices 100, SEO 100.
+- ISO 20022 pacsメッセージに関する25以上のQ&Aペアを含む包括的なFAQページを追加しました。
+- pacsファミリー全体の詳細な技術リファレンスを含むPACSメッセージ解説ページを追加しました。
+- 60以上のISO 20022および決済メッセージ用語を定義する用語集ページを追加しました。
+- 2026年11月のCBPR+要件をカバーする構造化アドレス期限ページを追加しました。
+- コンテンツソース、レビュープロセス、方法論を説明する編集方針ページを追加しました。
+- FAQPage、TechArticle、SoftwareApplication、HowTo JSON-LDスキーママークアップを追加しました。
+- 全22言語のhreflangアノテーションでサイトマップを拡張しました。
+- すべての英語ページの可読性を改善しました（Flesch Reading Ease 55-58、Flesch-Kincaid Grade 8-9）。
+- アクセシビリティのため、すべての言語で374の空のテーブルヘッダー要素を修正しました。
+- 比較、運用マトリックス、バージョン差分テーブルにテーブルキャプションを追加しました。
+- ヒーロー画像を2.7 MBから32 KBに最適化しました。
+- Lighthouseスコア：アクセシビリティ96-100、ベストプラクティス100、SEO 100。
 
-### January 2026
+### 2026年1月
 
-- Launched pacs008.com with documentation for 8 ISO 20022 pacs message types.
-- Generated documentation in 22 languages.
-- Implemented hreflang tags, canonical URLs, and structured data (WebSite, BreadcrumbList, WebPage).
-- Published REST API, CLI, and Python library documentation.
-- Added IBAN and BIC validation documentation.
-- Shipped Docker deployment guide.
+- 8種類のISO 20022 pacsメッセージタイプのドキュメントを含むpacs008.comを公開しました。
+- 22言語でドキュメントを生成しました。
+- hreflangタグ、正規URL、構造化データ（WebSite、BreadcrumbList、WebPage）を実装しました。
+- REST API、CLI、Pythonライブラリのドキュメントを公開しました。
+- IBANおよびBIC検証ドキュメントを追加しました。
+- Dockerデプロイメントガイドをリリースしました。
 
 ## 2025
 
-### December 2025
+### 2025年12月
 
-- Initial release of the pacs008 Python toolkit on PyPI.
-- Support for pacs.008.001.13 XML generation and validation.
-- CSV, JSON, JSONL, SQLite, and Parquet data input.
-- JSON Schema and XSD validation pipeline.
-- SWIFT character compliance checking.
-- FastAPI REST API for automated workflows.
+- PyPIでpacs008 Pythonツールキットの初回リリース。
+- pacs.008.001.13 XML生成と検証のサポート。
+- CSV、JSON、JSONL、SQLite、Parquetデータ入力。
+- JSON SchemaおよびXSD検証パイプライン。
+- SWIFT文字コンプライアンスチェック。
+- 自動化ワークフローのためのFastAPI REST API。
 
-## Links
+## リンク
 
 - [pacs008 releases on GitHub](https://github.com/sebastienrousseau/pacs008/releases)
 - [pacs008 on PyPI](https://pypi.org/project/pacs008/)
-

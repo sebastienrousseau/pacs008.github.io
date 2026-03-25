@@ -1,54 +1,53 @@
 ---
-title: "Changelog | pacs008"
-description: Version history and release notes for the pacs008 toolkit. Track new features, improvements, and fixes across releases.
+title: "Nhật ký thay đổi | pacs008"
+description: Lịch sử phiên bản và ghi chú phát hành cho bộ công cụ pacs008. Theo dõi các tính năng mới, cải tiến và sửa lỗi qua các phiên bản.
 lang: vi-VN
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Changelog
+# Nhật ký thay đổi
 
-This page tracks significant changes to the pacs008 toolkit and this documentation site.
+Trang này theo dõi các thay đổi quan trọng đối với bộ công cụ pacs008 và trang tài liệu này.
 
 ## 2026
 
-### March 2026
+### Tháng 3 năm 2026
 
-- Added comprehensive FAQ page with 25+ Q&A pairs covering ISO 20022 pacs messages.
-- Added PACS Messages Explained page with detailed technical reference for the entire pacs family.
-- Added glossary page defining 60+ ISO 20022 and payment messaging terms.
-- Added structured-address deadline page covering the November 2026 CBPR+ requirement.
-- Added editorial policy page explaining content sources, review process, and methodology.
-- Added FAQPage, TechArticle, SoftwareApplication, and HowTo JSON-LD schema markup.
-- Extended sitemap with hreflang annotations for all 22 locales.
-- Improved readability across all English pages (Flesch Reading Ease 55-58, Flesch-Kincaid Grade 8-9).
-- Fixed 374 empty table header elements across all locales for accessibility.
-- Added table captions to comparison, operational-matrix, and version-diff tables.
-- Optimised hero image from 2.7 MB to 32 KB.
-- Lighthouse scores: Accessibility 96-100, Best Practices 100, SEO 100.
+- Thêm trang FAQ toàn diện với hơn 25 cặp hỏi-đáp về thông điệp pacs theo ISO 20022.
+- Thêm trang Giải thích thông điệp PACS với tài liệu tham khảo kỹ thuật chi tiết cho toàn bộ họ pacs.
+- Thêm trang bảng thuật ngữ định nghĩa hơn 60 thuật ngữ ISO 20022 và thông điệp thanh toán.
+- Thêm trang hạn chót địa chỉ có cấu trúc bao gồm yêu cầu CBPR+ tháng 11 năm 2026.
+- Thêm trang chính sách biên tập giải thích nguồn nội dung, quy trình đánh giá và phương pháp luận.
+- Thêm đánh dấu lược đồ JSON-LD cho FAQPage, TechArticle, SoftwareApplication và HowTo.
+- Mở rộng sơ đồ trang web với chú thích hreflang cho tất cả 22 ngôn ngữ.
+- Cải thiện khả năng đọc trên tất cả các trang tiếng Anh (Flesch Reading Ease 55-58, Flesch-Kincaid Grade 8-9).
+- Sửa 374 phần tử tiêu đề bảng trống trên tất cả ngôn ngữ để cải thiện khả năng truy cập.
+- Thêm chú thích bảng cho các bảng so sánh, ma trận vận hành và khác biệt phiên bản.
+- Tối ưu hóa hình ảnh chính từ 2,7 MB xuống 32 KB.
+- Điểm Lighthouse: Khả năng truy cập 96-100, Thực hành tốt nhất 100, SEO 100.
 
-### January 2026
+### Tháng 1 năm 2026
 
-- Launched pacs008.com with documentation for 8 ISO 20022 pacs message types.
-- Generated documentation in 22 languages.
-- Implemented hreflang tags, canonical URLs, and structured data (WebSite, BreadcrumbList, WebPage).
-- Published REST API, CLI, and Python library documentation.
-- Added IBAN and BIC validation documentation.
-- Shipped Docker deployment guide.
+- Ra mắt pacs008.com với tài liệu cho 8 loại thông điệp pacs theo ISO 20022.
+- Tạo tài liệu bằng 22 ngôn ngữ.
+- Triển khai thẻ hreflang, URL chuẩn và dữ liệu có cấu trúc (WebSite, BreadcrumbList, WebPage).
+- Xuất bản tài liệu REST API, CLI và thư viện Python.
+- Thêm tài liệu xác thực IBAN và BIC.
+- Phát hành hướng dẫn triển khai Docker.
 
 ## 2025
 
-### December 2025
+### Tháng 12 năm 2025
 
-- Initial release of the pacs008 Python toolkit on PyPI.
-- Support for pacs.008.001.13 XML generation and validation.
-- CSV, JSON, JSONL, SQLite, and Parquet data input.
-- JSON Schema and XSD validation pipeline.
-- SWIFT character compliance checking.
-- FastAPI REST API for automated workflows.
+- Phát hành đầu tiên của bộ công cụ Python pacs008 trên PyPI.
+- Hỗ trợ tạo và xác thực XML pacs.008.001.13.
+- Đầu vào dữ liệu CSV, JSON, JSONL, SQLite và Parquet.
+- Pipeline xác thực JSON Schema và XSD.
+- Kiểm tra tuân thủ ký tự SWIFT.
+- FastAPI REST API cho quy trình làm việc tự động.
 
-## Links
+## Liên kết
 
 - [pacs008 releases on GitHub](https://github.com/sebastienrousseau/pacs008/releases)
 - [pacs008 on PyPI](https://pypi.org/project/pacs008/)
-

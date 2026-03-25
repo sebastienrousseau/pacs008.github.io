@@ -1,144 +1,144 @@
 ---
-title: "Frequently asked questions | pacs008"
-description: Common questions about ISO 20022 pacs messages, CBPR+ migration, message selection, implementation, and the pacs008 toolkit.
+title: "Veelgestelde vragen | pacs008"
+description: Veelgestelde vragen over ISO 20022 pacs-berichten, CBPR+-migratie, berichtselectie, implementatie en de pacs008-toolkit.
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Frequently asked questions
+# Veelgestelde vragen
 
-This page answers common questions about ISO 20022 pacs messages, how they work together, and how pacs008 helps teams implement them.
+Deze pagina beantwoordt veelgestelde vragen over ISO 20022 pacs-berichten, hoe ze samenwerken en hoe pacs008 teams helpt bij de implementatie.
 
-## General
+## Algemeen
 
-### What is ISO 20022?
+### Wat is ISO 20022?
 
-ISO 20022 is an international standard for financial messaging. It defines a common language and model for payment messages exchanged between financial institutions. Unlike older formats such as SWIFT MT, ISO 20022 uses XML and supports richer, more structured data for parties, amounts, and references.
+ISO 20022 is een internationale standaard voor financiële berichtgeving. Het definieert een gemeenschappelijke taal en model voor betalingsberichten die worden uitgewisseld tussen financiële instellingen. In tegenstelling tot oudere formaten zoals SWIFT MT, gebruikt ISO 20022 XML en ondersteunt het rijkere, meer gestructureerde gegevens voor partijen, bedragen en referenties.
 
-### What are pacs messages?
+### Wat zijn pacs-berichten?
 
-The pacs (payments clearing and settlement) message family covers interbank payment instructions, status reports, returns, reversals, and enquiries. It includes pacs.002, pacs.003, pacs.004, pacs.007, pacs.008, pacs.009, pacs.010, and pacs.028. Each message serves a specific role in the payment lifecycle.
+De pacs-berichtfamilie (payments clearing and settlement) omvat interbancaire betalingsinstructies, statusrapporten, retourzendingen, terugboekingen en informatieverzoeken. Het omvat pacs.002, pacs.003, pacs.004, pacs.007, pacs.008, pacs.009, pacs.010 en pacs.028. Elk bericht vervult een specifieke rol in de betalingslevenscyclus.
 
-### How do pacs messages differ from SWIFT MT messages?
+### Hoe verschillen pacs-berichten van SWIFT MT-berichten?
 
-SWIFT MT messages use a flat, field-tag format (e.g. MT103 for customer credit transfers). Pacs messages use hierarchical XML with richer data structures. Key differences include support for multiple transactions per message, structured party identification (LEI, multiple IDs), structured postal addresses, and structured remittance information. MT103 maps to pacs.008, MT202 maps to pacs.009, and MT199 status text is replaced by pacs.002.
+SWIFT MT-berichten gebruiken een plat, veldtag-formaat (bijv. MT103 voor klantoverboeking). Pacs-berichten gebruiken hiërarchisch XML met rijkere datastructuren. Belangrijke verschillen zijn ondersteuning voor meerdere transacties per bericht, gestructureerde partij-identificatie (LEI, meerdere ID's), gestructureerde postadressen en gestructureerde overschrijvingsinformatie. MT103 komt overeen met pacs.008, MT202 met pacs.009 en MT199-statustekst wordt vervangen door pacs.002.
 
-### What is the relationship between pain and pacs messages?
+### Wat is de relatie tussen pain- en pacs-berichten?
 
-Pain (payment initiation) messages travel between the customer and their bank. Pacs messages travel between banks. A pain.001 customer credit-transfer initiation from the debtor's bank becomes a pacs.008 interbank instruction. The two domains share common data elements but serve different parts of the payment chain.
+Pain-berichten (payment initiation) gaan tussen de klant en zijn bank. Pacs-berichten gaan tussen banken. Een pain.001 klantoverschrijvingsinitiatie van de bank van de debiteur wordt een interbancaire instructie pacs.008. De twee domeinen delen gemeenschappelijke data-elementen maar bedienen verschillende delen van de betalingsketen.
 
-## Message selection
+## Berichtselectie
 
-### When should I use pacs.008?
+### Wanneer moet ik pacs.008 gebruiken?
 
-Use pacs.008 for customer credit-transfer instructions between banks. It carries debtor and creditor party data, amounts, remittance information, and settlement details. It is the main message for sending customer payments across the interbank network, whether domestically (SEPA) or cross-border (CBPR+).
+Gebruik pacs.008 voor klantoverschrijvingsinstructies tussen banken. Het bevat partijgegevens van debiteur en crediteur, bedragen, overschrijvingsinformatie en afwikkelingsdetails. Het is het hoofdbericht voor het verzenden van klantbetalingen via het interbancaire netwerk, zowel binnenlands (SEPA) als grensoverschrijdend (CBPR+).
 
-### When should I use pacs.009 instead of pacs.008?
+### Wanneer moet ik pacs.009 gebruiken in plaats van pacs.008?
 
-Use pacs.009 for institution-own-account transfers, funding legs, and cover payments. Unlike pacs.008, which carries a customer payment on behalf of a debtor, pacs.009 moves funds between banks on their own behalf. In cover-method flows, pacs.009 carries the funding while pacs.008 carries the customer instruction on a separate path.
+Gebruik pacs.009 voor eigen-rekeningtransfers van instellingen, financieringslegs en dekkingsbetalingen. In tegenstelling tot pacs.008, dat een klantbetaling vervoert namens een debiteur, verplaatst pacs.009 fondsen tussen banken voor eigen rekening. In dekkingsmethode-stromen vervoert pacs.009 de financiering terwijl pacs.008 de klantinstructie vervoert op een apart pad.
 
-### What is the difference between pacs.004 and pacs.007?
+### Wat is het verschil tussen pacs.004 en pacs.007?
 
-pacs.004 returns settled funds from the receiving side back through the chain. pacs.007 reverses a payment from the original instructing side forward through the chain. Use pacs.004 when the beneficiary bank cannot apply the credit after settlement. Use pacs.007 when the originator discovers an error, duplicate, or fraud.
+pacs.004 retourneert afgewikkelde fondsen van de ontvangende kant terug door de keten. pacs.007 boekt een betaling terug van de oorspronkelijke instructerende kant voorwaarts door de keten. Gebruik pacs.004 wanneer de begunstigde bank het krediet niet kan toepassen na afwikkeling. Gebruik pacs.007 wanneer de opdrachtgever een fout, duplicaat of fraude ontdekt.
 
-### When should I use pacs.028 instead of waiting for pacs.002?
+### Wanneer moet ik pacs.028 gebruiken in plaats van wachten op pacs.002?
 
-Use pacs.028 when you need to actively request the status of a payment that has not received a timely pacs.002 update. pacs.002 is event-driven (the receiving agent sends it proactively), while pacs.028 is exception-driven (the instructing agent requests it). Use pacs.028 for delayed, unclear, or missing payment updates, not as routine traffic.
+Gebruik pacs.028 wanneer u actief de status moet opvragen van een betaling die geen tijdige pacs.002-update heeft ontvangen. pacs.002 is event-gedreven (de ontvangende agent stuurt het proactief), terwijl pacs.028 exception-gedreven is (de instructerende agent vraagt het op). Gebruik pacs.028 voor vertraagde, onduidelijke of ontbrekende betalingsupdates, niet als routineverkeer.
 
-### What is pacs.003 used for?
+### Waarvoor wordt pacs.003 gebruikt?
 
-pacs.003 carries customer direct-debit instructions between banks. The creditor agent sends it to the debtor agent to collect funds. It requires a valid mandate reference and supports SEPA Core and B2B direct-debit schemes. It is not used for credit transfers or institution-own-account debits.
+pacs.003 vervoert klantincasso-instructies tussen banken. De crediteuragent stuurt het naar de debiteuragent om fondsen te innen. Het vereist een geldige mandaatreferentie en ondersteunt SEPA Core- en B2B-incassoschema's. Het wordt niet gebruikt voor overschrijvingen of eigen-rekeningdebiteringen van instellingen.
 
-### What is pacs.010 used for?
+### Waarvoor wordt pacs.010 gebruikt?
 
-pacs.010 handles direct debits between financial institutions on their own accounts. It is used for bank-to-bank collections such as fees, margin calls, and similar obligations under bilateral agreements. It is not used for customer direct debits or credit transfers.
+pacs.010 verwerkt incasso's tussen financiële instellingen op hun eigen rekeningen. Het wordt gebruikt voor bank-tot-bank-incasso's zoals vergoedingen, margestortingen en soortgelijke verplichtingen onder bilaterale overeenkomsten. Het wordt niet gebruikt voor klantincasso's of overschrijvingen.
 
-## Message structure
+## Berichtstructuur
 
-### What is the Group Header (GrpHdr)?
+### Wat is de Group Header (GrpHdr)?
 
-The Group Header appears exactly once per pacs message. It contains the message identifier (MsgId), creation timestamp (CreDtTm), number of transactions (NbOfTxs), settlement information (SttlmInf), and optionally the total interbank settlement amount and payment type information. It identifies the message envelope, not the individual business transactions.
+De Group Header verschijnt precies één keer per pacs-bericht. Het bevat de berichtidentificatie (MsgId), aanmaaktijdstempel (CreDtTm), aantal transacties (NbOfTxs), afwikkelingsinformatie (SttlmInf) en optioneel het totale interbancaire afwikkelingsbedrag en betalingstypeinformatie. Het identificeert de berichtenvelop, niet de individuele zakelijke transacties.
 
-### What are the payment identifiers in pacs.008?
+### Wat zijn de betalingsidentificatoren in pacs.008?
 
-pacs.008 uses four main identifiers. MsgId identifies the message envelope and changes at each hop. InstrId is a point-to-point reference between adjacent agents and may change per hop. EndToEndId is set by the originator and must not be altered by any agent in the chain. TxId is assigned by the first instructing agent and remains constant in the interbank space. UETR is a UUID that stays unchanged across all legs for end-to-end tracking.
+pacs.008 gebruikt vier hoofdidentificatoren. MsgId identificeert de berichtenvelop en verandert bij elke hop. InstrId is een punt-tot-punt-referentie tussen aangrenzende agenten en kan per hop veranderen. EndToEndId wordt ingesteld door de opdrachtgever en mag niet worden gewijzigd door enige agent in de keten. TxId wordt toegewezen door de eerste instructerende agent en blijft constant in de interbancaire ruimte. UETR is een UUID die ongewijzigd blijft over alle legs voor end-to-end-tracking.
 
-### What settlement methods are available?
+### Welke afwikkelingsmethoden zijn beschikbaar?
 
-Four settlement methods are defined. CLRG settles through a clearing system such as TARGET2, EURO1, or CHIPS. INDA settles on the books of the instructed agent where the debtor agent holds an account. INGA settles on the books of the instructing agent where the instructed agent holds an account. COVE settles through a separate cover payment carried by pacs.009.
+Vier afwikkelingsmethoden zijn gedefinieerd. CLRG wikkelt af via een clearingsysteem zoals TARGET2, EURO1 of CHIPS. INDA wikkelt af op de boeken van de geïnstrueerde agent waar de debiteuragent een rekening houdt. INGA wikkelt af op de boeken van de instructerende agent waar de geïnstrueerde agent een rekening houdt. COVE wikkelt af via een aparte dekkingsbetaling vervoerd door pacs.009.
 
-### What do the charge bearer codes mean?
+### Wat betekenen de lastendragercodes?
 
-DEBT means all charges are borne by the debtor (equivalent to MT103 OUR). CRED means all charges are borne by the creditor (equivalent to BEN). SHAR means charges are shared between debtor and creditor agents (equivalent to SHA). SLEV means charges follow the service level rules and is mandatory for SEPA credit transfers.
+DEBT betekent dat alle kosten worden gedragen door de debiteur (equivalent aan MT103 OUR). CRED betekent dat alle kosten worden gedragen door de crediteur (equivalent aan BEN). SHAR betekent dat de kosten worden gedeeld tussen debiteur- en crediteuragenten (equivalent aan SHA). SLEV betekent dat de kosten het serviceniveau volgen en is verplicht voor SEPA-overschrijvingen.
 
-## CBPR+ and migration
+## CBPR+ en migratie
 
-### What is CBPR+?
+### Wat is CBPR+?
 
-CBPR+ (Cross-Border Payments and Reporting Plus) is SWIFT's programme for adopting ISO 20022 in cross-border payment messaging. It went live in March 2023 and replaces MT messages with pacs equivalents. CBPR+ mandates pacs.002 for all status communication, supports richer party data and structured addresses, and uses UETR-based tracking through gpi.
+CBPR+ (Cross-Border Payments and Reporting Plus) is het programma van SWIFT voor de adoptie van ISO 20022 in grensoverschrijdende betalingsberichtgeving. Het ging live in maart 2023 en vervangt MT-berichten door pacs-equivalenten. CBPR+ verplicht pacs.002 voor alle statuscommunicatie, ondersteunt rijkere partijgegevens en gestructureerde adressen, en gebruikt UETR-gebaseerde tracking via gpi.
 
-### What happened to the MT/MX coexistence period?
+### Wat is er gebeurd met de MT/MX-coëxistentieperiode?
 
-The coexistence period for cross-border payment instructions ended in November 2025. Since then, CBPR+ messages must use the ISO 20022 (MX) format. Translation services that converted between MT and MX during the transition are no longer available for new flows. Banks must now send and receive native pacs messages.
+De coëxistentieperiode voor grensoverschrijdende betalingsinstructies eindigde in november 2025. Sindsdien moeten CBPR+-berichten het ISO 20022 (MX)-formaat gebruiken. Vertaalservices die tijdens de transitie converteerden tussen MT en MX zijn niet langer beschikbaar voor nieuwe stromen. Banken moeten nu native pacs-berichten verzenden en ontvangen.
 
-### What is the November 2026 structured-address deadline?
+### Wat is de deadline voor gestructureerde adressen in november 2026?
 
-From November 2026, SWIFT CBPR+ requires structured postal addresses in cross-border payment messages. Unstructured address lines (AdrLine alone) will no longer be accepted for key party fields. At minimum, TwnNm and Ctry are required, with StrtNm and BldgNb or PstBx recommended. This improves sanctions screening and reduces manual repair.
+Vanaf november 2026 vereist SWIFT CBPR+ gestructureerde postadressen in grensoverschrijdende betalingsberichten. Ongestructureerde adresregels (alleen AdrLine) worden niet langer geaccepteerd voor belangrijke partijvelden. Minimaal zijn TwnNm en Ctry vereist, met StrtNm en BldgNb of PstBx aanbevolen. Dit verbetert sanctiescreening en vermindert handmatige reparatie.
 
-### How does pacs.008 replace MT103?
+### Hoe vervangt pacs.008 MT103?
 
-pacs.008 replaces MT103 and MT103+ for customer credit transfers. Key mapping: MT103 field 20 maps to MsgId or InstrId; field 32A splits into IntrBkSttlmDt and IntrBkSttlmAmt; field 50a maps to Dbtr and DbtrAcct; field 59a maps to Cdtr and CdtrAcct; field 70 maps to RmtInf; field 71A maps to ChrgBr. pacs.008 adds UETR, structured remittance, LEI identification, and supports multiple transactions per message.
+pacs.008 vervangt MT103 en MT103+ voor klantoverschrijvingen. Belangrijkste mapping: MT103-veld 20 komt overeen met MsgId of InstrId; veld 32A splitst in IntrBkSttlmDt en IntrBkSttlmAmt; veld 50a komt overeen met Dbtr en DbtrAcct; veld 59a komt overeen met Cdtr en CdtrAcct; veld 70 komt overeen met RmtInf; veld 71A komt overeen met ChrgBr. pacs.008 voegt UETR, gestructureerde overschrijving, LEI-identificatie toe en ondersteunt meerdere transacties per bericht.
 
-### How does pacs.009 replace MT202?
+### Hoe vervangt pacs.009 MT202?
 
-pacs.009 replaces MT202 and MT202COV for institution-to-institution transfers. In cover-method flows, the MT202COV (which carried both funding and underlying customer data) splits cleanly: pacs.009 carries the funding leg while pacs.008 carries the customer instruction directly. This separation improves data quality and reduces reconciliation issues.
+pacs.009 vervangt MT202 en MT202COV voor instelling-naar-instelling-transfers. In dekkingsmethode-stromen splitst MT202COV (dat zowel financiering als onderliggende klantgegevens vervoerde) netjes op: pacs.009 vervoert de financieringsleg terwijl pacs.008 de klantinstructie rechtstreeks vervoert. Deze scheiding verbetert de datakwaliteit en vermindert reconciliatieproblemen.
 
-## Technical details
+## Technische details
 
-### What are structured vs unstructured addresses?
+### Wat zijn gestructureerde versus ongestructureerde adressen?
 
-Structured addresses use separate XML elements for each component: StrtNm (street), BldgNb (building number), PstCd (post code), TwnNm (town), Ctry (country), and optional elements like Flr, Room, and DstrctNm. Unstructured addresses use up to seven AdrLine elements with free text. Hybrid addresses combine both during the transition period. After November 2026, CBPR+ requires the structured format.
+Gestructureerde adressen gebruiken aparte XML-elementen voor elk component: StrtNm (straat), BldgNb (huisnummer), PstCd (postcode), TwnNm (plaats), Ctry (land) en optionele elementen zoals Flr, Room en DstrctNm. Ongestructureerde adressen gebruiken maximaal zeven AdrLine-elementen met vrije tekst. Hybride adressen combineren beide tijdens de overgangsperiode. Na november 2026 vereist CBPR+ het gestructureerde formaat.
 
-### What is UETR and how does gpi tracking work?
+### Wat is UETR en hoe werkt gpi-tracking?
 
-UETR (Unique End-to-End Transaction Reference) is a UUID v4 identifier generated by the debtor agent and carried unchanged across all legs of a payment. It appears in pacs.008, pacs.009, pacs.002, pacs.004, pacs.007, and pacs.028. SWIFT gpi uses the UETR to track payments through a cloud-based Tracker database. Each agent confirms receipt and processing, enabling end-to-end visibility and SLA monitoring.
+UETR (Unique End-to-End Transaction Reference) is een UUID v4-identificator gegenereerd door de debiteuragent en ongewijzigd meegenomen over alle legs van een betaling. Het verschijnt in pacs.008, pacs.009, pacs.002, pacs.004, pacs.007 en pacs.028. SWIFT gpi gebruikt de UETR om betalingen te tracken via een cloud-gebaseerde Tracker-database. Elke agent bevestigt ontvangst en verwerking, wat end-to-end-zichtbaarheid en SLA-monitoring mogelijk maakt.
 
-### What are common pacs.002 status codes?
+### Wat zijn veelvoorkomende pacs.002-statuscodes?
 
-ACCP means accepted after customer-profile checks. ACSP means accepted and settlement is in progress. ACSC means settlement on the debtor account is complete. RJCT means rejected (with a reason code in StsRsnInf). PDNG means pending further processing. RCVD means received but not yet processed. Each status may include a structured reason code such as AC01 (incorrect account), AM04 (insufficient funds), or RC01 (incorrect BIC).
+ACCP betekent geaccepteerd na klantprofielcontroles. ACSP betekent geaccepteerd en afwikkeling is in uitvoering. ACSC betekent dat de afwikkeling op de debiteurrekening is voltooid. RJCT betekent afgewezen (met een redencode in StsRsnInf). PDNG betekent in afwachting van verdere verwerking. RCVD betekent ontvangen maar nog niet verwerkt. Elke status kan een gestructureerde redencode bevatten zoals AC01 (onjuiste rekening), AM04 (onvoldoende saldo) of RC01 (onjuiste BIC).
 
-### What are common return reason codes in pacs.004?
+### Wat zijn veelvoorkomende retourredencodes in pacs.004?
 
-Frequent return reason codes include AC01 (incorrect account number), AC04 (closed account), AC06 (blocked account), AM04 (insufficient funds), BE04 (missing creditor address), CUST (requested by customer), DUPL (duplicate payment), FOCR (following cancellation request), and FR01 (fraud). The full list is defined in the ISO 20022 External Code Sets.
+Veelvoorkomende retourredencodes zijn AC01 (onjuist rekeningnummer), AC04 (gesloten rekening), AC06 (geblokkeerde rekening), AM04 (onvoldoende saldo), BE04 (ontbrekend crediteuradres), CUST (op verzoek van klant), DUPL (dubbele betaling), FOCR (na annuleringsverzoek) en FR01 (fraude). De volledige lijst is gedefinieerd in de ISO 20022 External Code Sets.
 
-### What is structured remittance information?
+### Wat is gestructureerde overschrijvingsinformatie?
 
-Structured remittance in pacs.008 uses the RmtInf/Strd element to carry document references (invoice numbers, credit notes), amounts (due, remitted, tax, discount), and creditor references (ISO 11649 RF references). This enables automated invoice matching and reconciliation. Common document type codes include CINV (commercial invoice), CREN (credit note), and SOAC (statement of account).
+Gestructureerde overschrijving in pacs.008 gebruikt het RmtInf/Strd-element voor documentreferenties (factuurnummers, creditnota's), bedragen (verschuldigd, overgemaakt, belasting, korting) en crediteurreferenties (ISO 11649 RF-referenties). Dit maakt geautomatiseerde factuurafstemming en reconciliatie mogelijk. Veelvoorkomende documenttypecodes zijn CINV (commerciële factuur), CREN (creditnota) en SOAC (rekeningafschrift).
 
-### What is LEI and when is it used?
+### Wat is LEI en wanneer wordt het gebruikt?
 
-LEI (Legal Entity Identifier) is a 20-character alphanumeric code per ISO 17442. It uniquely identifies legal entities participating in financial transactions. In pacs messages, LEI appears in OrgId/LEI for parties and FinInstnId/LEI for agents. CBPR+ increasingly encourages LEI for party and agent identification. It improves entity disambiguation and supports regulatory reporting requirements.
+LEI (Legal Entity Identifier) is een 20-karakter alfanumerieke code volgens ISO 17442. Het identificeert uniek rechtspersonen die deelnemen aan financiële transacties. In pacs-berichten verschijnt LEI in OrgId/LEI voor partijen en FinInstnId/LEI voor agenten. CBPR+ moedigt steeds meer LEI aan voor partij- en agentidentificatie. Het verbetert entiteitsdisambiguatie en ondersteunt vereisten voor regelgevende rapportage.
 
-## About pacs008 toolkit
+## Over de pacs008-toolkit
 
-### What does pacs008 do?
+### Wat doet pacs008?
 
-pacs008 is a Python toolkit that generates, validates, and ships ISO 20022 payment messages. It reads payment data from CSV, JSON, JSONL, SQLite, and Parquet sources, validates against JSON Schema and XSD, checks IBAN and BIC identifiers, cleans data for SWIFT character compliance, and outputs XML files. It provides a REST API, CLI, and Python library.
+pacs008 is een Python-toolkit die ISO 20022-betalingsberichten genereert, valideert en verzendt. Het leest betalingsgegevens uit CSV-, JSON-, JSONL-, SQLite- en Parquet-bronnen, valideert tegen JSON Schema en XSD, controleert IBAN- en BIC-identificatoren, schoont gegevens op voor SWIFT-tekenconformiteit en produceert XML-bestanden. Het biedt een REST API, CLI en Python-bibliotheek.
 
-### Which message types does pacs008 support?
+### Welke berichttypen ondersteunt pacs008?
 
-pacs008 supports eight message types: pacs.002.001.12 (status report), pacs.003.001.09 (customer direct debit), pacs.004.001.11 (payment return), pacs.007.001.11 (payment reversal), pacs.008.001.13 (customer credit transfer), pacs.009.001.10 (financial institution credit transfer), pacs.010.001.05 (financial institution direct debit), and pacs.028.001.05 (payment status request).
+pacs008 ondersteunt acht berichttypen: pacs.002.001.12 (statusrapport), pacs.003.001.09 (klantincasso), pacs.004.001.11 (betalingsretour), pacs.007.001.11 (betalingsterugboeking), pacs.008.001.13 (klantoverschrijving), pacs.009.001.10 (financiële instelling overschrijving), pacs.010.001.05 (financiële instelling incasso) en pacs.028.001.05 (betalingsstatusverzoek).
 
-### How does pacs008 help with the 2026 structured-address deadline?
+### Hoe helpt pacs008 met de deadline voor gestructureerde adressen van 2026?
 
-pacs008 validates structured and hybrid postal address fields before XML generation. It flags unstructured address data that would fail after the November 2026 deadline, supports both pre-deadline hybrid and post-deadline structured-only formats, and integrates address quality checks into CI pipelines and batch validation workflows.
+pacs008 valideert gestructureerde en hybride postadresvelden vóór XML-generatie. Het signaleert ongestructureerde adresgegevens die zouden falen na de deadline van november 2026, ondersteunt zowel pre-deadline hybride als post-deadline alleen-gestructureerde formaten, en integreert adresqualiteitscontroles in CI-pipelines en batchvalidatie-workflows.
 
-### Can pacs008 validate data without generating XML?
+### Kan pacs008 gegevens valideren zonder XML te genereren?
 
-Yes. Use the `--dry-run` CLI flag or the `POST /validate` API endpoint to validate payment data without generating XML. The validation pipeline checks JSON Schema conformance, IBAN format and checksum, BIC structure, and SWIFT character compliance. The exit code or API response indicates whether validation passed or failed.
+Ja. Gebruik de `--dry-run` CLI-vlag of het `POST /validate` API-eindpunt om betalingsgegevens te valideren zonder XML te genereren. De validatiepipeline controleert JSON Schema-conformiteit, IBAN-formaat en -checksum, BIC-structuur en SWIFT-tekenconformiteit. De exitcode of API-respons geeft aan of de validatie is geslaagd of mislukt.
 
-## References
+## Referenties
 
 - [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions)
 - [ISO 20022 external code sets](https://www.iso20022.org/external_code_list.page)
@@ -147,4 +147,3 @@ Yes. Use the `--dry-run` CLI flag or the `POST /validate` API endpoint to valida
 - [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and)
 - [EPC SEPA Instant Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook)
 - [SWIFT gpi](https://www.swift.com/our-solutions/swift-gpi)
-

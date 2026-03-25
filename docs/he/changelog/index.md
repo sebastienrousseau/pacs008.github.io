@@ -1,54 +1,53 @@
 ---
-title: "Changelog | pacs008"
-description: Version history and release notes for the pacs008 toolkit. Track new features, improvements, and fixes across releases.
+title: "יומן שינויים | pacs008"
+description: היסטוריית גרסאות והערות שחרור לערכת הכלים pacs008. עקבו אחר תכונות חדשות, שיפורים ותיקונים בין גרסאות.
 lang: he-IL
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Changelog
+# יומן שינויים
 
-This page tracks significant changes to the pacs008 toolkit and this documentation site.
+דף זה עוקב אחר שינויים משמעותיים בערכת הכלים pacs008 ובאתר תיעוד זה.
 
 ## 2026
 
-### March 2026
+### מרץ 2026
 
-- Added comprehensive FAQ page with 25+ Q&A pairs covering ISO 20022 pacs messages.
-- Added PACS Messages Explained page with detailed technical reference for the entire pacs family.
-- Added glossary page defining 60+ ISO 20022 and payment messaging terms.
-- Added structured-address deadline page covering the November 2026 CBPR+ requirement.
-- Added editorial policy page explaining content sources, review process, and methodology.
-- Added FAQPage, TechArticle, SoftwareApplication, and HowTo JSON-LD schema markup.
-- Extended sitemap with hreflang annotations for all 22 locales.
-- Improved readability across all English pages (Flesch Reading Ease 55-58, Flesch-Kincaid Grade 8-9).
-- Fixed 374 empty table header elements across all locales for accessibility.
-- Added table captions to comparison, operational-matrix, and version-diff tables.
-- Optimised hero image from 2.7 MB to 32 KB.
-- Lighthouse scores: Accessibility 96-100, Best Practices 100, SEO 100.
+- נוסף דף שאלות נפוצות מקיף עם למעלה מ-25 זוגות שאלה-תשובה על הודעות pacs בתקן ISO 20022.
+- נוסף דף הסבר על הודעות PACS עם התייחסות טכנית מפורטת למשפחת pacs כולה.
+- נוסף דף מילון מונחים המגדיר למעלה מ-60 מונחים של ISO 20022 והודעות תשלום.
+- נוסף דף מועד אחרון לכתובות מובנות המכסה את דרישת CBPR+ מנובמבר 2026.
+- נוסף דף מדיניות עריכה המסביר את מקורות התוכן, תהליך הסקירה והמתודולוגיה.
+- נוסף סימון סכמת JSON-LD עבור FAQPage, TechArticle, SoftwareApplication ו-HowTo.
+- הורחבה מפת האתר עם הערות hreflang לכל 22 השפות.
+- שופרה קריאות בכל הדפים באנגלית (Flesch Reading Ease 55-58, Flesch-Kincaid Grade 8-9).
+- תוקנו 374 רכיבי כותרת טבלה ריקים בכל השפות לנגישות.
+- נוספו כיתובי טבלה לטבלאות השוואה, מטריצה תפעולית והבדלי גרסאות.
+- אופטימיזציה לתמונה הראשית מ-2.7 MB ל-32 KB.
+- ציוני Lighthouse: נגישות 96-100, שיטות עבודה מומלצות 100, SEO 100.
 
-### January 2026
+### ינואר 2026
 
-- Launched pacs008.com with documentation for 8 ISO 20022 pacs message types.
-- Generated documentation in 22 languages.
-- Implemented hreflang tags, canonical URLs, and structured data (WebSite, BreadcrumbList, WebPage).
-- Published REST API, CLI, and Python library documentation.
-- Added IBAN and BIC validation documentation.
-- Shipped Docker deployment guide.
+- הושק pacs008.com עם תיעוד ל-8 סוגי הודעות pacs בתקן ISO 20022.
+- נוצר תיעוד ב-22 שפות.
+- יושמו תגי hreflang, כתובות URL קנוניות ונתונים מובנים (WebSite, BreadcrumbList, WebPage).
+- פורסם תיעוד REST API, CLI וספריית Python.
+- נוסף תיעוד אימות IBAN ו-BIC.
+- הופץ מדריך פריסה עם Docker.
 
 ## 2025
 
-### December 2025
+### דצמבר 2025
 
-- Initial release of the pacs008 Python toolkit on PyPI.
-- Support for pacs.008.001.13 XML generation and validation.
-- CSV, JSON, JSONL, SQLite, and Parquet data input.
-- JSON Schema and XSD validation pipeline.
-- SWIFT character compliance checking.
-- FastAPI REST API for automated workflows.
+- שחרור ראשון של ערכת הכלים Python pacs008 ב-PyPI.
+- תמיכה ביצירת ואימות XML של pacs.008.001.13.
+- קלט נתונים CSV, JSON, JSONL, SQLite ו-Parquet.
+- צינור אימות JSON Schema ו-XSD.
+- בדיקת תאימות תווי SWIFT.
+- FastAPI REST API לתהליכי עבודה אוטומטיים.
 
-## Links
+## קישורים
 
 - [pacs008 releases on GitHub](https://github.com/sebastienrousseau/pacs008/releases)
 - [pacs008 on PyPI](https://pypi.org/project/pacs008/)
-
