@@ -1,172 +1,171 @@
 ---
-title: "ISO 20022 glossary | pacs008"
-description: Definitions of key ISO 20022 and payment messaging terms used in pacs.008 and related messages.
+title: "מילון מונחים ISO 20022 | pacs008"
+description: הגדרות של מונחי מפתח ISO 20022 והודעות תשלום המשמשים ב-pacs.008 ובהודעות קשורות.
 lang: he-IL
 lastUpdated: true
 image: /logo.svg
 ---
 
-# ISO 20022 glossary
+# מילון מונחים ISO 20022
 
-This glossary defines the key terms, abbreviations, and technical concepts used across ISO 20022 pacs messages and this site.
+מילון מונחים זה מגדיר את המונחים, הקיצורים והמושגים הטכניים המרכזיים המשמשים בהודעות pacs של ISO 20022 ובאתר זה.
 
 ## A
 
-**ACH** — Automated Clearing House. A network that processes batched electronic payments between financial institutions.
+**ACH** — Automated Clearing House (מסלקה אוטומטית). רשת המעבדת תשלומים אלקטרוניים מרוכזים בין מוסדות פיננסיים.
 
-**AdrLine** — Address Line. A free-text address field in ISO 20022 postal address structures. Up to 7 lines of 70 characters each. Being replaced by structured address elements for CBPR+ by November 2026.
+**AdrLine** — Address Line (שורת כתובת). שדה כתובת טקסט חופשי במבני הכתובת הדואלית של ISO 20022. עד 7 שורות של 70 תווים כל אחת. מוחלף באלמנטי כתובת מובנית עבור CBPR+ עד נובמבר 2026.
 
-**ACCP** — Accepted Customer Profile. A pacs.002 status code indicating that preceding checks (syntax, customer profile) have passed.
+**ACCP** — Accepted Customer Profile (פרופיל לקוח מאושר). קוד סטטוס pacs.002 המציין שבדיקות קודמות (תחביר, פרופיל לקוח) עברו.
 
-**ACSC** — Accepted Settlement Completed. A pacs.002 status code confirming that settlement on the debtor's account has been completed.
+**ACSC** — Accepted Settlement Completed (סליקה הושלמה). קוד סטטוס pacs.002 המאשר שהסליקה בחשבון החייב הושלמה.
 
-**ACSP** — Accepted Settlement in Process. A pacs.002 status code indicating all checks passed and settlement is in progress.
+**ACSP** — Accepted Settlement in Process (סליקה בתהליך). קוד סטטוס pacs.002 המציין שכל הבדיקות עברו והסליקה בתהליך.
 
 ## B
 
-**BAH** — Business Application Header (head.001). A standardised envelope that wraps ISO 20022 business messages for transport via SWIFT. Contains routing information, message definition identifier, and sender/receiver BICs.
+**BAH** — Business Application Header (head.001) (כותרת יישום עסקי). מעטפה סטנדרטית העוטפת הודעות עסקיות ISO 20022 להעברה דרך SWIFT. מכילה מידע ניתוב, מזהה הגדרת הודעה ו-BIC של שולח/מקבל.
 
-**BIC** — Business Identifier Code (ISO 9362). An 8 or 11 character code that uniquely identifies a financial institution. Format: BBBBCCLL (bank code + country + location) with optional BBB branch code.
+**BIC** — Business Identifier Code (ISO 9362) (קוד זיהוי עסקי). קוד של 8 או 11 תווים המזהה באופן ייחודי מוסד פיננסי. פורמט: BBBBCCLL (קוד בנק + מדינה + מיקום) עם קוד סניף BBB אופציונלי.
 
 ## C
 
-**CBPR+** — Cross-Border Payments and Reporting Plus. SWIFT's programme for migrating cross-border payment messaging from MT to ISO 20022. Went live March 2023.
+**CBPR+** — Cross-Border Payments and Reporting Plus. תוכנית SWIFT למעבר הודעות תשלום בינלאומיות מ-MT ל-ISO 20022. התחיל לפעול במרץ 2023.
 
-**CdtTrfTxInf** — Credit Transfer Transaction Information. The main transaction-level building block in pacs.008 containing payment details, parties, amounts, and remittance information.
+**CdtTrfTxInf** — Credit Transfer Transaction Information (מידע על עסקת העברת זכות). בלוק הבנייה העיקרי ברמת העסקה ב-pacs.008 המכיל פרטי תשלום, צדדים, סכומים ומידע העברה.
 
-**ChrgBr** — Charge Bearer. Specifies who pays the transaction charges. Values: DEBT (debtor), CRED (creditor), SHAR (shared), SLEV (service level, SEPA only).
+**ChrgBr** — Charge Bearer (נושא עמלות). מציין מי משלם את עמלות העסקה. ערכים: DEBT (חייב), CRED (זכאי), SHAR (משותף), SLEV (רמת שירות, SEPA בלבד).
 
-**CLRG** — Clearing system settlement. A settlement method where funds move through a clearing system such as TARGET2, EURO1, or CHIPS.
+**CLRG** — סליקה דרך מערכת מסלקה. שיטת סליקה שבה כספים עוברים דרך מערכת מסלקה כגון TARGET2, EURO1 או CHIPS.
 
-**COVE** — Cover method settlement. A settlement method where a separate pacs.009 cover payment handles the funding between correspondents while pacs.008 carries the customer data directly.
+**COVE** — סליקה בשיטת כיסוי. שיטת סליקה שבה תשלום כיסוי pacs.009 נפרד מטפל במימון בין הבנקים המקבילים בעוד pacs.008 נושא את נתוני הלקוח ישירות.
 
-**CSM** — Clearing and Settlement Mechanism. An infrastructure that processes and settles payment instructions between participating institutions.
+**CSM** — Clearing and Settlement Mechanism (מנגנון מסלקה וסליקה). תשתית המעבדת ומסלקת הוראות תשלום בין מוסדות משתתפים.
 
 ## D
 
-**Dbtr** — Debtor. The party that owes funds and initiates the payment. In pacs.008, the Dbtr element carries the debtor's name, postal address, identification, and country of residence.
+**Dbtr** — Debtor (חייב). הצד החייב בכספים ומתחיל את התשלום. ב-pacs.008, אלמנט Dbtr מכיל את שם החייב, כתובת דואר, זיהוי ומדינת מגורים.
 
-**DbtrAgt** — Debtor Agent. The financial institution that services the debtor's account and sends the pacs.008 instruction.
+**DbtrAgt** — Debtor Agent (סוכן החייב). המוסד הפיננסי המשרת את חשבון החייב ושולח את הוראת pacs.008.
 
 ## E
 
-**E2E ID** — End-to-End Identification (EndToEndId). A reference assigned by the originator that must remain unchanged across all agents in the payment chain. Used for customer-level traceability.
+**E2E ID** — End-to-End Identification (EndToEndId) (זיהוי מקצה לקצה). הפניה שהוקצתה על ידי היוזם שחייבת להישאר ללא שינוי דרך כל הסוכנים בשרשרת התשלום. משמש לעקיבות ברמת הלקוח.
 
-**EPC** — European Payments Council. The body that manages SEPA payment scheme rulebooks for credit transfers and direct debits.
+**EPC** — European Payments Council (מועצת התשלומים האירופית). הגוף המנהל את תקנות מערכות התשלום SEPA להעברות זכות וחיובים ישירים.
 
 ## F
 
-**FI** — Financial Institution. A bank or other institution that participates in payment clearing and settlement.
+**FI** — Financial Institution (מוסד פיננסי). בנק או מוסד אחר המשתתף במסלקה ובסליקה של תשלומים.
 
-**FIToFI** — Financial Institution to Financial Institution. Describes the interbank domain where pacs messages operate.
+**FIToFI** — Financial Institution to Financial Institution (ממוסד פיננסי למוסד פיננסי). מתאר את התחום הבין-בנקאי שבו פועלות הודעות pacs.
 
 ## G
 
-**gpi** — Global Payments Innovation. SWIFT's initiative for faster, transparent cross-border payments. Uses UETR for end-to-end tracking via a cloud-based Tracker.
+**gpi** — Global Payments Innovation (חדשנות תשלומים גלובלית). יוזמת SWIFT לתשלומים בינלאומיים מהירים ושקופים יותר. משתמש ב-UETR למעקב מקצה לקצה דרך Tracker מבוסס ענן.
 
-**GrpHdr** — Group Header. The message-level metadata block in pacs messages. Contains MsgId, CreDtTm, NbOfTxs, settlement information, and payment type information.
+**GrpHdr** — Group Header (כותרת קבוצה). בלוק המטא-נתונים ברמת ההודעה בהודעות pacs. מכיל MsgId, CreDtTm, NbOfTxs, מידע סליקה ומידע על סוג התשלום.
 
 ## H
 
-**Hybrid address** — A postal address format that combines structured elements (StrtNm, TwnNm, Ctry) with unstructured AdrLine elements. Permitted during the transition period before the November 2026 structured address deadline.
+**כתובת היברידית** — פורמט כתובת דואר המשלב אלמנטים מובנים (StrtNm, TwnNm, Ctry) עם אלמנטי AdrLine לא מובנים. מותר בתקופת המעבר לפני המועד האחרון לכתובות מובנות בנובמבר 2026.
 
 ## I
 
-**IBAN** — International Bank Account Number (ISO 13616). A standardised account number format used for cross-border and domestic payments. Validated using ISO 7064 Mod 97-10 checksum.
+**IBAN** — International Bank Account Number (ISO 13616) (מספר חשבון בנק בינלאומי). פורמט סטנדרטי של מספר חשבון לתשלומים בינלאומיים ומקומיים. מאומת באמצעות סכום ביקורת ISO 7064 Mod 97-10.
 
-**INDA** — Instructed Agent settlement. A settlement method where funds settle on the books of the instructed agent, where the debtor agent holds a nostro account.
+**INDA** — Instructed Agent settlement (סליקה דרך הסוכן המונחה). שיטת סליקה שבה כספים נסלקים בספרי הסוכן המונחה, שם סוכן החייב מחזיק חשבון נוסטרו.
 
-**INGA** — Instructing Agent settlement. A settlement method where funds settle on the books of the instructing agent, where the instructed agent holds a nostro account.
+**INGA** — Instructing Agent settlement (סליקה דרך הסוכן המורה). שיטת סליקה שבה כספים נסלקים בספרי הסוכן המורה, שם הסוכן המונחה מחזיק חשבון נוסטרו.
 
-**InstrId** — Instruction Identification. A point-to-point reference between adjacent agents in the payment chain. May change at each hop.
+**InstrId** — Instruction Identification (זיהוי הוראה). הפניה נקודה-לנקודה בין סוכנים סמוכים בשרשרת התשלום. עשוי להשתנות בכל קפיצה.
 
-**IntrBkSttlmAmt** — Interbank Settlement Amount. The amount that settles between the instructing and instructed agents, in the settlement currency.
+**IntrBkSttlmAmt** — Interbank Settlement Amount (סכום סליקה בין-בנקאית). הסכום הנסלק בין הסוכן המורה לסוכן המונחה, במטבע הסליקה.
 
-**ISO 20022** — An international standard for electronic data interchange between financial institutions. Defines a common data model and XML-based message formats for payments, securities, trade finance, and other financial domains.
+**ISO 20022** — תקן בינלאומי להחלפת נתונים אלקטרונית בין מוסדות פיננסיים. מגדיר מודל נתונים משותף ופורמטי הודעות מבוססי XML לתשלומים, ניירות ערך, מימון סחר ותחומים פיננסיים נוספים.
 
 ## L
 
-**LEI** — Legal Entity Identifier (ISO 17442). A 20-character alphanumeric code that uniquely identifies legal entities participating in financial transactions. Used in OrgId/LEI for parties and FinInstnId/LEI for agents.
+**LEI** — Legal Entity Identifier (ISO 17442) (מזהה ישות משפטית). קוד אלפאנומרי בן 20 תווים המזהה באופן ייחודי ישויות משפטיות המשתתפות בעסקאות פיננסיות. משמש ב-OrgId/LEI לצדדים וב-FinInstnId/LEI לסוכנים.
 
 ## M
 
-**MsgId** — Message Identification. A unique identifier for the message envelope, assigned by the sending agent. Changes at each hop in the payment chain.
+**MsgId** — Message Identification (זיהוי הודעה). מזהה ייחודי למעטפת ההודעה, מוקצה על ידי הסוכן השולח. משתנה בכל קפיצה בשרשרת התשלום.
 
-**MT** — Message Type. SWIFT's legacy message format (e.g., MT103 for customer credit transfers, MT202 for financial institution transfers). Being replaced by ISO 20022 MX messages.
+**MT** — Message Type (סוג הודעה). פורמט ההודעות הישן של SWIFT (לדוגמה MT103 להעברות לקוח, MT202 להעברות בין מוסדות פיננסיים). מוחלף בהודעות MX של ISO 20022.
 
-**MX** — The ISO 20022 XML message format used by SWIFT. MX messages replace MT messages for cross-border payments under CBPR+.
+**MX** — פורמט הודעות XML של ISO 20022 בשימוש SWIFT. הודעות MX מחליפות הודעות MT לתשלומים בינלאומיים תחת CBPR+.
 
 ## N
 
-**NbOfTxs** — Number of Transactions. A Group Header element indicating how many individual transactions are contained in the message.
+**NbOfTxs** — Number of Transactions (מספר עסקאות). אלמנט ב-Group Header המציין כמה עסקאות בודדות כלולות בהודעה.
 
 ## P
 
-**pacs** — Payments Clearing and Settlement. The ISO 20022 business domain covering interbank payment messages.
+**pacs** — Payments Clearing and Settlement (מסלקה וסליקה של תשלומים). תחום עסקי ISO 20022 המכסה הודעות תשלום בין-בנקאיות.
 
-**pacs.002** — FI to FI Payment Status Report. Reports the processing status (accepted, rejected, pending, settled) of an earlier payment instruction.
+**pacs.002** — דוח סטטוס תשלום בין מוסדות פיננסיים. מדווח על סטטוס העיבוד (מאושר, נדחה, ממתין, נסלק) של הוראת תשלום קודמת.
 
-**pacs.003** — FI to FI Customer Direct Debit. Carries a customer direct debit instruction between banks for fund collection.
+**pacs.003** — חיוב ישיר לקוח בין מוסדות פיננסיים. נושא הוראת חיוב ישיר של לקוח בין בנקים לגביית כספים.
 
-**pacs.004** — Payment Return. Returns settled funds back through the payment chain when a payment cannot be applied.
+**pacs.004** — החזרת תשלום. מחזיר כספים שנסלקו דרך שרשרת התשלום כאשר תשלום אינו ניתן ליישום.
 
-**pacs.007** — FI to FI Payment Reversal. Reverses a payment instruction from the original sender forward through the chain.
+**pacs.007** — ביטול תשלום בין מוסדות פיננסיים. מבטל הוראת תשלום מהשולח המקורי קדימה דרך השרשרת.
 
-**pacs.008** — FI to FI Customer Credit Transfer. The primary interbank message for customer credit transfers. Replaces MT103.
+**pacs.008** — העברת זכות לקוח בין מוסדות פיננסיים. ההודעה הבין-בנקאית העיקרית להעברות זכות של לקוחות. מחליפה את MT103.
 
-**pacs.009** — Financial Institution Credit Transfer. Moves funds between banks on their own behalf. Covers funding, cover payments, and liquidity management. Replaces MT202/MT202COV.
+**pacs.009** — העברת זכות מוסד פיננסי. מעבירה כספים בין בנקים לחשבונם הם. מכסה מימון, תשלומי כיסוי וניהול נזילות. מחליפה MT202/MT202COV.
 
-**pacs.010** — Financial Institution Direct Debit. Lets one bank debit another bank's own account under a bilateral agreement.
+**pacs.010** — חיוב ישיר מוסד פיננסי. מאפשר לבנק אחד לחייב את החשבון העצמי של בנק אחר במסגרת הסכם דו-צדדי.
 
-**pacs.028** — FI to FI Payment Status Request. Actively requests the status of an earlier payment when no pacs.002 update has arrived.
+**pacs.028** — בקשת סטטוס תשלום בין מוסדות פיננסיים. מבקשת באופן פעיל את סטטוס תשלום קודם כאשר לא הגיע עדכון pacs.002.
 
-**pain** — Payment Initiation. The ISO 20022 business domain covering customer-to-bank messages (e.g., pain.001 for credit transfer initiation).
+**pain** — Payment Initiation (יוזמת תשלום). תחום עסקי ISO 20022 המכסה הודעות מלקוח לבנק (לדוגמה pain.001 ליוזמת העברת זכות).
 
-**PII** — Personally Identifiable Information. Data that can identify an individual. pacs008 masks PII in structured logs.
+**PII** — Personally Identifiable Information (מידע מזהה אישית). נתונים שיכולים לזהות אדם. pacs008 מסווה PII ביומנים מובנים.
 
-**PstlAdr** — Postal Address. The address structure used for parties in pacs messages. Supports structured (StrtNm, TwnNm, Ctry) and unstructured (AdrLine) formats.
+**PstlAdr** — Postal Address (כתובת דואר). מבנה הכתובת המשמש לצדדים בהודעות pacs. תומך בפורמטים מובנים (StrtNm, TwnNm, Ctry) ולא מובנים (AdrLine).
 
 ## R
 
-**RJCT** — Rejected. A pacs.002 status code indicating the payment has been rejected.
+**RJCT** — Rejected (נדחה). קוד סטטוס pacs.002 המציין שהתשלום נדחה.
 
-**RmtInf** — Remittance Information. Payment reference data carried in pacs.008. Supports unstructured (free text, max 140 chars) and structured (document references, amounts, creditor references) formats.
+**RmtInf** — Remittance Information (מידע העברה). נתוני הפניית תשלום הנישאים ב-pacs.008. תומך בפורמטים לא מובנים (טקסט חופשי, מקסימום 140 תווים) ומובנים (הפניות מסמכים, סכומים, הפניות זכאי).
 
-**RTGS** — Real-Time Gross Settlement. A payment system where transactions settle individually and in real time (e.g., TARGET2, Fedwire, CHAPS).
+**RTGS** — Real-Time Gross Settlement (סליקה גולמית בזמן אמת). מערכת תשלום שבה עסקאות נסלקות בנפרד ובזמן אמת (לדוגמה TARGET2, Fedwire, CHAPS).
 
 ## S
 
-**SCT** — SEPA Credit Transfer. The euro credit transfer scheme managed by the EPC, using pacs.008.
+**SCT** — SEPA Credit Transfer. מערכת העברת זכות באירו המנוהלת על ידי EPC, באמצעות pacs.008.
 
-**SCT Inst** — SEPA Instant Credit Transfer. The instant payment variant of SCT, settling in under 10 seconds.
+**SCT Inst** — SEPA Instant Credit Transfer. גרסת התשלום המיידי של SCT, סליקה בפחות מ-10 שניות.
 
-**SDD** — SEPA Direct Debit. The euro direct debit scheme managed by the EPC, using pacs.003.
+**SDD** — SEPA Direct Debit. מערכת החיוב הישיר באירו המנוהלת על ידי EPC, באמצעות pacs.003.
 
-**SEPA** — Single Euro Payments Area. A payment integration initiative covering euro-denominated credit transfers, direct debits, and card payments across 36 European countries.
+**SEPA** — Single Euro Payments Area (אזור תשלומים אחיד באירו). יוזמת שילוב תשלומים המכסה העברות זכות, חיובים ישירים ותשלומי כרטיס באירו ב-36 מדינות אירופיות.
 
-**SLEV** — Service Level. A charge bearer code mandatory for SEPA. Means charges follow scheme rules with no deductions from the transfer amount.
+**SLEV** — Service Level (רמת שירות). קוד חובה של נשיאת עמלות ל-SEPA. משמעותו שעמלות עוקבות אחר כללי המערכת ללא ניכויים מסכום ההעברה.
 
-**STP** — Straight-Through Processing. Automated end-to-end payment processing without manual intervention.
+**STP** — Straight-Through Processing (עיבוד ישיר). עיבוד תשלומים אוטומטי מקצה לקצה ללא התערבות ידנית.
 
-**SttlmMtd** — Settlement Method. Defines how interbank settlement occurs: CLRG (clearing system), INDA (instructed agent), INGA (instructing agent), or COVE (cover payment).
+**SttlmMtd** — Settlement Method (שיטת סליקה). מגדיר כיצד מתבצעת הסליקה הבין-בנקאית: CLRG (מערכת מסלקה), INDA (סוכן מונחה), INGA (סוכן מורה), או COVE (תשלום כיסוי).
 
 ## T
 
-**TxId** — Transaction Identification. An interbank reference assigned by the first instructing agent. Must not be altered by subsequent agents.
+**TxId** — Transaction Identification (זיהוי עסקה). הפניה בין-בנקאית המוקצית על ידי הסוכן המורה הראשון. אסור לשנותה על ידי סוכנים עוקבים.
 
 ## U
 
-**UETR** — Unique End-to-End Transaction Reference. A UUID v4 identifier generated by the debtor agent and carried unchanged across all legs of a payment for gpi tracking.
+**UETR** — Unique End-to-End Transaction Reference (מרכז עסקה ייחודי מקצה לקצה). מזהה UUID v4 שנוצר על ידי סוכן החייב ונישא ללא שינוי דרך כל חלקי התשלום למעקב gpi.
 
 ## X
 
-**XSD** — XML Schema Definition. The formal schema that defines the structure, elements, and data types of an ISO 20022 XML message.
+**XSD** — XML Schema Definition (הגדרת סכמת XML). הסכמה הרשמית המגדירה את המבנה, האלמנטים וסוגי הנתונים של הודעת XML של ISO 20022.
 
-**XXE** — XML External Entity. A security vulnerability in XML parsing. pacs008 prevents XXE attacks using defusedxml.
+**XXE** — XML External Entity (ישות חיצונית XML). פגיעות אבטחה בניתוח XML. pacs008 מונע התקפות XXE באמצעות defusedxml.
 
-## References
+## הפניות
 
 - [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions)
 - [ISO 20022 external code sets](https://www.iso20022.org/external_code_list.page)
 - [SWIFT CBPR+ standards programme](https://www.swift.com/standards/iso-20022)
-

@@ -1,172 +1,171 @@
 ---
-title: "ISO 20022 glossary | pacs008"
-description: Definitions of key ISO 20022 and payment messaging terms used in pacs.008 and related messages.
+title: "ISO 20022 woordenlijst | pacs008"
+description: Definities van belangrijke ISO 20022- en betalingsberichtentermen die worden gebruikt in pacs.008 en gerelateerde berichten.
 lang: nl-NL
 lastUpdated: true
 image: /logo.svg
 ---
 
-# ISO 20022 glossary
+# ISO 20022 woordenlijst
 
-This glossary defines the key terms, abbreviations, and technical concepts used across ISO 20022 pacs messages and this site.
+Deze woordenlijst definieert de belangrijkste termen, afkortingen en technische concepten die worden gebruikt in ISO 20022 pacs-berichten en op deze site.
 
 ## A
 
-**ACH** — Automated Clearing House. A network that processes batched electronic payments between financial institutions.
+**ACH** — Automated Clearing House. Een netwerk dat gebundelde elektronische betalingen tussen financiële instellingen verwerkt.
 
-**AdrLine** — Address Line. A free-text address field in ISO 20022 postal address structures. Up to 7 lines of 70 characters each. Being replaced by structured address elements for CBPR+ by November 2026.
+**AdrLine** — Address Line (Adresregel). Een vrij-tekst adresveld in ISO 20022 postadresstructuren. Maximaal 7 regels van elk 70 tekens. Wordt vervangen door gestructureerde adresllementen voor CBPR+ tegen november 2026.
 
-**ACCP** — Accepted Customer Profile. A pacs.002 status code indicating that preceding checks (syntax, customer profile) have passed.
+**ACCP** — Accepted Customer Profile (Klantprofiel geaccepteerd). Een pacs.002 statuscode die aangeeft dat voorafgaande controles (syntaxis, klantprofiel) zijn geslaagd.
 
-**ACSC** — Accepted Settlement Completed. A pacs.002 status code confirming that settlement on the debtor's account has been completed.
+**ACSC** — Accepted Settlement Completed (Afwikkeling voltooid). Een pacs.002 statuscode die bevestigt dat de afwikkeling op de rekening van de debiteur is voltooid.
 
-**ACSP** — Accepted Settlement in Process. A pacs.002 status code indicating all checks passed and settlement is in progress.
+**ACSP** — Accepted Settlement in Process (Afwikkeling in verwerking). Een pacs.002 statuscode die aangeeft dat alle controles zijn geslaagd en de afwikkeling bezig is.
 
 ## B
 
-**BAH** — Business Application Header (head.001). A standardised envelope that wraps ISO 20022 business messages for transport via SWIFT. Contains routing information, message definition identifier, and sender/receiver BICs.
+**BAH** — Business Application Header (head.001). Een gestandaardiseerde envelop die ISO 20022 zakelijke berichten omhult voor transport via SWIFT. Bevat routeringsinformatie, berichtdefinitie-identificator en BIC's van verzender/ontvanger.
 
-**BIC** — Business Identifier Code (ISO 9362). An 8 or 11 character code that uniquely identifies a financial institution. Format: BBBBCCLL (bank code + country + location) with optional BBB branch code.
+**BIC** — Business Identifier Code (ISO 9362). Een 8- of 11-tekens code die een financiële instelling uniek identificeert. Formaat: BBBBCCLL (bankcode + land + locatie) met optioneel BBB filiaalcode.
 
 ## C
 
-**CBPR+** — Cross-Border Payments and Reporting Plus. SWIFT's programme for migrating cross-border payment messaging from MT to ISO 20022. Went live March 2023.
+**CBPR+** — Cross-Border Payments and Reporting Plus. Het programma van SWIFT voor de migratie van grensoverschrijdende betalingsberichten van MT naar ISO 20022. Operationeel sinds maart 2023.
 
-**CdtTrfTxInf** — Credit Transfer Transaction Information. The main transaction-level building block in pacs.008 containing payment details, parties, amounts, and remittance information.
+**CdtTrfTxInf** — Credit Transfer Transaction Information. Het belangrijkste transactieniveau-bouwblok in pacs.008 met betalingsdetails, partijen, bedragen en overschrijvingsinformatie.
 
-**ChrgBr** — Charge Bearer. Specifies who pays the transaction charges. Values: DEBT (debtor), CRED (creditor), SHAR (shared), SLEV (service level, SEPA only).
+**ChrgBr** — Charge Bearer (Kostendrager). Specificeert wie de transactiekosten betaalt. Waarden: DEBT (debiteur), CRED (crediteur), SHAR (gedeeld), SLEV (serviceniveau, alleen SEPA).
 
-**CLRG** — Clearing system settlement. A settlement method where funds move through a clearing system such as TARGET2, EURO1, or CHIPS.
+**CLRG** — Clearingsysteemafwikkeling. Een afwikkelingsmethode waarbij fondsen via een clearingsysteem zoals TARGET2, EURO1 of CHIPS bewegen.
 
-**COVE** — Cover method settlement. A settlement method where a separate pacs.009 cover payment handles the funding between correspondents while pacs.008 carries the customer data directly.
+**COVE** — Dekkingsmethode-afwikkeling. Een afwikkelingsmethode waarbij een apart pacs.009 dekkingsbetaling de financiering tussen correspondenten afhandelt terwijl pacs.008 de klantgegevens direct draagt.
 
-**CSM** — Clearing and Settlement Mechanism. An infrastructure that processes and settles payment instructions between participating institutions.
+**CSM** — Clearing and Settlement Mechanism. Een infrastructuur die betalingsinstructies tussen deelnemende instellingen verwerkt en afwikkelt.
 
 ## D
 
-**Dbtr** — Debtor. The party that owes funds and initiates the payment. In pacs.008, the Dbtr element carries the debtor's name, postal address, identification, and country of residence.
+**Dbtr** — Debtor (Debiteur). De partij die fondsen verschuldigd is en de betaling initieert. In pacs.008 bevat het Dbtr-element de naam, het postadres, de identificatie en het land van verblijf van de debiteur.
 
-**DbtrAgt** — Debtor Agent. The financial institution that services the debtor's account and sends the pacs.008 instruction.
+**DbtrAgt** — Debtor Agent (Debiteuragent). De financiële instelling die de rekening van de debiteur beheert en de pacs.008 instructie verzendt.
 
 ## E
 
-**E2E ID** — End-to-End Identification (EndToEndId). A reference assigned by the originator that must remain unchanged across all agents in the payment chain. Used for customer-level traceability.
+**E2E ID** — End-to-End Identification (EndToEndId). Een referentie toegewezen door de opdrachtgever die ongewijzigd moet blijven bij alle agenten in de betalingsketen. Gebruikt voor traceerbaarheid op klantniveau.
 
-**EPC** — European Payments Council. The body that manages SEPA payment scheme rulebooks for credit transfers and direct debits.
+**EPC** — European Payments Council. Het orgaan dat de SEPA-betalingsschemareglementen voor overschrijvingen en incasso's beheert.
 
 ## F
 
-**FI** — Financial Institution. A bank or other institution that participates in payment clearing and settlement.
+**FI** — Financial Institution (Financiële instelling). Een bank of andere instelling die deelneemt aan betalingsclearing en -afwikkeling.
 
-**FIToFI** — Financial Institution to Financial Institution. Describes the interbank domain where pacs messages operate.
+**FIToFI** — Financial Institution to Financial Institution. Beschrijft het interbancaire domein waarin pacs-berichten opereren.
 
 ## G
 
-**gpi** — Global Payments Innovation. SWIFT's initiative for faster, transparent cross-border payments. Uses UETR for end-to-end tracking via a cloud-based Tracker.
+**gpi** — Global Payments Innovation. Het initiatief van SWIFT voor snellere, transparante grensoverschrijdende betalingen. Gebruikt UETR voor end-to-end-tracking via een cloudgebaseerde Tracker.
 
-**GrpHdr** — Group Header. The message-level metadata block in pacs messages. Contains MsgId, CreDtTm, NbOfTxs, settlement information, and payment type information.
+**GrpHdr** — Group Header. Het berichtniveau-metadatablok in pacs-berichten. Bevat MsgId, CreDtTm, NbOfTxs, afwikkelingsinformatie en betalingstypeinformatie.
 
 ## H
 
-**Hybrid address** — A postal address format that combines structured elements (StrtNm, TwnNm, Ctry) with unstructured AdrLine elements. Permitted during the transition period before the November 2026 structured address deadline.
+**Hybride adres** — Een postadresformaat dat gestructureerde elementen (StrtNm, TwnNm, Ctry) combineert met ongestructureerde AdrLine-elementen. Toegestaan tijdens de overgangsperiode vóór de deadline voor gestructureerde adressen van november 2026.
 
 ## I
 
-**IBAN** — International Bank Account Number (ISO 13616). A standardised account number format used for cross-border and domestic payments. Validated using ISO 7064 Mod 97-10 checksum.
+**IBAN** — International Bank Account Number (ISO 13616). Een gestandaardiseerd rekeningnummerformaat voor grensoverschrijdende en binnenlandse betalingen. Gevalideerd met ISO 7064 Mod 97-10 checksum.
 
-**INDA** — Instructed Agent settlement. A settlement method where funds settle on the books of the instructed agent, where the debtor agent holds a nostro account.
+**INDA** — Instructed Agent settlement. Een afwikkelingsmethode waarbij fondsen worden afgewikkeld op de boeken van de geïnstrueerde agent, waar de debiteuragent een nostrorekening aanhoudt.
 
-**INGA** — Instructing Agent settlement. A settlement method where funds settle on the books of the instructing agent, where the instructed agent holds a nostro account.
+**INGA** — Instructing Agent settlement. Een afwikkelingsmethode waarbij fondsen worden afgewikkeld op de boeken van de instructerende agent, waar de geïnstrueerde agent een nostrorekening aanhoudt.
 
-**InstrId** — Instruction Identification. A point-to-point reference between adjacent agents in the payment chain. May change at each hop.
+**InstrId** — Instruction Identification. Een punt-tot-punt-referentie tussen aangrenzende agenten in de betalingsketen. Kan bij elke hop veranderen.
 
-**IntrBkSttlmAmt** — Interbank Settlement Amount. The amount that settles between the instructing and instructed agents, in the settlement currency.
+**IntrBkSttlmAmt** — Interbank Settlement Amount. Het bedrag dat wordt afgewikkeld tussen de instructerende en geïnstrueerde agent, in de afwikkelingsvaluta.
 
-**ISO 20022** — An international standard for electronic data interchange between financial institutions. Defines a common data model and XML-based message formats for payments, securities, trade finance, and other financial domains.
+**ISO 20022** — Een internationale standaard voor elektronische gegevensuitwisseling tussen financiële instellingen. Definieert een gemeenschappelijk gegevensmodel en op XML gebaseerde berichtformaten voor betalingen, effecten, handelsfinanciering en andere financiële domeinen.
 
 ## L
 
-**LEI** — Legal Entity Identifier (ISO 17442). A 20-character alphanumeric code that uniquely identifies legal entities participating in financial transactions. Used in OrgId/LEI for parties and FinInstnId/LEI for agents.
+**LEI** — Legal Entity Identifier (ISO 17442). Een 20-tekens alfanumerieke code die rechtspersonen die deelnemen aan financiële transacties uniek identificeert. Gebruikt in OrgId/LEI voor partijen en FinInstnId/LEI voor agenten.
 
 ## M
 
-**MsgId** — Message Identification. A unique identifier for the message envelope, assigned by the sending agent. Changes at each hop in the payment chain.
+**MsgId** — Message Identification. Een unieke identificator voor de berichtenvelop, toegewezen door de verzendende agent. Verandert bij elke hop in de betalingsketen.
 
-**MT** — Message Type. SWIFT's legacy message format (e.g., MT103 for customer credit transfers, MT202 for financial institution transfers). Being replaced by ISO 20022 MX messages.
+**MT** — Message Type. Het legacy berichtformaat van SWIFT (bijv. MT103 voor klantoverboeking, MT202 voor transfers tussen financiële instellingen). Wordt vervangen door ISO 20022 MX-berichten.
 
-**MX** — The ISO 20022 XML message format used by SWIFT. MX messages replace MT messages for cross-border payments under CBPR+.
+**MX** — Het ISO 20022 XML-berichtformaat dat door SWIFT wordt gebruikt. MX-berichten vervangen MT-berichten voor grensoverschrijdende betalingen onder CBPR+.
 
 ## N
 
-**NbOfTxs** — Number of Transactions. A Group Header element indicating how many individual transactions are contained in the message.
+**NbOfTxs** — Number of Transactions. Een Group Header-element dat aangeeft hoeveel individuele transacties het bericht bevat.
 
 ## P
 
-**pacs** — Payments Clearing and Settlement. The ISO 20022 business domain covering interbank payment messages.
+**pacs** — Payments Clearing and Settlement. Het ISO 20022 bedrijfsdomein voor interbancaire betalingsberichten.
 
-**pacs.002** — FI to FI Payment Status Report. Reports the processing status (accepted, rejected, pending, settled) of an earlier payment instruction.
+**pacs.002** — FI-naar-FI Payment Status Report. Rapporteert de verwerkingsstatus (geaccepteerd, afgewezen, in afwachting, afgewikkeld) van een eerdere betalingsinstructie.
 
-**pacs.003** — FI to FI Customer Direct Debit. Carries a customer direct debit instruction between banks for fund collection.
+**pacs.003** — FI-naar-FI Customer Direct Debit. Draagt een klantincasso-instructie tussen banken voor fondsenincasso.
 
-**pacs.004** — Payment Return. Returns settled funds back through the payment chain when a payment cannot be applied.
+**pacs.004** — Payment Return. Retourneert afgewikkelde fondsen door de betalingsketen wanneer een betaling niet kan worden toegepast.
 
-**pacs.007** — FI to FI Payment Reversal. Reverses a payment instruction from the original sender forward through the chain.
+**pacs.007** — FI-naar-FI Payment Reversal. Boekt een betalingsinstructie terug van de oorspronkelijke verzender voorwaarts door de keten.
 
-**pacs.008** — FI to FI Customer Credit Transfer. The primary interbank message for customer credit transfers. Replaces MT103.
+**pacs.008** — FI-naar-FI Customer Credit Transfer. Het primaire interbancaire bericht voor klantoverschrijvingen. Vervangt MT103.
 
-**pacs.009** — Financial Institution Credit Transfer. Moves funds between banks on their own behalf. Covers funding, cover payments, and liquidity management. Replaces MT202/MT202COV.
+**pacs.009** — Financial Institution Credit Transfer. Verplaatst fondsen tussen banken voor eigen rekening. Dekt financiering, dekkingsbetalingen en liquiditeitsbeheer. Vervangt MT202/MT202COV.
 
-**pacs.010** — Financial Institution Direct Debit. Lets one bank debit another bank's own account under a bilateral agreement.
+**pacs.010** — Financial Institution Direct Debit. Staat een bank toe om de eigen rekening van een andere bank te debiteren onder een bilaterale overeenkomst.
 
-**pacs.028** — FI to FI Payment Status Request. Actively requests the status of an earlier payment when no pacs.002 update has arrived.
+**pacs.028** — FI-naar-FI Payment Status Request. Vraagt actief de status op van een eerdere betaling wanneer geen pacs.002 update is ontvangen.
 
-**pain** — Payment Initiation. The ISO 20022 business domain covering customer-to-bank messages (e.g., pain.001 for credit transfer initiation).
+**pain** — Payment Initiation. Het ISO 20022 bedrijfsdomein voor klant-naar-bank-berichten (bijv. pain.001 voor overschrijvingsinitiatie).
 
-**PII** — Personally Identifiable Information. Data that can identify an individual. pacs008 masks PII in structured logs.
+**PII** — Personally Identifiable Information. Gegevens die een individu kunnen identificeren. pacs008 maskeert PII in gestructureerde logs.
 
-**PstlAdr** — Postal Address. The address structure used for parties in pacs messages. Supports structured (StrtNm, TwnNm, Ctry) and unstructured (AdrLine) formats.
+**PstlAdr** — Postal Address. De adresstructuur die wordt gebruikt voor partijen in pacs-berichten. Ondersteunt gestructureerde (StrtNm, TwnNm, Ctry) en ongestructureerde (AdrLine) formaten.
 
 ## R
 
-**RJCT** — Rejected. A pacs.002 status code indicating the payment has been rejected.
+**RJCT** — Rejected (Afgewezen). Een pacs.002 statuscode die aangeeft dat de betaling is afgewezen.
 
-**RmtInf** — Remittance Information. Payment reference data carried in pacs.008. Supports unstructured (free text, max 140 chars) and structured (document references, amounts, creditor references) formats.
+**RmtInf** — Remittance Information. Betalingsreferentiegegevens gedragen in pacs.008. Ondersteunt ongestructureerde (vrije tekst, max 140 tekens) en gestructureerde (documentreferenties, bedragen, crediteurreferenties) formaten.
 
-**RTGS** — Real-Time Gross Settlement. A payment system where transactions settle individually and in real time (e.g., TARGET2, Fedwire, CHAPS).
+**RTGS** — Real-Time Gross Settlement. Een betalingssysteem waarbij transacties individueel en in real-time worden afgewikkeld (bijv. TARGET2, Fedwire, CHAPS).
 
 ## S
 
-**SCT** — SEPA Credit Transfer. The euro credit transfer scheme managed by the EPC, using pacs.008.
+**SCT** — SEPA Credit Transfer. Het euro-overschrijvingsschema beheerd door het EPC, met pacs.008.
 
-**SCT Inst** — SEPA Instant Credit Transfer. The instant payment variant of SCT, settling in under 10 seconds.
+**SCT Inst** — SEPA Instant Credit Transfer. De directe betalingsvariant van SCT, afwikkeling in minder dan 10 seconden.
 
-**SDD** — SEPA Direct Debit. The euro direct debit scheme managed by the EPC, using pacs.003.
+**SDD** — SEPA Direct Debit. Het euro-incassoschema beheerd door het EPC, met pacs.003.
 
-**SEPA** — Single Euro Payments Area. A payment integration initiative covering euro-denominated credit transfers, direct debits, and card payments across 36 European countries.
+**SEPA** — Single Euro Payments Area. Een integratie-initiatief voor euro-overschrijvingen, incasso's en kaartbetalingen in 36 Europese landen.
 
-**SLEV** — Service Level. A charge bearer code mandatory for SEPA. Means charges follow scheme rules with no deductions from the transfer amount.
+**SLEV** — Service Level. Een verplichte kostendragersysteem voor SEPA. Betekent dat kosten de schemaregels volgen zonder inhoudingen op het overgemaakte bedrag.
 
-**STP** — Straight-Through Processing. Automated end-to-end payment processing without manual intervention.
+**STP** — Straight-Through Processing. Geautomatiseerde end-to-end betalingsverwerking zonder handmatige interventie.
 
-**SttlmMtd** — Settlement Method. Defines how interbank settlement occurs: CLRG (clearing system), INDA (instructed agent), INGA (instructing agent), or COVE (cover payment).
+**SttlmMtd** — Settlement Method. Definieert hoe interbancaire afwikkeling plaatsvindt: CLRG (clearingsysteem), INDA (geïnstrueerde agent), INGA (instructerende agent) of COVE (dekkingsbetaling).
 
 ## T
 
-**TxId** — Transaction Identification. An interbank reference assigned by the first instructing agent. Must not be altered by subsequent agents.
+**TxId** — Transaction Identification. Een interbancaire referentie toegewezen door de eerste instructerende agent. Mag niet worden gewijzigd door volgende agenten.
 
 ## U
 
-**UETR** — Unique End-to-End Transaction Reference. A UUID v4 identifier generated by the debtor agent and carried unchanged across all legs of a payment for gpi tracking.
+**UETR** — Unique End-to-End Transaction Reference. Een UUID v4-identificator gegenereerd door de debiteuragent en ongewijzigd gedragen over alle legs van een betaling voor gpi-tracking.
 
 ## X
 
-**XSD** — XML Schema Definition. The formal schema that defines the structure, elements, and data types of an ISO 20022 XML message.
+**XSD** — XML Schema Definition. Het formele schema dat de structuur, elementen en gegevenstypen van een ISO 20022 XML-bericht definieert.
 
-**XXE** — XML External Entity. A security vulnerability in XML parsing. pacs008 prevents XXE attacks using defusedxml.
+**XXE** — XML External Entity. Een beveiligingskwetsbaarheid bij XML-parsing. pacs008 voorkomt XXE-aanvallen met defusedxml.
 
-## References
+## Referenties
 
 - [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions)
 - [ISO 20022 external code sets](https://www.iso20022.org/external_code_list.page)
 - [SWIFT CBPR+ standards programme](https://www.swift.com/standards/iso-20022)
-

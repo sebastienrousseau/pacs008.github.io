@@ -1,172 +1,171 @@
 ---
-title: "ISO 20022 glossary | pacs008"
-description: Definitions of key ISO 20022 and payment messaging terms used in pacs.008 and related messages.
+title: "Glosar ISO 20022 | pacs008"
+description: Definițiile termenilor cheie ISO 20022 și de mesagerie de plăți utilizați în pacs.008 și mesajele conexe.
 lang: ro-RO
 lastUpdated: true
 image: /logo.svg
 ---
 
-# ISO 20022 glossary
+# Glosar ISO 20022
 
-This glossary defines the key terms, abbreviations, and technical concepts used across ISO 20022 pacs messages and this site.
+Acest glosar definește termenii cheie, abrevierile și conceptele tehnice utilizate în mesajele pacs ISO 20022 și pe acest site.
 
 ## A
 
-**ACH** — Automated Clearing House. A network that processes batched electronic payments between financial institutions.
+**ACH** — Automated Clearing House (Casă de compensare automată). O rețea care procesează plăți electronice în loturi între instituții financiare.
 
-**AdrLine** — Address Line. A free-text address field in ISO 20022 postal address structures. Up to 7 lines of 70 characters each. Being replaced by structured address elements for CBPR+ by November 2026.
+**AdrLine** — Address Line (Linie de adresă). Un câmp de adresă cu text liber în structurile de adresă poștală ISO 20022. Până la 7 linii de câte 70 de caractere fiecare. În curs de înlocuire cu elemente de adresă structurată pentru CBPR+ până în noiembrie 2026.
 
-**ACCP** — Accepted Customer Profile. A pacs.002 status code indicating that preceding checks (syntax, customer profile) have passed.
+**ACCP** — Accepted Customer Profile (Profil client acceptat). Un cod de stare pacs.002 care indică faptul că verificările anterioare (sintaxă, profil client) au fost trecute.
 
-**ACSC** — Accepted Settlement Completed. A pacs.002 status code confirming that settlement on the debtor's account has been completed.
+**ACSC** — Accepted Settlement Completed (Decontare finalizată). Un cod de stare pacs.002 care confirmă finalizarea decontării pe contul debitorului.
 
-**ACSP** — Accepted Settlement in Process. A pacs.002 status code indicating all checks passed and settlement is in progress.
+**ACSP** — Accepted Settlement in Process (Decontare în curs). Un cod de stare pacs.002 care indică faptul că toate verificările au fost trecute și decontarea este în curs.
 
 ## B
 
-**BAH** — Business Application Header (head.001). A standardised envelope that wraps ISO 20022 business messages for transport via SWIFT. Contains routing information, message definition identifier, and sender/receiver BICs.
+**BAH** — Business Application Header (head.001). Un plic standardizat care învelește mesajele de afaceri ISO 20022 pentru transport prin SWIFT. Conține informații de rutare, identificatorul definiției mesajului și BIC-urile expeditorului/destinatarului.
 
-**BIC** — Business Identifier Code (ISO 9362). An 8 or 11 character code that uniquely identifies a financial institution. Format: BBBBCCLL (bank code + country + location) with optional BBB branch code.
+**BIC** — Business Identifier Code (ISO 9362). Un cod de 8 sau 11 caractere care identifică unic o instituție financiară. Format: BBBBCCLL (cod bancă + țară + locație) cu cod opțional de sucursală BBB.
 
 ## C
 
-**CBPR+** — Cross-Border Payments and Reporting Plus. SWIFT's programme for migrating cross-border payment messaging from MT to ISO 20022. Went live March 2023.
+**CBPR+** — Cross-Border Payments and Reporting Plus. Programul SWIFT pentru migrarea mesageriei de plăți transfrontaliere de la MT la ISO 20022. Operațional din martie 2023.
 
-**CdtTrfTxInf** — Credit Transfer Transaction Information. The main transaction-level building block in pacs.008 containing payment details, parties, amounts, and remittance information.
+**CdtTrfTxInf** — Credit Transfer Transaction Information. Principalul bloc constructiv la nivel de tranzacție în pacs.008 care conține detalii de plată, părți, sume și informații de remitere.
 
-**ChrgBr** — Charge Bearer. Specifies who pays the transaction charges. Values: DEBT (debtor), CRED (creditor), SHAR (shared), SLEV (service level, SEPA only).
+**ChrgBr** — Charge Bearer (Suportor de costuri). Specifică cine plătește costurile tranzacției. Valori: DEBT (debitor), CRED (creditor), SHAR (partajat), SLEV (nivel de serviciu, doar SEPA).
 
-**CLRG** — Clearing system settlement. A settlement method where funds move through a clearing system such as TARGET2, EURO1, or CHIPS.
+**CLRG** — Decontare prin sistem de compensare. O metodă de decontare în care fondurile trec printr-un sistem de compensare precum TARGET2, EURO1 sau CHIPS.
 
-**COVE** — Cover method settlement. A settlement method where a separate pacs.009 cover payment handles the funding between correspondents while pacs.008 carries the customer data directly.
+**COVE** — Decontare prin metoda de acoperire. O metodă de decontare în care o plată de acoperire pacs.009 separată gestionează finanțarea între corespondenți, în timp ce pacs.008 transportă datele clientului direct.
 
-**CSM** — Clearing and Settlement Mechanism. An infrastructure that processes and settles payment instructions between participating institutions.
+**CSM** — Clearing and Settlement Mechanism (Mecanism de compensare și decontare). O infrastructură care procesează și decontează instrucțiunile de plată între instituțiile participante.
 
 ## D
 
-**Dbtr** — Debtor. The party that owes funds and initiates the payment. In pacs.008, the Dbtr element carries the debtor's name, postal address, identification, and country of residence.
+**Dbtr** — Debtor (Debitor). Partea care datorează fonduri și inițiază plata. În pacs.008, elementul Dbtr conține numele, adresa poștală, identificarea și țara de reședință a debitorului.
 
-**DbtrAgt** — Debtor Agent. The financial institution that services the debtor's account and sends the pacs.008 instruction.
+**DbtrAgt** — Debtor Agent (Agentul debitorului). Instituția financiară care gestionează contul debitorului și trimite instrucțiunea pacs.008.
 
 ## E
 
-**E2E ID** — End-to-End Identification (EndToEndId). A reference assigned by the originator that must remain unchanged across all agents in the payment chain. Used for customer-level traceability.
+**E2E ID** — End-to-End Identification (EndToEndId). O referință atribuită de inițiator care trebuie să rămână neschimbată la toți agenții din lanțul de plăți. Utilizată pentru trasabilitate la nivel de client.
 
-**EPC** — European Payments Council. The body that manages SEPA payment scheme rulebooks for credit transfers and direct debits.
+**EPC** — European Payments Council (Consiliul European de Plăți). Organismul care gestionează regulamentele schemelor de plăți SEPA pentru transferuri de credit și debitări directe.
 
 ## F
 
-**FI** — Financial Institution. A bank or other institution that participates in payment clearing and settlement.
+**FI** — Financial Institution (Instituție financiară). O bancă sau altă instituție care participă la compensarea și decontarea plăților.
 
-**FIToFI** — Financial Institution to Financial Institution. Describes the interbank domain where pacs messages operate.
+**FIToFI** — Financial Institution to Financial Institution. Descrie domeniul interbancar în care operează mesajele pacs.
 
 ## G
 
-**gpi** — Global Payments Innovation. SWIFT's initiative for faster, transparent cross-border payments. Uses UETR for end-to-end tracking via a cloud-based Tracker.
+**gpi** — Global Payments Innovation. Inițiativa SWIFT pentru plăți transfrontaliere mai rapide și transparente. Utilizează UETR pentru urmărire end-to-end printr-un Tracker bazat pe cloud.
 
-**GrpHdr** — Group Header. The message-level metadata block in pacs messages. Contains MsgId, CreDtTm, NbOfTxs, settlement information, and payment type information.
+**GrpHdr** — Group Header (Antet de grup). Blocul de metadate la nivel de mesaj în mesajele pacs. Conține MsgId, CreDtTm, NbOfTxs, informații de decontare și informații despre tipul plății.
 
 ## H
 
-**Hybrid address** — A postal address format that combines structured elements (StrtNm, TwnNm, Ctry) with unstructured AdrLine elements. Permitted during the transition period before the November 2026 structured address deadline.
+**Adresă hibridă** — Un format de adresă poștală care combină elemente structurate (StrtNm, TwnNm, Ctry) cu elemente AdrLine nestructurate. Permisă în perioada de tranziție înainte de termenul limită pentru adresele structurate din noiembrie 2026.
 
 ## I
 
-**IBAN** — International Bank Account Number (ISO 13616). A standardised account number format used for cross-border and domestic payments. Validated using ISO 7064 Mod 97-10 checksum.
+**IBAN** — International Bank Account Number (ISO 13616). Un format standardizat de număr de cont utilizat pentru plăți transfrontaliere și interne. Validat folosind suma de control ISO 7064 Mod 97-10.
 
-**INDA** — Instructed Agent settlement. A settlement method where funds settle on the books of the instructed agent, where the debtor agent holds a nostro account.
+**INDA** — Instructed Agent settlement. O metodă de decontare în care fondurile se decontează în registrele agentului instruit, unde agentul debitorului deține un cont nostro.
 
-**INGA** — Instructing Agent settlement. A settlement method where funds settle on the books of the instructing agent, where the instructed agent holds a nostro account.
+**INGA** — Instructing Agent settlement. O metodă de decontare în care fondurile se decontează în registrele agentului inițiator, unde agentul instruit deține un cont nostro.
 
-**InstrId** — Instruction Identification. A point-to-point reference between adjacent agents in the payment chain. May change at each hop.
+**InstrId** — Instruction Identification. O referință punct-la-punct între agenții adiacenți din lanțul de plăți. Se poate schimba la fiecare hop.
 
-**IntrBkSttlmAmt** — Interbank Settlement Amount. The amount that settles between the instructing and instructed agents, in the settlement currency.
+**IntrBkSttlmAmt** — Interbank Settlement Amount. Suma care se decontează între agentul inițiator și agentul instruit, în moneda de decontare.
 
-**ISO 20022** — An international standard for electronic data interchange between financial institutions. Defines a common data model and XML-based message formats for payments, securities, trade finance, and other financial domains.
+**ISO 20022** — Un standard internațional pentru schimbul electronic de date între instituții financiare. Definește un model de date comun și formate de mesaje bazate pe XML pentru plăți, valori mobiliare, finanțare comercială și alte domenii financiare.
 
 ## L
 
-**LEI** — Legal Entity Identifier (ISO 17442). A 20-character alphanumeric code that uniquely identifies legal entities participating in financial transactions. Used in OrgId/LEI for parties and FinInstnId/LEI for agents.
+**LEI** — Legal Entity Identifier (ISO 17442). Un cod alfanumeric de 20 de caractere care identifică unic entitățile juridice participante la tranzacții financiare. Utilizat în OrgId/LEI pentru părți și FinInstnId/LEI pentru agenți.
 
 ## M
 
-**MsgId** — Message Identification. A unique identifier for the message envelope, assigned by the sending agent. Changes at each hop in the payment chain.
+**MsgId** — Message Identification. Un identificator unic pentru plicul mesajului, atribuit de agentul expeditor. Se schimbă la fiecare hop din lanțul de plăți.
 
-**MT** — Message Type. SWIFT's legacy message format (e.g., MT103 for customer credit transfers, MT202 for financial institution transfers). Being replaced by ISO 20022 MX messages.
+**MT** — Message Type. Formatul legacy de mesaje SWIFT (ex.: MT103 pentru transferuri de credit ale clienților, MT202 pentru transferuri ale instituțiilor financiare). Înlocuit de mesajele MX ISO 20022.
 
-**MX** — The ISO 20022 XML message format used by SWIFT. MX messages replace MT messages for cross-border payments under CBPR+.
+**MX** — Formatul de mesaj XML ISO 20022 utilizat de SWIFT. Mesajele MX înlocuiesc mesajele MT pentru plățile transfrontaliere sub CBPR+.
 
 ## N
 
-**NbOfTxs** — Number of Transactions. A Group Header element indicating how many individual transactions are contained in the message.
+**NbOfTxs** — Number of Transactions. Un element Group Header care indică câte tranzacții individuale conține mesajul.
 
 ## P
 
-**pacs** — Payments Clearing and Settlement. The ISO 20022 business domain covering interbank payment messages.
+**pacs** — Payments Clearing and Settlement. Domeniul de afaceri ISO 20022 care acoperă mesajele de plată interbancară.
 
-**pacs.002** — FI to FI Payment Status Report. Reports the processing status (accepted, rejected, pending, settled) of an earlier payment instruction.
+**pacs.002** — Raport de stare a plății FI-FI. Raportează starea de procesare (acceptat, respins, în așteptare, decontat) a unei instrucțiuni de plată anterioare.
 
-**pacs.003** — FI to FI Customer Direct Debit. Carries a customer direct debit instruction between banks for fund collection.
+**pacs.003** — Debitare directă client FI-FI. Transportă o instrucțiune de debitare directă a clientului între bănci pentru colectarea fondurilor.
 
-**pacs.004** — Payment Return. Returns settled funds back through the payment chain when a payment cannot be applied.
+**pacs.004** — Returnare plată. Returnează fondurile decontate prin lanțul de plăți când o plată nu poate fi aplicată.
 
-**pacs.007** — FI to FI Payment Reversal. Reverses a payment instruction from the original sender forward through the chain.
+**pacs.007** — Reversare plată FI-FI. Reversează o instrucțiune de plată de la expeditorul original înainte prin lanț.
 
-**pacs.008** — FI to FI Customer Credit Transfer. The primary interbank message for customer credit transfers. Replaces MT103.
+**pacs.008** — Transfer de credit client FI-FI. Mesajul interbancar primar pentru transferurile de credit ale clienților. Înlocuiește MT103.
 
-**pacs.009** — Financial Institution Credit Transfer. Moves funds between banks on their own behalf. Covers funding, cover payments, and liquidity management. Replaces MT202/MT202COV.
+**pacs.009** — Transfer de credit al instituției financiare. Mută fonduri între bănci în numele propriu. Acoperă finanțare, plăți de acoperire și gestionarea lichidității. Înlocuiește MT202/MT202COV.
 
-**pacs.010** — Financial Institution Direct Debit. Lets one bank debit another bank's own account under a bilateral agreement.
+**pacs.010** — Debitare directă a instituției financiare. Permite unei bănci să debiteze contul propriu al altei bănci în cadrul unui acord bilateral.
 
-**pacs.028** — FI to FI Payment Status Request. Actively requests the status of an earlier payment when no pacs.002 update has arrived.
+**pacs.028** — Cerere de stare a plății FI-FI. Solicită activ starea unei plăți anterioare când nu a sosit nicio actualizare pacs.002.
 
-**pain** — Payment Initiation. The ISO 20022 business domain covering customer-to-bank messages (e.g., pain.001 for credit transfer initiation).
+**pain** — Payment Initiation. Domeniul de afaceri ISO 20022 care acoperă mesajele client-bancă (ex.: pain.001 pentru inițierea transferului de credit).
 
-**PII** — Personally Identifiable Information. Data that can identify an individual. pacs008 masks PII in structured logs.
+**PII** — Personally Identifiable Information. Date care pot identifica o persoană. pacs008 maschează PII în jurnalele structurate.
 
-**PstlAdr** — Postal Address. The address structure used for parties in pacs messages. Supports structured (StrtNm, TwnNm, Ctry) and unstructured (AdrLine) formats.
+**PstlAdr** — Postal Address. Structura de adresă utilizată pentru părți în mesajele pacs. Suportă formate structurate (StrtNm, TwnNm, Ctry) și nestructurate (AdrLine).
 
 ## R
 
-**RJCT** — Rejected. A pacs.002 status code indicating the payment has been rejected.
+**RJCT** — Rejected (Respins). Un cod de stare pacs.002 care indică faptul că plata a fost respinsă.
 
-**RmtInf** — Remittance Information. Payment reference data carried in pacs.008. Supports unstructured (free text, max 140 chars) and structured (document references, amounts, creditor references) formats.
+**RmtInf** — Remittance Information. Date de referință ale plății transportate în pacs.008. Suportă formate nestructurate (text liber, max 140 caractere) și structurate (referințe documente, sume, referințe creditor).
 
-**RTGS** — Real-Time Gross Settlement. A payment system where transactions settle individually and in real time (e.g., TARGET2, Fedwire, CHAPS).
+**RTGS** — Real-Time Gross Settlement. Un sistem de plăți în care tranzacțiile se decontează individual și în timp real (ex.: TARGET2, Fedwire, CHAPS).
 
 ## S
 
-**SCT** — SEPA Credit Transfer. The euro credit transfer scheme managed by the EPC, using pacs.008.
+**SCT** — SEPA Credit Transfer. Schema de transfer de credit în euro gestionată de EPC, utilizând pacs.008.
 
-**SCT Inst** — SEPA Instant Credit Transfer. The instant payment variant of SCT, settling in under 10 seconds.
+**SCT Inst** — SEPA Instant Credit Transfer. Varianta de plată instantanee a SCT, decontare în mai puțin de 10 secunde.
 
-**SDD** — SEPA Direct Debit. The euro direct debit scheme managed by the EPC, using pacs.003.
+**SDD** — SEPA Direct Debit. Schema de debitare directă în euro gestionată de EPC, utilizând pacs.003.
 
-**SEPA** — Single Euro Payments Area. A payment integration initiative covering euro-denominated credit transfers, direct debits, and card payments across 36 European countries.
+**SEPA** — Single Euro Payments Area. O inițiativă de integrare a plăților care acoperă transferuri de credit, debitări directe și plăți cu cardul în euro în 36 de țări europene.
 
-**SLEV** — Service Level. A charge bearer code mandatory for SEPA. Means charges follow scheme rules with no deductions from the transfer amount.
+**SLEV** — Service Level. Un cod obligatoriu de suportare a costurilor pentru SEPA. Înseamnă că costurile urmează regulile schemei fără deduceri din suma transferată.
 
-**STP** — Straight-Through Processing. Automated end-to-end payment processing without manual intervention.
+**STP** — Straight-Through Processing. Procesare automată end-to-end a plăților fără intervenție manuală.
 
-**SttlmMtd** — Settlement Method. Defines how interbank settlement occurs: CLRG (clearing system), INDA (instructed agent), INGA (instructing agent), or COVE (cover payment).
+**SttlmMtd** — Settlement Method. Definește cum are loc decontarea interbancară: CLRG (sistem de compensare), INDA (agent instruit), INGA (agent inițiator) sau COVE (plată de acoperire).
 
 ## T
 
-**TxId** — Transaction Identification. An interbank reference assigned by the first instructing agent. Must not be altered by subsequent agents.
+**TxId** — Transaction Identification. O referință interbancară atribuită de primul agent inițiator. Nu trebuie modificată de agenții ulteriori.
 
 ## U
 
-**UETR** — Unique End-to-End Transaction Reference. A UUID v4 identifier generated by the debtor agent and carried unchanged across all legs of a payment for gpi tracking.
+**UETR** — Unique End-to-End Transaction Reference. Un identificator UUID v4 generat de agentul debitorului și transportat neschimbat pe toate segmentele unei plăți pentru urmărirea gpi.
 
 ## X
 
-**XSD** — XML Schema Definition. The formal schema that defines the structure, elements, and data types of an ISO 20022 XML message.
+**XSD** — XML Schema Definition. Schema formală care definește structura, elementele și tipurile de date ale unui mesaj XML ISO 20022.
 
-**XXE** — XML External Entity. A security vulnerability in XML parsing. pacs008 prevents XXE attacks using defusedxml.
+**XXE** — XML External Entity. O vulnerabilitate de securitate în parsarea XML. pacs008 previne atacurile XXE folosind defusedxml.
 
-## References
+## Referințe
 
 - [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions)
 - [ISO 20022 external code sets](https://www.iso20022.org/external_code_list.page)
 - [SWIFT CBPR+ standards programme](https://www.swift.com/standards/iso-20022)
-
