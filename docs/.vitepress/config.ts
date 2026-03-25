@@ -16,12 +16,29 @@ function navFor(locale: string) {
   const prefix = locale === "en" ? "" : `/${locale}`;
   const nav = [
     { text: t.about, link: `${prefix}/about/` },
-    { text: t.messageTypes, link: `${prefix}/message-types/` },
-    { text: t.selectionGuide, link: `${prefix}/message-selection/` },
-    { text: t.api, link: `${prefix}/api/` },
-    { text: t.structuredAddress, link: `${prefix}/structured-address/` },
-    { text: t.pacsExplained, link: `${prefix}/pacs-explained/` },
-    { text: t.faq, link: `${prefix}/faq/` },
+    {
+      text: t.navMessages,
+      items: [
+        { text: t.messageTypes, link: `${prefix}/message-types/` },
+        { text: t.selectionGuide, link: `${prefix}/message-selection/` },
+        { text: t.pacsExplained, link: `${prefix}/pacs-explained/` }
+      ]
+    },
+    {
+      text: t.navCompliance,
+      items: [
+        { text: t.structuredAddress, link: `${prefix}/structured-address/` },
+        { text: t.glossary, link: `${prefix}/glossary/` }
+      ]
+    },
+    {
+      text: t.navToolkit,
+      items: [
+        { text: t.api, link: `${prefix}/api/` },
+        { text: t.faq, link: `${prefix}/faq/` },
+        { text: t.changelog, link: `${prefix}/changelog/` }
+      ]
+    },
     { text: t.contact, link: `${prefix}/contact/` }
   ];
   return nav;
