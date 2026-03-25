@@ -1024,6 +1024,135 @@ strong {
   }
 }
 
+/* ---------- FAQ Accordion (HSBC-inspired spacious design) ---------- */
+.faq-accordion-init h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 3rem 0 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--pacs-theme);
+  color: var(--pacs-text-primary);
+}
+
+.faq-accordion-init h2:first-of-type {
+  margin-top: 1.5rem;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--pacs-divider);
+  margin: 0;
+  padding: 0;
+}
+
+.faq-item:last-of-type {
+  border-bottom: none;
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--pacs-text-primary);
+  cursor: pointer;
+  list-style: none;
+  transition: color 0.2s ease;
+  gap: 1rem;
+}
+
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question::after {
+  content: "+";
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--pacs-theme-text);
+  border-radius: 50%;
+  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+    background-color 0.2s ease;
+}
+
+.faq-item[open] > .faq-question::after {
+  content: "−";
+  transform: rotate(0deg);
+}
+
+.faq-question:hover {
+  color: var(--pacs-theme-text);
+}
+
+.faq-question:hover::after {
+  background-color: var(--pacs-bg-secondary);
+}
+
+.faq-question:focus-visible {
+  outline: 3px solid var(--pacs-focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.faq-answer {
+  padding: 0 0.5rem 1.5rem 0.5rem;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--pacs-text-secondary);
+  animation: faqReveal 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+@keyframes faqReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faq-answer p {
+  margin: 0 0 0.75rem;
+}
+
+.faq-answer p:last-child {
+  margin-bottom: 0;
+}
+
+/* Section spacing between FAQ categories */
+.faq-accordion-init > h2 + .faq-item {
+  border-top: none;
+}
+
+/* Mobile FAQ refinements */
+@media (max-width: 768px) {
+  .faq-question {
+    padding: 1rem 0.25rem;
+    font-size: 1rem;
+  }
+
+  .faq-answer {
+    padding: 0 0.25rem 1.25rem 0.25rem;
+    font-size: 0.9375rem;
+  }
+
+  .faq-accordion-init h2 {
+    font-size: 1.25rem;
+    margin: 2rem 0 1rem;
+  }
+}
+
 /* ---------- Reduced Motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *,

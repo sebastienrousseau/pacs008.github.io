@@ -56,16 +56,51 @@ function labelThemeToggle() {
   });
 }
 
+function initFaqAccordion() {
+  const isFaq = window.location.pathname.replace(/\/$/, "").endsWith("/faq");
+  if (!isFaq) return;
+
+  const doc = document.querySelector(".vp-doc");
+  if (!doc || doc.classList.contains("faq-accordion-init")) return;
+  doc.classList.add("faq-accordion-init");
+
+  const h3s = doc.querySelectorAll("h3");
+  h3s.forEach((h3) => {
+    const details = document.createElement("details");
+    details.className = "faq-item";
+    const summary = document.createElement("summary");
+    summary.className = "faq-question";
+    summary.innerHTML = h3.innerHTML;
+
+    const answer = document.createElement("div");
+    answer.className = "faq-answer";
+
+    let sibling = h3.nextElementSibling;
+    const collected: Element[] = [];
+    while (sibling && sibling.tagName !== "H3" && sibling.tagName !== "H2") {
+      collected.push(sibling);
+      sibling = sibling.nextElementSibling;
+    }
+    h3.parentNode!.insertBefore(details, h3);
+    details.appendChild(summary);
+    details.appendChild(answer);
+    h3.remove();
+    collected.forEach((el) => answer.appendChild(el));
+  });
+}
+
 onMounted(() => {
   const el = document.getElementById("VPContent");
   if (el) el.setAttribute("role", "main");
 
   labelCopyButtons();
   labelThemeToggle();
+  initFaqAccordion();
 
   const observer = new MutationObserver(() => {
     labelCopyButtons();
     labelThemeToggle();
+    initFaqAccordion();
   });
   observer.observe(document.body, { childList: true, subtree: true });
 });
