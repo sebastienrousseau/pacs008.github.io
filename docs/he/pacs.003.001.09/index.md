@@ -5,10 +5,10 @@ lang: he-IL
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
-    answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."
-  - question: "What matters most operationally?"
-    answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation."
+  - question: "האם pacs.003 הוא המראה של חיוב ישיר ל-pacs.008?"
+    answer: "לא. הוא מטפל בזרימות חיוב ישיר של לקוחות, שיש להן כללי מנדט, תזמון וחריגים שונים."
+  - question: "מה הכי חשוב מבחינה תפעולית?"
+    answer: "איכות המנדט, כללי חשבון החייב וטיפול בהחזרות חשובים יותר מיצירת XML."
 ---
 
 # pacs.003.001.09 — חיוב ישיר ללקוח בין מוסדות פיננסיים

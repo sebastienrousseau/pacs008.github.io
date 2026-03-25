@@ -5,10 +5,10 @@ lang: zh-TW
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
-    answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."
-  - question: "What matters most operationally?"
-    answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation."
+  - question: "pacs.003 是 pacs.008 的直接扣款鏡像嗎？"
+    answer: "不是。它處理客戶直接扣款流程，這些流程有不同的授權、時間和例外規則。"
+  - question: "營運上什麼最重要？"
+    answer: "授權品質、債務人帳戶規則和退回處理比 XML 生成更重要。"
 ---
 
 # pacs.003.001.09 — 金融機構間客戶直接扣款

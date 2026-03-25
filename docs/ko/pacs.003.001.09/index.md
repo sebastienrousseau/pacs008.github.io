@@ -5,10 +5,10 @@ lang: ko-KR
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
-    answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."
-  - question: "What matters most operationally?"
-    answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation."
+  - question: "pacs.003은 pacs.008의 자동이체 미러입니까?"
+    answer: "아니요. 다른 위임, 타이밍 및 예외 규칙을 가진 고객 자동이체 흐름을 처리합니다."
+  - question: "운영상 가장 중요한 것은 무엇입니까?"
+    answer: "위임 품질, 채무자 계좌 규칙 및 반환 처리가 XML 생성보다 더 중요합니다."
 ---
 
 # pacs.003.001.09 — 금융기관 간 고객 직접출금

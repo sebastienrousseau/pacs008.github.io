@@ -5,10 +5,10 @@ lang: uk-UA
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Should pacs.028 be sent after every payment?"
-    answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic."
-  - question: "What makes pacs.028 useful?"
-    answer: "Clear timeout, escalation, and reconciliation rules around the original payment case."
+  - question: "Чи слід відправляти pacs.028 після кожного платежу?"
+    answer: "Зазвичай ні. Він найкраще працює як цільовий інструмент для винятків, а не як масовий трафік."
+  - question: "Що робить pacs.028 корисним?"
+    answer: "Чіткі правила тайм-ауту, ескалації та звірки навколо первісної платіжної справи."
 ---
 
 # pacs.028.001.05 — Запит статусу платежу між фінансовими установами

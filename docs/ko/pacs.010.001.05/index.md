@@ -5,10 +5,10 @@ lang: ko-KR
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.010 common in retail payment products?"
-    answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."
-  - question: "What should teams design first?"
-    answer: "Start with approval rules, bilateral controls, and exception handling before finalising XML templates."
+  - question: "pacs.010은 소매 결제 제품에서 일반적입니까?"
+    answer: "보통 아닙니다. 표준 소매 제품보다 은행 간 자동이체 시나리오에 더 적합합니다."
+  - question: "팀이 먼저 설계해야 할 것은?"
+    answer: "XML 템플릿을 확정하기 전에 승인 규칙, 양자 통제 및 예외 처리부터 시작하세요."
 ---
 
 # pacs.010.001.05 — 금융기관 간 직접출금

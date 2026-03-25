@@ -5,10 +5,10 @@ lang: ja-JP
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
-    answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."
-  - question: "What matters most operationally?"
-    answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation."
+  - question: "pacs.003はpacs.008のダイレクトデビットのミラーですか？"
+    answer: "いいえ。顧客のダイレクトデビットフローを処理しますが、マンデート、タイミング、例外ルールが異なります。"
+  - question: "運用上最も重要なことは何ですか？"
+    answer: "マンデートの品質、債務者口座ルール、返品処理がXML生成よりも重要です。"
 ---
 
 # pacs.003.001.09 — 金融機関間顧客口座振替

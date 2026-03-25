@@ -5,10 +5,10 @@ lang: ru-RU
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.010 common in retail payment products?"
-    answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."
-  - question: "What should teams design first?"
-    answer: "Start with approval rules, bilateral controls, and exception handling before finalising XML templates."
+  - question: "Распространён ли pacs.010 в розничных платёжных продуктах?"
+    answer: "Обычно нет. Он лучше подходит для сценариев прямого дебетования между банками, чем для стандартных розничных продуктов."
+  - question: "Что команды должны проектировать в первую очередь?"
+    answer: "Начните с правил одобрения, двусторонних контролей и обработки исключений, прежде чем финализировать XML-шаблоны."
 ---
 
 # pacs.010.001.05 — Прямое дебетование между финансовыми учреждениями

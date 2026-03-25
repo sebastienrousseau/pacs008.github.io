@@ -5,10 +5,10 @@ lang: zh-TW
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.007 only for fraud scenarios?"
-    answer: "No. Fraud is a major use case, but any instructing-side need to reverse a payment can trigger it."
-  - question: "Can it be handled like a normal return?"
-    answer: "No. Reversal timing, reason capture, and reconciliation differ materially from returns."
+  - question: "pacs.007 僅用於詐欺場景嗎？"
+    answer: "不是。詐欺是主要用例，但指令方任何需要撤銷支付的情況都可以觸發它。"
+  - question: "可以像正常退回一樣處理嗎？"
+    answer: "不可以。撤銷時間、原因記錄和對帳與退回有實質性差異。"
 ---
 
 # pacs.007.001.11 — 金融機構間付款撤銷

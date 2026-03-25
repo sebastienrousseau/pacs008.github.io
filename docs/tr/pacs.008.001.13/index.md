@@ -5,10 +5,10 @@ lang: tr-TR
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.008 enough on its own for production payments?"
-    answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."
-  - question: "What causes the most repair work?"
-    answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."
+  - question: "pacs.008 tek başına üretim ödemeleri için yeterli mi?"
+    answer: "Hayır. Üretim hazırlığı ayrıca şema kurallarına, adres kalitesine, taraf verilerine, durum işlemeye ve istisna akışlarına da bağlıdır."
+  - question: "En çok onarım işine ne sebep olur?"
+    answer: "Zayıf taraf verileri, kötü adres yapılandırması, tutarsız tanımlayıcılar ve yapılandırılmamış havale içeriği yaygın nedenlerdir."
 ---
 
 # pacs.008.001.13 — FI'dan FI'ya müşteri kredi transferi

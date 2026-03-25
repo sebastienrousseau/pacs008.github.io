@@ -5,10 +5,10 @@ lang: zh-TW
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.010 common in retail payment products?"
-    answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."
-  - question: "What should teams design first?"
-    answer: "Start with approval rules, bilateral controls, and exception handling before finalising XML templates."
+  - question: "pacs.010 在零售支付產品中常見嗎？"
+    answer: "通常不常見。它更適合銀行間直接扣款場景，而非標準零售產品。"
+  - question: "團隊應該首先設計什麼？"
+    answer: "在最終確定 XML 範本之前，先從審批規則、雙邊控制和異常處理開始。"
 ---
 
 # pacs.010.001.05 — 金融機構直接扣款

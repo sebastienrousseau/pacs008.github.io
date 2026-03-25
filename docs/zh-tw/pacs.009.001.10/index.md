@@ -5,10 +5,10 @@ lang: zh-TW
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "When should I choose pacs.009 over pacs.008?"
-    answer: "Choose pacs.009 for own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions."
-  - question: "Why is pacs.009 often harder to reconcile than expected?"
-    answer: "Because banks must preserve the relationship between treasury funding, correspondent legs, and any linked customer payment."
+  - question: "什麼時候應該選擇 pacs.009 而不是 pacs.008？"
+    answer: "自有帳戶轉帳和覆蓋腿選擇 pacs.009；客戶信用轉帳指令選擇 pacs.008。"
+  - question: "為什麼 pacs.009 通常比預期更難對帳？"
+    answer: "因為銀行必須保持資金管理融資、代理行腿和任何關聯客戶支付之間的關係。"
 ---
 
 # pacs.009.001.10 — 金融機構信用轉帳

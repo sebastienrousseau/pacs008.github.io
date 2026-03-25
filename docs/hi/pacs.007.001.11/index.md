@@ -5,10 +5,10 @@ lang: hi-IN
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.007 only for fraud scenarios?"
-    answer: "No. Fraud is a major use case, but any instructing-side need to reverse a payment can trigger it."
-  - question: "Can it be handled like a normal return?"
-    answer: "No. Reversal timing, reason capture, and reconciliation differ materially from returns."
+  - question: "क्या pacs.007 केवल धोखाधड़ी परिदृश्यों के लिए है?"
+    answer: "नहीं। धोखाधड़ी एक प्रमुख उपयोग मामला है, लेकिन निर्देश देने वाले पक्ष की किसी भी भुगतान को उलटने की आवश्यकता इसे सक्रिय कर सकती है।"
+  - question: "क्या इसे सामान्य रिटर्न की तरह संभाला जा सकता है?"
+    answer: "नहीं। उलटाव का समय, कारण कैप्चर और मिलान रिटर्न से भौतिक रूप से भिन्न हैं।"
 ---
 
 # pacs.007.001.11 — FI-से-FI भुगतान रिवर्सल

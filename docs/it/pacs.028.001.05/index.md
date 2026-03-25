@@ -5,10 +5,10 @@ lang: it-IT
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Should pacs.028 be sent after every payment?"
-    answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic."
-  - question: "What makes pacs.028 useful?"
-    answer: "Clear timeout, escalation, and reconciliation rules around the original payment case."
+  - question: "pacs.028 dovrebbe essere inviato dopo ogni pagamento?"
+    answer: "Di solito no. Funziona meglio come strumento di eccezione mirato, non come traffico generalizzato."
+  - question: "Cosa rende utile pacs.028?"
+    answer: "Regole chiare di timeout, escalation e riconciliazione intorno al caso di pagamento originale."
 ---
 
 # pacs.028.001.05 — Richiesta di stato del pagamento tra istituzioni finanziarie

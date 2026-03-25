@@ -5,10 +5,10 @@ lang: ko-KR
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.007 only for fraud scenarios?"
-    answer: "No. Fraud is a major use case, but any instructing-side need to reverse a payment can trigger it."
-  - question: "Can it be handled like a normal return?"
-    answer: "No. Reversal timing, reason capture, and reconciliation differ materially from returns."
+  - question: "pacs.007은 사기 시나리오에만 해당합니까?"
+    answer: "아니요. 사기는 주요 사용 사례이지만, 지시 측의 결제 취소 필요성이 이를 트리거할 수 있습니다."
+  - question: "일반 반환처럼 처리할 수 있습니까?"
+    answer: "아니요. 취소 타이밍, 사유 캡처 및 조정은 반환과 실질적으로 다릅니다."
 ---
 
 # pacs.007.001.11 — 금융기관 간 지급 취소

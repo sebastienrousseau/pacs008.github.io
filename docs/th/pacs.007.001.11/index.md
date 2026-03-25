@@ -5,10 +5,10 @@ lang: th-TH
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.007 only for fraud scenarios?"
-    answer: "No. Fraud is a major use case, but any instructing-side need to reverse a payment can trigger it."
-  - question: "Can it be handled like a normal return?"
-    answer: "No. Reversal timing, reason capture, and reconciliation differ materially from returns."
+  - question: "pacs.007 ใช้สำหรับสถานการณ์การฉ้อโกงเท่านั้นหรือไม่?"
+    answer: "ไม่ การฉ้อโกงเป็นกรณีการใช้งานหลัก แต่ความต้องการของฝั่งผู้สั่งในการกลับรายการการชำระเงินสามารถเรียกใช้ได้"
+  - question: "สามารถจัดการเหมือนการคืนปกติได้หรือไม่?"
+    answer: "ไม่ เวลาการกลับรายการ การบันทึกเหตุผล และการกระทบยอดแตกต่างอย่างมีสาระสำคัญจากการคืน"
 ---
 
 # pacs.007.001.11 — การกลับรายการชำระเงินระหว่างสถาบันการเงิน

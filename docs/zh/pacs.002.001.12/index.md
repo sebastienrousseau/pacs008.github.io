@@ -5,10 +5,10 @@ lang: zh-CN
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.002 a payment message?"
-    answer: "No. It reports status for an earlier instruction rather than moving value itself."
-  - question: "Should pacs.002 replace internal workflow states?"
-    answer: "No. It should inform them, but internal case states still need their own operational logic."
+  - question: "pacs.002 是支付报文吗？"
+    answer: "不是。它报告先前指令的状态，而不是自身转移价值。"
+  - question: "pacs.002 应该替代内部工作流状态吗？"
+    answer: "不应该。它应该通知这些状态，但内部案例状态仍需要自己的运营逻辑。"
 ---
 
 # pacs.002.001.12 — 金融机构间支付状态报告

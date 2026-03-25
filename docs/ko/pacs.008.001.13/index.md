@@ -5,10 +5,10 @@ lang: ko-KR
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.008 enough on its own for production payments?"
-    answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."
-  - question: "What causes the most repair work?"
-    answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."
+  - question: "pacs.008만으로 프로덕션 결제에 충분합니까?"
+    answer: "아니요. 프로덕션 준비는 스킴 규칙, 주소 품질, 당사자 데이터, 상태 처리 및 예외 흐름에도 의존합니다."
+  - question: "가장 많은 수리 작업을 유발하는 것은 무엇입니까?"
+    answer: "약한 당사자 데이터, 불량한 주소 구조화, 일관성 없는 식별자 및 비구조화된 송금 내용이 일반적인 원인입니다."
 ---
 
 # pacs.008.001.13 — 금융기관 간 고객 신용이체

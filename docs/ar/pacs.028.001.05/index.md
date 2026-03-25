@@ -5,10 +5,10 @@ lang: ar-SA
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Should pacs.028 be sent after every payment?"
-    answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic."
-  - question: "What makes pacs.028 useful?"
-    answer: "Clear timeout, escalation, and reconciliation rules around the original payment case."
+  - question: "هل يجب إرسال pacs.028 بعد كل دفعة؟"
+    answer: "عادة لا. يعمل بشكل أفضل كأداة استثناء مستهدفة، وليس كحركة شاملة."
+  - question: "ما الذي يجعل pacs.028 مفيداً؟"
+    answer: "قواعد واضحة للمهلة والتصعيد والتسوية حول حالة الدفع الأصلية."
 ---
 
 # pacs.028.001.05 — طلب حالة الدفع من مؤسسة مالية إلى مؤسسة مالية

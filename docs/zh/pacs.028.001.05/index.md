@@ -5,10 +5,10 @@ lang: zh-CN
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Should pacs.028 be sent after every payment?"
-    answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic."
-  - question: "What makes pacs.028 useful?"
-    answer: "Clear timeout, escalation, and reconciliation rules around the original payment case."
+  - question: "每次支付后都应该发送 pacs.028 吗？"
+    answer: "通常不应该。它作为有针对性的异常工具效果最佳，而不是作为广泛流量。"
+  - question: "什么使 pacs.028 有用？"
+    answer: "围绕原始支付案例的明确超时、升级和对账规则。"
 ---
 
 # pacs.028.001.05 — 金融机构间支付状态请求

@@ -5,10 +5,10 @@ lang: vi-VN
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.008 enough on its own for production payments?"
-    answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."
-  - question: "What causes the most repair work?"
-    answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."
+  - question: "pacs.008 có đủ một mình cho thanh toán sản xuất không?"
+    answer: "Không. Sự sẵn sàng cho sản xuất còn phụ thuộc vào quy tắc lược đồ, chất lượng địa chỉ, dữ liệu bên, xử lý trạng thái và luồng ngoại lệ."
+  - question: "Nguyên nhân nào gây ra nhiều công việc sửa chữa nhất?"
+    answer: "Dữ liệu bên yếu, cấu trúc địa chỉ kém, mã nhận dạng không nhất quán và nội dung chuyển tiền phi cấu trúc là các nguyên nhân phổ biến."
 ---
 
 # pacs.008.001.13 — Chuyển khoản tín dụng khách hàng giữa các tổ chức tài chính

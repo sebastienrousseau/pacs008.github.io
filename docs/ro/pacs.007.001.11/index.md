@@ -5,10 +5,10 @@ lang: ro-RO
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.007 only for fraud scenarios?"
-    answer: "No. Fraud is a major use case, but any instructing-side need to reverse a payment can trigger it."
-  - question: "Can it be handled like a normal return?"
-    answer: "No. Reversal timing, reason capture, and reconciliation differ materially from returns."
+  - question: "Este pacs.007 doar pentru scenarii de fraudă?"
+    answer: "Nu. Frauda este un caz de utilizare major, dar orice nevoie din partea instructorului de a inversa o plată îl poate declanșa."
+  - question: "Poate fi tratat ca o returnare normală?"
+    answer: "Nu. Sincronizarea inversării, capturarea motivului și reconcilierea diferă semnificativ de returnări."
 ---
 
 # pacs.007.001.11 — Reversare de plată FI-la-FI

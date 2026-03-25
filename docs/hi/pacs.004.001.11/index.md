@@ -5,10 +5,10 @@ lang: hi-IN
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "What is the difference between pacs.004 and pacs.007?"
-    answer: "pacs.004 returns settled funds from the receiving side, while pacs.007 requests reversal from the original instructing side."
-  - question: "Should every failed beneficiary credit become pacs.004?"
-    answer: "Not automatically. The right path depends on scheme rules, settlement stage, and counterparty handling."
+  - question: "pacs.004 और pacs.007 में क्या अंतर है?"
+    answer: "pacs.004 प्राप्तकर्ता पक्ष से निपटाए गए धन को वापस करता है, जबकि pacs.007 मूल निर्देश देने वाले पक्ष से उलटाव का अनुरोध करता है।"
+  - question: "क्या हर विफल लाभार्थी क्रेडिट pacs.004 बनना चाहिए?"
+    answer: "स्वचालित रूप से नहीं। सही मार्ग स्कीम नियमों, निपटान चरण और प्रतिपक्ष हैंडलिंग पर निर्भर करता है।"
 ---
 
 # pacs.004.001.11 — भुगतान वापसी

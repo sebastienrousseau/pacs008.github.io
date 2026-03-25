@@ -5,10 +5,10 @@ lang: de-DE
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
-    answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."
-  - question: "What matters most operationally?"
-    answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation."
+  - question: "Ist pacs.003 das Lastschrift-Gegenstück zu pacs.008?"
+    answer: "Nein. Sie verarbeitet Kundenlastschrift-Flows, die andere Mandat-, Zeitsteuerungs- und Ausnahmeregeln haben."
+  - question: "Was ist operativ am wichtigsten?"
+    answer: "Mandatsqualität, Schuldnerkonto-Regeln und Rückgabeverarbeitung sind wichtiger als die XML-Erzeugung."
 ---
 
 # pacs.003.001.09 — FI-zu-FI-Kundenlastschrift

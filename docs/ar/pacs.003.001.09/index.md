@@ -5,10 +5,10 @@ lang: ar-SA
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
-    answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."
-  - question: "What matters most operationally?"
-    answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation."
+  - question: "هل pacs.003 هو المرآة للخصم المباشر لـ pacs.008؟"
+    answer: "لا. إنه يتعامل مع تدفقات الخصم المباشر للعملاء، التي لها قواعد تفويض وتوقيت واستثناءات مختلفة."
+  - question: "ما الأهم من الناحية التشغيلية؟"
+    answer: "جودة التفويض وقواعد حساب المدين ومعالجة المرتجعات أهم من إنشاء XML."
 ---
 
 # pacs.003.001.09 — خصم مباشر للعميل من مؤسسة مالية إلى مؤسسة مالية

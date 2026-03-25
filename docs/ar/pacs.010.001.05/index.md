@@ -5,10 +5,10 @@ lang: ar-SA
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.010 common in retail payment products?"
-    answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."
-  - question: "What should teams design first?"
-    answer: "Start with approval rules, bilateral controls, and exception handling before finalising XML templates."
+  - question: "هل pacs.010 شائع في منتجات الدفع بالتجزئة؟"
+    answer: "عادة لا. إنه يناسب سيناريوهات الخصم المباشر بين البنوك أفضل من منتجات التجزئة القياسية."
+  - question: "ما الذي يجب أن تصممه الفرق أولاً؟"
+    answer: "ابدأ بقواعد الموافقة والضوابط الثنائية ومعالجة الاستثناءات قبل إنهاء قوالب XML."
 ---
 
 # pacs.010.001.05 — خصم مباشر بين المؤسسات المالية

@@ -4,17 +4,17 @@ description: How the SWIFT CBPR+ November 2026 structured postal address deadlin
 lang: pl-PL
 lastUpdated: true
 image: /logo.svg
-howtoName: "How to prepare for the November 2026 structured postal address deadline"
-howtoDescription: "Steps to audit, map, validate, and test postal address data before the SWIFT CBPR+ November 2026 deadline."
+howtoName: "Jak przygotować się na termin strukturyzacji adresów pocztowych w listopadzie 2026"
+howtoDescription: "Kroki audytu, mapowania, walidacji i testowania danych adresów pocztowych przed terminem SWIFT CBPR+ w listopadzie 2026."
 howto:
-  - name: "Step 1"
-    text: "Audit current address data quality across debtor, creditor, and agent records."
-  - name: "Step 2"
-    text: "Map existing unstructured address fields to the structured format (street, building, post code, town, country)."
-  - name: "Step 3"
-    text: "Add address validation to your pre-generation pipeline using pacs008."
-  - name: "Step 4"
-    text: "Test with representative payment data before the deadline."
+  - name: "Krok 1"
+    text: "Przeprowadź audyt jakości bieżących danych adresowych w rekordach dłużnika, wierzyciela i agenta."
+  - name: "Krok 2"
+    text: "Zmapuj istniejące niestrukturyzowane pola adresowe do formatu strukturyzowanego (ulica, budynek, kod pocztowy, miasto, kraj)."
+  - name: "Krok 3"
+    text: "Dodaj walidację adresu do swojego pipeline'u pre-generacji za pomocą pacs008."
+  - name: "Krok 4"
+    text: "Przetestuj z reprezentatywnymi danymi płatniczymi przed terminem."
 ---
 
 # November 2026 structured-address deadline

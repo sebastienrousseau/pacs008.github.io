@@ -5,10 +5,10 @@ lang: id-ID
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.010 common in retail payment products?"
-    answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."
-  - question: "What should teams design first?"
-    answer: "Start with approval rules, bilateral controls, and exception handling before finalising XML templates."
+  - question: "Apakah pacs.010 umum dalam produk pembayaran ritel?"
+    answer: "Biasanya tidak. Ini lebih cocok untuk skenario debit langsung antar bank daripada produk ritel standar."
+  - question: "Apa yang harus dirancang tim terlebih dahulu?"
+    answer: "Mulai dengan aturan persetujuan, kontrol bilateral, dan penanganan pengecualian sebelum menyelesaikan template XML."
 ---
 
 # pacs.010.001.05 — Direct Debit Antar Lembaga Keuangan

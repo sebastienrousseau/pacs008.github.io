@@ -4,16 +4,16 @@ description: "Impact de l'échéance SWIFT CBPR+ de novembre 2026 sur les adress
 lang: fr-FR
 lastUpdated: true
 image: /logo.svg
-howtoName: "How to prepare for the November 2026 structured postal address deadline"
-howtoDescription: "Steps to audit, map, validate, and test postal address data before the SWIFT CBPR+ November 2026 deadline."
+howtoName: "Comment se préparer à l'échéance des adresses postales structurées de novembre 2026"
+howtoDescription: "Étapes pour auditer, mapper, valider et tester les données d'adresse postale avant l'échéance SWIFT CBPR+ de novembre 2026."
 howto:
-  - name: "Step 1"
-    text: "Auditer la qualité actuelle des données d'adresse pour les enregistrements de débiteur, créancier et agent."
-  - name: "Step 2"
+  - name: "Étape 1"
+    text: "Auditer la qualité actuelle des données d'adresse dans les enregistrements débiteur, créancier et agent."
+  - name: "Étape 2"
     text: "Mapper les champs d'adresse non structurés existants au format structuré (rue, bâtiment, code postal, ville, pays)."
-  - name: "Step 3"
+  - name: "Étape 3"
     text: "Ajouter la validation d'adresse à votre pipeline de pré-génération avec pacs008."
-  - name: "Step 4"
+  - name: "Étape 4"
     text: "Tester avec des données de paiement représentatives avant l'échéance."
 ---
 

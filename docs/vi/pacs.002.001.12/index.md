@@ -5,10 +5,10 @@ lang: vi-VN
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.002 a payment message?"
-    answer: "No. It reports status for an earlier instruction rather than moving value itself."
-  - question: "Should pacs.002 replace internal workflow states?"
-    answer: "No. It should inform them, but internal case states still need their own operational logic."
+  - question: "pacs.002 có phải là thông điệp thanh toán không?"
+    answer: "Không. Nó báo cáo trạng thái của một chỉ thị trước đó thay vì chuyển giá trị."
+  - question: "pacs.002 có nên thay thế các trạng thái quy trình nội bộ không?"
+    answer: "Không. Nó nên thông báo cho chúng, nhưng các trạng thái trường hợp nội bộ vẫn cần logic vận hành riêng."
 ---
 
 # pacs.002.001.12 — Báo cáo trạng thái thanh toán giữa các tổ chức tài chính

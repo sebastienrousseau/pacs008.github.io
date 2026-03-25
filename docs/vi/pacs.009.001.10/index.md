@@ -5,10 +5,10 @@ lang: vi-VN
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "When should I choose pacs.009 over pacs.008?"
-    answer: "Choose pacs.009 for own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions."
-  - question: "Why is pacs.009 often harder to reconcile than expected?"
-    answer: "Because banks must preserve the relationship between treasury funding, correspondent legs, and any linked customer payment."
+  - question: "Khi nào nên chọn pacs.009 thay vì pacs.008?"
+    answer: "Chọn pacs.009 cho chuyển khoản tài khoản riêng và chân bảo hiểm; chọn pacs.008 cho chỉ thị chuyển tín dụng khách hàng."
+  - question: "Tại sao pacs.009 thường khó đối chiếu hơn dự kiến?"
+    answer: "Vì các ngân hàng phải duy trì mối quan hệ giữa tài trợ ngân quỹ, chân đại lý và bất kỳ khoản thanh toán khách hàng nào liên quan."
 ---
 
 # pacs.009.001.10 — Chuyển khoản tín dụng giữa các tổ chức tài chính

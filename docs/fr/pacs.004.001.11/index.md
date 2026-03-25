@@ -5,10 +5,10 @@ lang: fr-FR
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "What is the difference between pacs.004 and pacs.007?"
-    answer: "pacs.004 returns settled funds from the receiving side, while pacs.007 requests reversal from the original instructing side."
-  - question: "Should every failed beneficiary credit become pacs.004?"
-    answer: "Not automatically. The right path depends on scheme rules, settlement stage, and counterparty handling."
+  - question: "Quelle est la différence entre pacs.004 et pacs.007 ?"
+    answer: "pacs.004 retourne les fonds réglés du côté récepteur, tandis que pacs.007 demande l'annulation du côté instructeur d'origine."
+  - question: "Chaque crédit bénéficiaire échoué doit-il devenir un pacs.004 ?"
+    answer: "Pas automatiquement. Le bon chemin dépend des règles du schéma, de l'étape de règlement et du traitement de la contrepartie."
 ---
 
 # pacs.004.001.11 — Retour de paiement

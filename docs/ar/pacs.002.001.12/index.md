@@ -5,10 +5,10 @@ lang: ar-SA
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.002 a payment message?"
-    answer: "No. It reports status for an earlier instruction rather than moving value itself."
-  - question: "Should pacs.002 replace internal workflow states?"
-    answer: "No. It should inform them, but internal case states still need their own operational logic."
+  - question: "هل pacs.002 رسالة دفع؟"
+    answer: "لا. إنها تُبلغ عن حالة تعليمة سابقة بدلاً من نقل القيمة بنفسها."
+  - question: "هل يجب أن يحل pacs.002 محل حالات سير العمل الداخلية؟"
+    answer: "لا. يجب أن يُعلمها، لكن حالات الحالة الداخلية لا تزال بحاجة إلى منطقها التشغيلي الخاص."
 ---
 
 # pacs.002.001.12 — تقرير حالة الدفع من مؤسسة مالية إلى مؤسسة مالية

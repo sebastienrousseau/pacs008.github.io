@@ -5,10 +5,10 @@ lang: vi-VN
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.010 common in retail payment products?"
-    answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."
-  - question: "What should teams design first?"
-    answer: "Start with approval rules, bilateral controls, and exception handling before finalising XML templates."
+  - question: "pacs.010 có phổ biến trong các sản phẩm thanh toán bán lẻ không?"
+    answer: "Thường thì không. Nó phù hợp hơn với các tình huống ghi nợ trực tiếp giữa ngân hàng với ngân hàng hơn là sản phẩm bán lẻ tiêu chuẩn."
+  - question: "Các nhóm nên thiết kế gì trước?"
+    answer: "Bắt đầu với quy tắc phê duyệt, kiểm soát song phương và xử lý ngoại lệ trước khi hoàn thiện mẫu XML."
 ---
 
 # pacs.010.001.05 — Ghi nợ trực tiếp giữa các tổ chức tài chính

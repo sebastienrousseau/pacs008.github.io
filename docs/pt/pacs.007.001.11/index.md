@@ -5,10 +5,10 @@ lang: pt-BR
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.007 only for fraud scenarios?"
-    answer: "No. Fraud is a major use case, but any instructing-side need to reverse a payment can trigger it."
-  - question: "Can it be handled like a normal return?"
-    answer: "No. Reversal timing, reason capture, and reconciliation differ materially from returns."
+  - question: "O pacs.007 é apenas para cenários de fraude?"
+    answer: "Não. A fraude é um caso de uso importante, mas qualquer necessidade do lado do ordenante de reverter um pagamento pode acioná-lo."
+  - question: "Pode ser tratado como uma devolução normal?"
+    answer: "Não. O timing da reversão, captura do motivo e reconciliação diferem materialmente das devoluções."
 ---
 
 # pacs.007.001.11 — Reversão de pagamento FI a FI

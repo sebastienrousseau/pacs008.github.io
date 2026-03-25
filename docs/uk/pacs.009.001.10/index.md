@@ -5,10 +5,10 @@ lang: uk-UA
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "When should I choose pacs.009 over pacs.008?"
-    answer: "Choose pacs.009 for own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions."
-  - question: "Why is pacs.009 often harder to reconcile than expected?"
-    answer: "Because banks must preserve the relationship between treasury funding, correspondent legs, and any linked customer payment."
+  - question: "Коли слід обирати pacs.009 замість pacs.008?"
+    answer: "Обирайте pacs.009 для переказів на власний рахунок та покриваючих ніг; обирайте pacs.008 для інструкцій кредитового переказу клієнта."
+  - question: "Чому pacs.009 часто складніше звірити, ніж очікувалося?"
+    answer: "Тому що банки повинні зберігати зв'язок між казначейським фінансуванням, кореспондентськими ногами та будь-яким пов'язаним клієнтським платежем."
 ---
 
 # pacs.009.001.10 — Кредитовий переказ між фінансовими установами

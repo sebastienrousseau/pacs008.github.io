@@ -5,10 +5,10 @@ lang: vi-VN
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Should pacs.028 be sent after every payment?"
-    answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic."
-  - question: "What makes pacs.028 useful?"
-    answer: "Clear timeout, escalation, and reconciliation rules around the original payment case."
+  - question: "Có nên gửi pacs.028 sau mỗi lần thanh toán không?"
+    answer: "Thường thì không. Nó hoạt động tốt nhất như một công cụ ngoại lệ có mục tiêu, không phải lưu lượng tổng thể."
+  - question: "Điều gì làm cho pacs.028 hữu ích?"
+    answer: "Quy tắc rõ ràng về thời gian chờ, leo thang và đối chiếu xung quanh trường hợp thanh toán gốc."
 ---
 
 # pacs.028.001.05 — Yêu cầu trạng thái thanh toán giữa các tổ chức tài chính

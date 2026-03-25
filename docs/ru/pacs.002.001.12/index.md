@@ -5,10 +5,10 @@ lang: ru-RU
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.002 a payment message?"
-    answer: "No. It reports status for an earlier instruction rather than moving value itself."
-  - question: "Should pacs.002 replace internal workflow states?"
-    answer: "No. It should inform them, but internal case states still need their own operational logic."
+  - question: "Является ли pacs.002 платёжным сообщением?"
+    answer: "Нет. Оно сообщает статус предыдущей инструкции, а не перемещает стоимость."
+  - question: "Должен ли pacs.002 заменить внутренние состояния рабочего процесса?"
+    answer: "Нет. Он должен информировать их, но внутренние состояния дел по-прежнему нуждаются в собственной операционной логике."
 ---
 
 # pacs.002.001.12 — Отчёт о статусе платежа между финансовыми учреждениями

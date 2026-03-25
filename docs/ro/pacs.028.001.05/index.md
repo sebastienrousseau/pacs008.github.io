@@ -5,10 +5,10 @@ lang: ro-RO
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Should pacs.028 be sent after every payment?"
-    answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic."
-  - question: "What makes pacs.028 useful?"
-    answer: "Clear timeout, escalation, and reconciliation rules around the original payment case."
+  - question: "Ar trebui trimis pacs.028 după fiecare plată?"
+    answer: "De obicei nu. Funcționează cel mai bine ca instrument de excepție țintit, nu ca trafic generalizat."
+  - question: "Ce face pacs.028 util?"
+    answer: "Reguli clare de timeout, escaladare și reconciliere în jurul cazului de plată original."
 ---
 
 # pacs.028.001.05 — Cerere de stare a plății FI-la-FI

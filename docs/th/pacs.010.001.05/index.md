@@ -5,10 +5,10 @@ lang: th-TH
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.010 common in retail payment products?"
-    answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."
-  - question: "What should teams design first?"
-    answer: "Start with approval rules, bilateral controls, and exception handling before finalising XML templates."
+  - question: "pacs.010 พบได้ทั่วไปในผลิตภัณฑ์การชำระเงินรายย่อยหรือไม่?"
+    answer: "มักจะไม่ มันเหมาะกับสถานการณ์การหักบัญชีตรงระหว่างธนาคารมากกว่าผลิตภัณฑ์รายย่อยมาตรฐาน"
+  - question: "ทีมควรออกแบบอะไรก่อน?"
+    answer: "เริ่มต้นด้วยกฎการอนุมัติ การควบคุมทวิภาคี และการจัดการข้อยกเว้นก่อนสรุปเทมเพลต XML"
 ---
 
 # pacs.010.001.05 — การหักบัญชีระหว่างสถาบันการเงิน

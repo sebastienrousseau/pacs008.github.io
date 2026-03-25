@@ -5,10 +5,10 @@ lang: nl-NL
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.002 a payment message?"
-    answer: "No. It reports status for an earlier instruction rather than moving value itself."
-  - question: "Should pacs.002 replace internal workflow states?"
-    answer: "No. It should inform them, but internal case states still need their own operational logic."
+  - question: "Is pacs.002 een betalingsbericht?"
+    answer: "Nee. Het rapporteert de status van een eerdere instructie in plaats van zelf waarde te verplaatsen."
+  - question: "Moet pacs.002 interne workflowstatussen vervangen?"
+    answer: "Nee. Het moet ze informeren, maar interne casusstatussen hebben nog steeds hun eigen operationele logica nodig."
 ---
 
 # pacs.002.001.12 — FI-naar-FI-betalingsstatusrapport

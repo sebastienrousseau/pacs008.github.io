@@ -5,10 +5,10 @@ lang: nl-NL
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.007 only for fraud scenarios?"
-    answer: "No. Fraud is a major use case, but any instructing-side need to reverse a payment can trigger it."
-  - question: "Can it be handled like a normal return?"
-    answer: "No. Reversal timing, reason capture, and reconciliation differ materially from returns."
+  - question: "Is pacs.007 alleen voor fraudescenario's?"
+    answer: "Nee. Fraude is een belangrijk gebruiksscenario, maar elke behoefte van de opdrachtgever om een betaling terug te draaien kan het activeren."
+  - question: "Kan het als een normale retour worden behandeld?"
+    answer: "Nee. Terugboekingstiming, redenregistratie en afstemming verschillen wezenlijk van retouren."
 ---
 
 # pacs.007.001.11 — FI-naar-FI-betalingsstornering

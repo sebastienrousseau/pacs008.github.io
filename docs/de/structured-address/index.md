@@ -4,16 +4,16 @@ description: Auswirkungen der SWIFT CBPR+ Frist im November 2026 für strukturie
 lang: de-DE
 lastUpdated: true
 image: /logo.svg
-howtoName: "How to prepare for the November 2026 structured postal address deadline"
-howtoDescription: "Steps to audit, map, validate, and test postal address data before the SWIFT CBPR+ November 2026 deadline."
+howtoName: "So bereiten Sie sich auf die Frist für strukturierte Postanschriften im November 2026 vor"
+howtoDescription: "Schritte zur Prüfung, Zuordnung, Validierung und zum Test von Postadressdaten vor der SWIFT CBPR+-Frist im November 2026."
 howto:
-  - name: "Step 1"
+  - name: "Schritt 1"
     text: "Aktuelle Adressdatenqualität für Schuldner-, Gläubiger- und Agentendatensätze prüfen."
-  - name: "Step 2"
+  - name: "Schritt 2"
     text: "Bestehende unstrukturierte Adressfelder dem strukturierten Format zuordnen (Straße, Gebäude, PLZ, Ort, Land)."
-  - name: "Step 3"
+  - name: "Schritt 3"
     text: "Adressvalidierung mit pacs008 in die Pre-Generation-Pipeline einbauen."
-  - name: "Step 4"
+  - name: "Schritt 4"
     text: "Mit repräsentativen Zahlungsdaten vor der Frist testen."
 ---
 

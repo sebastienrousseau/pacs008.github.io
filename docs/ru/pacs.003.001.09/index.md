@@ -5,10 +5,10 @@ lang: ru-RU
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
-    answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."
-  - question: "What matters most operationally?"
-    answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation."
+  - question: "Является ли pacs.003 зеркалом прямого дебета pacs.008?"
+    answer: "Нет. Он обрабатывает потоки прямого дебетования клиентов с другими правилами мандата, сроками и исключениями."
+  - question: "Что наиболее важно с операционной точки зрения?"
+    answer: "Качество мандата, правила счёта должника и обработка возвратов важнее, чем генерация XML."
 ---
 
 # pacs.003.001.09 — Клиентское прямое дебетование между финансовыми учреждениями

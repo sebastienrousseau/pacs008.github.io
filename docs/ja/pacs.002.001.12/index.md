@@ -5,10 +5,10 @@ lang: ja-JP
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.002 a payment message?"
-    answer: "No. It reports status for an earlier instruction rather than moving value itself."
-  - question: "Should pacs.002 replace internal workflow states?"
-    answer: "No. It should inform them, but internal case states still need their own operational logic."
+  - question: "pacs.002は決済メッセージですか？"
+    answer: "いいえ。価値を移動するのではなく、以前の指示のステータスを報告します。"
+  - question: "pacs.002は内部ワークフロー状態を置き換えるべきですか？"
+    answer: "いいえ。それらに情報を提供すべきですが、内部ケース状態には独自の運用ロジックが依然として必要です。"
 ---
 
 # pacs.002.001.12 — 金融機関間支払ステータス報告

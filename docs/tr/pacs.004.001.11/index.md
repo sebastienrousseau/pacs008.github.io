@@ -5,10 +5,10 @@ lang: tr-TR
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "What is the difference between pacs.004 and pacs.007?"
-    answer: "pacs.004 returns settled funds from the receiving side, while pacs.007 requests reversal from the original instructing side."
-  - question: "Should every failed beneficiary credit become pacs.004?"
-    answer: "Not automatically. The right path depends on scheme rules, settlement stage, and counterparty handling."
+  - question: "pacs.004 ile pacs.007 arasındaki fark nedir?"
+    answer: "pacs.004, alıcı taraftan kapatılmış fonları iade ederken, pacs.007 orijinal talimat veren taraftan geri alma talep eder."
+  - question: "Her başarısız lehdar alacağı pacs.004 mü olmalı?"
+    answer: "Otomatik olarak değil. Doğru yol şema kurallarına, uzlaşma aşamasına ve karşı taraf işlemine bağlıdır."
 ---
 
 # pacs.004.001.11 — Ödeme iadesi

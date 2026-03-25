@@ -5,10 +5,10 @@ lang: pt-BR
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "When should I choose pacs.009 over pacs.008?"
-    answer: "Choose pacs.009 for own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions."
-  - question: "Why is pacs.009 often harder to reconcile than expected?"
-    answer: "Because banks must preserve the relationship between treasury funding, correspondent legs, and any linked customer payment."
+  - question: "Quando devo escolher pacs.009 em vez de pacs.008?"
+    answer: "Escolha pacs.009 para transferências de conta própria e pernas de cobertura; escolha pacs.008 para instruções de transferência de crédito de clientes."
+  - question: "Por que pacs.009 é frequentemente mais difícil de reconciliar do que o esperado?"
+    answer: "Porque os bancos devem preservar a relação entre financiamento de tesouraria, pernas de correspondente e qualquer pagamento de cliente vinculado."
 ---
 
 # pacs.009.001.10 — Transferência de crédito entre instituições financeiras

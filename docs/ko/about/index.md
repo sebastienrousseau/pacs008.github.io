@@ -4,17 +4,17 @@ description: pacs008이 하는 일과 대상 사용자. 금융기관 간 고객 
 lang: ko-KR
 lastUpdated: true
 image: /logo.svg
-howtoName: "How to implement ISO 20022 pacs.008 payment messages"
-howtoDescription: "Step-by-step checklist for rolling out ISO 20022 pacs.008 message generation and validation."
+howtoName: "ISO 20022 pacs.008 결제 메시지 구현 방법"
+howtoDescription: "ISO 20022 pacs.008 메시지 생성 및 검증 배포를 위한 단계별 체크리스트."
 howto:
-  - name: "Step 1"
-    text: "Pick the right message family for the business event before writing templates."
-  - name: "Step 2"
-    text: "Validate business data before XML generation so that schema errors are not the first signal."
-  - name: "Step 3"
-    text: "Treat BIC, IBAN, remittance, and postal-address quality as a release criterion, not a later cleanup."
-  - name: "Step 4"
-    text: "Regression-test each scheme or bank rule change with representative payment data."
+  - name: "단계 1"
+    text: "템플릿을 작성하기 전에 비즈니스 이벤트에 적합한 메시지 패밀리를 선택하세요."
+  - name: "단계 2"
+    text: "스키마 오류가 첫 번째 신호가 되지 않도록 XML 생성 전에 비즈니스 데이터를 검증하세요."
+  - name: "단계 3"
+    text: "BIC, IBAN, 송금 및 우편주소 품질을 나중의 정리가 아닌 릴리스 기준으로 취급하세요."
+  - name: "단계 4"
+    text: "대표적인 결제 데이터로 각 스킴 또는 은행 규칙 변경에 대한 회귀 테스트를 수행하세요."
 ---
 
 # pacs008 소개
