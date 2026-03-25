@@ -1,144 +1,144 @@
 ---
-title: "Frequently asked questions | pacs008"
-description: Common questions about ISO 20022 pacs messages, CBPR+ migration, message selection, implementation, and the pacs008 toolkit.
+title: "Поширені запитання | pacs008"
+description: Поширені запитання про повідомлення pacs ISO 20022, міграцію CBPR+, вибір повідомлень, впровадження та інструментарій pacs008.
 lang: uk-UA
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Frequently asked questions
+# Поширені запитання
 
-This page answers common questions about ISO 20022 pacs messages, how they work together, and how pacs008 helps teams implement them.
+Ця сторінка відповідає на поширені запитання про повідомлення pacs ISO 20022, як вони працюють разом та як pacs008 допомагає командам їх впроваджувати.
 
-## General
+## Загальне
 
-### What is ISO 20022?
+### Що таке ISO 20022?
 
-ISO 20022 is an international standard for financial messaging. It defines a common language and model for payment messages exchanged between financial institutions. Unlike older formats such as SWIFT MT, ISO 20022 uses XML and supports richer, more structured data for parties, amounts, and references.
+ISO 20022 — це міжнародний стандарт фінансових повідомлень. Він визначає спільну мову та модель для платіжних повідомлень, якими обмінюються фінансові установи. На відміну від старих форматів, таких як SWIFT MT, ISO 20022 використовує XML і підтримує багатші, більш структуровані дані для сторін, сум та посилань.
 
-### What are pacs messages?
+### Що таке повідомлення pacs?
 
-The pacs (payments clearing and settlement) message family covers interbank payment instructions, status reports, returns, reversals, and enquiries. It includes pacs.002, pacs.003, pacs.004, pacs.007, pacs.008, pacs.009, pacs.010, and pacs.028. Each message serves a specific role in the payment lifecycle.
+Сімейство повідомлень pacs (payments clearing and settlement) охоплює міжбанківські платіжні доручення, звіти про стан, повернення, скасування та запити. Воно включає pacs.002, pacs.003, pacs.004, pacs.007, pacs.008, pacs.009, pacs.010 та pacs.028. Кожне повідомлення виконує певну роль у життєвому циклі платежу.
 
-### How do pacs messages differ from SWIFT MT messages?
+### Чим повідомлення pacs відрізняються від повідомлень SWIFT MT?
 
-SWIFT MT messages use a flat, field-tag format (e.g. MT103 for customer credit transfers). Pacs messages use hierarchical XML with richer data structures. Key differences include support for multiple transactions per message, structured party identification (LEI, multiple IDs), structured postal addresses, and structured remittance information. MT103 maps to pacs.008, MT202 maps to pacs.009, and MT199 status text is replaced by pacs.002.
+Повідомлення SWIFT MT використовують плоский формат із тегами полів (наприклад, MT103 для клієнтських кредитових переказів). Повідомлення pacs використовують ієрархічний XML із багатшими структурами даних. Основні відмінності включають підтримку кількох транзакцій в одному повідомленні, структуровану ідентифікацію сторін (LEI, кілька ідентифікаторів), структуровані поштові адреси та структуровану інформацію про переказ. MT103 відповідає pacs.008, MT202 — pacs.009, а текст стану MT199 замінюється на pacs.002.
 
-### What is the relationship between pain and pacs messages?
+### Який зв'язок між повідомленнями pain та pacs?
 
-Pain (payment initiation) messages travel between the customer and their bank. Pacs messages travel between banks. A pain.001 customer credit-transfer initiation from the debtor's bank becomes a pacs.008 interbank instruction. The two domains share common data elements but serve different parts of the payment chain.
+Повідомлення pain (payment initiation) передаються між клієнтом та його банком. Повідомлення pacs передаються між банками. Ініціювання кредитового переказу pain.001 від банку платника стає міжбанківським дорученням pacs.008. Обидва домени поділяють спільні елементи даних, але обслуговують різні частини платіжного ланцюга.
 
-## Message selection
+## Вибір повідомлень
 
-### When should I use pacs.008?
+### Коли використовувати pacs.008?
 
-Use pacs.008 for customer credit-transfer instructions between banks. It carries debtor and creditor party data, amounts, remittance information, and settlement details. It is the main message for sending customer payments across the interbank network, whether domestically (SEPA) or cross-border (CBPR+).
+Використовуйте pacs.008 для клієнтських кредитових переказів між банками. Воно передає дані сторін платника та отримувача, суми, інформацію про переказ та деталі розрахунку. Це основне повідомлення для надсилання клієнтських платежів через міжбанківську мережу, як внутрішню (SEPA), так і транскордонну (CBPR+).
 
-### When should I use pacs.009 instead of pacs.008?
+### Коли використовувати pacs.009 замість pacs.008?
 
-Use pacs.009 for institution-own-account transfers, funding legs, and cover payments. Unlike pacs.008, which carries a customer payment on behalf of a debtor, pacs.009 moves funds between banks on their own behalf. In cover-method flows, pacs.009 carries the funding while pacs.008 carries the customer instruction on a separate path.
+Використовуйте pacs.009 для переказів на власний рахунок установи, ланок фінансування та покривних платежів. На відміну від pacs.008, яке передає клієнтський платіж від імені платника, pacs.009 переміщує кошти між банками від їхнього власного імені. У схемах із покриттям pacs.009 передає фінансування, тоді як pacs.008 передає клієнтське доручення окремим маршрутом.
 
-### What is the difference between pacs.004 and pacs.007?
+### У чому різниця між pacs.004 та pacs.007?
 
-pacs.004 returns settled funds from the receiving side back through the chain. pacs.007 reverses a payment from the original instructing side forward through the chain. Use pacs.004 when the beneficiary bank cannot apply the credit after settlement. Use pacs.007 when the originator discovers an error, duplicate, or fraud.
+pacs.004 повертає розраховані кошти з боку отримувача назад по ланцюгу. pacs.007 скасовує платіж з боку відправника вперед по ланцюгу. Використовуйте pacs.004, коли банк отримувача не може зарахувати кошти після розрахунку. Використовуйте pacs.007, коли відправник виявляє помилку, дублікат або шахрайство.
 
-### When should I use pacs.028 instead of waiting for pacs.002?
+### Коли використовувати pacs.028 замість очікування pacs.002?
 
-Use pacs.028 when you need to actively request the status of a payment that has not received a timely pacs.002 update. pacs.002 is event-driven (the receiving agent sends it proactively), while pacs.028 is exception-driven (the instructing agent requests it). Use pacs.028 for delayed, unclear, or missing payment updates, not as routine traffic.
+Використовуйте pacs.028, коли потрібно активно запитати статус платежу, що не отримав своєчасного оновлення pacs.002. pacs.002 заснований на подіях (приймаючий агент надсилає його проактивно), тоді як pacs.028 заснований на винятках (інструктуючий агент запитує його). Використовуйте pacs.028 для затриманих, неясних або відсутніх оновлень платежу, а не як рутинний трафік.
 
-### What is pacs.003 used for?
+### Для чого використовується pacs.003?
 
-pacs.003 carries customer direct-debit instructions between banks. The creditor agent sends it to the debtor agent to collect funds. It requires a valid mandate reference and supports SEPA Core and B2B direct-debit schemes. It is not used for credit transfers or institution-own-account debits.
+pacs.003 передає клієнтські інструкції прямого дебету між банками. Агент кредитора надсилає його агенту дебітора для стягнення коштів. Потрібне дійсне посилання на мандат і підтримуються схеми прямого дебету SEPA Core та B2B. Не використовується для кредитових переказів або дебетування власного рахунку установи.
 
-### What is pacs.010 used for?
+### Для чого використовується pacs.010?
 
-pacs.010 handles direct debits between financial institutions on their own accounts. It is used for bank-to-bank collections such as fees, margin calls, and similar obligations under bilateral agreements. It is not used for customer direct debits or credit transfers.
+pacs.010 обробляє прямі дебети між фінансовими установами на їхніх власних рахунках. Використовується для міжбанківських інкасо, таких як комісії, маржинальні вимоги та подібні зобов'язання в рамках двосторонніх угод. Не використовується для клієнтських прямих дебетів або кредитових переказів.
 
-## Message structure
+## Структура повідомлення
 
-### What is the Group Header (GrpHdr)?
+### Що таке Group Header (GrpHdr)?
 
-The Group Header appears exactly once per pacs message. It contains the message identifier (MsgId), creation timestamp (CreDtTm), number of transactions (NbOfTxs), settlement information (SttlmInf), and optionally the total interbank settlement amount and payment type information. It identifies the message envelope, not the individual business transactions.
+Group Header з'являється рівно один раз у кожному повідомленні pacs. Містить ідентифікатор повідомлення (MsgId), мітку часу створення (CreDtTm), кількість транзакцій (NbOfTxs), інформацію про розрахунок (SttlmInf) та опціонально загальну суму міжбанківського розрахунку й інформацію про тип платежу. Ідентифікує конверт повідомлення, а не окремі бізнес-транзакції.
 
-### What are the payment identifiers in pacs.008?
+### Які ідентифікатори платежу використовуються в pacs.008?
 
-pacs.008 uses four main identifiers. MsgId identifies the message envelope and changes at each hop. InstrId is a point-to-point reference between adjacent agents and may change per hop. EndToEndId is set by the originator and must not be altered by any agent in the chain. TxId is assigned by the first instructing agent and remains constant in the interbank space. UETR is a UUID that stays unchanged across all legs for end-to-end tracking.
+pacs.008 використовує чотири основних ідентифікатори. MsgId ідентифікує конверт повідомлення і змінюється на кожному вузлі. InstrId — це посилання «точка-точка» між сусідніми агентами і може змінюватися на кожному вузлі. EndToEndId встановлюється відправником і не повинен змінюватися жодним агентом у ланцюгу. TxId призначається першим інструктуючим агентом і залишається постійним у міжбанківському просторі. UETR — це UUID, який залишається незмінним у всіх ланках для наскрізного відстеження.
 
-### What settlement methods are available?
+### Які методи розрахунку доступні?
 
-Four settlement methods are defined. CLRG settles through a clearing system such as TARGET2, EURO1, or CHIPS. INDA settles on the books of the instructed agent where the debtor agent holds an account. INGA settles on the books of the instructing agent where the instructed agent holds an account. COVE settles through a separate cover payment carried by pacs.009.
+Визначено чотири методи розрахунку. CLRG — розрахунок через клірингову систему, таку як TARGET2, EURO1 або CHIPS. INDA — розрахунок на книгах інструктованого агента, де дебетовий агент тримає рахунок. INGA — розрахунок на книгах інструктуючого агента, де інструктований агент тримає рахунок. COVE — розрахунок через окремий покривний платіж, що передається через pacs.009.
 
-### What do the charge bearer codes mean?
+### Що означають коди несення витрат?
 
-DEBT means all charges are borne by the debtor (equivalent to MT103 OUR). CRED means all charges are borne by the creditor (equivalent to BEN). SHAR means charges are shared between debtor and creditor agents (equivalent to SHA). SLEV means charges follow the service level rules and is mandatory for SEPA credit transfers.
+DEBT означає, що всі витрати несе платник (еквівалент MT103 OUR). CRED означає, що всі витрати несе отримувач (еквівалент BEN). SHAR означає, що витрати розподіляються між агентами платника та отримувача (еквівалент SHA). SLEV означає, що витрати відповідають правилам рівня обслуговування і є обов'язковим для кредитових переказів SEPA.
 
-## CBPR+ and migration
+## CBPR+ та міграція
 
-### What is CBPR+?
+### Що таке CBPR+?
 
-CBPR+ (Cross-Border Payments and Reporting Plus) is SWIFT's programme for adopting ISO 20022 in cross-border payment messaging. It went live in March 2023 and replaces MT messages with pacs equivalents. CBPR+ mandates pacs.002 for all status communication, supports richer party data and structured addresses, and uses UETR-based tracking through gpi.
+CBPR+ (Cross-Border Payments and Reporting Plus) — це програма SWIFT з впровадження ISO 20022 у транскордонних платіжних повідомленнях. Запущена в березні 2023 року і замінює повідомлення MT еквівалентами pacs. CBPR+ зобов'язує використовувати pacs.002 для всіх комунікацій стану, підтримує багатші дані сторін та структуровані адреси, а також використовує відстеження на основі UETR через gpi.
 
-### What happened to the MT/MX coexistence period?
+### Що сталося з періодом співіснування MT/MX?
 
-The coexistence period for cross-border payment instructions ended in November 2025. Since then, CBPR+ messages must use the ISO 20022 (MX) format. Translation services that converted between MT and MX during the transition are no longer available for new flows. Banks must now send and receive native pacs messages.
+Період співіснування для транскордонних платіжних доручень завершився в листопаді 2025 року. Відтоді повідомлення CBPR+ повинні використовувати формат ISO 20022 (MX). Сервіси перекладу, що конвертували між MT та MX під час перехідного періоду, більше не доступні для нових потоків. Банки тепер повинні відправляти та отримувати рідні повідомлення pacs.
 
-### What is the November 2026 structured-address deadline?
+### Що таке граничний термін структурованих адрес у листопаді 2026 року?
 
-From November 2026, SWIFT CBPR+ requires structured postal addresses in cross-border payment messages. Unstructured address lines (AdrLine alone) will no longer be accepted for key party fields. At minimum, TwnNm and Ctry are required, with StrtNm and BldgNb or PstBx recommended. This improves sanctions screening and reduces manual repair.
+З листопада 2026 року SWIFT CBPR+ вимагає структуровані поштові адреси в транскордонних платіжних повідомленнях. Неструктуровані рядки адреси (лише AdrLine) більше не прийматимуться для ключових полів сторін. Як мінімум, потрібні TwnNm та Ctry, рекомендуються StrtNm та BldgNb або PstBx. Це покращує санкційний скринінг та зменшує ручні виправлення.
 
-### How does pacs.008 replace MT103?
+### Як pacs.008 замінює MT103?
 
-pacs.008 replaces MT103 and MT103+ for customer credit transfers. Key mapping: MT103 field 20 maps to MsgId or InstrId; field 32A splits into IntrBkSttlmDt and IntrBkSttlmAmt; field 50a maps to Dbtr and DbtrAcct; field 59a maps to Cdtr and CdtrAcct; field 70 maps to RmtInf; field 71A maps to ChrgBr. pacs.008 adds UETR, structured remittance, LEI identification, and supports multiple transactions per message.
+pacs.008 замінює MT103 та MT103+ для клієнтських кредитових переказів. Основна відповідність: поле MT103 20 відповідає MsgId або InstrId; поле 32A розділяється на IntrBkSttlmDt та IntrBkSttlmAmt; поле 50a відповідає Dbtr та DbtrAcct; поле 59a відповідає Cdtr та CdtrAcct; поле 70 відповідає RmtInf; поле 71A відповідає ChrgBr. pacs.008 додає UETR, структурований переказ, ідентифікацію LEI та підтримує кілька транзакцій в одному повідомленні.
 
-### How does pacs.009 replace MT202?
+### Як pacs.009 замінює MT202?
 
-pacs.009 replaces MT202 and MT202COV for institution-to-institution transfers. In cover-method flows, the MT202COV (which carried both funding and underlying customer data) splits cleanly: pacs.009 carries the funding leg while pacs.008 carries the customer instruction directly. This separation improves data quality and reduces reconciliation issues.
+pacs.009 замінює MT202 та MT202COV для міжустановних переказів. У схемах із покриттям MT202COV (який передавав і фінансування, і дані клієнта) чітко розділяється: pacs.009 передає фінансову ланку, тоді як pacs.008 передає клієнтське доручення напряму. Це розділення покращує якість даних та зменшує проблеми зі звіркою.
 
-## Technical details
+## Технічні деталі
 
-### What are structured vs unstructured addresses?
+### Що таке структуровані та неструктуровані адреси?
 
-Structured addresses use separate XML elements for each component: StrtNm (street), BldgNb (building number), PstCd (post code), TwnNm (town), Ctry (country), and optional elements like Flr, Room, and DstrctNm. Unstructured addresses use up to seven AdrLine elements with free text. Hybrid addresses combine both during the transition period. After November 2026, CBPR+ requires the structured format.
+Структуровані адреси використовують окремі елементи XML для кожного компонента: StrtNm (вулиця), BldgNb (номер будинку), PstCd (поштовий індекс), TwnNm (місто), Ctry (країна) та необов'язкові елементи, такі як Flr, Room та DstrctNm. Неструктуровані адреси використовують до семи елементів AdrLine з вільним текстом. Гібридні адреси поєднують обидва формати в перехідний період. Після листопада 2026 року CBPR+ вимагає структурований формат.
 
-### What is UETR and how does gpi tracking work?
+### Що таке UETR та як працює відстеження gpi?
 
-UETR (Unique End-to-End Transaction Reference) is a UUID v4 identifier generated by the debtor agent and carried unchanged across all legs of a payment. It appears in pacs.008, pacs.009, pacs.002, pacs.004, pacs.007, and pacs.028. SWIFT gpi uses the UETR to track payments through a cloud-based Tracker database. Each agent confirms receipt and processing, enabling end-to-end visibility and SLA monitoring.
+UETR (Unique End-to-End Transaction Reference) — це ідентифікатор UUID v4, що генерується дебетовим агентом і передається без змін через усі ланки платежу. Присутній у pacs.008, pacs.009, pacs.002, pacs.004, pacs.007 та pacs.028. SWIFT gpi використовує UETR для відстеження платежів через хмарну базу даних Tracker. Кожен агент підтверджує отримання та обробку, забезпечуючи наскрізну видимість та моніторинг SLA.
 
-### What are common pacs.002 status codes?
+### Які поширені коди стану pacs.002?
 
-ACCP means accepted after customer-profile checks. ACSP means accepted and settlement is in progress. ACSC means settlement on the debtor account is complete. RJCT means rejected (with a reason code in StsRsnInf). PDNG means pending further processing. RCVD means received but not yet processed. Each status may include a structured reason code such as AC01 (incorrect account), AM04 (insufficient funds), or RC01 (incorrect BIC).
+ACCP означає прийнято після перевірок профілю клієнта. ACSP означає прийнято та розрахунок у процесі. ACSC означає завершення розрахунку на рахунку платника. RJCT означає відхилено (з кодом причини в StsRsnInf). PDNG означає очікує подальшої обробки. RCVD означає отримано, але ще не оброблено. Кожен стан може включати структурований код причини, такий як AC01 (неправильний рахунок), AM04 (недостатньо коштів) або RC01 (неправильний BIC).
 
-### What are common return reason codes in pacs.004?
+### Які поширені коди причин повернення в pacs.004?
 
-Frequent return reason codes include AC01 (incorrect account number), AC04 (closed account), AC06 (blocked account), AM04 (insufficient funds), BE04 (missing creditor address), CUST (requested by customer), DUPL (duplicate payment), FOCR (following cancellation request), and FR01 (fraud). The full list is defined in the ISO 20022 External Code Sets.
+Часті коди причин повернення включають AC01 (неправильний номер рахунку), AC04 (закритий рахунок), AC06 (заблокований рахунок), AM04 (недостатньо коштів), BE04 (відсутня адреса кредитора), CUST (за запитом клієнта), DUPL (дублікат платежу), FOCR (після запиту на скасування) та FR01 (шахрайство). Повний перелік визначено у Зовнішніх наборах кодів ISO 20022.
 
-### What is structured remittance information?
+### Що таке структурована інформація про переказ?
 
-Structured remittance in pacs.008 uses the RmtInf/Strd element to carry document references (invoice numbers, credit notes), amounts (due, remitted, tax, discount), and creditor references (ISO 11649 RF references). This enables automated invoice matching and reconciliation. Common document type codes include CINV (commercial invoice), CREN (credit note), and SOAC (statement of account).
+Структурований переказ у pacs.008 використовує елемент RmtInf/Strd для передачі посилань на документи (номери рахунків-фактур, кредитні ноти), сум (до сплати, переказаних, податків, знижок) та посилань кредитора (посилання RF ISO 11649). Це забезпечує автоматичне зіставлення рахунків-фактур та звірку. Поширені коди типів документів включають CINV (комерційний рахунок-фактура), CREN (кредитна нота) та SOAC (виписка за рахунком).
 
-### What is LEI and when is it used?
+### Що таке LEI та коли він використовується?
 
-LEI (Legal Entity Identifier) is a 20-character alphanumeric code per ISO 17442. It uniquely identifies legal entities participating in financial transactions. In pacs messages, LEI appears in OrgId/LEI for parties and FinInstnId/LEI for agents. CBPR+ increasingly encourages LEI for party and agent identification. It improves entity disambiguation and supports regulatory reporting requirements.
+LEI (Legal Entity Identifier) — це 20-символьний буквено-цифровий код за ISO 17442. Він однозначно ідентифікує юридичних осіб, що беруть участь у фінансових транзакціях. У повідомленнях pacs LEI з'являється в OrgId/LEI для сторін та FinInstnId/LEI для агентів. CBPR+ все більше заохочує використання LEI для ідентифікації сторін та агентів. Він покращує розрізнення сутностей та підтримує вимоги регуляторної звітності.
 
-## About pacs008 toolkit
+## Про інструментарій pacs008
 
-### What does pacs008 do?
+### Що робить pacs008?
 
-pacs008 is a Python toolkit that generates, validates, and ships ISO 20022 payment messages. It reads payment data from CSV, JSON, JSONL, SQLite, and Parquet sources, validates against JSON Schema and XSD, checks IBAN and BIC identifiers, cleans data for SWIFT character compliance, and outputs XML files. It provides a REST API, CLI, and Python library.
+pacs008 — це Python-інструментарій, який генерує, валідує та відправляє платіжні повідомлення ISO 20022. Він читає платіжні дані з джерел CSV, JSON, JSONL, SQLite та Parquet, валідує за JSON Schema та XSD, перевіряє ідентифікатори IBAN та BIC, очищує дані для відповідності символам SWIFT та виводить XML-файли. Надає REST API, CLI та бібліотеку Python.
 
-### Which message types does pacs008 support?
+### Які типи повідомлень підтримує pacs008?
 
-pacs008 supports eight message types: pacs.002.001.12 (status report), pacs.003.001.09 (customer direct debit), pacs.004.001.11 (payment return), pacs.007.001.11 (payment reversal), pacs.008.001.13 (customer credit transfer), pacs.009.001.10 (financial institution credit transfer), pacs.010.001.05 (financial institution direct debit), and pacs.028.001.05 (payment status request).
+pacs008 підтримує вісім типів повідомлень: pacs.002.001.12 (звіт про стан), pacs.003.001.09 (клієнтський прямий дебет), pacs.004.001.11 (повернення платежу), pacs.007.001.11 (скасування платежу), pacs.008.001.13 (клієнтський кредитовий переказ), pacs.009.001.10 (кредитовий переказ фінансової установи), pacs.010.001.05 (прямий дебет фінансової установи) та pacs.028.001.05 (запит стану платежу).
 
-### How does pacs008 help with the 2026 structured-address deadline?
+### Як pacs008 допомагає з граничним терміном структурованих адрес 2026 року?
 
-pacs008 validates structured and hybrid postal address fields before XML generation. It flags unstructured address data that would fail after the November 2026 deadline, supports both pre-deadline hybrid and post-deadline structured-only formats, and integrates address quality checks into CI pipelines and batch validation workflows.
+pacs008 валідує структуровані та гібридні поля поштових адрес перед генерацією XML. Позначає неструктуровані адресні дані, що не пройдуть перевірку після граничного терміну в листопаді 2026 року, підтримує як гібридні формати до терміну, так і формати лише зі структурованими адресами після нього, та інтегрує перевірки якості адрес у CI-конвеєри та робочі процеси пакетної валідації.
 
-### Can pacs008 validate data without generating XML?
+### Чи може pacs008 валідувати дані без генерації XML?
 
-Yes. Use the `--dry-run` CLI flag or the `POST /validate` API endpoint to validate payment data without generating XML. The validation pipeline checks JSON Schema conformance, IBAN format and checksum, BIC structure, and SWIFT character compliance. The exit code or API response indicates whether validation passed or failed.
+Так. Використовуйте прапорець CLI `--dry-run` або кінцеву точку API `POST /validate` для валідації платіжних даних без генерації XML. Конвеєр валідації перевіряє відповідність JSON Schema, формат та контрольну суму IBAN, структуру BIC та відповідність символам SWIFT. Код виходу або відповідь API вказує, чи пройшла валідація успішно.
 
-## References
+## Посилання
 
 - [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions)
 - [ISO 20022 external code sets](https://www.iso20022.org/external_code_list.page)
@@ -147,4 +147,3 @@ Yes. Use the `--dry-run` CLI flag or the `POST /validate` API endpoint to valida
 - [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and)
 - [EPC SEPA Instant Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook)
 - [SWIFT gpi](https://www.swift.com/our-solutions/swift-gpi)
-

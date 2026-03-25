@@ -1,144 +1,144 @@
 ---
-title: "Frequently asked questions | pacs008"
-description: Common questions about ISO 20022 pacs messages, CBPR+ migration, message selection, implementation, and the pacs008 toolkit.
+title: "Câu hỏi thường gặp | pacs008"
+description: Các câu hỏi phổ biến về thông điệp pacs theo ISO 20022, di chuyển CBPR+, lựa chọn thông điệp, triển khai và bộ công cụ pacs008.
 lang: vi-VN
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Frequently asked questions
+# Câu hỏi thường gặp
 
-This page answers common questions about ISO 20022 pacs messages, how they work together, and how pacs008 helps teams implement them.
+Trang này trả lời các câu hỏi phổ biến về thông điệp pacs theo ISO 20022, cách chúng phối hợp với nhau và pacs008 hỗ trợ các nhóm triển khai như thế nào.
 
-## General
+## Tổng quan
 
-### What is ISO 20022?
+### ISO 20022 là gì?
 
-ISO 20022 is an international standard for financial messaging. It defines a common language and model for payment messages exchanged between financial institutions. Unlike older formats such as SWIFT MT, ISO 20022 uses XML and supports richer, more structured data for parties, amounts, and references.
+ISO 20022 là tiêu chuẩn quốc tế cho tin nhắn tài chính. Nó định nghĩa một ngôn ngữ và mô hình chung cho các thông điệp thanh toán được trao đổi giữa các tổ chức tài chính. Khác với các định dạng cũ như SWIFT MT, ISO 20022 sử dụng XML và hỗ trợ dữ liệu phong phú, có cấu trúc hơn cho các bên, số tiền và tham chiếu.
 
-### What are pacs messages?
+### Thông điệp pacs là gì?
 
-The pacs (payments clearing and settlement) message family covers interbank payment instructions, status reports, returns, reversals, and enquiries. It includes pacs.002, pacs.003, pacs.004, pacs.007, pacs.008, pacs.009, pacs.010, and pacs.028. Each message serves a specific role in the payment lifecycle.
+Họ thông điệp pacs (payments clearing and settlement) bao gồm các lệnh thanh toán liên ngân hàng, báo cáo trạng thái, hoàn trả, đảo ngược và truy vấn. Nó bao gồm pacs.002, pacs.003, pacs.004, pacs.007, pacs.008, pacs.009, pacs.010 và pacs.028. Mỗi thông điệp đảm nhận một vai trò cụ thể trong vòng đời thanh toán.
 
-### How do pacs messages differ from SWIFT MT messages?
+### Thông điệp pacs khác gì so với thông điệp SWIFT MT?
 
-SWIFT MT messages use a flat, field-tag format (e.g. MT103 for customer credit transfers). Pacs messages use hierarchical XML with richer data structures. Key differences include support for multiple transactions per message, structured party identification (LEI, multiple IDs), structured postal addresses, and structured remittance information. MT103 maps to pacs.008, MT202 maps to pacs.009, and MT199 status text is replaced by pacs.002.
+Thông điệp SWIFT MT sử dụng định dạng phẳng với thẻ trường (ví dụ: MT103 cho chuyển khoản tín dụng khách hàng). Thông điệp pacs sử dụng XML phân cấp với cấu trúc dữ liệu phong phú hơn. Các khác biệt chính bao gồm hỗ trợ nhiều giao dịch trong một thông điệp, nhận dạng bên có cấu trúc (LEI, nhiều ID), địa chỉ bưu chính có cấu trúc và thông tin chuyển tiền có cấu trúc. MT103 tương ứng với pacs.008, MT202 với pacs.009 và văn bản trạng thái MT199 được thay thế bằng pacs.002.
 
-### What is the relationship between pain and pacs messages?
+### Mối quan hệ giữa thông điệp pain và pacs là gì?
 
-Pain (payment initiation) messages travel between the customer and their bank. Pacs messages travel between banks. A pain.001 customer credit-transfer initiation from the debtor's bank becomes a pacs.008 interbank instruction. The two domains share common data elements but serve different parts of the payment chain.
+Thông điệp pain (payment initiation) truyền giữa khách hàng và ngân hàng. Thông điệp pacs truyền giữa các ngân hàng. Khởi tạo chuyển khoản tín dụng pain.001 từ ngân hàng bên ghi nợ trở thành lệnh liên ngân hàng pacs.008. Hai miền chia sẻ các phần tử dữ liệu chung nhưng phục vụ các phần khác nhau của chuỗi thanh toán.
 
-## Message selection
+## Lựa chọn thông điệp
 
-### When should I use pacs.008?
+### Khi nào nên sử dụng pacs.008?
 
-Use pacs.008 for customer credit-transfer instructions between banks. It carries debtor and creditor party data, amounts, remittance information, and settlement details. It is the main message for sending customer payments across the interbank network, whether domestically (SEPA) or cross-border (CBPR+).
+Sử dụng pacs.008 cho các lệnh chuyển khoản tín dụng khách hàng giữa các ngân hàng. Nó mang dữ liệu bên ghi nợ và bên thụ hưởng, số tiền, thông tin chuyển tiền và chi tiết quyết toán. Đây là thông điệp chính để gửi thanh toán khách hàng qua mạng liên ngân hàng, dù là nội địa (SEPA) hay xuyên biên giới (CBPR+).
 
-### When should I use pacs.009 instead of pacs.008?
+### Khi nào nên sử dụng pacs.009 thay vì pacs.008?
 
-Use pacs.009 for institution-own-account transfers, funding legs, and cover payments. Unlike pacs.008, which carries a customer payment on behalf of a debtor, pacs.009 moves funds between banks on their own behalf. In cover-method flows, pacs.009 carries the funding while pacs.008 carries the customer instruction on a separate path.
+Sử dụng pacs.009 cho chuyển khoản tài khoản riêng của tổ chức, chặng cấp vốn và thanh toán bảo lãnh. Khác với pacs.008 mang thanh toán khách hàng thay mặt bên ghi nợ, pacs.009 di chuyển vốn giữa các ngân hàng cho chính họ. Trong luồng phương thức bảo lãnh, pacs.009 mang cấp vốn trong khi pacs.008 mang lệnh khách hàng trên đường riêng biệt.
 
-### What is the difference between pacs.004 and pacs.007?
+### Sự khác biệt giữa pacs.004 và pacs.007 là gì?
 
-pacs.004 returns settled funds from the receiving side back through the chain. pacs.007 reverses a payment from the original instructing side forward through the chain. Use pacs.004 when the beneficiary bank cannot apply the credit after settlement. Use pacs.007 when the originator discovers an error, duplicate, or fraud.
+pacs.004 hoàn trả vốn đã quyết toán từ phía nhận ngược qua chuỗi. pacs.007 đảo ngược thanh toán từ phía gửi ban đầu về phía trước qua chuỗi. Sử dụng pacs.004 khi ngân hàng thụ hưởng không thể ghi có sau quyết toán. Sử dụng pacs.007 khi bên khởi tạo phát hiện lỗi, trùng lặp hoặc gian lận.
 
-### When should I use pacs.028 instead of waiting for pacs.002?
+### Khi nào nên sử dụng pacs.028 thay vì chờ pacs.002?
 
-Use pacs.028 when you need to actively request the status of a payment that has not received a timely pacs.002 update. pacs.002 is event-driven (the receiving agent sends it proactively), while pacs.028 is exception-driven (the instructing agent requests it). Use pacs.028 for delayed, unclear, or missing payment updates, not as routine traffic.
+Sử dụng pacs.028 khi cần chủ động yêu cầu trạng thái thanh toán chưa nhận được cập nhật pacs.002 kịp thời. pacs.002 được kích hoạt bởi sự kiện (đại lý nhận gửi chủ động), trong khi pacs.028 được kích hoạt bởi ngoại lệ (đại lý gửi lệnh yêu cầu). Sử dụng pacs.028 cho các cập nhật thanh toán bị trễ, không rõ ràng hoặc thiếu, không phải như lưu lượng thường xuyên.
 
-### What is pacs.003 used for?
+### pacs.003 được sử dụng để làm gì?
 
-pacs.003 carries customer direct-debit instructions between banks. The creditor agent sends it to the debtor agent to collect funds. It requires a valid mandate reference and supports SEPA Core and B2B direct-debit schemes. It is not used for credit transfers or institution-own-account debits.
+pacs.003 mang lệnh ghi nợ trực tiếp khách hàng giữa các ngân hàng. Đại lý bên thụ hưởng gửi đến đại lý bên ghi nợ để thu tiền. Yêu cầu tham chiếu ủy quyền hợp lệ và hỗ trợ các sơ đồ ghi nợ trực tiếp SEPA Core và B2B. Không sử dụng cho chuyển khoản tín dụng hoặc ghi nợ tài khoản riêng của tổ chức.
 
-### What is pacs.010 used for?
+### pacs.010 được sử dụng để làm gì?
 
-pacs.010 handles direct debits between financial institutions on their own accounts. It is used for bank-to-bank collections such as fees, margin calls, and similar obligations under bilateral agreements. It is not used for customer direct debits or credit transfers.
+pacs.010 xử lý ghi nợ trực tiếp giữa các tổ chức tài chính trên tài khoản riêng. Được sử dụng cho thu tiền giữa ngân hàng như phí, yêu cầu ký quỹ và các nghĩa vụ tương tự theo thỏa thuận song phương. Không sử dụng cho ghi nợ trực tiếp khách hàng hoặc chuyển khoản tín dụng.
 
-## Message structure
+## Cấu trúc thông điệp
 
-### What is the Group Header (GrpHdr)?
+### Group Header (GrpHdr) là gì?
 
-The Group Header appears exactly once per pacs message. It contains the message identifier (MsgId), creation timestamp (CreDtTm), number of transactions (NbOfTxs), settlement information (SttlmInf), and optionally the total interbank settlement amount and payment type information. It identifies the message envelope, not the individual business transactions.
+Group Header xuất hiện đúng một lần trong mỗi thông điệp pacs. Chứa mã định danh thông điệp (MsgId), dấu thời gian tạo (CreDtTm), số lượng giao dịch (NbOfTxs), thông tin quyết toán (SttlmInf) và tùy chọn tổng số tiền quyết toán liên ngân hàng và thông tin loại thanh toán. Xác định phong bì thông điệp, không phải các giao dịch kinh doanh riêng lẻ.
 
-### What are the payment identifiers in pacs.008?
+### Các mã định danh thanh toán trong pacs.008 là gì?
 
-pacs.008 uses four main identifiers. MsgId identifies the message envelope and changes at each hop. InstrId is a point-to-point reference between adjacent agents and may change per hop. EndToEndId is set by the originator and must not be altered by any agent in the chain. TxId is assigned by the first instructing agent and remains constant in the interbank space. UETR is a UUID that stays unchanged across all legs for end-to-end tracking.
+pacs.008 sử dụng bốn mã định danh chính. MsgId xác định phong bì thông điệp và thay đổi tại mỗi chặng. InstrId là tham chiếu điểm-đến-điểm giữa các đại lý kề nhau và có thể thay đổi mỗi chặng. EndToEndId được đặt bởi bên khởi tạo và không được thay đổi bởi bất kỳ đại lý nào trong chuỗi. TxId được gán bởi đại lý gửi lệnh đầu tiên và giữ nguyên trong không gian liên ngân hàng. UETR là UUID giữ nguyên qua tất cả các chặng để theo dõi đầu cuối.
 
-### What settlement methods are available?
+### Có những phương thức quyết toán nào?
 
-Four settlement methods are defined. CLRG settles through a clearing system such as TARGET2, EURO1, or CHIPS. INDA settles on the books of the instructed agent where the debtor agent holds an account. INGA settles on the books of the instructing agent where the instructed agent holds an account. COVE settles through a separate cover payment carried by pacs.009.
+Bốn phương thức quyết toán được định nghĩa. CLRG quyết toán qua hệ thống bù trừ như TARGET2, EURO1 hoặc CHIPS. INDA quyết toán trên sổ sách của đại lý được chỉ thị nơi đại lý ghi nợ giữ tài khoản. INGA quyết toán trên sổ sách của đại lý gửi chỉ thị nơi đại lý được chỉ thị giữ tài khoản. COVE quyết toán qua thanh toán bảo lãnh riêng biệt mang bởi pacs.009.
 
-### What do the charge bearer codes mean?
+### Các mã người chịu phí có nghĩa gì?
 
-DEBT means all charges are borne by the debtor (equivalent to MT103 OUR). CRED means all charges are borne by the creditor (equivalent to BEN). SHAR means charges are shared between debtor and creditor agents (equivalent to SHA). SLEV means charges follow the service level rules and is mandatory for SEPA credit transfers.
+DEBT nghĩa là tất cả phí do bên ghi nợ chịu (tương đương MT103 OUR). CRED nghĩa là tất cả phí do bên thụ hưởng chịu (tương đương BEN). SHAR nghĩa là phí được chia sẻ giữa đại lý bên ghi nợ và bên thụ hưởng (tương đương SHA). SLEV nghĩa là phí theo quy tắc mức dịch vụ và bắt buộc cho chuyển khoản tín dụng SEPA.
 
-## CBPR+ and migration
+## CBPR+ và di chuyển
 
-### What is CBPR+?
+### CBPR+ là gì?
 
-CBPR+ (Cross-Border Payments and Reporting Plus) is SWIFT's programme for adopting ISO 20022 in cross-border payment messaging. It went live in March 2023 and replaces MT messages with pacs equivalents. CBPR+ mandates pacs.002 for all status communication, supports richer party data and structured addresses, and uses UETR-based tracking through gpi.
+CBPR+ (Cross-Border Payments and Reporting Plus) là chương trình của SWIFT để áp dụng ISO 20022 trong tin nhắn thanh toán xuyên biên giới. Đi vào hoạt động tháng 3 năm 2023 và thay thế thông điệp MT bằng các tương đương pacs. CBPR+ bắt buộc pacs.002 cho mọi giao tiếp trạng thái, hỗ trợ dữ liệu bên phong phú hơn và địa chỉ có cấu trúc, sử dụng theo dõi dựa trên UETR qua gpi.
 
-### What happened to the MT/MX coexistence period?
+### Điều gì xảy ra với giai đoạn chung sống MT/MX?
 
-The coexistence period for cross-border payment instructions ended in November 2025. Since then, CBPR+ messages must use the ISO 20022 (MX) format. Translation services that converted between MT and MX during the transition are no longer available for new flows. Banks must now send and receive native pacs messages.
+Giai đoạn chung sống cho lệnh thanh toán xuyên biên giới kết thúc vào tháng 11 năm 2025. Từ đó, thông điệp CBPR+ phải sử dụng định dạng ISO 20022 (MX). Dịch vụ chuyển đổi giữa MT và MX trong quá trình chuyển tiếp không còn khả dụng cho luồng mới. Ngân hàng phải gửi và nhận thông điệp pacs gốc.
 
-### What is the November 2026 structured-address deadline?
+### Hạn chót địa chỉ có cấu trúc tháng 11 năm 2026 là gì?
 
-From November 2026, SWIFT CBPR+ requires structured postal addresses in cross-border payment messages. Unstructured address lines (AdrLine alone) will no longer be accepted for key party fields. At minimum, TwnNm and Ctry are required, with StrtNm and BldgNb or PstBx recommended. This improves sanctions screening and reduces manual repair.
+Từ tháng 11 năm 2026, SWIFT CBPR+ yêu cầu địa chỉ bưu chính có cấu trúc trong thông điệp thanh toán xuyên biên giới. Dòng địa chỉ không có cấu trúc (chỉ AdrLine) sẽ không còn được chấp nhận cho các trường bên chính. Tối thiểu cần TwnNm và Ctry, khuyến nghị StrtNm và BldgNb hoặc PstBx. Điều này cải thiện sàng lọc trừng phạt và giảm sửa chữa thủ công.
 
-### How does pacs.008 replace MT103?
+### pacs.008 thay thế MT103 như thế nào?
 
-pacs.008 replaces MT103 and MT103+ for customer credit transfers. Key mapping: MT103 field 20 maps to MsgId or InstrId; field 32A splits into IntrBkSttlmDt and IntrBkSttlmAmt; field 50a maps to Dbtr and DbtrAcct; field 59a maps to Cdtr and CdtrAcct; field 70 maps to RmtInf; field 71A maps to ChrgBr. pacs.008 adds UETR, structured remittance, LEI identification, and supports multiple transactions per message.
+pacs.008 thay thế MT103 và MT103+ cho chuyển khoản tín dụng khách hàng. Ánh xạ chính: trường MT103 20 tương ứng MsgId hoặc InstrId; trường 32A tách thành IntrBkSttlmDt và IntrBkSttlmAmt; trường 50a tương ứng Dbtr và DbtrAcct; trường 59a tương ứng Cdtr và CdtrAcct; trường 70 tương ứng RmtInf; trường 71A tương ứng ChrgBr. pacs.008 thêm UETR, chuyển tiền có cấu trúc, nhận dạng LEI và hỗ trợ nhiều giao dịch trong một thông điệp.
 
-### How does pacs.009 replace MT202?
+### pacs.009 thay thế MT202 như thế nào?
 
-pacs.009 replaces MT202 and MT202COV for institution-to-institution transfers. In cover-method flows, the MT202COV (which carried both funding and underlying customer data) splits cleanly: pacs.009 carries the funding leg while pacs.008 carries the customer instruction directly. This separation improves data quality and reduces reconciliation issues.
+pacs.009 thay thế MT202 và MT202COV cho chuyển khoản giữa các tổ chức. Trong luồng phương thức bảo lãnh, MT202COV (mang cả cấp vốn và dữ liệu khách hàng cơ bản) tách rõ ràng: pacs.009 mang chặng cấp vốn trong khi pacs.008 mang lệnh khách hàng trực tiếp. Sự tách biệt này cải thiện chất lượng dữ liệu và giảm vấn đề đối chiếu.
 
-## Technical details
+## Chi tiết kỹ thuật
 
-### What are structured vs unstructured addresses?
+### Địa chỉ có cấu trúc và không có cấu trúc là gì?
 
-Structured addresses use separate XML elements for each component: StrtNm (street), BldgNb (building number), PstCd (post code), TwnNm (town), Ctry (country), and optional elements like Flr, Room, and DstrctNm. Unstructured addresses use up to seven AdrLine elements with free text. Hybrid addresses combine both during the transition period. After November 2026, CBPR+ requires the structured format.
+Địa chỉ có cấu trúc sử dụng các phần tử XML riêng biệt cho mỗi thành phần: StrtNm (đường), BldgNb (số tòa nhà), PstCd (mã bưu chính), TwnNm (thành phố), Ctry (quốc gia) và các phần tử tùy chọn như Flr, Room và DstrctNm. Địa chỉ không có cấu trúc sử dụng tối đa bảy phần tử AdrLine với văn bản tự do. Địa chỉ lai kết hợp cả hai trong giai đoạn chuyển tiếp. Sau tháng 11 năm 2026, CBPR+ yêu cầu định dạng có cấu trúc.
 
-### What is UETR and how does gpi tracking work?
+### UETR là gì và theo dõi gpi hoạt động như thế nào?
 
-UETR (Unique End-to-End Transaction Reference) is a UUID v4 identifier generated by the debtor agent and carried unchanged across all legs of a payment. It appears in pacs.008, pacs.009, pacs.002, pacs.004, pacs.007, and pacs.028. SWIFT gpi uses the UETR to track payments through a cloud-based Tracker database. Each agent confirms receipt and processing, enabling end-to-end visibility and SLA monitoring.
+UETR (Unique End-to-End Transaction Reference) là mã định danh UUID v4 được tạo bởi đại lý ghi nợ và mang không thay đổi qua tất cả chặng của thanh toán. Xuất hiện trong pacs.008, pacs.009, pacs.002, pacs.004, pacs.007 và pacs.028. SWIFT gpi sử dụng UETR để theo dõi thanh toán qua cơ sở dữ liệu Tracker trên đám mây. Mỗi đại lý xác nhận nhận và xử lý, cho phép hiển thị đầu cuối và giám sát SLA.
 
-### What are common pacs.002 status codes?
+### Các mã trạng thái pacs.002 phổ biến là gì?
 
-ACCP means accepted after customer-profile checks. ACSP means accepted and settlement is in progress. ACSC means settlement on the debtor account is complete. RJCT means rejected (with a reason code in StsRsnInf). PDNG means pending further processing. RCVD means received but not yet processed. Each status may include a structured reason code such as AC01 (incorrect account), AM04 (insufficient funds), or RC01 (incorrect BIC).
+ACCP nghĩa là chấp nhận sau kiểm tra hồ sơ khách hàng. ACSP nghĩa là chấp nhận và quyết toán đang tiến hành. ACSC nghĩa là quyết toán trên tài khoản bên ghi nợ hoàn tất. RJCT nghĩa là từ chối (với mã lý do trong StsRsnInf). PDNG nghĩa là đang chờ xử lý thêm. RCVD nghĩa là đã nhận nhưng chưa xử lý. Mỗi trạng thái có thể bao gồm mã lý do có cấu trúc như AC01 (tài khoản không đúng), AM04 (không đủ vốn) hoặc RC01 (BIC không đúng).
 
-### What are common return reason codes in pacs.004?
+### Các mã lý do hoàn trả phổ biến trong pacs.004 là gì?
 
-Frequent return reason codes include AC01 (incorrect account number), AC04 (closed account), AC06 (blocked account), AM04 (insufficient funds), BE04 (missing creditor address), CUST (requested by customer), DUPL (duplicate payment), FOCR (following cancellation request), and FR01 (fraud). The full list is defined in the ISO 20022 External Code Sets.
+Các mã lý do hoàn trả thường gặp bao gồm AC01 (số tài khoản không đúng), AC04 (tài khoản đã đóng), AC06 (tài khoản bị khóa), AM04 (không đủ vốn), BE04 (thiếu địa chỉ bên thụ hưởng), CUST (theo yêu cầu khách hàng), DUPL (thanh toán trùng), FOCR (sau yêu cầu hủy) và FR01 (gian lận). Danh sách đầy đủ được định nghĩa trong ISO 20022 External Code Sets.
 
-### What is structured remittance information?
+### Thông tin chuyển tiền có cấu trúc là gì?
 
-Structured remittance in pacs.008 uses the RmtInf/Strd element to carry document references (invoice numbers, credit notes), amounts (due, remitted, tax, discount), and creditor references (ISO 11649 RF references). This enables automated invoice matching and reconciliation. Common document type codes include CINV (commercial invoice), CREN (credit note), and SOAC (statement of account).
+Chuyển tiền có cấu trúc trong pacs.008 sử dụng phần tử RmtInf/Strd để mang tham chiếu tài liệu (số hóa đơn, giấy báo có), số tiền (đến hạn, đã chuyển, thuế, chiết khấu) và tham chiếu bên thụ hưởng (tham chiếu RF theo ISO 11649). Điều này cho phép đối chiếu hóa đơn tự động và hòa giải. Các mã loại tài liệu phổ biến bao gồm CINV (hóa đơn thương mại), CREN (giấy báo có) và SOAC (sao kê tài khoản).
 
-### What is LEI and when is it used?
+### LEI là gì và khi nào được sử dụng?
 
-LEI (Legal Entity Identifier) is a 20-character alphanumeric code per ISO 17442. It uniquely identifies legal entities participating in financial transactions. In pacs messages, LEI appears in OrgId/LEI for parties and FinInstnId/LEI for agents. CBPR+ increasingly encourages LEI for party and agent identification. It improves entity disambiguation and supports regulatory reporting requirements.
+LEI (Legal Entity Identifier) là mã chữ số 20 ký tự theo ISO 17442. Nó nhận dạng duy nhất các thực thể pháp lý tham gia giao dịch tài chính. Trong thông điệp pacs, LEI xuất hiện trong OrgId/LEI cho các bên và FinInstnId/LEI cho đại lý. CBPR+ ngày càng khuyến khích LEI cho nhận dạng bên và đại lý. Nó cải thiện phân biệt thực thể và hỗ trợ yêu cầu báo cáo quy định.
 
-## About pacs008 toolkit
+## Về bộ công cụ pacs008
 
-### What does pacs008 do?
+### pacs008 làm gì?
 
-pacs008 is a Python toolkit that generates, validates, and ships ISO 20022 payment messages. It reads payment data from CSV, JSON, JSONL, SQLite, and Parquet sources, validates against JSON Schema and XSD, checks IBAN and BIC identifiers, cleans data for SWIFT character compliance, and outputs XML files. It provides a REST API, CLI, and Python library.
+pacs008 là bộ công cụ Python tạo, xác thực và gửi thông điệp thanh toán ISO 20022. Đọc dữ liệu thanh toán từ nguồn CSV, JSON, JSONL, SQLite và Parquet, xác thực theo JSON Schema và XSD, kiểm tra mã định danh IBAN và BIC, làm sạch dữ liệu cho tuân thủ ký tự SWIFT và xuất tệp XML. Cung cấp REST API, CLI và thư viện Python.
 
-### Which message types does pacs008 support?
+### pacs008 hỗ trợ những loại thông điệp nào?
 
-pacs008 supports eight message types: pacs.002.001.12 (status report), pacs.003.001.09 (customer direct debit), pacs.004.001.11 (payment return), pacs.007.001.11 (payment reversal), pacs.008.001.13 (customer credit transfer), pacs.009.001.10 (financial institution credit transfer), pacs.010.001.05 (financial institution direct debit), and pacs.028.001.05 (payment status request).
+pacs008 hỗ trợ tám loại thông điệp: pacs.002.001.12 (báo cáo trạng thái), pacs.003.001.09 (ghi nợ trực tiếp khách hàng), pacs.004.001.11 (hoàn trả thanh toán), pacs.007.001.11 (đảo ngược thanh toán), pacs.008.001.13 (chuyển khoản tín dụng khách hàng), pacs.009.001.10 (chuyển khoản tín dụng tổ chức tài chính), pacs.010.001.05 (ghi nợ trực tiếp tổ chức tài chính) và pacs.028.001.05 (yêu cầu trạng thái thanh toán).
 
-### How does pacs008 help with the 2026 structured-address deadline?
+### pacs008 giúp gì cho hạn chót địa chỉ có cấu trúc 2026?
 
-pacs008 validates structured and hybrid postal address fields before XML generation. It flags unstructured address data that would fail after the November 2026 deadline, supports both pre-deadline hybrid and post-deadline structured-only formats, and integrates address quality checks into CI pipelines and batch validation workflows.
+pacs008 xác thực các trường địa chỉ bưu chính có cấu trúc và lai trước khi tạo XML. Đánh dấu dữ liệu địa chỉ không có cấu trúc sẽ thất bại sau hạn chót tháng 11 năm 2026, hỗ trợ cả định dạng lai trước hạn chót và chỉ có cấu trúc sau hạn chót, tích hợp kiểm tra chất lượng địa chỉ vào pipeline CI và quy trình xác thực hàng loạt.
 
-### Can pacs008 validate data without generating XML?
+### pacs008 có thể xác thực dữ liệu mà không tạo XML không?
 
-Yes. Use the `--dry-run` CLI flag or the `POST /validate` API endpoint to validate payment data without generating XML. The validation pipeline checks JSON Schema conformance, IBAN format and checksum, BIC structure, and SWIFT character compliance. The exit code or API response indicates whether validation passed or failed.
+Có. Sử dụng cờ CLI `--dry-run` hoặc endpoint API `POST /validate` để xác thực dữ liệu thanh toán mà không tạo XML. Pipeline xác thực kiểm tra tuân thủ JSON Schema, định dạng và checksum IBAN, cấu trúc BIC và tuân thủ ký tự SWIFT. Mã thoát hoặc phản hồi API cho biết xác thực thành công hay thất bại.
 
-## References
+## Tham khảo
 
 - [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions)
 - [ISO 20022 external code sets](https://www.iso20022.org/external_code_list.page)
@@ -147,4 +147,3 @@ Yes. Use the `--dry-run` CLI flag or the `POST /validate` API endpoint to valida
 - [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and)
 - [EPC SEPA Instant Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook)
 - [SWIFT gpi](https://www.swift.com/our-solutions/swift-gpi)
-
