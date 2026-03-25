@@ -25,15 +25,10 @@ function navFor(locale: string) {
       ]
     },
     {
-      text: t.navCompliance,
+      text: t.navResources,
       items: [
         { text: t.structuredAddress, link: `${prefix}/structured-address/` },
-        { text: t.glossary, link: `${prefix}/glossary/` }
-      ]
-    },
-    {
-      text: t.navToolkit,
-      items: [
+        { text: t.glossary, link: `${prefix}/glossary/` },
         { text: t.api, link: `${prefix}/api/` },
         { text: t.faq, link: `${prefix}/faq/` },
         { text: t.changelog, link: `${prefix}/changelog/` }
