@@ -3,7 +3,7 @@ title: "pacs.009.001.10 | Przelew kredytowy między instytucjami finansowymi | p
 description: Komunikat pacs.009 jest używany do poleceń przelewu między instytucjami finansowymi, w których transfer odbywa się na rachunek własny instytucji, a nie w...
 lang: pl-PL
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "When should I choose pacs.009 over pacs.008?"
     answer: "Choose pacs.009 for own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions."

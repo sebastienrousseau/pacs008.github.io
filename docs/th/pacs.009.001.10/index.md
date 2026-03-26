@@ -3,7 +3,7 @@ title: "pacs.009.001.10 | การโอนเครดิตระหว่า
 description: ข้อความ pacs.009 ใช้สำหรับการโอนเครดิตระหว่างสถาบันการเงินโดยที่การโอนเป็นในนามของสถาบันเอง ไม่ใช่ในนามของลูกค้า รองรับการจัดหาเงินทุนระหว่างธนาคาร...
 lang: th-TH
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "When should I choose pacs.009 over pacs.008?"
     answer: "Choose pacs.009 for own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions."

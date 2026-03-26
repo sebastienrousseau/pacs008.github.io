@@ -3,7 +3,7 @@ title: "Questions fréquentes | pacs008"
 description: "Questions courantes sur les messages pacs ISO 20022, la migration CBPR+, la sélection de messages, l'implémentation et le toolkit pacs008."
 lang: fr-FR
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Questions fréquentes

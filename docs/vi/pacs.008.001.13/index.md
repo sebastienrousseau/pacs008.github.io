@@ -3,7 +3,7 @@ title: "pacs.008.001.13 | Chuyển khoản tín dụng khách hàng giữa các 
 description: Thông điệp pacs.008 là lệnh thanh toán cốt lõi được trao đổi giữa các tổ chức tài chính để chuyển tiền thay mặt khách hàng. Thông điệp này mang thông tin...
 lang: vi-VN
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Is pacs.008 enough on its own for production payments?"
     answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."

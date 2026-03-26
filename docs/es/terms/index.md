@@ -3,7 +3,7 @@ title: "Términos | pacs008"
 description: Información sobre los términos del sitio web de pacs008.
 lang: es-ES
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Términos

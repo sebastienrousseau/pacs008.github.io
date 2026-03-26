@@ -3,7 +3,7 @@ title: "pacs.003.001.09 | Direct Debit Pelanggan FI ke FI | pacs008"
 description: Pesan pacs.003 dipertukarkan antara lembaga keuangan untuk mengeksekusi instruksi debit langsung pelanggan. Pesan ini memungkinkan bank kreditur untuk...
 lang: id-ID
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
     answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."

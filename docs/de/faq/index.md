@@ -3,7 +3,7 @@ title: "Häufig gestellte Fragen | pacs008"
 description: Häufige Fragen zu ISO 20022 pacs-Nachrichten, CBPR+-Migration, Nachrichtenauswahl, Implementierung und dem pacs008-Toolkit.
 lang: de-DE
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Häufig gestellte Fragen

@@ -3,7 +3,7 @@ title: "Guida alla selezione dei messaggi | pacs008"
 description: Scegli il messaggio pacs ISO 20022 corretto per generazione, stati, resi, storni e richieste.
 lang: it-IT
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Guida alla selezione dei messaggi

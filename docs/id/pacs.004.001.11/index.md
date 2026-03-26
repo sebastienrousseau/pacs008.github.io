@@ -3,7 +3,7 @@ title: "pacs.004.001.11 | Retur Pembayaran | pacs008"
 description: Pesan pacs.004 digunakan untuk mengembalikan transaksi pembayaran yang sebelumnya telah diselesaikan. Pesan ini membalikkan aliran dana ketika pembayaran...
 lang: id-ID
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "What is the difference between pacs.004 and pacs.007?"
     answer: "pacs.004 returns settled funds from the receiving side, while pacs.007 requests reversal from the original instructing side."

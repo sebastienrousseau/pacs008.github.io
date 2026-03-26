@@ -3,7 +3,7 @@ title: "pacs.028.001.05 | Запрос статуса платежа между 
 description: Сообщение pacs.028 отправляется финансовым учреждением для запроса статуса ранее направленного платёжного поручения. Оно обеспечивает проактивное...
 lang: ru-RU
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Should pacs.028 be sent after every payment?"
     answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic."

@@ -3,7 +3,7 @@ title: "API | pacs008"
 description: REST- und CLI-Unterstützung in pacs008.
 lang: de-DE
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # API

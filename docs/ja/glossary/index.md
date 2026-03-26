@@ -1,12 +1,12 @@
 ---
-title: "ISO 20022 glossary | pacs008"
+title: "ISO 20022 用語集 | pacs008"
 description: Definitions of key ISO 20022 and payment messaging terms used in pacs.008 and related messages. 金融機関間の顧客クレジット移転ワークフロー向けの生成、検証、API オーケストレーション、コンプライアンス対応。
 lang: ja-JP
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
-# ISO 20022 glossary
+# ISO 20022 用語集
 
 This glossary defines the key terms, abbreviations, and technical concepts used across ISO 20022 pacs messages and this site.
 

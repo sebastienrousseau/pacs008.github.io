@@ -1,12 +1,12 @@
 ---
-title: "Changelog | pacs008"
+title: "יומן שינויים | pacs008"
 description: Version history and release notes for the pacs008 toolkit. Track new features, improvements, and fixes across releases.
 lang: he-IL
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
-# Changelog
+# יומן שינויים
 
 This page tracks significant changes to the pacs008 toolkit and this documentation site.
 

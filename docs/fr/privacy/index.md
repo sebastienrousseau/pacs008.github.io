@@ -3,7 +3,7 @@ title: "Confidentialité | pacs008"
 description: Informations de confidentialité pour le site pacs008.
 lang: fr-FR
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Confidentialité

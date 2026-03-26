@@ -3,7 +3,7 @@ title: "pacs.004.001.11 | 付款退回 | pacs008"
 description: pacs.004 訊息用於退回先前已清算的付款交易。當付款無法入帳、被錯誤發送或發起機構請求召回時，它將逆轉資金流向。
 lang: zh-TW
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "What is the difference between pacs.004 and pacs.007?"
     answer: "pacs.004 returns settled funds from the receiving side, while pacs.007 requests reversal from the original instructing side."

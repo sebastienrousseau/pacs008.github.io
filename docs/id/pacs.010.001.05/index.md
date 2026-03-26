@@ -3,7 +3,7 @@ title: "pacs.010.001.05 | Direct Debit Antar Lembaga Keuangan | pacs008"
 description: Pesan pacs.010 digunakan antara lembaga keuangan untuk transaksi debit langsung pada rekening lembaga itu sendiri. Pesan ini memungkinkan satu lembaga...
 lang: id-ID
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Is pacs.010 common in retail payment products?"
     answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."

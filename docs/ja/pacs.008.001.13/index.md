@@ -3,7 +3,7 @@ title: "pacs.008.001.13 | 金融機関間顧客信用振替 | pacs008"
 description: pacs.008 メッセージは、顧客に代わって資金を送金するために金融機関間で交換される中核的な支払指図です。1つ以上のクレジットトランスファー取引について、債務者、債権者、金額、および送金情報を付帯します。
 lang: ja-JP
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Is pacs.008 enough on its own for production payments?"
     answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."

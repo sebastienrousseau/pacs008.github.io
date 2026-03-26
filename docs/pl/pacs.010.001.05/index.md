@@ -3,7 +3,7 @@ title: "pacs.010.001.05 | Polecenie zapłaty między instytucjami finansowymi | 
 description: Komunikat pacs.010 jest używany między instytucjami finansowymi do transakcji poleceń zapłaty na rachunek własny instytucji. Umożliwia jednej instytucji...
 lang: pl-PL
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Is pacs.010 common in retail payment products?"
     answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."

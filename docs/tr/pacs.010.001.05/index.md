@@ -3,7 +3,7 @@ title: "pacs.010.001.05 | Finansal kuruluşlar arası doğrudan borçlandırma |
 description: pacs.010 mesajı, kuruluşun kendi hesabındaki doğrudan borçlandırma işlemleri için finans kuruluşları arasında kullanılır. Bir kuruluşun başka bir...
 lang: tr-TR
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Is pacs.010 common in retail payment products?"
     answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."

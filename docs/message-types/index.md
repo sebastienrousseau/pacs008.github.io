@@ -1,9 +1,9 @@
 ---
-title: "Supported ISO 20022 message types | pacs008"
+title: ISO 20022 PACS Message Types — Supported Versions
 description: Browse the ISO 20022 pacs messages supported by pacs008 and see where each message fits in payment initiation, status, returns, reversals, and enquiries.
 lang: en-GB
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Message Types

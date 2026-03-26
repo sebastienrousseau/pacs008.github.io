@@ -4,7 +4,7 @@ description: Generación, validación, orquestación de API y soporte de cumplim
 lang: es-ES
 author: Sebastien Rousseau
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 imageAlt: pacs008
 canonical: /es/
 robots: index, follow

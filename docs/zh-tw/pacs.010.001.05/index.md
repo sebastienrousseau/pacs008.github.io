@@ -3,7 +3,7 @@ title: "pacs.010.001.05 | 金融機構直接扣款 | pacs008"
 description: pacs.010 訊息用於金融機構自身帳戶的直接扣款交易。它使一個機構能夠直接從另一個機構的帳戶中收取資金。
 lang: zh-TW
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Is pacs.010 common in retail payment products?"
     answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."

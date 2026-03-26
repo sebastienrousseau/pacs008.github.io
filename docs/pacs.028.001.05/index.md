@@ -3,7 +3,7 @@ title: "pacs.028.001.05 | FI to FI Payment Status Request | pacs008"
 description: The pacs.028 message asks another institution for the status of an earlier payment. It is a targeted status query for delayed, unclear, or missing payment...
 lang: en-GB
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Should pacs.028 be sent after every payment?"
     answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic."

@@ -3,7 +3,7 @@ title: "Contact | pacs008"
 description: Cum să contactați proiectul pacs008.
 lang: ro-RO
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Contact

@@ -3,7 +3,7 @@ title: "pacs.028.001.05 | Richiesta di stato del pagamento tra istituzioni finan
 description: "Il messaggio pacs.028 viene inviato da un istituto finanziario per richiedere lo stato di un'istruzione di pagamento precedentemente inviata. Consente il..."
 lang: it-IT
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Should pacs.028 be sent after every payment?"
     answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic."

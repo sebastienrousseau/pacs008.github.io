@@ -4,7 +4,7 @@ description: Генерация, валидация, оркестрация API 
 lang: ru-RU
 author: Sebastien Rousseau
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 imageAlt: pacs008
 canonical: /ru/
 robots: index, follow

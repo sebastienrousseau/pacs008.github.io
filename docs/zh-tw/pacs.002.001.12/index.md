@@ -3,7 +3,7 @@ title: "pacs.002.001.12 | 金融機構間付款狀態報告 | pacs008"
 description: pacs.002 訊息由金融機構發送，用於報告先前發送的付款指令之狀態。它為付款訊息中的個別交易提供確認、拒絕或待處理的狀態資訊。
 lang: zh-TW
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Is pacs.002 a payment message?"
     answer: "No. It reports status for an earlier instruction rather than moving value itself."

@@ -4,7 +4,7 @@ description: Geração, validação, orquestração de API e suporte de conformi
 lang: pt-BR
 author: Sebastien Rousseau
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 imageAlt: pacs008
 canonical: /pt/
 robots: index, follow

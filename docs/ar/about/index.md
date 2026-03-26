@@ -3,7 +3,7 @@ title: "حول pacs008 | pacs008"
 description: ما يفعله pacs008 ولمن هو موجّه. التوليد والتحقق وتنسيق واجهات البرمجة ودعم الامتثال لتدفقات تحويل الائتمان بين المؤسسات المالية.
 lang: ar-SA
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 howtoName: "How to implement ISO 20022 pacs.008 payment messages"
 howtoDescription: "Step-by-step checklist for rolling out ISO 20022 pacs.008 message generation and validation."
 howto:
@@ -19,7 +19,7 @@ howto:
 
 # حول pacs008
 
-pacs008 هي مجموعة أدوات Python لأتمتة تدفقات تحويل الائتمان ISO 20022 بين المؤسسات المالية.
+pacs008 هي مجموعة أدوات Python للفرق التي تحتاج إلى إنشاء رسائل الدفع ISO 20022 والتحقق منها وإرسالها مع تقليل الإصلاحات اليدوية. تساعد فرق الدفع على اكتشاف البيانات الخاطئة قبل الإنتاج.
 
 ## ما يفعله
 

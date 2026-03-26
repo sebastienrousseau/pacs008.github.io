@@ -3,7 +3,7 @@ title: "pacs.003.001.09 | 금융기관 간 고객 직접출금 | pacs008"
 description: pacs.003 메시지는 고객 자동이체 지시를 실행하기 위해 금융기관 간에 교환됩니다. 채권자의 은행이 채권자를 대신하여 채무자의 은행에서 자금을 회수할 수 있게 합니다.
 lang: ko-KR
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
     answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."

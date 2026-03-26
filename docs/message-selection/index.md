@@ -1,9 +1,9 @@
 ---
-title: "Choose the right ISO 20022 pacs message | pacs008"
+title: ISO 20022 Message Selection — Choose the Right pacs Type
 description: Choose the right ISO 20022 pacs message for generation, status reporting, returns, reversals, and payment enquiries.
 lang: en-GB
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Message Selection Guide

@@ -1,12 +1,12 @@
 ---
-title: "Changelog | pacs008"
+title: "บันทึกการเปลี่ยนแปลง | pacs008"
 description: Version history and release notes for the pacs008 toolkit. Track new features, improvements, and fixes across releases.
 lang: th-TH
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
-# Changelog
+# บันทึกการเปลี่ยนแปลง
 
 This page tracks significant changes to the pacs008 toolkit and this documentation site.
 

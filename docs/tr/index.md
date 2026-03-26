@@ -4,7 +4,7 @@ description: Finansal kuruluşlar arasındaki müşteri kredi transferi iş akı
 lang: tr-TR
 author: Sebastien Rousseau
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 imageAlt: pacs008
 canonical: /tr/
 robots: index, follow

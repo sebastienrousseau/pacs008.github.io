@@ -3,7 +3,7 @@ title: "Editorial policy | pacs008"
 description: How pacs008.com content is created, reviewed, and maintained. Sources, review process, and update schedule. 面向金融机构间客户信贷转账工作流的生成、校验、API 编排与合规支持。
 lang: zh-CN
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Editorial policy

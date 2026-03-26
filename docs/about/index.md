@@ -1,9 +1,9 @@
 ---
-title: "About pacs008 - ISO 20022 toolkit | pacs008"
+title: About pacs008 — ISO 20022 Payment Message Toolkit
 description: Learn how pacs008 helps teams generate, validate, test, and ship ISO 20022 payment messages for daily payment operations.
 lang: en-GB
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 howtoName: "How to implement ISO 20022 pacs.008 payment messages"
 howtoDescription: "Step-by-step checklist for rolling out ISO 20022 pacs.008 message generation and validation."
 howto:

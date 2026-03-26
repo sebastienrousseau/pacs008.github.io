@@ -3,7 +3,7 @@ title: "Tentang pacs008 | pacs008"
 description: Apa yang dilakukan pacs008 dan untuk siapa.
 lang: id-ID
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 howtoName: "How to implement ISO 20022 pacs.008 payment messages"
 howtoDescription: "Step-by-step checklist for rolling out ISO 20022 pacs.008 message generation and validation."
 howto:
@@ -19,7 +19,7 @@ howto:
 
 # Tentang pacs008
 
-pacs008 adalah toolkit Python untuk mengotomatisasi alur kerja transfer kredit ISO 20022 antar lembaga keuangan.
+pacs008 adalah toolkit Python untuk tim yang perlu membuat, memvalidasi, dan mengirim pesan pembayaran ISO 20022 dengan lebih sedikit perbaikan manual. Toolkit ini membantu tim pembayaran mendeteksi data yang salah sebelum produksi.
 
 ## Apa yang dilakukan
 

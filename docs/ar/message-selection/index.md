@@ -3,7 +3,7 @@ title: "دليل اختيار الرسائل | pacs008"
 description: اختر رسالة pacs المناسبة وفق ISO 20022 لعمليات الإنشاء، وتقارير الحالة، والمرتجعات، والعكس، والاستعلامات.
 lang: ar-SA
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # دليل اختيار الرسائل

@@ -3,7 +3,7 @@ title: "pacs.007.001.11 | היפוך תשלום בין מוסדות פיננסי
 description: הודעת pacs.007 משמשת לביטול הוראת תשלום שנשלחה בעבר ועדיין לא נסלקה, או לבקשת ביטול תשלום שנסלק. בניגוד ל-pacs.004 (החזרה), היא מיוזמת על ידי הסוכן המורה...
 lang: he-IL
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Is pacs.007 only for fraud scenarios?"
     answer: "No. Fraud is a major use case, but any instructing-side need to reverse a payment can trigger it."

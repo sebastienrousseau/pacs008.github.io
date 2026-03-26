@@ -3,7 +3,7 @@ title: "API | pacs008"
 description: Підтримка робочих процесів REST та CLI у pacs008.
 lang: uk-UA
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # API

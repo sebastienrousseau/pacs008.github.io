@@ -3,7 +3,7 @@ title: "Redaktionelle Richtlinie | pacs008"
 description: Wie Inhalte auf pacs008.com erstellt, geprüft und gepflegt werden. Quellen, Prüfverfahren und Aktualisierungsplan.
 lang: de-DE
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Redaktionelle Richtlinie

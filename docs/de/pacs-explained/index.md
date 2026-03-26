@@ -3,7 +3,7 @@ title: "PACS-Nachrichten erklärt | pacs008"
 description: "Detaillierte technische Referenz für ISO 20022 pacs-Nachrichten: Lebenszyklus, XML-Struktur, Abwicklungsmethoden, Begründungscodes, Adresstypen..."
 lang: de-DE
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # PACS-Nachrichten erklärt

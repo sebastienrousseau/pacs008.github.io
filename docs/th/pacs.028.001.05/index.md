@@ -3,7 +3,7 @@ title: "pacs.028.001.05 | คำขอสถานะการชำระเง
 description: ข้อความ pacs.028 ถูกส่งโดยสถาบันการเงินเพื่อร้องขอสถานะของคำสั่งชำระเงินที่ส่งไปก่อนหน้านี้...
 lang: th-TH
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Should pacs.028 be sent after every payment?"
     answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic."

@@ -3,7 +3,7 @@ title: "Bedingungen | pacs008"
 description: Informationen zu den Nutzungsbedingungen der pacs008-Website.
 lang: de-DE
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Bedingungen

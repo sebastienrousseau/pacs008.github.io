@@ -3,7 +3,7 @@ title: "API | pacs008"
 description: Supporto flussi REST e CLI in pacs008. Generazione, validazione, orchestrazione API e conformità per i flussi di bonifico cliente tra istituzioni finanziarie.
 lang: it-IT
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # API

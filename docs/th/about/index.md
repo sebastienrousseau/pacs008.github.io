@@ -3,7 +3,7 @@ title: "เกี่ยวกับ pacs008 | pacs008"
 description: pacs008 ทำอะไรและเหมาะสำหรับใคร การสร้าง ตรวจสอบ จัดเรียง API และสนับสนุนการปฏิบัติตามกฎระเบียบสำหรับเวิร์กโฟลว์โอนเครดิตลูกค้าระหว่างสถาบันการเงิน
 lang: th-TH
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 howtoName: "How to implement ISO 20022 pacs.008 payment messages"
 howtoDescription: "Step-by-step checklist for rolling out ISO 20022 pacs.008 message generation and validation."
 howto:
@@ -19,7 +19,7 @@ howto:
 
 # เกี่ยวกับ pacs008
 
-pacs008 เป็นชุดเครื่องมือ Python สำหรับอัตโนมัติเวิร์กโฟลว์การโอนเครดิตลูกค้า ISO 20022 ระหว่างสถาบันการเงิน
+pacs008 เป็นชุดเครื่องมือ Python สำหรับทีมที่ต้องสร้าง ตรวจสอบ และส่งข้อความชำระเงิน ISO 20022 โดยลดการแก้ไขด้วยมืออย่างมาก ช่วยทีมชำระเงินตรวจจับข้อมูลที่ผิดพลาดก่อนนำขึ้นใช้งานจริง
 
 ## สิ่งที่ทำได้
 

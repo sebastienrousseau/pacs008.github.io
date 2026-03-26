@@ -3,7 +3,7 @@ title: "pacs.002.001.12 | Rapporto di stato del pagamento tra istituzioni finanz
 description: "Il messaggio pacs.002 viene inviato da un istituto finanziario per comunicare lo stato di un'istruzione di pagamento precedentemente inviata. Fornisce..."
 lang: it-IT
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Is pacs.002 a payment message?"
     answer: "No. It reports status for an earlier instruction rather than moving value itself."

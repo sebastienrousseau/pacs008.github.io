@@ -3,7 +3,7 @@ title: "คู่มือการเลือกข้อความ | pacs00
 description: เลือกข้อความ pacs ของ ISO 20022 ที่เหมาะสมสำหรับการสร้าง การรายงานสถานะ การคืนเงิน การย้อนรายการ และการสอบถาม
 lang: th-TH
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # คู่มือการเลือกข้อความ

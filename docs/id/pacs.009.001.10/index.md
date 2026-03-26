@@ -3,7 +3,7 @@ title: "pacs.009.001.10 | Transfer Kredit Antar Lembaga Keuangan | pacs008"
 description: Pesan pacs.009 digunakan untuk transfer kredit antara lembaga keuangan di mana transfer dilakukan atas nama lembaga itu sendiri bukan atas nama pelanggan...
 lang: id-ID
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "When should I choose pacs.009 over pacs.008?"
     answer: "Choose pacs.009 for own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions."

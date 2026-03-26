@@ -4,7 +4,7 @@ description: Génération, validation, orchestration d'API et conformité pour l
 lang: fr-FR
 author: Sebastien Rousseau
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 imageAlt: pacs008
 canonical: /fr/
 robots: index, follow

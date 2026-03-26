@@ -3,7 +3,7 @@ title: "pacs.003.001.09 | FI-naar-FI-klantincasso | pacs008"
 description: Het pacs.003-bericht wordt uitgewisseld tussen financiële instellingen om een incasso-instructie van de klant uit te voeren. Het stelt de bank van de...
 lang: nl-NL
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
     answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."

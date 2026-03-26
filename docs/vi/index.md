@@ -4,7 +4,7 @@ description: Tạo, xác thực, điều phối API và hỗ trợ tuân thủ c
 lang: vi-VN
 author: Sebastien Rousseau
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 imageAlt: pacs008
 canonical: /vi/
 robots: index, follow

@@ -3,7 +3,7 @@ title: "API | pacs008"
 description: Suport pentru fluxuri REST și CLI în pacs008.
 lang: ro-RO
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # API

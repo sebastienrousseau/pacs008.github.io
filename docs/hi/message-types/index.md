@@ -3,7 +3,7 @@ title: "संदेश प्रकार | pacs008 ISO 20022"
 description: समर्थित ISO 20022 pacs संदेश परिभाषाएँ और संस्करण।
 lang: hi-IN
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # संदेश प्रकार

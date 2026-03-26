@@ -3,7 +3,7 @@ title: "pacs.009.001.10 | 金融機関間信用振替 | pacs008"
 description: pacs.009 メッセージは、顧客に代わってではなく金融機関自身の勘定でのクレジットトランスファーに使用されます。銀行間の資金移動、カバーペイメント、および流動性管理に対応します。
 lang: ja-JP
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "When should I choose pacs.009 over pacs.008?"
     answer: "Choose pacs.009 for own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions."

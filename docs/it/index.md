@@ -4,7 +4,7 @@ description: Generazione, validazione, orchestrazione API e conformità per i fl
 lang: it-IT
 author: Sebastien Rousseau
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 imageAlt: pacs008
 canonical: /it/
 robots: index, follow

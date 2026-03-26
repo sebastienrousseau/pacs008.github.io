@@ -3,7 +3,7 @@ title: "pacs.010.001.05 | Lastschrift zwischen Finanzinstituten | pacs008"
 description: Die Nachricht pacs.010 wird zwischen Finanzinstituten für Lastschrifttransaktionen auf eigene Rechnung verwendet. Sie ermöglicht es einem Institut, Gelder...
 lang: de-DE
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Is pacs.010 common in retail payment products?"
     answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."

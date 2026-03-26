@@ -3,7 +3,7 @@ title: "Контакты | pacs008"
 description: Как связаться с проектом pacs008.
 lang: ru-RU
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Контакты

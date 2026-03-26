@@ -1,9 +1,9 @@
 ---
-title: "Editorial policy | pacs008"
+title: Editorial Policy — pacs008 Content Guidelines
 description: How pacs008.com content is created, reviewed, and maintained. Sources, review process, and update schedule.
 lang: en-GB
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Editorial policy

@@ -3,7 +3,7 @@ title: "शर्तें | pacs008"
 description: pacs008 वेबसाइट के लिए शर्तों की जानकारी।
 lang: hi-IN
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # शर्तें

@@ -3,7 +3,7 @@ title: "API | pacs008"
 description: "pacs008'de REST ve CLI iş akışı desteği."
 lang: tr-TR
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # API

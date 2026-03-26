@@ -3,7 +3,7 @@ title: "API | pacs008"
 description: תמיכת תהליכי REST ו-CLI ב-pacs008. יצירה, אימות, תיאום API ותמיכת ציות לתהליכי העברת אשראי ללקוחות בין מוסדות פיננסיים.
 lang: he-IL
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # API

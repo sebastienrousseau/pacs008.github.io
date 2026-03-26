@@ -3,7 +3,7 @@ title: "pacs008 について | pacs008"
 description: pacs008 の機能と対象ユーザー。 金融機関間の顧客クレジット移転ワークフロー向けの生成、検証、API オーケストレーション、コンプライアンス対応。
 lang: ja-JP
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 howtoName: "How to implement ISO 20022 pacs.008 payment messages"
 howtoDescription: "Step-by-step checklist for rolling out ISO 20022 pacs.008 message generation and validation."
 howto:
@@ -19,7 +19,7 @@ howto:
 
 # pacs008 について
 
-pacs008 は、金融機関間の ISO 20022 顧客クレジット移転ワークフローを自動化するための Python ツールキットです。
+pacs008 は、手作業による修正を減らして ISO 20022 決済メッセージを生成・検証・送信する必要があるチーム向けの Python ツールキットです。本番リリース前に不良データを検出します。
 
 ## 機能
 

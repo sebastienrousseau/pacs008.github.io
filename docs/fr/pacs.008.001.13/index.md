@@ -3,7 +3,7 @@ title: "pacs.008.001.13 | Virement client FI à FI | pacs008"
 description: "Le message pacs.008 est l'instruction de paiement centrale échangée entre institutions financières pour transférer des fonds au nom d'un client. Il porte..."
 lang: fr-FR
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Is pacs.008 enough on its own for production payments?"
     answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."

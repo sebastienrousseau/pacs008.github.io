@@ -3,7 +3,7 @@ title: "pacs.008.001.13 | Transferência de crédito de cliente FI a FI | pacs00
 description: A mensagem pacs.008 é a instrução de pagamento principal trocada entre instituições financeiras para transferir fundos em nome de um cliente. Contém...
 lang: pt-BR
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Is pacs.008 enough on its own for production payments?"
     answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."

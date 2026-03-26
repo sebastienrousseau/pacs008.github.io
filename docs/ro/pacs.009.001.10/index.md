@@ -3,7 +3,7 @@ title: "pacs.009.001.10 | Transfer de credit între instituții financiare | pac
 description: Mesajul pacs.009 este utilizat pentru transferuri de credit între instituții financiare în care transferul se face în cont propriu al instituției și nu în...
 lang: ro-RO
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "When should I choose pacs.009 over pacs.008?"
     answer: "Choose pacs.009 for own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions."

@@ -3,7 +3,7 @@ title: "条款 | pacs008"
 description: pacs008 网站的条款信息。 面向金融机构间客户信贷转账工作流的生成、校验、API 编排与合规支持。
 lang: zh-CN
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # 条款

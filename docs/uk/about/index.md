@@ -3,7 +3,7 @@ title: "Про pacs008 | pacs008"
 description: Що робить pacs008 і для кого він призначений.
 lang: uk-UA
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 howtoName: "How to implement ISO 20022 pacs.008 payment messages"
 howtoDescription: "Step-by-step checklist for rolling out ISO 20022 pacs.008 message generation and validation."
 howto:

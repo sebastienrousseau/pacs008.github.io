@@ -3,7 +3,7 @@ title: "pacs.004.001.11 | Zahlungsrückgabe | pacs008"
 description: Die Nachricht pacs.004 wird verwendet, um eine zuvor abgewickelte Zahlungstransaktion zurückzugeben. Sie kehrt den Geldfluss um, wenn eine Zahlung nicht...
 lang: de-DE
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "What is the difference between pacs.004 and pacs.007?"
     answer: "pacs.004 returns settled funds from the receiving side, while pacs.007 requests reversal from the original instructing side."

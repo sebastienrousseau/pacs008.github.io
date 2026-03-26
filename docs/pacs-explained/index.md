@@ -1,9 +1,9 @@
 ---
-title: "PACS messages explained | pacs008"
+title: PACS Messages Explained — ISO 20022 Payment Clearing
 description: "Detailed technical reference for ISO 20022 pacs messages: lifecycle, XML structure, settlement methods, reason codes, address types, identifiers..."
 lang: en-GB
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # PACS messages explained

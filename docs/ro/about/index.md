@@ -3,7 +3,7 @@ title: "Despre pacs008 | pacs008"
 description: Ce face pacs008 și cui se adresează.
 lang: ro-RO
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 howtoName: "How to implement ISO 20022 pacs.008 payment messages"
 howtoDescription: "Step-by-step checklist for rolling out ISO 20022 pacs.008 message generation and validation."
 howto:

@@ -3,7 +3,7 @@ title: "Условия | pacs008"
 description: Информация об условиях использования сайта pacs008.
 lang: ru-RU
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Условия

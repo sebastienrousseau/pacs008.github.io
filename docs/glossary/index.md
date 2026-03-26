@@ -1,9 +1,9 @@
 ---
-title: "ISO 20022 glossary | pacs008"
+title: ISO 20022 Glossary — Payment Messaging Terms Defined
 description: Definitions of key ISO 20022 and payment messaging terms used in pacs.008 and related messages.
 lang: en-GB
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # ISO 20022 glossary

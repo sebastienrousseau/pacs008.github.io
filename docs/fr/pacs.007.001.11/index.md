@@ -3,7 +3,7 @@ title: "pacs.007.001.11 | Annulation de paiement FI à FI | pacs008"
 description: "Le message pacs.007 est utilisé pour annuler une instruction de paiement précédemment envoyée qui n'a pas encore été réglée ou pour demander l'annulation..."
 lang: fr-FR
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Is pacs.007 only for fraud scenarios?"
     answer: "No. Fraud is a major use case, but any instructing-side need to reverse a payment can trigger it."

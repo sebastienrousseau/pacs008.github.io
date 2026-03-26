@@ -3,7 +3,7 @@ title: "pacs.003.001.09 | Клієнтське пряме дебетування
 description: Повідомлення pacs.003 передається між фінансовими установами для виконання доручення клієнта на пряме дебетування. Воно дозволяє банку кредитора стягувати...
 lang: uk-UA
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
     answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."

@@ -790,7 +790,7 @@ const pageCopy = {
   fr: {
     aboutTitle: "À propos de pacs008",
     aboutDescription: "Ce que fait pacs008 et à qui il s'adresse.",
-    aboutIntro: "pacs008 est une boîte à outils Python pour automatiser les flux ISO 20022 de virement client entre institutions financières.",
+    aboutIntro: "pacs008 est une boîte à outils Python pour les équipes qui doivent générer, valider et envoyer des messages de paiement ISO 20022 avec moins de corrections manuelles. Il aide les équipes de paiement à détecter les données erronées avant la mise en production.",
     whatItDoes: "Ce qu'il fait",
     whoItIsFor: "Pour qui",
     messageTitle: "Types de messages",
@@ -1145,11 +1145,13 @@ const pageCopy = {
     pacsExplainedTitle: "Les messages PACS expliqués",
     pacsExplainedDescription: "Référence technique détaillée pour les messages pacs ISO 20022 : cycle de vie, structure XML, méthodes de règlement, codes motif, types d'adresse, identifiants, remise et suivi UETR.",
     pacsExplainedIntro: "Cette page fournit une référence technique détaillée pour la famille de messages pacs ISO 20022. Elle couvre le fonctionnement des messages dans le cycle de vie complet d'un paiement, la structure XML, les méthodes de règlement, les codes motif, l'identification des parties, les informations de remise et le suivi de bout en bout.",
+    changelogTitle: "Changelog",
+    glossaryTitle: "Glossaire ISO 20022",
   },
   ar: {
     aboutTitle: "حول pacs008",
     aboutDescription: "ما يفعله pacs008 ولمن هو موجّه.",
-    aboutIntro: "pacs008 هي مجموعة أدوات Python لأتمتة تدفقات تحويل الائتمان ISO 20022 بين المؤسسات المالية.",
+    aboutIntro: "pacs008 هي مجموعة أدوات Python للفرق التي تحتاج إلى إنشاء رسائل الدفع ISO 20022 والتحقق منها وإرسالها مع تقليل الإصلاحات اليدوية. تساعد فرق الدفع على اكتشاف البيانات الخاطئة قبل الإنتاج.",
     whatItDoes: "ما يفعله",
     whoItIsFor: "لمن هو موجّه",
     messageTitle: "أنواع الرسائل",
@@ -1498,11 +1500,15 @@ const pageCopy = {
     structuredAddressAction3: "Add address validation to your pre-generation pipeline using pacs008.",
     structuredAddressAction4: "Test with representative payment data before the deadline.",
     structuredAddressRefsTitle: "References",
+    faqPageTitle: "الأسئلة الشائعة حول ISO 20022",
+    pacsExplainedTitle: "شرح رسائل PACS",
+    changelogTitle: "سجل التغييرات",
+    glossaryTitle: "مسرد مصطلحات ISO 20022",
   },
   de: {
     aboutTitle: "Über pacs008",
     aboutDescription: "Was pacs008 leistet und für wen es gedacht ist.",
-    aboutIntro: "pacs008 ist ein Python-Toolkit zur Automatisierung von ISO 20022-Kundenzahlungsabläufen zwischen Finanzinstituten.",
+    aboutIntro: "pacs008 ist ein Python-Toolkit für Teams, die ISO 20022 Zahlungsnachrichten mit weniger manuellem Korrekturaufwand erzeugen, validieren und versenden müssen. Es hilft Zahlungsteams, fehlerhafte Daten vor dem Versand zu erkennen.",
     whatItDoes: "Funktionen",
     whoItIsFor: "Zielgruppen",
     messageTitle: "Nachrichtentypen",
@@ -1857,11 +1863,13 @@ const pageCopy = {
     pacsExplainedTitle: "PACS-Nachrichten erklärt",
     pacsExplainedDescription: "Detaillierte technische Referenz für ISO 20022 pacs-Nachrichten: Lebenszyklus, XML-Struktur, Abwicklungsmethoden, Begründungscodes, Adresstypen, Kennungen, Überweisungsinformationen und UETR-Tracking.",
     pacsExplainedIntro: "Diese Seite bietet eine detaillierte technische Referenz für die ISO 20022 pacs-Nachrichtenfamilie. Sie behandelt den vollständigen Zahlungslebenszyklus, die XML-Struktur, Abwicklungsmethoden, Begründungscodes, Parteiidentifikation, Überweisungsinformationen und End-to-End-Tracking.",
+    changelogTitle: "Änderungsprotokoll",
+    glossaryTitle: "ISO 20022 Glossar",
   },
   es: {
     aboutTitle: "Acerca de pacs008",
     aboutDescription: "Qué hace pacs008 y a quién va dirigido.",
-    aboutIntro: "pacs008 es un kit de herramientas Python para automatizar flujos de transferencia de crédito ISO 20022 entre instituciones financieras.",
+    aboutIntro: "pacs008 es un kit de herramientas Python para equipos que necesitan generar, validar y enviar mensajes de pago ISO 20022 con menos correcciones manuales. Ayuda a los equipos de pagos a detectar datos erróneos antes de la puesta en producción.",
     whatItDoes: "Qué hace",
     whoItIsFor: "Para quién es",
     messageTitle: "Tipos de mensaje",
@@ -2216,11 +2224,13 @@ const pageCopy = {
     pacsExplainedTitle: "Mensajes PACS explicados",
     pacsExplainedDescription: "Referencia técnica detallada para mensajes pacs ISO 20022: ciclo de vida, estructura XML, métodos de liquidación, códigos de motivo, tipos de dirección, identificadores, información de remesa y seguimiento UETR.",
     pacsExplainedIntro: "Esta página proporciona una referencia técnica detallada para la familia de mensajes pacs ISO 20022. Cubre cómo funcionan los mensajes en el ciclo de vida completo de un pago, la estructura XML, los métodos de liquidación, los códigos de motivo, la identificación de partes, la información de remesa y el seguimiento de extremo a extremo.",
+    changelogTitle: "Registro de cambios",
+    glossaryTitle: "Glosario ISO 20022",
   },
   he: {
     aboutTitle: "אודות pacs008",
     aboutDescription: "מה pacs008 עושה ולמי הוא מיועד.",
-    aboutIntro: "pacs008 הוא ערכת כלים Python לאוטומציה של תהליכי העברת אשראי ISO 20022 בין מוסדות פיננסיים.",
+    aboutIntro: "pacs008 הוא ערכת כלים Python לצוותות שצריכים ליצור, לאמת ולשלוח הודעות תשלום ISO 20022 עם פחות תיקונים ידניים. הוא עוזר לצוותי תשלומים לזהות נתונים שגויים לפני שליחה לייצור.",
     whatItDoes: "מה הוא עושה",
     whoItIsFor: "למי הוא מיועד",
     messageTitle: "סוגי הודעות",
@@ -2569,11 +2579,15 @@ const pageCopy = {
     structuredAddressAction3: "Add address validation to your pre-generation pipeline using pacs008.",
     structuredAddressAction4: "Test with representative payment data before the deadline.",
     structuredAddressRefsTitle: "References",
+    faqPageTitle: "שאלות נפוצות על ISO 20022",
+    pacsExplainedTitle: "הסבר על הודעות PACS",
+    changelogTitle: "יומן שינויים",
+    glossaryTitle: "מילון מונחים ISO 20022",
   },
   hi: {
     aboutTitle: "pacs008 के बारे में",
     aboutDescription: "pacs008 क्या करता है और यह किसके लिए है।",
-    aboutIntro: "pacs008 वित्तीय संस्थानों के बीच ISO 20022 ग्राहक क्रेडिट ट्रांसफर वर्कफ़्लो को स्वचालित करने के लिए एक Python टूलकिट है।",
+    aboutIntro: "pacs008 उन टीमों के लिए एक Python टूलकिट है जिन्हें कम मैनुअल मरम्मत के साथ ISO 20022 भुगतान संदेश उत्पन्न, मान्य और भेजने की आवश्यकता है। यह भुगतान टीमों को उत्पादन से पहले खराब डेटा पकड़ने में मदद करता है।",
     whatItDoes: "यह क्या करता है",
     whoItIsFor: "यह किसके लिए है",
     messageTitle: "संदेश प्रकार",
@@ -2922,11 +2936,15 @@ const pageCopy = {
     structuredAddressAction3: "Add address validation to your pre-generation pipeline using pacs008.",
     structuredAddressAction4: "Test with representative payment data before the deadline.",
     structuredAddressRefsTitle: "References",
+    faqPageTitle: "ISO 20022 के बारे में अक्सर पूछे जाने वाले प्रश्न",
+    pacsExplainedTitle: "PACS संदेशों की व्याख्या",
+    changelogTitle: "परिवर्तन लॉग",
+    glossaryTitle: "ISO 20022 शब्दावली",
   },
   id: {
     aboutTitle: "Tentang pacs008",
     aboutDescription: "Apa yang dilakukan pacs008 dan untuk siapa.",
-    aboutIntro: "pacs008 adalah toolkit Python untuk mengotomatisasi alur kerja transfer kredit ISO 20022 antar lembaga keuangan.",
+    aboutIntro: "pacs008 adalah toolkit Python untuk tim yang perlu membuat, memvalidasi, dan mengirim pesan pembayaran ISO 20022 dengan lebih sedikit perbaikan manual. Toolkit ini membantu tim pembayaran mendeteksi data yang salah sebelum produksi.",
     whatItDoes: "Apa yang dilakukan",
     whoItIsFor: "Untuk siapa",
     messageTitle: "Jenis Pesan",
@@ -3275,11 +3293,15 @@ const pageCopy = {
     structuredAddressAction3: "Add address validation to your pre-generation pipeline using pacs008.",
     structuredAddressAction4: "Test with representative payment data before the deadline.",
     structuredAddressRefsTitle: "References",
+    faqPageTitle: "Pertanyaan umum tentang ISO 20022",
+    pacsExplainedTitle: "Penjelasan pesan PACS",
+    changelogTitle: "Catatan perubahan",
+    glossaryTitle: "Glosarium ISO 20022",
   },
   it: {
     aboutTitle: "Informazioni su pacs008",
     aboutDescription: "Cosa fa pacs008 e a chi è destinato.",
-    aboutIntro: "pacs008 è un toolkit Python per automatizzare i flussi di trasferimento credito ISO 20022 tra istituzioni finanziarie.",
+    aboutIntro: "pacs008 è un toolkit Python per i team che devono generare, validare e inviare messaggi di pagamento ISO 20022 con meno correzioni manuali. Aiuta i team di pagamento a individuare dati errati prima della messa in produzione.",
     whatItDoes: "Cosa fa",
     whoItIsFor: "A chi è destinato",
     messageTitle: "Tipi di messaggio",
@@ -3628,11 +3650,15 @@ const pageCopy = {
     structuredAddressAction3: "Add address validation to your pre-generation pipeline using pacs008.",
     structuredAddressAction4: "Test with representative payment data before the deadline.",
     structuredAddressRefsTitle: "References",
+    faqPageTitle: "Domande frequenti su ISO 20022",
+    pacsExplainedTitle: "Spiegazione dei messaggi PACS",
+    changelogTitle: "Registro delle modifiche",
+    glossaryTitle: "Glossario ISO 20022",
   },
   ja: {
     aboutTitle: "pacs008 について",
     aboutDescription: "pacs008 の機能と対象ユーザー。",
-    aboutIntro: "pacs008 は、金融機関間の ISO 20022 顧客クレジット移転ワークフローを自動化するための Python ツールキットです。",
+    aboutIntro: "pacs008 は、手作業による修正を減らして ISO 20022 決済メッセージを生成・検証・送信する必要があるチーム向けの Python ツールキットです。本番リリース前に不良データを検出します。",
     whatItDoes: "機能",
     whoItIsFor: "対象ユーザー",
     messageTitle: "メッセージ種別",
@@ -3981,6 +4007,10 @@ const pageCopy = {
     structuredAddressAction3: "Add address validation to your pre-generation pipeline using pacs008.",
     structuredAddressAction4: "Test with representative payment data before the deadline.",
     structuredAddressRefsTitle: "References",
+    faqPageTitle: "ISO 20022 に関するよくある質問",
+    pacsExplainedTitle: "PACS メッセージの解説",
+    changelogTitle: "変更履歴",
+    glossaryTitle: "ISO 20022 用語集",
   },
   ko: {
     aboutTitle: "pacs008 소개",
@@ -4334,6 +4364,10 @@ const pageCopy = {
     structuredAddressAction3: "Add address validation to your pre-generation pipeline using pacs008.",
     structuredAddressAction4: "Test with representative payment data before the deadline.",
     structuredAddressRefsTitle: "References",
+    faqPageTitle: "ISO 20022 자주 묻는 질문",
+    pacsExplainedTitle: "PACS 메시지 설명",
+    changelogTitle: "변경 이력",
+    glossaryTitle: "ISO 20022 용어집",
   },
   nl: {
     aboutTitle: "Over pacs008",
@@ -4687,6 +4721,10 @@ const pageCopy = {
     structuredAddressAction3: "Add address validation to your pre-generation pipeline using pacs008.",
     structuredAddressAction4: "Test with representative payment data before the deadline.",
     structuredAddressRefsTitle: "References",
+    faqPageTitle: "Veelgestelde vragen over ISO 20022",
+    pacsExplainedTitle: "PACS-berichten uitgelegd",
+    changelogTitle: "Wijzigingslogboek",
+    glossaryTitle: "ISO 20022 woordenlijst",
   },
   pl: {
     aboutTitle: "O pacs008",
@@ -5040,6 +5078,10 @@ const pageCopy = {
     structuredAddressAction3: "Add address validation to your pre-generation pipeline using pacs008.",
     structuredAddressAction4: "Test with representative payment data before the deadline.",
     structuredAddressRefsTitle: "References",
+    faqPageTitle: "Często zadawane pytania o ISO 20022",
+    pacsExplainedTitle: "Objaśnienie komunikatów PACS",
+    changelogTitle: "Dziennik zmian",
+    glossaryTitle: "Słownik pojęć ISO 20022",
   },
   pt: {
     aboutTitle: "Sobre o pacs008",
@@ -5393,6 +5435,10 @@ const pageCopy = {
     structuredAddressAction3: "Add address validation to your pre-generation pipeline using pacs008.",
     structuredAddressAction4: "Test with representative payment data before the deadline.",
     structuredAddressRefsTitle: "References",
+    faqPageTitle: "Perguntas frequentes sobre ISO 20022",
+    pacsExplainedTitle: "Explicação das mensagens PACS",
+    changelogTitle: "Registro de alterações",
+    glossaryTitle: "Glossário ISO 20022",
   },
   ro: {
     aboutTitle: "Despre pacs008",
@@ -5746,6 +5792,10 @@ const pageCopy = {
     structuredAddressAction3: "Add address validation to your pre-generation pipeline using pacs008.",
     structuredAddressAction4: "Test with representative payment data before the deadline.",
     structuredAddressRefsTitle: "References",
+    faqPageTitle: "Întrebări frecvente despre ISO 20022",
+    pacsExplainedTitle: "Explicarea mesajelor PACS",
+    changelogTitle: "Jurnal de modificări",
+    glossaryTitle: "Glosar ISO 20022",
   },
   ru: {
     aboutTitle: "О pacs008",
@@ -6099,11 +6149,15 @@ const pageCopy = {
     structuredAddressAction3: "Add address validation to your pre-generation pipeline using pacs008.",
     structuredAddressAction4: "Test with representative payment data before the deadline.",
     structuredAddressRefsTitle: "References",
+    faqPageTitle: "Часто задаваемые вопросы об ISO 20022",
+    pacsExplainedTitle: "Описание сообщений PACS",
+    changelogTitle: "Журнал изменений",
+    glossaryTitle: "Глоссарий ISO 20022",
   },
   th: {
     aboutTitle: "เกี่ยวกับ pacs008",
     aboutDescription: "pacs008 ทำอะไรและเหมาะสำหรับใคร",
-    aboutIntro: "pacs008 เป็นชุดเครื่องมือ Python สำหรับอัตโนมัติเวิร์กโฟลว์การโอนเครดิตลูกค้า ISO 20022 ระหว่างสถาบันการเงิน",
+    aboutIntro: "pacs008 เป็นชุดเครื่องมือ Python สำหรับทีมที่ต้องสร้าง ตรวจสอบ และส่งข้อความชำระเงิน ISO 20022 โดยลดการแก้ไขด้วยมืออย่างมาก ช่วยทีมชำระเงินตรวจจับข้อมูลที่ผิดพลาดก่อนนำขึ้นใช้งานจริง",
     whatItDoes: "สิ่งที่ทำได้",
     whoItIsFor: "เหมาะสำหรับใคร",
     messageTitle: "ประเภทข้อความ",
@@ -6452,6 +6506,10 @@ const pageCopy = {
     structuredAddressAction3: "Add address validation to your pre-generation pipeline using pacs008.",
     structuredAddressAction4: "Test with representative payment data before the deadline.",
     structuredAddressRefsTitle: "References",
+    faqPageTitle: "คำถามที่พบบ่อยเกี่ยวกับ ISO 20022",
+    pacsExplainedTitle: "อธิบายข้อความ PACS",
+    changelogTitle: "บันทึกการเปลี่ยนแปลง",
+    glossaryTitle: "อภิธานศัพท์ ISO 20022",
   },
   tr: {
     aboutTitle: "pacs008 Hakkında",
@@ -6805,6 +6863,10 @@ const pageCopy = {
     structuredAddressAction3: "Add address validation to your pre-generation pipeline using pacs008.",
     structuredAddressAction4: "Test with representative payment data before the deadline.",
     structuredAddressRefsTitle: "References",
+    faqPageTitle: "ISO 20022 hakkında sık sorulan sorular",
+    pacsExplainedTitle: "PACS mesajlarının açıklaması",
+    changelogTitle: "Değişiklik günlüğü",
+    glossaryTitle: "ISO 20022 terimler sözlüğü",
   },
   uk: {
     aboutTitle: "Про pacs008",
@@ -7158,6 +7220,10 @@ const pageCopy = {
     structuredAddressAction3: "Add address validation to your pre-generation pipeline using pacs008.",
     structuredAddressAction4: "Test with representative payment data before the deadline.",
     structuredAddressRefsTitle: "References",
+    faqPageTitle: "Поширені запитання про ISO 20022",
+    pacsExplainedTitle: "Пояснення повідомлень PACS",
+    changelogTitle: "Журнал змін",
+    glossaryTitle: "Глосарій ISO 20022",
   },
   vi: {
     aboutTitle: "Giới thiệu pacs008",
@@ -7511,6 +7577,10 @@ const pageCopy = {
     structuredAddressAction3: "Add address validation to your pre-generation pipeline using pacs008.",
     structuredAddressAction4: "Test with representative payment data before the deadline.",
     structuredAddressRefsTitle: "References",
+    faqPageTitle: "Câu hỏi thường gặp về ISO 20022",
+    pacsExplainedTitle: "Giải thích các thông điệp PACS",
+    changelogTitle: "Nhật ký thay đổi",
+    glossaryTitle: "Thuật ngữ ISO 20022",
   },
   zh: {
     aboutTitle: "关于 pacs008",
@@ -7864,6 +7934,10 @@ const pageCopy = {
     structuredAddressAction3: "Add address validation to your pre-generation pipeline using pacs008.",
     structuredAddressAction4: "Test with representative payment data before the deadline.",
     structuredAddressRefsTitle: "References",
+    faqPageTitle: "ISO 20022 常见问题",
+    pacsExplainedTitle: "PACS 消息详解",
+    changelogTitle: "更新日志",
+    glossaryTitle: "ISO 20022 术语表",
   },
   "zh-tw": {
     aboutTitle: "關於 pacs008",
@@ -8217,6 +8291,10 @@ const pageCopy = {
     structuredAddressAction3: "Add address validation to your pre-generation pipeline using pacs008.",
     structuredAddressAction4: "Test with representative payment data before the deadline.",
     structuredAddressRefsTitle: "References",
+    faqPageTitle: "ISO 20022 常見問題",
+    pacsExplainedTitle: "PACS 訊息詳解",
+    changelogTitle: "更新日誌",
+    glossaryTitle: "ISO 20022 詞彙表",
   }
 };
 
@@ -11826,7 +11904,7 @@ function yamlSafe(value) {
 }
 
 function pageTemplate({ title, description, lang, body, extraFrontmatter }) {
-  let fm = `---\ntitle: ${yamlSafe(title)}\ndescription: ${yamlSafe(description)}\nlang: ${lang}\nlastUpdated: true\nimage: /logo.svg`;
+  let fm = `---\ntitle: ${yamlSafe(title)}\ndescription: ${yamlSafe(description)}\nlang: ${lang}\nlastUpdated: true\nimage: /logo.webp`;
   if (extraFrontmatter) fm += `\n${extraFrontmatter}`;
   fm += `\n---\n\n${body}\n`;
   return fm;
@@ -12713,19 +12791,27 @@ function pageTitle(primary, suffix = "pacs008") {
 }
 
 function sectionPageTitle(localeKey, section, fallback) {
-  if (localeKey !== "en") return fallback;
-
   const titles = {
-    about: "About pacs008 - ISO 20022 toolkit",
-    "message-types": "Supported ISO 20022 message types",
-    "message-selection": "Choose the right ISO 20022 pacs message",
-    api: "pacs008 API - validate data and generate XML",
-    contact: "Contact the pacs008 project",
-    privacy: "Privacy notice for pacs008",
-    terms: "Terms of use for pacs008"
+    about: "About pacs008 — ISO 20022 Payment Message Toolkit",
+    "message-types": "ISO 20022 PACS Message Types — Supported Versions",
+    "message-selection": "ISO 20022 Message Selection — Choose the Right pacs Type",
+    api: "pacs008 API — Validate Data and Generate ISO 20022 XML",
+    contact: "Contact pacs008 — Questions, Support, and Feedback",
+    privacy: "Privacy Notice — pacs008 Data Protection Policy",
+    terms: "Terms of Use — pacs008 ISO 20022 Toolkit",
+    faq: "ISO 20022 FAQ — Common pacs Payment Message Questions",
+    glossary: "ISO 20022 Glossary — Payment Messaging Terms Defined",
+    changelog: "Changelog — pacs008 Release Notes and Version History",
+    "pacs-explained": "PACS Messages Explained — ISO 20022 Payment Clearing",
+    "structured-address": "November 2026 Structured Address Deadline — CBPR+",
+    editorial: "Editorial Policy — pacs008 Content Guidelines",
   };
-
-  return pageTitle(titles[section] ?? fallback);
+  // For English, use the curated title. For other locales, use the
+  // translated fallback which already contains the locale's page title.
+  if (localeKey === "en" && titles[section]) {
+    return titles[section];
+  }
+  return fallback;
 }
 
 function sentenceListItem(localeKey, value) {
@@ -12742,7 +12828,7 @@ description: ${clampDescription(locale.tagline)}
 lang: ${locale.lang}
 author: Sebastien Rousseau
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 imageAlt: pacs008
 canonical: ${locale.key === "en" ? "/" : `/${locale.key}/`}
 robots: ${isCanonicalEnglishHome ? "noindex, follow" : "index, follow"}
@@ -21592,7 +21678,7 @@ description: ${clampDescription(locales[0].tagline)}
 lang: en-GB
 author: Sebastien Rousseau
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 imageAlt: pacs008
 canonical: /
 robots: index, follow
@@ -21604,11 +21690,22 @@ pageType: home
 schemaType: WebSite
 heroText: ${locales[0].hero}
 home: true
-metaTitle: pacs008
+metaTitle: "pacs008 — ISO 20022 Payment Message Toolkit and API"
 subtitle: ${locales[0].tagline}
 tagline: ${locales[0].tagline}
-actionText: ${locales[0].cta}
+actionText: Get Started
 actionLink: /about/
+actionText2: View API
+actionLink2: /api/
+features:
+  - title: "What it does"
+    details: "Generates XML for \`pacs.008\` and related pacs message definitions; Validates data and XML against schemas; Exposes a FastAPI service for automated workflows"
+  - title: "Validation"
+    details: "JSON Schema validation against 20 message-specific schemas; IBAN format and checksum verification covering 75 countries; XSD validation of generated XML against official ISO 20022 schemas"
+  - title: "Security"
+    details: "XXE prevention via defusedxml for all XML parsing operations; Path traversal protection with strict directory allowlist; PII masking in structured JSON logs for GDPR and PCI DSS compliance"
+  - title: "2026 Readiness"
+    details: "Structured and hybrid postal address handling for CBPR+ and schema migrations; Stronger debtor, creditor, and agent data-quality validation; Version-aware generation across legacy and current pacs.008 revisions"
 ---
 `
 );

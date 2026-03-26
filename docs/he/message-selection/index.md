@@ -3,7 +3,7 @@ title: "מדריך בחירת הודעות | pacs008"
 description: בחרו את הודעת pacs המתאימה של ISO 20022 ליצירה, סטטוס, החזרות, היפוכים ובירורים.
 lang: he-IL
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # מדריך בחירת הודעות

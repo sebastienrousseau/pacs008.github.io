@@ -3,7 +3,7 @@ title: "pacs.003.001.09 | Addebito diretto cliente tra istituzioni finanziarie |
 description: "Il messaggio pacs.003 viene scambiato tra istituti finanziari per eseguire un'istruzione di addebito diretto del cliente. Consente alla banca del..."
 lang: it-IT
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
     answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."

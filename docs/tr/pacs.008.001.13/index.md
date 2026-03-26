@@ -3,7 +3,7 @@ title: "pacs.008.001.13 | FI'dan FI'ya müşteri kredi transferi | pacs008"
 description: pacs.008 mesajı, bir müşteri adına fon transfer etmek üzere finans kuruluşları arasında iletilen temel ödeme talimatıdır. Bir veya daha fazla kredi...
 lang: tr-TR
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Is pacs.008 enough on its own for production payments?"
     answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."

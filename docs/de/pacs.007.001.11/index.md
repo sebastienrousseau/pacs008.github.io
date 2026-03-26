@@ -3,7 +3,7 @@ title: "pacs.007.001.11 | FI-zu-FI-Zahlungsstornierung | pacs008"
 description: Die Nachricht pacs.007 wird verwendet, um eine zuvor gesendete Zahlungsanweisung umzukehren, die noch nicht abgewickelt wurde, oder um die Umkehrung einer...
 lang: de-DE
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Is pacs.007 only for fraud scenarios?"
     answer: "No. Fraud is a major use case, but any instructing-side need to reverse a payment can trigger it."

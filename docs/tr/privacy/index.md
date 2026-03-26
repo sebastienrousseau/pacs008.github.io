@@ -3,7 +3,7 @@ title: "Gizlilik | pacs008"
 description: pacs008 web sitesi gizlilik bilgileri.
 lang: tr-TR
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Gizlilik

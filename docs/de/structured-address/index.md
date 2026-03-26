@@ -3,7 +3,7 @@ title: "Frist für strukturierte Adressen November 2026 | pacs008"
 description: Auswirkungen der SWIFT CBPR+ Frist im November 2026 für strukturierte Postanschriften auf pacs.008 und verwandte Zahlungsnachrichten, und wie pacs008...
 lang: de-DE
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 howtoName: "How to prepare for the November 2026 structured postal address deadline"
 howtoDescription: "Steps to audit, map, validate, and test postal address data before the SWIFT CBPR+ November 2026 deadline."
 howto:

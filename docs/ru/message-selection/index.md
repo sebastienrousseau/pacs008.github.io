@@ -3,7 +3,7 @@ title: "Руководство по выбору сообщений | pacs008"
 description: Выберите подходящее сообщение ISO 20022 pacs для генерации, статусов, возвратов, сторно и запросов.
 lang: ru-RU
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Руководство по выбору сообщений

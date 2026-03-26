@@ -3,7 +3,7 @@ title: "Voorwaarden | pacs008"
 description: Voorwaarden-informatie voor de pacs008-website.
 lang: nl-NL
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Voorwaarden

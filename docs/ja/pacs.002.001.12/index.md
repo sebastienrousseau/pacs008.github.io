@@ -3,7 +3,7 @@ title: "pacs.002.001.12 | 金融機関間支払ステータス報告 | pacs008"
 description: pacs.002 メッセージは、金融機関が以前に送信した支払指図のステータスを報告するために送信します。支払メッセージ内の個々の取引について、確認、拒否、または保留中のステータス情報を提供します。
 lang: ja-JP
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Is pacs.002 a payment message?"
     answer: "No. It reports status for an earlier instruction rather than moving value itself."

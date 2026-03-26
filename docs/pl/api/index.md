@@ -3,7 +3,7 @@ title: "API | pacs008"
 description: Obsługa przepływów REST i CLI w pacs008.
 lang: pl-PL
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # API

@@ -3,7 +3,7 @@ title: "Datenschutz | pacs008"
 description: Datenschutzinformationen für die pacs008-Website.
 lang: de-DE
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Datenschutz

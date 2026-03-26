@@ -3,7 +3,7 @@ title: "İletişim | pacs008"
 description: pacs008 projesine nasıl ulaşılır.
 lang: tr-TR
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # İletişim

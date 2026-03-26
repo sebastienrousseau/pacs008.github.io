@@ -3,7 +3,7 @@ title: "pacs.007.001.11 | 金融機関間支払取消 | pacs008"
 description: pacs.007 メッセージは、まだ決済されていない以前に送信した支払指図を取り消すため、または決済済み支払の取り消しを要求するために使用されます。pacs.004（返却）とは異なり、元の指図元エージェントが開始します。
 lang: ja-JP
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Is pacs.007 only for fraud scenarios?"
     answer: "No. Fraud is a major use case, but any instructing-side need to reverse a payment can trigger it."

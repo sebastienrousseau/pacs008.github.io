@@ -4,7 +4,7 @@ description: वित्तीय संस्थानों के बीच 
 lang: hi-IN
 author: Sebastien Rousseau
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 imageAlt: pacs008
 canonical: /hi/
 robots: index, follow

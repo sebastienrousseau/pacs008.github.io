@@ -3,7 +3,7 @@ title: "Quyền riêng tư | pacs008"
 description: Thông tin quyền riêng tư cho trang web pacs008.
 lang: vi-VN
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Quyền riêng tư

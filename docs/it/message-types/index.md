@@ -3,7 +3,7 @@ title: "Tipi di messaggio | pacs008 ISO 20022"
 description: Definizioni e versioni di messaggi pacs ISO 20022 supportate.
 lang: it-IT
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Tipi di messaggio

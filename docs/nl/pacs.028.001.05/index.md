@@ -3,7 +3,7 @@ title: "pacs.028.001.05 | FI-naar-FI-aanvraag betalingsstatus | pacs008"
 description: Het pacs.028-bericht wordt door een financiële instelling verzonden om de status op te vragen van een eerder verzonden betalingsinstructie. Het maakt...
 lang: nl-NL
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Should pacs.028 be sent after every payment?"
     answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic."

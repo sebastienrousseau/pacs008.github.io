@@ -3,7 +3,7 @@ title: "Типы сообщений | pacs008 ISO 20022"
 description: Поддерживаемые определения и версии сообщений ISO 20022 pacs.
 lang: ru-RU
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Типы сообщений

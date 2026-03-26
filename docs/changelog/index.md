@@ -1,9 +1,9 @@
 ---
-title: "Changelog | pacs008"
+title: Changelog — pacs008 Release Notes and Version History
 description: Version history and release notes for the pacs008 toolkit. Track new features, improvements, and fixes across releases.
 lang: en-GB
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Changelog

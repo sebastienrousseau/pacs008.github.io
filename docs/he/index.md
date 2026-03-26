@@ -4,7 +4,7 @@ description: יצירה, אימות, תיאום API ותמיכת ציות לתה
 lang: he-IL
 author: Sebastien Rousseau
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 imageAlt: pacs008
 canonical: /he/
 robots: index, follow

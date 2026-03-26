@@ -1,9 +1,9 @@
 ---
-title: "Frequently asked questions | pacs008"
+title: ISO 20022 FAQ — Common pacs Payment Message Questions
 description: Common questions about ISO 20022 pacs messages, CBPR+ migration, message selection, implementation, and the pacs008 toolkit.
 lang: en-GB
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Frequently asked questions

@@ -3,7 +3,7 @@ title: "اتصل بنا | pacs008"
 description: كيفية التواصل مع مشروع pacs008. التوليد والتحقق وتنسيق واجهات البرمجة ودعم الامتثال لتدفقات تحويل الائتمان بين المؤسسات المالية.
 lang: ar-SA
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # اتصل بنا

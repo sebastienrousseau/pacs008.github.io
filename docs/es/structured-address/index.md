@@ -3,7 +3,7 @@ title: "Plazo de dirección estructurada noviembre 2026 | pacs008"
 description: Cómo afecta el plazo SWIFT CBPR+ de noviembre 2026 para direcciones postales estructuradas a pacs.008 y mensajes de pago relacionados, y cómo pacs008...
 lang: es-ES
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 howtoName: "How to prepare for the November 2026 structured postal address deadline"
 howtoDescription: "Steps to audit, map, validate, and test postal address data before the SWIFT CBPR+ November 2026 deadline."
 howto:

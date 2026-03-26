@@ -4,7 +4,7 @@ description: Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk a
 lang: id-ID
 author: Sebastien Rousseau
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 imageAlt: pacs008
 canonical: /id/
 robots: index, follow

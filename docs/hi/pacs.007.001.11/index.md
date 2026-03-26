@@ -3,7 +3,7 @@ title: "pacs.007.001.11 | FI-से-FI भुगतान रिवर्सल 
 description: pacs.007 संदेश का उपयोग पहले भेजे गए भुगतान निर्देश को उलटने के लिए किया जाता है जो अभी तक निपटाया नहीं गया है या निपटाए गए भुगतान के प्रत्यावर्तन का...
 lang: hi-IN
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Is pacs.007 only for fraud scenarios?"
     answer: "No. Fraud is a major use case, but any instructing-side need to reverse a payment can trigger it."

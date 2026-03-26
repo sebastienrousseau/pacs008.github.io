@@ -3,7 +3,7 @@ title: "À propos de pacs008 | pacs008"
 description: "Ce que fait pacs008 et à qui il s'adresse."
 lang: fr-FR
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 howtoName: "How to implement ISO 20022 pacs.008 payment messages"
 howtoDescription: "Step-by-step checklist for rolling out ISO 20022 pacs.008 message generation and validation."
 howto:
@@ -19,7 +19,7 @@ howto:
 
 # À propos de pacs008
 
-pacs008 est une boîte à outils Python pour automatiser les flux ISO 20022 de virement client entre institutions financières.
+pacs008 est une boîte à outils Python pour les équipes qui doivent générer, valider et envoyer des messages de paiement ISO 20022 avec moins de corrections manuelles. Il aide les équipes de paiement à détecter les données erronées avant la mise en production.
 
 ## Ce qu'il fait
 

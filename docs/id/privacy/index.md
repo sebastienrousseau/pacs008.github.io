@@ -3,7 +3,7 @@ title: "Privasi | pacs008"
 description: Informasi privasi untuk situs web pacs008.
 lang: id-ID
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Privasi

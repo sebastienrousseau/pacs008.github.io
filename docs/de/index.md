@@ -4,7 +4,7 @@ description: Generierung, Validierung, API-Orchestrierung und Compliance-Unterst
 lang: de-DE
 author: Sebastien Rousseau
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 imageAlt: pacs008
 canonical: /de/
 robots: index, follow

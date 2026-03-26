@@ -3,7 +3,7 @@ title: "pacs.004.001.11 | إرجاع المدفوعات | pacs008"
 description: يُستخدم رسالة pacs.004 لإرجاع معاملة دفع تمت تسويتها سابقاً. يعكس تدفق الأموال عندما لا يمكن تطبيق الدفع أو تم إرساله بالخطأ أو يتم استرداده من المؤسسة...
 lang: ar-SA
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "What is the difference between pacs.004 and pacs.007?"
     answer: "pacs.004 returns settled funds from the receiving side, while pacs.007 requests reversal from the original instructing side."

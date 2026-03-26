@@ -3,7 +3,7 @@ title: "Điều khoản | pacs008"
 description: Thông tin điều khoản cho trang web pacs008.
 lang: vi-VN
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Điều khoản

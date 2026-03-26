@@ -3,7 +3,7 @@ title: "pacs.002.001.12 | Raport statusu płatności FI-do-FI | pacs008"
 description: Komunikat pacs.002 jest wysyłany przez instytucję finansową w celu raportowania statusu wcześniej wysłanej instrukcji płatniczej. Dostarcza informacje o...
 lang: pl-PL
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Is pacs.002 a payment message?"
     answer: "No. It reports status for an earlier instruction rather than moving value itself."

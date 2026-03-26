@@ -3,7 +3,7 @@ title: "pacs.007.001.11 | Storno di pagamento tra istituzioni finanziarie | pacs
 description: "Il messaggio pacs.007 viene utilizzato per stornare un'istruzione di pagamento precedentemente inviata che non è ancora stata regolata o per richiedere lo..."
 lang: it-IT
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Is pacs.007 only for fraud scenarios?"
     answer: "No. Fraud is a major use case, but any instructing-side need to reverse a payment can trigger it."

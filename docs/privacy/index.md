@@ -1,9 +1,9 @@
 ---
-title: "Privacy notice for pacs008 | pacs008"
+title: Privacy Notice — pacs008 Data Protection Policy
 description: Read how pacs008.com handles website data, uses basic analytics, and explains visitor privacy rights and limits.
 lang: en-GB
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Privacy

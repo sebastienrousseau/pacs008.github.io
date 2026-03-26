@@ -1,12 +1,12 @@
 ---
-title: "Frequently asked questions | pacs008"
+title: "ISO 20022 に関するよくある質問 | pacs008"
 description: Common questions about ISO 20022 pacs messages, CBPR+ migration, message selection, implementation, and the pacs008 toolkit.
 lang: ja-JP
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
-# Frequently asked questions
+# ISO 20022 に関するよくある質問
 
 This page answers common questions about ISO 20022 pacs messages, how they work together, and how pacs008 helps teams implement them.
 

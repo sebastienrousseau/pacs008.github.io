@@ -3,7 +3,7 @@ title: "隱私 | pacs008"
 description: pacs008 網站的隱私資訊。 面向金融機構間客戶信貸轉帳工作流程的產生、驗證、API 編排與合規支援。
 lang: zh-TW
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # 隱私

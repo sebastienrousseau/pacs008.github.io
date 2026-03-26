@@ -3,7 +3,7 @@ title: "API | pacs008"
 description: pacs008 में REST और CLI वर्कफ़्लो समर्थन।
 lang: hi-IN
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # API

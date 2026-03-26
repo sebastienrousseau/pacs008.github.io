@@ -3,7 +3,7 @@ title: "Échéance adresse structurée novembre 2026 | pacs008"
 description: "Impact de l'échéance SWIFT CBPR+ de novembre 2026 sur les adresses postales structurées pour pacs.008 et les messages de paiement associés, et comment..."
 lang: fr-FR
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 howtoName: "How to prepare for the November 2026 structured postal address deadline"
 howtoDescription: "Steps to audit, map, validate, and test postal address data before the SWIFT CBPR+ November 2026 deadline."
 howto:

@@ -3,7 +3,7 @@ title: "Contatti | pacs008"
 description: Come contattare il progetto pacs008. Generazione, validazione, orchestrazione API e conformità per i flussi di bonifico cliente tra istituzioni finanziarie.
 lang: it-IT
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Contatti

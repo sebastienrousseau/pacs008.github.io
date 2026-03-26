@@ -3,7 +3,7 @@ title: "Typy wiadomości | pacs008 ISO 20022"
 description: Obsługiwane definicje i wersje wiadomości pacs ISO 20022.
 lang: pl-PL
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Typy wiadomości

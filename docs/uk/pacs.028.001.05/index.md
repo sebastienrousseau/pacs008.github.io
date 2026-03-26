@@ -3,7 +3,7 @@ title: "pacs.028.001.05 | Запит статусу платежу між фін
 description: Повідомлення pacs.028 надсилається фінансовою установою для запиту статусу раніше надісланого платіжного доручення. Воно забезпечує проактивне відстеження...
 lang: uk-UA
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Should pacs.028 be sent after every payment?"
     answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic."

@@ -3,7 +3,7 @@ title: "Nachrichtentypen | pacs008 ISO 20022"
 description: Unterstützte ISO 20022 pacs-Nachrichtendefinitionen und Versionen.
 lang: de-DE
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Nachrichtentypen

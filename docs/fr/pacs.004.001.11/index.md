@@ -3,7 +3,7 @@ title: "pacs.004.001.11 | Retour de paiement | pacs008"
 description: "Le message pacs.004 est utilisé pour retourner une transaction de paiement précédemment réglée. Il inverse le flux de fonds lorsqu'un paiement ne peut..."
 lang: fr-FR
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "What is the difference between pacs.004 and pacs.007?"
     answer: "pacs.004 returns settled funds from the receiving side, while pacs.007 requests reversal from the original instructing side."

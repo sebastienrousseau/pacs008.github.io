@@ -1,9 +1,9 @@
 ---
-title: "Contact the pacs008 project | pacs008"
+title: Contact pacs008 — Questions, Support, and Feedback
 description: Find the pacs008 repository, releases, and package links for support, issue reporting, and implementation questions.
 lang: en-GB
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Contact

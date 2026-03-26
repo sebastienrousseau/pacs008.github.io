@@ -3,7 +3,7 @@ title: "אודות pacs008 | pacs008"
 description: מה pacs008 עושה ולמי הוא מיועד. יצירה, אימות, תיאום API ותמיכת ציות לתהליכי העברת אשראי ללקוחות בין מוסדות פיננסיים.
 lang: he-IL
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 howtoName: "How to implement ISO 20022 pacs.008 payment messages"
 howtoDescription: "Step-by-step checklist for rolling out ISO 20022 pacs.008 message generation and validation."
 howto:
@@ -19,7 +19,7 @@ howto:
 
 # אודות pacs008
 
-pacs008 הוא ערכת כלים Python לאוטומציה של תהליכי העברת אשראי ISO 20022 בין מוסדות פיננסיים.
+pacs008 הוא ערכת כלים Python לצוותות שצריכים ליצור, לאמת ולשלוח הודעות תשלום ISO 20022 עם פחות תיקונים ידניים. הוא עוזר לצוותי תשלומים לזהות נתונים שגויים לפני שליחה לייצור.
 
 ## מה הוא עושה
 

@@ -3,7 +3,7 @@ title: "Privacidade | pacs008"
 description: Informações de privacidade do site pacs008.
 lang: pt-BR
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Privacidade

@@ -1,9 +1,9 @@
 ---
-title: "Terms of use for pacs008 | pacs008"
+title: Terms of Use — pacs008 ISO 20022 Toolkit
 description: Read the pacs008.com terms of use, intellectual property notice, third-party link terms, and liability limits.
 lang: en-GB
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Terms

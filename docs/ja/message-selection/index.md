@@ -3,7 +3,7 @@ title: "メッセージ選択ガイド | pacs008"
 description: 生成、ステータス報告、返却、取消、照会に適した ISO 20022 pacs メッセージを選択します。
 lang: ja-JP
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # メッセージ選択ガイド

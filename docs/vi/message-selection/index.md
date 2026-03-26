@@ -3,7 +3,7 @@ title: "Hướng dẫn chọn thông điệp | pacs008"
 description: Chọn đúng thông điệp pacs ISO 20022 cho tạo lập, báo cáo trạng thái, hoàn trả, đảo giao dịch và truy vấn.
 lang: vi-VN
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Hướng dẫn chọn thông điệp

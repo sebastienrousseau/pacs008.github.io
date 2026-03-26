@@ -4,7 +4,7 @@ description: Генерація, валідація, оркестрація API 
 lang: uk-UA
 author: Sebastien Rousseau
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 imageAlt: pacs008
 canonical: /uk/
 robots: index, follow

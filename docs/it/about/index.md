@@ -3,7 +3,7 @@ title: "Informazioni su pacs008 | pacs008"
 description: Cosa fa pacs008 e a chi è destinato. Generazione, validazione, orchestrazione API e conformità per i flussi di bonifico cliente tra istituzioni finanziarie.
 lang: it-IT
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 howtoName: "How to implement ISO 20022 pacs.008 payment messages"
 howtoDescription: "Step-by-step checklist for rolling out ISO 20022 pacs.008 message generation and validation."
 howto:
@@ -19,7 +19,7 @@ howto:
 
 # Informazioni su pacs008
 
-pacs008 è un toolkit Python per automatizzare i flussi di trasferimento credito ISO 20022 tra istituzioni finanziarie.
+pacs008 è un toolkit Python per i team che devono generare, validare e inviare messaggi di pagamento ISO 20022 con meno correzioni manuali. Aiuta i team di pagamento a individuare dati errati prima della messa in produzione.
 
 ## Cosa fa
 

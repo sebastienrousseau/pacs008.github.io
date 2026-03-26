@@ -3,7 +3,7 @@ title: "الخصوصية | pacs008"
 description: معلومات الخصوصية لموقع pacs008. التوليد والتحقق وتنسيق واجهات البرمجة ودعم الامتثال لتدفقات تحويل الائتمان بين المؤسسات المالية.
 lang: ar-SA
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # الخصوصية

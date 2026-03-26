@@ -3,7 +3,7 @@ title: "Przewodnik wyboru komunikatu | pacs008"
 description: Wybierz właściwy komunikat ISO 20022 pacs do generowania, raportowania statusu, zwrotów, odwróceń i zapytań.
 lang: pl-PL
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Przewodnik wyboru komunikatu

@@ -3,7 +3,7 @@ title: "Política editorial | pacs008"
 description: Cómo se crea, revisa y mantiene el contenido de pacs008.com. Fuentes, proceso de revisión y calendario de actualizaciones.
 lang: es-ES
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Política editorial

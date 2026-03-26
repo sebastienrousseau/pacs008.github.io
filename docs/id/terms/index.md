@@ -3,7 +3,7 @@ title: "Ketentuan | pacs008"
 description: Informasi ketentuan untuk situs web pacs008.
 lang: id-ID
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Ketentuan

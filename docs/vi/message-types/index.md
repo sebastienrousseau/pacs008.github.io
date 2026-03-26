@@ -3,7 +3,7 @@ title: "Loại thông điệp | pacs008 ISO 20022"
 description: Các định nghĩa và phiên bản thông điệp pacs ISO 20022 được hỗ trợ.
 lang: vi-VN
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Loại thông điệp

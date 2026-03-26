@@ -3,7 +3,7 @@ title: "Warunki | pacs008"
 description: Informacje o warunkach strony pacs008.
 lang: pl-PL
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Warunki

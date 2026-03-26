@@ -3,7 +3,7 @@ title: "메시지 유형 | pacs008 ISO 20022"
 description: 지원되는 ISO 20022 pacs 메시지 정의 및 버전. 금융기관 간 고객 신용 이체 워크플로를 위한 생성, 검증, API 오케스트레이션, 규정 준수 지원.
 lang: ko-KR
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # 메시지 유형

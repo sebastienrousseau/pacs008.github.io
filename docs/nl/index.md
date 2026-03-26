@@ -4,7 +4,7 @@ description: Generatie, validatie, API-orchestratie en compliance-ondersteuning 
 lang: nl-NL
 author: Sebastien Rousseau
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 imageAlt: pacs008
 canonical: /nl/
 robots: index, follow

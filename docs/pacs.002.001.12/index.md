@@ -3,7 +3,7 @@ title: "pacs.002.001.12 | FI to FI Payment Status Report | pacs008"
 description: The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected...
 lang: en-GB
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Is pacs.002 a payment message?"
     answer: "No. It reports status for an earlier instruction rather than moving value itself."

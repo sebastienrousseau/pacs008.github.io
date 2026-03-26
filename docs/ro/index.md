@@ -4,7 +4,7 @@ description: Generare, validare, orchestrare API și suport de conformitate pent
 lang: ro-RO
 author: Sebastien Rousseau
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 imageAlt: pacs008
 canonical: /ro/
 robots: index, follow

@@ -1,12 +1,12 @@
 ---
-title: "ISO 20022 glossary | pacs008"
+title: "Thuật ngữ ISO 20022 | pacs008"
 description: Definitions of key ISO 20022 and payment messaging terms used in pacs.008 and related messages.
 lang: vi-VN
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
-# ISO 20022 glossary
+# Thuật ngữ ISO 20022
 
 This glossary defines the key terms, abbreviations, and technical concepts used across ISO 20022 pacs messages and this site.
 

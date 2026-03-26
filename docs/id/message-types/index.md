@@ -3,7 +3,7 @@ title: "Jenis Pesan | pacs008 ISO 20022"
 description: Definisi dan versi pesan pacs ISO 20022 yang didukung.
 lang: id-ID
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Jenis Pesan

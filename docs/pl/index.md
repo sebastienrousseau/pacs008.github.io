@@ -4,7 +4,7 @@ description: Generowanie, walidacja, orkiestracja API i wsparcie zgodności dla 
 lang: pl-PL
 author: Sebastien Rousseau
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 imageAlt: pacs008
 canonical: /pl/
 robots: index, follow

@@ -3,7 +3,7 @@ title: "Посібник з вибору повідомлень | pacs008"
 description: Оберіть потрібне повідомлення ISO 20022 pacs для генерації, статусів, повернень, сторнування та запитів.
 lang: uk-UA
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Посібник з вибору повідомлень

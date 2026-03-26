@@ -3,7 +3,7 @@ title: "गोपनीयता | pacs008"
 description: pacs008 वेबसाइट के लिए गोपनीयता जानकारी।
 lang: hi-IN
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # गोपनीयता

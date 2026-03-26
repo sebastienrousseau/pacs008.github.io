@@ -3,7 +3,7 @@ title: "ความเป็นส่วนตัว | pacs008"
 description: ข้อมูลความเป็นส่วนตัวสำหรับเว็บไซต์ pacs008
 lang: th-TH
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # ความเป็นส่วนตัว

@@ -3,7 +3,7 @@ title: "pacs.008.001.13 | FI to FI Customer Credit Transfer | pacs008"
 description: The pacs.008 message is the main customer credit-transfer instruction between banks. It carries party, amount, and remittance data.
 lang: en-GB
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Is pacs.008 enough on its own for production payments?"
     answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."

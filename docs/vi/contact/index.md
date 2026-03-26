@@ -3,7 +3,7 @@ title: "Liên hệ | pacs008"
 description: Cách liên hệ với dự án pacs008. Tạo, xác thực, điều phối API và hỗ trợ tuân thủ cho quy trình chuyển khoản tín dụng khách hàng giữa các tổ chức tài chính.
 lang: vi-VN
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Liên hệ

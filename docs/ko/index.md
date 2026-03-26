@@ -4,7 +4,7 @@ description: 금융기관 간 고객 신용 이체 워크플로를 위한 생성
 lang: ko-KR
 author: Sebastien Rousseau
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 imageAlt: pacs008
 canonical: /ko/
 robots: index, follow

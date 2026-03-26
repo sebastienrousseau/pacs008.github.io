@@ -3,7 +3,7 @@ title: "סוגי הודעות | pacs008 ISO 20022"
 description: הגדרות וגרסאות הודעות pacs נתמכות לפי ISO 20022. יצירה, אימות, תיאום API ותמיכת ציות לתהליכי העברת אשראי ללקוחות בין מוסדות פיננסיים.
 lang: he-IL
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # סוגי הודעות

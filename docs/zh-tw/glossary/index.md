@@ -1,12 +1,12 @@
 ---
-title: "ISO 20022 glossary | pacs008"
+title: "ISO 20022 詞彙表 | pacs008"
 description: Definitions of key ISO 20022 and payment messaging terms used in pacs.008 and related messages. 面向金融機構間客戶信貸轉帳工作流程的產生、驗證、API 編排與合規支援。
 lang: zh-TW
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
-# ISO 20022 glossary
+# ISO 20022 詞彙表
 
 This glossary defines the key terms, abbreviations, and technical concepts used across ISO 20022 pacs messages and this site.
 

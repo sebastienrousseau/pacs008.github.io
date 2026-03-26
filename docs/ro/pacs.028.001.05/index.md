@@ -3,7 +3,7 @@ title: "pacs.028.001.05 | Cerere de stare a plății FI-la-FI | pacs008"
 description: Mesajul pacs.028 este trimis de o instituție financiară pentru a solicita statusul unei instrucțiuni de plată trimise anterior. Permite urmărirea...
 lang: ro-RO
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 faq:
   - question: "Should pacs.028 be sent after every payment?"
     answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic."

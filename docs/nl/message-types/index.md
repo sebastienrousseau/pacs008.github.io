@@ -3,7 +3,7 @@ title: "Berichttypen | pacs008 ISO 20022"
 description: Ondersteunde ISO 20022 pacs-berichtdefinities en versies.
 lang: nl-NL
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Berichttypen

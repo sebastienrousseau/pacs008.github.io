@@ -3,7 +3,7 @@ title: "Contact | pacs008"
 description: Comment contacter le projet pacs008.
 lang: fr-FR
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Contact

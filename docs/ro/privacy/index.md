@@ -3,7 +3,7 @@ title: "Confidențialitate | pacs008"
 description: Informații de confidențialitate pentru site-ul pacs008.
 lang: ro-RO
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Confidențialitate

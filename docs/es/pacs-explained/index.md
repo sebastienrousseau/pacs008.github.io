@@ -3,7 +3,7 @@ title: "Mensajes PACS explicados | pacs008"
 description: "Referencia técnica detallada para mensajes pacs ISO 20022: ciclo de vida, estructura XML, métodos de liquidación, códigos de motivo, tipos de dirección..."
 lang: es-ES
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Mensajes PACS explicados

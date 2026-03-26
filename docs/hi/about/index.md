@@ -3,7 +3,7 @@ title: "pacs008 के बारे में | pacs008"
 description: pacs008 क्या करता है और यह किसके लिए है।
 lang: hi-IN
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 howtoName: "How to implement ISO 20022 pacs.008 payment messages"
 howtoDescription: "Step-by-step checklist for rolling out ISO 20022 pacs.008 message generation and validation."
 howto:
@@ -19,7 +19,7 @@ howto:
 
 # pacs008 के बारे में
 
-pacs008 वित्तीय संस्थानों के बीच ISO 20022 ग्राहक क्रेडिट ट्रांसफर वर्कफ़्लो को स्वचालित करने के लिए एक Python टूलकिट है।
+pacs008 उन टीमों के लिए एक Python टूलकिट है जिन्हें कम मैनुअल मरम्मत के साथ ISO 20022 भुगतान संदेश उत्पन्न, मान्य और भेजने की आवश्यकता है। यह भुगतान टीमों को उत्पादन से पहले खराब डेटा पकड़ने में मदद करता है।
 
 ## यह क्या करता है
 

@@ -3,7 +3,7 @@ title: "API | pacs008"
 description: Dukungan alur kerja REST dan CLI di pacs008.
 lang: id-ID
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # API

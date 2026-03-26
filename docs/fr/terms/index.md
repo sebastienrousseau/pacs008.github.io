@@ -3,7 +3,7 @@ title: "Conditions | pacs008"
 description: Informations sur les conditions du site pacs008.
 lang: fr-FR
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Conditions

@@ -3,7 +3,7 @@ title: "Kontak | pacs008"
 description: Cara menghubungi proyek pacs008. Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan antar lembaga keuangan.
 lang: id-ID
 lastUpdated: true
-image: /logo.svg
+image: /logo.webp
 ---
 
 # Kontak
