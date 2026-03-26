@@ -17,7 +17,7 @@
     <stop offset="100%" stop-color="#063a5a"/>
   </linearGradient>
 </defs>
-<circle cx="256" cy="256" r="240" fill="none"/>
+<circle cx="256" cy="256" r="240" fill="#ffffff"/>
 <g clip-path="url(#circle-clip)">
   <polygon points="256,256 241.5,-3.6 270.5,-3.6" fill="url(#ray-top)"/>
   <polygon points="256,256 286.8,-2.2 315.4,2.9" fill="url(#ray-top)"/>
