@@ -1,6 +1,6 @@
 ---
 title: "ISO 20022 术语表 | pacs008"
-description: Definitions of key ISO 20022 and payment messaging terms used in pacs.008 and related messages. 面向金融机构间客户信贷转账工作流的生成、校验、API 编排与合规支持。
+description: Definitions of key ISO 20022 and payment messaging terms used in pacs.008 and related messages. Covers SWIFT, CBPR+, IBAN, BIC, settlement methods, and...
 lang: zh-CN
 lastUpdated: true
 image: /logo.webp

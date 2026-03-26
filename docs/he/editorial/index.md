@@ -1,12 +1,12 @@
 ---
-title: "Editorial policy | pacs008"
+title: "מדיניות עריכה | pacs008"
 description: How pacs008.com content is created, reviewed, and maintained. Sources, review process, and update schedule.
 lang: he-IL
 lastUpdated: true
 image: /logo.webp
 ---
 
-# Editorial policy
+# מדיניות עריכה
 
 This page explains how content on pacs008.com is created, reviewed, and kept current.
 

@@ -1,12 +1,12 @@
 ---
-title: "API | pacs008"
+title: "pacs008 API-Referenz | pacs008"
 description: REST- und CLI-Unterstützung in pacs008.
 lang: de-DE
 lastUpdated: true
 image: /logo.webp
 ---
 
-# API
+# pacs008 API-Referenz
 
 Das Projekt bietet sowohl eine REST-API als auch eine CLI für operative Zahlungsnachrichten-Workflows.
 

@@ -1,6 +1,6 @@
 ---
 title: "Glosario ISO 20022 | pacs008"
-description: Definitions of key ISO 20022 and payment messaging terms used in pacs.008 and related messages.
+description: Definitions of key ISO 20022 and payment messaging terms used in pacs.008 and related messages. Covers SWIFT, CBPR+, IBAN, BIC, settlement methods, and...
 lang: es-ES
 lastUpdated: true
 image: /logo.webp

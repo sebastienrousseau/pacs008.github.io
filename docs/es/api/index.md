@@ -1,12 +1,12 @@
 ---
-title: "API | pacs008"
+title: "Referencia de API pacs008 | pacs008"
 description: Soporte de flujos REST y CLI en pacs008.
 lang: es-ES
 lastUpdated: true
 image: /logo.webp
 ---
 
-# API
+# Referencia de API pacs008
 
 El proyecto proporciona tanto una API REST como una CLI para flujos de procesamiento de mensajes de pago.
 

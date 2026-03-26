@@ -1,12 +1,12 @@
 ---
-title: "API | pacs008"
+title: "Справочник API pacs008 | pacs008"
 description: การสนับสนุนเวิร์กโฟลว์ REST และ CLI ใน pacs008
 lang: th-TH
 lastUpdated: true
 image: /logo.webp
 ---
 
-# API
+# Справочник API pacs008
 
 โครงการนี้จัดเตรียมทั้ง REST API และ CLI สำหรับเวิร์กโฟลว์การประมวลผลข้อความการชำระเงินเชิงปฏิบัติการ
 

@@ -489,14 +489,13 @@ ${items.join("\n")}
     code = code.replace(/<link rel="modulepreload"[^>]*>\n?/g, '');
     code = code.replace(/<link rel="preload"[^>]*as="font"[^>]*>\n?/g, '');
 
-    // --- Performance: on home pages, defer JS to idle time ---
-    // Homepage is fully server-rendered; JS is only needed for interactivity.
-    if (/class="[^"]*\bVPHome\b/.test(code)) {
-      code = code.replace(
-        /<script type="module" src="([^"]+)"><\/script>/,
-        '<script>(typeof requestIdleCallback!=="undefined"?requestIdleCallback:setTimeout)(function(){var s=document.createElement("script");s.type="module";s.src="$1";document.head.appendChild(s)});</script>'
-      );
-    }
+    // --- Performance: defer JS to idle time on all pages ---
+    // All pages are server-rendered; JS is only needed for interactivity
+    // (search, theme toggle, client-side routing).
+    code = code.replace(
+      /<script type="module" src="([^"]+)"><\/script>/,
+      '<script>(typeof requestIdleCallback!=="undefined"?requestIdleCallback:setTimeout)(function(){var s=document.createElement("script");s.type="module";s.src="$1";document.head.appendChild(s)});</script>'
+    );
 
     return code;
   },

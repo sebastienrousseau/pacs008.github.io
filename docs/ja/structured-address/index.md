@@ -1,5 +1,5 @@
 ---
-title: "November 2026 structured-address deadline | pacs008"
+title: "2026年11月 構造化住所の期限 | pacs008"
 description: How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.
 lang: ja-JP
 lastUpdated: true
@@ -17,7 +17,7 @@ howto:
     text: "Test with representative payment data before the deadline."
 ---
 
-# November 2026 structured-address deadline
+# 2026年11月 構造化住所の期限
 
 SWIFT requires structured postal addresses in cross-border payment messages from November 2026. This page explains what changes, which messages are affected, and how pacs008 helps teams prepare.
 

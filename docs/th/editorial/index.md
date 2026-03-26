@@ -1,12 +1,12 @@
 ---
-title: "Editorial policy | pacs008"
+title: "นโยบายบรรณาธิการ | pacs008"
 description: How pacs008.com content is created, reviewed, and maintained. Sources, review process, and update schedule.
 lang: th-TH
 lastUpdated: true
 image: /logo.webp
 ---
 
-# Editorial policy
+# นโยบายบรรณาธิการ
 
 This page explains how content on pacs008.com is created, reviewed, and kept current.
 

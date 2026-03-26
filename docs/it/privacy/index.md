@@ -1,12 +1,12 @@
 ---
-title: "Privacy | pacs008"
+title: "Riservatezza | pacs008"
 description: Informazioni sulla privacy del sito web pacs008.
 lang: it-IT
 lastUpdated: true
 image: /logo.webp
 ---
 
-# Privacy
+# Riservatezza
 
 Questa informativa sulla privacy spiega come pacs008.com gestisce le informazioni durante la visita al sito web.
 

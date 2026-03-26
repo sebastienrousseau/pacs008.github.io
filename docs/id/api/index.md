@@ -1,12 +1,12 @@
 ---
-title: "API | pacs008"
+title: "pacs008 API संदर्भ | pacs008"
 description: Dukungan alur kerja REST dan CLI di pacs008.
 lang: id-ID
 lastUpdated: true
 image: /logo.webp
 ---
 
-# API
+# pacs008 API संदर्भ
 
 Proyek ini menyediakan REST API dan CLI untuk alur kerja pemrosesan pesan pembayaran operasional.
 

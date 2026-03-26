@@ -1,12 +1,12 @@
 ---
-title: "API | pacs008"
+title: "pacs008 API リファレンス | pacs008"
 description: pacs008의 REST 및 CLI 워크플로 지원. 금융기관 간 고객 신용 이체 워크플로를 위한 생성, 검증, API 오케스트레이션, 규정 준수 지원.
 lang: ko-KR
 lastUpdated: true
 image: /logo.webp
 ---
 
-# API
+# pacs008 API リファレンス
 
 이 프로젝트는 운영 결제 메시지 워크플로를 위한 REST API와 CLI를 모두 제공합니다.
 

@@ -1,12 +1,12 @@
 ---
-title: "API | pacs008"
+title: "เอกสาร API pacs008 | pacs008"
 description: "pacs008'de REST ve CLI iş akışı desteği."
 lang: tr-TR
 lastUpdated: true
 image: /logo.webp
 ---
 
-# API
+# เอกสาร API pacs008
 
 Proje, operasyonel ödeme mesajı iş akışları için hem REST API hem de CLI sağlar.
 

@@ -1,12 +1,12 @@
 ---
-title: "API | pacs008"
+title: "Riferimento API pacs008 | pacs008"
 description: pacs008 の REST および CLI ワークフローサポート。 金融機関間の顧客クレジット移転ワークフロー向けの生成、検証、API オーケストレーション、コンプライアンス対応。
 lang: ja-JP
 lastUpdated: true
 image: /logo.webp
 ---
 
-# API
+# Riferimento API pacs008
 
 本プロジェクトは運用決済メッセージワークフロー向けに REST API と CLI の両方を提供します。
 

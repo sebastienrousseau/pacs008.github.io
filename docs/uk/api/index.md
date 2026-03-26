@@ -1,12 +1,12 @@
 ---
-title: "API | pacs008"
+title: "pacs008 API başvurusu | pacs008"
 description: Підтримка робочих процесів REST та CLI у pacs008.
 lang: uk-UA
 lastUpdated: true
 image: /logo.webp
 ---
 
-# API
+# pacs008 API başvurusu
 
 Проєкт надає як REST API, так і CLI для операційних потоків обробки платіжних повідомлень.
 

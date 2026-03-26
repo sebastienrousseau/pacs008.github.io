@@ -1,12 +1,12 @@
 ---
-title: "Editorial policy | pacs008"
+title: "Редакционная политика | pacs008"
 description: How pacs008.com content is created, reviewed, and maintained. Sources, review process, and update schedule.
 lang: ru-RU
 lastUpdated: true
 image: /logo.webp
 ---
 
-# Editorial policy
+# Редакционная политика
 
 This page explains how content on pacs008.com is created, reviewed, and kept current.
 

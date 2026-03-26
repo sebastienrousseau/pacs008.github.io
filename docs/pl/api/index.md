@@ -1,12 +1,12 @@
 ---
-title: "API | pacs008"
+title: "pacs008 API-referentie | pacs008"
 description: Obsługa przepływów REST i CLI w pacs008.
 lang: pl-PL
 lastUpdated: true
 image: /logo.webp
 ---
 
-# API
+# pacs008 API-referentie
 
 Projekt zapewnia zarówno REST API, jak i CLI do operacyjnych przepływów wiadomości płatniczych.
 

@@ -1,12 +1,12 @@
 ---
-title: "API | pacs008"
+title: "Довідник API pacs008 | pacs008"
 description: Hỗ trợ quy trình REST và CLI trong pacs008.
 lang: vi-VN
 lastUpdated: true
 image: /logo.webp
 ---
 
-# API
+# Довідник API pacs008
 
 Dự án cung cấp cả REST API và CLI cho quy trình xử lý thông điệp thanh toán vận hành.
 

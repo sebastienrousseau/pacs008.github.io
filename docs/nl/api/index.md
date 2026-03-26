@@ -1,12 +1,12 @@
 ---
-title: "API | pacs008"
+title: "pacs008 API 레퍼런스 | pacs008"
 description: REST- en CLI-ondersteuning voor operationele processen in pacs008.
 lang: nl-NL
 lastUpdated: true
 image: /logo.webp
 ---
 
-# API
+# pacs008 API 레퍼런스
 
 Het project biedt zowel een REST API als een CLI voor operationele processen rond betalingsberichten.
 

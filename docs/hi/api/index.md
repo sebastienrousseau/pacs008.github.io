@@ -1,12 +1,12 @@
 ---
-title: "API | pacs008"
+title: "מסמך API של pacs008 | pacs008"
 description: pacs008 में REST और CLI वर्कफ़्लो समर्थन।
 lang: hi-IN
 lastUpdated: true
 image: /logo.webp
 ---
 
-# API
+# מסמך API של pacs008
 
 परियोजना परिचालन भुगतान संदेश वर्कफ़्लो के लिए REST API और CLI दोनों प्रदान करती है।
 

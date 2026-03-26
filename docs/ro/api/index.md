@@ -1,12 +1,12 @@
 ---
-title: "API | pacs008"
+title: "Referência da API pacs008 | pacs008"
 description: Suport pentru fluxuri REST și CLI în pacs008.
 lang: ro-RO
 lastUpdated: true
 image: /logo.webp
 ---
 
-# API
+# Referência da API pacs008
 
 Proiectul oferă atât un REST API, cât și un CLI pentru fluxurile operaționale de mesaje de plăți.
 

@@ -1,12 +1,12 @@
 ---
-title: "API | pacs008"
+title: "Tài liệu API pacs008 | pacs008"
 description: pacs008 中的 REST 和 CLI 工作流支持。 面向金融机构间客户信贷转账工作流的生成、校验、API 编排与合规支持。
 lang: zh-CN
 lastUpdated: true
 image: /logo.webp
 ---
 
-# API
+# Tài liệu API pacs008
 
 该项目同时提供 REST API 和 CLI，用于运营支付报文处理工作流。
 

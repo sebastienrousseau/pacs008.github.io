@@ -1,12 +1,12 @@
 ---
-title: "Editorial policy | pacs008"
+title: "편집 방침 | pacs008"
 description: How pacs008.com content is created, reviewed, and maintained. Sources, review process, and update schedule.
 lang: ko-KR
 lastUpdated: true
 image: /logo.webp
 ---
 
-# Editorial policy
+# 편집 방침
 
 This page explains how content on pacs008.com is created, reviewed, and kept current.
 
