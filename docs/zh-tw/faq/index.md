@@ -1,144 +1,144 @@
 ---
-title: "常見問題 | pacs008"
-description: 關於ISO 20022 pacs訊息、CBPR+遷移、訊息選擇、實施和pacs008工具套件的常見問題。
+title: "Frequently asked questions | pacs008"
+description: Common questions about ISO 20022 pacs messages, CBPR+ migration, message selection, implementation, and the pacs008 toolkit.
 lang: zh-TW
 lastUpdated: true
 image: /logo.svg
 ---
 
-# 常見問題
+# Frequently asked questions
 
-本頁面回答關於ISO 20022 pacs訊息、它們如何協同運作以及pacs008如何幫助團隊實施的常見問題。
+This page answers common questions about ISO 20022 pacs messages, how they work together, and how pacs008 helps teams implement them.
 
-## 一般問題
+## General
 
-### 什麼是ISO 20022？
+### What is ISO 20022?
 
-ISO 20022是金融訊息傳遞的國際標準。它定義了金融機構之間交換支付訊息的通用語言和模型。與SWIFT MT等舊格式不同，ISO 20022使用XML，支援當事方、金額和參考資訊的更豐富、更結構化的資料。
+ISO 20022 is an international standard for financial messaging. It defines a common language and model for payment messages exchanged between financial institutions. Unlike older formats such as SWIFT MT, ISO 20022 uses XML and supports richer, more structured data for parties, amounts, and references.
 
-### 什麼是pacs訊息？
+### What are pacs messages?
 
-pacs（payments clearing and settlement，支付清算與結算）訊息家族涵蓋銀行間支付指令、狀態報告、退回、撤銷和查詢。包括pacs.002、pacs.003、pacs.004、pacs.007、pacs.008、pacs.009、pacs.010和pacs.028。每種訊息在支付生命週期中扮演特定角色。
+The pacs (payments clearing and settlement) message family covers interbank payment instructions, status reports, returns, reversals, and enquiries. It includes pacs.002, pacs.003, pacs.004, pacs.007, pacs.008, pacs.009, pacs.010, and pacs.028. Each message serves a specific role in the payment lifecycle.
 
-### pacs訊息與SWIFT MT訊息有何不同？
+### How do pacs messages differ from SWIFT MT messages?
 
-SWIFT MT訊息使用扁平的欄位標籤格式（如MT103用於客戶匯款）。Pacs訊息使用具有更豐富資料結構的分層XML。主要區別包括支援每條訊息包含多筆交易、結構化的當事方識別（LEI、多個ID）、結構化的郵政地址和結構化的匯款資訊。MT103對應pacs.008，MT202對應pacs.009，MT199狀態文字被pacs.002取代。
+SWIFT MT messages use a flat, field-tag format (e.g. MT103 for customer credit transfers). Pacs messages use hierarchical XML with richer data structures. Key differences include support for multiple transactions per message, structured party identification (LEI, multiple IDs), structured postal addresses, and structured remittance information. MT103 maps to pacs.008, MT202 maps to pacs.009, and MT199 status text is replaced by pacs.002.
 
-### pain訊息和pacs訊息之間的關係是什麼？
+### What is the relationship between pain and pacs messages?
 
-pain（payment initiation，支付發起）訊息在客戶與其銀行之間傳輸。pacs訊息在銀行之間傳輸。來自付款人銀行的pain.001客戶貸記轉帳發起變為pacs.008銀行間指令。兩個領域共享公共資料元素，但服務於支付鏈的不同部分。
+Pain (payment initiation) messages travel between the customer and their bank. Pacs messages travel between banks. A pain.001 customer credit-transfer initiation from the debtor's bank becomes a pacs.008 interbank instruction. The two domains share common data elements but serve different parts of the payment chain.
 
-## 訊息選擇
+## Message selection
 
-### 何時應使用pacs.008？
+### When should I use pacs.008?
 
-銀行間的客戶貸記轉帳指令應使用pacs.008。它承載付款人和收款人的當事方資料、金額、匯款資訊和結算詳情。它是通過銀行間網路傳送客戶付款的主要訊息，無論是國內（SEPA）還是跨境（CBPR+）。
+Use pacs.008 for customer credit-transfer instructions between banks. It carries debtor and creditor party data, amounts, remittance information, and settlement details. It is the main message for sending customer payments across the interbank network, whether domestically (SEPA) or cross-border (CBPR+).
 
-### 何時應使用pacs.009而非pacs.008？
+### When should I use pacs.009 instead of pacs.008?
 
-機構自有帳戶轉帳、融資環節和備付支付應使用pacs.009。與代表付款人承載客戶付款的pacs.008不同，pacs.009以銀行自己的名義在銀行間轉移資金。在備付方式流程中，pacs.009承載融資，而pacs.008在單獨的路徑上承載客戶指令。
+Use pacs.009 for institution-own-account transfers, funding legs, and cover payments. Unlike pacs.008, which carries a customer payment on behalf of a debtor, pacs.009 moves funds between banks on their own behalf. In cover-method flows, pacs.009 carries the funding while pacs.008 carries the customer instruction on a separate path.
 
-### pacs.004和pacs.007之間的區別是什麼？
+### What is the difference between pacs.004 and pacs.007?
 
-pacs.004從收款方通過鏈條退回已結算資金。pacs.007從原始指令方向前通過鏈條撤銷付款。當受益銀行在結算後無法貸記時使用pacs.004。當發起方發現錯誤、重複或詐欺時使用pacs.007。
+pacs.004 returns settled funds from the receiving side back through the chain. pacs.007 reverses a payment from the original instructing side forward through the chain. Use pacs.004 when the beneficiary bank cannot apply the credit after settlement. Use pacs.007 when the originator discovers an error, duplicate, or fraud.
 
-### 何時應使用pacs.028而非等待pacs.002？
+### When should I use pacs.028 instead of waiting for pacs.002?
 
-當需要主動請求未及時收到pacs.002更新的付款狀態時使用pacs.028。pacs.002是事件驅動的（接收代理主動傳送），而pacs.028是異常驅動的（指令代理請求）。pacs.028用於延遲、不明確或缺失的付款更新，不作為常規流量使用。
+Use pacs.028 when you need to actively request the status of a payment that has not received a timely pacs.002 update. pacs.002 is event-driven (the receiving agent sends it proactively), while pacs.028 is exception-driven (the instructing agent requests it). Use pacs.028 for delayed, unclear, or missing payment updates, not as routine traffic.
 
-### pacs.003用於什麼？
+### What is pacs.003 used for?
 
-pacs.003承載銀行間的客戶直接扣款指令。收款方代理向付款方代理傳送以收取資金。它需要有效的委託參考，並支援SEPA Core和B2B直接扣款方案。不用於貸記轉帳或機構自有帳戶扣款。
+pacs.003 carries customer direct-debit instructions between banks. The creditor agent sends it to the debtor agent to collect funds. It requires a valid mandate reference and supports SEPA Core and B2B direct-debit schemes. It is not used for credit transfers or institution-own-account debits.
 
-### pacs.010用於什麼？
+### What is pacs.010 used for?
 
-pacs.010處理金融機構之間在自有帳戶上的直接扣款。用於銀行間收款，如費用、追加保證金和雙邊協議下的類似義務。不用於客戶直接扣款或貸記轉帳。
+pacs.010 handles direct debits between financial institutions on their own accounts. It is used for bank-to-bank collections such as fees, margin calls, and similar obligations under bilateral agreements. It is not used for customer direct debits or credit transfers.
 
-## 訊息結構
+## Message structure
 
-### 什麼是Group Header（GrpHdr）？
+### What is the Group Header (GrpHdr)?
 
-Group Header在每條pacs訊息中恰好出現一次。包含訊息識別碼（MsgId）、建立時間戳記（CreDtTm）、交易數量（NbOfTxs）、結算資訊（SttlmInf），以及可選的銀行間結算總金額和付款類型資訊。它標識訊息信封，而非單個業務交易。
+The Group Header appears exactly once per pacs message. It contains the message identifier (MsgId), creation timestamp (CreDtTm), number of transactions (NbOfTxs), settlement information (SttlmInf), and optionally the total interbank settlement amount and payment type information. It identifies the message envelope, not the individual business transactions.
 
-### pacs.008中的付款識別碼有哪些？
+### What are the payment identifiers in pacs.008?
 
-pacs.008使用四個主要識別碼。MsgId標識訊息信封，在每個跳轉處更改。InstrId是相鄰代理之間的點對點參考，每個跳轉可能更改。EndToEndId由發起人設定，鏈中的任何代理都不得更改。TxId由第一個指令代理分配，在銀行間空間中保持不變。UETR是在所有環節中保持不變的UUID，用於端到端追蹤。
+pacs.008 uses four main identifiers. MsgId identifies the message envelope and changes at each hop. InstrId is a point-to-point reference between adjacent agents and may change per hop. EndToEndId is set by the originator and must not be altered by any agent in the chain. TxId is assigned by the first instructing agent and remains constant in the interbank space. UETR is a UUID that stays unchanged across all legs for end-to-end tracking.
 
-### 有哪些結算方法？
+### What settlement methods are available?
 
-定義了四種結算方法。CLRG通過TARGET2、EURO1或CHIPS等清算系統結算。INDA在被指令代理的帳簿上結算，付款方代理在該處持有帳戶。INGA在指令代理的帳簿上結算，被指令代理在該處持有帳戶。COVE通過pacs.009承載的單獨備付支付結算。
+Four settlement methods are defined. CLRG settles through a clearing system such as TARGET2, EURO1, or CHIPS. INDA settles on the books of the instructed agent where the debtor agent holds an account. INGA settles on the books of the instructing agent where the instructed agent holds an account. COVE settles through a separate cover payment carried by pacs.009.
 
-### 費用承擔代碼是什麼意思？
+### What do the charge bearer codes mean?
 
-DEBT表示所有費用由付款人承擔（相當於MT103 OUR）。CRED表示所有費用由收款人承擔（相當於BEN）。SHAR表示費用由付款人和收款人的代理之間分擔（相當於SHA）。SLEV表示費用遵循服務級別規則，SEPA貸記轉帳中為必填。
+DEBT means all charges are borne by the debtor (equivalent to MT103 OUR). CRED means all charges are borne by the creditor (equivalent to BEN). SHAR means charges are shared between debtor and creditor agents (equivalent to SHA). SLEV means charges follow the service level rules and is mandatory for SEPA credit transfers.
 
-## CBPR+和遷移
+## CBPR+ and migration
 
-### 什麼是CBPR+？
+### What is CBPR+?
 
-CBPR+（Cross-Border Payments and Reporting Plus）是SWIFT在跨境支付訊息傳遞中採用ISO 20022的專案。2023年3月上線，用pacs等價物替代MT訊息。CBPR+要求所有狀態通訊使用pacs.002，支援更豐富的當事方資料和結構化地址，並通過gpi使用基於UETR的追蹤。
+CBPR+ (Cross-Border Payments and Reporting Plus) is SWIFT's programme for adopting ISO 20022 in cross-border payment messaging. It went live in March 2023 and replaces MT messages with pacs equivalents. CBPR+ mandates pacs.002 for all status communication, supports richer party data and structured addresses, and uses UETR-based tracking through gpi.
 
-### MT/MX共存期發生了什麼？
+### What happened to the MT/MX coexistence period?
 
-跨境支付指令的共存期於2025年11月結束。此後，CBPR+訊息必須使用ISO 20022（MX）格式。過渡期間在MT和MX之間轉換的翻譯服務不再適用於新流程。銀行現在必須傳送和接收原生pacs訊息。
+The coexistence period for cross-border payment instructions ended in November 2025. Since then, CBPR+ messages must use the ISO 20022 (MX) format. Translation services that converted between MT and MX during the transition are no longer available for new flows. Banks must now send and receive native pacs messages.
 
-### 2026年11月的結構化地址截止日期是什麼？
+### What is the November 2026 structured-address deadline?
 
-從2026年11月起，SWIFT CBPR+要求跨境支付訊息中使用結構化郵政地址。非結構化地址行（僅AdrLine）將不再被關鍵當事方欄位接受。至少需要TwnNm和Ctry，建議使用StrtNm和BldgNb或PstBx。這改善了制裁篩查並減少了手動修復。
+From November 2026, SWIFT CBPR+ requires structured postal addresses in cross-border payment messages. Unstructured address lines (AdrLine alone) will no longer be accepted for key party fields. At minimum, TwnNm and Ctry are required, with StrtNm and BldgNb or PstBx recommended. This improves sanctions screening and reduces manual repair.
 
-### pacs.008如何取代MT103？
+### How does pacs.008 replace MT103?
 
-pacs.008取代MT103和MT103+用於客戶貸記轉帳。主要對應：MT103欄位20對應MsgId或InstrId；欄位32A拆分為IntrBkSttlmDt和IntrBkSttlmAmt；欄位50a對應Dbtr和DbtrAcct；欄位59a對應Cdtr和CdtrAcct；欄位70對應RmtInf；欄位71A對應ChrgBr。pacs.008增加了UETR、結構化匯款、LEI識別，並支援每條訊息包含多筆交易。
+pacs.008 replaces MT103 and MT103+ for customer credit transfers. Key mapping: MT103 field 20 maps to MsgId or InstrId; field 32A splits into IntrBkSttlmDt and IntrBkSttlmAmt; field 50a maps to Dbtr and DbtrAcct; field 59a maps to Cdtr and CdtrAcct; field 70 maps to RmtInf; field 71A maps to ChrgBr. pacs.008 adds UETR, structured remittance, LEI identification, and supports multiple transactions per message.
 
-### pacs.009如何取代MT202？
+### How does pacs.009 replace MT202?
 
-pacs.009取代MT202和MT202COV用於機構間轉帳。在備付方式流程中，MT202COV（同時承載融資和底層客戶資料）被清晰拆分：pacs.009承載融資環節，而pacs.008直接承載客戶指令。這種分離提高了資料品質並減少了對帳問題。
+pacs.009 replaces MT202 and MT202COV for institution-to-institution transfers. In cover-method flows, the MT202COV (which carried both funding and underlying customer data) splits cleanly: pacs.009 carries the funding leg while pacs.008 carries the customer instruction directly. This separation improves data quality and reduces reconciliation issues.
 
-## 技術細節
+## Technical details
 
-### 結構化地址與非結構化地址是什麼？
+### What are structured vs unstructured addresses?
 
-結構化地址為每個組成部分使用單獨的XML元素：StrtNm（街道）、BldgNb（門牌號）、PstCd（郵遞區號）、TwnNm（城鎮）、Ctry（國家）以及Flr、Room和DstrctNm等可選元素。非結構化地址使用最多七個AdrLine元素和自由文字。混合地址在過渡期間結合兩者。2026年11月後，CBPR+要求結構化格式。
+Structured addresses use separate XML elements for each component: StrtNm (street), BldgNb (building number), PstCd (post code), TwnNm (town), Ctry (country), and optional elements like Flr, Room, and DstrctNm. Unstructured addresses use up to seven AdrLine elements with free text. Hybrid addresses combine both during the transition period. After November 2026, CBPR+ requires the structured format.
 
-### 什麼是UETR，gpi追蹤如何運作？
+### What is UETR and how does gpi tracking work?
 
-UETR（Unique End-to-End Transaction Reference，唯一端到端交易參考）是由付款方代理產生的UUID v4識別碼，在支付的所有環節中保持不變。出現在pacs.008、pacs.009、pacs.002、pacs.004、pacs.007和pacs.028中。SWIFT gpi使用UETR通過基於雲端的Tracker資料庫追蹤支付。每個代理確認接收和處理，實現端到端的可見性和SLA監控。
+UETR (Unique End-to-End Transaction Reference) is a UUID v4 identifier generated by the debtor agent and carried unchanged across all legs of a payment. It appears in pacs.008, pacs.009, pacs.002, pacs.004, pacs.007, and pacs.028. SWIFT gpi uses the UETR to track payments through a cloud-based Tracker database. Each agent confirms receipt and processing, enabling end-to-end visibility and SLA monitoring.
 
-### pacs.002的常見狀態代碼有哪些？
+### What are common pacs.002 status codes?
 
-ACCP表示客戶資料檢查後已接受。ACSP表示已接受且結算正在進行中。ACSC表示付款人帳戶上的結算已完成。RJCT表示已拒絕（在StsRsnInf中包含原因代碼）。PDNG表示等待進一步處理。RCVD表示已接收但尚未處理。每個狀態可能包含結構化原因代碼，如AC01（帳戶不正確）、AM04（資金不足）或RC01（BIC不正確）。
+ACCP means accepted after customer-profile checks. ACSP means accepted and settlement is in progress. ACSC means settlement on the debtor account is complete. RJCT means rejected (with a reason code in StsRsnInf). PDNG means pending further processing. RCVD means received but not yet processed. Each status may include a structured reason code such as AC01 (incorrect account), AM04 (insufficient funds), or RC01 (incorrect BIC).
 
-### pacs.004中的常見退回原因代碼有哪些？
+### What are common return reason codes in pacs.004?
 
-常見退回原因代碼包括AC01（帳號不正確）、AC04（已關閉帳戶）、AC06（凍結帳戶）、AM04（資金不足）、BE04（收款人地址缺失）、CUST（客戶要求）、DUPL（重複付款）、FOCR（取消請求後續）和FR01（詐欺）。完整列表在ISO 20022外部代碼集中定義。
+Frequent return reason codes include AC01 (incorrect account number), AC04 (closed account), AC06 (blocked account), AM04 (insufficient funds), BE04 (missing creditor address), CUST (requested by customer), DUPL (duplicate payment), FOCR (following cancellation request), and FR01 (fraud). The full list is defined in the ISO 20022 External Code Sets.
 
-### 什麼是結構化匯款資訊？
+### What is structured remittance information?
 
-pacs.008中的結構化匯款使用RmtInf/Strd元素承載文件參考（發票號、貸項通知單）、金額（到期、已匯、稅款、折扣）和收款人參考（ISO 11649 RF參考）。這實現了自動化發票配對和對帳。常見的文件類型代碼包括CINV（商業發票）、CREN（貸項通知單）和SOAC（帳戶對帳單）。
+Structured remittance in pacs.008 uses the RmtInf/Strd element to carry document references (invoice numbers, credit notes), amounts (due, remitted, tax, discount), and creditor references (ISO 11649 RF references). This enables automated invoice matching and reconciliation. Common document type codes include CINV (commercial invoice), CREN (credit note), and SOAC (statement of account).
 
-### 什麼是LEI，何時使用？
+### What is LEI and when is it used?
 
-LEI（Legal Entity Identifier，法律實體識別碼）是根據ISO 17442的20個字元的字母數字代碼。它唯一標識參與金融交易的法律實體。在pacs訊息中，LEI出現在當事方的OrgId/LEI和代理的FinInstnId/LEI中。CBPR+越來越鼓勵使用LEI進行當事方和代理識別。它改善了實體消歧並支援監管報告要求。
+LEI (Legal Entity Identifier) is a 20-character alphanumeric code per ISO 17442. It uniquely identifies legal entities participating in financial transactions. In pacs messages, LEI appears in OrgId/LEI for parties and FinInstnId/LEI for agents. CBPR+ increasingly encourages LEI for party and agent identification. It improves entity disambiguation and supports regulatory reporting requirements.
 
-## 關於pacs008工具套件
+## About pacs008 toolkit
 
-### pacs008做什麼？
+### What does pacs008 do?
 
-pacs008是一個Python工具套件，用於產生、驗證和傳送ISO 20022支付訊息。它從CSV、JSON、JSONL、SQLite和Parquet資料來源讀取支付資料，根據JSON Schema和XSD進行驗證，檢查IBAN和BIC識別碼，清理資料以符合SWIFT字元合規性，並輸出XML檔案。它提供REST API、CLI和Python函式庫。
+pacs008 is a Python toolkit that generates, validates, and ships ISO 20022 payment messages. It reads payment data from CSV, JSON, JSONL, SQLite, and Parquet sources, validates against JSON Schema and XSD, checks IBAN and BIC identifiers, cleans data for SWIFT character compliance, and outputs XML files. It provides a REST API, CLI, and Python library.
 
-### pacs008支援哪些訊息類型？
+### Which message types does pacs008 support?
 
-pacs008支援八種訊息類型：pacs.002.001.12（狀態報告）、pacs.003.001.09（客戶直接扣款）、pacs.004.001.11（支付退回）、pacs.007.001.11（支付撤銷）、pacs.008.001.13（客戶貸記轉帳）、pacs.009.001.10（金融機構貸記轉帳）、pacs.010.001.05（金融機構直接扣款）和pacs.028.001.05（支付狀態請求）。
+pacs008 supports eight message types: pacs.002.001.12 (status report), pacs.003.001.09 (customer direct debit), pacs.004.001.11 (payment return), pacs.007.001.11 (payment reversal), pacs.008.001.13 (customer credit transfer), pacs.009.001.10 (financial institution credit transfer), pacs.010.001.05 (financial institution direct debit), and pacs.028.001.05 (payment status request).
 
-### pacs008如何幫助應對2026年結構化地址截止日期？
+### How does pacs008 help with the 2026 structured-address deadline?
 
-pacs008在XML產生前驗證結構化和混合郵政地址欄位。它標記在2026年11月截止日期後會失敗的非結構化地址資料，支援截止日期前的混合格式和截止日期後的僅結構化格式，並將地址品質檢查整合到CI管線和批次驗證工作流程中。
+pacs008 validates structured and hybrid postal address fields before XML generation. It flags unstructured address data that would fail after the November 2026 deadline, supports both pre-deadline hybrid and post-deadline structured-only formats, and integrates address quality checks into CI pipelines and batch validation workflows.
 
-### pacs008能否在不產生XML的情況下驗證資料？
+### Can pacs008 validate data without generating XML?
 
-可以。使用`--dry-run` CLI標誌或`POST /validate` API端點來驗證支付資料而不產生XML。驗證管線檢查JSON Schema一致性、IBAN格式和校驗和、BIC結構以及SWIFT字元合規性。退出代碼或API回應指示驗證是否通過。
+Yes. Use the `--dry-run` CLI flag or the `POST /validate` API endpoint to validate payment data without generating XML. The validation pipeline checks JSON Schema conformance, IBAN format and checksum, BIC structure, and SWIFT character compliance. The exit code or API response indicates whether validation passed or failed.
 
-## 參考資料
+## References
 
 - [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions)
 - [ISO 20022 external code sets](https://www.iso20022.org/external_code_list.page)
@@ -147,3 +147,4 @@ pacs008在XML產生前驗證結構化和混合郵政地址欄位。它標記在2
 - [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and)
 - [EPC SEPA Instant Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook)
 - [SWIFT gpi](https://www.swift.com/our-solutions/swift-gpi)
+

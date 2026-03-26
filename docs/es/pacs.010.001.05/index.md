@@ -5,10 +5,10 @@ lang: es-ES
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "¿Es pacs.010 común en productos de pago minorista?"
-    answer: "Generalmente no. Se adapta mejor a escenarios de débito directo entre bancos que a productos minoristas estándar."
-  - question: "¿Qué deberían diseñar primero los equipos?"
-    answer: "Comience con reglas de aprobación, controles bilaterales y manejo de excepciones antes de finalizar plantillas XML."
+  - question: "Is pacs.010 common in retail payment products?"
+    answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."
+  - question: "What should teams design first?"
+    answer: "Start with approval rules, bilateral controls, and exception handling before finalising XML templates."
 ---
 
 # pacs.010.001.05 — Débito directo entre instituciones financieras

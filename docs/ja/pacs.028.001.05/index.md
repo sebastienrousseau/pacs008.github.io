@@ -5,10 +5,10 @@ lang: ja-JP
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "pacs.028はすべての決済後に送信すべきですか？"
-    answer: "通常はいいえ。広範なトラフィックとしてではなく、ターゲットを絞った例外ツールとして最も効果的です。"
-  - question: "pacs.028を有用にするものは何ですか？"
-    answer: "元の決済ケースに関する明確なタイムアウト、エスカレーション、照合ルール。"
+  - question: "Should pacs.028 be sent after every payment?"
+    answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic."
+  - question: "What makes pacs.028 useful?"
+    answer: "Clear timeout, escalation, and reconciliation rules around the original payment case."
 ---
 
 # pacs.028.001.05 — 金融機関間支払ステータス照会

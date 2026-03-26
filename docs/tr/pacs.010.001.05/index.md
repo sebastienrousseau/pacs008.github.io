@@ -5,10 +5,10 @@ lang: tr-TR
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "pacs.010 perakende ödeme ürünlerinde yaygın mıdır?"
-    answer: "Genellikle hayır. Standart perakende ürünlerden çok bankalar arası doğrudan borçlandırma senaryolarına uygundur."
-  - question: "Ekipler önce neyi tasarlamalı?"
-    answer: "XML şablonlarını sonlandırmadan önce onay kuralları, ikili kontroller ve istisna işleme ile başlayın."
+  - question: "Is pacs.010 common in retail payment products?"
+    answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."
+  - question: "What should teams design first?"
+    answer: "Start with approval rules, bilateral controls, and exception handling before finalising XML templates."
 ---
 
 # pacs.010.001.05 — Finansal kuruluşlar arası doğrudan borçlandırma

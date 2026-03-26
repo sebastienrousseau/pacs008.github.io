@@ -5,10 +5,10 @@ lang: hi-IN
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "क्या pacs.003 pacs.008 का डायरेक्ट डेबिट मिरर है?"
-    answer: "नहीं। यह ग्राहक डायरेक्ट-डेबिट प्रवाह को संभालता है, जिनके मैंडेट, समय और अपवाद नियम अलग होते हैं।"
-  - question: "परिचालन की दृष्टि से सबसे महत्वपूर्ण क्या है?"
-    answer: "मैंडेट गुणवत्ता, देनदार-खाता नियम और रिटर्न हैंडलिंग XML निर्माण से अधिक महत्वपूर्ण हैं।"
+  - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
+    answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."
+  - question: "What matters most operationally?"
+    answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation."
 ---
 
 # pacs.003.001.09 — FI-से-FI ग्राहक प्रत्यक्ष डेबिट

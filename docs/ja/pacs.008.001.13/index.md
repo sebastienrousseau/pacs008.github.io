@@ -5,10 +5,10 @@ lang: ja-JP
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "pacs.008は本番決済に単独で十分ですか？"
-    answer: "いいえ。本番稼働の準備はスキームルール、住所品質、当事者データ、ステータス処理、例外フローにも依存します。"
-  - question: "最も多くの修復作業を引き起こすものは何ですか？"
-    answer: "弱い当事者データ、不適切な住所構造化、一貫性のない識別子、非構造化送金内容が一般的な原因です。"
+  - question: "Is pacs.008 enough on its own for production payments?"
+    answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."
+  - question: "What causes the most repair work?"
+    answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."
 ---
 
 # pacs.008.001.13 — 金融機関間顧客信用振替

@@ -5,10 +5,10 @@ lang: uk-UA
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Чи достатньо pacs.008 одного для виробничих платежів?"
-    answer: "Ні. Готовність до виробництва також залежить від правил схеми, якості адрес, даних сторін, обробки статусів та потоків винятків."
-  - question: "Що спричиняє найбільше ремонтних робіт?"
-    answer: "Слабкі дані сторін, погана структуризація адрес, непослідовні ідентифікатори та неструктурований зміст переказів є поширеними причинами."
+  - question: "Is pacs.008 enough on its own for production payments?"
+    answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."
+  - question: "What causes the most repair work?"
+    answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."
 ---
 
 # pacs.008.001.13 — Клієнтський кредитовий переказ між фінансовими установами

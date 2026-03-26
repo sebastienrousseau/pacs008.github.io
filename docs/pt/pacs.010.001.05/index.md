@@ -5,10 +5,10 @@ lang: pt-BR
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "O pacs.010 é comum em produtos de pagamento de varejo?"
-    answer: "Geralmente não. Ele se adapta melhor a cenários de débito direto entre bancos do que a produtos de varejo padrão."
-  - question: "O que as equipes devem projetar primeiro?"
-    answer: "Comece com regras de aprovação, controles bilaterais e tratamento de exceções antes de finalizar modelos XML."
+  - question: "Is pacs.010 common in retail payment products?"
+    answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."
+  - question: "What should teams design first?"
+    answer: "Start with approval rules, bilateral controls, and exception handling before finalising XML templates."
 ---
 
 # pacs.010.001.05 — Débito direto entre instituições financeiras

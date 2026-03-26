@@ -4,17 +4,17 @@ description: How the SWIFT CBPR+ November 2026 structured postal address deadlin
 lang: hi-IN
 lastUpdated: true
 image: /logo.svg
-howtoName: "नवंबर 2026 संरचित डाक पता समय सीमा के लिए कैसे तैयारी करें"
-howtoDescription: "SWIFT CBPR+ नवंबर 2026 की समय सीमा से पहले डाक पता डेटा का ऑडिट, मैपिंग, सत्यापन और परीक्षण करने के चरण।"
+howtoName: "How to prepare for the November 2026 structured postal address deadline"
+howtoDescription: "Steps to audit, map, validate, and test postal address data before the SWIFT CBPR+ November 2026 deadline."
 howto:
-  - name: "चरण 1"
-    text: "देनदार, लेनदार और एजेंट रिकॉर्ड में वर्तमान पता डेटा गुणवत्ता का ऑडिट करें।"
-  - name: "चरण 2"
-    text: "मौजूदा असंरचित पता फ़ील्ड को संरचित प्रारूप में मैप करें (सड़क, भवन, पिन कोड, शहर, देश)।"
-  - name: "चरण 3"
-    text: "pacs008 का उपयोग करके अपनी प्री-जेनरेशन पाइपलाइन में पता सत्यापन जोड़ें।"
-  - name: "चरण 4"
-    text: "समय सीमा से पहले प्रतिनिधि भुगतान डेटा के साथ परीक्षण करें।"
+  - name: "Step 1"
+    text: "Audit current address data quality across debtor, creditor, and agent records."
+  - name: "Step 2"
+    text: "Map existing unstructured address fields to the structured format (street, building, post code, town, country)."
+  - name: "Step 3"
+    text: "Add address validation to your pre-generation pipeline using pacs008."
+  - name: "Step 4"
+    text: "Test with representative payment data before the deadline."
 ---
 
 # November 2026 structured-address deadline

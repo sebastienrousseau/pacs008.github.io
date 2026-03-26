@@ -5,10 +5,10 @@ lang: pl-PL
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Czy pacs.002 jest komunikatem płatniczym?"
-    answer: "Nie. Raportuje status wcześniejszej instrukcji zamiast samodzielnie przenosić wartość."
-  - question: "Czy pacs.002 powinien zastąpić wewnętrzne stany przepływu pracy?"
-    answer: "Nie. Powinien je informować, ale wewnętrzne stany spraw nadal potrzebują własnej logiki operacyjnej."
+  - question: "Is pacs.002 a payment message?"
+    answer: "No. It reports status for an earlier instruction rather than moving value itself."
+  - question: "Should pacs.002 replace internal workflow states?"
+    answer: "No. It should inform them, but internal case states still need their own operational logic."
 ---
 
 # pacs.002.001.12 — Raport statusu płatności FI-do-FI

@@ -5,10 +5,10 @@ lang: vi-VN
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "pacs.003 có phải là bản sao ghi nợ trực tiếp của pacs.008 không?"
-    answer: "Không. Nó xử lý các luồng ghi nợ trực tiếp khách hàng, có các quy tắc ủy quyền, thời gian và ngoại lệ khác nhau."
-  - question: "Điều gì quan trọng nhất về mặt vận hành?"
-    answer: "Chất lượng ủy quyền, quy tắc tài khoản con nợ và xử lý hoàn trả quan trọng hơn việc tạo XML."
+  - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
+    answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."
+  - question: "What matters most operationally?"
+    answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation."
 ---
 
 # pacs.003.001.09 — Ghi nợ trực tiếp khách hàng giữa các tổ chức tài chính

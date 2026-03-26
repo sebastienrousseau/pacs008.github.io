@@ -24,7 +24,7 @@ function localLink(path: string): string {
 </script>
 
 <template>
-  <footer class="dot-footer" role="contentinfo">
+  <footer class="dot-footer">
     <div class="dot-footer-inner">
       <nav class="dot-footer-nav" :aria-label="t.footerNavLabel">
         <div class="dot-footer-column">

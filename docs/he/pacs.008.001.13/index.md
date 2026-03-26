@@ -5,10 +5,10 @@ lang: he-IL
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "האם pacs.008 מספיק לבדו לתשלומים בייצור?"
-    answer: "לא. מוכנות לייצור תלויה גם בכללי סכמה, איכות כתובת, נתוני צדדים, טיפול בסטטוס וזרימות חריגים."
-  - question: "מה גורם להכי הרבה עבודת תיקון?"
-    answer: "נתוני צדדים חלשים, מבנה כתובת לקוי, מזהים לא עקביים ותוכן העברה לא מובנה הם גורמים נפוצים."
+  - question: "Is pacs.008 enough on its own for production payments?"
+    answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."
+  - question: "What causes the most repair work?"
+    answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."
 ---
 
 # pacs.008.001.13 — העברת אשראי ללקוח בין מוסדות פיננסיים

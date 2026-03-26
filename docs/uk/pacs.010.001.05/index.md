@@ -5,10 +5,10 @@ lang: uk-UA
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Чи поширений pacs.010 у роздрібних платіжних продуктах?"
-    answer: "Зазвичай ні. Він краще підходить для сценаріїв прямого дебетування між банками, ніж для стандартних роздрібних продуктів."
-  - question: "Що команди повинні проектувати першим?"
-    answer: "Починайте з правил затвердження, двосторонніх контролів та обробки винятків перед фіналізацією XML-шаблонів."
+  - question: "Is pacs.010 common in retail payment products?"
+    answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."
+  - question: "What should teams design first?"
+    answer: "Start with approval rules, bilateral controls, and exception handling before finalising XML templates."
 ---
 
 # pacs.010.001.05 — Пряме дебетування між фінансовими установами

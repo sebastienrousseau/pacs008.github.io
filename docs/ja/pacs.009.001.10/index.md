@@ -5,10 +5,10 @@ lang: ja-JP
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "pacs.008ではなくpacs.009を選ぶべき場合は？"
-    answer: "自己口座振替とカバーレグにはpacs.009を、顧客信用振替指示にはpacs.008を選択してください。"
-  - question: "なぜpacs.009は予想以上に照合が困難なことが多いですか？"
-    answer: "銀行がトレジャリー資金調達、コルレス先レグ、関連する顧客決済の関係を維持する必要があるためです。"
+  - question: "When should I choose pacs.009 over pacs.008?"
+    answer: "Choose pacs.009 for own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions."
+  - question: "Why is pacs.009 often harder to reconcile than expected?"
+    answer: "Because banks must preserve the relationship between treasury funding, correspondent legs, and any linked customer payment."
 ---
 
 # pacs.009.001.10 — 金融機関間信用振替

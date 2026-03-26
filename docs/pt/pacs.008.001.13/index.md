@@ -5,10 +5,10 @@ lang: pt-BR
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "O pacs.008 é suficiente sozinho para pagamentos em produção?"
-    answer: "Não. A prontidão para produção também depende de regras do esquema, qualidade de endereço, dados das partes, tratamento de status e fluxos de exceção."
-  - question: "O que causa mais trabalho de reparação?"
-    answer: "Dados de partes fracos, má estruturação de endereços, identificadores inconsistentes e conteúdo de remessa não estruturado são causas comuns."
+  - question: "Is pacs.008 enough on its own for production payments?"
+    answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."
+  - question: "What causes the most repair work?"
+    answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."
 ---
 
 # pacs.008.001.13 — Transferência de crédito de cliente FI a FI

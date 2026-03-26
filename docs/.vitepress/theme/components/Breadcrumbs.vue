@@ -24,7 +24,12 @@ function breadcrumbNameForSegment(segment: string): string {
     contact: t.value.contact,
     privacy: t.value.privacy,
     terms: t.value.terms,
-    glossary: t.value.glossary
+    editorial: t.value.editorial,
+    "structured-address": t.value.structuredAddress,
+    faq: t.value.faq,
+    glossary: t.value.glossary,
+    "pacs-explained": t.value.pacsExplained,
+    changelog: t.value.changelog
   };
   return known[segment] || slugToTitle(segment);
 }

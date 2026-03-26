@@ -5,10 +5,10 @@ lang: id-ID
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Apakah pacs.003 cerminan debit langsung dari pacs.008?"
-    answer: "Tidak. Ini menangani alur debit langsung pelanggan, yang memiliki aturan mandat, waktu, dan pengecualian yang berbeda."
-  - question: "Apa yang paling penting secara operasional?"
-    answer: "Kualitas mandat, aturan akun debitur, dan penanganan pengembalian lebih penting daripada pembuatan XML."
+  - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
+    answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."
+  - question: "What matters most operationally?"
+    answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation."
 ---
 
 # pacs.003.001.09 — Direct Debit Pelanggan FI ke FI

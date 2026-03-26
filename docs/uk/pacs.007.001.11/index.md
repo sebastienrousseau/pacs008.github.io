@@ -5,10 +5,10 @@ lang: uk-UA
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "pacs.007 призначений лише для сценаріїв шахрайства?"
-    answer: "Ні. Шахрайство — основний випадок використання, але будь-яка потреба з боку інструктора скасувати платіж може його активувати."
-  - question: "Чи можна обробляти його як звичайне повернення?"
-    answer: "Ні. Терміни скасування, фіксація причини та звірка суттєво відрізняються від повернень."
+  - question: "Is pacs.007 only for fraud scenarios?"
+    answer: "No. Fraud is a major use case, but any instructing-side need to reverse a payment can trigger it."
+  - question: "Can it be handled like a normal return?"
+    answer: "No. Reversal timing, reason capture, and reconciliation differ materially from returns."
 ---
 
 # pacs.007.001.11 — Сторнування платежу між фінансовими установами

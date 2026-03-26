@@ -5,10 +5,10 @@ lang: it-IT
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Quando scegliere pacs.009 invece di pacs.008?"
-    answer: "Scegliete pacs.009 per trasferimenti in conto proprio e leg di copertura; scegliete pacs.008 per istruzioni di bonifico cliente."
-  - question: "Perché pacs.009 è spesso più difficile da riconciliare del previsto?"
-    answer: "Perché le banche devono preservare la relazione tra finanziamento di tesoreria, leg corrispondenti e qualsiasi pagamento cliente collegato."
+  - question: "When should I choose pacs.009 over pacs.008?"
+    answer: "Choose pacs.009 for own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions."
+  - question: "Why is pacs.009 often harder to reconcile than expected?"
+    answer: "Because banks must preserve the relationship between treasury funding, correspondent legs, and any linked customer payment."
 ---
 
 # pacs.009.001.10 — Bonifico tra istituzioni finanziarie

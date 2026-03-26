@@ -5,10 +5,10 @@ lang: nl-NL
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.010 gebruikelijk bij retailbetalingsproducten?"
-    answer: "Meestal niet. Het past beter bij bank-tot-bank incassoscenario's dan bij standaard retailproducten."
-  - question: "Wat moeten teams eerst ontwerpen?"
-    answer: "Begin met goedkeuringsregels, bilaterale controles en uitzonderingsafhandeling voordat u XML-sjablonen finaliseert."
+  - question: "Is pacs.010 common in retail payment products?"
+    answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."
+  - question: "What should teams design first?"
+    answer: "Start with approval rules, bilateral controls, and exception handling before finalising XML templates."
 ---
 
 # pacs.010.001.05 — Incasso tussen financiële instellingen

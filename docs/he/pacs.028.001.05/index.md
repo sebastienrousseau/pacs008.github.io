@@ -5,10 +5,10 @@ lang: he-IL
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "האם יש לשלוח pacs.028 אחרי כל תשלום?"
-    answer: "בדרך כלל לא. הוא עובד הכי טוב ככלי חריגים ממוקד, לא כתעבורה גורפת."
-  - question: "מה הופך את pacs.028 לשימושי?"
-    answer: "כללי פסק זמן, הסלמה והתאמה ברורים סביב מקרה התשלום המקורי."
+  - question: "Should pacs.028 be sent after every payment?"
+    answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic."
+  - question: "What makes pacs.028 useful?"
+    answer: "Clear timeout, escalation, and reconciliation rules around the original payment case."
 ---
 
 # pacs.028.001.05 — בקשת סטטוס תשלום בין מוסדות פיננסיים

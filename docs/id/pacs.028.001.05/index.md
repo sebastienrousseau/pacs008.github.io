@@ -5,10 +5,10 @@ lang: id-ID
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Haruskah pacs.028 dikirim setelah setiap pembayaran?"
-    answer: "Biasanya tidak. Ini bekerja paling baik sebagai alat pengecualian yang ditargetkan, bukan sebagai lalu lintas menyeluruh."
-  - question: "Apa yang membuat pacs.028 berguna?"
-    answer: "Aturan batas waktu, eskalasi, dan rekonsiliasi yang jelas di sekitar kasus pembayaran asli."
+  - question: "Should pacs.028 be sent after every payment?"
+    answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic."
+  - question: "What makes pacs.028 useful?"
+    answer: "Clear timeout, escalation, and reconciliation rules around the original payment case."
 ---
 
 # pacs.028.001.05 — Permintaan Status Pembayaran FI ke FI

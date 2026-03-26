@@ -4,6 +4,7 @@ import { join } from "node:path";
 import { sharedHead } from "./config/head";
 import { LOCALE_HOME_LABELS, LOCALE_META, SITE_URL, buildHreflangTags, buildSitemapHreflangLinks, resolvePageMeta } from "./config/seo";
 import { getUiStrings } from "./config/i18n";
+import { faqAccordionPlugin } from "./config/faq-accordion";
 
 const RTL_LOCALES = new Set(["ar", "he"]);
 
@@ -15,10 +16,10 @@ function navFor(locale: string) {
   const t = getUiStrings(locale);
   const prefix = locale === "en" ? "" : `/${locale}`;
   const nav = [
-    { text: t.about, link: `${prefix}/about/` },
     {
-      text: t.navMessages,
+      text: t.docs,
       items: [
+        { text: t.about, link: `${prefix}/about/` },
         { text: t.messageTypes, link: `${prefix}/message-types/` },
         { text: t.selectionGuide, link: `${prefix}/message-selection/` },
         { text: t.pacsExplained, link: `${prefix}/pacs-explained/` }
@@ -28,13 +29,13 @@ function navFor(locale: string) {
       text: t.navResources,
       items: [
         { text: t.structuredAddress, link: `${prefix}/structured-address/` },
-        { text: t.glossary, link: `${prefix}/glossary/` },
         { text: t.api, link: `${prefix}/api/` },
         { text: t.faq, link: `${prefix}/faq/` },
-        { text: t.changelog, link: `${prefix}/changelog/` }
+        { text: t.glossary, link: `${prefix}/glossary/` },
+        { text: t.changelog, link: `${prefix}/changelog/` },
+        { text: t.contact, link: `${prefix}/contact/` }
       ]
-    },
-    { text: t.contact, link: `${prefix}/contact/` }
+    }
   ];
   return nav;
 }
@@ -135,10 +136,7 @@ const locales = Object.fromEntries(
           provider: "local",
           options: localSearchOptionsFor(key)
         },
-        footer: {
-          message: getUiStrings(key).footerMessage,
-          copyright: getUiStrings(key).footerCopyright
-        }
+        footer: undefined as unknown as { message: string; copyright: string }
       }
     }
   ])
@@ -153,6 +151,11 @@ export default defineConfig({
   lastUpdated: true,
   head: sharedHead,
   srcExclude: ["public/**"],
+  markdown: {
+    config: (md) => {
+      md.use(faqAccordionPlugin);
+    }
+  },
   sitemap: {
     hostname: "https://pacs008.com",
     xmlns: { xhtml: true },
@@ -219,6 +222,20 @@ ${items.join("\n")}
 
     writeFileSync(join(outDir, "rss.xml"), rss, "utf8");
     console.log(`RSS feed generated with ${items.length} items.`);
+
+    // Performance: change font-display from swap to optional in CSS bundles
+    for (const entry of readdirSync(join(outDir, "assets"))) {
+      if (entry.endsWith(".css")) {
+        const cssPath = join(outDir, "assets", entry);
+        let css = readFileSync(cssPath, "utf8");
+        const count = (css.match(/font-display:\s*swap/g) || []).length;
+        if (count > 0) {
+          css = css.replace(/font-display:\s*swap/g, "font-display:optional");
+          writeFileSync(cssPath, css, "utf8");
+          console.log(`Patched ${count} font-display rules in ${entry}`);
+        }
+      }
+    }
   },
   transformPageData(pageData) {
     const meta = resolvePageMeta(pageData);
@@ -237,17 +254,18 @@ ${items.join("\n")}
     if (fm.layout === "home" && !fm.hero) {
       const actionText = typeof fm.actionText === "string" ? fm.actionText : "Learn about pacs008";
       const actionLink = typeof fm.actionLink === "string" ? fm.actionLink : "/about/";
+      const actions: Array<{ theme: string; text: string; link: string }> = [
+        { theme: "brand", text: actionText, link: actionLink }
+      ];
+      if (typeof fm.actionText2 === "string" && typeof fm.actionLink2 === "string") {
+        actions.push({ theme: "alt", text: fm.actionText2, link: fm.actionLink2 });
+      }
+
       fm.hero = {
         name: typeof fm.heroText === "string" ? fm.heroText : fm.title || SITE_NAME,
         text: "",
         tagline: typeof fm.tagline === "string" ? fm.tagline : fm.subtitle || fm.description || "",
-        actions: [
-          {
-            theme: "brand",
-            text: actionText,
-            link: actionLink
-          }
-        ]
+        actions
       };
 
       if (Array.isArray(fm.features)) {
@@ -283,10 +301,7 @@ ${items.join("\n")}
       ...buildHreflangTags(meta.routePath)
     ];
 
-    // Preload hero image only on home pages
-    if (fm.layout === "home") {
-      head.push(["link", { rel: "preload", href: "/images/hero-bg.webp", as: "image", type: "image/webp", fetchpriority: "high" }] as unknown as [string, Record<string, string>]);
-    }
+    // Hero uses CSS gradient — no image preload needed
 
     // JSON-LD: WebSite on homepage, BreadcrumbList on all pages
     if (fm.layout === "home") {
@@ -446,25 +461,54 @@ ${items.join("\n")}
         return result;
       }
     );
-    // SSR: add role="main" to VPContent
+    // Doc pages already have <main class="main"> from VitePress.
+    // Home pages get role="main" on VPContent for a11y landmark coverage.
+    if (!/<main[\s>]/.test(code)) {
+      code = code.replace(
+        /id="VPContent"(?![^>]*role=)/g,
+        'id="VPContent" role="main"'
+      );
+    }
+    // VPDocFooter landmark is fixed client-side in Layout.vue (fixDocFooterLandmark)
+    // SSR: hide search shortcut keys from accessibility tree to prevent label mismatch
     code = code.replace(
-      /id="VPContent"(?![^>]*role=)/g,
-      'id="VPContent" role="main"'
+      /(<span class="DocSearch-Button-Keys")(?![^>]*aria-hidden)/g,
+      '$1 aria-hidden="true"'
     );
+    // SSR: add type="button" and aria-label to code-block copy buttons
+    code = code.replace(
+      /<button(?=[^>]*class="[^"]*\bcopy\b[^"]*")(?![^>]*\btype=)/g,
+      '<button type="button"'
+    );
+    code = code.replace(
+      /<button([^>]*class="[^"]*\bcopy\b[^"]*")(?![^>]*aria-label)/g,
+      '<button$1 aria-label="Copy code"'
+    );
+
+    // --- Performance: remove modulepreload and font preload hints ---
+    code = code.replace(/<link rel="modulepreload"[^>]*>\n?/g, '');
+    code = code.replace(/<link rel="preload"[^>]*as="font"[^>]*>\n?/g, '');
+
+    // --- Performance: on home pages, defer JS to idle time ---
+    // Homepage is fully server-rendered; JS is only needed for interactivity.
+    if (/class="[^"]*\bVPHome\b/.test(code)) {
+      code = code.replace(
+        /<script type="module" src="([^"]+)"><\/script>/,
+        '<script>(typeof requestIdleCallback!=="undefined"?requestIdleCallback:setTimeout)(function(){var s=document.createElement("script");s.type="module";s.src="$1";document.head.appendChild(s)});</script>'
+      );
+    }
+
     return code;
   },
   themeConfig: {
     outline: { level: [2, 3] },
     siteTitle: "pacs008",
-    logo: { src: "/logo.svg", alt: "pacs008 home" },
+    logo: { src: "/logo.webp", alt: "pacs008 home", width: 28, height: 28 },
     langMenuLabel: "Languages",
     search: { provider: "local", options: localSearchOptionsFor("en") },
     socialLinks: [
       { icon: "github", link: "https://github.com/sebastienrousseau/pacs008" }
     ],
-    footer: {
-      message: getUiStrings("en").footerMessage,
-      copyright: getUiStrings("en").footerCopyright
-    }
+    footer: undefined as unknown as { message: string; copyright: string }
   }
 });

@@ -5,10 +5,10 @@ lang: nl-NL
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Wanneer moet ik pacs.009 kiezen boven pacs.008?"
-    answer: "Kies pacs.009 voor eigen-rekeningtransfers en dekkingslegs; kies pacs.008 voor klantkredietoverboekingsinstructies."
-  - question: "Waarom is pacs.009 vaak moeilijker af te stemmen dan verwacht?"
-    answer: "Omdat banken de relatie moeten bewaren tussen treasury-financiering, correspondentlegs en eventuele gekoppelde klantbetalingen."
+  - question: "When should I choose pacs.009 over pacs.008?"
+    answer: "Choose pacs.009 for own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions."
+  - question: "Why is pacs.009 often harder to reconcile than expected?"
+    answer: "Because banks must preserve the relationship between treasury funding, correspondent legs, and any linked customer payment."
 ---
 
 # pacs.009.001.10 — Kredietoverboeking tussen financiële instellingen

@@ -5,10 +5,10 @@ lang: ko-KR
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "pacs.028은 모든 결제 후에 보내야 합니까?"
-    answer: "보통 아닙니다. 광범위한 트래픽이 아닌 대상을 지정한 예외 도구로 가장 잘 작동합니다."
-  - question: "pacs.028을 유용하게 만드는 것은?"
-    answer: "원래 결제 사건에 대한 명확한 타임아웃, 에스컬레이션 및 조정 규칙."
+  - question: "Should pacs.028 be sent after every payment?"
+    answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic."
+  - question: "What makes pacs.028 useful?"
+    answer: "Clear timeout, escalation, and reconciliation rules around the original payment case."
 ---
 
 # pacs.028.001.05 — 금융기관 간 지급 상태 요청

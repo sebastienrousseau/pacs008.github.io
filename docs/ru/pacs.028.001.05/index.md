@@ -5,10 +5,10 @@ lang: ru-RU
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Следует ли отправлять pacs.028 после каждого платежа?"
-    answer: "Обычно нет. Он лучше всего работает как целевой инструмент для исключений, а не как массовый трафик."
-  - question: "Что делает pacs.028 полезным?"
-    answer: "Чёткие правила тайм-аута, эскалации и сверки вокруг исходного платёжного дела."
+  - question: "Should pacs.028 be sent after every payment?"
+    answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic."
+  - question: "What makes pacs.028 useful?"
+    answer: "Clear timeout, escalation, and reconciliation rules around the original payment case."
 ---
 
 # pacs.028.001.05 — Запрос статуса платежа между финансовыми учреждениями

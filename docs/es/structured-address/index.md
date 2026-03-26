@@ -4,17 +4,17 @@ description: Cómo afecta el plazo SWIFT CBPR+ de noviembre 2026 para direccione
 lang: es-ES
 lastUpdated: true
 image: /logo.svg
-howtoName: "Cómo prepararse para la fecha límite de dirección postal estructurada de noviembre 2026"
-howtoDescription: "Pasos para auditar, mapear, validar y probar datos de dirección postal antes de la fecha límite de SWIFT CBPR+ de noviembre 2026."
+howtoName: "How to prepare for the November 2026 structured postal address deadline"
+howtoDescription: "Steps to audit, map, validate, and test postal address data before the SWIFT CBPR+ November 2026 deadline."
 howto:
-  - name: "Paso 1"
-    text: "Auditar la calidad actual de los datos de dirección en registros de deudor, acreedor y agente."
-  - name: "Paso 2"
+  - name: "Step 1"
+    text: "Auditar la calidad actual de los datos de dirección en los registros de deudor, acreedor y agente."
+  - name: "Step 2"
     text: "Mapear los campos de dirección no estructurados existentes al formato estructurado (calle, edificio, código postal, ciudad, país)."
-  - name: "Paso 3"
-    text: "Agregar validación de dirección a su pipeline de pre-generación usando pacs008."
-  - name: "Paso 4"
-    text: "Probar con datos de pago representativos antes de la fecha límite."
+  - name: "Step 3"
+    text: "Añadir validación de dirección al pipeline de pre-generación usando pacs008."
+  - name: "Step 4"
+    text: "Probar con datos de pago representativos antes del plazo."
 ---
 
 # Plazo de dirección estructurada noviembre 2026

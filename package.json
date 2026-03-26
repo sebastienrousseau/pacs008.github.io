@@ -8,10 +8,19 @@
     "postbuild": "node scripts/postbuild-seo.mjs",
     "preview": "vitepress preview docs",
     "generate": "node scripts/generate-locales.mjs",
-    "audit:site": "node scripts/audit-site.mjs"
+    "audit:site": "node scripts/audit-site.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "validate": "html-validate 'docs/.vitepress/dist/**/index.html'"
   },
   "devDependencies": {
-    "vitepress": "^1.6.3"
+    "@axe-core/cli": "4.11.1",
+    "@vue/test-utils": "2.4.6",
+    "happy-dom": "20.8.8",
+    "html-validate": "10.11.2",
+    "serve": "14.2.6",
+    "vitepress": "^1.6.3",
+    "vitest": "4.1.1"
   },
   "overrides": {
     "esbuild": ">=0.25.0"

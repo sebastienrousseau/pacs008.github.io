@@ -5,10 +5,10 @@ lang: hi-IN
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "क्या pacs.002 एक भुगतान संदेश है?"
-    answer: "नहीं। यह मूल्य स्थानांतरित करने के बजाय पूर्व निर्देश की स्थिति रिपोर्ट करता है।"
-  - question: "क्या pacs.002 को आंतरिक वर्कफ़्लो स्थितियों को प्रतिस्थापित करना चाहिए?"
-    answer: "नहीं। इसे उन्हें सूचित करना चाहिए, लेकिन आंतरिक केस स्थितियों को अभी भी अपने स्वयं के परिचालन तर्क की आवश्यकता है।"
+  - question: "Is pacs.002 a payment message?"
+    answer: "No. It reports status for an earlier instruction rather than moving value itself."
+  - question: "Should pacs.002 replace internal workflow states?"
+    answer: "No. It should inform them, but internal case states still need their own operational logic."
 ---
 
 # pacs.002.001.12 — FI-से-FI भुगतान स्थिति रिपोर्ट

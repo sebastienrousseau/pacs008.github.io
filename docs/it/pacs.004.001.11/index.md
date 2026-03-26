@@ -5,10 +5,10 @@ lang: it-IT
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Qual è la differenza tra pacs.004 e pacs.007?"
-    answer: "pacs.004 restituisce i fondi regolati dal lato ricevente, mentre pacs.007 richiede lo storno dal lato istruttore originale."
-  - question: "Ogni accredito beneficiario fallito deve diventare un pacs.004?"
-    answer: "Non automaticamente. Il percorso giusto dipende dalle regole dello schema, dalla fase di regolamento e dalla gestione della controparte."
+  - question: "What is the difference between pacs.004 and pacs.007?"
+    answer: "pacs.004 returns settled funds from the receiving side, while pacs.007 requests reversal from the original instructing side."
+  - question: "Should every failed beneficiary credit become pacs.004?"
+    answer: "Not automatically. The right path depends on scheme rules, settlement stage, and counterparty handling."
 ---
 
 # pacs.004.001.11 — Reso di pagamento

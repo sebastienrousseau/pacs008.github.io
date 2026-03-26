@@ -5,10 +5,10 @@ lang: ar-SA
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "هل pacs.008 كافٍ بمفرده للمدفوعات الإنتاجية؟"
-    answer: "لا. تعتمد الجاهزية الإنتاجية أيضاً على قواعد النظام وجودة العنوان وبيانات الأطراف ومعالجة الحالة وتدفقات الاستثناء."
-  - question: "ما الذي يسبب أكبر قدر من أعمال الإصلاح؟"
-    answer: "بيانات الأطراف الضعيفة وسوء هيكلة العنوان والمعرفات غير المتسقة ومحتوى التحويل غير المنظم هي أسباب شائعة."
+  - question: "Is pacs.008 enough on its own for production payments?"
+    answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."
+  - question: "What causes the most repair work?"
+    answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."
 ---
 
 # pacs.008.001.13 — تحويل ائتماني للعميل من مؤسسة مالية إلى مؤسسة مالية

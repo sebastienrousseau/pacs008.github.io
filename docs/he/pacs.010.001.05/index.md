@@ -5,10 +5,10 @@ lang: he-IL
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "האם pacs.010 נפוץ במוצרי תשלום קמעונאיים?"
-    answer: "בדרך כלל לא. הוא מתאים יותר לתרחישי חיוב ישיר בין בנקים מאשר למוצרי קמעונאות סטנדרטיים."
-  - question: "מה צוותים צריכים לתכנן קודם?"
-    answer: "התחילו עם כללי אישור, בקרות דו-צדדיות וטיפול בחריגים לפני סיום תבניות XML."
+  - question: "Is pacs.010 common in retail payment products?"
+    answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."
+  - question: "What should teams design first?"
+    answer: "Start with approval rules, bilateral controls, and exception handling before finalising XML templates."
 ---
 
 # pacs.010.001.05 — חיוב ישיר בין מוסדות פיננסיים

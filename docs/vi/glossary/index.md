@@ -1,91 +1,138 @@
 ---
-title: "Bảng thuật ngữ ISO 20022 | pacs008"
-description: Định nghĩa các thuật ngữ chính về ISO 20022 và thông điệp thanh toán được sử dụng trong pacs.008 và các thông điệp liên quan.
+title: "ISO 20022 glossary | pacs008"
+description: Definitions of key ISO 20022 and payment messaging terms used in pacs.008 and related messages.
 lang: vi-VN
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Bảng thuật ngữ ISO 20022
+# ISO 20022 glossary
 
-Bảng thuật ngữ này định nghĩa các thuật ngữ chính, viết tắt và khái niệm kỹ thuật được sử dụng trong các thông điệp pacs theo ISO 20022 và trên trang web này.
+This glossary defines the key terms, abbreviations, and technical concepts used across ISO 20022 pacs messages and this site.
 
 ## A
 
-**ACH** — Automated Clearing House (Phòng bù trừ tự động). Mạng lưới xử lý thanh toán điện tử theo lô giữa các tổ chức tài chính.
+**ACH** — Nhà thanh toán bù trừ tự động. Mạng lưới xử lý thanh toán điện tử hàng loạt giữa các tổ chức tài chính.
 
-**AdrLine** — Address Line (Dòng địa chỉ). Trường địa chỉ văn bản tự do trong cấu trúc địa chỉ bưu chính ISO 20022. Tối đa 7 dòng, mỗi dòng 70 ký tự. Đang được thay thế bằng các phần tử địa chỉ có cấu trúc cho CBPR+ vào tháng 11 năm 2026.
+**AdrLine** — Dòng địa chỉ. Trường văn bản tự do trong cấu trúc địa chỉ bưu điện ISO 20022. Tối đa 7 dòng, mỗi dòng 70 ký tự. Đang được thay thế bằng phần tử địa chỉ có cấu trúc cho CBPR+ vào tháng 11 năm 2026.
 
-**ACCP** — Accepted Customer Profile (Hồ sơ khách hàng được chấp nhận). Mã trạng thái pacs.002 cho biết các kiểm tra trước đó (cú pháp, hồ sơ khách hàng) đã vượt qua.
+**ACCP** — Hồ sơ khách hàng được chấp nhận. Mã trạng thái pacs.002.
 
-**ACSC** — Accepted Settlement Completed (Quyết toán hoàn tất). Mã trạng thái pacs.002 xác nhận quyết toán trên tài khoản bên ghi nợ đã hoàn thành.
+**ACSC** — Thanh toán bù trừ được chấp nhận đã hoàn tất. Mã trạng thái pacs.002.
 
-**ACSP** — Accepted Settlement in Process (Quyết toán đang xử lý). Mã trạng thái pacs.002 cho biết tất cả kiểm tra đã vượt qua và quyết toán đang tiến hành.
+**ACSP** — Thanh toán bù trừ được chấp nhận đang xử lý. Mã trạng thái pacs.002.
 
-## B
+**BAH** — Tiêu đề ứng dụng kinh doanh (head.001).
 
-**BAH** — Business Application Header (head.001). Phong bì chuẩn hóa bao bọc thông điệp kinh doanh ISO 20022 để vận chuyển qua SWIFT. Chứa thông tin định tuyến, mã định danh định nghĩa thông điệp và BIC người gửi/nhận.
+**BIC** — Mã định danh doanh nghiệp (ISO 9362). 8 hoặc 11 ký tự.
 
-**BIC** — Business Identifier Code (ISO 9362). Mã 8 hoặc 11 ký tự nhận dạng duy nhất một tổ chức tài chính. Định dạng: BBBBCCLL (mã ngân hàng + quốc gia + vị trí) với mã chi nhánh BBB tùy chọn.
+**CBPR+** — Thanh toán và báo cáo xuyên biên giới Plus. Hoạt động từ tháng 3 năm 2023.
 
-## C
+**CdtTrfTxInf** — Thông tin giao dịch chuyển khoản tín dụng.
 
-**CBPR+** — Cross-Border Payments and Reporting Plus. Chương trình của SWIFT cho việc di chuyển thông điệp thanh toán xuyên biên giới từ MT sang ISO 20022. Đi vào hoạt động tháng 3 năm 2023.
+**ChrgBr** — Bên chịu phí. Giá trị: DEBT, CRED, SHAR, SLEV.
 
-**CdtTrfTxInf** — Credit Transfer Transaction Information. Khối xây dựng chính cấp giao dịch trong pacs.008 chứa chi tiết thanh toán, các bên, số tiền và thông tin chuyển tiền.
+**CLRG** — Thanh toán bù trừ qua hệ thống thanh toán bù trừ.
 
-**ChrgBr** — Charge Bearer (Người chịu phí). Xác định ai trả phí giao dịch. Giá trị: DEBT (bên ghi nợ), CRED (bên thụ hưởng), SHAR (chia sẻ), SLEV (mức dịch vụ, chỉ SEPA).
+**COVE** — Phương thức bảo đảm.
 
-**CLRG** — Quyết toán qua hệ thống bù trừ. Phương thức quyết toán trong đó vốn di chuyển qua hệ thống bù trừ như TARGET2, EURO1 hoặc CHIPS.
+**CSM** — Cơ chế thanh toán bù trừ và quyết toán.
 
-**COVE** — Quyết toán phương thức bảo lãnh. Phương thức quyết toán trong đó thanh toán bảo lãnh pacs.009 riêng biệt xử lý cấp vốn giữa các ngân hàng đại lý trong khi pacs.008 mang dữ liệu khách hàng trực tiếp.
+**Dbtr** — Bên nợ.
 
-**CSM** — Clearing and Settlement Mechanism (Cơ chế bù trừ và quyết toán). Cơ sở hạ tầng xử lý và quyết toán lệnh thanh toán giữa các tổ chức tham gia.
+**DbtrAgt** — Đại lý bên nợ.
 
-## D
+**E2E ID** — Nhận dạng đầu cuối (EndToEndId).
 
-**Dbtr** — Debtor (Bên ghi nợ). Bên nợ vốn và khởi tạo thanh toán. Trong pacs.008, phần tử Dbtr chứa tên, địa chỉ bưu chính, nhận dạng và quốc gia cư trú của bên ghi nợ.
+**EPC** — Hội đồng thanh toán châu Âu.
 
-**DbtrAgt** — Debtor Agent (Đại lý bên ghi nợ). Tổ chức tài chính phục vụ tài khoản bên ghi nợ và gửi lệnh pacs.008.
+**FI** — Tổ chức tài chính.
 
-## E–X
+**FIToFI** — Tổ chức tài chính đến tổ chức tài chính.
 
-**E2E ID** — End-to-End Identification (EndToEndId). Tham chiếu do bên khởi tạo gán phải giữ nguyên qua tất cả đại lý trong chuỗi thanh toán. Dùng cho khả năng truy vết cấp khách hàng.
+**gpi** — Đổi mới thanh toán toàn cầu. Sử dụng UETR.
 
-**EPC** — European Payments Council (Hội đồng Thanh toán Châu Âu). Cơ quan quản lý sách quy tắc kế hoạch thanh toán SEPA cho chuyển khoản tín dụng và ghi nợ trực tiếp.
+**GrpHdr** — Tiêu đề nhóm.
 
-**FI** — Financial Institution (Tổ chức tài chính). Ngân hàng hoặc tổ chức khác tham gia bù trừ và quyết toán thanh toán.
+**Hybrid address** — Định dạng địa chỉ kết hợp. Được phép trước tháng 11 năm 2026.
 
-**FIToFI** — Financial Institution to Financial Institution. Mô tả miền liên ngân hàng nơi thông điệp pacs vận hành.
+**IBAN** — Số tài khoản ngân hàng quốc tế (ISO 13616).
 
-**gpi** — Global Payments Innovation. Sáng kiến của SWIFT cho thanh toán xuyên biên giới nhanh hơn, minh bạch hơn. Sử dụng UETR cho theo dõi đầu cuối qua Tracker dựa trên đám mây.
+**INDA** — Quyết toán đại lý được chỉ thị.
 
-**GrpHdr** — Group Header. Khối siêu dữ liệu cấp thông điệp trong thông điệp pacs. Chứa MsgId, CreDtTm, NbOfTxs, thông tin quyết toán và thông tin loại thanh toán.
+**INGA** — Quyết toán đại lý chỉ thị.
 
-**IBAN** — International Bank Account Number (ISO 13616). Định dạng số tài khoản chuẩn hóa cho thanh toán xuyên biên giới và nội địa. Xác thực bằng checksum ISO 7064 Mod 97-10.
+**InstrId** — Nhận dạng lệnh.
 
-**ISO 20022** — Tiêu chuẩn quốc tế cho trao đổi dữ liệu điện tử giữa các tổ chức tài chính. Định nghĩa mô hình dữ liệu chung và định dạng thông điệp dựa trên XML cho thanh toán, chứng khoán, tài trợ thương mại và các lĩnh vực tài chính khác.
+**IntrBkSttlmAmt** — Số tiền quyết toán liên ngân hàng.
 
-**LEI** — Legal Entity Identifier (ISO 17442). Mã chữ số 20 ký tự nhận dạng duy nhất các thực thể pháp lý tham gia giao dịch tài chính. Sử dụng trong OrgId/LEI cho các bên và FinInstnId/LEI cho đại lý.
+**ISO 20022** — Tiêu chuẩn quốc tế cho trao đổi dữ liệu điện tử giữa các tổ chức tài chính.
 
-**MsgId** — Message Identification. Mã định danh duy nhất cho phong bì thông điệp, được gán bởi đại lý gửi. Thay đổi tại mỗi chặng trong chuỗi thanh toán.
+**LEI** — Mã định danh pháp nhân (ISO 17442). 20 ký tự.
 
-**pacs** — Payments Clearing and Settlement. Miền kinh doanh ISO 20022 bao gồm thông điệp thanh toán liên ngân hàng.
+**MsgId** — Nhận dạng thông điệp. Thay đổi tại mỗi bước.
 
-**pacs.008** — Chuyển khoản tín dụng khách hàng FI tới FI. Thông điệp liên ngân hàng chính cho chuyển khoản tín dụng khách hàng. Thay thế MT103.
+**MT** — Loại thông điệp. Định dạng cũ của SWIFT.
 
-**RTGS** — Real-Time Gross Settlement. Hệ thống thanh toán trong đó giao dịch được quyết toán riêng lẻ và theo thời gian thực (ví dụ: TARGET2, Fedwire, CHAPS).
+**MX** — Định dạng thông điệp XML ISO 20022.
 
-**SEPA** — Single Euro Payments Area. Sáng kiến tích hợp thanh toán bao gồm chuyển khoản tín dụng, ghi nợ trực tiếp và thanh toán thẻ bằng euro tại 36 quốc gia Châu Âu.
+**NbOfTxs** — Số lượng giao dịch.
 
-**UETR** — Unique End-to-End Transaction Reference. Mã định danh UUID v4 được tạo bởi đại lý ghi nợ và mang không thay đổi qua tất cả chặng của thanh toán cho theo dõi gpi.
+**pacs** — Thanh toán bù trừ và quyết toán.
 
-**XSD** — XML Schema Definition. Lược đồ chính thức định nghĩa cấu trúc, phần tử và kiểu dữ liệu của thông điệp XML ISO 20022.
+**pacs.002** — Báo cáo trạng thái thanh toán FI đến FI.
 
-**XXE** — XML External Entity. Lỗ hổng bảo mật trong phân tích XML. pacs008 ngăn chặn tấn công XXE bằng defusedxml.
+**pacs.003** — Ghi nợ trực tiếp khách hàng FI đến FI.
+
+**pacs.004** — Hoàn trả thanh toán.
+
+**pacs.007** — Đảo ngược thanh toán FI đến FI.
+
+**pacs.008** — Chuyển khoản tín dụng khách hàng FI đến FI. Thay thế MT103.
+
+**pacs.009** — Chuyển khoản tín dụng tổ chức tài chính. Thay thế MT202/MT202COV.
+
+**pacs.010** — Ghi nợ trực tiếp tổ chức tài chính.
+
+**pacs.028** — Yêu cầu trạng thái thanh toán FI đến FI.
+
+**pain** — Khởi tạo thanh toán.
+
+**PII** — Thông tin nhận dạng cá nhân. pacs008 che giấu PII.
+
+**PstlAdr** — Địa chỉ bưu điện.
+
+**RJCT** — Từ chối.
+
+**RmtInf** — Thông tin chuyển tiền.
+
+**RTGS** — Quyết toán tổng theo thời gian thực.
+
+**SCT** — Chuyển khoản tín dụng SEPA.
+
+**SCT Inst** — Chuyển khoản tín dụng tức thì SEPA.
+
+**SDD** — Ghi nợ trực tiếp SEPA.
+
+**SEPA** — Khu vực thanh toán euro duy nhất.
+
+**SLEV** — Mức dịch vụ. Bắt buộc cho SEPA.
+
+**STP** — Xử lý thẳng suốt.
+
+**SttlmMtd** — Phương thức quyết toán: CLRG, INDA, INGA hoặc COVE.
+
+**TxId** — Nhận dạng giao dịch.
+
+**UETR** — Tham chiếu giao dịch đầu cuối duy nhất. UUID v4.
+
+**XSD** — Định nghĩa lược đồ XML.
+
+**XXE** — Thực thể ngoài XML. pacs008 ngăn chặn bằng defusedxml.
 
 ## Tham khảo
 
 - [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions)
 - [ISO 20022 external code sets](https://www.iso20022.org/external_code_list.page)
 - [SWIFT CBPR+ standards programme](https://www.swift.com/standards/iso-20022)
+

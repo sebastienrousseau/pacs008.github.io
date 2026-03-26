@@ -5,10 +5,10 @@ lang: tr-TR
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Her ödemeden sonra pacs.028 gönderilmeli mi?"
-    answer: "Genellikle hayır. Genel trafik olarak değil, hedefli bir istisna aracı olarak en iyi şekilde çalışır."
-  - question: "pacs.028'i faydalı kılan nedir?"
-    answer: "Orijinal ödeme vakası etrafında net zaman aşımı, yükseltme ve mutabakat kuralları."
+  - question: "Should pacs.028 be sent after every payment?"
+    answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic."
+  - question: "What makes pacs.028 useful?"
+    answer: "Clear timeout, escalation, and reconciliation rules around the original payment case."
 ---
 
 # pacs.028.001.05 — FI'dan FI'ya ödeme durumu talebi

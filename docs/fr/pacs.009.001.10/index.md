@@ -5,10 +5,10 @@ lang: fr-FR
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Quand dois-je choisir pacs.009 plutôt que pacs.008 ?"
-    answer: "Choisissez pacs.009 pour les transferts en compte propre et les legs de couverture ; choisissez pacs.008 pour les instructions de virement client."
-  - question: "Pourquoi pacs.009 est-il souvent plus difficile à réconcilier que prévu ?"
-    answer: "Parce que les banques doivent préserver la relation entre le financement de trésorerie, les legs correspondants et tout paiement client lié."
+  - question: "When should I choose pacs.009 over pacs.008?"
+    answer: "Choose pacs.009 for own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions."
+  - question: "Why is pacs.009 often harder to reconcile than expected?"
+    answer: "Because banks must preserve the relationship between treasury funding, correspondent legs, and any linked customer payment."
 ---
 
 # pacs.009.001.10 — Virement entre institutions financières

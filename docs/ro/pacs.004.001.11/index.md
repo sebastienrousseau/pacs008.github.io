@@ -5,10 +5,10 @@ lang: ro-RO
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Care este diferența între pacs.004 și pacs.007?"
-    answer: "pacs.004 returnează fondurile decontate din partea receptoare, în timp ce pacs.007 solicită anularea din partea instructorului original."
-  - question: "Ar trebui ca fiecare credit eșuat al beneficiarului să devină pacs.004?"
-    answer: "Nu automat. Calea corectă depinde de regulile schemei, etapa decontării și gestionarea contrapartidei."
+  - question: "What is the difference between pacs.004 and pacs.007?"
+    answer: "pacs.004 returns settled funds from the receiving side, while pacs.007 requests reversal from the original instructing side."
+  - question: "Should every failed beneficiary credit become pacs.004?"
+    answer: "Not automatically. The right path depends on scheme rules, settlement stage, and counterparty handling."
 ---
 
 # pacs.004.001.11 — Retur de plată

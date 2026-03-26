@@ -5,10 +5,10 @@ lang: pl-PL
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Czy pacs.008 sam wystarczy do płatności produkcyjnych?"
-    answer: "Nie. Gotowość produkcyjna zależy również od reguł schematu, jakości adresów, danych stron, obsługi statusów i przepływów wyjątków."
-  - question: "Co powoduje najwięcej prac naprawczych?"
-    answer: "Słabe dane stron, złe strukturyzowanie adresów, niespójne identyfikatory i niestrukturyzowana treść przelewów to najczęstsze przyczyny."
+  - question: "Is pacs.008 enough on its own for production payments?"
+    answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."
+  - question: "What causes the most repair work?"
+    answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."
 ---
 
 # pacs.008.001.13 — Przelew kredytowy klienta FI-do-FI

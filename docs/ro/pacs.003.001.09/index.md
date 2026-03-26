@@ -5,10 +5,10 @@ lang: ro-RO
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Este pacs.003 oglinda debitului direct a lui pacs.008?"
-    answer: "Nu. Gestionează fluxurile de debit direct ale clienților, care au reguli diferite de mandat, sincronizare și excepții."
-  - question: "Ce contează cel mai mult operațional?"
-    answer: "Calitatea mandatului, regulile contului debitorului și gestionarea returnurilor contează mai mult decât generarea XML."
+  - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
+    answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."
+  - question: "What matters most operationally?"
+    answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation."
 ---
 
 # pacs.003.001.09 — Debit direct de client FI-la-FI

@@ -5,10 +5,10 @@ lang: he-IL
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "האם pacs.002 היא הודעת תשלום?"
-    answer: "לא. היא מדווחת על סטטוס של הוראה קודמת במקום להעביר ערך בעצמה."
-  - question: "האם pacs.002 צריך להחליף מצבי זרימת עבודה פנימיים?"
-    answer: "לא. הוא צריך ליידע אותם, אך מצבי מקרה פנימיים עדיין צריכים לוגיקה תפעולית משלהם."
+  - question: "Is pacs.002 a payment message?"
+    answer: "No. It reports status for an earlier instruction rather than moving value itself."
+  - question: "Should pacs.002 replace internal workflow states?"
+    answer: "No. It should inform them, but internal case states still need their own operational logic."
 ---
 
 # pacs.002.001.12 — דוח סטטוס תשלום בין מוסדות פיננסיים

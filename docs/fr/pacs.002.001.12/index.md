@@ -5,10 +5,10 @@ lang: fr-FR
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Est-ce que pacs.002 est un message de paiement ?"
-    answer: "Non. Il signale le statut d'une instruction antérieure plutôt que de déplacer de la valeur."
-  - question: "pacs.002 devrait-il remplacer les états de workflow internes ?"
-    answer: "Non. Il devrait les informer, mais les états de cas internes ont toujours besoin de leur propre logique opérationnelle."
+  - question: "Is pacs.002 a payment message?"
+    answer: "No. It reports status for an earlier instruction rather than moving value itself."
+  - question: "Should pacs.002 replace internal workflow states?"
+    answer: "No. It should inform them, but internal case states still need their own operational logic."
 ---
 
 # pacs.002.001.12 — Rapport de statut de paiement FI à FI

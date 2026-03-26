@@ -5,10 +5,10 @@ lang: hi-IN
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "क्या pacs.008 अकेले उत्पादन भुगतान के लिए पर्याप्त है?"
-    answer: "नहीं। उत्पादन तत्परता स्कीम नियमों, पता गुणवत्ता, पार्टी डेटा, स्थिति हैंडलिंग और अपवाद प्रवाह पर भी निर्भर करती है।"
-  - question: "सबसे अधिक मरम्मत कार्य किसके कारण होता है?"
-    answer: "कमजोर पार्टी डेटा, खराब पता संरचना, असंगत पहचानकर्ता और असंरचित प्रेषण सामग्री सामान्य कारण हैं।"
+  - question: "Is pacs.008 enough on its own for production payments?"
+    answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."
+  - question: "What causes the most repair work?"
+    answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."
 ---
 
 # pacs.008.001.13 — FI-से-FI ग्राहक क्रेडिट ट्रांसफर

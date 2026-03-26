@@ -5,10 +5,10 @@ lang: vi-VN
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Sự khác biệt giữa pacs.004 và pacs.007 là gì?"
-    answer: "pacs.004 trả lại tiền đã thanh toán từ phía người nhận, trong khi pacs.007 yêu cầu đảo ngược từ phía người ra lệnh ban đầu."
-  - question: "Mọi khoản ghi có cho người thụ hưởng thất bại đều nên trở thành pacs.004?"
-    answer: "Không tự động. Đường đi đúng phụ thuộc vào quy tắc lược đồ, giai đoạn thanh toán và xử lý đối tác."
+  - question: "What is the difference between pacs.004 and pacs.007?"
+    answer: "pacs.004 returns settled funds from the receiving side, while pacs.007 requests reversal from the original instructing side."
+  - question: "Should every failed beneficiary credit become pacs.004?"
+    answer: "Not automatically. The right path depends on scheme rules, settlement stage, and counterparty handling."
 ---
 
 # pacs.004.001.11 — Hoàn trả thanh toán

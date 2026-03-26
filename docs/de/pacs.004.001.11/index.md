@@ -5,10 +5,10 @@ lang: de-DE
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Was ist der Unterschied zwischen pacs.004 und pacs.007?"
-    answer: "pacs.004 gibt abgerechnete Gelder von der Empfängerseite zurück, während pacs.007 die Stornierung von der ursprünglichen Auftragsgeberseite anfordert."
-  - question: "Sollte jede fehlgeschlagene Begünstigten-Gutschrift zu pacs.004 werden?"
-    answer: "Nicht automatisch. Der richtige Weg hängt von Schemaregeln, Abrechnungsphase und Gegenpartei-Handling ab."
+  - question: "What is the difference between pacs.004 and pacs.007?"
+    answer: "pacs.004 returns settled funds from the receiving side, while pacs.007 requests reversal from the original instructing side."
+  - question: "Should every failed beneficiary credit become pacs.004?"
+    answer: "Not automatically. The right path depends on scheme rules, settlement stage, and counterparty handling."
 ---
 
 # pacs.004.001.11 — Zahlungsrückgabe

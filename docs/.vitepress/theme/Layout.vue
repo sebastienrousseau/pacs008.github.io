@@ -1,13 +1,18 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
-import { useData } from "vitepress";
+import { onMounted, onUnmounted, ref } from "vue";
+import { useData, useRoute } from "vitepress";
 import DefaultTheme from "vitepress/theme";
 import Breadcrumbs from "./components/Breadcrumbs.vue";
+import HomeContent from "./components/HomeContent.vue";
 import PacsFooter from "./components/PacsFooter.vue";
 import NotFound from "./components/NotFound.vue";
 
 const { Layout } = DefaultTheme;
 const { lang } = useData();
+const route = useRoute();
+
+const scrollProgress = ref(0);
+let scrollRaf = 0;
 
 const COPY_CODE_LABELS: Record<string, string> = {
   en: "Copy code",
@@ -40,6 +45,18 @@ function currentLocaleKey() {
   return htmlLang.split("-")[0] || lang.value.split("-")[0] || "en";
 }
 
+/** VPDocFooter is a <footer> outside <main>, creating a duplicate contentinfo landmark.
+ *  Move it inside <main> and strip its footer semantics. */
+function fixDocFooterLandmark() {
+  document.querySelectorAll("footer.VPDocFooter").forEach((el) => {
+    const main = el.parentElement?.querySelector("main.main");
+    if (main) {
+      el.setAttribute("role", "none");
+      main.appendChild(el);
+    }
+  });
+}
+
 function labelCopyButtons() {
   const label = COPY_CODE_LABELS[currentLocaleKey()] ?? COPY_CODE_LABELS.en;
   document.querySelectorAll(".vp-copy, .copy").forEach((btn) => {
@@ -62,6 +79,13 @@ function initFaqAccordion() {
 
   const doc = document.querySelector(".vp-doc");
   if (!doc || doc.classList.contains("faq-accordion-init")) return;
+
+  // Skip if server-rendered accordion already present
+  if (doc.querySelector("details.faq-item")) {
+    doc.classList.add("faq-accordion-init");
+    return;
+  }
+
   doc.classList.add("faq-accordion-init");
 
   const h3s = doc.querySelectorAll("h3");
@@ -89,25 +113,51 @@ function initFaqAccordion() {
   });
 }
 
+function updateScrollProgress() {
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  scrollProgress.value = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+}
+
+function onScroll() {
+  cancelAnimationFrame(scrollRaf);
+  scrollRaf = requestAnimationFrame(updateScrollProgress);
+}
+
+let observer: MutationObserver | null = null;
+
 onMounted(() => {
-  const el = document.getElementById("VPContent");
-  if (el) el.setAttribute("role", "main");
+  // VPContent is upgraded to <main> via SSR transformHtml;
+  // no client-side role attribute needed.
 
   labelCopyButtons();
   labelThemeToggle();
   initFaqAccordion();
+  fixDocFooterLandmark();
 
-  const observer = new MutationObserver(() => {
+  window.addEventListener("scroll", onScroll, { passive: true });
+  updateScrollProgress();
+
+  observer = new MutationObserver(() => {
     labelCopyButtons();
     labelThemeToggle();
     initFaqAccordion();
+    fixDocFooterLandmark();
   });
   observer.observe(document.body, { childList: true, subtree: true });
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", onScroll);
+  cancelAnimationFrame(scrollRaf);
+  observer?.disconnect();
 });
 </script>
 
 <template>
   <Layout>
+    <template #home-features-after>
+      <HomeContent />
+    </template>
     <template #doc-before>
       <Breadcrumbs />
     </template>
@@ -116,6 +166,11 @@ onMounted(() => {
     </template>
     <template #layout-bottom>
       <PacsFooter />
+    </template>
+    <template #doc-top>
+      <div class="vp-doc-progress" aria-hidden="true">
+        <div class="bar" :style="{ width: scrollProgress + '%' }" />
+      </div>
     </template>
   </Layout>
 </template>

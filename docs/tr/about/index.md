@@ -4,17 +4,17 @@ description: pacs008 ne yapar ve kimler için tasarlanmıştır.
 lang: tr-TR
 lastUpdated: true
 image: /logo.svg
-howtoName: "ISO 20022 pacs.008 ödeme mesajları nasıl uygulanır"
-howtoDescription: "ISO 20022 pacs.008 mesaj üretimi ve doğrulamasını hayata geçirmek için adım adım kontrol listesi."
+howtoName: "How to implement ISO 20022 pacs.008 payment messages"
+howtoDescription: "Step-by-step checklist for rolling out ISO 20022 pacs.008 message generation and validation."
 howto:
-  - name: "Adım 1"
-    text: "Şablon yazmadan önce iş olayı için doğru mesaj ailesini seçin."
-  - name: "Adım 2"
-    text: "Şema hatalarının ilk sinyal olmaması için XML üretiminden önce iş verilerini doğrulayın."
-  - name: "Adım 3"
-    text: "BIC, IBAN, havale ve posta adresi kalitesini sonraki temizlik olarak değil, sürüm kriteri olarak değerlendirin."
-  - name: "Adım 4"
-    text: "Her şema veya banka kuralı değişikliğini temsili ödeme verileriyle regresyon testi yapın."
+  - name: "Step 1"
+    text: "Pick the right message family for the business event before writing templates."
+  - name: "Step 2"
+    text: "Validate business data before XML generation so that schema errors are not the first signal."
+  - name: "Step 3"
+    text: "Treat BIC, IBAN, remittance, and postal-address quality as a release criterion, not a later cleanup."
+  - name: "Step 4"
+    text: "Regression-test each scheme or bank rule change with representative payment data."
 ---
 
 # pacs008 Hakkında

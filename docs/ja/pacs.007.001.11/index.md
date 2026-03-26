@@ -5,10 +5,10 @@ lang: ja-JP
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "pacs.007は不正行為のシナリオのみですか？"
-    answer: "いいえ。不正行為は主要なユースケースですが、指示側の決済取消しの必要性がトリガーとなることがあります。"
-  - question: "通常の返品と同じように処理できますか？"
-    answer: "いいえ。取消しのタイミング、理由の記録、照合は返品とは大きく異なります。"
+  - question: "Is pacs.007 only for fraud scenarios?"
+    answer: "No. Fraud is a major use case, but any instructing-side need to reverse a payment can trigger it."
+  - question: "Can it be handled like a normal return?"
+    answer: "No. Reversal timing, reason capture, and reconciliation differ materially from returns."
 ---
 
 # pacs.007.001.11 — 金融機関間支払取消

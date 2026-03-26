@@ -5,10 +5,10 @@ lang: ar-SA
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "ما الفرق بين pacs.004 وpacs.007؟"
-    answer: "يُعيد pacs.004 الأموال المسواة من جانب المستلم، بينما يطلب pacs.007 العكس من جانب المُرسل الأصلي."
-  - question: "هل يجب أن يصبح كل ائتمان مستفيد فاشل pacs.004؟"
-    answer: "ليس تلقائياً. يعتمد المسار الصحيح على قواعد النظام ومرحلة التسوية ومعالجة الطرف المقابل."
+  - question: "What is the difference between pacs.004 and pacs.007?"
+    answer: "pacs.004 returns settled funds from the receiving side, while pacs.007 requests reversal from the original instructing side."
+  - question: "Should every failed beneficiary credit become pacs.004?"
+    answer: "Not automatically. The right path depends on scheme rules, settlement stage, and counterparty handling."
 ---
 
 # pacs.004.001.11 — إرجاع المدفوعات

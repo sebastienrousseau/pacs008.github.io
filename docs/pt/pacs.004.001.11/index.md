@@ -5,10 +5,10 @@ lang: pt-BR
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Qual a diferença entre pacs.004 e pacs.007?"
-    answer: "O pacs.004 devolve fundos liquidados do lado receptor, enquanto o pacs.007 solicita reversão do lado do ordenante original."
-  - question: "Todo crédito ao beneficiário que falhar deve virar pacs.004?"
-    answer: "Não automaticamente. O caminho correto depende das regras do esquema, estágio de liquidação e tratamento da contraparte."
+  - question: "What is the difference between pacs.004 and pacs.007?"
+    answer: "pacs.004 returns settled funds from the receiving side, while pacs.007 requests reversal from the original instructing side."
+  - question: "Should every failed beneficiary credit become pacs.004?"
+    answer: "Not automatically. The right path depends on scheme rules, settlement stage, and counterparty handling."
 ---
 
 # pacs.004.001.11 — Retorno de pagamento

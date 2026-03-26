@@ -5,10 +5,10 @@ lang: ru-RU
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Достаточно ли pacs.008 одного для производственных платежей?"
-    answer: "Нет. Готовность к производству также зависит от правил схемы, качества адресов, данных сторон, обработки статусов и потоков исключений."
-  - question: "Что вызывает больше всего ремонтных работ?"
-    answer: "Слабые данные сторон, плохая структуризация адресов, несогласованные идентификаторы и неструктурированное содержание переводов — распространённые причины."
+  - question: "Is pacs.008 enough on its own for production payments?"
+    answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."
+  - question: "What causes the most repair work?"
+    answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."
 ---
 
 # pacs.008.001.13 — Клиентский кредитовый перевод между финансовыми учреждениями

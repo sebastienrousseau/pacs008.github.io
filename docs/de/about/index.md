@@ -4,17 +4,17 @@ description: Was pacs008 leistet und für wen es gedacht ist.
 lang: de-DE
 lastUpdated: true
 image: /logo.svg
-howtoName: "So implementieren Sie ISO 20022 pacs.008-Zahlungsnachrichten"
-howtoDescription: "Schritt-für-Schritt-Checkliste für die Einführung der ISO 20022 pacs.008-Nachrichtenerzeugung und -validierung."
+howtoName: "How to implement ISO 20022 pacs.008 payment messages"
+howtoDescription: "Step-by-step checklist for rolling out ISO 20022 pacs.008 message generation and validation."
 howto:
-  - name: "Schritt 1"
-    text: "Wählen Sie die richtige Nachrichtenfamilie für das Geschäftsereignis, bevor Sie Vorlagen erstellen."
-  - name: "Schritt 2"
-    text: "Validieren Sie Geschäftsdaten vor der XML-Erzeugung, damit Schemafehler nicht das erste Signal sind."
-  - name: "Schritt 3"
-    text: "Behandeln Sie BIC-, IBAN-, Überweisungs- und Postadressqualität als Freigabekriterium, nicht als spätere Nachbesserung."
-  - name: "Schritt 4"
-    text: "Führen Sie Regressionstests für jede Änderung an Schema- oder Bankregeln mit repräsentativen Zahlungsdaten durch."
+  - name: "Step 1"
+    text: "Pick the right message family for the business event before writing templates."
+  - name: "Step 2"
+    text: "Validate business data before XML generation so that schema errors are not the first signal."
+  - name: "Step 3"
+    text: "Treat BIC, IBAN, remittance, and postal-address quality as a release criterion, not a later cleanup."
+  - name: "Step 4"
+    text: "Regression-test each scheme or bank rule change with representative payment data."
 ---
 
 # Über pacs008

@@ -5,10 +5,10 @@ lang: de-DE
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Sollte pacs.028 nach jeder Zahlung gesendet werden?"
-    answer: "Normalerweise nein. Es funktioniert am besten als gezieltes Ausnahme-Tool, nicht als flächendeckender Datenverkehr."
-  - question: "Was macht pacs.028 nützlich?"
-    answer: "Klare Timeout-, Eskalations- und Abstimmungsregeln rund um den ursprünglichen Zahlungsfall."
+  - question: "Should pacs.028 be sent after every payment?"
+    answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic."
+  - question: "What makes pacs.028 useful?"
+    answer: "Clear timeout, escalation, and reconciliation rules around the original payment case."
 ---
 
 # pacs.028.001.05 — FI-zu-FI-Anfrage zum Zahlungsstatus

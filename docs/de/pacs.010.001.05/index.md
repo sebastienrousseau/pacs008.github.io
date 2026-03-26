@@ -5,10 +5,10 @@ lang: de-DE
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Ist pacs.010 bei Retail-Zahlungsprodukten üblich?"
-    answer: "Normalerweise nein. Es passt besser zu Bank-zu-Bank-Lastschriftszenarien als zu Standard-Retail-Produkten."
-  - question: "Was sollten Teams zuerst entwerfen?"
-    answer: "Beginnen Sie mit Genehmigungsregeln, bilateralen Kontrollen und Ausnahmebehandlung, bevor Sie XML-Vorlagen finalisieren."
+  - question: "Is pacs.010 common in retail payment products?"
+    answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."
+  - question: "What should teams design first?"
+    answer: "Start with approval rules, bilateral controls, and exception handling before finalising XML templates."
 ---
 
 # pacs.010.001.05 — Lastschrift zwischen Finanzinstituten

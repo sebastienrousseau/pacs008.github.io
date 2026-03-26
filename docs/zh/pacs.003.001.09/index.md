@@ -5,10 +5,10 @@ lang: zh-CN
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "pacs.003 是 pacs.008 的直接借记镜像吗？"
-    answer: "不是。它处理客户直接借记流程，这些流程有不同的授权、时间和例外规则。"
-  - question: "运营上什么最重要？"
-    answer: "授权质量、借记人账户规则和退回处理比 XML 生成更重要。"
+  - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
+    answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."
+  - question: "What matters most operationally?"
+    answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation."
 ---
 
 # pacs.003.001.09 — 金融机构间客户直接借记

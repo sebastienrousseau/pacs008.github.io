@@ -5,10 +5,10 @@ lang: id-ID
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Apakah pacs.002 pesan pembayaran?"
-    answer: "Tidak. Ini melaporkan status instruksi sebelumnya daripada memindahkan nilai itu sendiri."
-  - question: "Haruskah pacs.002 menggantikan status alur kerja internal?"
-    answer: "Tidak. Ini harus menginformasikan mereka, tetapi status kasus internal masih memerlukan logika operasional mereka sendiri."
+  - question: "Is pacs.002 a payment message?"
+    answer: "No. It reports status for an earlier instruction rather than moving value itself."
+  - question: "Should pacs.002 replace internal workflow states?"
+    answer: "No. It should inform them, but internal case states still need their own operational logic."
 ---
 
 # pacs.002.001.12 — Laporan Status Pembayaran FI ke FI

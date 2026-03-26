@@ -5,10 +5,10 @@ lang: tr-TR
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "pacs.002 bir ödeme mesajı mıdır?"
-    answer: "Hayır. Değer taşımak yerine önceki bir talimatın durumunu raporlar."
-  - question: "pacs.002 dahili iş akışı durumlarının yerini almalı mı?"
-    answer: "Hayır. Onları bilgilendirmeli, ancak dahili vaka durumları hâlâ kendi operasyonel mantıklarına ihtiyaç duyar."
+  - question: "Is pacs.002 a payment message?"
+    answer: "No. It reports status for an earlier instruction rather than moving value itself."
+  - question: "Should pacs.002 replace internal workflow states?"
+    answer: "No. It should inform them, but internal case states still need their own operational logic."
 ---
 
 # pacs.002.001.12 — FI'dan FI'ya ödeme durumu raporu

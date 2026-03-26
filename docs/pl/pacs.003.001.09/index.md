@@ -5,10 +5,10 @@ lang: pl-PL
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Czy pacs.003 jest lustrzanym poleceniem zapłaty pacs.008?"
-    answer: "Nie. Obsługuje przepływy polecenia zapłaty klienta, które mają inne zasady mandatu, terminów i wyjątków."
-  - question: "Co jest najważniejsze operacyjnie?"
-    answer: "Jakość mandatu, zasady rachunku dłużnika i obsługa zwrotów są ważniejsze niż generowanie XML."
+  - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
+    answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."
+  - question: "What matters most operationally?"
+    answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation."
 ---
 
 # pacs.003.001.09 — Polecenie zapłaty klienta FI-do-FI

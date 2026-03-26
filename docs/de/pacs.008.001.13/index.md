@@ -5,10 +5,10 @@ lang: de-DE
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Reicht pacs.008 allein für den Produktionsbetrieb?"
-    answer: "Nein. Die Produktionsreife hängt auch von Schemaregeln, Adressqualität, Parteidaten, Statusverarbeitung und Ausnahme-Flows ab."
-  - question: "Was verursacht den meisten Reparaturaufwand?"
-    answer: "Schwache Parteidaten, schlechte Adressstrukturierung, inkonsistente Identifikatoren und unstrukturierter Überweisungsinhalt sind häufige Ursachen."
+  - question: "Is pacs.008 enough on its own for production payments?"
+    answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."
+  - question: "What causes the most repair work?"
+    answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."
 ---
 
 # pacs.008.001.13 — FI-zu-FI-Kundenkredittransfer

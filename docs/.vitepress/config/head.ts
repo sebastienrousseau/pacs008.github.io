@@ -9,7 +9,8 @@ export const sharedHead: HeadConfig[] = [
   ["meta", { name: "mobile-web-app-capable", content: "yes" }],
   ["meta", { name: "author", content: "Sebastien Rousseau" }],
   ["meta", { name: "format-detection", content: "telephone=no" }],
-  ["link", { rel: "icon", href: "/logo.svg", type: "image/svg+xml" }],
+  ["link", { rel: "icon", href: "/favicon.ico", sizes: "48x48" }],
+  ["link", { rel: "icon", href: "/logo.webp", type: "image/webp", sizes: "512x512" }],
   ["link", { rel: "manifest", href: "/manifest.json" }],
   ["link", { rel: "alternate", type: "application/rss+xml", title: "pacs008 RSS Feed", href: "https://pacs008.com/rss.xml" }]
 ];

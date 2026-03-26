@@ -5,10 +5,10 @@ lang: it-IT
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "pacs.010 è comune nei prodotti di pagamento al dettaglio?"
-    answer: "Di solito no. Si adatta meglio a scenari di addebito diretto interbancario che a prodotti retail standard."
-  - question: "Cosa dovrebbero progettare prima i team?"
-    answer: "Iniziate con regole di approvazione, controlli bilaterali e gestione delle eccezioni prima di finalizzare i template XML."
+  - question: "Is pacs.010 common in retail payment products?"
+    answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."
+  - question: "What should teams design first?"
+    answer: "Start with approval rules, bilateral controls, and exception handling before finalising XML templates."
 ---
 
 # pacs.010.001.05 — Addebito diretto tra istituzioni finanziarie

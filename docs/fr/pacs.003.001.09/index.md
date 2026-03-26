@@ -5,10 +5,10 @@ lang: fr-FR
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Est-ce que pacs.003 est le miroir débit direct de pacs.008 ?"
-    answer: "Non. Il gère les flux de débit direct client, qui ont des règles de mandat, de calendrier et d'exception différentes."
-  - question: "Qu'est-ce qui compte le plus opérationnellement ?"
-    answer: "La qualité du mandat, les règles de compte débiteur et le traitement des retours comptent plus que la génération XML."
+  - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
+    answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."
+  - question: "What matters most operationally?"
+    answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation."
 ---
 
 # pacs.003.001.09 — Prélèvement client FI à FI

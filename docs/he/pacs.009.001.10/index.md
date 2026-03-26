@@ -5,10 +5,10 @@ lang: he-IL
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "מתי כדאי לבחור pacs.009 על פני pacs.008?"
-    answer: "בחרו pacs.009 להעברות חשבון עצמי ורגלי כיסוי; בחרו pacs.008 להוראות העברת אשראי לקוח."
-  - question: "מדוע pacs.009 לעתים קרובות קשה יותר להתאמה מהצפוי?"
-    answer: "כי הבנקים חייבים לשמור על הקשר בין מימון אוצר, רגלי כתב ותשלום לקוח מקושר."
+  - question: "When should I choose pacs.009 over pacs.008?"
+    answer: "Choose pacs.009 for own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions."
+  - question: "Why is pacs.009 often harder to reconcile than expected?"
+    answer: "Because banks must preserve the relationship between treasury funding, correspondent legs, and any linked customer payment."
 ---
 
 # pacs.009.001.10 — העברת אשראי בין מוסדות פיננסיים

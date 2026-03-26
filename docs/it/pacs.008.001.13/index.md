@@ -5,10 +5,10 @@ lang: it-IT
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "pacs.008 è sufficiente da solo per i pagamenti in produzione?"
-    answer: "No. La prontezza alla produzione dipende anche dalle regole dello schema, dalla qualità degli indirizzi, dai dati delle parti, dalla gestione degli stati e dai flussi di eccezione."
-  - question: "Cosa causa più lavoro di riparazione?"
-    answer: "Dati delle parti deboli, scarsa strutturazione degli indirizzi, identificatori incoerenti e contenuto di rimessa non strutturato sono cause comuni."
+  - question: "Is pacs.008 enough on its own for production payments?"
+    answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."
+  - question: "What causes the most repair work?"
+    answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."
 ---
 
 # pacs.008.001.13 — Bonifico cliente tra istituzioni finanziarie

@@ -1,40 +1,40 @@
 ---
-title: "Catatan perubahan | pacs008"
-description: Riwayat versi dan catatan rilis untuk toolkit pacs008. Lacak fitur baru, peningkatan, dan perbaikan di setiap rilis.
+title: "Changelog | pacs008"
+description: Version history and release notes for the pacs008 toolkit. Track new features, improvements, and fixes across releases.
 lang: id-ID
 lastUpdated: true
 image: /logo.svg
 ---
 
-# Catatan perubahan
+# Changelog
 
-Halaman ini melacak perubahan signifikan pada toolkit pacs008 dan situs dokumentasi ini.
+This page tracks significant changes to the pacs008 toolkit and this documentation site.
 
 ## 2026
 
 ### Maret 2026
 
-- Ditambahkan halaman FAQ komprehensif dengan lebih dari 25 pasang tanya jawab tentang pesan pacs ISO 20022.
-- Ditambahkan halaman Penjelasan Pesan PACS dengan referensi teknis terperinci untuk seluruh keluarga pacs.
-- Ditambahkan halaman glosarium yang mendefinisikan lebih dari 60 istilah ISO 20022 dan pesan pembayaran.
-- Ditambahkan halaman tenggat waktu alamat terstruktur yang mencakup persyaratan CBPR+ November 2026.
-- Ditambahkan halaman kebijakan editorial yang menjelaskan sumber konten, proses peninjauan, dan metodologi.
-- Ditambahkan markup skema JSON-LD FAQPage, TechArticle, SoftwareApplication, dan HowTo.
-- Diperluas peta situs dengan anotasi hreflang untuk semua 22 bahasa.
-- Ditingkatkan keterbacaan di semua halaman berbahasa Inggris (Flesch Reading Ease 55-58, Flesch-Kincaid Grade 8-9).
-- Diperbaiki 374 elemen header tabel kosong di semua bahasa untuk aksesibilitas.
-- Ditambahkan keterangan tabel ke tabel perbandingan, matriks operasional, dan perbedaan versi.
-- Dioptimalkan gambar hero dari 2,7 MB menjadi 32 KB.
-- Skor Lighthouse: Aksesibilitas 96-100, Best Practices 100, SEO 100.
+- Menambahkan halaman FAQ lengkap dengan lebih dari 25 pasang tanya jawab mengenai pesan ISO 20022 pacs.
+- Menambahkan halaman penjelasan pesan PACS dengan referensi teknis terperinci untuk seluruh keluarga pacs.
+- Menambahkan halaman glosarium yang mendefinisikan lebih dari 60 istilah ISO 20022 dan pesan pembayaran.
+- Menambahkan halaman tenggat waktu alamat terstruktur yang mencakup persyaratan CBPR+ November 2026.
+- Menambahkan halaman kebijakan editorial yang menjelaskan sumber konten, proses peninjauan, dan metodologi.
+- Menambahkan markup skema JSON-LD untuk FAQPage, TechArticle, SoftwareApplication, dan HowTo.
+- Memperluas peta situs dengan anotasi hreflang untuk semua 22 bahasa.
+- Meningkatkan keterbacaan seluruh halaman berbahasa Inggris (Flesch Reading Ease 55-58, Flesch-Kincaid Grade 8-9).
+- Memperbaiki 374 elemen header tabel kosong di seluruh bahasa untuk aksesibilitas.
+- Menambahkan keterangan tabel pada tabel perbandingan, matriks operasional, dan perbedaan versi.
+- Mengoptimalkan gambar utama dari 2,7 MB menjadi 32 KB.
+- Skor Lighthouse: Aksesibilitas 96-100, Praktik Terbaik 100, SEO 100.
 
 ### Januari 2026
 
-- Diluncurkan pacs008.com dengan dokumentasi untuk 8 jenis pesan pacs ISO 20022.
-- Dihasilkan dokumentasi dalam 22 bahasa.
-- Diimplementasikan tag hreflang, URL kanonis, dan data terstruktur (WebSite, BreadcrumbList, WebPage).
-- Dipublikasikan dokumentasi REST API, CLI, dan pustaka Python.
-- Ditambahkan dokumentasi validasi IBAN dan BIC.
-- Dirilis panduan deployment Docker.
+- Meluncurkan pacs008.com dengan dokumentasi untuk 8 jenis pesan ISO 20022 pacs.
+- Menghasilkan dokumentasi dalam 22 bahasa.
+- Mengimplementasikan tag hreflang, URL kanonik, dan data terstruktur (WebSite, BreadcrumbList, WebPage).
+- Menerbitkan dokumentasi REST API, CLI, dan pustaka Python.
+- Menambahkan dokumentasi validasi IBAN dan BIC.
+- Menyediakan panduan deployment Docker.
 
 ## 2025
 
@@ -45,9 +45,10 @@ Halaman ini melacak perubahan signifikan pada toolkit pacs008 dan situs dokument
 - Input data CSV, JSON, JSONL, SQLite, dan Parquet.
 - Pipeline validasi JSON Schema dan XSD.
 - Pemeriksaan kepatuhan karakter SWIFT.
-- FastAPI REST API untuk alur kerja otomatis.
+- REST API FastAPI untuk alur kerja otomatis.
 
 ## Tautan
 
 - [pacs008 releases on GitHub](https://github.com/sebastienrousseau/pacs008/releases)
 - [pacs008 on PyPI](https://pypi.org/project/pacs008/)
+

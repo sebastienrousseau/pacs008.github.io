@@ -5,10 +5,10 @@ lang: hi-IN
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "मुझे pacs.008 के बजाय pacs.009 कब चुनना चाहिए?"
-    answer: "स्वयं के खाते के हस्तांतरण और कवर लेग के लिए pacs.009 चुनें; ग्राहक क्रेडिट-ट्रांसफर निर्देशों के लिए pacs.008 चुनें।"
-  - question: "pacs.009 को अपेक्षा से अधिक कठिन क्यों होता है मिलान करना?"
-    answer: "क्योंकि बैंकों को ट्रेजरी फंडिंग, संवाददाता लेग और किसी भी जुड़े ग्राहक भुगतान के बीच संबंध बनाए रखना होता है।"
+  - question: "When should I choose pacs.009 over pacs.008?"
+    answer: "Choose pacs.009 for own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions."
+  - question: "Why is pacs.009 often harder to reconcile than expected?"
+    answer: "Because banks must preserve the relationship between treasury funding, correspondent legs, and any linked customer payment."
 ---
 
 # pacs.009.001.10 — वित्तीय संस्थानों के बीच क्रेडिट ट्रांसफर

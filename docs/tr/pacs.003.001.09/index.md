@@ -5,10 +5,10 @@ lang: tr-TR
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "pacs.003, pacs.008'in doğrudan borçlandırma aynası mıdır?"
-    answer: "Hayır. Farklı talimat, zamanlama ve istisna kurallarına sahip müşteri doğrudan borçlandırma akışlarını yönetir."
-  - question: "Operasyonel olarak en önemli olan nedir?"
-    answer: "Talimat kalitesi, borçlu hesap kuralları ve iade işleme, XML üretiminden daha önemlidir."
+  - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
+    answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."
+  - question: "What matters most operationally?"
+    answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation."
 ---
 
 # pacs.003.001.09 — FI'dan FI'ya müşteri doğrudan borçlandırması

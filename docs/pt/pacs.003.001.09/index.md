@@ -5,10 +5,10 @@ lang: pt-BR
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "O pacs.003 é o espelho de débito direto do pacs.008?"
-    answer: "Não. Ele lida com fluxos de débito direto de clientes, que têm regras diferentes de mandato, temporização e exceções."
-  - question: "O que mais importa operacionalmente?"
-    answer: "Qualidade do mandato, regras de conta do devedor e tratamento de devoluções importam mais que a geração XML."
+  - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
+    answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."
+  - question: "What matters most operationally?"
+    answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation."
 ---
 
 # pacs.003.001.09 — Débito direto de cliente FI a FI

@@ -4,17 +4,17 @@ description: How the SWIFT CBPR+ November 2026 structured postal address deadlin
 lang: id-ID
 lastUpdated: true
 image: /logo.svg
-howtoName: "Cara mempersiapkan tenggat alamat pos terstruktur November 2026"
-howtoDescription: "Langkah-langkah untuk mengaudit, memetakan, memvalidasi, dan menguji data alamat pos sebelum tenggat SWIFT CBPR+ November 2026."
+howtoName: "How to prepare for the November 2026 structured postal address deadline"
+howtoDescription: "Steps to audit, map, validate, and test postal address data before the SWIFT CBPR+ November 2026 deadline."
 howto:
-  - name: "Langkah 1"
-    text: "Audit kualitas data alamat saat ini di seluruh catatan debitur, kreditur, dan agen."
-  - name: "Langkah 2"
-    text: "Petakan bidang alamat tidak terstruktur yang ada ke format terstruktur (jalan, bangunan, kode pos, kota, negara)."
-  - name: "Langkah 3"
-    text: "Tambahkan validasi alamat ke pipeline pra-pembuatan Anda menggunakan pacs008."
-  - name: "Langkah 4"
-    text: "Uji dengan data pembayaran representatif sebelum tenggat."
+  - name: "Step 1"
+    text: "Audit current address data quality across debtor, creditor, and agent records."
+  - name: "Step 2"
+    text: "Map existing unstructured address fields to the structured format (street, building, post code, town, country)."
+  - name: "Step 3"
+    text: "Add address validation to your pre-generation pipeline using pacs008."
+  - name: "Step 4"
+    text: "Test with representative payment data before the deadline."
 ---
 
 # November 2026 structured-address deadline

@@ -5,10 +5,10 @@ lang: zh-CN
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "pacs.010 在零售支付产品中常见吗？"
-    answer: "通常不常见。它更适合银行间直接借记场景，而非标准零售产品。"
-  - question: "团队应该首先设计什么？"
-    answer: "在最终确定 XML 模板之前，先从审批规则、双边控制和异常处理开始。"
+  - question: "Is pacs.010 common in retail payment products?"
+    answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."
+  - question: "What should teams design first?"
+    answer: "Start with approval rules, bilateral controls, and exception handling before finalising XML templates."
 ---
 
 # pacs.010.001.05 — 金融机构直接借记

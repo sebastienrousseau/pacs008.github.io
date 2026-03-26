@@ -5,10 +5,10 @@ lang: zh-TW
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "pacs.004 和 pacs.007 有什麼區別？"
-    answer: "pacs.004 從接收方退回已結算資金，而 pacs.007 從原始指令方請求撤銷。"
-  - question: "每個失敗的受益人貸記都應該變成 pacs.004 嗎？"
-    answer: "不是自動的。正確的路徑取決於方案規則、結算階段和對手方處理。"
+  - question: "What is the difference between pacs.004 and pacs.007?"
+    answer: "pacs.004 returns settled funds from the receiving side, while pacs.007 requests reversal from the original instructing side."
+  - question: "Should every failed beneficiary credit become pacs.004?"
+    answer: "Not automatically. The right path depends on scheme rules, settlement stage, and counterparty handling."
 ---
 
 # pacs.004.001.11 — 付款退回

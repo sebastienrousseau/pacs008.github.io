@@ -5,10 +5,10 @@ lang: zh-CN
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "pacs.008 单独足以用于生产支付吗？"
-    answer: "不够。生产就绪还取决于方案规则、地址质量、当事方数据、状态处理和异常流程。"
-  - question: "什么导致最多的修复工作？"
-    answer: "薄弱的当事方数据、糟糕的地址结构化、不一致的标识符和非结构化的汇款内容是常见原因。"
+  - question: "Is pacs.008 enough on its own for production payments?"
+    answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."
+  - question: "What causes the most repair work?"
+    answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."
 ---
 
 # pacs.008.001.13 — 金融机构间客户信用转账

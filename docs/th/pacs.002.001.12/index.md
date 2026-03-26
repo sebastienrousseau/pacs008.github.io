@@ -5,10 +5,10 @@ lang: th-TH
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "pacs.002 เป็นข้อความการชำระเงินหรือไม่?"
-    answer: "ไม่ มันรายงานสถานะของคำสั่งก่อนหน้าแทนที่จะเคลื่อนย้ายมูลค่า"
-  - question: "pacs.002 ควรแทนที่สถานะเวิร์กโฟลว์ภายในหรือไม่?"
-    answer: "ไม่ ควรแจ้งให้ทราบ แต่สถานะกรณีภายในยังคงต้องการตรรกะการดำเนินงานของตนเอง"
+  - question: "Is pacs.002 a payment message?"
+    answer: "No. It reports status for an earlier instruction rather than moving value itself."
+  - question: "Should pacs.002 replace internal workflow states?"
+    answer: "No. It should inform them, but internal case states still need their own operational logic."
 ---
 
 # pacs.002.001.12 — รายงานสถานะการชำระเงินระหว่างสถาบันการเงิน

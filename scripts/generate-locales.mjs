@@ -15744,10 +15744,7 @@ function faqPageBody(localeKey) {
   if (localeKey === "ro") return faqPageBodyRo(t);
   if (localeKey === "nl") return faqPageBodyNl(t);
   if (localeKey === "pl") return faqPageBodyPl(t);
-  if (localeKey === "ja") return faqPageBodyJa(t);
-  if (localeKey === "ko") return faqPageBodyKo(t);
-  if (localeKey === "zh") return faqPageBodyZh(t);
-  if (localeKey === "zh-tw") return faqPageBodyZhTw(t);
+  // ja, ko, zh, zh-tw: fall through to English FAQ body (CJK translations pending)
   if (localeKey === "ar") return faqPageBodyAr(t);
   if (localeKey === "he") return faqPageBodyHe(t);
   if (localeKey === "ru") return faqPageBodyRu(t);
@@ -18063,10 +18060,7 @@ function pacsExplainedBody(localeKey) {
   if (localeKey === "ro") return pacsExplainedBodyRo(t);
   if (localeKey === "nl") return pacsExplainedBodyNl(t);
   if (localeKey === "pl") return pacsExplainedBodyPl(t);
-  if (localeKey === "ja") return pacsExplainedBodyJa(t);
-  if (localeKey === "ko") return pacsExplainedBodyKo(t);
-  if (localeKey === "zh") return pacsExplainedBodyZh(t);
-  if (localeKey === "zh-tw") return pacsExplainedBodyZhTw(t);
+  // ja, ko, zh, zh-tw: fall through to English (CJK translations pending)
   if (localeKey === "ar") return pacsExplainedBodyAr(t);
   if (localeKey === "he") return pacsExplainedBodyHe(t);
   if (localeKey === "ru") return pacsExplainedBodyRu(t);
@@ -20267,10 +20261,7 @@ function glossaryBody(localeKey) {
   if (localeKey === "ro") return glossaryBodyRo(t);
   if (localeKey === "nl") return glossaryBodyNl(t);
   if (localeKey === "pl") return glossaryBodyPl(t);
-  if (localeKey === "ja") return glossaryBodyJa(t);
-  if (localeKey === "ko") return glossaryBodyKo(t);
-  if (localeKey === "zh") return glossaryBodyZh(t);
-  if (localeKey === "zh-tw") return glossaryBodyZhTw(t);
+  // ja, ko, zh, zh-tw: fall through to English (CJK translations pending)
   if (localeKey === "ar") return glossaryBodyAr(t);
   if (localeKey === "he") return glossaryBodyHe(t);
   if (localeKey === "ru") return glossaryBodyRu(t);

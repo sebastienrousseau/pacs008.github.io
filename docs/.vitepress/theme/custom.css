@@ -11,9 +11,9 @@
 }
 
 /* ---------- Animations ---------- */
-@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
-@keyframes dropDown { from { transform: translateY(-0.618rem) } to { transform: translateY(0) } }
-@keyframes slideUp { from { opacity: 0; transform: translateY(1.618rem) } to { opacity: 1; transform: translateY(0) } }
+@keyframes fadeIn { from { opacity: 0.85 } to { opacity: 1 } }
+@keyframes dropDown { from { transform: translateY(-0.5rem) } to { transform: translateY(0) } }
+@keyframes slideUp { from { transform: translateY(0.5rem) } to { transform: translateY(0) } }
 
 /* ---------- Design Tokens: Light Mode ---------- */
 :root {
@@ -271,7 +271,9 @@ strong {
 }
 
 .VPNavBarTitle .logo {
-  display: none !important;
+  height: 28px;
+  width: auto;
+  margin-inline-end: 0.25rem;
 }
 
 /* Nav links: 1rem (fs-6), !important to override VitePress scoped styles */
@@ -291,6 +293,23 @@ strong {
   color: var(--pacs-link);
 }
 
+/* Nav dropdown items: ensure 44px touch targets */
+.VPMenu .VPMenuLink a,
+.VPFlyout .VPMenuLink a {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 1rem;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+/* Override Shiki comment color for WCAG AA 4.5:1 contrast */
+.vp-doc [class*='language-'] span[style*='--shiki-light:#6A737D'] {
+  --shiki-light: #5a6370 !important;
+  --shiki-dark: #8b949e !important;
+}
+
 /* ---------- Documentation Pages ---------- */
 /* Body text: 1.25rem (fs-5) */
 .VPDoc .container {
@@ -301,7 +320,6 @@ strong {
   max-width: 780px;
   font-size: 1.25rem;
   line-height: 1.618;
-  animation: fadeIn 1.618s ease;
 }
 
 .vp-doc p,
@@ -721,31 +739,23 @@ strong {
   flex-direction: column;
 }
 
-/* Hero fade-in */
+/* Hero — gradient background (no image = instant LCP on mobile) */
 .VPHomeHero {
-  background: url('/images/hero-bg.webp') center/cover no-repeat;
+  background: linear-gradient(135deg, #003840 0%, #005060 40%, #006878 70%, #005868 100%);
   position: relative;
-  animation: fadeIn 3s ease;
   flex-grow: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: calc(100vh - var(--vp-nav-height, 64px));
 }
 
-/* Hero overlay — darkened for WCAG 2 AA white-text contrast */
-.VPHomeHero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 80, 95, 0.78);
-  z-index: 0;
+/* Dark mode hero gradient */
+.dark .VPHomeHero {
+  background: linear-gradient(135deg, #00262c 0%, #003a44 40%, #004e5a 70%, #003a44 100%);
 }
 
-.dark .VPHomeHero::before {
-  background: rgba(0, 80, 90, 0.82);
-}
-
-/* Hero drop-down animation */
+/* Hero content container */
 .VPHomeHero .container {
   width: 97vw !important;
   max-width: none !important;
@@ -754,8 +764,6 @@ strong {
   display: block;
   text-align: center;
   position: relative;
-  z-index: 1;
-  animation: dropDown 1.618s ease;
 }
 
 .VPHomeHero .main {
@@ -799,6 +807,8 @@ strong {
   margin-top: 1.618rem;
   justify-content: flex-end !important;
 }
+
+/* Alt button on dark hero — moved AFTER general .VPButton.alt rules (see below) */
 
 /* ---------- Buttons ---------- */
 .VPHome .VPButton.brand,
@@ -894,6 +904,30 @@ strong {
   color: #1d1d1f !important;
 }
 
+/* Alt button on dark hero background — MUST come after general .VPButton.alt rules */
+.VPHome .VPHomeHero .VPButton.alt {
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+  background: transparent !important;
+}
+
+.VPHome .VPHomeHero .VPButton.alt:hover {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #1d1d1f !important;
+}
+
+.dark .VPHome .VPHomeHero .VPButton.alt {
+  border-color: #f5f5f7 !important;
+  color: #f5f5f7 !important;
+}
+
+.dark .VPHome .VPHomeHero .VPButton.alt:hover {
+  background: #f5f5f7 !important;
+  border-color: #f5f5f7 !important;
+  color: #1d1d1f !important;
+}
+
 /* ---------- Features ---------- */
 .VPHomeFeatures {
   background: var(--pacs-bg-secondary);
@@ -927,7 +961,6 @@ strong {
   padding: 1.25rem 1.15rem;
   box-shadow: 0 1px 3px color-mix(in srgb, #000000 6%, transparent);
   transition: transform 0.618s cubic-bezier(0.618, 1, 0.618, 1);
-  animation: slideUp 1.618s ease;
 }
 
 .VPHomeFeatures .item .box:hover {
@@ -946,9 +979,31 @@ strong {
   line-height: 1.618;
 }
 
-/* ---------- Default VPFooter: hidden (replaced by PacsFooter) ---------- */
-.VPFooter {
-  display: none !important;
+/* ---------- Language picker: scrollable dropdown ---------- */
+.VPNavBarTranslations .items,
+.VPNavBarExtra .group.translations {
+  max-height: 60vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* ---------- Scroll progress indicator for doc pages ---------- */
+.vp-doc-progress {
+  position: fixed;
+  top: 0;
+  inset-inline-start: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 100;
+  pointer-events: none;
+  background: transparent;
+}
+
+.vp-doc-progress .bar {
+  height: 100%;
+  width: 0%;
+  background: var(--pacs-theme);
+  transition: width 0.1s linear;
 }
 
 /* ---------- Responsive ---------- */
@@ -1024,7 +1079,7 @@ strong {
   }
 }
 
-/* ---------- FAQ Accordion (HSBC-inspired spacious design) ---------- */
+/* ---------- FAQ Accordion (spacious design) ---------- */
 .faq-accordion-init h2 {
   font-size: 1.5rem;
   font-weight: 600;

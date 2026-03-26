@@ -5,10 +5,10 @@ lang: es-ES
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "¿Es pacs.003 el equivalente de débito directo de pacs.008?"
-    answer: "No. Maneja flujos de débito directo de clientes, que tienen diferentes reglas de mandato, temporización y excepciones."
-  - question: "¿Qué es lo más importante operacionalmente?"
-    answer: "La calidad del mandato, las reglas de cuenta del deudor y el manejo de devoluciones importan más que la generación XML."
+  - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
+    answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."
+  - question: "What matters most operationally?"
+    answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation."
 ---
 
 # pacs.003.001.09 — Débito directo de cliente FI a FI

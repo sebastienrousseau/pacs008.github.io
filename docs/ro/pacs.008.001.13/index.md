@@ -5,10 +5,10 @@ lang: ro-RO
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Este pacs.008 suficient singur pentru plăți de producție?"
-    answer: "Nu. Pregătirea pentru producție depinde și de regulile schemei, calitatea adresei, datele părților, gestionarea statusului și fluxurile de excepție."
-  - question: "Ce cauzează cea mai multă muncă de reparare?"
-    answer: "Datele slabe ale părților, structurarea deficitară a adreselor, identificatorii inconsistenți și conținutul de remitere nestructurat sunt cauze comune."
+  - question: "Is pacs.008 enough on its own for production payments?"
+    answer: "No. Production readiness also depends on scheme rules, address quality, party data, status handling, and exception flows."
+  - question: "What causes the most repair work?"
+    answer: "Weak party data, poor address structuring, inconsistent identifiers, and unstructured remittance content are common causes."
 ---
 
 # pacs.008.001.13 — Transfer de credit client FI-la-FI

@@ -5,10 +5,10 @@ lang: ja-JP
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "pacs.010はリテール決済製品で一般的ですか？"
-    answer: "通常はいいえ。標準的なリテール製品よりも銀行間ダイレクトデビットシナリオに適しています。"
-  - question: "チームは最初に何を設計すべきですか？"
-    answer: "XMLテンプレートを確定する前に、承認ルール、二者間コントロール、例外処理から始めてください。"
+  - question: "Is pacs.010 common in retail payment products?"
+    answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."
+  - question: "What should teams design first?"
+    answer: "Start with approval rules, bilateral controls, and exception handling before finalising XML templates."
 ---
 
 # pacs.010.001.05 — 金融機関間口座振替

@@ -5,10 +5,10 @@ lang: th-TH
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "pacs.003 เป็นกระจกเงาของการหักบัญชีตรงของ pacs.008 หรือไม่?"
-    answer: "ไม่ มันจัดการกระแสการหักบัญชีตรงของลูกค้า ซึ่งมีกฎแมนเดต เวลา และข้อยกเว้นที่แตกต่างกัน"
-  - question: "สิ่งใดสำคัญที่สุดในเชิงปฏิบัติการ?"
-    answer: "คุณภาพของแมนเดต กฎบัญชีลูกหนี้ และการจัดการการคืนเงินสำคัญกว่าการสร้าง XML"
+  - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
+    answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."
+  - question: "What matters most operationally?"
+    answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation."
 ---
 
 # pacs.003.001.09 — การหักบัญชีลูกค้าระหว่างสถาบันการเงิน

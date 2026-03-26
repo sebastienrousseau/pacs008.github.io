@@ -5,10 +5,10 @@ lang: it-IT
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "pacs.007 è solo per scenari di frode?"
-    answer: "No. La frode è un caso d'uso importante, ma qualsiasi necessità lato istruttore di annullare un pagamento può attivarlo."
-  - question: "Può essere gestito come un reso normale?"
-    answer: "No. I tempi di storno, l'acquisizione del motivo e la riconciliazione differiscono materialmente dai resi."
+  - question: "Is pacs.007 only for fraud scenarios?"
+    answer: "No. Fraud is a major use case, but any instructing-side need to reverse a payment can trigger it."
+  - question: "Can it be handled like a normal return?"
+    answer: "No. Reversal timing, reason capture, and reconciliation differ materially from returns."
 ---
 
 # pacs.007.001.11 — Storno di pagamento tra istituzioni finanziarie

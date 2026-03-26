@@ -5,10 +5,10 @@ lang: ko-KR
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "pacs.008 대신 pacs.009를 선택해야 할 때는?"
-    answer: "자기 계좌 이체와 커버 레그에는 pacs.009를, 고객 신용 이체 지시에는 pacs.008을 선택하세요."
-  - question: "왜 pacs.009가 예상보다 조정하기 어려운 경우가 많습니까?"
-    answer: "은행이 재무부 자금 조달, 코레스 레그 및 연결된 고객 결제 간의 관계를 유지해야 하기 때문입니다."
+  - question: "When should I choose pacs.009 over pacs.008?"
+    answer: "Choose pacs.009 for own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions."
+  - question: "Why is pacs.009 often harder to reconcile than expected?"
+    answer: "Because banks must preserve the relationship between treasury funding, correspondent legs, and any linked customer payment."
 ---
 
 # pacs.009.001.10 — 금융기관 간 신용이체

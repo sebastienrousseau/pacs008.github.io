@@ -5,10 +5,10 @@ lang: id-ID
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Kapan harus memilih pacs.009 daripada pacs.008?"
-    answer: "Pilih pacs.009 untuk transfer rekening sendiri dan leg penutup; pilih pacs.008 untuk instruksi transfer kredit pelanggan."
-  - question: "Mengapa pacs.009 sering lebih sulit direkonsiliasi dari yang diharapkan?"
-    answer: "Karena bank harus mempertahankan hubungan antara pendanaan treasury, leg koresponden, dan pembayaran pelanggan yang terkait."
+  - question: "When should I choose pacs.009 over pacs.008?"
+    answer: "Choose pacs.009 for own-account transfers and cover legs; choose pacs.008 for customer-credit-transfer instructions."
+  - question: "Why is pacs.009 often harder to reconcile than expected?"
+    answer: "Because banks must preserve the relationship between treasury funding, correspondent legs, and any linked customer payment."
 ---
 
 # pacs.009.001.10 — Transfer Kredit Antar Lembaga Keuangan

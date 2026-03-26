@@ -5,10 +5,10 @@ lang: ro-RO
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Este pacs.010 comun în produsele de plăți retail?"
-    answer: "De obicei nu. Se potrivește mai bine scenariilor de debit direct între bănci decât produselor retail standard."
-  - question: "Ce ar trebui să proiecteze echipele mai întâi?"
-    answer: "Începeți cu regulile de aprobare, controalele bilaterale și gestionarea excepțiilor înainte de a finaliza șabloanele XML."
+  - question: "Is pacs.010 common in retail payment products?"
+    answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."
+  - question: "What should teams design first?"
+    answer: "Start with approval rules, bilateral controls, and exception handling before finalising XML templates."
 ---
 
 # pacs.010.001.05 — Debit direct între instituții financiare

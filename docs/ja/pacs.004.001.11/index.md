@@ -5,10 +5,10 @@ lang: ja-JP
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "pacs.004とpacs.007の違いは何ですか？"
-    answer: "pacs.004は受取側から決済済み資金を返却し、pacs.007は元の指示側から取消しを要求します。"
-  - question: "すべての失敗した受取人クレジットはpacs.004になるべきですか？"
-    answer: "自動的にではありません。正しいパスはスキームルール、決済段階、カウンターパーティの処理に依存します。"
+  - question: "What is the difference between pacs.004 and pacs.007?"
+    answer: "pacs.004 returns settled funds from the receiving side, while pacs.007 requests reversal from the original instructing side."
+  - question: "Should every failed beneficiary credit become pacs.004?"
+    answer: "Not automatically. The right path depends on scheme rules, settlement stage, and counterparty handling."
 ---
 
 # pacs.004.001.11 — 支払返却

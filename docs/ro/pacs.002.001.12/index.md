@@ -5,10 +5,10 @@ lang: ro-RO
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Este pacs.002 un mesaj de plată?"
-    answer: "Nu. Raportează statusul unei instrucțiuni anterioare în loc să mute valoare."
-  - question: "Ar trebui ca pacs.002 să înlocuiască stările fluxului de lucru intern?"
-    answer: "Nu. Ar trebui să le informeze, dar stările interne ale cazurilor au nevoie în continuare de propria logică operațională."
+  - question: "Is pacs.002 a payment message?"
+    answer: "No. It reports status for an earlier instruction rather than moving value itself."
+  - question: "Should pacs.002 replace internal workflow states?"
+    answer: "No. It should inform them, but internal case states still need their own operational logic."
 ---
 
 # pacs.002.001.12 — Raport de stare a plății FI-la-FI

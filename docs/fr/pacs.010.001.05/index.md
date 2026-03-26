@@ -5,10 +5,10 @@ lang: fr-FR
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Est-ce que pacs.010 est courant dans les produits de paiement de détail ?"
-    answer: "Généralement non. Il convient mieux aux scénarios de débit direct interbancaire qu'aux produits de détail standard."
-  - question: "Que doivent concevoir les équipes en premier ?"
-    answer: "Commencez par les règles d'approbation, les contrôles bilatéraux et le traitement des exceptions avant de finaliser les modèles XML."
+  - question: "Is pacs.010 common in retail payment products?"
+    answer: "Usually no. It fits bank-to-bank direct-debit scenarios better than standard retail products."
+  - question: "What should teams design first?"
+    answer: "Start with approval rules, bilateral controls, and exception handling before finalising XML templates."
 ---
 
 # pacs.010.001.05 — Prélèvement entre institutions financières

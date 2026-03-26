@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="logo-title logo-desc">
+  <title id="logo-title">pacs008 logo</title>
+  <desc id="logo-desc">Circular logo with radiating payment rails and a golden sun symbolising financial transfer processing.</desc>
+<defs>
+  <clipPath id="circle-clip"><circle cx="256" cy="256" r="240"/></clipPath>
+  <linearGradient id="gold-grad" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#f0d080"/>
+    <stop offset="60%" stop-color="#d4a844"/>
+    <stop offset="100%" stop-color="#8a7030"/>
+  </linearGradient>
+  <linearGradient id="ray-top" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#2a9aaa"/>
+    <stop offset="100%" stop-color="#0a5a7a"/>
+  </linearGradient>
+  <linearGradient id="ray-bot" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#0a5a7a"/>
+    <stop offset="100%" stop-color="#063a5a"/>
+  </linearGradient>
+</defs>
+<circle cx="256" cy="256" r="240" fill="none"/>
+<g clip-path="url(#circle-clip)">
+  <polygon points="256,256 241.5,-3.6 270.5,-3.6" fill="url(#ray-top)"/>
+  <polygon points="256,256 286.8,-2.2 315.4,2.9" fill="url(#ray-top)"/>
+  <polygon points="256,256 331.1,7.1 358.4,17.0" fill="url(#ray-top)"/>
+  <polygon points="256,256 373.2,23.9 398.4,38.4" fill="url(#ray-top)"/>
+  <polygon points="256,256 411.7,47.8 434.0,66.5" fill="url(#ray-top)"/>
+  <polygon points="256,256 445.5,78.0 464.2,100.3" fill="url(#ray-top)"/>
+  <polygon points="256,256 473.6,113.6 488.1,138.8" fill="url(#ray-top)"/>
+  <polygon points="256,256 495.0,153.6 504.9,180.9" fill="url(#ray-top)"/>
+  <polygon points="256,256 509.1,196.6 514.2,225.2" fill="url(#ray-top)"/>
+  <polygon points="256,256 515.6,241.5 515.6,270.5" fill="url(#ray-top)"/>
+  <polygon points="256,256 514.2,286.8 509.1,315.4" fill="url(#ray-bot)"/>
+  <polygon points="256,256 504.9,331.1 495.0,358.4" fill="url(#ray-bot)"/>
+  <polygon points="256,256 488.1,373.2 473.6,398.4" fill="url(#ray-bot)"/>
+  <polygon points="256,256 464.2,411.7 445.5,434.0" fill="url(#ray-bot)"/>
+  <polygon points="256,256 434.0,445.5 411.7,464.2" fill="url(#ray-bot)"/>
+  <polygon points="256,256 398.4,473.6 373.2,488.1" fill="url(#ray-bot)"/>
+  <polygon points="256,256 358.4,495.0 331.1,504.9" fill="url(#ray-bot)"/>
+  <polygon points="256,256 315.4,509.1 286.8,514.2" fill="url(#ray-bot)"/>
+  <polygon points="256,256 270.5,515.6 241.5,515.6" fill="url(#ray-bot)"/>
+  <polygon points="256,256 225.2,514.2 196.6,509.1" fill="url(#ray-bot)"/>
+  <polygon points="256,256 180.9,504.9 153.6,495.0" fill="url(#ray-bot)"/>
+  <polygon points="256,256 138.8,488.1 113.6,473.6" fill="url(#ray-bot)"/>
+  <polygon points="256,256 100.3,464.2 78.0,445.5" fill="url(#ray-bot)"/>
+  <polygon points="256,256 66.5,434.0 47.8,411.7" fill="url(#ray-bot)"/>
+  <polygon points="256,256 38.4,398.4 23.9,373.2" fill="url(#ray-bot)"/>
+  <polygon points="256,256 17.0,358.4 7.1,331.1" fill="url(#ray-bot)"/>
+  <polygon points="256,256 2.9,315.4 -2.2,286.8" fill="url(#ray-bot)"/>
+  <polygon points="256,256 -3.6,270.5 -3.6,241.5" fill="url(#ray-top)"/>
+  <polygon points="256,256 -2.2,225.2 2.9,196.6" fill="url(#ray-top)"/>
+  <polygon points="256,256 7.1,180.9 17.0,153.6" fill="url(#ray-top)"/>
+  <polygon points="256,256 23.9,138.8 38.4,113.6" fill="url(#ray-top)"/>
+  <polygon points="256,256 47.8,100.3 66.5,78.0" fill="url(#ray-top)"/>
+  <polygon points="256,256 78.0,66.5 100.3,47.8" fill="url(#ray-top)"/>
+  <polygon points="256,256 113.6,38.4 138.8,23.9" fill="url(#ray-top)"/>
+  <polygon points="256,256 153.6,17.0 180.9,7.1" fill="url(#ray-top)"/>
+  <polygon points="256,256 196.6,2.9 225.2,-2.2" fill="url(#ray-top)"/>
+  <path d="M 174 246 A 82 82 0 0 1 338 246" fill="none" stroke="url(#gold-grad)" stroke-width="8"/>
+  <path d="M 186 246 A 70 70 0 0 1 326 246 Z" fill="url(#gold-grad)"/>
+  <line x1="174" y1="246" x2="16" y2="246" stroke="url(#gold-grad)" stroke-width="6" stroke-linecap="round"/>
+  <line x1="338" y1="246" x2="496" y2="246" stroke="url(#gold-grad)" stroke-width="6" stroke-linecap="round"/>
+</g>
+<circle cx="256" cy="256" r="240" fill="none" stroke="#0a4a6a" stroke-width="2" opacity="0.3"/>
+</svg>

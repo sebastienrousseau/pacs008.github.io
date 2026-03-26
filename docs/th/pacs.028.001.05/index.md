@@ -5,10 +5,10 @@ lang: th-TH
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "ควรส่ง pacs.028 หลังการชำระเงินทุกครั้งหรือไม่?"
-    answer: "มักจะไม่ มันทำงานได้ดีที่สุดเป็นเครื่องมือข้อยกเว้นที่เจาะจง ไม่ใช่ปริมาณการจราจรแบบครอบคลุม"
-  - question: "อะไรทำให้ pacs.028 มีประโยชน์?"
-    answer: "กฎการหมดเวลา การยกระดับ และการกระทบยอดที่ชัดเจนรอบกรณีการชำระเงินเดิม"
+  - question: "Should pacs.028 be sent after every payment?"
+    answer: "Usually no. It works best as a targeted exception tool, not as blanket traffic."
+  - question: "What makes pacs.028 useful?"
+    answer: "Clear timeout, escalation, and reconciliation rules around the original payment case."
 ---
 
 # pacs.028.001.05 — คำขอสถานะการชำระเงินระหว่างสถาบันการเงิน

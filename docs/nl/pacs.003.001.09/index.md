@@ -5,10 +5,10 @@ lang: nl-NL
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "Is pacs.003 de incasso-tegenhanger van pacs.008?"
-    answer: "Nee. Het verwerkt klantincasso-flows met andere mandaat-, timing- en uitzonderingsregels."
-  - question: "Wat is operationeel het belangrijkst?"
-    answer: "Mandaatkwaliteit, debiteuraccountregels en retourverwerking zijn belangrijker dan XML-generatie."
+  - question: "Is pacs.003 the direct-debit mirror of pacs.008?"
+    answer: "No. It handles customer direct-debit flows, which have different mandate, timing, and exception rules."
+  - question: "What matters most operationally?"
+    answer: "Mandate quality, debtor-account rules, and return handling matter more than XML generation."
 ---
 
 # pacs.003.001.09 — FI-naar-FI-klantincasso

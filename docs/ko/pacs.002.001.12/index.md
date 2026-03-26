@@ -5,10 +5,10 @@ lang: ko-KR
 lastUpdated: true
 image: /logo.svg
 faq:
-  - question: "pacs.002는 결제 메시지입니까?"
-    answer: "아니요. 가치를 이동하는 것이 아니라 이전 지시의 상태를 보고합니다."
-  - question: "pacs.002가 내부 워크플로 상태를 대체해야 합니까?"
-    answer: "아니요. 정보를 제공해야 하지만, 내부 케이스 상태는 여전히 자체적인 운영 로직이 필요합니다."
+  - question: "Is pacs.002 a payment message?"
+    answer: "No. It reports status for an earlier instruction rather than moving value itself."
+  - question: "Should pacs.002 replace internal workflow states?"
+    answer: "No. It should inform them, but internal case states still need their own operational logic."
 ---
 
 # pacs.002.001.12 — 금융기관 간 지급 상태 보고
