@@ -14,16 +14,40 @@ This page explains how content on pacs008.com is created, reviewed, and kept cur
 
 All message documentation is based on primary sources:
 
-- [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions) for message specifications and version history.
-- [SWIFT CBPR+ usage guidelines](https://www.swift.com/standards/iso-20022) for cross-border payment context.
-- [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) for euro credit transfer rules.
-- [EPC SEPA Instant Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) for instant payment rules.
+- [Каталог визначень повідомлень ISO 20022](https://www.iso20022.org/iso-20022-message-definitions) — специфікації повідомлень та історія версій.
+- [Настанови з використання SWIFT CBPR+](https://www.swift.com/standards/iso-20022) — контекст транскордонних платежів.
+- [Правила EPC SEPA Credit Transfer](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) — правила кредитових переказів у євро.
+- [Правила EPC SEPA Instant Credit Transfer](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) — правила миттєвих платежів.
+
+## Процес перевірки контенту
+
+Кожна сторінка на pacs008.com проходить структуровану перевірку перед публікацією. Новий контент починається з чернетки на основі первинних джерел. Чернетка перевіряється на технічну точність за каталогом повідомлень ISO 20022 та відповідною документацією схем. Номери версій, реєстраційні ідентифікатори та визначення полів верифікуються за офіційними записами каталогу.
+
+Після початкової перевірки контент проходить структурний контроль для забезпечення узгодженості з наявними сторінками. Навігація, перехресні посилання та термінологія стандартизовані по всьому сайту. Дата перевірки на кожній сторінці повідомлення відображає останню верифікацію за первинними джерелами.
 
 ## Review process
 
 Each message page shows a review date. Reviews check that version numbers, registration status, and scheme context still match the primary sources listed above.
 
 Content is updated when ISO 20022 publishes new catalogue versions, when SWIFT releases updated usage guidelines, or when scheme rules change.
+
+## Технічна точність
+
+Технічний контент відповідає визначенням повідомлень ISO 20022, опублікованим в офіційному каталозі. Найменування полів, типи даних та правила кардинальності відповідають XSD-схемам для кожної версії повідомлення. Коли використання в конкретній схемі відрізняється від базового стандарту, відповідна документація схеми цитується безпосередньо.
+
+Приклади коду в документації API протестовані на поточному релізі інструментарію pacs008. Команди CLI, ендпоінти API та методи бібліотеки Python відповідають опублікованому пакету на PyPI. Приклади оновлюються з кожним новим релізом для синхронізації з інструментарієм.
+
+## Методологія перекладу
+
+pacs008.com доступний 22 мовами. Весь контент створюється англійською мовою. Перекладені сторінки генеруються з перевіреного англійського вихідного матеріалу за допомогою скрипта збірки, що зберігає структуру сторінок, ієрархію заголовків та цільові посилання в усіх локалях.
+
+Технічні терміни, ідентифікатори ISO та стандартні коди залишаються без перекладу для уникнення неоднозначності. Такі терміни, як pacs.008.001.13, BIC, IBAN та CBPR+, відображаються в стандартній формі кожною мовою. Нетехнічний контент перекладається для природного читання кожною цільовою мовою. Переклади перевіряються на структурну узгодженість та перегенеровуються при зміні англійського вихідного матеріалу.
+
+## Частота оновлень
+
+Контент оновлюється у відповідь на три тригери. Перший — коли ISO 20022 публікує нову версію каталогу повідомлень, що впливає на визначення повідомлень pacs. Другий — коли SWIFT випускає оновлені настанови з використання CBPR+ або нові терміни міграції. Третій — коли EPC оновлює правила SEPA Credit Transfer або SEPA Instant Credit Transfer.
+
+Інструментарій pacs008 дотримується семантичного версіонування. Кожен новий реліз відображається в документації API та журналі змін. Сайт перезбирається та повторно розгортається при кожному оновленні контенту або інструментарію.
 
 ## Content generation
 

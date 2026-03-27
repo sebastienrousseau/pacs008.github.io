@@ -14,16 +14,40 @@ This page explains how content on pacs008.com is created, reviewed, and kept cur
 
 All message documentation is based on primary sources:
 
-- [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions) for message specifications and version history.
-- [SWIFT CBPR+ usage guidelines](https://www.swift.com/standards/iso-20022) for cross-border payment context.
-- [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) for euro credit transfer rules.
-- [EPC SEPA Instant Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) for instant payment rules.
+- [Catálogo de definições de mensagens ISO 20022](https://www.iso20022.org/iso-20022-message-definitions) para especificações de mensagens e histórico de versões.
+- [Diretrizes de utilização SWIFT CBPR+](https://www.swift.com/standards/iso-20022) para o contexto de pagamentos transfronteiriços.
+- [Regulamento SEPA de transferências a crédito do EPC](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) para as regras de transferências a crédito em euros.
+- [Regulamento SEPA de transferências a crédito instantâneas do EPC](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) para as regras de pagamentos instantâneos.
+
+## Processo de revisão de conteúdo
+
+Cada página do pacs008.com passa por uma revisão estruturada antes da publicação. Os novos conteúdos começam com um rascunho baseado em fontes primárias. O rascunho é verificado quanto à precisão técnica face ao catálogo de mensagens ISO 20022 e à documentação do esquema pertinente.
+
+Após a revisão inicial, o conteúdo passa por uma verificação estrutural para garantir a coerência com as páginas existentes. Navegação, referências cruzadas e terminologia são normalizadas em todo o site. A data de revisão apresentada em cada página de mensagem reflete a verificação mais recente face às fontes primárias.
 
 ## Review process
 
 Each message page shows a review date. Reviews check that version numbers, registration status, and scheme context still match the primary sources listed above.
 
 Content is updated when ISO 20022 publishes new catalogue versions, when SWIFT releases updated usage guidelines, or when scheme rules change.
+
+## Precisão técnica
+
+O conteúdo técnico segue as definições de mensagens ISO 20022 conforme publicadas no catálogo oficial. Nomes de campos, tipos de dados e regras de cardinalidade correspondem aos esquemas XSD de cada versão de mensagem. Quando a utilização específica do esquema difere do padrão base, a documentação do esquema relevante é citada diretamente.
+
+Os exemplos de código na documentação da API são testados com a versão atual do toolkit pacs008. Comandos CLI, endpoints da API e métodos da biblioteca Python refletem o pacote publicado no PyPI. Os exemplos são atualizados a cada nova versão para se manterem sincronizados com o toolkit.
+
+## Metodologia de tradução
+
+O pacs008.com está disponível em 22 idiomas. Todo o conteúdo é criado em inglês. As páginas traduzidas são geradas a partir do material fonte inglês revisto através de um script de construção que preserva a estrutura da página, a hierarquia de títulos e os destinos dos links em todas as versões linguísticas.
+
+Termos técnicos, identificadores ISO e códigos normalizados não são traduzidos para evitar ambiguidade. Termos como pacs.008.001.13, BIC, IBAN e CBPR+ aparecem na sua forma padrão em todos os idiomas. O conteúdo não técnico é traduzido para soar natural em cada idioma de destino. As traduções são verificadas quanto à coerência estrutural e regeneradas quando o material fonte em inglês é alterado.
+
+## Frequência de atualização
+
+O conteúdo é atualizado em resposta a três fatores. Primeiro, quando a ISO 20022 publica uma nova versão do catálogo de mensagens que afeta as definições de mensagens pacs. Segundo, quando a SWIFT divulga diretrizes CBPR+ atualizadas ou novos prazos de migração. Terceiro, quando o EPC atualiza os regulamentos de transferências a crédito ou transferências a crédito instantâneas SEPA.
+
+O toolkit pacs008 segue o versionamento semântico. Cada nova versão é refletida na documentação da API e no registo de alterações. O site é reconstruído e reimplantado a cada atualização de conteúdo ou do toolkit.
 
 ## Content generation
 
