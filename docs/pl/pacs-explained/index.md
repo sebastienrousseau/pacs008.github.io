@@ -14,55 +14,135 @@ This page provides a detailed technical reference for the ISO 20022 pacs message
 
 Pełny cykl życia płatności pacs obejmuje sześć etapów i wiele typów komunikatów współpracujących ze sobą.
 
-**Etap 1 — Inicjacja.** Płatność powstaje w domenie klient-bank (pain.001).
+**Etap 1 — Inicjacja.** Płatność powstaje w domenie klient-bank (pain.001). Bank dłużnika otrzymuje instrukcję i mapuje ją do domeny międzybankowej.
 
-**Etap 2 — Instrukcja międzybankowa.** Agent dłużnika tworzy pacs.008. W przepływie pokrycia pacs.008 idzie bezpośrednio do agenta wierzyciela, podczas gdy pacs.009 transportuje finansowanie.
+**Etap 2 — Instrukcja międzybankowa.** Agent dłużnika tworzy pacs.008 i wysyła go do następnego agenta w łańcuchu. W przepływie szeregowym pacs.008 przechodzi krok po kroku przez pośredników. W przepływie pokrycia pacs.008 idzie bezpośrednio od agenta dłużnika do agenta wierzyciela, podczas gdy oddzielny pacs.009 przenosi etap finansowania przez łańcuch korespondencyjny.
 
-**Etap 3 — Raportowanie statusu.** Agent odbierający może zwrócić pacs.002 potwierdzający akceptację, odrzucenie lub status oczekujący.
+**Etap 3 — Raportowanie statusu.** Na każdym etapie agent odbierający może zwrócić pacs.002 potwierdzający akceptację (ACCP/ACSP/ACSC), odrzucenie (RJCT) lub status oczekujący (PDNG). W CBPR+ pacs.002 jest obowiązkowy dla całej komunikacji o statusie płatności.
 
-**Etap 4 — Rozliczenie.** Przez system rozrachunkowy (CLRG), rachunki korespondencyjne (INDA/INGA) lub płatność pokrycia (COVE).
+**Etap 4 — Rozliczenie.** Rozliczenie następuje przez system rozrachunkowy (CLRG), na rachunkach korespondencyjnych (INDA/INGA) lub przez płatność pokrycia (COVE). Data i kwota rozliczenia międzybankowego określają kiedy i ile zostanie rozliczone.
 
-**Etap 5 — Uznanie beneficjenta.** Agent wierzyciela uznaje beneficjenta.
+**Etap 5 — Uznanie beneficjenta.** Agent wierzyciela uznaje beneficjenta i może wysłać powiadomienie klienta.
 
-**Etap 6 — Obsługa wyjątków.** pacs.004 dla zwrotów, pacs.007 dla odwróceń, pacs.028 dla zapytań o status.
+**Etap 6 — Obsługa wyjątków.** Jeśli beneficjent nie może zostać uznany po rozliczeniu, pacs.004 zwraca środki przez łańcuch. Jeśli nadawca wykryje błąd lub oszustwo, pacs.007 przechodzi do przodu w łańcuchu. Jeśli status jest nieznany, pacs.028 pyta następnego agenta, a odpowiedź wraca przez pacs.002.
 
-### Przepływ metody seryjnej
+### Przepływ metody szeregowej
 
 ```text
-Agent Dłużnika --(pacs.008)--> Agent Pośredniczący
-Agent Pośredniczący --(pacs.002)--> Agent Dłużnika [status]
-Agent Pośredniczący --(pacs.008)--> Agent Wierzyciela
-Agent Wierzyciela --(pacs.002)--> Agent Pośredniczący [status]
+Debtor Agent --(pacs.008)--> Intermediary Agent
+Intermediary Agent --(pacs.002)--> Debtor Agent [status]
+Intermediary Agent --(pacs.008)--> Creditor Agent
+Creditor Agent --(pacs.002)--> Intermediary Agent [status]
+Creditor Agent --> Creditor [credit notification]
 ```
 
 ### Przepływ metody pokrycia
 
 ```text
-Agent Dłużnika --(pacs.008)--> Agent Wierzyciela [bezpośrednio, z danymi klienta]
-Agent Dłużnika --(pacs.009)--> Bank Pokrycia --(pacs.009)--> Agent Wierzyciela [finansowanie]
+Debtor Agent --(pacs.008)--> Creditor Agent [direct, with customer data]
+Debtor Agent --(pacs.009)--> Cover Bank --(pacs.009)--> Creditor Agent [funding leg]
 ```
 
 ## Struktura XML pacs.008
 
-Dwa główne bloki: Nagłówek Grupy (GrpHdr) i Informacje o Transakcji Przelewu (CdtTrfTxInf).
+pacs.008 ma dwa główne bloki: Nagłówek Grupy (GrpHdr) i Informacje o Transakcji Przelewu (CdtTrfTxInf).
 
 ### Nagłówek Grupy (GrpHdr)
 
-Pojawia się dokładnie raz: MsgId, CreDtTm, NbOfTxs, SttlmInf, IntrBkSttlmDt, PmtTpInf.
+Nagłówek Grupy pojawia się dokładnie raz w każdym komunikacie i zawiera:
+
+- **MsgId** — Unikalny identyfikator komunikatu nadany przez agenta wysyłającego. Maksymalnie 35 znaków, unikalny dla każdego nadawcy.
+- **CreDtTm** — Znacznik czasu utworzenia w formacie ISO 8601.
+- **NbOfTxs** — Liczba poszczególnych transakcji w komunikacie.
+- **SttlmInf** — Informacje o rozliczeniu, w tym metoda rozliczenia (SttlmMtd) i opcjonalnie system rozrachunkowy oraz rachunek rozliczeniowy.
+- **IntrBkSttlmDt** — Data rozliczenia międzybankowego.
+- **PmtTpInf** — Informacje o typie płatności: priorytet, poziom usługi, instrument lokalny i cel kategorii.
 
 ### Informacje o Transakcji (CdtTrfTxInf)
 
-PmtId, IntrBkSttlmAmt, InstdAmt, ChrgBr, Dbtr/DbtrAcct/DbtrAgt, Cdtr/CdtrAcct/CdtrAgt, IntrmyAgt, RmtInf, Purp, RgltryRptg.
+Każda transakcja zawiera:
+
+- **PmtId** — Identyfikatory płatności: InstrId, EndToEndId, TxId i UETR.
+- **IntrBkSttlmAmt** — Kwota rozliczenia międzybankowego z kodem waluty.
+- **InstdAmt** — Pierwotna kwota zlecona (może różnić się od kwoty rozliczenia z powodu przewalutowania).
+- **ChrgBr** — Kod ponoszącego opłaty (DEBT, CRED, SHAR lub SLEV).
+- **Dbtr / DbtrAcct / DbtrAgt** — Nazwa, adres, identyfikacja, rachunek i agent dłużnika.
+- **Cdtr / CdtrAcct / CdtrAgt** — Nazwa, adres, identyfikacja, rachunek i agent wierzyciela.
+- **IntrmyAgt1 / 2 / 3** — Do trzech agentów pośredniczących w łańcuchu.
+- **RmtInf** — Informacje o przelewie, niestrukturalne (tekst wolny) lub strukturalne (referencje dokumentów, kwoty, daty).
+- **Purp** — Strukturalny kod celu.
+- **RgltryRptg** — Szczegóły raportowania regulacyjnego.
+
+## Identyfikatory płatności
+
+Komunikaty pacs używają kilku identyfikatorów pełniących różne role w łańcuchu płatniczym.
+
+<div class="api-fields-table" tabindex="0" aria-label="Identyfikatory płatności">
+  <table>
+    <caption>Identyfikatory płatności i ich role</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Identyfikator</th>
+        <th scope="col">Ustawiany przez</th>
+        <th scope="col">Zmienia się w łańcuchu?</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><strong>MsgId</strong></td>
+          <td class="api-fields-table__desc">Każdego agenta wysyłającego</td>
+          <td class="api-fields-table__constraint">Tak — nowy dla każdego komunikatu</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><strong>InstrId</strong></td>
+          <td class="api-fields-table__desc">Każdego agenta instruującego</td>
+          <td class="api-fields-table__constraint">Tak — może się zmieniać na każdym etapie</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><strong>EndToEndId</strong></td>
+          <td class="api-fields-table__desc">Inicjatora (dłużnika)</td>
+          <td class="api-fields-table__constraint">Nie — nie wolno zmieniać</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><strong>TxId</strong></td>
+          <td class="api-fields-table__desc">Pierwszego agenta instruującego</td>
+          <td class="api-fields-table__constraint">Nie — nie wolno zmieniać</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><strong>UETR</strong></td>
+          <td class="api-fields-table__desc">Agenta dłużnika</td>
+          <td class="api-fields-table__constraint">Nie — śledzenie uniwersalne</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Metody rozliczenia
 
-- **CLRG** — Przez system rozrachunkowy. **INDA** — W księgach agenta instruowanego. **INGA** — W księgach agenta instruującego. **COVE** — Przez płatność pokrycia pacs.009.
+Element SttlmMtd określa sposób rozliczenia międzybankowego.
+
+- **CLRG** — Rozliczenie przez system rozrachunkowy taki jak TARGET2, EURO1 lub CHIPS. Najczęściej stosowane w rozliczeniach krajowych i regionalnych.
+- **INDA** — Rozliczenie w księgach agenta instruowanego. Agent dłużnika utrzymuje rachunek nostro u następnego agenta. Typowe dla dwustronnej bankowości korespondencyjnej.
+- **INGA** — Rozliczenie w księgach agenta instruującego. Agent instruowany utrzymuje rachunek nostro u agenta wysyłającego. Mniej powszechne niż INDA.
+- **COVE** — Rozliczenie przez odrębną płatność pokrycia. pacs.009 przenosi etap finansowania, a pacs.008 przenosi dane klienta bezpośrednio. Stosowane w transgranicznej bankowości korespondencyjnej.
 
 ## Kody ponoszącego opłaty
 
-- **DEBT** — Dłużnik ponosi wszystkie opłaty. **CRED** — Wierzyciel. **SHAR** — Dzielone. **SLEV** — Obowiązkowy dla SEPA.
+Element ChrgBr określa, kto ponosi opłaty za płatność.
+
+- **DEBT** — Dłużnik ponosi wszystkie opłaty (odpowiednik MT103: OUR). Wierzyciel otrzymuje pełną kwotę.
+- **CRED** — Wierzyciel ponosi wszystkie opłaty (odpowiednik MT103: BEN). Opłaty są potrącane z przelewu.
+- **SHAR** — Opłaty są dzielone (odpowiednik MT103: SHA). Każda strona płaci opłaty swojego agenta. Najczęstsze dla płatności transgranicznych.
+- **SLEV** — Opłaty podążają za poziomem usługi. Obowiązkowe dla SEPA. Bez potrąceń z kwoty przelewu.
 
 ## Format adresu pocztowego
+
+### Adres strukturalny
 
 ```xml
 <PstlAdr>
@@ -74,18 +154,41 @@ PmtId, IntrBkSttlmAmt, InstdAmt, ChrgBr, Dbtr/DbtrAcct/DbtrAgt, Cdtr/CdtrAcct/Cd
 </PstlAdr>
 ```
 
+### Adres niestrukturalny (przestarzały dla CBPR+ po listopadzie 2026)
+
+```xml
+<PstlAdr>
+  <AdrLine>42 High Street</AdrLine>
+  <AdrLine>London EC2V 8BX</AdrLine>
+  <Ctry>GB</Ctry>
+</PstlAdr>
+```
+
+Główne ograniczenia: StrtNm maks. 70 znaków (CBPR+), TwnNm maks. 35 znaków (CBPR+), Ctry w formacie ISO 3166-1 alpha-2, AdrLine maks. 70 znaków na linię i maks. 7 linii.
+
 ## Identyfikacja stron
 
-- **BIC** — Kod identyfikacyjny firmy (ISO 9362). **LEI** — Identyfikator podmiotu prawnego (ISO 17442). **IBAN** — Międzynarodowy numer rachunku bankowego (ISO 13616).
+Strony w pacs.008 obsługują wiele metod identyfikacji:
+
+- **BIC** — Kod identyfikacyjny firmy wg ISO 9362. 8 lub 11 znaków (BBBBCCLL lub BBBBCCLLBBB). Używany w FinInstnId/BICFI dla agentów i OrgId/AnyBIC dla stron.
+- **LEI** — Identyfikator podmiotu prawnego wg ISO 17442. 20 znaków alfanumerycznych. Pojawia się w OrgId/LEI dla stron i FinInstnId/LEI dla agentów. Poprawia disambiguację podmiotów dla raportowania regulacyjnego.
+- **IBAN** — Międzynarodowy numer rachunku bankowego wg ISO 13616. Używany w DbtrAcct/Id/IBAN i CdtrAcct/Id/IBAN.
+- **Identyfikatory organizacji** — Inne identyfikatory oparte na schemacie (numer podatkowy, DUNS, numer klienta) przez OrgId/Othr z kodem nazwy schematu.
+- **Identyfikatory prywatne** — Dla osób fizycznych: data i miejsce urodzenia, paszport (CCPT), dowód osobisty (NIDN) lub prawo jazdy (DRLC) przez PrvtId.
 
 ## Informacje o przelewie
 
-- **Niestrukturalne** — Tekst wolny do 140 znaków.
-- **Strukturalne** — Referencje dokumentów: CINV, CREN, SOAC.
+Dane przelewu w pacs.008 używają elementu RmtInf w dwóch formach:
+
+**Niestrukturalne** — Tekst wolny do 140 znaków na wystąpienie. Proste, ale ogranicza automatyczne uzgadnianie.
+
+**Strukturalne** — Referencje dokumentów z kodami typów, numerami, datami i kwotami. Popularne typy dokumentów: CINV (faktura handlowa), CREN (nota kredytowa), SOAC (wyciąg z rachunku). Obsługuje referencje wierzyciela ISO 11649 (RF + cyfry kontrolne + referencja) przez CdtrRefInf. Umożliwia automatyczne dopasowanie faktur i płatności wielofakturowe.
 
 ## UETR i śledzenie gpi
 
-UETR to UUID v4 generowany przez agenta dłużnika. SWIFT gpi używa UETR do śledzenia płatności.
+UETR (Unique End-to-End Transaction Reference) to UUID v4 generowany przez agenta dłużnika. Pojawia się w PmtId/UETR w pacs.008, pacs.009, pacs.002, pacs.004, pacs.007 i pacs.028. Musi pozostać niezmieniony w całym łańcuchu płatniczym.
+
+SWIFT gpi używa UETR do śledzenia płatności za pośrednictwem chmurowej bazy danych Tracker. Każdy agent potwierdza odbiór i przetworzenie, umożliwiając widoczność od początku do końca. Umowa SLA gpi dla płatności transgranicznych zakłada uznanie rachunku wierzyciela w tym samym dniu.
 
 ## Odniesienia
 

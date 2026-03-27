@@ -14,19 +14,19 @@ This page provides a detailed technical reference for the ISO 20022 pacs message
 
 מחזור חיי התשלום המלא של pacs כולל שישה שלבים ומספר סוגי הודעות הפועלים יחד.
 
-**שלב 1 — ייזום.** התשלום מתחיל בתחום לקוח-בנק (pain.001).
+**שלב 1 — ייזום.** התשלום מתחיל בתחום לקוח-בנק (pain.001). בנק החייב מקבל את ההוראה וממפה אותה לתחום הבין-בנקאי.
 
-**שלב 2 — הוראה בין-בנקאית.** סוכן החייב יוצר pacs.008 ושולח אותו לסוכן הבא.
+**שלב 2 — הוראה בין-בנקאית.** סוכן החייב יוצר pacs.008 ושולח אותו לסוכן הבא בשרשרת. בזרימה טורית, pacs.008 עובר צעד אחר צעד דרך מתווכים. בזרימת כיסוי, pacs.008 הולך ישירות מסוכן החייב לסוכן הזכאי, בעוד pacs.009 נפרד נושא את רגל המימון דרך שרשרת הקורספונדנטים.
 
-**שלב 3 — דוחות סטטוס.** הסוכן המקבל יכול לשלוח pacs.002 לאישור הסטטוס.
+**שלב 3 — דוחות סטטוס.** בכל צעד, הסוכן המקבל יכול להחזיר pacs.002 המאשר קבלה (ACCP/ACSP/ACSC), דחייה (RJCT), או סטטוס ממתין (PDNG). ב-CBPR+, pacs.002 הוא חובה לכל תקשורת סטטוס תשלום.
 
-**שלב 4 — סליקה.** מתבצעת דרך CLRG, INDA/INGA, או COVE.
+**שלב 4 — סליקה.** הסליקה מתבצעת דרך מערכת סליקה (CLRG), בחשבונות קורספונדנטים (INDA/INGA), או באמצעות תשלום כיסוי (COVE). תאריך וסכום הסליקה הבין-בנקאית קובעים מתי וכמה נסלק.
 
-**שלב 5 — זיכוי המוטב.** סוכן הזכאי מזכה את המוטב.
+**שלב 5 — זיכוי המוטב.** סוכן הזכאי מזכה את המוטב ויכול לשלוח הודעה ללקוח.
 
-**שלב 6 — טיפול בחריגות.** pacs.004 מחזיר כספים. pacs.007 מבטל. pacs.028 מברר סטטוס.
+**שלב 6 — טיפול בחריגות.** אם לא ניתן לזכות את המוטב לאחר הסליקה, pacs.004 מחזיר כספים דרך השרשרת. אם המקור מגלה שגיאה או הונאה, pacs.007 מתקדם קדימה בשרשרת. אם הסטטוס לא ידוע, pacs.028 שואל את הסוכן הבא והתשובה חוזרת דרך pacs.002.
 
-### זרימה סדרתית
+### זרימה טורית
 
 ```text
 Debtor Agent --(pacs.008)--> Intermediary Agent
@@ -47,11 +47,155 @@ Debtor Agent --(pacs.009)--> Cover Bank --(pacs.009)--> Creditor Agent [funding 
 
 pacs.008 מורכב משני בלוקים עיקריים: כותרת הקבוצה (GrpHdr) ומידע על עסקת העברת האשראי (CdtTrfTxInf).
 
+### כותרת הקבוצה (GrpHdr)
+
+כותרת הקבוצה מופיעה בדיוק פעם אחת בכל הודעה ומכילה:
+
+- **MsgId** — מזהה הודעה ייחודי שנקבע על ידי הסוכן השולח. עד 35 תווים, חייב להיות ייחודי לכל שולח.
+- **CreDtTm** — חותמת זמן יצירה בפורמט ISO 8601.
+- **NbOfTxs** — מספר העסקאות הבודדות בהודעה.
+- **SttlmInf** — מידע סליקה כולל שיטת הסליקה (SttlmMtd) ואופציונלית מערכת הסליקה וחשבון הסליקה.
+- **IntrBkSttlmDt** — תאריך הסליקה הבין-בנקאית.
+- **PmtTpInf** — מידע על סוג התשלום כולל עדיפות, רמת שירות, מכשיר מקומי ומטרת קטגוריה.
+
+### מידע עסקת העברת אשראי (CdtTrfTxInf)
+
+כל עסקה מכילה:
+
+- **PmtId** — מזהי תשלום: InstrId, EndToEndId, TxId ו-UETR.
+- **IntrBkSttlmAmt** — סכום הסליקה הבין-בנקאית עם קוד מטבע.
+- **InstdAmt** — הסכום המקורי שהורה (עשוי להיות שונה מסכום הסליקה עקב המרת מטבע).
+- **ChrgBr** — קוד נושא העמלות (DEBT, CRED, SHAR או SLEV).
+- **Dbtr / DbtrAcct / DbtrAgt** — שם, כתובת, זיהוי, חשבון וסוכן של החייב.
+- **Cdtr / CdtrAcct / CdtrAgt** — שם, כתובת, זיהוי, חשבון וסוכן של הזכאי.
+- **IntrmyAgt1 / 2 / 3** — עד שלושה סוכנים מתווכים בשרשרת.
+- **RmtInf** — מידע העברה, לא מובנה (טקסט חופשי) או מובנה (הפניות מסמכים, סכומים, תאריכים).
+- **Purp** — קוד מטרה מובנה.
+- **RgltryRptg** — פרטי דיווח רגולטורי.
+
+## מזהי תשלום
+
+הודעות pacs משתמשות במספר מזהים הממלאים תפקידים שונים בשרשרת התשלום.
+
+<div class="api-fields-table" tabindex="0" aria-label="מזהי תשלום">
+  <table>
+    <caption>מזהי תשלום ותפקידיהם</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">מזהה</th>
+        <th scope="col">נקבע על ידי</th>
+        <th scope="col">משתנה בשרשרת?</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><strong>MsgId</strong></td>
+          <td class="api-fields-table__desc">כל סוכן שולח</td>
+          <td class="api-fields-table__constraint">כן — חדש לכל הודעה</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><strong>InstrId</strong></td>
+          <td class="api-fields-table__desc">כל סוכן מורה</td>
+          <td class="api-fields-table__constraint">כן — עשוי להשתנות בכל צעד</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><strong>EndToEndId</strong></td>
+          <td class="api-fields-table__desc">המקור (החייב)</td>
+          <td class="api-fields-table__constraint">לא — אסור לשנות</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><strong>TxId</strong></td>
+          <td class="api-fields-table__desc">הסוכן המורה הראשון</td>
+          <td class="api-fields-table__constraint">לא — אסור לשנות</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><strong>UETR</strong></td>
+          <td class="api-fields-table__desc">סוכן החייב</td>
+          <td class="api-fields-table__constraint">לא — מעקב אוניברסלי</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+## שיטות סליקה
+
+אלמנט SttlmMtd מגדיר כיצד מתבצעת הסליקה הבין-בנקאית.
+
+- **CLRG** — סליקה דרך מערכת סליקה כגון TARGET2, EURO1 או CHIPS. הנפוצה ביותר לסליקה מקומית ואזורית.
+- **INDA** — סליקה בספרי הסוכן המונחה. סוכן החייב מחזיק חשבון נוסטרו אצל הסוכן הבא. אופיינית לבנקאות קורספונדנטית דו-צדדית.
+- **INGA** — סליקה בספרי הסוכן המורה. הסוכן המונחה מחזיק חשבון נוסטרו אצל הסוכן השולח. פחות נפוצה מ-INDA.
+- **COVE** — סליקה דרך תשלום כיסוי נפרד. pacs.009 נושא את רגל המימון בעוד pacs.008 נושא את נתוני הלקוח ישירות. משמש בבנקאות קורספונדנטית חוצת גבולות.
+
+## קודי נושא עמלות
+
+אלמנט ChrgBr מציין מי נושא בעמלות התשלום.
+
+- **DEBT** — החייב נושא בכל העמלות (שווה ערך MT103: OUR). הזכאי מקבל את הסכום המלא.
+- **CRED** — הזכאי נושא בכל העמלות (שווה ערך MT103: BEN). העמלות מנוכות מההעברה.
+- **SHAR** — העמלות מתחלקות (שווה ערך MT103: SHA). כל צד משלם את עמלות הסוכן שלו. הנפוץ ביותר לתשלומים חוצי גבולות.
+- **SLEV** — העמלות עוקבות אחרי רמת השירות. חובה ב-SEPA. ללא ניכויים מסכום ההעברה.
+
+## פורמט כתובת דואר
+
+### כתובת מובנית
+
+```xml
+<PstlAdr>
+  <StrtNm>High Street</StrtNm>
+  <BldgNb>42</BldgNb>
+  <PstCd>EC2V 8BX</PstCd>
+  <TwnNm>London</TwnNm>
+  <Ctry>GB</Ctry>
+</PstlAdr>
+```
+
+### כתובת לא מובנית (מיושנת ל-CBPR+ אחרי נובמבר 2026)
+
+```xml
+<PstlAdr>
+  <AdrLine>42 High Street</AdrLine>
+  <AdrLine>London EC2V 8BX</AdrLine>
+  <Ctry>GB</Ctry>
+</PstlAdr>
+```
+
+אילוצים עיקריים: StrtNm עד 70 תווים (CBPR+), TwnNm עד 35 תווים (CBPR+), Ctry בפורמט ISO 3166-1 alpha-2, AdrLine עד 70 תווים לשורה ועד 7 שורות.
+
+## זיהוי צדדים
+
+צדדים ב-pacs.008 תומכים במספר שיטות זיהוי:
+
+- **BIC** — קוד מזהה עסקי לפי ISO 9362. 8 או 11 תווים (BBBBCCLL או BBBBCCLLBBB). משמש ב-FinInstnId/BICFI לסוכנים וב-OrgId/AnyBIC לצדדים.
+- **LEI** — מזהה ישות משפטית לפי ISO 17442. 20 תווים אלפאנומריים. מופיע ב-OrgId/LEI לצדדים וב-FinInstnId/LEI לסוכנים. משפר הבחנת ישויות לדיווח רגולטורי.
+- **IBAN** — מספר חשבון בנק בינלאומי לפי ISO 13616. משמש ב-DbtrAcct/Id/IBAN וב-CdtrAcct/Id/IBAN.
+- **מזהי ארגון** — מזהים אחרים מבוססי סכמה (מספר מס, DUNS, מספר לקוח) דרך OrgId/Othr עם קוד שם סכמה.
+- **מזהים פרטיים** — לאנשים טבעיים: תאריך ומקום לידה, דרכון (CCPT), תעודת זהות (NIDN) או רישיון נהיגה (DRLC) דרך PrvtId.
+
+## מידע העברה
+
+נתוני ההעברה ב-pacs.008 משתמשים באלמנט RmtInf בשתי צורות:
+
+**לא מובנה** — טקסט חופשי עד 140 תווים להופעה. פשוט אך מגביל התאמה אוטומטית.
+
+**מובנה** — הפניות מסמכים עם קודי סוג, מספרים, תאריכים וסכומים. סוגי מסמכים נפוצים: CINV (חשבונית מסחרית), CREN (הודעת זיכוי), SOAC (דף חשבון). תומך בהפניות זכאי ISO 11649 (RF + ספרות ביקורת + הפניה) דרך CdtrRefInf. מאפשר התאמת חשבוניות אוטומטית ותשלומי ריבוי חשבוניות.
+
+## UETR ומעקב gpi
+
+UETR (Unique End-to-End Transaction Reference) הוא UUID v4 שנוצר על ידי סוכן החייב. הוא מופיע ב-PmtId/UETR לאורך pacs.008, pacs.009, pacs.002, pacs.004, pacs.007 ו-pacs.028. הוא חייב להישאר ללא שינוי לאורך כל שרשרת התשלום.
+
+SWIFT gpi משתמש ב-UETR למעקב אחר תשלומים דרך מסד נתוני Tracker מבוסס ענן. כל סוכן מאשר קבלה ועיבוד, מה שמאפשר נראות מקצה לקצה. הסכם רמת השירות של gpi לתשלומים חוצי גבולות מכוון לזיכוי באותו יום בחשבון הזכאי.
+
 ## הפניות
 
 - [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions)
 - [ISO 20022 external code sets](https://www.iso20022.org/external_code_list.page)
 - [SWIFT CBPR+ ISO 20022 usage guidelines](https://www.swift.com/standards/iso-20022)
+- [SWIFT CBPR+ migration roadmap PDF](https://www.swift.com/swift-resource/252463/download)
 - [SWIFT gpi](https://www.swift.com/our-solutions/swift-gpi)
 - [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and)
 

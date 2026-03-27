@@ -16,119 +16,153 @@ This glossary defines the key terms, abbreviations, and technical concepts used 
 
 **AdrLine** — Adres Satırı. ISO 20022 posta adresi yapılarında serbest metin alanı. En fazla 7 satır, her biri 70 karakter. Kasım 2026'ya kadar CBPR+ için yapılandırılmış adres öğeleriyle değiştiriliyor.
 
-**ACCP** — Kabul Edilen Müşteri Profili. pacs.002 durum kodu.
+**ACCP** — Kabul Edilen Müşteri Profili. Önceki kontrollerin (sözdizimi, müşteri profili) başarılı olduğunu gösteren pacs.002 durum kodu.
 
-**ACSC** — Kabul Edilen Uzlaşma Tamamlandı. pacs.002 durum kodu.
+**ACSC** — Kabul Edilen Uzlaşma Tamamlandı. Borçlunun hesabında uzlaşmanın tamamlandığını doğrulayan pacs.002 durum kodu.
 
-**ACSP** — Kabul Edilen Uzlaşma Devam Ediyor. pacs.002 durum kodu.
+**ACSP** — Kabul Edilen Uzlaşma Devam Ediyor. Tüm kontrollerin geçtiğini ve uzlaşmanın sürdüğünü gösteren pacs.002 durum kodu.
 
-**BAH** — İş Uygulama Başlığı (head.001).
+## B
 
-**BIC** — İş Tanımlama Kodu (ISO 9362). 8 veya 11 karakter.
+**BAH** — İş Uygulama Başlığı (head.001). ISO 20022 iş mesajlarını SWIFT aracılığıyla taşımak için sarmalayan standartlaştırılmış zarf. Yönlendirme bilgisi, mesaj tanımlama kimliği ve gönderen/alıcı BIC kodlarını içerir.
 
-**CBPR+** — Sınır Ötesi Ödemeler ve Raporlama Plus. Mart 2023'te yayına geçti.
+**BIC** — İş Tanımlama Kodu (ISO 9362). Bir finansal kurumu benzersiz şekilde tanımlayan 8 veya 11 karakterlik kod. Biçim: BBBBCCLL (banka kodu + ülke + konum) ile isteğe bağlı BBB şube kodu.
 
-**CdtTrfTxInf** — Kredi Transferi İşlem Bilgisi.
+## C
 
-**ChrgBr** — Ücret Taşıyıcı. Değerler: DEBT, CRED, SHAR, SLEV.
+**CBPR+** — Sınır Ötesi Ödemeler ve Raporlama Plus. SWIFT'in sınır ötesi ödeme mesajlaşmasını MT'den ISO 20022'ye taşıma programı. Mart 2023'te yayına geçti.
 
-**CLRG** — Takas sistemi uzlaşması.
+**CdtTrfTxInf** — Kredi Transferi İşlem Bilgisi. pacs.008'deki işlem düzeyinde ana yapı taşı; ödeme ayrıntıları, taraflar, tutarlar ve havale bilgileri içerir.
 
-**COVE** — Teminat yöntemi uzlaşması.
+**ChrgBr** — Ücret Taşıyıcı. İşlem ücretlerini kimin ödeyeceğini belirtir. Değerler: DEBT (borçlu), CRED (alacaklı), SHAR (paylaşımlı), SLEV (hizmet düzeyi, yalnızca SEPA).
 
-**CSM** — Takas ve Uzlaşma Mekanizması.
+**CLRG** — Takas sistemi uzlaşması. Fonların TARGET2, EURO1 veya CHIPS gibi bir takas sistemi aracılığıyla hareket ettiği uzlaşma yöntemi.
 
-**Dbtr** — Borçlu.
+**COVE** — Teminat yöntemi uzlaşması. Ayrı bir pacs.009 teminat ödemesinin muhabir bankalar arasındaki fonlamayı yönetirken pacs.008'in müşteri verilerini doğrudan taşıdığı uzlaşma yöntemi.
 
-**DbtrAgt** — Borçlu Acentesi.
+**CSM** — Takas ve Uzlaşma Mekanizması. Katılımcı kurumlar arasında ödeme talimatlarını işleyen ve uzlaştıran altyapı.
 
-**E2E ID** — Uçtan Uca Tanımlama (EndToEndId).
+## D
 
-**EPC** — Avrupa Ödemeler Konseyi.
+**Dbtr** — Borçlu. Fonları borçlu olan ve ödemeyi başlatan taraf. pacs.008'de Dbtr öğesi borçlunun adını, posta adresini, kimliğini ve ikamet ülkesini taşır.
 
-**FI** — Finansal Kurum.
+**DbtrAgt** — Borçlu Acentesi. Borçlunun hesabına hizmet veren ve pacs.008 talimatını gönderen finansal kurum.
 
-**FIToFI** — Finansal Kurumdan Finansal Kuruma.
+## E
 
-**gpi** — Küresel Ödemeler İnovasyonu. UETR ile izleme.
+**E2E ID** — Uçtan Uca Tanımlama (EndToEndId). Başlatan tarafından atanan ve ödeme zincirindeki tüm acenteler boyunca değişmeden kalması gereken referans. Müşteri düzeyinde izlenebilirlik için kullanılır.
 
-**GrpHdr** — Grup Başlığı.
+**EPC** — Avrupa Ödemeler Konseyi. Kredi transferleri ve doğrudan borçlandırmalar için SEPA ödeme şeması kurallarını yöneten kuruluş.
 
-**Hybrid address** — Yapılandırılmış ve yapılandırılmamış öğeleri birleştiren biçim.
+## F
 
-**IBAN** — Uluslararası Banka Hesap Numarası (ISO 13616).
+**FI** — Finansal Kurum. Ödeme takas ve uzlaşmasına katılan banka veya diğer kurum.
 
-**INDA** — Talimat Alan Acente uzlaşması.
+**FIToFI** — Finansal Kurumdan Finansal Kuruma. pacs mesajlarının faaliyet gösterdiği bankalar arası alanı tanımlar.
 
-**INGA** — Talimat Veren Acente uzlaşması.
+## G
 
-**InstrId** — Talimat Tanımlama.
+**gpi** — Küresel Ödemeler İnovasyonu. SWIFT'in daha hızlı, şeffaf sınır ötesi ödemeler için girişimi. Bulut tabanlı Tracker aracılığıyla uçtan uca izleme için UETR kullanır.
 
-**IntrBkSttlmAmt** — Bankalararası Uzlaşma Tutarı.
+**GrpHdr** — Grup Başlığı. pacs mesajlarındaki mesaj düzeyinde meta veri bloğu. MsgId, CreDtTm, NbOfTxs, uzlaşma bilgisi ve ödeme türü bilgisi içerir.
 
-**ISO 20022** — Finansal kurumlar arasında elektronik veri değişimi için uluslararası standart.
+## H
 
-**LEI** — Tüzel Kişi Tanımlayıcı (ISO 17442). 20 karakter.
+**Hybrid address** — Karma adres. Yapılandırılmış öğeleri (StrtNm, TwnNm, Ctry) yapılandırılmamış AdrLine öğeleriyle birleştiren posta adresi biçimi. Kasım 2026 yapılandırılmış adres son tarihinden önceki geçiş döneminde izin verilir.
 
-**MsgId** — Mesaj Tanımlama. Her adımda değişir.
+## I
 
-**MT** — Mesaj Türü. SWIFT'in eski biçimi.
+**IBAN** — Uluslararası Banka Hesap Numarası (ISO 13616). Sınır ötesi ve yurt içi ödemeler için kullanılan standartlaştırılmış hesap numarası biçimi. ISO 7064 Mod 97-10 sağlama toplamı ile doğrulanır.
 
-**MX** — ISO 20022 XML mesaj biçimi.
+**INDA** — Talimat Alan Acente uzlaşması. Fonların talimat alan acentenin defterlerinde uzlaştırıldığı yöntem; borçlu acentesinin nostro hesabı bulunur.
 
-**NbOfTxs** — İşlem Sayısı.
+**INGA** — Talimat Veren Acente uzlaşması. Fonların talimat veren acentenin defterlerinde uzlaştırıldığı yöntem; talimat alan acentenin nostro hesabı bulunur.
 
-**pacs** — Ödeme Takas ve Uzlaşması.
+**InstrId** — Talimat Tanımlama. Ödeme zincirinde bitişik acenteler arasındaki noktadan noktaya referans. Her adımda değişebilir.
 
-**pacs.002** — FI'den FI'ye Ödeme Durum Raporu.
+**IntrBkSttlmAmt** — Bankalararası Uzlaşma Tutarı. Talimat veren ve talimat alan acente arasında uzlaşma para birimi cinsinden uzlaştırılan tutar.
 
-**pacs.003** — FI'den FI'ye Müşteri Doğrudan Borçlandırma.
+**ISO 20022** — Finansal kurumlar arasında elektronik veri değişimi için uluslararası standart. Ödemeler, menkul kıymetler, ticaret finansmanı ve diğer finansal alanlar için ortak veri modeli ve XML tabanlı mesaj biçimleri tanımlar.
 
-**pacs.004** — Ödeme İadesi.
+## L
 
-**pacs.007** — FI'den FI'ye Ödeme Tersine Çevirme.
+**LEI** — Tüzel Kişi Tanımlayıcı (ISO 17442). Finansal işlemlere katılan tüzel kişileri benzersiz şekilde tanımlayan 20 karakterlik alfanümerik kod. Taraflar için OrgId/LEI'de ve acenteler için FinInstnId/LEI'de kullanılır.
 
-**pacs.008** — FI'den FI'ye Müşteri Kredi Transferi. MT103'ün yerini alır.
+## M
 
-**pacs.009** — Finansal Kurum Kredi Transferi. MT202/MT202COV'un yerini alır.
+**MsgId** — Mesaj Tanımlama. Gönderen acente tarafından atanan mesaj zarfı için benzersiz tanımlayıcı. Ödeme zincirinin her adımında değişir.
 
-**pacs.010** — Finansal Kurum Doğrudan Borçlandırma.
+**MT** — Mesaj Türü. SWIFT'in eski mesaj biçimi (örneğin müşteri kredi transferleri için MT103, finansal kurum transferleri için MT202). ISO 20022 MX mesajlarıyla değiştiriliyor.
 
-**pacs.028** — FI'den FI'ye Ödeme Durum Talebi.
+**MX** — SWIFT tarafından kullanılan ISO 20022 XML mesaj biçimi. MX mesajları, CBPR+ kapsamında sınır ötesi ödemeler için MT mesajlarının yerini alır.
 
-**pain** — Ödeme Başlatma.
+## N
 
-**PII** — Kişisel Tanımlayıcı Bilgi. pacs008 PII'yi maskeler.
+**NbOfTxs** — İşlem Sayısı. Mesajda kaç bireysel işlem bulunduğunu gösteren Grup Başlığı öğesi.
 
-**PstlAdr** — Posta Adresi.
+## P
 
-**RJCT** — Reddedildi.
+**pacs** — Ödeme Takas ve Uzlaşması. Bankalararası ödeme mesajlarını kapsayan ISO 20022 iş alanı.
 
-**RmtInf** — Havale Bilgisi.
+**pacs.002** — FI'den FI'ye Ödeme Durum Raporu. Önceki bir ödeme talimatının işleme durumunu (kabul edildi, reddedildi, beklemede, uzlaştırıldı) bildirir.
 
-**RTGS** — Gerçek Zamanlı Brüt Uzlaşma.
+**pacs.003** — FI'den FI'ye Müşteri Doğrudan Borçlandırma. Fon tahsili için bankalar arasında müşteri doğrudan borçlandırma talimatını taşır.
 
-**SCT** — SEPA Kredi Transferi.
+**pacs.004** — Ödeme İadesi. Ödeme uygulanamadığında uzlaştırılmış fonları ödeme zinciri boyunca iade eder.
 
-**SCT Inst** — SEPA Anlık Kredi Transferi.
+**pacs.007** — FI'den FI'ye Ödeme Tersine Çevirme. Ödeme talimatını asıl gönderenden zincir boyunca tersine çevirir.
 
-**SDD** — SEPA Doğrudan Borçlandırma.
+**pacs.008** — FI'den FI'ye Müşteri Kredi Transferi. Müşteri kredi transferleri için birincil bankalararası mesaj. MT103'ün yerini alır.
 
-**SEPA** — Tek Avro Ödeme Alanı.
+**pacs.009** — Finansal Kurum Kredi Transferi. Bankalar arasında kendi hesapları adına fon aktarır. Fonlama, teminat ödemeleri ve likidite yönetimini kapsar. MT202/MT202COV'un yerini alır.
 
-**SLEV** — Hizmet Düzeyi. SEPA için zorunlu.
+**pacs.010** — Finansal Kurum Doğrudan Borçlandırma. Bir bankanın ikili anlaşma kapsamında diğer bankanın kendi hesabını borçlandırmasına olanak tanır.
 
-**STP** — Doğrudan İşleme.
+**pacs.028** — FI'den FI'ye Ödeme Durum Talebi. pacs.002 güncellemesi gelmediğinde önceki bir ödemenin durumunu etkin şekilde talep eder.
 
-**SttlmMtd** — Uzlaşma Yöntemi: CLRG, INDA, INGA veya COVE.
+**pain** — Ödeme Başlatma. Müşteriden bankaya mesajları kapsayan ISO 20022 iş alanı (örneğin kredi transferi başlatma için pain.001).
 
-**TxId** — İşlem Tanımlama.
+**PII** — Kişisel Tanımlayıcı Bilgi. Bir bireyi tanımlayabilecek veriler. pacs008 yapılandırılmış günlüklerde PII'yi maskeler.
 
-**UETR** — Benzersiz Uçtan Uca İşlem Referansı. UUID v4.
+**PstlAdr** — Posta Adresi. pacs mesajlarında taraflar için kullanılan adres yapısı. Yapılandırılmış (StrtNm, TwnNm, Ctry) ve yapılandırılmamış (AdrLine) biçimleri destekler.
 
-**XSD** — XML Şema Tanımı.
+## R
 
-**XXE** — XML Dış Varlık. pacs008 defusedxml ile önler.
+**RJCT** — Reddedildi. Ödemenin reddedildiğini gösteren pacs.002 durum kodu.
+
+**RmtInf** — Havale Bilgisi. pacs.008'de taşınan ödeme referans verileri. Yapılandırılmamış (serbest metin, maks 140 karakter) ve yapılandırılmış (belge referansları, tutarlar, alacaklı referansları) biçimleri destekler.
+
+**RTGS** — Gerçek Zamanlı Brüt Uzlaşma. İşlemlerin bireysel olarak ve gerçek zamanlı uzlaştırıldığı ödeme sistemi (örneğin TARGET2, Fedwire, CHAPS).
+
+## S
+
+**SCT** — SEPA Kredi Transferi. pacs.008 kullanan, EPC tarafından yönetilen avro kredi transferi şeması.
+
+**SCT Inst** — SEPA Anlık Kredi Transferi. SCT'nin anlık ödeme çeşidi, 10 saniyenin altında uzlaştırılır.
+
+**SDD** — SEPA Doğrudan Borçlandırma. pacs.003 kullanan, EPC tarafından yönetilen avro doğrudan borçlandırma şeması.
+
+**SEPA** — Tek Avro Ödeme Alanı. 36 Avrupa ülkesinde avro cinsinden kredi transferleri, doğrudan borçlandırmalar ve kart ödemelerini kapsayan ödeme entegrasyonu girişimi.
+
+**SLEV** — Hizmet Düzeyi. SEPA için zorunlu ücret taşıyıcı kodu. Ücretlerin transfer tutarından kesinti yapılmadan şema kurallarına uyduğu anlamına gelir.
+
+**STP** — Doğrudan İşleme. Manuel müdahale olmaksızın uçtan uca otomatik ödeme işleme.
+
+**SttlmMtd** — Uzlaşma Yöntemi. Bankalararası uzlaşmanın nasıl gerçekleştiğini tanımlar: CLRG (takas sistemi), INDA (talimat alan acente), INGA (talimat veren acente) veya COVE (teminat ödemesi).
+
+## T
+
+**TxId** — İşlem Tanımlama. İlk talimat veren acente tarafından atanan bankalararası referans. Sonraki acenteler tarafından değiştirilmemelidir.
+
+## U
+
+**UETR** — Benzersiz Uçtan Uca İşlem Referansı. Borçlu acentesi tarafından oluşturulan ve gpi izleme için ödemenin tüm aşamalarında değişmeden taşınan UUID v4 tanımlayıcısı.
+
+## X
+
+**XSD** — XML Şema Tanımı. Bir ISO 20022 XML mesajının yapısını, öğelerini ve veri türlerini tanımlayan biçimsel şema.
+
+**XXE** — XML Dış Varlık. XML ayrıştırmasındaki güvenlik açığı. pacs008 defusedxml kullanarak XXE saldırılarını önler.
 
 ## Referanslar
 
