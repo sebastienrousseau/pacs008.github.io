@@ -1,0 +1,34 @@
+# pacs008
+
+> Generate, validate, and deliver ISO 20022 pacs.008 payment messages.
+
+pacs008 is a Python toolkit for teams that need to generate, validate, and ship ISO 20022 payment messages with less manual repair work. It helps payment teams catch bad data before release.
+
+## Documentation
+
+- [About pacs008](https://pacs008.com/about/): What pacs008 does and who it is for
+- [API Reference](https://pacs008.com/api/): REST API, CLI, and Python library reference
+- [Message Types](https://pacs008.com/message-types/): Supported ISO 20022 PACS message types
+- [Message Selection](https://pacs008.com/message-selection/): Choose the right pacs message type
+- [PACS Explained](https://pacs008.com/pacs-explained/): How ISO 20022 payment clearing messages work
+- [Structured Address](https://pacs008.com/structured-address/): November 2026 CBPR+ address deadline
+- [FAQ](https://pacs008.com/faq/): Common questions about ISO 20022 and pacs008
+- [Glossary](https://pacs008.com/glossary/): Payment messaging terms defined
+- [Changelog](https://pacs008.com/changelog/): Release notes and version history
+
+## Key Features
+
+- Generates XML for pacs.008 and related message definitions
+- Validates against JSON Schema, XSD, IBAN, and BIC
+- FastAPI service for automated workflows
+- CLI for local runs and CI pipelines
+- Reads CSV, JSON, JSONL, SQLite, and Parquet sources
+- Docker image for containerised deployment
+- CBPR+ structured address support for 2026 deadline
+
+## Technical Details
+
+- Language: Python
+- License: MIT
+- Package: Available on PyPI as `pacs008`
+- Source: https://github.com/sebastienrousseau/pacs008

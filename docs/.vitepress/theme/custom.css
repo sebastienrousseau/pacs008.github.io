@@ -202,6 +202,19 @@ strong {
 }
 
 /* ---------- Skip Link (VitePress default, styled) ---------- */
+/* Screen-reader-only text for icon links (SEO: no-anchor-text fix) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .VPSkipLink {
   position: fixed;
   top: 8px;

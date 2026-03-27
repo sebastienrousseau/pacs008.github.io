@@ -377,10 +377,12 @@ ${items.join("\n")}
         "name": "pacs008",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "Cross-platform",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-        "url": "https://pypi.org/project/pacs008/",
+        "offers": { "@type": "Offer", "price": "0.00", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+        "url": "https://pacs008.com/api/",
         "downloadUrl": "https://pypi.org/project/pacs008/",
         "softwareRequirements": "Python 3.9.2 or later",
+        "softwareVersion": "0.0.1",
+        "image": "https://pacs008.com/logo.webp",
         "description": meta.description,
         "author": { "@type": "Person", "name": "Sebastien Rousseau", "url": "https://sebastienrousseau.com/" }
       })] as unknown as [string, Record<string, string>]);
@@ -474,6 +476,16 @@ ${items.join("\n")}
     code = code.replace(
       /(<span class="DocSearch-Button-Keys")(?![^>]*aria-hidden)/g,
       '$1 aria-hidden="true"'
+    );
+    // SSR: add visible sr-only text to icon-only links for SEO (no-anchor-text fix)
+    code = code.replace(
+      /(<a[^>]*class="[^"]*VPSocialLink[^"]*"[^>]*>)(<span[^>]*><\/span>)/g,
+      '$1<span class="sr-only">GitHub</span>$2'
+    );
+    // SSR: replace zero-width spaces in header anchors with sr-only permalink text
+    code = code.replace(
+      /(<a class="header-anchor"[^>]*aria-label="Permalink to &quot;)([^&]*)(&quot;"[^>]*>)\u200B(<\/a>)/g,
+      '$1$2$3<span class="sr-only">$2</span>$4'
     );
     // SSR: add type="button" and aria-label to code-block copy buttons
     code = code.replace(
