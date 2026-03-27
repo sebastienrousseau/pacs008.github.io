@@ -13618,6 +13618,52 @@ ${htmlTable({
 
 function privacyBody(localeKey) {
   const t = copyFor(localeKey);
+  if (localeKey === "en") {
+    return `# ${t.privacyTitle}
+
+${t.privacyIntro}
+
+## ${t.privacyCollectionTitle}
+
+${t.privacyCollectionText}
+
+## ${t.privacyAnalyticsTitle}
+
+${t.privacyAnalyticsText}
+
+## Hosting and infrastructure
+
+pacs008.com is hosted on GitHub Pages and served through a content delivery network. GitHub may collect standard server logs, including IP addresses, browser type, and referring pages, as part of normal infrastructure operations. These logs are managed by GitHub under its own [privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement). pacs008.com does not control or access those server logs.
+
+## Security measures
+
+All pages are served over HTTPS. No user data is stored on any server controlled by this project. No authentication or login is required. No form submissions are collected. The site is entirely static and read-only.
+
+## Cookie policy
+
+pacs008.com does not set cookies. No first-party cookies, session cookies, or tracking cookies are used. If a third-party analytics service sets a cookie, it operates under that service's own cookie policy and is not controlled by pacs008.com.
+
+## Data retention
+
+No personal data is collected, so no personal data is retained. Server logs managed by the hosting provider follow the provider's own retention schedule. pacs008.com does not maintain any database, user account system, or data store.
+
+## Open-source transparency
+
+The entire source code for pacs008.com is publicly available on [GitHub](https://github.com/pacs008/pacs008.github.io). Every page, script, and configuration file can be inspected. The build process, content generation logic, and deployment pipeline are fully visible. This transparency makes it possible to verify exactly what the site does and does not do with visitor data.
+
+## ${t.privacyRightsTitle}
+
+${t.privacyRightsText}
+
+## ${t.privacyChangesTitle}
+
+${t.privacyChangesText}
+
+## ${t.privacyContactTitle}
+
+${t.privacyContactText}
+`;
+  }
   return `# ${t.privacyTitle}
 
 ${t.privacyIntro}
@@ -13646,6 +13692,56 @@ ${t.privacyContactText}
 
 function termsBody(localeKey) {
   const t = copyFor(localeKey);
+  if (localeKey === "en") {
+    return `# ${t.termsTitle}
+
+${t.termsIntro}
+
+## ${t.termsIpTitle}
+
+${t.termsIpText}
+
+## Open-source licence
+
+The pacs008 Python toolkit is released under the MIT licence. The full licence text is available in the [project repository](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). The MIT licence permits use, modification, and distribution with minimal restrictions. Attribution to the original author is required. The documentation on pacs008.com is provided under the same licence unless otherwise noted.
+
+## Acceptable use
+
+pacs008.com and the pacs008 toolkit are intended for lawful purposes related to ISO 20022 payment message generation, validation, and reference. Automated scraping, denial-of-service attacks, and any use that disrupts the availability of the site or repository is prohibited. Use of the toolkit to generate fraudulent or non-compliant payment messages is strictly prohibited.
+
+## Payment processing disclaimer
+
+The pacs008 toolkit generates ISO 20022 XML messages based on user-supplied input data. The toolkit does not transmit, route, or settle payments. The user is solely responsible for the accuracy, completeness, and regulatory compliance of all input data and generated messages. Generated XML must be validated against scheme-specific rules and counterparty requirements before submission to any payment network. pacs008.com and its maintainers accept no liability for payment failures, regulatory penalties, or financial losses arising from the use of generated messages.
+
+## Data accuracy
+
+The quality of generated payment messages depends entirely on the quality of input data. The toolkit validates structure and format but does not verify the factual accuracy of party names, account numbers, or routing codes. The user is responsible for ensuring that all input data is correct, current, and compliant with applicable regulations.
+
+## API and toolkit usage
+
+The REST API and PyPI package are provided for integration into payment workflows, testing pipelines, and development environments. Fair use applies. Sustained high-volume requests that degrade service for other users may be rate-limited or blocked. No uptime guarantee is provided. The API is offered on a best-effort basis.
+
+## ${t.termsLinksTitle}
+
+${t.termsLinksText}
+
+## ${t.termsLiabilityTitle}
+
+${t.termsLiabilityText}
+
+## ${t.termsGoverningTitle}
+
+${t.termsGoverningText}
+
+## ${t.termsChangesTitle}
+
+${t.termsChangesText}
+
+## ${t.termsContactTitle}
+
+${t.termsContactText}
+`;
+  }
   return `# ${t.termsTitle}
 
 ${t.termsIntro}
@@ -13728,6 +13824,60 @@ ${t.authorEditorialText}`;
 
 function editorialBody(localeKey) {
   const t = copyFor(localeKey);
+  if (localeKey === "en") {
+    return `# ${t.editorialTitle}
+
+${t.editorialIntro}
+
+## ${t.editorialSourcesTitle}
+
+${t.editorialSourcesIntro}
+
+- [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions) for message specifications and version history.
+- [SWIFT CBPR+ usage guidelines](https://www.swift.com/standards/iso-20022) for cross-border payment context.
+- [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) for euro credit transfer rules.
+- [EPC SEPA Instant Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) for instant payment rules.
+
+## Content review process
+
+Every page on pacs008.com goes through a structured review before publication. New content starts with a draft based on primary source material. The draft is checked for technical accuracy against the ISO 20022 message catalogue and relevant scheme documentation. Version numbers, registration identifiers, and field definitions are verified against the official catalogue entries.
+
+After initial review, content goes through a structural check to ensure consistency with existing pages. Navigation, cross-references, and terminology are standardised across the site. The review date shown on each message page reflects the most recent verification against primary sources.
+
+## ${t.editorialReviewTitle}
+
+${t.editorialReviewText}
+
+## Technical accuracy
+
+Technical content follows the ISO 20022 message definitions as published in the official catalogue. Field names, data types, and cardinality rules match the XSD schemas for each message version. Where scheme-specific usage differs from the base standard, the relevant scheme documentation is cited directly.
+
+Code examples in the API documentation are tested against the current release of the pacs008 toolkit. CLI commands, API endpoints, and Python library methods reflect the published package on PyPI. Examples are updated with each new release to stay in sync with the toolkit.
+
+## Translation methodology
+
+pacs008.com is available in 22 languages. All content originates in English. Translated pages are generated from the reviewed English source material using a build script that preserves page structure, heading hierarchy, and link targets across all locales.
+
+Technical terms, ISO identifiers, and standard codes remain untranslated to avoid ambiguity. Terms like pacs.008.001.13, BIC, IBAN, and CBPR+ appear in their standard form in every language. Non-technical content is translated to read naturally in each target language. Translations are reviewed for structural consistency and regenerated when the English source material changes.
+
+## Update frequency
+
+Content is updated in response to three triggers. First, when ISO 20022 publishes a new message catalogue version that affects pacs message definitions. Second, when SWIFT releases updated CBPR+ usage guidelines or migration deadlines. Third, when EPC updates SEPA Credit Transfer or Instant Credit Transfer rulebooks.
+
+The pacs008 toolkit follows semantic versioning. Each new release is reflected in the API documentation and changelog. The site is rebuilt and redeployed with every content or toolkit update.
+
+## ${t.editorialGenerationTitle}
+
+${t.editorialGenerationText}
+
+## ${t.editorialAccuracyTitle}
+
+${t.editorialAccuracyText}
+
+## ${t.editorialContactTitle}
+
+${t.editorialContactText}`;
+  }
   return `# ${t.editorialTitle}
 
 ${t.editorialIntro}
@@ -20534,13 +20684,33 @@ Use the repository for bugs, feature requests, and source code. Use releases for
 
 For implementation work, start with the repository when you need examples, templates, or issue history. Check releases when you need a clear version record. Check PyPI when you need package metadata and install commands.
 
-If you are reporting a bug, include the message type, version, and a short example of the failing input. If you are planning a rollout, review recent releases first so you can match your implementation work to a known package version. If you need install or dependency details, PyPI is the fastest place to confirm the current package record.
-
-This page is meant to reduce back-and-forth for common project questions. It points you to the right source depending on whether you need code, package details, release history, or implementation context. That makes it easier to find the right starting point before you open an issue or begin a rollout review.
-
 - ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>
 - ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>
-- ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>`;
+- ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>
+
+## Before you get in touch
+
+Many questions are already answered in existing project resources. The [FAQ page](/faq/) covers common questions about ISO 20022 pacs messages, CBPR+ migration timelines, and toolkit usage. The [API documentation](/api/) explains installation, endpoints, CLI options, and Python library methods. The [glossary](/glossary/) defines over 60 ISO 20022 and payment messaging terms.
+
+If you are reporting a bug, include the message type, version, and a short example of the failing input. Attach the input file or a minimal reproduction case. Specify the Python version and operating system. The more context a report includes, the faster the resolution.
+
+If you are planning a rollout, review recent releases first so you can match your implementation work to a known package version. If you need install or dependency details, PyPI is the fastest place to confirm the current package record.
+
+## Security issues
+
+Report security vulnerabilities privately. Do not open a public GitHub issue for security concerns. Instead, use the [GitHub security advisory form](https://github.com/sebastienrousseau/pacs008/security/advisories/new) to submit a confidential report. Include a description of the vulnerability, steps to reproduce it, and the potential impact. Security reports receive priority handling.
+
+## Feature requests
+
+Feature requests are welcome. Open a GitHub issue with the label \`enhancement\`. Describe the use case, the expected behaviour, and any relevant message types or versions. Requests that align with ISO 20022 standards adoption and payment operations workflows receive priority.
+
+## Response times
+
+This is an open-source project maintained alongside other commitments. Most issues receive an initial response within a few business days. Bug reports with clear reproduction steps are prioritised. Feature requests are reviewed on a rolling basis and scheduled according to project roadmap alignment.
+
+## Community contributions
+
+Contributions are encouraged. Fork the repository, create a feature branch, and open a pull request. All pull requests go through automated validation and a manual review. Contribution guidelines are available in the repository README. Accepted contributions follow the same editorial and coding standards as the rest of the project.`;
   }
 
   return `# ${t.contactTitle}
