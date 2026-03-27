@@ -140,6 +140,103 @@ Elemen ChrgBr menentukan siapa yang menanggung biaya pembayaran.
 - **SHAR** — Biaya dibagi (setara MT103: SHA). Masing-masing pihak membayar biaya agennya sendiri. Paling umum untuk pembayaran lintas batas.
 - **SLEV** — Biaya mengikuti tingkat layanan. Wajib untuk SEPA. Tanpa pemotongan dari jumlah transfer.
 
+## Pemetaan bidang MT103 ke pacs.008
+
+<div class="api-fields-table" tabindex="0" aria-label="Pemetaan bidang MT103 ke pacs.008">
+  <table>
+    <caption>Pemetaan bidang utama dari MT103 ke pacs.008</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Bidang MT103</th>
+        <th scope="col">Nama MT103</th>
+        <th scope="col">Jalur XML pacs.008</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field">20</td><td class="api-fields-table__desc">Referensi pengirim</td><td class="api-fields-table__constraint">GrpHdr/MsgId or PmtId/InstrId</td></tr>
+        <tr><td class="api-fields-table__field">23B</td><td class="api-fields-table__desc">Kode operasi bank</td><td class="api-fields-table__constraint">PmtTpInf/SvcLvl</td></tr>
+        <tr><td class="api-fields-table__field">32A</td><td class="api-fields-table__desc">Tanggal nilai / Jumlah</td><td class="api-fields-table__constraint">IntrBkSttlmDt + IntrBkSttlmAmt</td></tr>
+        <tr><td class="api-fields-table__field">33B</td><td class="api-fields-table__desc">Jumlah instruksi</td><td class="api-fields-table__constraint">InstdAmt</td></tr>
+        <tr><td class="api-fields-table__field">50a</td><td class="api-fields-table__desc">Nasabah pemesan</td><td class="api-fields-table__constraint">Dbtr + DbtrAcct</td></tr>
+        <tr><td class="api-fields-table__field">52a</td><td class="api-fields-table__desc">Institusi pemesan</td><td class="api-fields-table__constraint">DbtrAgt</td></tr>
+        <tr><td class="api-fields-table__field">57a</td><td class="api-fields-table__desc">Institusi rekening</td><td class="api-fields-table__constraint">CdtrAgt</td></tr>
+        <tr><td class="api-fields-table__field">59a</td><td class="api-fields-table__desc">Nasabah penerima</td><td class="api-fields-table__constraint">Cdtr + CdtrAcct</td></tr>
+        <tr><td class="api-fields-table__field">70</td><td class="api-fields-table__desc">Informasi remitansi</td><td class="api-fields-table__constraint">RmtInf/Ustrd or RmtInf/Strd</td></tr>
+        <tr><td class="api-fields-table__field">71A</td><td class="api-fields-table__desc">Detail biaya</td><td class="api-fields-table__constraint">ChrgBr (BEN→CRED, OUR→DEBT, SHA→SHAR)</td></tr>
+        <tr><td class="api-fields-table__field">72</td><td class="api-fields-table__desc">Info pengirim ke penerima</td><td class="api-fields-table__constraint">InstrForCdtrAgt / InstrForNxtAgt</td></tr>
+        <tr><td class="api-fields-table__field">N/A</td><td class="api-fields-table__desc">UETR (Block 3, field 121)</td><td class="api-fields-table__constraint">PmtId/UETR</td></tr>
+    </tbody>
+  </table>
+</div>
+
+## Kode status dan alasan
+
+### Kode status pacs.002
+
+<div class="api-fields-table" tabindex="0" aria-label="Kode status pacs.002">
+  <table>
+    <caption>Kode status transaksi dalam pacs.002</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Kode</th>
+        <th scope="col">Arti</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field"><code>ACCP</code></td><td class="api-fields-table__desc">Diterima — pemeriksaan awal lulus</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACSP</code></td><td class="api-fields-table__desc">Diterima — penyelesaian sedang berlangsung</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACSC</code></td><td class="api-fields-table__desc">Diterima — penyelesaian selesai</td></tr>
+        <tr><td class="api-fields-table__field"><code>RCVD</code></td><td class="api-fields-table__desc">Diterima — belum diproses</td></tr>
+        <tr><td class="api-fields-table__field"><code>PDNG</code></td><td class="api-fields-table__desc">Tertunda — pemrosesan lebih lanjut diperlukan</td></tr>
+        <tr><td class="api-fields-table__field"><code>RJCT</code></td><td class="api-fields-table__desc">Ditolak — dengan kode alasan</td></tr>
+    </tbody>
+  </table>
+</div>
+
+### Kode alasan penolakan dan pengembalian umum
+
+<div class="api-fields-table" tabindex="0" aria-label="Kode alasan umum">
+  <table>
+    <caption>Kode alasan penolakan dan pengembalian yang sering digunakan</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Kode</th>
+        <th scope="col">Nama</th>
+        <th scope="col">Deskripsi</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field"><code>AC01</code></td><td class="api-fields-table__desc">Nomor rekening salah</td><td class="api-fields-table__constraint">Nomor rekening tidak valid atau tidak ada</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC04</code></td><td class="api-fields-table__desc">Rekening ditutup</td><td class="api-fields-table__constraint">Rekening telah ditutup</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC06</code></td><td class="api-fields-table__desc">Rekening diblokir</td><td class="api-fields-table__constraint">Rekening diblokir untuk transaksi</td></tr>
+        <tr><td class="api-fields-table__field"><code>AM04</code></td><td class="api-fields-table__desc">Dana tidak mencukupi</td><td class="api-fields-table__constraint">Dana tidak mencukupi di rekening debitur</td></tr>
+        <tr><td class="api-fields-table__field"><code>AM05</code></td><td class="api-fields-table__desc">Duplikasi</td><td class="api-fields-table__constraint">Pembayaran duplikat terdeteksi</td></tr>
+        <tr><td class="api-fields-table__field"><code>BE04</code></td><td class="api-fields-table__desc">Alamat kreditur tidak ada</td><td class="api-fields-table__constraint">Alamat kreditur tidak ada atau tidak lengkap</td></tr>
+        <tr><td class="api-fields-table__field"><code>CUST</code></td><td class="api-fields-table__desc">Diminta oleh nasabah</td><td class="api-fields-table__constraint">Pengembalian atau penolakan diminta oleh nasabah</td></tr>
+        <tr><td class="api-fields-table__field"><code>DUPL</code></td><td class="api-fields-table__desc">Pembayaran duplikat</td><td class="api-fields-table__constraint">Pembayaran duplikat teridentifikasi</td></tr>
+        <tr><td class="api-fields-table__field"><code>FOCR</code></td><td class="api-fields-table__desc">Setelah pembatalan</td><td class="api-fields-table__constraint">Setelah permintaan pembatalan</td></tr>
+        <tr><td class="api-fields-table__field"><code>FR01</code></td><td class="api-fields-table__desc">Penipuan</td><td class="api-fields-table__constraint">Diduga penipuan</td></tr>
+        <tr><td class="api-fields-table__field"><code>RC01</code></td><td class="api-fields-table__desc">BIC salah</td><td class="api-fields-table__constraint">BIC salah atau tidak dikenal</td></tr>
+        <tr><td class="api-fields-table__field"><code>RR03</code></td><td class="api-fields-table__desc">Nama/alamat kreditur tidak ada</td><td class="api-fields-table__constraint">Nama atau data alamat kreditur tidak ada</td></tr>
+        <tr><td class="api-fields-table__field"><code>TM01</code></td><td class="api-fields-table__desc">Batas waktu</td><td class="api-fields-table__constraint">Batas waktu pemrosesan telah lewat</td></tr>
+    </tbody>
+  </table>
+</div>
+
 ## Format alamat pos
 
 ### Alamat terstruktur

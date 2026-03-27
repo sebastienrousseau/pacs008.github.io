@@ -140,6 +140,103 @@ Element ChrgBr określa, kto ponosi opłaty za płatność.
 - **SHAR** — Opłaty są dzielone (odpowiednik MT103: SHA). Każda strona płaci opłaty swojego agenta. Najczęstsze dla płatności transgranicznych.
 - **SLEV** — Opłaty podążają za poziomem usługi. Obowiązkowe dla SEPA. Bez potrąceń z kwoty przelewu.
 
+## Mapowanie pól MT103 na pacs.008
+
+<div class="api-fields-table" tabindex="0" aria-label="Mapowanie pól MT103 na pacs.008">
+  <table>
+    <caption>Główne mapowania pól z MT103 na pacs.008</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Pole MT103</th>
+        <th scope="col">Nazwa MT103</th>
+        <th scope="col">Ścieżka XML pacs.008</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field">20</td><td class="api-fields-table__desc">Referencja nadawcy</td><td class="api-fields-table__constraint">GrpHdr/MsgId or PmtId/InstrId</td></tr>
+        <tr><td class="api-fields-table__field">23B</td><td class="api-fields-table__desc">Kod operacji bankowej</td><td class="api-fields-table__constraint">PmtTpInf/SvcLvl</td></tr>
+        <tr><td class="api-fields-table__field">32A</td><td class="api-fields-table__desc">Data waluty / Kwota</td><td class="api-fields-table__constraint">IntrBkSttlmDt + IntrBkSttlmAmt</td></tr>
+        <tr><td class="api-fields-table__field">33B</td><td class="api-fields-table__desc">Kwota zlecona</td><td class="api-fields-table__constraint">InstdAmt</td></tr>
+        <tr><td class="api-fields-table__field">50a</td><td class="api-fields-table__desc">Klient zlecający</td><td class="api-fields-table__constraint">Dbtr + DbtrAcct</td></tr>
+        <tr><td class="api-fields-table__field">52a</td><td class="api-fields-table__desc">Instytucja zlecająca</td><td class="api-fields-table__constraint">DbtrAgt</td></tr>
+        <tr><td class="api-fields-table__field">57a</td><td class="api-fields-table__desc">Instytucja rachunku</td><td class="api-fields-table__constraint">CdtrAgt</td></tr>
+        <tr><td class="api-fields-table__field">59a</td><td class="api-fields-table__desc">Klient beneficjent</td><td class="api-fields-table__constraint">Cdtr + CdtrAcct</td></tr>
+        <tr><td class="api-fields-table__field">70</td><td class="api-fields-table__desc">Informacje o przelewie</td><td class="api-fields-table__constraint">RmtInf/Ustrd or RmtInf/Strd</td></tr>
+        <tr><td class="api-fields-table__field">71A</td><td class="api-fields-table__desc">Szczegóły opłat</td><td class="api-fields-table__constraint">ChrgBr (BEN→CRED, OUR→DEBT, SHA→SHAR)</td></tr>
+        <tr><td class="api-fields-table__field">72</td><td class="api-fields-table__desc">Info nadawca do odbiorcy</td><td class="api-fields-table__constraint">InstrForCdtrAgt / InstrForNxtAgt</td></tr>
+        <tr><td class="api-fields-table__field">N/A</td><td class="api-fields-table__desc">UETR (Block 3, field 121)</td><td class="api-fields-table__constraint">PmtId/UETR</td></tr>
+    </tbody>
+  </table>
+</div>
+
+## Kody statusu i przyczyn
+
+### Kody statusu pacs.002
+
+<div class="api-fields-table" tabindex="0" aria-label="Kody statusu pacs.002">
+  <table>
+    <caption>Kody statusu transakcji w pacs.002</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Kod</th>
+        <th scope="col">Znaczenie</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field"><code>ACCP</code></td><td class="api-fields-table__desc">Zaakceptowano — wstępne kontrole zaliczone</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACSP</code></td><td class="api-fields-table__desc">Zaakceptowano — rozliczenie w toku</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACSC</code></td><td class="api-fields-table__desc">Zaakceptowano — rozliczenie zakończone</td></tr>
+        <tr><td class="api-fields-table__field"><code>RCVD</code></td><td class="api-fields-table__desc">Otrzymano — jeszcze nie przetworzone</td></tr>
+        <tr><td class="api-fields-table__field"><code>PDNG</code></td><td class="api-fields-table__desc">Oczekujące — wymagane dalsze przetwarzanie</td></tr>
+        <tr><td class="api-fields-table__field"><code>RJCT</code></td><td class="api-fields-table__desc">Odrzucone — z kodem przyczyny</td></tr>
+    </tbody>
+  </table>
+</div>
+
+### Popularne kody przyczyn odrzucenia i zwrotu
+
+<div class="api-fields-table" tabindex="0" aria-label="Popularne kody przyczyn">
+  <table>
+    <caption>Najczęściej używane kody przyczyn odrzucenia i zwrotu</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Kod</th>
+        <th scope="col">Nazwa</th>
+        <th scope="col">Opis</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field"><code>AC01</code></td><td class="api-fields-table__desc">Nieprawidłowy numer rachunku</td><td class="api-fields-table__constraint">Numer rachunku jest nieprawidłowy lub nie istnieje</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC04</code></td><td class="api-fields-table__desc">Zamknięty rachunek</td><td class="api-fields-table__constraint">Rachunek jest zamknięty</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC06</code></td><td class="api-fields-table__desc">Zablokowany rachunek</td><td class="api-fields-table__constraint">Rachunek jest zablokowany dla transakcji</td></tr>
+        <tr><td class="api-fields-table__field"><code>AM04</code></td><td class="api-fields-table__desc">Niewystarczające środki</td><td class="api-fields-table__constraint">Niewystarczające środki na rachunku dłużnika</td></tr>
+        <tr><td class="api-fields-table__field"><code>AM05</code></td><td class="api-fields-table__desc">Duplikacja</td><td class="api-fields-table__constraint">Wykryto zduplikowaną płatność</td></tr>
+        <tr><td class="api-fields-table__field"><code>BE04</code></td><td class="api-fields-table__desc">Brakujący adres wierzyciela</td><td class="api-fields-table__constraint">Adres wierzyciela jest brakujący lub niekompletny</td></tr>
+        <tr><td class="api-fields-table__field"><code>CUST</code></td><td class="api-fields-table__desc">Na żądanie klienta</td><td class="api-fields-table__constraint">Zwrot lub odrzucenie na żądanie klienta</td></tr>
+        <tr><td class="api-fields-table__field"><code>DUPL</code></td><td class="api-fields-table__desc">Zduplikowana płatność</td><td class="api-fields-table__constraint">Zidentyfikowano zduplikowaną płatność</td></tr>
+        <tr><td class="api-fields-table__field"><code>FOCR</code></td><td class="api-fields-table__desc">Po anulowaniu</td><td class="api-fields-table__constraint">W następstwie żądania anulowania</td></tr>
+        <tr><td class="api-fields-table__field"><code>FR01</code></td><td class="api-fields-table__desc">Oszustwo</td><td class="api-fields-table__constraint">Podejrzenie oszustwa</td></tr>
+        <tr><td class="api-fields-table__field"><code>RC01</code></td><td class="api-fields-table__desc">Nieprawidłowy BIC</td><td class="api-fields-table__constraint">BIC jest nieprawidłowy lub nieznany</td></tr>
+        <tr><td class="api-fields-table__field"><code>RR03</code></td><td class="api-fields-table__desc">Brakująca nazwa/adres wierzyciela</td><td class="api-fields-table__constraint">Brakuje nazwy lub danych adresowych wierzyciela</td></tr>
+        <tr><td class="api-fields-table__field"><code>TM01</code></td><td class="api-fields-table__desc">Czas graniczny</td><td class="api-fields-table__constraint">Czas graniczny przetwarzania został przekroczony</td></tr>
+    </tbody>
+  </table>
+</div>
+
 ## Format adresu pocztowego
 
 ### Adres strukturalny

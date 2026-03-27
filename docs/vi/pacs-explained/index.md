@@ -91,6 +91,132 @@ Phần tử ChrgBr chỉ định ai chịu phí thanh toán.
 - **SHAR** — Phí được chia sẻ (tương đương MT103: SHA). Mỗi bên trả phí của đại lý mình. Phổ biến nhất cho thanh toán xuyên biên giới.
 - **SLEV** — Phí theo mức dịch vụ. Bắt buộc cho SEPA. Không khấu trừ từ số tiền chuyển khoản.
 
+## Mã nhận dạng thanh toán
+
+Các thông điệp pacs sử dụng nhiều mã nhận dạng đóng vai trò khác nhau trong chuỗi thanh toán.
+
+<div class="api-fields-table" tabindex="0" aria-label="Mã nhận dạng thanh toán">
+  <table>
+    <caption>Mã nhận dạng thanh toán và vai trò</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Mã nhận dạng</th>
+        <th scope="col">Được đặt bởi</th>
+        <th scope="col">Thay đổi trong chuỗi?</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field"><strong>MsgId</strong></td><td class="api-fields-table__desc">Mỗi đại lý gửi</td><td class="api-fields-table__constraint">Có — mới cho mỗi thông điệp</td></tr>
+        <tr><td class="api-fields-table__field"><strong>InstrId</strong></td><td class="api-fields-table__desc">Mỗi đại lý chỉ thị</td><td class="api-fields-table__constraint">Có — có thể thay đổi mỗi bước</td></tr>
+        <tr><td class="api-fields-table__field"><strong>EndToEndId</strong></td><td class="api-fields-table__desc">Người khởi tạo (bên nợ)</td><td class="api-fields-table__constraint">Không — không được thay đổi</td></tr>
+        <tr><td class="api-fields-table__field"><strong>TxId</strong></td><td class="api-fields-table__desc">Đại lý chỉ thị đầu tiên</td><td class="api-fields-table__constraint">Không — không được thay đổi</td></tr>
+        <tr><td class="api-fields-table__field"><strong>UETR</strong></td><td class="api-fields-table__desc">Đại lý bên nợ</td><td class="api-fields-table__constraint">Không — theo dõi toàn cầu</td></tr>
+    </tbody>
+  </table>
+</div>
+
+## Ánh xạ trường MT103 sang pacs.008
+
+<div class="api-fields-table" tabindex="0" aria-label="Ánh xạ trường MT103 sang pacs.008">
+  <table>
+    <caption>Ánh xạ trường chính từ MT103 sang pacs.008</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Trường MT103</th>
+        <th scope="col">Tên MT103</th>
+        <th scope="col">Đường dẫn XML pacs.008</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field">20</td><td class="api-fields-table__desc">Tham chiếu người gửi</td><td class="api-fields-table__constraint">GrpHdr/MsgId or PmtId/InstrId</td></tr>
+        <tr><td class="api-fields-table__field">23B</td><td class="api-fields-table__desc">Mã nghiệp vụ ngân hàng</td><td class="api-fields-table__constraint">PmtTpInf/SvcLvl</td></tr>
+        <tr><td class="api-fields-table__field">32A</td><td class="api-fields-table__desc">Ngày giá trị / Số tiền</td><td class="api-fields-table__constraint">IntrBkSttlmDt + IntrBkSttlmAmt</td></tr>
+        <tr><td class="api-fields-table__field">33B</td><td class="api-fields-table__desc">Số tiền chỉ thị</td><td class="api-fields-table__constraint">InstdAmt</td></tr>
+        <tr><td class="api-fields-table__field">50a</td><td class="api-fields-table__desc">Khách hàng ra lệnh</td><td class="api-fields-table__constraint">Dbtr + DbtrAcct</td></tr>
+        <tr><td class="api-fields-table__field">52a</td><td class="api-fields-table__desc">Tổ chức ra lệnh</td><td class="api-fields-table__constraint">DbtrAgt</td></tr>
+        <tr><td class="api-fields-table__field">57a</td><td class="api-fields-table__desc">Tổ chức tài khoản</td><td class="api-fields-table__constraint">CdtrAgt</td></tr>
+        <tr><td class="api-fields-table__field">59a</td><td class="api-fields-table__desc">Khách hàng thụ hưởng</td><td class="api-fields-table__constraint">Cdtr + CdtrAcct</td></tr>
+        <tr><td class="api-fields-table__field">70</td><td class="api-fields-table__desc">Thông tin chuyển tiền</td><td class="api-fields-table__constraint">RmtInf/Ustrd or RmtInf/Strd</td></tr>
+        <tr><td class="api-fields-table__field">71A</td><td class="api-fields-table__desc">Chi tiết phí</td><td class="api-fields-table__constraint">ChrgBr (BEN→CRED, OUR→DEBT, SHA→SHAR)</td></tr>
+        <tr><td class="api-fields-table__field">72</td><td class="api-fields-table__desc">Thông tin người gửi đến người nhận</td><td class="api-fields-table__constraint">InstrForCdtrAgt / InstrForNxtAgt</td></tr>
+        <tr><td class="api-fields-table__field">N/A</td><td class="api-fields-table__desc">UETR (Block 3, field 121)</td><td class="api-fields-table__constraint">PmtId/UETR</td></tr>
+    </tbody>
+  </table>
+</div>
+
+## Mã trạng thái và lý do
+
+### Mã trạng thái pacs.002
+
+<div class="api-fields-table" tabindex="0" aria-label="Mã trạng thái pacs.002">
+  <table>
+    <caption>Mã trạng thái giao dịch trong pacs.002</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Mã</th>
+        <th scope="col">Ý nghĩa</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field"><code>ACCP</code></td><td class="api-fields-table__desc">Chấp nhận — đã qua kiểm tra sơ bộ</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACSP</code></td><td class="api-fields-table__desc">Chấp nhận — quyết toán đang tiến hành</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACSC</code></td><td class="api-fields-table__desc">Chấp nhận — quyết toán hoàn tất</td></tr>
+        <tr><td class="api-fields-table__field"><code>RCVD</code></td><td class="api-fields-table__desc">Đã nhận — chưa xử lý</td></tr>
+        <tr><td class="api-fields-table__field"><code>PDNG</code></td><td class="api-fields-table__desc">Chờ xử lý — cần xử lý thêm</td></tr>
+        <tr><td class="api-fields-table__field"><code>RJCT</code></td><td class="api-fields-table__desc">Từ chối — kèm mã lý do</td></tr>
+    </tbody>
+  </table>
+</div>
+
+### Mã lý do từ chối và hoàn trả phổ biến
+
+<div class="api-fields-table" tabindex="0" aria-label="Mã lý do phổ biến">
+  <table>
+    <caption>Mã lý do từ chối và hoàn trả thường dùng</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Mã</th>
+        <th scope="col">Tên</th>
+        <th scope="col">Mô tả</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field"><code>AC01</code></td><td class="api-fields-table__desc">Số tài khoản sai</td><td class="api-fields-table__constraint">Số tài khoản không hợp lệ hoặc không tồn tại</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC04</code></td><td class="api-fields-table__desc">Tài khoản đã đóng</td><td class="api-fields-table__constraint">Tài khoản đã bị đóng</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC06</code></td><td class="api-fields-table__desc">Tài khoản bị phong tỏa</td><td class="api-fields-table__constraint">Tài khoản bị phong tỏa cho giao dịch</td></tr>
+        <tr><td class="api-fields-table__field"><code>AM04</code></td><td class="api-fields-table__desc">Không đủ số dư</td><td class="api-fields-table__constraint">Không đủ số dư trong tài khoản bên nợ</td></tr>
+        <tr><td class="api-fields-table__field"><code>AM05</code></td><td class="api-fields-table__desc">Trùng lặp</td><td class="api-fields-table__constraint">Phát hiện thanh toán trùng lặp</td></tr>
+        <tr><td class="api-fields-table__field"><code>BE04</code></td><td class="api-fields-table__desc">Thiếu địa chỉ bên có</td><td class="api-fields-table__constraint">Địa chỉ bên có bị thiếu hoặc không đầy đủ</td></tr>
+        <tr><td class="api-fields-table__field"><code>CUST</code></td><td class="api-fields-table__desc">Theo yêu cầu khách hàng</td><td class="api-fields-table__constraint">Hoàn trả hoặc từ chối theo yêu cầu khách hàng</td></tr>
+        <tr><td class="api-fields-table__field"><code>DUPL</code></td><td class="api-fields-table__desc">Thanh toán trùng lặp</td><td class="api-fields-table__constraint">Xác định thanh toán trùng lặp</td></tr>
+        <tr><td class="api-fields-table__field"><code>FOCR</code></td><td class="api-fields-table__desc">Sau hủy bỏ</td><td class="api-fields-table__constraint">Theo yêu cầu hủy bỏ</td></tr>
+        <tr><td class="api-fields-table__field"><code>FR01</code></td><td class="api-fields-table__desc">Gian lận</td><td class="api-fields-table__constraint">Nghi ngờ gian lận</td></tr>
+        <tr><td class="api-fields-table__field"><code>RC01</code></td><td class="api-fields-table__desc">BIC sai</td><td class="api-fields-table__constraint">BIC không đúng hoặc không xác định</td></tr>
+        <tr><td class="api-fields-table__field"><code>RR03</code></td><td class="api-fields-table__desc">Thiếu tên/địa chỉ bên có</td><td class="api-fields-table__constraint">Thiếu tên hoặc dữ liệu địa chỉ bên có</td></tr>
+        <tr><td class="api-fields-table__field"><code>TM01</code></td><td class="api-fields-table__desc">Quá hạn</td><td class="api-fields-table__constraint">Đã quá thời hạn xử lý</td></tr>
+    </tbody>
+  </table>
+</div>
+
 ## Định dạng địa chỉ bưu điện
 
 ### Địa chỉ có cấu trúc

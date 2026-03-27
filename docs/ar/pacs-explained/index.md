@@ -140,6 +140,103 @@ Debtor Agent --(pacs.009)--> Cover Bank --(pacs.009)--> Creditor Agent [funding 
 - **SHAR** — تُقسَّم الرسوم (ما يعادل MT103: SHA). يدفع كل طرف رسوم وكيله الخاص. الأكثر شيوعاً للمدفوعات عبر الحدود.
 - **SLEV** — تتبع الرسوم مستوى الخدمة. إلزامي لـ SEPA. بدون خصم من مبلغ التحويل.
 
+## تطابق حقول MT103 مع pacs.008
+
+<div class="api-fields-table" tabindex="0" aria-label="تطابق حقول MT103 مع pacs.008">
+  <table>
+    <caption>التطابقات الرئيسية للحقول من MT103 إلى pacs.008</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">حقل MT103</th>
+        <th scope="col">اسم MT103</th>
+        <th scope="col">مسار XML في pacs.008</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field">20</td><td class="api-fields-table__desc">مرجع المُرسل</td><td class="api-fields-table__constraint">GrpHdr/MsgId or PmtId/InstrId</td></tr>
+        <tr><td class="api-fields-table__field">23B</td><td class="api-fields-table__desc">رمز العملية المصرفية</td><td class="api-fields-table__constraint">PmtTpInf/SvcLvl</td></tr>
+        <tr><td class="api-fields-table__field">32A</td><td class="api-fields-table__desc">تاريخ القيمة / المبلغ</td><td class="api-fields-table__constraint">IntrBkSttlmDt + IntrBkSttlmAmt</td></tr>
+        <tr><td class="api-fields-table__field">33B</td><td class="api-fields-table__desc">المبلغ المطلوب</td><td class="api-fields-table__constraint">InstdAmt</td></tr>
+        <tr><td class="api-fields-table__field">50a</td><td class="api-fields-table__desc">العميل الآمر</td><td class="api-fields-table__constraint">Dbtr + DbtrAcct</td></tr>
+        <tr><td class="api-fields-table__field">52a</td><td class="api-fields-table__desc">المؤسسة الآمرة</td><td class="api-fields-table__constraint">DbtrAgt</td></tr>
+        <tr><td class="api-fields-table__field">57a</td><td class="api-fields-table__desc">مؤسسة الحساب</td><td class="api-fields-table__constraint">CdtrAgt</td></tr>
+        <tr><td class="api-fields-table__field">59a</td><td class="api-fields-table__desc">العميل المستفيد</td><td class="api-fields-table__constraint">Cdtr + CdtrAcct</td></tr>
+        <tr><td class="api-fields-table__field">70</td><td class="api-fields-table__desc">معلومات التحويل</td><td class="api-fields-table__constraint">RmtInf/Ustrd or RmtInf/Strd</td></tr>
+        <tr><td class="api-fields-table__field">71A</td><td class="api-fields-table__desc">تفاصيل الرسوم</td><td class="api-fields-table__constraint">ChrgBr (BEN→CRED, OUR→DEBT, SHA→SHAR)</td></tr>
+        <tr><td class="api-fields-table__field">72</td><td class="api-fields-table__desc">معلومات المُرسل إلى المستلم</td><td class="api-fields-table__constraint">InstrForCdtrAgt / InstrForNxtAgt</td></tr>
+        <tr><td class="api-fields-table__field">N/A</td><td class="api-fields-table__desc">UETR (Block 3, field 121)</td><td class="api-fields-table__constraint">PmtId/UETR</td></tr>
+    </tbody>
+  </table>
+</div>
+
+## رموز الحالة والسبب
+
+### رموز حالة pacs.002
+
+<div class="api-fields-table" tabindex="0" aria-label="رموز حالة pacs.002">
+  <table>
+    <caption>رموز حالة المعاملة في pacs.002</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">الرمز</th>
+        <th scope="col">المعنى</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field"><code>ACCP</code></td><td class="api-fields-table__desc">مقبول — اجتياز الفحوصات الأولية</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACSP</code></td><td class="api-fields-table__desc">مقبول — التسوية جارية</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACSC</code></td><td class="api-fields-table__desc">مقبول — التسوية مكتملة</td></tr>
+        <tr><td class="api-fields-table__field"><code>RCVD</code></td><td class="api-fields-table__desc">مُستلَم — لم تتم معالجته بعد</td></tr>
+        <tr><td class="api-fields-table__field"><code>PDNG</code></td><td class="api-fields-table__desc">معلّق — يلزم مزيد من المعالجة</td></tr>
+        <tr><td class="api-fields-table__field"><code>RJCT</code></td><td class="api-fields-table__desc">مرفوض — مع رمز السبب</td></tr>
+    </tbody>
+  </table>
+</div>
+
+### رموز أسباب الرفض والإرجاع الشائعة
+
+<div class="api-fields-table" tabindex="0" aria-label="رموز الأسباب الشائعة">
+  <table>
+    <caption>رموز أسباب الرفض والإرجاع الأكثر استخداماً</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">الرمز</th>
+        <th scope="col">الاسم</th>
+        <th scope="col">الوصف</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field"><code>AC01</code></td><td class="api-fields-table__desc">رقم حساب غير صحيح</td><td class="api-fields-table__constraint">رقم الحساب غير صالح أو غير موجود</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC04</code></td><td class="api-fields-table__desc">حساب مغلق</td><td class="api-fields-table__constraint">الحساب مغلق</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC06</code></td><td class="api-fields-table__desc">حساب محظور</td><td class="api-fields-table__constraint">الحساب محظور للمعاملات</td></tr>
+        <tr><td class="api-fields-table__field"><code>AM04</code></td><td class="api-fields-table__desc">رصيد غير كافٍ</td><td class="api-fields-table__constraint">رصيد غير كافٍ في حساب المدين</td></tr>
+        <tr><td class="api-fields-table__field"><code>AM05</code></td><td class="api-fields-table__desc">ازدواجية</td><td class="api-fields-table__constraint">تم اكتشاف دفعة مكررة</td></tr>
+        <tr><td class="api-fields-table__field"><code>BE04</code></td><td class="api-fields-table__desc">عنوان الدائن مفقود</td><td class="api-fields-table__constraint">عنوان الدائن مفقود أو غير مكتمل</td></tr>
+        <tr><td class="api-fields-table__field"><code>CUST</code></td><td class="api-fields-table__desc">بطلب من العميل</td><td class="api-fields-table__constraint">إرجاع أو رفض بطلب من العميل</td></tr>
+        <tr><td class="api-fields-table__field"><code>DUPL</code></td><td class="api-fields-table__desc">دفعة مكررة</td><td class="api-fields-table__constraint">تم تحديد دفعة مكررة</td></tr>
+        <tr><td class="api-fields-table__field"><code>FOCR</code></td><td class="api-fields-table__desc">بعد الإلغاء</td><td class="api-fields-table__constraint">بناءً على طلب إلغاء</td></tr>
+        <tr><td class="api-fields-table__field"><code>FR01</code></td><td class="api-fields-table__desc">احتيال</td><td class="api-fields-table__constraint">اشتباه في احتيال</td></tr>
+        <tr><td class="api-fields-table__field"><code>RC01</code></td><td class="api-fields-table__desc">BIC غير صحيح</td><td class="api-fields-table__constraint">رمز BIC غير صحيح أو غير معروف</td></tr>
+        <tr><td class="api-fields-table__field"><code>RR03</code></td><td class="api-fields-table__desc">اسم/عنوان الدائن مفقود</td><td class="api-fields-table__constraint">اسم أو بيانات عنوان الدائن مفقودة</td></tr>
+        <tr><td class="api-fields-table__field"><code>TM01</code></td><td class="api-fields-table__desc">الموعد النهائي</td><td class="api-fields-table__constraint">تم تجاوز الموعد النهائي للمعالجة</td></tr>
+    </tbody>
+  </table>
+</div>
+
 ## تنسيق العنوان البريدي
 
 ### عنوان مهيكل

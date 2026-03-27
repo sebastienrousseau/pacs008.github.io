@@ -140,6 +140,103 @@ Het element ChrgBr geeft aan wie de betalingskosten draagt.
 - **SHAR** — Kosten worden gedeeld (MT103-equivalent: SHA). Elke partij betaalt de kosten van zijn eigen agent. Meest gebruikelijk voor grensoverschrijdende betalingen.
 - **SLEV** — Kosten volgen het serviceniveau. Verplicht voor SEPA. Geen aftrek van het overboekingsbedrag.
 
+## Veldtoewijzing MT103 naar pacs.008
+
+<div class="api-fields-table" tabindex="0" aria-label="Veldtoewijzing MT103 naar pacs.008">
+  <table>
+    <caption>Belangrijkste veldtoewijzingen van MT103 naar pacs.008</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">MT103-veld</th>
+        <th scope="col">MT103-naam</th>
+        <th scope="col">pacs.008 XML-pad</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field">20</td><td class="api-fields-table__desc">Referentie afzender</td><td class="api-fields-table__constraint">GrpHdr/MsgId or PmtId/InstrId</td></tr>
+        <tr><td class="api-fields-table__field">23B</td><td class="api-fields-table__desc">Bankoperatiecode</td><td class="api-fields-table__constraint">PmtTpInf/SvcLvl</td></tr>
+        <tr><td class="api-fields-table__field">32A</td><td class="api-fields-table__desc">Valutadatum / Bedrag</td><td class="api-fields-table__constraint">IntrBkSttlmDt + IntrBkSttlmAmt</td></tr>
+        <tr><td class="api-fields-table__field">33B</td><td class="api-fields-table__desc">Geïnstrueerd bedrag</td><td class="api-fields-table__constraint">InstdAmt</td></tr>
+        <tr><td class="api-fields-table__field">50a</td><td class="api-fields-table__desc">Opdrachtgevende klant</td><td class="api-fields-table__constraint">Dbtr + DbtrAcct</td></tr>
+        <tr><td class="api-fields-table__field">52a</td><td class="api-fields-table__desc">Opdrachtgevende instelling</td><td class="api-fields-table__constraint">DbtrAgt</td></tr>
+        <tr><td class="api-fields-table__field">57a</td><td class="api-fields-table__desc">Rekeninginstelling</td><td class="api-fields-table__constraint">CdtrAgt</td></tr>
+        <tr><td class="api-fields-table__field">59a</td><td class="api-fields-table__desc">Begunstigde klant</td><td class="api-fields-table__constraint">Cdtr + CdtrAcct</td></tr>
+        <tr><td class="api-fields-table__field">70</td><td class="api-fields-table__desc">Overmakingsinformatie</td><td class="api-fields-table__constraint">RmtInf/Ustrd or RmtInf/Strd</td></tr>
+        <tr><td class="api-fields-table__field">71A</td><td class="api-fields-table__desc">Kostendetails</td><td class="api-fields-table__constraint">ChrgBr (BEN→CRED, OUR→DEBT, SHA→SHAR)</td></tr>
+        <tr><td class="api-fields-table__field">72</td><td class="api-fields-table__desc">Afzender-aan-ontvanger-info</td><td class="api-fields-table__constraint">InstrForCdtrAgt / InstrForNxtAgt</td></tr>
+        <tr><td class="api-fields-table__field">N/A</td><td class="api-fields-table__desc">UETR (Block 3, field 121)</td><td class="api-fields-table__constraint">PmtId/UETR</td></tr>
+    </tbody>
+  </table>
+</div>
+
+## Status- en redencodes
+
+### pacs.002-statuscodes
+
+<div class="api-fields-table" tabindex="0" aria-label="pacs.002-statuscodes">
+  <table>
+    <caption>Transactiestatuscodes in pacs.002</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Code</th>
+        <th scope="col">Betekenis</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field"><code>ACCP</code></td><td class="api-fields-table__desc">Geaccepteerd — voorafgaande controles geslaagd</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACSP</code></td><td class="api-fields-table__desc">Geaccepteerd — afwikkeling in uitvoering</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACSC</code></td><td class="api-fields-table__desc">Geaccepteerd — afwikkeling voltooid</td></tr>
+        <tr><td class="api-fields-table__field"><code>RCVD</code></td><td class="api-fields-table__desc">Ontvangen — nog niet verwerkt</td></tr>
+        <tr><td class="api-fields-table__field"><code>PDNG</code></td><td class="api-fields-table__desc">In afwachting — verdere verwerking nodig</td></tr>
+        <tr><td class="api-fields-table__field"><code>RJCT</code></td><td class="api-fields-table__desc">Afgewezen — met redencode</td></tr>
+    </tbody>
+  </table>
+</div>
+
+### Veelvoorkomende afwijzings- en retourredencodes
+
+<div class="api-fields-table" tabindex="0" aria-label="Veelvoorkomende redencodes">
+  <table>
+    <caption>Veelgebruikte afwijzings- en retourredencodes</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Code</th>
+        <th scope="col">Naam</th>
+        <th scope="col">Beschrijving</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field"><code>AC01</code></td><td class="api-fields-table__desc">Onjuist rekeningnummer</td><td class="api-fields-table__constraint">Rekeningnummer is ongeldig of bestaat niet</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC04</code></td><td class="api-fields-table__desc">Gesloten rekening</td><td class="api-fields-table__constraint">Rekening is gesloten</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC06</code></td><td class="api-fields-table__desc">Geblokkeerde rekening</td><td class="api-fields-table__constraint">Rekening is geblokkeerd voor transacties</td></tr>
+        <tr><td class="api-fields-table__field"><code>AM04</code></td><td class="api-fields-table__desc">Ontoereikend saldo</td><td class="api-fields-table__constraint">Ontoereikend saldo op de debiteurrekening</td></tr>
+        <tr><td class="api-fields-table__field"><code>AM05</code></td><td class="api-fields-table__desc">Duplicaat</td><td class="api-fields-table__constraint">Dubbele betaling gedetecteerd</td></tr>
+        <tr><td class="api-fields-table__field"><code>BE04</code></td><td class="api-fields-table__desc">Ontbrekend crediteuradres</td><td class="api-fields-table__constraint">Adres van crediteur ontbreekt of is onvolledig</td></tr>
+        <tr><td class="api-fields-table__field"><code>CUST</code></td><td class="api-fields-table__desc">Door klant aangevraagd</td><td class="api-fields-table__constraint">Retour of afwijzing aangevraagd door klant</td></tr>
+        <tr><td class="api-fields-table__field"><code>DUPL</code></td><td class="api-fields-table__desc">Dubbele betaling</td><td class="api-fields-table__constraint">Dubbele betaling geïdentificeerd</td></tr>
+        <tr><td class="api-fields-table__field"><code>FOCR</code></td><td class="api-fields-table__desc">Na annulering</td><td class="api-fields-table__constraint">Naar aanleiding van annuleringsverzoek</td></tr>
+        <tr><td class="api-fields-table__field"><code>FR01</code></td><td class="api-fields-table__desc">Fraude</td><td class="api-fields-table__constraint">Vermoeden van fraude</td></tr>
+        <tr><td class="api-fields-table__field"><code>RC01</code></td><td class="api-fields-table__desc">Onjuiste BIC</td><td class="api-fields-table__constraint">BIC is onjuist of onbekend</td></tr>
+        <tr><td class="api-fields-table__field"><code>RR03</code></td><td class="api-fields-table__desc">Ontbrekende crediteurnaam/-adres</td><td class="api-fields-table__constraint">Naam of adresgegevens van crediteur ontbreken</td></tr>
+        <tr><td class="api-fields-table__field"><code>TM01</code></td><td class="api-fields-table__desc">Sluitingstijd</td><td class="api-fields-table__constraint">De sluitingstijd is verstreken</td></tr>
+    </tbody>
+  </table>
+</div>
+
 ## Postadresformaat
 
 ### Gestructureerd adres

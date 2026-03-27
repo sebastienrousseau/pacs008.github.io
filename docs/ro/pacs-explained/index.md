@@ -140,6 +140,103 @@ Elementul ChrgBr specifică cine suportă costurile plății.
 - **SHAR** — Costurile sunt partajate (echivalent MT103: SHA). Fiecare parte plătește costurile propriului agent. Cel mai comun pentru plăți transfrontaliere.
 - **SLEV** — Costurile urmează nivelul de serviciu. Obligatoriu pentru SEPA. Fără deduceri din suma transferului.
 
+## Maparea câmpurilor MT103 către pacs.008
+
+<div class="api-fields-table" tabindex="0" aria-label="Maparea câmpurilor MT103 către pacs.008">
+  <table>
+    <caption>Principalele corespondențe de câmpuri de la MT103 la pacs.008</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Câmp MT103</th>
+        <th scope="col">Nume MT103</th>
+        <th scope="col">Cale XML pacs.008</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field">20</td><td class="api-fields-table__desc">Referința expeditorului</td><td class="api-fields-table__constraint">GrpHdr/MsgId or PmtId/InstrId</td></tr>
+        <tr><td class="api-fields-table__field">23B</td><td class="api-fields-table__desc">Codul operațiunii bancare</td><td class="api-fields-table__constraint">PmtTpInf/SvcLvl</td></tr>
+        <tr><td class="api-fields-table__field">32A</td><td class="api-fields-table__desc">Data valutei / Suma</td><td class="api-fields-table__constraint">IntrBkSttlmDt + IntrBkSttlmAmt</td></tr>
+        <tr><td class="api-fields-table__field">33B</td><td class="api-fields-table__desc">Suma solicitată</td><td class="api-fields-table__constraint">InstdAmt</td></tr>
+        <tr><td class="api-fields-table__field">50a</td><td class="api-fields-table__desc">Clientul ordonator</td><td class="api-fields-table__constraint">Dbtr + DbtrAcct</td></tr>
+        <tr><td class="api-fields-table__field">52a</td><td class="api-fields-table__desc">Instituția ordonatoare</td><td class="api-fields-table__constraint">DbtrAgt</td></tr>
+        <tr><td class="api-fields-table__field">57a</td><td class="api-fields-table__desc">Instituția contului</td><td class="api-fields-table__constraint">CdtrAgt</td></tr>
+        <tr><td class="api-fields-table__field">59a</td><td class="api-fields-table__desc">Clientul beneficiar</td><td class="api-fields-table__constraint">Cdtr + CdtrAcct</td></tr>
+        <tr><td class="api-fields-table__field">70</td><td class="api-fields-table__desc">Informații de remitere</td><td class="api-fields-table__constraint">RmtInf/Ustrd or RmtInf/Strd</td></tr>
+        <tr><td class="api-fields-table__field">71A</td><td class="api-fields-table__desc">Detalii costuri</td><td class="api-fields-table__constraint">ChrgBr (BEN→CRED, OUR→DEBT, SHA→SHAR)</td></tr>
+        <tr><td class="api-fields-table__field">72</td><td class="api-fields-table__desc">Info expeditor la destinatar</td><td class="api-fields-table__constraint">InstrForCdtrAgt / InstrForNxtAgt</td></tr>
+        <tr><td class="api-fields-table__field">N/A</td><td class="api-fields-table__desc">UETR (Block 3, field 121)</td><td class="api-fields-table__constraint">PmtId/UETR</td></tr>
+    </tbody>
+  </table>
+</div>
+
+## Coduri de stare și de motiv
+
+### Coduri de stare pacs.002
+
+<div class="api-fields-table" tabindex="0" aria-label="Coduri de stare pacs.002">
+  <table>
+    <caption>Coduri de stare a tranzacțiilor în pacs.002</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Cod</th>
+        <th scope="col">Semnificație</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field"><code>ACCP</code></td><td class="api-fields-table__desc">Acceptat — verificări preliminare trecute</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACSP</code></td><td class="api-fields-table__desc">Acceptat — decontare în curs</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACSC</code></td><td class="api-fields-table__desc">Acceptat — decontare finalizată</td></tr>
+        <tr><td class="api-fields-table__field"><code>RCVD</code></td><td class="api-fields-table__desc">Primit — neprocesat încă</td></tr>
+        <tr><td class="api-fields-table__field"><code>PDNG</code></td><td class="api-fields-table__desc">În așteptare — procesare suplimentară necesară</td></tr>
+        <tr><td class="api-fields-table__field"><code>RJCT</code></td><td class="api-fields-table__desc">Respins — cu cod de motiv</td></tr>
+    </tbody>
+  </table>
+</div>
+
+### Coduri de motiv comune de respingere și returnare
+
+<div class="api-fields-table" tabindex="0" aria-label="Coduri de motiv comune">
+  <table>
+    <caption>Coduri de motiv de respingere și returnare frecvent utilizate</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Cod</th>
+        <th scope="col">Nume</th>
+        <th scope="col">Descriere</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field"><code>AC01</code></td><td class="api-fields-table__desc">Număr de cont incorect</td><td class="api-fields-table__constraint">Numărul de cont este invalid sau nu există</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC04</code></td><td class="api-fields-table__desc">Cont închis</td><td class="api-fields-table__constraint">Contul este închis</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC06</code></td><td class="api-fields-table__desc">Cont blocat</td><td class="api-fields-table__constraint">Contul este blocat pentru tranzacții</td></tr>
+        <tr><td class="api-fields-table__field"><code>AM04</code></td><td class="api-fields-table__desc">Fonduri insuficiente</td><td class="api-fields-table__constraint">Fonduri insuficiente în contul debitorului</td></tr>
+        <tr><td class="api-fields-table__field"><code>AM05</code></td><td class="api-fields-table__desc">Duplicare</td><td class="api-fields-table__constraint">Plată duplicată detectată</td></tr>
+        <tr><td class="api-fields-table__field"><code>BE04</code></td><td class="api-fields-table__desc">Adresa creditorului lipsă</td><td class="api-fields-table__constraint">Adresa creditorului lipsește sau este incompletă</td></tr>
+        <tr><td class="api-fields-table__field"><code>CUST</code></td><td class="api-fields-table__desc">Solicitat de client</td><td class="api-fields-table__constraint">Returnare sau respingere solicitată de client</td></tr>
+        <tr><td class="api-fields-table__field"><code>DUPL</code></td><td class="api-fields-table__desc">Plată duplicată</td><td class="api-fields-table__constraint">Plată duplicată identificată</td></tr>
+        <tr><td class="api-fields-table__field"><code>FOCR</code></td><td class="api-fields-table__desc">În urma anulării</td><td class="api-fields-table__constraint">În urma unei cereri de anulare</td></tr>
+        <tr><td class="api-fields-table__field"><code>FR01</code></td><td class="api-fields-table__desc">Fraudă</td><td class="api-fields-table__constraint">Suspiciune de fraudă</td></tr>
+        <tr><td class="api-fields-table__field"><code>RC01</code></td><td class="api-fields-table__desc">BIC incorect</td><td class="api-fields-table__constraint">BIC-ul este incorect sau necunoscut</td></tr>
+        <tr><td class="api-fields-table__field"><code>RR03</code></td><td class="api-fields-table__desc">Nume/adresă creditor lipsă</td><td class="api-fields-table__constraint">Numele sau datele de adresă ale creditorului lipsesc</td></tr>
+        <tr><td class="api-fields-table__field"><code>TM01</code></td><td class="api-fields-table__desc">Ora limită</td><td class="api-fields-table__constraint">Ora limită de procesare a fost depășită</td></tr>
+    </tbody>
+  </table>
+</div>
+
 ## Format adresă poștală
 
 ### Adresă structurată

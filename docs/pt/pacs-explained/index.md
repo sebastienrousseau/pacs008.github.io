@@ -140,6 +140,103 @@ O elemento ChrgBr especifica quem suporta os encargos do pagamento.
 - **SHAR** — Os encargos são partilhados (equivalente MT103: SHA). Cada parte paga os encargos do seu próprio agente. Mais comum para pagamentos transfronteiriços.
 - **SLEV** — Os encargos seguem o nível de serviço. Obrigatório para SEPA. Sem deduções do montante da transferência.
 
+## Mapeamento de campos MT103 para pacs.008
+
+<div class="api-fields-table" tabindex="0" aria-label="Mapeamento de campos MT103 para pacs.008">
+  <table>
+    <caption>Principais correspondências de campos de MT103 para pacs.008</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Campo MT103</th>
+        <th scope="col">Nome MT103</th>
+        <th scope="col">Caminho XML pacs.008</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field">20</td><td class="api-fields-table__desc">Referência do remetente</td><td class="api-fields-table__constraint">GrpHdr/MsgId or PmtId/InstrId</td></tr>
+        <tr><td class="api-fields-table__field">23B</td><td class="api-fields-table__desc">Código de operação bancária</td><td class="api-fields-table__constraint">PmtTpInf/SvcLvl</td></tr>
+        <tr><td class="api-fields-table__field">32A</td><td class="api-fields-table__desc">Data valor / Montante</td><td class="api-fields-table__constraint">IntrBkSttlmDt + IntrBkSttlmAmt</td></tr>
+        <tr><td class="api-fields-table__field">33B</td><td class="api-fields-table__desc">Montante instruído</td><td class="api-fields-table__constraint">InstdAmt</td></tr>
+        <tr><td class="api-fields-table__field">50a</td><td class="api-fields-table__desc">Cliente ordenante</td><td class="api-fields-table__constraint">Dbtr + DbtrAcct</td></tr>
+        <tr><td class="api-fields-table__field">52a</td><td class="api-fields-table__desc">Instituição ordenante</td><td class="api-fields-table__constraint">DbtrAgt</td></tr>
+        <tr><td class="api-fields-table__field">57a</td><td class="api-fields-table__desc">Instituição da conta</td><td class="api-fields-table__constraint">CdtrAgt</td></tr>
+        <tr><td class="api-fields-table__field">59a</td><td class="api-fields-table__desc">Cliente beneficiário</td><td class="api-fields-table__constraint">Cdtr + CdtrAcct</td></tr>
+        <tr><td class="api-fields-table__field">70</td><td class="api-fields-table__desc">Informação de remessa</td><td class="api-fields-table__constraint">RmtInf/Ustrd or RmtInf/Strd</td></tr>
+        <tr><td class="api-fields-table__field">71A</td><td class="api-fields-table__desc">Detalhe de encargos</td><td class="api-fields-table__constraint">ChrgBr (BEN→CRED, OUR→DEBT, SHA→SHAR)</td></tr>
+        <tr><td class="api-fields-table__field">72</td><td class="api-fields-table__desc">Info remetente ao recetor</td><td class="api-fields-table__constraint">InstrForCdtrAgt / InstrForNxtAgt</td></tr>
+        <tr><td class="api-fields-table__field">N/A</td><td class="api-fields-table__desc">UETR (Block 3, field 121)</td><td class="api-fields-table__constraint">PmtId/UETR</td></tr>
+    </tbody>
+  </table>
+</div>
+
+## Códigos de estado e de motivo
+
+### Códigos de estado pacs.002
+
+<div class="api-fields-table" tabindex="0" aria-label="Códigos de estado pacs.002">
+  <table>
+    <caption>Códigos de estado de transação em pacs.002</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Código</th>
+        <th scope="col">Significado</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field"><code>ACCP</code></td><td class="api-fields-table__desc">Aceite — verificações prévias aprovadas</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACSP</code></td><td class="api-fields-table__desc">Aceite — liquidação em curso</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACSC</code></td><td class="api-fields-table__desc">Aceite — liquidação concluída</td></tr>
+        <tr><td class="api-fields-table__field"><code>RCVD</code></td><td class="api-fields-table__desc">Recebido — ainda não processado</td></tr>
+        <tr><td class="api-fields-table__field"><code>PDNG</code></td><td class="api-fields-table__desc">Pendente — processamento adicional necessário</td></tr>
+        <tr><td class="api-fields-table__field"><code>RJCT</code></td><td class="api-fields-table__desc">Rejeitado — com código de motivo</td></tr>
+    </tbody>
+  </table>
+</div>
+
+### Códigos de motivo comuns de rejeição e devolução
+
+<div class="api-fields-table" tabindex="0" aria-label="Códigos de motivo comuns">
+  <table>
+    <caption>Códigos de motivo de rejeição e devolução mais utilizados</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Código</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Descrição</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field"><code>AC01</code></td><td class="api-fields-table__desc">Número de conta incorreto</td><td class="api-fields-table__constraint">O número de conta é inválido ou não existe</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC04</code></td><td class="api-fields-table__desc">Conta encerrada</td><td class="api-fields-table__constraint">A conta está encerrada</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC06</code></td><td class="api-fields-table__desc">Conta bloqueada</td><td class="api-fields-table__constraint">A conta está bloqueada para transações</td></tr>
+        <tr><td class="api-fields-table__field"><code>AM04</code></td><td class="api-fields-table__desc">Fundos insuficientes</td><td class="api-fields-table__constraint">Fundos insuficientes na conta do devedor</td></tr>
+        <tr><td class="api-fields-table__field"><code>AM05</code></td><td class="api-fields-table__desc">Duplicação</td><td class="api-fields-table__constraint">Pagamento duplicado detetado</td></tr>
+        <tr><td class="api-fields-table__field"><code>BE04</code></td><td class="api-fields-table__desc">Endereço do credor em falta</td><td class="api-fields-table__constraint">O endereço do credor está em falta ou incompleto</td></tr>
+        <tr><td class="api-fields-table__field"><code>CUST</code></td><td class="api-fields-table__desc">Solicitado pelo cliente</td><td class="api-fields-table__constraint">Devolução ou rejeição solicitada pelo cliente</td></tr>
+        <tr><td class="api-fields-table__field"><code>DUPL</code></td><td class="api-fields-table__desc">Pagamento duplicado</td><td class="api-fields-table__constraint">Pagamento duplicado identificado</td></tr>
+        <tr><td class="api-fields-table__field"><code>FOCR</code></td><td class="api-fields-table__desc">Após anulação</td><td class="api-fields-table__constraint">Na sequência de pedido de anulação</td></tr>
+        <tr><td class="api-fields-table__field"><code>FR01</code></td><td class="api-fields-table__desc">Fraude</td><td class="api-fields-table__constraint">Suspeita de fraude</td></tr>
+        <tr><td class="api-fields-table__field"><code>RC01</code></td><td class="api-fields-table__desc">BIC incorreto</td><td class="api-fields-table__constraint">O BIC é incorreto ou desconhecido</td></tr>
+        <tr><td class="api-fields-table__field"><code>RR03</code></td><td class="api-fields-table__desc">Nome/endereço do credor em falta</td><td class="api-fields-table__constraint">Nome ou dados de endereço do credor em falta</td></tr>
+        <tr><td class="api-fields-table__field"><code>TM01</code></td><td class="api-fields-table__desc">Hora limite</td><td class="api-fields-table__constraint">A hora limite de processamento foi ultrapassada</td></tr>
+    </tbody>
+  </table>
+</div>
+
 ## Formato de endereço postal
 
 ### Endereço estruturado

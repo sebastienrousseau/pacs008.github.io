@@ -140,6 +140,103 @@ pacs.008 מורכב משני בלוקים עיקריים: כותרת הקבוצ�
 - **SHAR** — העמלות מתחלקות (שווה ערך MT103: SHA). כל צד משלם את עמלות הסוכן שלו. הנפוץ ביותר לתשלומים חוצי גבולות.
 - **SLEV** — העמלות עוקבות אחרי רמת השירות. חובה ב-SEPA. ללא ניכויים מסכום ההעברה.
 
+## מיפוי שדות MT103 ל-pacs.008
+
+<div class="api-fields-table" tabindex="0" aria-label="מיפוי שדות MT103 ל-pacs.008">
+  <table>
+    <caption>מיפויי שדות עיקריים מ-MT103 ל-pacs.008</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">שדה MT103</th>
+        <th scope="col">שם MT103</th>
+        <th scope="col">נתיב XML ב-pacs.008</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field">20</td><td class="api-fields-table__desc">הפניית השולח</td><td class="api-fields-table__constraint">GrpHdr/MsgId or PmtId/InstrId</td></tr>
+        <tr><td class="api-fields-table__field">23B</td><td class="api-fields-table__desc">קוד פעולה בנקאית</td><td class="api-fields-table__constraint">PmtTpInf/SvcLvl</td></tr>
+        <tr><td class="api-fields-table__field">32A</td><td class="api-fields-table__desc">תאריך ערך / סכום</td><td class="api-fields-table__constraint">IntrBkSttlmDt + IntrBkSttlmAmt</td></tr>
+        <tr><td class="api-fields-table__field">33B</td><td class="api-fields-table__desc">סכום מבוקש</td><td class="api-fields-table__constraint">InstdAmt</td></tr>
+        <tr><td class="api-fields-table__field">50a</td><td class="api-fields-table__desc">לקוח מזמין</td><td class="api-fields-table__constraint">Dbtr + DbtrAcct</td></tr>
+        <tr><td class="api-fields-table__field">52a</td><td class="api-fields-table__desc">מוסד מזמין</td><td class="api-fields-table__constraint">DbtrAgt</td></tr>
+        <tr><td class="api-fields-table__field">57a</td><td class="api-fields-table__desc">מוסד החשבון</td><td class="api-fields-table__constraint">CdtrAgt</td></tr>
+        <tr><td class="api-fields-table__field">59a</td><td class="api-fields-table__desc">לקוח מוטב</td><td class="api-fields-table__constraint">Cdtr + CdtrAcct</td></tr>
+        <tr><td class="api-fields-table__field">70</td><td class="api-fields-table__desc">מידע העברה</td><td class="api-fields-table__constraint">RmtInf/Ustrd or RmtInf/Strd</td></tr>
+        <tr><td class="api-fields-table__field">71A</td><td class="api-fields-table__desc">פרטי עמלות</td><td class="api-fields-table__constraint">ChrgBr (BEN→CRED, OUR→DEBT, SHA→SHAR)</td></tr>
+        <tr><td class="api-fields-table__field">72</td><td class="api-fields-table__desc">מידע שולח למקבל</td><td class="api-fields-table__constraint">InstrForCdtrAgt / InstrForNxtAgt</td></tr>
+        <tr><td class="api-fields-table__field">N/A</td><td class="api-fields-table__desc">UETR (Block 3, field 121)</td><td class="api-fields-table__constraint">PmtId/UETR</td></tr>
+    </tbody>
+  </table>
+</div>
+
+## קודי סטטוס וסיבה
+
+### קודי סטטוס pacs.002
+
+<div class="api-fields-table" tabindex="0" aria-label="קודי סטטוס pacs.002">
+  <table>
+    <caption>קודי סטטוס עסקה ב-pacs.002</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">קוד</th>
+        <th scope="col">משמעות</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field"><code>ACCP</code></td><td class="api-fields-table__desc">התקבל — בדיקות מוקדמות עברו</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACSP</code></td><td class="api-fields-table__desc">התקבל — סליקה בתהליך</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACSC</code></td><td class="api-fields-table__desc">התקבל — סליקה הושלמה</td></tr>
+        <tr><td class="api-fields-table__field"><code>RCVD</code></td><td class="api-fields-table__desc">נתקבל — טרם עובד</td></tr>
+        <tr><td class="api-fields-table__field"><code>PDNG</code></td><td class="api-fields-table__desc">ממתין — נדרש עיבוד נוסף</td></tr>
+        <tr><td class="api-fields-table__field"><code>RJCT</code></td><td class="api-fields-table__desc">נדחה — עם קוד סיבה</td></tr>
+    </tbody>
+  </table>
+</div>
+
+### קודי סיבת דחייה והחזרה נפוצים
+
+<div class="api-fields-table" tabindex="0" aria-label="קודי סיבה נפוצים">
+  <table>
+    <caption>קודי סיבת דחייה והחזרה בשימוש תכוף</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">קוד</th>
+        <th scope="col">שם</th>
+        <th scope="col">תיאור</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field"><code>AC01</code></td><td class="api-fields-table__desc">מספר חשבון שגוי</td><td class="api-fields-table__constraint">מספר החשבון אינו תקין או אינו קיים</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC04</code></td><td class="api-fields-table__desc">חשבון סגור</td><td class="api-fields-table__constraint">החשבון סגור</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC06</code></td><td class="api-fields-table__desc">חשבון חסום</td><td class="api-fields-table__constraint">החשבון חסום לעסקאות</td></tr>
+        <tr><td class="api-fields-table__field"><code>AM04</code></td><td class="api-fields-table__desc">יתרה לא מספקת</td><td class="api-fields-table__constraint">יתרה לא מספקת בחשבון החייב</td></tr>
+        <tr><td class="api-fields-table__field"><code>AM05</code></td><td class="api-fields-table__desc">כפילות</td><td class="api-fields-table__constraint">זוהה תשלום כפול</td></tr>
+        <tr><td class="api-fields-table__field"><code>BE04</code></td><td class="api-fields-table__desc">כתובת זכאי חסרה</td><td class="api-fields-table__constraint">כתובת הזכאי חסרה או חלקית</td></tr>
+        <tr><td class="api-fields-table__field"><code>CUST</code></td><td class="api-fields-table__desc">לבקשת הלקוח</td><td class="api-fields-table__constraint">החזרה או דחייה לבקשת הלקוח</td></tr>
+        <tr><td class="api-fields-table__field"><code>DUPL</code></td><td class="api-fields-table__desc">תשלום כפול</td><td class="api-fields-table__constraint">תשלום כפול זוהה</td></tr>
+        <tr><td class="api-fields-table__field"><code>FOCR</code></td><td class="api-fields-table__desc">בעקבות ביטול</td><td class="api-fields-table__constraint">בעקבות בקשת ביטול</td></tr>
+        <tr><td class="api-fields-table__field"><code>FR01</code></td><td class="api-fields-table__desc">הונאה</td><td class="api-fields-table__constraint">חשד להונאה</td></tr>
+        <tr><td class="api-fields-table__field"><code>RC01</code></td><td class="api-fields-table__desc">BIC שגוי</td><td class="api-fields-table__constraint">ה-BIC שגוי או לא ידוע</td></tr>
+        <tr><td class="api-fields-table__field"><code>RR03</code></td><td class="api-fields-table__desc">שם/כתובת זכאי חסרים</td><td class="api-fields-table__constraint">שם או נתוני כתובת של הזכאי חסרים</td></tr>
+        <tr><td class="api-fields-table__field"><code>TM01</code></td><td class="api-fields-table__desc">שעת סגירה</td><td class="api-fields-table__constraint">שעת הסגירה לעיבוד חלפה</td></tr>
+    </tbody>
+  </table>
+</div>
+
 ## פורמט כתובת דואר
 
 ### כתובת מובנית

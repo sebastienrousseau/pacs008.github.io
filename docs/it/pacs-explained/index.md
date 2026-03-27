@@ -116,7 +116,104 @@ L'elemento SttlmMtd definisce come avviene il regolamento interbancario.
 - **DEBT** — Il debitore sostiene tutte le spese (equivalente MT103: OUR).
 - **CRED** — Il creditore sostiene tutte le spese (equivalente MT103: BEN).
 - **SHAR** — Le spese sono condivise (equivalente MT103: SHA).
-- **SLEV** — Le spese seguono il livello di servizio. Obbligatorio per SEPA.
+- **SLEV** — Le spese seguono il livello di servizio. Obbligatorio per SEPA. Nessuna detrazione dall'importo del trasferimento.
+
+## Mappatura campi MT103 verso pacs.008
+
+<div class="api-fields-table" tabindex="0" aria-label="Mappatura campi MT103 verso pacs.008">
+  <table>
+    <caption>Principali corrispondenze di campo da MT103 a pacs.008</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Campo MT103</th>
+        <th scope="col">Nome MT103</th>
+        <th scope="col">Percorso XML pacs.008</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field">20</td><td class="api-fields-table__desc">Riferimento del mittente</td><td class="api-fields-table__constraint">GrpHdr/MsgId or PmtId/InstrId</td></tr>
+        <tr><td class="api-fields-table__field">23B</td><td class="api-fields-table__desc">Codice operazione bancaria</td><td class="api-fields-table__constraint">PmtTpInf/SvcLvl</td></tr>
+        <tr><td class="api-fields-table__field">32A</td><td class="api-fields-table__desc">Data valuta / Importo</td><td class="api-fields-table__constraint">IntrBkSttlmDt + IntrBkSttlmAmt</td></tr>
+        <tr><td class="api-fields-table__field">33B</td><td class="api-fields-table__desc">Importo istruito</td><td class="api-fields-table__constraint">InstdAmt</td></tr>
+        <tr><td class="api-fields-table__field">50a</td><td class="api-fields-table__desc">Cliente ordinante</td><td class="api-fields-table__constraint">Dbtr + DbtrAcct</td></tr>
+        <tr><td class="api-fields-table__field">52a</td><td class="api-fields-table__desc">Istituzione ordinante</td><td class="api-fields-table__constraint">DbtrAgt</td></tr>
+        <tr><td class="api-fields-table__field">57a</td><td class="api-fields-table__desc">Istituzione del conto</td><td class="api-fields-table__constraint">CdtrAgt</td></tr>
+        <tr><td class="api-fields-table__field">59a</td><td class="api-fields-table__desc">Cliente beneficiario</td><td class="api-fields-table__constraint">Cdtr + CdtrAcct</td></tr>
+        <tr><td class="api-fields-table__field">70</td><td class="api-fields-table__desc">Informazioni di rimessa</td><td class="api-fields-table__constraint">RmtInf/Ustrd or RmtInf/Strd</td></tr>
+        <tr><td class="api-fields-table__field">71A</td><td class="api-fields-table__desc">Dettaglio spese</td><td class="api-fields-table__constraint">ChrgBr (BEN→CRED, OUR→DEBT, SHA→SHAR)</td></tr>
+        <tr><td class="api-fields-table__field">72</td><td class="api-fields-table__desc">Info mittente al destinatario</td><td class="api-fields-table__constraint">InstrForCdtrAgt / InstrForNxtAgt</td></tr>
+        <tr><td class="api-fields-table__field">N/A</td><td class="api-fields-table__desc">UETR (Block 3, field 121)</td><td class="api-fields-table__constraint">PmtId/UETR</td></tr>
+    </tbody>
+  </table>
+</div>
+
+## Codici di stato e di motivo
+
+### Codici di stato pacs.002
+
+<div class="api-fields-table" tabindex="0" aria-label="Codici di stato pacs.002">
+  <table>
+    <caption>Codici di stato transazione in pacs.002</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Codice</th>
+        <th scope="col">Significato</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field"><code>ACCP</code></td><td class="api-fields-table__desc">Accettato — controlli preliminari superati</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACSP</code></td><td class="api-fields-table__desc">Accettato — regolamento in corso</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACSC</code></td><td class="api-fields-table__desc">Accettato — regolamento completato</td></tr>
+        <tr><td class="api-fields-table__field"><code>RCVD</code></td><td class="api-fields-table__desc">Ricevuto — non ancora elaborato</td></tr>
+        <tr><td class="api-fields-table__field"><code>PDNG</code></td><td class="api-fields-table__desc">In sospeso — ulteriore elaborazione necessaria</td></tr>
+        <tr><td class="api-fields-table__field"><code>RJCT</code></td><td class="api-fields-table__desc">Rifiutato — con codice motivo</td></tr>
+    </tbody>
+  </table>
+</div>
+
+### Codici di motivo comuni di rifiuto e restituzione
+
+<div class="api-fields-table" tabindex="0" aria-label="Codici di motivo comuni">
+  <table>
+    <caption>Codici di motivo di rifiuto e restituzione più utilizzati</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Codice</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Descrizione</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field"><code>AC01</code></td><td class="api-fields-table__desc">Numero di conto errato</td><td class="api-fields-table__constraint">Il numero di conto è invalido o inesistente</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC04</code></td><td class="api-fields-table__desc">Conto chiuso</td><td class="api-fields-table__constraint">Il conto è chiuso</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC06</code></td><td class="api-fields-table__desc">Conto bloccato</td><td class="api-fields-table__constraint">Il conto è bloccato per le transazioni</td></tr>
+        <tr><td class="api-fields-table__field"><code>AM04</code></td><td class="api-fields-table__desc">Fondi insufficienti</td><td class="api-fields-table__constraint">Fondi insufficienti sul conto del debitore</td></tr>
+        <tr><td class="api-fields-table__field"><code>AM05</code></td><td class="api-fields-table__desc">Duplicazione</td><td class="api-fields-table__constraint">Pagamento duplicato rilevato</td></tr>
+        <tr><td class="api-fields-table__field"><code>BE04</code></td><td class="api-fields-table__desc">Indirizzo creditore mancante</td><td class="api-fields-table__constraint">L'indirizzo del creditore è mancante o incompleto</td></tr>
+        <tr><td class="api-fields-table__field"><code>CUST</code></td><td class="api-fields-table__desc">Richiesto dal cliente</td><td class="api-fields-table__constraint">Restituzione o rifiuto richiesto dal cliente</td></tr>
+        <tr><td class="api-fields-table__field"><code>DUPL</code></td><td class="api-fields-table__desc">Pagamento duplicato</td><td class="api-fields-table__constraint">Pagamento duplicato identificato</td></tr>
+        <tr><td class="api-fields-table__field"><code>FOCR</code></td><td class="api-fields-table__desc">A seguito di annullamento</td><td class="api-fields-table__constraint">A seguito di richiesta di annullamento</td></tr>
+        <tr><td class="api-fields-table__field"><code>FR01</code></td><td class="api-fields-table__desc">Frode</td><td class="api-fields-table__constraint">Sospetta frode</td></tr>
+        <tr><td class="api-fields-table__field"><code>RC01</code></td><td class="api-fields-table__desc">BIC errato</td><td class="api-fields-table__constraint">Il BIC è errato o sconosciuto</td></tr>
+        <tr><td class="api-fields-table__field"><code>RR03</code></td><td class="api-fields-table__desc">Nome/indirizzo creditore mancante</td><td class="api-fields-table__constraint">Nome o dati dell'indirizzo del creditore mancanti</td></tr>
+        <tr><td class="api-fields-table__field"><code>TM01</code></td><td class="api-fields-table__desc">Ora limite superata</td><td class="api-fields-table__constraint">L'ora limite di elaborazione è stata superata</td></tr>
+    </tbody>
+  </table>
+</div>
 
 ## Formato dell'indirizzo postale
 
@@ -146,20 +243,25 @@ L'elemento SttlmMtd definisce come avviene il regolamento interbancario.
 
 Le parti in pacs.008 supportano diversi metodi di identificazione:
 
-- **BIC** — Codice identificativo aziendale per ISO 9362. 8 o 11 caratteri.
-- **LEI** — Identificativo dell'entità giuridica per ISO 17442. 20 caratteri alfanumerici.
-- **IBAN** — Numero di conto bancario internazionale per ISO 13616.
-- **ID organizzazione** — Altri identificatori basati su schema tramite OrgId/Othr.
-- **ID privati** — Per le persone fisiche tramite PrvtId.
+- **BIC** — Codice identificativo aziendale per ISO 9362. 8 o 11 caratteri (BBBBCCLL o BBBBCCLLBBB). Utilizzato in FinInstnId/BICFI per gli agenti e OrgId/AnyBIC per le parti.
+- **LEI** — Identificativo dell'entità giuridica per ISO 17442. 20 caratteri alfanumerici. Appare in OrgId/LEI per le parti e FinInstnId/LEI per gli agenti. Migliora la disambiguazione delle entità per il reporting regolamentare.
+- **IBAN** — Numero di conto bancario internazionale per ISO 13616. Utilizzato in DbtrAcct/Id/IBAN e CdtrAcct/Id/IBAN.
+- **ID organizzazione** — Altri identificatori basati su schema (codice fiscale, DUNS, numero cliente) tramite OrgId/Othr con un codice nome schema.
+- **ID privati** — Per le persone fisiche: data e luogo di nascita, passaporto (CCPT), carta d'identità (NIDN) o patente di guida (DRLC) tramite PrvtId.
 
 ## Informazioni di rimessa
 
-- **Non strutturate** — Testo libero fino a 140 caratteri per occorrenza.
-- **Strutturate** — Riferimenti di documenti con codici tipo, numeri, date e importi. Tipi comuni: CINV, CREN, SOAC.
+I dati di rimessa in pacs.008 utilizzano l'elemento RmtInf con due forme:
+
+**Non strutturate** — Testo libero fino a 140 caratteri per occorrenza. Semplice ma limita la riconciliazione automatizzata.
+
+**Strutturate** — Riferimenti di documenti con codici tipo, numeri, date e importi. Tipi di documenti comuni: CINV (fattura commerciale), CREN (nota di credito), SOAC (estratto conto). Supporta i riferimenti creditore ISO 11649 (RF + cifre di controllo + riferimento) tramite CdtrRefInf. Consente la corrispondenza automatica delle fatture e i pagamenti multi-fattura.
 
 ## UETR e tracciamento gpi
 
-UETR è un UUID v4 generato dall'agente del debitore. Appare in PmtId/UETR attraverso tutti i messaggi pacs. SWIFT gpi utilizza l'UETR per tracciare i pagamenti attraverso un database Tracker basato su cloud.
+UETR (Unique End-to-End Transaction Reference) è un UUID v4 generato dall'agente del debitore. Appare in PmtId/UETR attraverso pacs.008, pacs.009, pacs.002, pacs.004, pacs.007 e pacs.028. Non deve essere modificato lungo l'intera catena di pagamento.
+
+SWIFT gpi utilizza l'UETR per tracciare i pagamenti attraverso un database Tracker basato su cloud. Ogni agente conferma la ricezione e l'elaborazione, consentendo la visibilità da un capo all'altro. L'SLA gpi per i pagamenti transfrontalieri mira all'accredito in giornata sul conto del creditore.
 
 ## Riferimenti
 

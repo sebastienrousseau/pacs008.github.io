@@ -91,6 +91,132 @@ ChrgBr elemanı ödeme ücretlerini kimin üstlendiğini belirtir.
 - **SHAR** — Ücretler paylaşılır (MT103 eşdeğeri: SHA). Her taraf kendi acentesinin ücretlerini öder. Sınır ötesi ödemeler için en yaygın.
 - **SLEV** — Ücretler hizmet düzeyini izler. SEPA için zorunlu. Transfer tutarından kesinti yapılmaz.
 
+## Ödeme tanımlayıcıları
+
+pacs mesajları ödeme zincirinde farklı roller üstlenen birden fazla tanımlayıcı kullanır.
+
+<div class="api-fields-table" tabindex="0" aria-label="Ödeme tanımlayıcıları">
+  <table>
+    <caption>Ödeme tanımlayıcıları ve rolleri</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Tanımlayıcı</th>
+        <th scope="col">Belirleyen</th>
+        <th scope="col">Zincirde değişir mi?</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field"><strong>MsgId</strong></td><td class="api-fields-table__desc">Her gönderen acente</td><td class="api-fields-table__constraint">Evet — mesaj başına yeni</td></tr>
+        <tr><td class="api-fields-table__field"><strong>InstrId</strong></td><td class="api-fields-table__desc">Her talimat veren acente</td><td class="api-fields-table__constraint">Evet — her adımda değişebilir</td></tr>
+        <tr><td class="api-fields-table__field"><strong>EndToEndId</strong></td><td class="api-fields-table__desc">Başlatan (borçlu)</td><td class="api-fields-table__constraint">Hayır — değiştirilmemeli</td></tr>
+        <tr><td class="api-fields-table__field"><strong>TxId</strong></td><td class="api-fields-table__desc">İlk talimat veren acente</td><td class="api-fields-table__constraint">Hayır — değiştirilmemeli</td></tr>
+        <tr><td class="api-fields-table__field"><strong>UETR</strong></td><td class="api-fields-table__desc">Borçlu acente</td><td class="api-fields-table__constraint">Hayır — evrensel izleme</td></tr>
+    </tbody>
+  </table>
+</div>
+
+## MT103-pacs.008 alan eşleştirmesi
+
+<div class="api-fields-table" tabindex="0" aria-label="MT103-pacs.008 alan eşleştirmesi">
+  <table>
+    <caption>MT103'ten pacs.008'e temel alan eşleştirmeleri</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">MT103 alanı</th>
+        <th scope="col">MT103 adı</th>
+        <th scope="col">pacs.008 XML yolu</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field">20</td><td class="api-fields-table__desc">Gönderenin referansı</td><td class="api-fields-table__constraint">GrpHdr/MsgId or PmtId/InstrId</td></tr>
+        <tr><td class="api-fields-table__field">23B</td><td class="api-fields-table__desc">Banka işlem kodu</td><td class="api-fields-table__constraint">PmtTpInf/SvcLvl</td></tr>
+        <tr><td class="api-fields-table__field">32A</td><td class="api-fields-table__desc">Valör tarihi / Tutar</td><td class="api-fields-table__constraint">IntrBkSttlmDt + IntrBkSttlmAmt</td></tr>
+        <tr><td class="api-fields-table__field">33B</td><td class="api-fields-table__desc">Talimat tutarı</td><td class="api-fields-table__constraint">InstdAmt</td></tr>
+        <tr><td class="api-fields-table__field">50a</td><td class="api-fields-table__desc">Amir müşteri</td><td class="api-fields-table__constraint">Dbtr + DbtrAcct</td></tr>
+        <tr><td class="api-fields-table__field">52a</td><td class="api-fields-table__desc">Amir kurum</td><td class="api-fields-table__constraint">DbtrAgt</td></tr>
+        <tr><td class="api-fields-table__field">57a</td><td class="api-fields-table__desc">Hesap kurumu</td><td class="api-fields-table__constraint">CdtrAgt</td></tr>
+        <tr><td class="api-fields-table__field">59a</td><td class="api-fields-table__desc">Lehdar müşteri</td><td class="api-fields-table__constraint">Cdtr + CdtrAcct</td></tr>
+        <tr><td class="api-fields-table__field">70</td><td class="api-fields-table__desc">Havale bilgisi</td><td class="api-fields-table__constraint">RmtInf/Ustrd or RmtInf/Strd</td></tr>
+        <tr><td class="api-fields-table__field">71A</td><td class="api-fields-table__desc">Ücret detayları</td><td class="api-fields-table__constraint">ChrgBr (BEN→CRED, OUR→DEBT, SHA→SHAR)</td></tr>
+        <tr><td class="api-fields-table__field">72</td><td class="api-fields-table__desc">Gönderen-alıcı bilgisi</td><td class="api-fields-table__constraint">InstrForCdtrAgt / InstrForNxtAgt</td></tr>
+        <tr><td class="api-fields-table__field">N/A</td><td class="api-fields-table__desc">UETR (Block 3, field 121)</td><td class="api-fields-table__constraint">PmtId/UETR</td></tr>
+    </tbody>
+  </table>
+</div>
+
+## Durum ve neden kodları
+
+### pacs.002 durum kodları
+
+<div class="api-fields-table" tabindex="0" aria-label="pacs.002 durum kodları">
+  <table>
+    <caption>pacs.002'deki işlem durum kodları</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Kod</th>
+        <th scope="col">Anlam</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field"><code>ACCP</code></td><td class="api-fields-table__desc">Kabul edildi — ön kontroller geçti</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACSP</code></td><td class="api-fields-table__desc">Kabul edildi — uzlaşma devam ediyor</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACSC</code></td><td class="api-fields-table__desc">Kabul edildi — uzlaşma tamamlandı</td></tr>
+        <tr><td class="api-fields-table__field"><code>RCVD</code></td><td class="api-fields-table__desc">Alındı — henüz işlenmedi</td></tr>
+        <tr><td class="api-fields-table__field"><code>PDNG</code></td><td class="api-fields-table__desc">Beklemede — daha fazla işlem gerekli</td></tr>
+        <tr><td class="api-fields-table__field"><code>RJCT</code></td><td class="api-fields-table__desc">Reddedildi — neden koduyla</td></tr>
+    </tbody>
+  </table>
+</div>
+
+### Yaygın ret ve iade neden kodları
+
+<div class="api-fields-table" tabindex="0" aria-label="Yaygın neden kodları">
+  <table>
+    <caption>Sık kullanılan ret ve iade neden kodları</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Kod</th>
+        <th scope="col">Ad</th>
+        <th scope="col">Açıklama</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class="api-fields-table__field"><code>AC01</code></td><td class="api-fields-table__desc">Yanlış hesap numarası</td><td class="api-fields-table__constraint">Hesap numarası geçersiz veya mevcut değil</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC04</code></td><td class="api-fields-table__desc">Kapalı hesap</td><td class="api-fields-table__constraint">Hesap kapatılmış</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC06</code></td><td class="api-fields-table__desc">Bloke hesap</td><td class="api-fields-table__constraint">Hesap işlemler için bloke edilmiş</td></tr>
+        <tr><td class="api-fields-table__field"><code>AM04</code></td><td class="api-fields-table__desc">Yetersiz bakiye</td><td class="api-fields-table__constraint">Borçlu hesabında yetersiz bakiye</td></tr>
+        <tr><td class="api-fields-table__field"><code>AM05</code></td><td class="api-fields-table__desc">Mükerrer</td><td class="api-fields-table__constraint">Mükerrer ödeme tespit edildi</td></tr>
+        <tr><td class="api-fields-table__field"><code>BE04</code></td><td class="api-fields-table__desc">Alacaklı adresi eksik</td><td class="api-fields-table__constraint">Alacaklı adresi eksik veya tamamlanmamış</td></tr>
+        <tr><td class="api-fields-table__field"><code>CUST</code></td><td class="api-fields-table__desc">Müşteri talebiyle</td><td class="api-fields-table__constraint">Müşteri tarafından talep edilen iade veya ret</td></tr>
+        <tr><td class="api-fields-table__field"><code>DUPL</code></td><td class="api-fields-table__desc">Mükerrer ödeme</td><td class="api-fields-table__constraint">Mükerrer ödeme tespit edildi</td></tr>
+        <tr><td class="api-fields-table__field"><code>FOCR</code></td><td class="api-fields-table__desc">İptal sonrası</td><td class="api-fields-table__constraint">İptal talebinin ardından</td></tr>
+        <tr><td class="api-fields-table__field"><code>FR01</code></td><td class="api-fields-table__desc">Dolandırıcılık</td><td class="api-fields-table__constraint">Dolandırıcılık şüphesi</td></tr>
+        <tr><td class="api-fields-table__field"><code>RC01</code></td><td class="api-fields-table__desc">Yanlış BIC</td><td class="api-fields-table__constraint">BIC yanlış veya bilinmiyor</td></tr>
+        <tr><td class="api-fields-table__field"><code>RR03</code></td><td class="api-fields-table__desc">Alacaklı adı/adresi eksik</td><td class="api-fields-table__constraint">Alacaklı adı veya adres verileri eksik</td></tr>
+        <tr><td class="api-fields-table__field"><code>TM01</code></td><td class="api-fields-table__desc">Kesim saati</td><td class="api-fields-table__constraint">İşlem kesim saati geçmiş</td></tr>
+    </tbody>
+  </table>
+</div>
+
 ## Posta adresi biçimi
 
 ### Yapılandırılmış adres
