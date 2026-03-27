@@ -164,6 +164,7 @@ export default defineConfig({
         .filter((item) => !item.url.includes("404") && !/\/en\/$/.test(item.url))
         .map((item) => ({
           ...item,
+          lastmod: item.lastmod ? new Date(item.lastmod).toISOString().split("T")[0] : undefined,
           links: buildSitemapHreflangLinks(item.url)
         }));
     }
