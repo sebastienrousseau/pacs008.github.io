@@ -69,6 +69,11 @@ try {
   let sitemap = await fs.readFile(sitemapPath, "utf8");
   // Remove /en/ canonical redirect entry
   sitemap = sitemap.replace(/<url><loc>https:\/\/pacs008\.com\/en\/<\/loc>.*?<\/url>/, "");
+  // Fix lastmod: convert ISO 8601 datetime to W3C date-only (YYYY-MM-DD)
+  sitemap = sitemap.replace(
+    /<lastmod>(\d{4}-\d{2}-\d{2})T[^<]+<\/lastmod>/g,
+    "<lastmod>$1</lastmod>"
+  );
   // Pretty-print: add line breaks and indentation for valid XML rendering
   sitemap = sitemap
     .replace(/(<urlset)/g, "\n$1")
