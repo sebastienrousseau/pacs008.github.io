@@ -10,23 +10,23 @@ image: /logo.webp
 
 A detailed technical reference for the ISO 20022 pacs message family. It covers how messages work together in a complete payment lifecycle, the XML structure, settlement methods, reason codes, party identification, remittance information, and end-to-end tracking.
 
-## Payment lifecycle
+## 결제 수명주기
 
-The complete pacs payment lifecycle involves six stages and multiple message types working together.
+pacs 결제의 전체 수명주기는 6단계로 구성되며, 여러 메시지 유형이 함께 작동합니다.
 
-**Stage 1 — Initiation.** The payment originates in the customer-to-bank domain (pain.001). The debtor's bank receives the instruction and maps it into the interbank domain.
+**1단계 — 개시.** 결제는 고객-은행 영역(pain.001)에서 시작됩니다. 채무자의 은행이 지시를 수신하고 은행 간 영역으로 매핑합니다.
 
-**Stage 2 — Interbank instruction.** The debtor agent creates a pacs.008 and sends it to the next agent in the chain. In a serial flow, the pacs.008 travels hop by hop through intermediaries. In a cover flow, the pacs.008 goes directly from debtor agent to creditor agent, while a separate pacs.009 carries the funding leg through the correspondent chain.
+**2단계 — 은행 간 지시.** 채무자 에이전트가 pacs.008을 생성하여 체인의 다음 에이전트에게 전송합니다. 직렬 흐름에서 pacs.008은 중개기관을 통해 홉별로 이동합니다. 커버 흐름에서 pacs.008은 채무자 에이전트에서 채권자 에이전트로 직접 전달되고, 별도의 pacs.009가 환거래 체인을 통해 자금 조달 구간을 전달합니다.
 
-**Stage 3 — Status reporting.** At each hop, the receiving agent may return a pacs.002 confirming acceptance (ACCP/ACSP/ACSC), rejection (RJCT), or pending status (PDNG). In CBPR+, pacs.002 is mandatory for all payment status communication.
+**3단계 — 상태 보고.** 각 홉에서 수취 에이전트는 수락(ACCP/ACSP/ACSC), 거부(RJCT), 대기 상태(PDNG)를 확인하는 pacs.002를 반환할 수 있습니다. CBPR+에서는 모든 결제 상태 통신에 pacs.002가 필수입니다.
 
-**Stage 4 — Settlement.** Settlement occurs through a clearing system (CLRG), on correspondent accounts (INDA/INGA), or via a cover payment (COVE). The interbank settlement date and amount control when and how much settles.
+**4단계 — 결제.** 결제는 청산 시스템(CLRG), 환거래 계좌(INDA/INGA), 커버 결제(COVE)를 통해 이루어집니다. 은행 간 결제 날짜와 금액이 결제 시기와 규모를 결정합니다.
 
-**Stage 5 — Credit to beneficiary.** The creditor agent credits the beneficiary and may send a customer notification.
+**5단계 — 수취인 입금.** 채권자 에이전트가 수취인에게 입금하고 고객 통지를 발송할 수 있습니다.
 
-**Stage 6 — Exception handling.** If the beneficiary cannot be credited post-settlement, pacs.004 returns funds back through the chain. If the originator discovers an error or fraud, pacs.007 goes forward through the chain. If status is unknown, pacs.028 queries the next agent and the answer returns via pacs.002.
+**6단계 — 예외 처리.** 결제 완료 후 수취인에게 입금할 수 없는 경우, pacs.004가 체인을 통해 자금을 되돌려 보냅니다. 송금인이 오류 또는 사기를 발견한 경우, pacs.007이 체인을 따라 앞으로 전송됩니다. 상태를 알 수 없는 경우, pacs.028이 다음 에이전트에게 조회하고 응답은 pacs.002를 통해 돌아옵니다.
 
-### Serial method flow
+### 직렬 방식 흐름
 
 ```text
 Debtor Agent --(pacs.008)--> Intermediary Agent
@@ -36,50 +36,50 @@ Creditor Agent --(pacs.002)--> Intermediary Agent [status]
 Creditor Agent --> Creditor [credit notification]
 ```
 
-### Cover method flow
+### 커버 방식 흐름
 
 ```text
 Debtor Agent --(pacs.008)--> Creditor Agent [direct, with customer data]
 Debtor Agent --(pacs.009)--> Cover Bank --(pacs.009)--> Creditor Agent [funding leg]
 ```
 
-## XML structure of pacs.008
+## pacs.008의 XML 구조
 
-pacs.008 has two main building blocks: the Group Header (GrpHdr) and Credit Transfer Transaction Information (CdtTrfTxInf).
+pacs.008은 두 가지 주요 구성 요소로 이루어집니다: Group Header(GrpHdr)와 Credit Transfer Transaction Information(CdtTrfTxInf).
 
-### Group Header (GrpHdr)
+### Group Header(GrpHdr)
 
-The Group Header appears exactly once per message and contains:
+Group Header는 메시지당 정확히 한 번 나타나며 다음을 포함합니다:
 
-- **MsgId** — Unique message identifier assigned by the sending agent. Max 35 characters, must be unique per sender.
-- **CreDtTm** — Creation timestamp in ISO 8601 format.
-- **NbOfTxs** — Count of individual transactions in the message.
-- **SttlmInf** — Settlement information including the settlement method (SttlmMtd) and optionally the clearing system and settlement account.
-- **IntrBkSttlmDt** — Date on which interbank settlement occurs.
-- **PmtTpInf** — Payment type information including priority, service level, local instrument, and category purpose.
+- **MsgId** — 송신 에이전트가 할당하는 고유 메시지 식별자. 최대 35자, 송신자별로 고유해야 합니다.
+- **CreDtTm** — ISO 8601 형식의 생성 타임스탬프.
+- **NbOfTxs** — 메시지 내 개별 거래 수.
+- **SttlmInf** — 결제 방법(SttlmMtd)과 선택적으로 청산 시스템 및 결제 계좌를 포함하는 결제 정보.
+- **IntrBkSttlmDt** — 은행 간 결제가 이루어지는 날짜.
+- **PmtTpInf** — 우선순위, 서비스 수준, 현지 수단, 분류 목적을 포함하는 결제 유형 정보.
 
-### Credit Transfer Transaction Information (CdtTrfTxInf)
+### Credit Transfer Transaction Information(CdtTrfTxInf)
 
-Each transaction carries:
+각 거래는 다음을 포함합니다:
 
-- **PmtId** — Payment identifiers: InstrId, EndToEndId, TxId, and UETR.
-- **IntrBkSttlmAmt** — Interbank settlement amount with currency code.
-- **InstdAmt** — Original instructed amount (may differ from settlement amount due to FX).
-- **ChrgBr** — Charge bearer code (DEBT, CRED, SHAR, or SLEV).
-- **Dbtr / DbtrAcct / DbtrAgt** — Debtor name, address, identification, account, and agent.
-- **Cdtr / CdtrAcct / CdtrAgt** — Creditor name, address, identification, account, and agent.
-- **IntrmyAgt1 / 2 / 3** — Up to three intermediary agents in the chain.
-- **RmtInf** — Remittance information, either unstructured (free text) or structured (document references, amounts, dates).
-- **Purp** — Structured purpose code.
-- **RgltryRptg** — Regulatory reporting details.
+- **PmtId** — 결제 식별자: InstrId, EndToEndId, TxId, UETR.
+- **IntrBkSttlmAmt** — 통화 코드가 포함된 은행 간 결제 금액.
+- **InstdAmt** — 원래 지시 금액(환율로 인해 결제 금액과 다를 수 있음).
+- **ChrgBr** — 수수료 부담 코드(DEBT, CRED, SHAR 또는 SLEV).
+- **Dbtr / DbtrAcct / DbtrAgt** — 채무자 이름, 주소, 식별, 계좌 및 에이전트.
+- **Cdtr / CdtrAcct / CdtrAgt** — 채권자 이름, 주소, 식별, 계좌 및 에이전트.
+- **IntrmyAgt1 / 2 / 3** — 체인 내 최대 3개의 중개 에이전트.
+- **RmtInf** — 송금 정보. 비구조화(자유 텍스트) 또는 구조화(문서 참조, 금액, 날짜).
+- **Purp** — 구조화된 목적 코드.
+- **RgltryRptg** — 규제 보고 세부 사항.
 
-## Payment identifiers
+## 결제 식별자
 
-pacs messages use several identifiers that serve different roles in the payment chain.
+pacs 메시지는 결제 체인에서 서로 다른 역할을 수행하는 여러 식별자를 사용합니다.
 
 <div class="api-fields-table" tabindex="0" aria-label="Payment identifiers">
   <table>
-    <caption>Payment identifiers and their roles</caption>
+    <caption>결제 식별자와 역할</caption>
     <colgroup>
       <col class="api-fields-table__col-field">
       <col class="api-fields-table__col-desc">
@@ -87,64 +87,64 @@ pacs messages use several identifiers that serve different roles in the payment 
     </colgroup>
     <thead>
       <tr>
-        <th scope="col">Identifier</th>
-        <th scope="col">Set by</th>
-        <th scope="col">Changes in chain?</th>
+        <th scope="col">식별자</th>
+        <th scope="col">설정 주체</th>
+        <th scope="col">체인에서 변경 여부</th>
       </tr>
     </thead>
     <tbody>
         <tr>
           <td class="api-fields-table__field"><strong>MsgId</strong></td>
-          <td class="api-fields-table__desc">Each sending agent</td>
-          <td class="api-fields-table__constraint">Yes — new per message</td>
+          <td class="api-fields-table__desc">각 송신 에이전트</td>
+          <td class="api-fields-table__constraint">예 — 메시지마다 신규 생성</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><strong>InstrId</strong></td>
-          <td class="api-fields-table__desc">Each instructing agent</td>
-          <td class="api-fields-table__constraint">Yes — may change per hop</td>
+          <td class="api-fields-table__desc">각 지시 에이전트</td>
+          <td class="api-fields-table__constraint">예 — 홉마다 변경 가능</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><strong>EndToEndId</strong></td>
-          <td class="api-fields-table__desc">Originator (debtor)</td>
-          <td class="api-fields-table__constraint">No — must not be altered</td>
+          <td class="api-fields-table__desc">송금인(채무자)</td>
+          <td class="api-fields-table__constraint">아니오 — 변경 불가</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><strong>TxId</strong></td>
-          <td class="api-fields-table__desc">First instructing agent</td>
-          <td class="api-fields-table__constraint">No — must not be altered</td>
+          <td class="api-fields-table__desc">최초 지시 에이전트</td>
+          <td class="api-fields-table__constraint">아니오 — 변경 불가</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><strong>UETR</strong></td>
-          <td class="api-fields-table__desc">Debtor agent</td>
-          <td class="api-fields-table__constraint">No — universal tracking</td>
+          <td class="api-fields-table__desc">채무자 에이전트</td>
+          <td class="api-fields-table__constraint">아니오 — 범용 추적</td>
         </tr>
     </tbody>
   </table>
 </div>
 
-## Settlement methods
+## 결제 방법
 
-The SttlmMtd element defines how interbank settlement occurs.
+SttlmMtd 요소는 은행 간 결제 방식을 정의합니다.
 
-- **CLRG** — Settlement through a clearing system such as TARGET2, EURO1, or CHIPS. Most common for domestic and regional clearing.
-- **INDA** — Settlement on the books of the instructed agent. The debtor agent holds a nostro account with the next agent. Typical for bilateral correspondent banking.
-- **INGA** — Settlement on the books of the instructing agent. The instructed agent holds a nostro account with the sending agent. Less common than INDA.
-- **COVE** — Settlement through a separate cover payment. A pacs.009 carries the funding leg while pacs.008 carries the customer data directly. Used in cross-border correspondent banking.
+- **CLRG** — TARGET2, EURO1, CHIPS와 같은 청산 시스템을 통한 결제. 국내 및 지역 청산에 가장 일반적입니다.
+- **INDA** — 피지시 에이전트의 장부에서 결제. 채무자 에이전트가 다음 에이전트에 nostro 계좌를 보유합니다. 양자 환거래에 일반적입니다.
+- **INGA** — 지시 에이전트의 장부에서 결제. 피지시 에이전트가 송신 에이전트에 nostro 계좌를 보유합니다. INDA보다 덜 일반적입니다.
+- **COVE** — 별도의 커버 결제를 통한 결제. pacs.009가 자금 조달 구간을 담당하고 pacs.008이 고객 데이터를 직접 전달합니다. 국경 간 환거래에 사용됩니다.
 
-## Charge bearer codes
+## 수수료 부담 코드
 
-The ChrgBr element specifies who bears the payment charges.
+ChrgBr 요소는 결제 수수료의 부담 주체를 지정합니다.
 
-- **DEBT** — Debtor bears all charges (MT103 equivalent: OUR). Creditor receives the full amount.
-- **CRED** — Creditor bears all charges (MT103 equivalent: BEN). Charges are deducted from the transfer.
-- **SHAR** — Charges are shared (MT103 equivalent: SHA). Each party pays their own agent's charges. Most common for cross-border payments.
-- **SLEV** — Charges follow the service level. Mandatory for SEPA. No deductions from the transfer amount.
+- **DEBT** — 채무자가 모든 수수료를 부담합니다(MT103 해당: OUR). 채권자가 전액을 수령합니다.
+- **CRED** — 채권자가 모든 수수료를 부담합니다(MT103 해당: BEN). 수수료가 이체 금액에서 공제됩니다.
+- **SHAR** — 수수료를 분담합니다(MT103 해당: SHA). 각 당사자가 자기 에이전트의 수수료를 부담합니다. 국경 간 결제에 가장 일반적입니다.
+- **SLEV** — 수수료는 서비스 수준을 따릅니다. SEPA에 필수입니다. 이체 금액에서 공제가 없습니다.
 
-## MT103 to pacs.008 field mapping
+## MT103에서 pacs.008로의 필드 매핑
 
 <div class="api-fields-table" tabindex="0" aria-label="MT103 to pacs.008 field mapping">
   <table>
-    <caption>Key field mapping from MT103 to pacs.008</caption>
+    <caption>MT103에서 pacs.008로의 주요 필드 매핑</caption>
     <colgroup>
       <col class="api-fields-table__col-field">
       <col class="api-fields-table__col-desc">
@@ -152,9 +152,9 @@ The ChrgBr element specifies who bears the payment charges.
     </colgroup>
     <thead>
       <tr>
-        <th scope="col">MT103 field</th>
-        <th scope="col">MT103 name</th>
-        <th scope="col">pacs.008 XML path</th>
+        <th scope="col">MT103 필드</th>
+        <th scope="col">MT103 명칭</th>
+        <th scope="col">pacs.008 XML 경로</th>
       </tr>
     </thead>
     <tbody>
@@ -174,39 +174,39 @@ The ChrgBr element specifies who bears the payment charges.
   </table>
 </div>
 
-## Status and reason codes
+## 상태 및 사유 코드
 
-### pacs.002 status codes
+### pacs.002 상태 코드
 
 <div class="api-fields-table" tabindex="0" aria-label="pacs.002 status codes">
   <table>
-    <caption>Transaction status codes in pacs.002</caption>
+    <caption>pacs.002의 거래 상태 코드</caption>
     <colgroup>
       <col class="api-fields-table__col-field">
       <col class="api-fields-table__col-desc">
     </colgroup>
     <thead>
       <tr>
-        <th scope="col">Code</th>
-        <th scope="col">Meaning</th>
+        <th scope="col">코드</th>
+        <th scope="col">의미</th>
       </tr>
     </thead>
     <tbody>
-        <tr><td class="api-fields-table__field"><code>ACCP</code></td><td class="api-fields-table__desc">Accepted — preceding checks passed</td></tr>
-        <tr><td class="api-fields-table__field"><code>ACSP</code></td><td class="api-fields-table__desc">Accepted — settlement in progress</td></tr>
-        <tr><td class="api-fields-table__field"><code>ACSC</code></td><td class="api-fields-table__desc">Accepted — settlement completed</td></tr>
-        <tr><td class="api-fields-table__field"><code>RCVD</code></td><td class="api-fields-table__desc">Received — not yet processed</td></tr>
-        <tr><td class="api-fields-table__field"><code>PDNG</code></td><td class="api-fields-table__desc">Pending — further processing needed</td></tr>
-        <tr><td class="api-fields-table__field"><code>RJCT</code></td><td class="api-fields-table__desc">Rejected — with reason code</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACCP</code></td><td class="api-fields-table__desc">수락 — 사전 검사 통과</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACSP</code></td><td class="api-fields-table__desc">수락 — 결제 진행 중</td></tr>
+        <tr><td class="api-fields-table__field"><code>ACSC</code></td><td class="api-fields-table__desc">수락 — 결제 완료</td></tr>
+        <tr><td class="api-fields-table__field"><code>RCVD</code></td><td class="api-fields-table__desc">수신 — 아직 처리되지 않음</td></tr>
+        <tr><td class="api-fields-table__field"><code>PDNG</code></td><td class="api-fields-table__desc">대기 — 추가 처리 필요</td></tr>
+        <tr><td class="api-fields-table__field"><code>RJCT</code></td><td class="api-fields-table__desc">거부 — 사유 코드 포함</td></tr>
     </tbody>
   </table>
 </div>
 
-### Common rejection and return reason codes
+### 일반적인 거부 및 반환 사유 코드
 
 <div class="api-fields-table" tabindex="0" aria-label="Common reason codes">
   <table>
-    <caption>Frequently used rejection and return reason codes</caption>
+    <caption>자주 사용되는 거부 및 반환 사유 코드</caption>
     <colgroup>
       <col class="api-fields-table__col-field">
       <col class="api-fields-table__col-desc">
@@ -214,32 +214,32 @@ The ChrgBr element specifies who bears the payment charges.
     </colgroup>
     <thead>
       <tr>
-        <th scope="col">Code</th>
-        <th scope="col">Name</th>
-        <th scope="col">Description</th>
+        <th scope="col">코드</th>
+        <th scope="col">명칭</th>
+        <th scope="col">설명</th>
       </tr>
     </thead>
     <tbody>
-        <tr><td class="api-fields-table__field"><code>AC01</code></td><td class="api-fields-table__desc">Incorrect account number</td><td class="api-fields-table__constraint">Account number is invalid or does not exist</td></tr>
-        <tr><td class="api-fields-table__field"><code>AC04</code></td><td class="api-fields-table__desc">Closed account</td><td class="api-fields-table__constraint">Account is closed</td></tr>
-        <tr><td class="api-fields-table__field"><code>AC06</code></td><td class="api-fields-table__desc">Blocked account</td><td class="api-fields-table__constraint">Account is blocked for transactions</td></tr>
-        <tr><td class="api-fields-table__field"><code>AM04</code></td><td class="api-fields-table__desc">Insufficient funds</td><td class="api-fields-table__constraint">Insufficient funds in debtor account</td></tr>
-        <tr><td class="api-fields-table__field"><code>AM05</code></td><td class="api-fields-table__desc">Duplication</td><td class="api-fields-table__constraint">Duplicate payment detected</td></tr>
-        <tr><td class="api-fields-table__field"><code>BE04</code></td><td class="api-fields-table__desc">Missing creditor address</td><td class="api-fields-table__constraint">Creditor address is missing or incomplete</td></tr>
-        <tr><td class="api-fields-table__field"><code>CUST</code></td><td class="api-fields-table__desc">Requested by customer</td><td class="api-fields-table__constraint">Return or rejection requested by the customer</td></tr>
-        <tr><td class="api-fields-table__field"><code>DUPL</code></td><td class="api-fields-table__desc">Duplicate payment</td><td class="api-fields-table__constraint">Duplicate payment identified</td></tr>
-        <tr><td class="api-fields-table__field"><code>FOCR</code></td><td class="api-fields-table__desc">Following cancellation</td><td class="api-fields-table__constraint">Following a cancellation request</td></tr>
-        <tr><td class="api-fields-table__field"><code>FR01</code></td><td class="api-fields-table__desc">Fraud</td><td class="api-fields-table__constraint">Suspected fraud</td></tr>
-        <tr><td class="api-fields-table__field"><code>RC01</code></td><td class="api-fields-table__desc">Incorrect BIC</td><td class="api-fields-table__constraint">BIC is incorrect or unknown</td></tr>
-        <tr><td class="api-fields-table__field"><code>RR03</code></td><td class="api-fields-table__desc">Missing creditor name/address</td><td class="api-fields-table__constraint">Creditor name or address data is missing</td></tr>
-        <tr><td class="api-fields-table__field"><code>TM01</code></td><td class="api-fields-table__desc">Cut-off time</td><td class="api-fields-table__constraint">Cut-off time has passed</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC01</code></td><td class="api-fields-table__desc">잘못된 계좌 번호</td><td class="api-fields-table__constraint">계좌 번호가 유효하지 않거나 존재하지 않음</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC04</code></td><td class="api-fields-table__desc">해지 계좌</td><td class="api-fields-table__constraint">계좌가 해지됨</td></tr>
+        <tr><td class="api-fields-table__field"><code>AC06</code></td><td class="api-fields-table__desc">차단 계좌</td><td class="api-fields-table__constraint">거래가 차단된 계좌</td></tr>
+        <tr><td class="api-fields-table__field"><code>AM04</code></td><td class="api-fields-table__desc">잔액 부족</td><td class="api-fields-table__constraint">채무자 계좌의 잔액 부족</td></tr>
+        <tr><td class="api-fields-table__field"><code>AM05</code></td><td class="api-fields-table__desc">중복</td><td class="api-fields-table__constraint">중복 결제 감지</td></tr>
+        <tr><td class="api-fields-table__field"><code>BE04</code></td><td class="api-fields-table__desc">채권자 주소 누락</td><td class="api-fields-table__constraint">채권자 주소가 누락되었거나 불완전함</td></tr>
+        <tr><td class="api-fields-table__field"><code>CUST</code></td><td class="api-fields-table__desc">고객 요청</td><td class="api-fields-table__constraint">고객이 요청한 반환 또는 거부</td></tr>
+        <tr><td class="api-fields-table__field"><code>DUPL</code></td><td class="api-fields-table__desc">중복 결제</td><td class="api-fields-table__constraint">중복 결제 확인</td></tr>
+        <tr><td class="api-fields-table__field"><code>FOCR</code></td><td class="api-fields-table__desc">취소 요청에 따른 처리</td><td class="api-fields-table__constraint">취소 요청에 따른 후속 처리</td></tr>
+        <tr><td class="api-fields-table__field"><code>FR01</code></td><td class="api-fields-table__desc">사기</td><td class="api-fields-table__constraint">사기 의심</td></tr>
+        <tr><td class="api-fields-table__field"><code>RC01</code></td><td class="api-fields-table__desc">잘못된 BIC</td><td class="api-fields-table__constraint">BIC가 잘못되었거나 알 수 없음</td></tr>
+        <tr><td class="api-fields-table__field"><code>RR03</code></td><td class="api-fields-table__desc">채권자 이름/주소 누락</td><td class="api-fields-table__constraint">채권자 이름 또는 주소 데이터 누락</td></tr>
+        <tr><td class="api-fields-table__field"><code>TM01</code></td><td class="api-fields-table__desc">마감 시간</td><td class="api-fields-table__constraint">마감 시간이 경과함</td></tr>
     </tbody>
   </table>
 </div>
 
-## Postal address format
+## 우편 주소 형식
 
-### Structured address
+### 구조화 주소
 
 ```xml
 <PstlAdr>
@@ -251,7 +251,7 @@ The ChrgBr element specifies who bears the payment charges.
 </PstlAdr>
 ```
 
-### Unstructured address (deprecated for CBPR+ after November 2026)
+### 비구조화 주소(2026년 11월 이후 CBPR+에서 사용 중단)
 
 ```xml
 <PstlAdr>
@@ -261,33 +261,33 @@ The ChrgBr element specifies who bears the payment charges.
 </PstlAdr>
 ```
 
-Key constraints: StrtNm max 70 characters (CBPR+), TwnNm max 35 characters (CBPR+), Ctry is ISO 3166-1 alpha-2, AdrLine max 70 characters per line and max 7 lines.
+주요 제약 사항: StrtNm 최대 70자(CBPR+), TwnNm 최대 35자(CBPR+), Ctry는 ISO 3166-1 alpha-2, AdrLine은 라인당 최대 70자, 최대 7개 라인.
 
-## Party identification
+## 당사자 식별
 
-Parties in pacs.008 support multiple identification methods:
+pacs.008의 당사자는 여러 식별 방법을 지원합니다:
 
-- **BIC** — Business Identifier Code per ISO 9362. 8 or 11 characters (BBBBCCLL or BBBBCCLLBBB). Used in FinInstnId/BICFI for agents and OrgId/AnyBIC for parties.
-- **LEI** — Legal Entity Identifier per ISO 17442. 20 alphanumeric characters. Appears in OrgId/LEI for parties and FinInstnId/LEI for agents. Improves entity disambiguation for regulatory reporting.
-- **IBAN** — International Bank Account Number per ISO 13616. Used in DbtrAcct/Id/IBAN and CdtrAcct/Id/IBAN.
-- **Organisation IDs** — Other scheme-based identifiers (tax ID, DUNS, customer number) via OrgId/Othr with a scheme name code.
-- **Private IDs** — For natural persons: date and place of birth, passport (CCPT), national ID (NIDN), or driver's licence (DRLC) via PrvtId.
+- **BIC** — ISO 9362에 따른 Business Identifier Code. 8자 또는 11자(BBBBCCLL 또는 BBBBCCLLBBB). 에이전트의 FinInstnId/BICFI와 당사자의 OrgId/AnyBIC에 사용됩니다.
+- **LEI** — ISO 17442에 따른 Legal Entity Identifier. 영숫자 20자. 당사자의 OrgId/LEI와 에이전트의 FinInstnId/LEI에 나타납니다. 규제 보고를 위한 엔티티 구분을 개선합니다.
+- **IBAN** — ISO 13616에 따른 International Bank Account Number. DbtrAcct/Id/IBAN 및 CdtrAcct/Id/IBAN에 사용됩니다.
+- **조직 ID** — 기타 체계 기반 식별자(세금 ID, DUNS, 고객 번호)로 OrgId/Othr에 체계명 코드와 함께 사용됩니다.
+- **개인 ID** — 자연인의 경우: 생년월일 및 출생지, 여권(CCPT), 주민등록번호(NIDN), 운전면허증(DRLC)으로 PrvtId에 사용됩니다.
 
-## Remittance information
+## 송금 정보
 
-Remittance data in pacs.008 uses the RmtInf element with two forms:
+pacs.008의 송금 데이터는 RmtInf 요소를 사용하며 두 가지 형태가 있습니다:
 
-**Unstructured** — Free text up to 140 characters per occurrence. Simple but limits automated reconciliation.
+**비구조화** — 발생당 최대 140자의 자유 텍스트. 간단하지만 자동 대사에 한계가 있습니다.
 
-**Structured** — Document references with type codes, numbers, dates, and amounts. Common document types: CINV (commercial invoice), CREN (credit note), SOAC (statement of account). Supports ISO 11649 creditor references (RF + check digits + reference) via CdtrRefInf. Enables automated invoice matching and multi-invoice payments.
+**구조화** — 유형 코드, 번호, 날짜, 금액이 포함된 문서 참조. 일반적인 문서 유형: CINV(상업 송장), CREN(대변 메모), SOAC(계정 명세서). CdtrRefInf를 통한 ISO 11649 채권자 참조(RF + 검사 숫자 + 참조)를 지원합니다. 자동 송장 매칭과 다중 송장 결제가 가능합니다.
 
-## UETR and gpi tracking
+## UETR 및 gpi 추적
 
-UETR (Unique End-to-End Transaction Reference) is a UUID v4 generated by the debtor agent. It appears in PmtId/UETR across pacs.008, pacs.009, pacs.002, pacs.004, pacs.007, and pacs.028. It must remain unchanged throughout the entire payment chain.
+UETR(Unique End-to-End Transaction Reference)는 채무자 에이전트가 생성하는 UUID v4입니다. pacs.008, pacs.009, pacs.002, pacs.004, pacs.007, pacs.028에 걸쳐 PmtId/UETR에 나타납니다. 전체 결제 체인에서 변경 없이 유지되어야 합니다.
 
-SWIFT gpi uses the UETR to track payments through a cloud-based Tracker database. Each agent confirms receipt and processing, enabling end-to-end visibility. The gpi SLA for cross-border payments targets same-day credit to the creditor account.
+SWIFT gpi는 UETR을 사용하여 클라우드 기반 Tracker 데이터베이스를 통해 결제를 추적합니다. 각 에이전트가 수신 및 처리를 확인하여 종단 간 가시성이 확보됩니다. 국경 간 결제에 대한 gpi SLA는 채권자 계좌에 당일 입금을 목표로 합니다.
 
-## References
+## 참고 자료
 
 - [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions)
 - [ISO 20022 external code sets](https://www.iso20022.org/external_code_list.page)

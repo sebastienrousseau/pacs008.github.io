@@ -12,161 +12,161 @@ Key terms, abbreviations, and technical concepts used across ISO 20022 pacs mess
 
 ## A
 
-**ACH** — Automated Clearing House. A network that processes batched electronic payments between financial institutions.
+**ACH** — 自动清算所。处理金融机构之间批量电子支付的网络。
 
-**AdrLine** — Address Line. A free-text address field in ISO 20022 postal address structures. Up to 7 lines of 70 characters each. Being replaced by structured address elements for CBPR+ by November 2026.
+**AdrLine** — 地址行。ISO 20022 邮政地址结构中的自由文本地址字段。最多 7 行，每行 70 个字符。2026 年 11 月前将被 CBPR+ 结构化地址元素取代。
 
-**ACCP** — Accepted Customer Profile. A pacs.002 status code indicating that preceding checks (syntax, customer profile) have passed.
+**ACCP** — 客户档案已接受。pacs.002 状态码，表示前置检查（语法、客户档案）已通过。
 
-**ACSC** — Accepted Settlement Completed. A pacs.002 status code confirming that settlement on the debtor's account has been completed.
+**ACSC** — 结算已完成。pacs.002 状态码，确认付款方账户的结算已完成。
 
-**ACSP** — Accepted Settlement in Process. A pacs.002 status code indicating all checks passed and settlement is in progress.
+**ACSP** — 结算进行中。pacs.002 状态码，表示所有检查已通过且结算正在进行。
 
 ## B
 
-**BAH** — Business Application Header (head.001). A standardised envelope that wraps ISO 20022 business messages for transport via SWIFT. Contains routing information, message definition identifier, and sender/receiver BICs.
+**BAH** — 业务应用头（head.001）。标准化信封，封装 ISO 20022 业务报文以通过 SWIFT 传输。包含路由信息、报文定义标识和发送方/接收方 BIC。
 
-**BIC** — Business Identifier Code (ISO 9362). An 8 or 11 character code that uniquely identifies a financial institution. Format: BBBBCCLL (bank code + country + location) with optional BBB branch code.
+**BIC** — 业务标识代码（ISO 9362）。8 或 11 个字符的代码，唯一标识一家金融机构。格式：BBBBCCLL（银行代码 + 国家 + 位置），可选 BBB 分支代码。
 
 ## C
 
-**CBPR+** — Cross-Border Payments and Reporting Plus. SWIFT's programme for migrating cross-border payment messaging from MT to ISO 20022. Went live March 2023.
+**CBPR+** — 跨境支付与报告 Plus。SWIFT 将跨境支付报文从 MT 迁移到 ISO 20022 的计划。2023 年 3 月上线。
 
-**CdtTrfTxInf** — Credit Transfer Transaction Information. The main transaction-level building block in pacs.008 containing payment details, parties, amounts, and remittance information.
+**CdtTrfTxInf** — 贷记转账交易信息。pacs.008 中交易级别的主要构建块，包含支付详情、参与方、金额和汇款信息。
 
-**ChrgBr** — Charge Bearer. Specifies who pays the transaction charges. Values: DEBT (debtor), CRED (creditor), SHAR (shared), SLEV (service level, SEPA only).
+**ChrgBr** — 费用承担方。指定谁支付交易费用。取值：DEBT（付款方）、CRED（收款方）、SHAR（共担）、SLEV（服务级别，仅 SEPA）。
 
-**CLRG** — Clearing system settlement. A settlement method where funds move through a clearing system such as TARGET2, EURO1, or CHIPS.
+**CLRG** — 清算系统结算。通过 TARGET2、EURO1 或 CHIPS 等清算系统进行资金结算的方式。
 
-**COVE** — Cover method settlement. A settlement method where a separate pacs.009 cover payment handles the funding between correspondents while pacs.008 carries the customer data directly.
+**COVE** — 备付方式结算。通过独立的 pacs.009 备付款处理代理行间融资，同时 pacs.008 直接承载客户数据的结算方式。
 
-**CSM** — Clearing and Settlement Mechanism. An infrastructure that processes and settles payment instructions between participating institutions.
+**CSM** — 清算和结算机制。处理和结算参与机构间支付指令的基础设施。
 
 ## D
 
-**Dbtr** — Debtor. The party that owes funds and initiates the payment. In pacs.008, the Dbtr element carries the debtor's name, postal address, identification, and country of residence.
+**Dbtr** — 付款方。欠款并发起支付的一方。在 pacs.008 中，Dbtr 元素包含付款方姓名、邮政地址、标识和居住国。
 
-**DbtrAgt** — Debtor Agent. The financial institution that services the debtor's account and sends the pacs.008 instruction.
+**DbtrAgt** — 付款方代理。服务付款方账户并发送 pacs.008 指令的金融机构。
 
 ## E
 
-**E2E ID** — End-to-End Identification (EndToEndId). A reference assigned by the originator that must remain unchanged across all agents in the payment chain. Used for customer-level traceability.
+**E2E ID** — 端到端标识（EndToEndId）。由发起方分配的参考号，在支付链中所有代理之间必须保持不变。用于客户级别的可追溯性。
 
-**EPC** — European Payments Council. The body that manages SEPA payment scheme rulebooks for credit transfers and direct debits.
+**EPC** — 欧洲支付委员会。管理 SEPA 贷记转账和直接借记支付方案规则手册的机构。
 
 ## F
 
-**FI** — Financial Institution. A bank or other institution that participates in payment clearing and settlement.
+**FI** — 金融机构。参与支付清算和结算的银行或其他机构。
 
-**FIToFI** — Financial Institution to Financial Institution. Describes the interbank domain where pacs messages operate.
+**FIToFI** — 金融机构到金融机构。描述 pacs 报文运作的银行间域。
 
 ## G
 
-**gpi** — Global Payments Innovation. SWIFT's initiative for faster, transparent cross-border payments. Uses UETR for end-to-end tracking via a cloud-based Tracker.
+**gpi** — 全球支付创新。SWIFT 推动更快速、更透明的跨境支付的举措。通过云端 Tracker 使用 UETR 进行端到端追踪。
 
-**GrpHdr** — Group Header. The message-level metadata block in pacs messages. Contains MsgId, CreDtTm, NbOfTxs, settlement information, and payment type information.
+**GrpHdr** — Group Header。pacs 报文中的报文级别元数据块。包含 MsgId、CreDtTm、NbOfTxs、结算信息和支付类型信息。
 
 ## H
 
-**Hybrid address** — A postal address format that combines structured elements (StrtNm, TwnNm, Ctry) with unstructured AdrLine elements. Permitted during the transition period before the November 2026 structured address deadline.
+**Hybrid address** — 混合地址。结合结构化元素（StrtNm、TwnNm、Ctry）和非结构化 AdrLine 元素的邮政地址格式。在 2026 年 11 月结构化地址截止日期之前的过渡期内允许使用。
 
 ## I
 
-**IBAN** — International Bank Account Number (ISO 13616). A standardised account number format used for cross-border and domestic payments. Validated using ISO 7064 Mod 97-10 checksum.
+**IBAN** — 国际银行账号（ISO 13616）。用于跨境和境内支付的标准化账号格式。使用 ISO 7064 Mod 97-10 校验和进行验证。
 
-**INDA** — Instructed Agent settlement. A settlement method where funds settle on the books of the instructed agent, where the debtor agent holds a nostro account.
+**INDA** — 被指令代理结算。在被指令代理的账簿上结算的方式，付款方代理在该代理处持有 nostro 账户。
 
-**INGA** — Instructing Agent settlement. A settlement method where funds settle on the books of the instructing agent, where the instructed agent holds a nostro account.
+**INGA** — 指令代理结算。在指令代理的账簿上结算的方式，被指令代理在该代理处持有 nostro 账户。
 
-**InstrId** — Instruction Identification. A point-to-point reference between adjacent agents in the payment chain. May change at each hop.
+**InstrId** — 指令标识。支付链中相邻代理之间的点对点参考。每一跳可能更新。
 
-**IntrBkSttlmAmt** — Interbank Settlement Amount. The amount that settles between the instructing and instructed agents, in the settlement currency.
+**IntrBkSttlmAmt** — 银行间结算金额。指令代理和被指令代理之间以结算货币结算的金额。
 
-**ISO 20022** — An international standard for electronic data interchange between financial institutions. Defines a common data model and XML-based message formats for payments, securities, trade finance, and other financial domains.
+**ISO 20022** — 金融机构之间电子数据交换的国际标准。为支付、证券、贸易融资和其他金融领域定义通用数据模型和基于 XML 的报文格式。
 
 ## L
 
-**LEI** — Legal Entity Identifier (ISO 17442). A 20-character alphanumeric code that uniquely identifies legal entities participating in financial transactions. Used in OrgId/LEI for parties and FinInstnId/LEI for agents.
+**LEI** — 法人实体标识（ISO 17442）。20 位字母数字代码，唯一标识参与金融交易的法人实体。用于参与方的 OrgId/LEI 和代理的 FinInstnId/LEI。
 
 ## M
 
-**MsgId** — Message Identification. A unique identifier for the message envelope, assigned by the sending agent. Changes at each hop in the payment chain.
+**MsgId** — 报文标识。报文信封的唯一标识，由发送代理分配。在支付链的每一跳更新。
 
-**MT** — Message Type. SWIFT's legacy message format (e.g., MT103 for customer credit transfers, MT202 for financial institution transfers). Being replaced by ISO 20022 MX messages.
+**MT** — 报文类型。SWIFT 的传统报文格式（例如 MT103 用于客户贷记转账，MT202 用于金融机构转账）。正被 ISO 20022 MX 报文取代。
 
-**MX** — The ISO 20022 XML message format used by SWIFT. MX messages replace MT messages for cross-border payments under CBPR+.
+**MX** — SWIFT 使用的 ISO 20022 XML 报文格式。MX 报文在 CBPR+ 下取代 MT 报文用于跨境支付。
 
 ## N
 
-**NbOfTxs** — Number of Transactions. A Group Header element indicating how many individual transactions are contained in the message.
+**NbOfTxs** — 交易笔数。Group Header 中的元素，表示报文包含多少笔单独交易。
 
 ## P
 
-**pacs** — Payments Clearing and Settlement. The ISO 20022 business domain covering interbank payment messages.
+**pacs** — 支付清算和结算。涵盖银行间支付报文的 ISO 20022 业务域。
 
-**pacs.002** — FI to FI Payment Status Report. Reports the processing status (accepted, rejected, pending, settled) of an earlier payment instruction.
+**pacs.002** — 金融机构间支付状态报告。报告早期支付指令的处理状态（已接受、已拒绝、待处理、已结算）。
 
-**pacs.003** — FI to FI Customer Direct Debit. Carries a customer direct debit instruction between banks for fund collection.
+**pacs.003** — 金融机构间客户直接借记。在银行间承载客户直接借记指令，用于资金收取。
 
-**pacs.004** — Payment Return. Returns settled funds back through the payment chain when a payment cannot be applied.
+**pacs.004** — 支付退回。当支付无法入账时，将已结算的资金沿支付链返回。
 
-**pacs.007** — FI to FI Payment Reversal. Reverses a payment instruction from the original sender forward through the chain.
+**pacs.007** — 金融机构间支付撤销。从原始发送方沿链条正向撤销支付指令。
 
-**pacs.008** — FI to FI Customer Credit Transfer. The primary interbank message for customer credit transfers. Replaces MT103.
+**pacs.008** — 金融机构间客户贷记转账。客户贷记转账的主要银行间报文。取代 MT103。
 
-**pacs.009** — Financial Institution Credit Transfer. Moves funds between banks on their own behalf. Covers funding, cover payments, and liquidity management. Replaces MT202/MT202COV.
+**pacs.009** — 金融机构贷记转账。银行为自身账户之间转移资金。涵盖融资、备付款和流动性管理。取代 MT202/MT202COV。
 
-**pacs.010** — Financial Institution Direct Debit. Lets one bank debit another bank's own account under a bilateral agreement.
+**pacs.010** — 金融机构直接借记。允许一家银行根据双边协议对另一家银行的自有账户进行借记。
 
-**pacs.028** — FI to FI Payment Status Request. Actively requests the status of an earlier payment when no pacs.002 update has arrived.
+**pacs.028** — 金融机构间支付状态请求。当未收到 pacs.002 更新时，主动请求早期支付的状态。
 
-**pain** — Payment Initiation. The ISO 20022 business domain covering customer-to-bank messages (e.g., pain.001 for credit transfer initiation).
+**pain** — 支付发起。涵盖客户到银行报文的 ISO 20022 业务域（例如 pain.001 用于贷记转账发起）。
 
-**PII** — Personally Identifiable Information. Data that can identify an individual. pacs008 masks PII in structured logs.
+**PII** — 个人可识别信息。可以识别个人身份的数据。pacs008 在结构化日志中对 PII 进行脱敏处理。
 
-**PstlAdr** — Postal Address. The address structure used for parties in pacs messages. Supports structured (StrtNm, TwnNm, Ctry) and unstructured (AdrLine) formats.
+**PstlAdr** — 邮政地址。pacs 报文中参与方使用的地址结构。支持结构化（StrtNm、TwnNm、Ctry）和非结构化（AdrLine）格式。
 
 ## R
 
-**RJCT** — Rejected. A pacs.002 status code indicating the payment has been rejected.
+**RJCT** — 已拒绝。pacs.002 状态码，表示支付已被拒绝。
 
-**RmtInf** — Remittance Information. Payment reference data carried in pacs.008. Supports unstructured (free text, max 140 chars) and structured (document references, amounts, creditor references) formats.
+**RmtInf** — 汇款信息。pacs.008 中承载的支付参考数据。支持非结构化（自由文本，最大 140 字符）和结构化（单据参考、金额、收款方参考）格式。
 
-**RTGS** — Real-Time Gross Settlement. A payment system where transactions settle individually and in real time (e.g., TARGET2, Fedwire, CHAPS).
+**RTGS** — 实时全额结算。交易逐笔实时结算的支付系统（例如 TARGET2、Fedwire、CHAPS）。
 
 ## S
 
-**SCT** — SEPA Credit Transfer. The euro credit transfer scheme managed by the EPC, using pacs.008.
+**SCT** — SEPA 贷记转账。由 EPC 管理的欧元贷记转账方案，使用 pacs.008。
 
-**SCT Inst** — SEPA Instant Credit Transfer. The instant payment variant of SCT, settling in under 10 seconds.
+**SCT Inst** — SEPA 即时贷记转账。SCT 的即时支付变体，10 秒内完成结算。
 
-**SDD** — SEPA Direct Debit. The euro direct debit scheme managed by the EPC, using pacs.003.
+**SDD** — SEPA 直接借记。由 EPC 管理的欧元直接借记方案，使用 pacs.003。
 
-**SEPA** — Single Euro Payments Area. A payment integration initiative covering euro-denominated credit transfers, direct debits, and card payments across 36 European countries.
+**SEPA** — 单一欧元支付区。涵盖 36 个欧洲国家欧元计价贷记转账、直接借记和卡支付的支付整合倡议。
 
-**SLEV** — Service Level. A charge bearer code mandatory for SEPA. Means charges follow scheme rules with no deductions from the transfer amount.
+**SLEV** — 服务级别。SEPA 强制使用的费用承担代码。意为费用遵循方案规则，不从转账金额中扣除。
 
-**STP** — Straight-Through Processing. Automated end-to-end payment processing without manual intervention.
+**STP** — 直通处理。端到端自动化支付处理，无需人工干预。
 
-**SttlmMtd** — Settlement Method. Defines how interbank settlement occurs: CLRG (clearing system), INDA (instructed agent), INGA (instructing agent), or COVE (cover payment).
+**SttlmMtd** — 结算方式。定义银行间结算如何进行：CLRG（清算系统）、INDA（被指令代理）、INGA（指令代理）或 COVE（备付款）。
 
 ## T
 
-**TxId** — Transaction Identification. An interbank reference assigned by the first instructing agent. Must not be altered by subsequent agents.
+**TxId** — 交易标识。由第一个指令代理分配的银行间参考。后续代理不得修改。
 
 ## U
 
-**UETR** — Unique End-to-End Transaction Reference. A UUID v4 identifier generated by the debtor agent and carried unchanged across all legs of a payment for gpi tracking.
+**UETR** — 唯一端到端交易参考。由付款方代理生成的 UUID v4 标识符，在支付的所有环节中保持不变，用于 gpi 追踪。
 
 ## X
 
-**XSD** — XML Schema Definition. The formal schema that defines the structure, elements, and data types of an ISO 20022 XML message.
+**XSD** — XML 架构定义。定义 ISO 20022 XML 报文结构、元素和数据类型的正式架构。
 
-**XXE** — XML External Entity. A security vulnerability in XML parsing. pacs008 prevents XXE attacks using defusedxml.
+**XXE** — XML 外部实体。XML 解析中的安全漏洞。pacs008 使用 defusedxml 防止 XXE 攻击。
 
-## References
+## 参考资料
 
-- [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions)
-- [ISO 20022 external code sets](https://www.iso20022.org/external_code_list.page)
-- [SWIFT CBPR+ standards programme](https://www.swift.com/standards/iso-20022)
+- [ISO 20022 报文定义目录](https://www.iso20022.org/iso-20022-message-definitions)
+- [ISO 20022 外部代码集](https://www.iso20022.org/external_code_list.page)
+- [SWIFT CBPR+ 标准计划](https://www.swift.com/standards/iso-20022)
 
