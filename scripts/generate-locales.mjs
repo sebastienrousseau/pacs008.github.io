@@ -14126,6 +14126,907 @@ ${t.termsChangesText}
 ${t.termsContactText}
 `;
   }
+  if (localeKey === "de") {
+    return `# ${t.termsTitle}
+
+${t.termsIntro}
+
+## ${t.termsIpTitle}
+
+${t.termsIpText}
+
+## Open-Source-Lizenz
+
+Das pacs008-Python-Toolkit steht unter der MIT-Lizenz. Der vollständige Lizenztext ist im [Projekt-Repository](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE) verfügbar. Die MIT-Lizenz erlaubt Nutzung, Modifikation und Weiterverteilung mit minimalen Einschränkungen. Die Namensnennung des Originalautors ist erforderlich. Die Dokumentation auf pacs008.com unterliegt derselben Lizenz, sofern nicht anders angegeben.
+
+## Zulässige Nutzung
+
+pacs008.com und das pacs008-Toolkit sind ausschließlich für rechtmäßige Zwecke im Zusammenhang mit der Erzeugung, Validierung und Referenzierung von ISO 20022-Zahlungsnachrichten vorgesehen. Automatisiertes Scraping, Denial-of-Service-Angriffe und jede Nutzung, die die Verfügbarkeit der Website oder des Repositorys beeinträchtigt, sind untersagt. Die Verwendung des Toolkits zur Erzeugung betrügerischer oder nicht konformer Zahlungsnachrichten ist strikt verboten.
+
+## Haftungsausschluss für Zahlungsabwicklung
+
+Das pacs008-Toolkit erzeugt ISO 20022 XML-Nachrichten auf Grundlage der vom Benutzer bereitgestellten Eingabedaten. Das Toolkit überträgt, leitet oder verrechnet keine Zahlungen. Der Benutzer trägt die alleinige Verantwortung für die Richtigkeit, Vollständigkeit und regulatorische Konformität aller Eingabedaten und erzeugten Nachrichten. Erzeugte XML-Dateien müssen vor der Übermittlung an ein Zahlungsnetzwerk anhand schemaspezifischer Regeln und der Anforderungen der Gegenpartei validiert werden. pacs008.com und seine Betreiber übernehmen keine Haftung für Zahlungsausfälle, regulatorische Sanktionen oder finanzielle Verluste, die aus der Verwendung erzeugter Nachrichten entstehen.
+
+## Datenrichtigkeit
+
+Die Qualität der erzeugten Zahlungsnachrichten hängt vollständig von der Qualität der Eingabedaten ab. Das Toolkit validiert Struktur und Format, überprüft jedoch nicht die sachliche Richtigkeit von Parteinamen, Kontonummern oder Routing-Codes. Der Benutzer ist dafür verantwortlich, dass alle Eingabedaten korrekt, aktuell und konform mit den geltenden Vorschriften sind.
+
+## API- und Toolkit-Nutzung
+
+Die REST API und das PyPI-Paket dienen der Integration in Zahlungs-Workflows, Test-Pipelines und Entwicklungsumgebungen. Es gilt der Grundsatz der fairen Nutzung. Anhaltend hohe Anfragevolumen, die den Dienst für andere Benutzer beeinträchtigen, können gedrosselt oder blockiert werden. Eine Verfügbarkeitsgarantie besteht nicht. Die API wird auf Best-Effort-Basis bereitgestellt.
+
+## ${t.termsLinksTitle}
+
+${t.termsLinksText}
+
+## ${t.termsLiabilityTitle}
+
+${t.termsLiabilityText}
+
+## ${t.termsGoverningTitle}
+
+${t.termsGoverningText}
+
+## ${t.termsChangesTitle}
+
+${t.termsChangesText}
+
+## ${t.termsContactTitle}
+
+${t.termsContactText}
+`;
+  }
+  if (localeKey === "es") {
+    return `# ${t.termsTitle}
+
+${t.termsIntro}
+
+## ${t.termsIpTitle}
+
+${t.termsIpText}
+
+## Licencia de código abierto
+
+El toolkit pacs008 para Python se publica bajo la licencia MIT. El texto completo de la licencia está disponible en el [repositorio del proyecto](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). La licencia MIT permite el uso, la modificación y la distribución con restricciones mínimas. Se requiere la atribución al autor original. La documentación en pacs008.com se ofrece bajo la misma licencia salvo que se indique lo contrario.
+
+## Uso aceptable
+
+pacs008.com y el toolkit pacs008 están destinados exclusivamente a fines lícitos relacionados con la generación, validación y consulta de mensajes de pago ISO 20022. Quedan prohibidos el scraping automatizado, los ataques de denegación de servicio y cualquier uso que altere la disponibilidad del sitio o del repositorio. El uso del toolkit para generar mensajes de pago fraudulentos o no conformes está estrictamente prohibido.
+
+## Aviso sobre procesamiento de pagos
+
+El toolkit pacs008 genera mensajes XML ISO 20022 a partir de los datos de entrada proporcionados por el usuario. El toolkit no transmite, enruta ni liquida pagos. El usuario es el único responsable de la exactitud, integridad y cumplimiento normativo de todos los datos de entrada y los mensajes generados. Los archivos XML generados deben validarse conforme a las reglas específicas del esquema y a los requisitos de la contraparte antes de enviarse a cualquier red de pagos. pacs008.com y sus mantenedores no aceptan responsabilidad alguna por fallos en los pagos, sanciones regulatorias o pérdidas financieras derivadas del uso de los mensajes generados.
+
+## Exactitud de los datos
+
+La calidad de los mensajes de pago generados depende íntegramente de la calidad de los datos de entrada. El toolkit valida la estructura y el formato, pero no verifica la exactitud factual de los nombres de las partes, los números de cuenta ni los códigos de enrutamiento. El usuario es responsable de garantizar que todos los datos de entrada sean correctos, estén actualizados y cumplan con la normativa aplicable.
+
+## Uso de la API y el toolkit
+
+La API REST y el paquete PyPI se proporcionan para su integración en flujos de trabajo de pagos, pipelines de pruebas y entornos de desarrollo. Se aplica el principio de uso justo. Las solicitudes de gran volumen sostenidas que degraden el servicio para otros usuarios podrán ser limitadas o bloqueadas. No se ofrece garantía de disponibilidad. La API se proporciona con el máximo esfuerzo posible.
+
+## ${t.termsLinksTitle}
+
+${t.termsLinksText}
+
+## ${t.termsLiabilityTitle}
+
+${t.termsLiabilityText}
+
+## ${t.termsGoverningTitle}
+
+${t.termsGoverningText}
+
+## ${t.termsChangesTitle}
+
+${t.termsChangesText}
+
+## ${t.termsContactTitle}
+
+${t.termsContactText}
+`;
+  }
+  if (localeKey === "fr") {
+    return `# ${t.termsTitle}
+
+${t.termsIntro}
+
+## ${t.termsIpTitle}
+
+${t.termsIpText}
+
+## Licence open source
+
+Le toolkit Python pacs008 est publié sous licence MIT. Le texte intégral de la licence est disponible dans le [dépôt du projet](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). La licence MIT autorise l'utilisation, la modification et la redistribution avec un minimum de restrictions. L'attribution à l'auteur original est requise. La documentation sur pacs008.com est fournie sous la même licence, sauf mention contraire.
+
+## Utilisation acceptable
+
+pacs008.com et le toolkit pacs008 sont destinés à des usages licites liés à la génération, la validation et la consultation de messages de paiement ISO 20022. Le scraping automatisé, les attaques par déni de service et toute utilisation perturbant la disponibilité du site ou du dépôt sont interdits. L'utilisation du toolkit pour générer des messages de paiement frauduleux ou non conformes est strictement prohibée.
+
+## Avertissement relatif au traitement des paiements
+
+Le toolkit pacs008 génère des messages XML ISO 20022 à partir des données d'entrée fournies par l'utilisateur. Le toolkit ne transmet, n'achemine ni ne règle de paiements. L'utilisateur assume l'entière responsabilité de l'exactitude, de l'exhaustivité et de la conformité réglementaire de l'ensemble des données d'entrée et des messages générés. Les fichiers XML générés doivent être validés selon les règles propres au schéma et les exigences de la contrepartie avant toute soumission à un réseau de paiement. pacs008.com et ses mainteneurs déclinent toute responsabilité en cas d'échec de paiement, de sanctions réglementaires ou de pertes financières résultant de l'utilisation des messages générés.
+
+## Exactitude des données
+
+La qualité des messages de paiement générés dépend entièrement de la qualité des données d'entrée. Le toolkit valide la structure et le format, mais ne vérifie pas l'exactitude factuelle des noms des parties, des numéros de compte ni des codes de routage. L'utilisateur est responsable de s'assurer que toutes les données d'entrée sont correctes, à jour et conformes à la réglementation applicable.
+
+## Utilisation de l'API et du toolkit
+
+L'API REST et le package PyPI sont fournis pour l'intégration dans les flux de paiement, les pipelines de test et les environnements de développement. Le principe d'utilisation équitable s'applique. Les requêtes à volume élevé soutenu dégradant le service pour les autres utilisateurs pourront être limitées en débit ou bloquées. Aucune garantie de disponibilité n'est offerte. L'API est fournie au mieux des possibilités.
+
+## ${t.termsLinksTitle}
+
+${t.termsLinksText}
+
+## ${t.termsLiabilityTitle}
+
+${t.termsLiabilityText}
+
+## ${t.termsGoverningTitle}
+
+${t.termsGoverningText}
+
+## ${t.termsChangesTitle}
+
+${t.termsChangesText}
+
+## ${t.termsContactTitle}
+
+${t.termsContactText}
+`;
+  }
+  if (localeKey === "it") {
+    return `# ${t.termsTitle}
+
+${t.termsIntro}
+
+## ${t.termsIpTitle}
+
+${t.termsIpText}
+
+## Licenza open source
+
+Il toolkit Python pacs008 è rilasciato con licenza MIT. Il testo integrale della licenza è disponibile nel [repository del progetto](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). La licenza MIT consente l'uso, la modifica e la distribuzione con restrizioni minime. È richiesta l'attribuzione all'autore originale. La documentazione su pacs008.com è fornita con la medesima licenza, salvo diversa indicazione.
+
+## Uso accettabile
+
+pacs008.com e il toolkit pacs008 sono destinati esclusivamente a finalità lecite connesse alla generazione, validazione e consultazione di messaggi di pagamento ISO 20022. Il web scraping automatizzato, gli attacchi denial-of-service e qualsiasi utilizzo che comprometta la disponibilità del sito o del repository sono vietati. L'uso del toolkit per generare messaggi di pagamento fraudolenti o non conformi è rigorosamente proibito.
+
+## Esclusione di responsabilità per l'elaborazione dei pagamenti
+
+Il toolkit pacs008 genera messaggi XML ISO 20022 sulla base dei dati di input forniti dall'utente. Il toolkit non trasmette, instrada né regola pagamenti. L'utente è l'unico responsabile dell'accuratezza, completezza e conformità normativa di tutti i dati di input e dei messaggi generati. I file XML generati devono essere validati secondo le regole specifiche dello schema e i requisiti della controparte prima dell'invio a qualsiasi rete di pagamento. pacs008.com e i suoi gestori declinano ogni responsabilità per mancati pagamenti, sanzioni normative o perdite finanziarie derivanti dall'uso dei messaggi generati.
+
+## Accuratezza dei dati
+
+La qualità dei messaggi di pagamento generati dipende interamente dalla qualità dei dati di input. Il toolkit verifica struttura e formato, ma non controlla l'accuratezza fattuale dei nomi delle parti, dei numeri di conto o dei codici di instradamento. L'utente è responsabile di assicurare che tutti i dati di input siano corretti, aggiornati e conformi alla normativa applicabile.
+
+## Utilizzo dell'API e del toolkit
+
+L'API REST e il pacchetto PyPI sono forniti per l'integrazione nei flussi di lavoro dei pagamenti, nelle pipeline di test e negli ambienti di sviluppo. Si applica il principio di utilizzo corretto. Richieste a volume elevato e prolungato che degradino il servizio per gli altri utenti potranno essere limitate o bloccate. Non viene fornita alcuna garanzia di disponibilità. L'API è offerta su base best-effort.
+
+## ${t.termsLinksTitle}
+
+${t.termsLinksText}
+
+## ${t.termsLiabilityTitle}
+
+${t.termsLiabilityText}
+
+## ${t.termsGoverningTitle}
+
+${t.termsGoverningText}
+
+## ${t.termsChangesTitle}
+
+${t.termsChangesText}
+
+## ${t.termsContactTitle}
+
+${t.termsContactText}
+`;
+  }
+  if (localeKey === "nl") {
+    return `# ${t.termsTitle}
+
+${t.termsIntro}
+
+## ${t.termsIpTitle}
+
+${t.termsIpText}
+
+## Opensourcelicentie
+
+De pacs008 Python-toolkit wordt vrijgegeven onder de MIT-licentie. De volledige licentietekst is beschikbaar in de [projectrepository](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). De MIT-licentie staat gebruik, aanpassing en verspreiding toe met minimale beperkingen. Naamsvermelding van de oorspronkelijke auteur is vereist. De documentatie op pacs008.com wordt onder dezelfde licentie aangeboden, tenzij anders vermeld.
+
+## Aanvaardbaar gebruik
+
+pacs008.com en de pacs008-toolkit zijn uitsluitend bedoeld voor rechtmatige doeleinden in verband met het genereren, valideren en raadplegen van ISO 20022-betalingsberichten. Geautomatiseerd scrapen, denial-of-service-aanvallen en elk gebruik dat de beschikbaarheid van de website of de repository verstoort, zijn verboden. Het gebruik van de toolkit voor het genereren van frauduleuze of niet-conforme betalingsberichten is strikt verboden.
+
+## Disclaimer betalingsverwerking
+
+De pacs008-toolkit genereert ISO 20022 XML-berichten op basis van door de gebruiker aangeleverde invoergegevens. De toolkit verzendt, routeert noch verrekent betalingen. De gebruiker is als enige verantwoordelijk voor de juistheid, volledigheid en naleving van de regelgeving van alle invoergegevens en gegenereerde berichten. Gegenereerde XML-bestanden moeten worden gevalideerd aan de hand van schemaspecifieke regels en de eisen van de tegenpartij voordat ze aan een betalingsnetwerk worden aangeboden. pacs008.com en zijn beheerders aanvaarden geen aansprakelijkheid voor mislukte betalingen, regelgevingssancties of financiële verliezen als gevolg van het gebruik van gegenereerde berichten.
+
+## Gegevensnauwkeurigheid
+
+De kwaliteit van gegenereerde betalingsberichten hangt volledig af van de kwaliteit van de invoergegevens. De toolkit valideert structuur en opmaak, maar controleert niet de feitelijke juistheid van partijnamen, rekeningnummers of routeringscodes. De gebruiker is ervoor verantwoordelijk dat alle invoergegevens correct en actueel zijn en voldoen aan de toepasselijke regelgeving.
+
+## API- en toolkitgebruik
+
+De REST API en het PyPI-pakket worden aangeboden voor integratie in betalingsworkflows, testpipelines en ontwikkelomgevingen. Het principe van redelijk gebruik is van toepassing. Aanhoudend hoge aanvraagvolumes die de dienstverlening aan andere gebruikers verslechteren, kunnen worden beperkt of geblokkeerd. Er wordt geen uptimegarantie gegeven. De API wordt op best-effort-basis aangeboden.
+
+## ${t.termsLinksTitle}
+
+${t.termsLinksText}
+
+## ${t.termsLiabilityTitle}
+
+${t.termsLiabilityText}
+
+## ${t.termsGoverningTitle}
+
+${t.termsGoverningText}
+
+## ${t.termsChangesTitle}
+
+${t.termsChangesText}
+
+## ${t.termsContactTitle}
+
+${t.termsContactText}
+`;
+  }
+  if (localeKey === "pl") {
+    return `# ${t.termsTitle}
+
+${t.termsIntro}
+
+## ${t.termsIpTitle}
+
+${t.termsIpText}
+
+## Licencja open source
+
+Toolkit pacs008 dla Pythona jest udostępniany na licencji MIT. Pełny tekst licencji jest dostępny w [repozytorium projektu](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Licencja MIT zezwala na użytkowanie, modyfikację i dystrybucję przy minimalnych ograniczeniach. Wymagane jest przypisanie autorstwa oryginalnemu autorowi. Dokumentacja na pacs008.com jest udostępniana na tej samej licencji, chyba że zaznaczono inaczej.
+
+## Dopuszczalne użytkowanie
+
+pacs008.com oraz toolkit pacs008 są przeznaczone wyłącznie do zgodnych z prawem celów związanych z generowaniem, walidacją i przeglądaniem komunikatów płatniczych ISO 20022. Automatyczne scrapowanie, ataki typu denial-of-service oraz wszelkie działania zakłócające dostępność witryny lub repozytorium są zabronione. Wykorzystanie toolkitu do generowania fałszywych lub niezgodnych z przepisami komunikatów płatniczych jest surowo zakazane.
+
+## Zastrzeżenie dotyczące przetwarzania płatności
+
+Toolkit pacs008 generuje komunikaty XML ISO 20022 na podstawie danych wejściowych dostarczonych przez użytkownika. Toolkit nie przesyła, nie trasuje ani nie rozlicza płatności. Użytkownik ponosi wyłączną odpowiedzialność za poprawność, kompletność i zgodność regulacyjną wszystkich danych wejściowych i wygenerowanych komunikatów. Wygenerowane pliki XML muszą zostać zwalidowane zgodnie z regułami właściwymi dla danego schematu oraz wymaganiami kontrahenta przed przesłaniem do jakiejkolwiek sieci płatniczej. pacs008.com i jego opiekunowie nie ponoszą odpowiedzialności za niepowodzenia płatności, kary regulacyjne ani straty finansowe wynikające z użycia wygenerowanych komunikatów.
+
+## Dokładność danych
+
+Jakość generowanych komunikatów płatniczych zależy w całości od jakości danych wejściowych. Toolkit waliduje strukturę i format, ale nie weryfikuje faktycznej poprawności nazw stron, numerów rachunków ani kodów trasowania. Użytkownik jest odpowiedzialny za zapewnienie, że wszystkie dane wejściowe są prawidłowe, aktualne i zgodne z obowiązującymi przepisami.
+
+## Korzystanie z API i toolkitu
+
+API REST oraz pakiet PyPI są udostępniane w celu integracji z przepływami płatniczymi, potokami testowymi i środowiskami deweloperskimi. Obowiązuje zasada uczciwego użytkowania. Utrzymujący się wysoki wolumen zapytań, który obniża jakość usługi dla innych użytkowników, może podlegać ograniczeniu szybkości lub blokadzie. Gwarancja dostępności nie jest zapewniana. API jest oferowane na zasadzie najlepszego starania.
+
+## ${t.termsLinksTitle}
+
+${t.termsLinksText}
+
+## ${t.termsLiabilityTitle}
+
+${t.termsLiabilityText}
+
+## ${t.termsGoverningTitle}
+
+${t.termsGoverningText}
+
+## ${t.termsChangesTitle}
+
+${t.termsChangesText}
+
+## ${t.termsContactTitle}
+
+${t.termsContactText}
+`;
+  }
+  if (localeKey === "pt") {
+    return `# ${t.termsTitle}
+
+${t.termsIntro}
+
+## ${t.termsIpTitle}
+
+${t.termsIpText}
+
+## Licença de código aberto
+
+O toolkit pacs008 para Python é disponibilizado sob a licença MIT. O texto completo da licença está disponível no [repositório do projeto](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). A licença MIT permite utilização, modificação e distribuição com restrições mínimas. A atribuição ao autor original é obrigatória. A documentação em pacs008.com é fornecida sob a mesma licença, salvo indicação em contrário.
+
+## Utilização aceitável
+
+O pacs008.com e o toolkit pacs008 destinam-se exclusivamente a fins lícitos relacionados com a geração, validação e consulta de mensagens de pagamento ISO 20022. A recolha automatizada de dados, ataques de negação de serviço e qualquer utilização que comprometa a disponibilidade do site ou do repositório são proibidos. A utilização do toolkit para gerar mensagens de pagamento fraudulentas ou não conformes é estritamente proibida.
+
+## Aviso sobre processamento de pagamentos
+
+O toolkit pacs008 gera mensagens XML ISO 20022 com base nos dados de entrada fornecidos pelo utilizador. O toolkit não transmite, encaminha nem liquida pagamentos. O utilizador é o único responsável pela exatidão, integridade e conformidade regulamentar de todos os dados de entrada e das mensagens geradas. Os ficheiros XML gerados devem ser validados de acordo com as regras específicas do esquema e os requisitos da contraparte antes do envio para qualquer rede de pagamentos. O pacs008.com e os seus mantenedores não aceitam qualquer responsabilidade por falhas de pagamento, sanções regulamentares ou perdas financeiras decorrentes da utilização das mensagens geradas.
+
+## Exatidão dos dados
+
+A qualidade das mensagens de pagamento geradas depende inteiramente da qualidade dos dados de entrada. O toolkit valida a estrutura e o formato, mas não verifica a exatidão factual dos nomes das partes, dos números de conta nem dos códigos de encaminhamento. O utilizador é responsável por garantir que todos os dados de entrada estejam corretos, atualizados e em conformidade com a regulamentação aplicável.
+
+## Utilização da API e do toolkit
+
+A API REST e o pacote PyPI são disponibilizados para integração em fluxos de trabalho de pagamentos, pipelines de teste e ambientes de desenvolvimento. Aplica-se o princípio de utilização justa. Volumes de pedidos elevados e sustentados que degradem o serviço para outros utilizadores poderão ser limitados ou bloqueados. Não é garantida a disponibilidade contínua. A API é oferecida com base no melhor esforço.
+
+## ${t.termsLinksTitle}
+
+${t.termsLinksText}
+
+## ${t.termsLiabilityTitle}
+
+${t.termsLiabilityText}
+
+## ${t.termsGoverningTitle}
+
+${t.termsGoverningText}
+
+## ${t.termsChangesTitle}
+
+${t.termsChangesText}
+
+## ${t.termsContactTitle}
+
+${t.termsContactText}
+`;
+  }
+  if (localeKey === "ro") {
+    return `# ${t.termsTitle}
+
+${t.termsIntro}
+
+## ${t.termsIpTitle}
+
+${t.termsIpText}
+
+## Licență open source
+
+Toolkitul pacs008 pentru Python este distribuit sub licența MIT. Textul integral al licenței este disponibil în [depozitul proiectului](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Licența MIT permite utilizarea, modificarea și distribuirea cu restricții minime. Este necesară atribuirea către autorul original. Documentația de pe pacs008.com este furnizată sub aceeași licență, cu excepția cazurilor în care se specifică altfel.
+
+## Utilizare acceptabilă
+
+pacs008.com și toolkitul pacs008 sunt destinate exclusiv unor scopuri legale legate de generarea, validarea și consultarea mesajelor de plată ISO 20022. Extragerea automată de date, atacurile de tip denial-of-service și orice utilizare care perturbă disponibilitatea site-ului sau a depozitului sunt interzise. Utilizarea toolkitului pentru a genera mesaje de plată frauduloase sau neconforme este strict interzisă.
+
+## Declinarea responsabilității privind procesarea plăților
+
+Toolkitul pacs008 generează mesaje XML ISO 20022 pe baza datelor de intrare furnizate de utilizator. Toolkitul nu transmite, nu direcționează și nu decontează plăți. Utilizatorul poartă întreaga responsabilitate pentru acuratețea, completitudinea și conformitatea cu reglementările a tuturor datelor de intrare și a mesajelor generate. Fișierele XML generate trebuie validate conform regulilor specifice schemei și cerințelor contrapartidei înainte de transmiterea către orice rețea de plăți. pacs008.com și administratorii săi nu acceptă nicio răspundere pentru eșecul plăților, sancțiuni de reglementare sau pierderi financiare rezultate din utilizarea mesajelor generate.
+
+## Acuratețea datelor
+
+Calitatea mesajelor de plată generate depinde în întregime de calitatea datelor de intrare. Toolkitul validează structura și formatul, dar nu verifică acuratețea factuală a numelor părților, numerelor de cont sau codurilor de direcționare. Utilizatorul este responsabil să se asigure că toate datele de intrare sunt corecte, actualizate și conforme cu reglementările aplicabile.
+
+## Utilizarea API și a toolkitului
+
+API-ul REST și pachetul PyPI sunt furnizate pentru integrarea în fluxurile de lucru de plăți, pipeline-urile de testare și mediile de dezvoltare. Se aplică principiul utilizării echitabile. Volumele ridicate și susținute de cereri care degradează serviciul pentru alți utilizatori pot fi limitate sau blocate. Nu se oferă garanție privind disponibilitatea. API-ul este furnizat pe baza celui mai bun efort.
+
+## ${t.termsLinksTitle}
+
+${t.termsLinksText}
+
+## ${t.termsLiabilityTitle}
+
+${t.termsLiabilityText}
+
+## ${t.termsGoverningTitle}
+
+${t.termsGoverningText}
+
+## ${t.termsChangesTitle}
+
+${t.termsChangesText}
+
+## ${t.termsContactTitle}
+
+${t.termsContactText}
+`;
+  }
+  if (localeKey === "ru") {
+    return `# ${t.termsTitle}
+
+${t.termsIntro}
+
+## ${t.termsIpTitle}
+
+${t.termsIpText}
+
+## Лицензия с открытым исходным кодом
+
+Инструментарий pacs008 Python распространяется по лицензии MIT. Полный текст лицензии доступен в [репозитории проекта](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Лицензия MIT допускает использование, модификацию и распространение с минимальными ограничениями. Обязательна атрибуция оригинального автора. Документация на pacs008.com предоставляется на тех же условиях, если не указано иное.
+
+## Допустимое использование
+
+pacs008.com и инструментарий pacs008 предназначены для законных целей, связанных с генерацией, валидацией и справочным использованием платёжных сообщений ISO 20022. Автоматизированный скрейпинг, атаки типа «отказ в обслуживании» и любое использование, нарушающее доступность сайта или репозитория, запрещены. Использование инструментария для генерации мошеннических или несоответствующих требованиям платёжных сообщений строго запрещено.
+
+## Отказ от ответственности в отношении обработки платежей
+
+Инструментарий pacs008 генерирует XML-сообщения ISO 20022 на основе предоставленных пользователем входных данных. Инструментарий не передаёт, не маршрутизирует и не производит расчёт платежей. Пользователь несёт полную ответственность за точность, полноту и соответствие нормативным требованиям всех входных данных и сгенерированных сообщений. Сгенерированный XML необходимо проверить на соответствие правилам конкретной схемы и требованиям контрагента перед отправкой в любую платёжную сеть. pacs008.com и его сопровождающие не несут ответственности за сбои платежей, регуляторные штрафы или финансовые потери, возникающие в результате использования сгенерированных сообщений.
+
+## Точность данных
+
+Качество сгенерированных платёжных сообщений полностью зависит от качества входных данных. Инструментарий проверяет структуру и формат, но не верифицирует фактическую точность наименований сторон, номеров счетов или маршрутных кодов. Пользователь обязан обеспечить корректность, актуальность и соответствие применимым нормативным актам всех входных данных.
+
+## Использование API и инструментария
+
+REST API и пакет PyPI предназначены для интеграции в платёжные процессы, тестовые пайплайны и среды разработки. Действует принцип добросовестного использования. Устойчиво высокий объём запросов, снижающий качество обслуживания других пользователей, может быть ограничен или заблокирован. Гарантии бесперебойной работы не предоставляются. API предоставляется на основе максимально возможных усилий.
+
+## ${t.termsLinksTitle}
+
+${t.termsLinksText}
+
+## ${t.termsLiabilityTitle}
+
+${t.termsLiabilityText}
+
+## ${t.termsGoverningTitle}
+
+${t.termsGoverningText}
+
+## ${t.termsChangesTitle}
+
+${t.termsChangesText}
+
+## ${t.termsContactTitle}
+
+${t.termsContactText}
+`;
+  }
+  if (localeKey === "uk") {
+    return `# ${t.termsTitle}
+
+${t.termsIntro}
+
+## ${t.termsIpTitle}
+
+${t.termsIpText}
+
+## Ліцензія з відкритим вихідним кодом
+
+Інструментарій pacs008 Python розповсюджується за ліцензією MIT. Повний текст ліцензії доступний у [репозиторії проекту](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Ліцензія MIT дозволяє використання, модифікацію та розповсюдження з мінімальними обмеженнями. Обов'язкова атрибуція оригінального автора. Документація на pacs008.com надається на тих самих умовах, якщо не зазначено інше.
+
+## Допустиме використання
+
+pacs008.com та інструментарій pacs008 призначені для законних цілей, пов'язаних із генерацією, валідацією та довідковим використанням платіжних повідомлень ISO 20022. Автоматизований скрейпінг, атаки типу «відмова в обслуговуванні» та будь-яке використання, що порушує доступність сайту або репозиторію, заборонені. Використання інструментарію для генерації шахрайських або невідповідних вимогам платіжних повідомлень суворо заборонено.
+
+## Відмова від відповідальності щодо обробки платежів
+
+Інструментарій pacs008 генерує XML-повідомлення ISO 20022 на основі наданих користувачем вхідних даних. Інструментарій не передає, не маршрутизує та не здійснює розрахунок платежів. Користувач несе повну відповідальність за точність, повноту та відповідність нормативним вимогам усіх вхідних даних та згенерованих повідомлень. Згенерований XML необхідно перевірити на відповідність правилам конкретної схеми та вимогам контрагента перед надсиланням до будь-якої платіжної мережі. pacs008.com та його супроводжувачі не несуть відповідальності за збої платежів, регуляторні штрафи або фінансові втрати, що виникають внаслідок використання згенерованих повідомлень.
+
+## Точність даних
+
+Якість згенерованих платіжних повідомлень повністю залежить від якості вхідних даних. Інструментарій перевіряє структуру та формат, але не верифікує фактичну точність найменувань сторін, номерів рахунків або маршрутних кодів. Користувач зобов'язаний забезпечити коректність, актуальність та відповідність застосовним нормативним актам усіх вхідних даних.
+
+## Використання API та інструментарію
+
+REST API та пакет PyPI призначені для інтеграції в платіжні процеси, тестові пайплайни та середовища розробки. Діє принцип добросовісного використання. Стійко високий обсяг запитів, що знижує якість обслуговування інших користувачів, може бути обмежений або заблокований. Гарантії безперебійної роботи не надаються. API надається на основі максимально можливих зусиль.
+
+## ${t.termsLinksTitle}
+
+${t.termsLinksText}
+
+## ${t.termsLiabilityTitle}
+
+${t.termsLiabilityText}
+
+## ${t.termsGoverningTitle}
+
+${t.termsGoverningText}
+
+## ${t.termsChangesTitle}
+
+${t.termsChangesText}
+
+## ${t.termsContactTitle}
+
+${t.termsContactText}
+`;
+  }
+  if (localeKey === "ar") {
+    return `# ${t.termsTitle}
+
+${t.termsIntro}
+
+## ${t.termsIpTitle}
+
+${t.termsIpText}
+
+## ترخيص مفتوح المصدر
+
+أداة pacs008 لـ Python صادرة بموجب ترخيص MIT. النص الكامل للترخيص متاح في [مستودع المشروع](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). يسمح ترخيص MIT بالاستخدام والتعديل والتوزيع بأقل قدر من القيود. يُشترط نسب العمل إلى المؤلف الأصلي. الوثائق المنشورة على pacs008.com مقدمة بموجب الترخيص ذاته ما لم يُذكر خلاف ذلك.
+
+## الاستخدام المقبول
+
+pacs008.com وأداة pacs008 مخصصتان للأغراض المشروعة المتعلقة بإنشاء رسائل الدفع وفق ISO 20022 والتحقق منها والرجوع إليها. يُحظر الاستخراج الآلي للبيانات وهجمات حجب الخدمة وأي استخدام يعطّل توفر الموقع أو المستودع. يُحظر حظرًا صارمًا استخدام الأداة لإنشاء رسائل دفع احتيالية أو غير متوافقة مع المعايير.
+
+## إخلاء المسؤولية عن معالجة المدفوعات
+
+تنشئ أداة pacs008 رسائل XML وفق ISO 20022 استنادًا إلى بيانات الإدخال المقدمة من المستخدم. لا تقوم الأداة بإرسال المدفوعات أو توجيهها أو تسويتها. يتحمل المستخدم وحده المسؤولية الكاملة عن دقة جميع بيانات الإدخال والرسائل المنشأة واكتمالها وامتثالها التنظيمي. يجب التحقق من صحة رسائل XML المنشأة وفقًا للقواعد الخاصة بالمنظومة ومتطلبات الأطراف المقابلة قبل تقديمها إلى أي شبكة دفع. لا يتحمل pacs008.com أو القائمون على صيانته أي مسؤولية عن إخفاقات الدفع أو العقوبات التنظيمية أو الخسائر المالية الناشئة عن استخدام الرسائل المنشأة.
+
+## دقة البيانات
+
+تعتمد جودة رسائل الدفع المنشأة كليًا على جودة بيانات الإدخال. تتحقق الأداة من البنية والتنسيق لكنها لا تتحقق من الدقة الفعلية لأسماء الأطراف أو أرقام الحسابات أو رموز التوجيه. يتحمل المستخدم مسؤولية ضمان صحة جميع بيانات الإدخال وحداثتها وامتثالها للأنظمة المعمول بها.
+
+## استخدام API والأداة
+
+يُقدَّم REST API وحزمة PyPI للتكامل مع سير عمل المدفوعات وخطوط أنابيب الاختبار وبيئات التطوير. ينطبق مبدأ الاستخدام العادل. قد تخضع الطلبات المستمرة ذات الحجم الكبير التي تؤثر سلبًا على الخدمة للمستخدمين الآخرين لتحديد المعدل أو الحظر. لا يُقدَّم أي ضمان لوقت التشغيل. يُقدَّم API على أساس بذل أفضل الجهود.
+
+## ${t.termsLinksTitle}
+
+${t.termsLinksText}
+
+## ${t.termsLiabilityTitle}
+
+${t.termsLiabilityText}
+
+## ${t.termsGoverningTitle}
+
+${t.termsGoverningText}
+
+## ${t.termsChangesTitle}
+
+${t.termsChangesText}
+
+## ${t.termsContactTitle}
+
+${t.termsContactText}
+`;
+  }
+  if (localeKey === "he") {
+    return `# ${t.termsTitle}
+
+${t.termsIntro}
+
+## ${t.termsIpTitle}
+
+${t.termsIpText}
+
+## רישיון קוד פתוח
+
+ערכת הכלים pacs008 ל-Python מופצת תחת רישיון MIT. נוסח הרישיון המלא זמין ב[מאגר הפרויקט](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). רישיון MIT מתיר שימוש, שינוי והפצה עם מגבלות מינימליות. נדרש ייחוס למחבר המקורי. התיעוד ב-pacs008.com מסופק תחת אותו רישיון, אלא אם צוין אחרת.
+
+## שימוש מותר
+
+pacs008.com וערכת הכלים pacs008 מיועדות למטרות חוקיות הקשורות ליצירה, אימות ועיון בהודעות תשלום לפי ISO 20022. חל איסור על גריפת מידע אוטומטית, התקפות מניעת שירות וכל שימוש המשבש את זמינות האתר או המאגר. חל איסור מוחלט על שימוש בערכת הכלים ליצירת הודעות תשלום מזויפות או שאינן עומדות בדרישות הרגולציה.
+
+## הצהרת אי-אחריות לעיבוד תשלומים
+
+ערכת הכלים pacs008 מייצרת הודעות XML לפי ISO 20022 על בסיס נתוני קלט שסופקו על ידי המשתמש. ערכת הכלים אינה משדרת, מנתבת או מסלקת תשלומים. המשתמש נושא באחריות בלעדית לדיוק, שלמות ותאימות רגולטורית של כל נתוני הקלט וההודעות שנוצרו. יש לאמת XML שנוצר מול כללים ספציפיים למערכת ודרישות צד נגדי לפני הגשה לכל רשת תשלומים. pacs008.com ומתחזקיו אינם נושאים בכל אחריות לכישלון תשלומים, קנסות רגולטוריים או הפסדים כספיים הנובעים משימוש בהודעות שנוצרו.
+
+## דיוק הנתונים
+
+איכות הודעות התשלום שנוצרות תלויה לחלוטין באיכות נתוני הקלט. ערכת הכלים מאמתת מבנה ופורמט אך אינה מוודאת את הדיוק העובדתי של שמות צדדים, מספרי חשבונות או קודי ניתוב. המשתמש אחראי לוודא שכל נתוני הקלט נכונים, עדכניים ועומדים ברגולציה החלה.
+
+## שימוש ב-API ובערכת הכלים
+
+REST API וחבילת PyPI מסופקים לשילוב בזרימות עבודת תשלומים, צינורות בדיקה וסביבות פיתוח. חל עקרון שימוש הוגן. בקשות בנפח גבוה מתמשך הפוגעות בשירות למשתמשים אחרים עשויות להיות מוגבלות בקצב או חסומות. לא ניתנת ערובה לזמן פעילות. ה-API מוצע על בסיס מיטב המאמץ.
+
+## ${t.termsLinksTitle}
+
+${t.termsLinksText}
+
+## ${t.termsLiabilityTitle}
+
+${t.termsLiabilityText}
+
+## ${t.termsGoverningTitle}
+
+${t.termsGoverningText}
+
+## ${t.termsChangesTitle}
+
+${t.termsChangesText}
+
+## ${t.termsContactTitle}
+
+${t.termsContactText}
+`;
+  }
+  if (localeKey === "hi") {
+    return `# ${t.termsTitle}
+
+${t.termsIntro}
+
+## ${t.termsIpTitle}
+
+${t.termsIpText}
+
+## ओपन-सोर्स लाइसेंस
+
+pacs008 Python टूलकिट MIT लाइसेंस के तहत जारी की गई है। लाइसेंस का पूरा पाठ [प्रोजेक्ट रिपॉज़िटरी](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE) में उपलब्ध है। MIT लाइसेंस न्यूनतम प्रतिबंधों के साथ उपयोग, संशोधन और वितरण की अनुमति देता है। मूल लेखक को श्रेय देना अनिवार्य है। pacs008.com पर प्रलेखन उसी लाइसेंस के तहत प्रदान किया जाता है, जब तक कि अन्यथा न कहा गया हो।
+
+## स्वीकार्य उपयोग
+
+pacs008.com और pacs008 टूलकिट ISO 20022 भुगतान संदेश निर्माण, सत्यापन और संदर्भ से संबंधित वैध उद्देश्यों के लिए अभिप्रेत हैं। स्वचालित स्क्रैपिंग, सेवा-अवरोध हमले और साइट या रिपॉज़िटरी की उपलब्धता को बाधित करने वाला कोई भी उपयोग निषिद्ध है। धोखाधड़ीपूर्ण या गैर-अनुपालक भुगतान संदेश बनाने के लिए टूलकिट का उपयोग सख्ती से प्रतिबंधित है।
+
+## भुगतान प्रसंस्करण अस्वीकरण
+
+pacs008 टूलकिट उपयोगकर्ता द्वारा प्रदत्त इनपुट डेटा के आधार पर ISO 20022 XML संदेश उत्पन्न करती है। टूलकिट भुगतान प्रेषित, रूट या निपटान नहीं करती। सभी इनपुट डेटा और उत्पन्न संदेशों की सटीकता, पूर्णता और नियामक अनुपालन की पूर्ण ज़िम्मेदारी उपयोगकर्ता की है। उत्पन्न XML को किसी भी भुगतान नेटवर्क में प्रस्तुत करने से पहले योजना-विशिष्ट नियमों और प्रतिपक्ष आवश्यकताओं के अनुसार सत्यापित किया जाना चाहिए। pacs008.com और इसके अनुरक्षक उत्पन्न संदेशों के उपयोग से उत्पन्न भुगतान विफलताओं, नियामक दंडों या वित्तीय हानियों के लिए कोई दायित्व स्वीकार नहीं करते।
+
+## डेटा सटीकता
+
+उत्पन्न भुगतान संदेशों की गुणवत्ता पूर्णतः इनपुट डेटा की गुणवत्ता पर निर्भर करती है। टूलकिट संरचना और प्रारूप की पुष्टि करती है लेकिन पक्षों के नामों, खाता संख्याओं या रूटिंग कोड की तथ्यात्मक सटीकता की जाँच नहीं करती। सभी इनपुट डेटा की शुद्धता, अद्यतनता और लागू नियमों के अनुपालन को सुनिश्चित करना उपयोगकर्ता की ज़िम्मेदारी है।
+
+## API और टूलकिट का उपयोग
+
+REST API और PyPI पैकेज भुगतान वर्कफ़्लो, परीक्षण पाइपलाइन और विकास परिवेशों में एकीकरण के लिए प्रदान किए जाते हैं। उचित उपयोग का सिद्धांत लागू होता है। अन्य उपयोगकर्ताओं की सेवा गुणवत्ता को प्रभावित करने वाले निरंतर उच्च-मात्रा अनुरोधों पर दर सीमा या अवरोध लगाया जा सकता है। अपटाइम की कोई गारंटी नहीं दी जाती। API सर्वोत्तम-प्रयास आधार पर प्रदान किया जाता है।
+
+## ${t.termsLinksTitle}
+
+${t.termsLinksText}
+
+## ${t.termsLiabilityTitle}
+
+${t.termsLiabilityText}
+
+## ${t.termsGoverningTitle}
+
+${t.termsGoverningText}
+
+## ${t.termsChangesTitle}
+
+${t.termsChangesText}
+
+## ${t.termsContactTitle}
+
+${t.termsContactText}
+`;
+  }
+  if (localeKey === "id") {
+    return `# ${t.termsTitle}
+
+${t.termsIntro}
+
+## ${t.termsIpTitle}
+
+${t.termsIpText}
+
+## Lisensi sumber terbuka
+
+Toolkit Python pacs008 dirilis di bawah lisensi MIT. Teks lisensi lengkap tersedia di [repositori proyek](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Lisensi MIT mengizinkan penggunaan, modifikasi, dan distribusi dengan pembatasan minimal. Atribusi kepada penulis asli diwajibkan. Dokumentasi di pacs008.com disediakan di bawah lisensi yang sama kecuali dinyatakan lain.
+
+## Penggunaan yang dapat diterima
+
+pacs008.com dan toolkit pacs008 ditujukan untuk tujuan sah terkait pembuatan, validasi, dan referensi pesan pembayaran ISO 20022. Pengambilan data otomatis, serangan penolakan layanan, dan penggunaan apa pun yang mengganggu ketersediaan situs atau repositori dilarang. Penggunaan toolkit untuk menghasilkan pesan pembayaran yang bersifat penipuan atau tidak sesuai regulasi dilarang keras.
+
+## Penafian pemrosesan pembayaran
+
+Toolkit pacs008 menghasilkan pesan XML ISO 20022 berdasarkan data masukan yang diberikan pengguna. Toolkit tidak mengirimkan, merutekan, atau menyelesaikan pembayaran. Pengguna bertanggung jawab sepenuhnya atas keakuratan, kelengkapan, dan kepatuhan regulasi dari semua data masukan dan pesan yang dihasilkan. XML yang dihasilkan harus divalidasi terhadap aturan khusus skema dan persyaratan pihak lawan sebelum dikirim ke jaringan pembayaran apa pun. pacs008.com dan pengelolanya tidak menerima tanggung jawab atas kegagalan pembayaran, sanksi regulasi, atau kerugian finansial yang timbul dari penggunaan pesan yang dihasilkan.
+
+## Akurasi data
+
+Kualitas pesan pembayaran yang dihasilkan sepenuhnya bergantung pada kualitas data masukan. Toolkit memvalidasi struktur dan format tetapi tidak memverifikasi keakuratan faktual nama pihak, nomor rekening, atau kode perutean. Pengguna bertanggung jawab untuk memastikan bahwa semua data masukan benar, terkini, dan sesuai dengan regulasi yang berlaku.
+
+## Penggunaan API dan toolkit
+
+REST API dan paket PyPI disediakan untuk integrasi ke dalam alur kerja pembayaran, pipeline pengujian, dan lingkungan pengembangan. Prinsip penggunaan wajar berlaku. Permintaan volume tinggi yang berkelanjutan dan menurunkan layanan bagi pengguna lain dapat dibatasi kecepatannya atau diblokir. Tidak ada jaminan waktu aktif yang diberikan. API ditawarkan atas dasar upaya terbaik.
+
+## ${t.termsLinksTitle}
+
+${t.termsLinksText}
+
+## ${t.termsLiabilityTitle}
+
+${t.termsLiabilityText}
+
+## ${t.termsGoverningTitle}
+
+${t.termsGoverningText}
+
+## ${t.termsChangesTitle}
+
+${t.termsChangesText}
+
+## ${t.termsContactTitle}
+
+${t.termsContactText}
+`;
+  }
+  if (localeKey === "th") {
+    return `# ${t.termsTitle}
+
+${t.termsIntro}
+
+## ${t.termsIpTitle}
+
+${t.termsIpText}
+
+## สัญญาอนุญาตโอเพนซอร์ส
+
+ชุดเครื่องมือ pacs008 สำหรับ Python เผยแพร่ภายใต้สัญญาอนุญาต MIT ข้อความสัญญาอนุญาตฉบับเต็มอยู่ใน[ที่เก็บซอร์สของโปรเจกต์](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE) สัญญาอนุญาต MIT อนุญาตให้ใช้งาน แก้ไข และแจกจ่ายโดยมีข้อจำกัดน้อยที่สุด ต้องระบุแหล่งที่มาของผู้เขียนต้นฉบับ เอกสารบน pacs008.com จัดทำภายใต้สัญญาอนุญาตเดียวกัน เว้นแต่จะระบุไว้เป็นอย่างอื่น
+
+## การใช้งานที่ยอมรับได้
+
+pacs008.com และชุดเครื่องมือ pacs008 มีวัตถุประสงค์เพื่อการใช้งานที่ชอบด้วยกฎหมายเกี่ยวกับการสร้าง ตรวจสอบ และอ้างอิงข้อความการชำระเงินตามมาตรฐาน ISO 20022 ห้ามดึงข้อมูลอัตโนมัติ การโจมตีแบบปฏิเสธการให้บริการ และการใช้งานใดๆ ที่รบกวนความพร้อมใช้งานของเว็บไซต์หรือที่เก็บซอร์ส ห้ามใช้ชุดเครื่องมือเพื่อสร้างข้อความการชำระเงินที่เป็นการฉ้อโกงหรือไม่เป็นไปตามข้อกำหนดโดยเด็ดขาด
+
+## ข้อจำกัดความรับผิดชอบด้านการประมวลผลการชำระเงิน
+
+ชุดเครื่องมือ pacs008 สร้างข้อความ XML ตามมาตรฐาน ISO 20022 จากข้อมูลนำเข้าที่ผู้ใช้ให้มา ชุดเครื่องมือไม่ได้ส่ง กำหนดเส้นทาง หรือชำระบัญชีการชำระเงิน ผู้ใช้รับผิดชอบแต่เพียงผู้เดียวต่อความถูกต้อง ความครบถ้วน และการปฏิบัติตามกฎระเบียบของข้อมูลนำเข้าและข้อความที่สร้างขึ้นทั้งหมด XML ที่สร้างขึ้นต้องผ่านการตรวจสอบตามกฎเฉพาะของระบบและข้อกำหนดของคู่สัญญาก่อนส่งไปยังเครือข่ายการชำระเงินใดๆ pacs008.com และผู้ดูแลไม่รับผิดชอบต่อความล้มเหลวในการชำระเงิน บทลงโทษทางกฎระเบียบ หรือความสูญเสียทางการเงินที่เกิดจากการใช้ข้อความที่สร้างขึ้น
+
+## ความถูกต้องของข้อมูล
+
+คุณภาพของข้อความการชำระเงินที่สร้างขึ้นขึ้นอยู่กับคุณภาพของข้อมูลนำเข้าทั้งหมด ชุดเครื่องมือตรวจสอบโครงสร้างและรูปแบบแต่ไม่ยืนยันความถูกต้องตามข้อเท็จจริงของชื่อคู่สัญญา หมายเลขบัญชี หรือรหัสเส้นทาง ผู้ใช้มีหน้าที่รับผิดชอบในการตรวจสอบว่าข้อมูลนำเข้าทั้งหมดถูกต้อง เป็นปัจจุบัน และเป็นไปตามกฎระเบียบที่เกี่ยวข้อง
+
+## การใช้งาน API และชุดเครื่องมือ
+
+REST API และแพ็กเกจ PyPI จัดทำขึ้นเพื่อการผสานรวมกับเวิร์กโฟลว์การชำระเงิน ไปป์ไลน์การทดสอบ และสภาพแวดล้อมการพัฒนา หลักการใช้งานอย่างเป็นธรรมมีผลบังคับใช้ คำขอจำนวนมากอย่างต่อเนื่องที่ส่งผลกระทบต่อบริการของผู้ใช้รายอื่นอาจถูกจำกัดอัตราหรือถูกบล็อก ไม่มีการรับประกันเวลาทำงาน API ให้บริการบนพื้นฐานความพยายามอย่างดีที่สุด
+
+## ${t.termsLinksTitle}
+
+${t.termsLinksText}
+
+## ${t.termsLiabilityTitle}
+
+${t.termsLiabilityText}
+
+## ${t.termsGoverningTitle}
+
+${t.termsGoverningText}
+
+## ${t.termsChangesTitle}
+
+${t.termsChangesText}
+
+## ${t.termsContactTitle}
+
+${t.termsContactText}
+`;
+  }
+  if (localeKey === "tr") {
+    return `# ${t.termsTitle}
+
+${t.termsIntro}
+
+## ${t.termsIpTitle}
+
+${t.termsIpText}
+
+## Açık kaynak lisansı
+
+pacs008 Python araç takımı MIT lisansı altında yayımlanmıştır. Lisansın tam metni [proje deposunda](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE) mevcuttur. MIT lisansı minimum kısıtlamalarla kullanım, değişiklik ve dağıtıma izin verir. Orijinal yazarın atfedilmesi zorunludur. pacs008.com üzerindeki belgeler, aksi belirtilmedikçe aynı lisans kapsamında sunulmaktadır.
+
+## Kabul edilebilir kullanım
+
+pacs008.com ve pacs008 araç takımı, ISO 20022 ödeme mesajı oluşturma, doğrulama ve referans amacıyla yasal kullanıma yöneliktir. Otomatik veri çekme, hizmet reddi saldırıları ve sitenin veya deponun kullanılabilirliğini bozan her türlü kullanım yasaktır. Araç takımının sahte veya uyumsuz ödeme mesajları oluşturmak için kullanılması kesinlikle yasaktır.
+
+## Ödeme işleme sorumluluk reddi
+
+pacs008 araç takımı, kullanıcı tarafından sağlanan giriş verilerine dayanarak ISO 20022 XML mesajları üretir. Araç takımı ödemeleri iletmez, yönlendirmez veya takas etmez. Tüm giriş verilerinin ve üretilen mesajların doğruluğu, eksiksizliği ve mevzuata uygunluğu konusunda sorumluluk yalnızca kullanıcıya aittir. Üretilen XML, herhangi bir ödeme ağına gönderilmeden önce şemaya özgü kurallara ve karşı taraf gereksinimlerine göre doğrulanmalıdır. pacs008.com ve sürdürücüleri, üretilen mesajların kullanımından kaynaklanan ödeme başarısızlıkları, düzenleyici cezalar veya mali kayıplar için hiçbir sorumluluk kabul etmez.
+
+## Veri doğruluğu
+
+Üretilen ödeme mesajlarının kalitesi tamamen giriş verilerinin kalitesine bağlıdır. Araç takımı yapı ve formatı doğrular ancak taraf adlarının, hesap numaralarının veya yönlendirme kodlarının olgusal doğruluğunu teyit etmez. Tüm giriş verilerinin doğru, güncel ve geçerli düzenlemelere uygun olmasını sağlamak kullanıcının sorumluluğundadır.
+
+## API ve araç takımı kullanımı
+
+REST API ve PyPI paketi, ödeme iş akışlarına, test hatlarına ve geliştirme ortamlarına entegrasyon için sunulmaktadır. Adil kullanım ilkesi geçerlidir. Diğer kullanıcılara hizmet kalitesini düşüren sürekli yüksek hacimli istekler hız sınırlamasına tabi tutulabilir veya engellenebilir. Çalışma süresi garantisi verilmez. API en iyi çaba temelinde sunulmaktadır.
+
+## ${t.termsLinksTitle}
+
+${t.termsLinksText}
+
+## ${t.termsLiabilityTitle}
+
+${t.termsLiabilityText}
+
+## ${t.termsGoverningTitle}
+
+${t.termsGoverningText}
+
+## ${t.termsChangesTitle}
+
+${t.termsChangesText}
+
+## ${t.termsContactTitle}
+
+${t.termsContactText}
+`;
+  }
+  if (localeKey === "uk") {
+    return `# ${t.termsTitle}
+
+${t.termsIntro}
+
+## ${t.termsIpTitle}
+
+${t.termsIpText}
+
+## Ліцензія з відкритим кодом
+
+Інструментарій pacs008 для Python випущено за ліцензією MIT. Повний текст ліцензії доступний у [репозиторії проєкту](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Ліцензія MIT дозволяє використання, модифікацію та розповсюдження з мінімальними обмеженнями. Зазначення авторства оригінального автора є обов'язковим. Документація на pacs008.com надається за тією самою ліцензією, якщо не зазначено інше.
+
+## Допустиме використання
+
+pacs008.com та інструментарій pacs008 призначені для законних цілей, пов'язаних із генерацією, валідацією та використанням платіжних повідомлень ISO 20022 як довідкового матеріалу. Автоматизований збір даних, атаки на відмову в обслуговуванні та будь-яке використання, що порушує доступність сайту або репозиторію, заборонені. Використання інструментарію для створення шахрайських або невідповідних нормативним вимогам платіжних повідомлень суворо заборонено.
+
+## Застереження щодо обробки платежів
+
+Інструментарій pacs008 генерує XML-повідомлення ISO 20022 на основі вхідних даних, наданих користувачем. Інструментарій не передає, не маршрутизує та не здійснює розрахунки за платежами. Користувач несе повну відповідальність за точність, повноту та відповідність регуляторним вимогам усіх вхідних даних і згенерованих повідомлень. Згенерований XML має бути валідований відповідно до правил конкретної схеми та вимог контрагентів перед поданням до будь-якої платіжної мережі. pacs008.com та його супроводжувачі не несуть жодної відповідальності за невдалі платежі, регуляторні штрафи чи фінансові збитки, що виникли внаслідок використання згенерованих повідомлень.
+
+## Точність даних
+
+Якість згенерованих платіжних повідомлень повністю залежить від якості вхідних даних. Інструментарій валідує структуру та формат, але не перевіряє фактичну правильність імен сторін, номерів рахунків або кодів маршрутизації. Користувач відповідає за те, щоб усі вхідні дані були правильними, актуальними та відповідали чинним нормативним актам.
+
+## Використання API та інструментарію
+
+REST API та пакет PyPI надаються для інтеграції у платіжні робочі процеси, тестові конвеєри та середовища розробки. Діє принцип добросовісного використання. Тривалі запити великого обсягу, що погіршують якість обслуговування інших користувачів, можуть бути обмежені за швидкістю або заблоковані. Гарантія безперебійної роботи не надається. API пропонується на основі найкращих зусиль.
+
+## ${t.termsLinksTitle}
+
+${t.termsLinksText}
+
+## ${t.termsLiabilityTitle}
+
+${t.termsLiabilityText}
+
+## ${t.termsGoverningTitle}
+
+${t.termsGoverningText}
+
+## ${t.termsChangesTitle}
+
+${t.termsChangesText}
+
+## ${t.termsContactTitle}
+
+${t.termsContactText}
+`;
+  }
+  if (localeKey === "vi") {
+    return `# ${t.termsTitle}
+
+${t.termsIntro}
+
+## ${t.termsIpTitle}
+
+${t.termsIpText}
+
+## Giấy phép mã nguồn mở
+
+Bộ công cụ pacs008 cho Python được phát hành theo giấy phép MIT. Toàn văn giấy phép có sẵn trong [kho mã của dự án](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Giấy phép MIT cho phép sử dụng, sửa đổi và phân phối với các hạn chế tối thiểu. Bắt buộc ghi nhận tác giả gốc. Tài liệu trên pacs008.com được cung cấp theo cùng giấy phép trừ khi có ghi chú khác.
+
+## Sử dụng được chấp nhận
+
+pacs008.com và bộ công cụ pacs008 dành cho các mục đích hợp pháp liên quan đến việc tạo, xác thực và tham chiếu thông điệp thanh toán ISO 20022. Nghiêm cấm thu thập dữ liệu tự động, tấn công từ chối dịch vụ và mọi hành vi sử dụng gây gián đoạn tính khả dụng của trang web hoặc kho mã. Nghiêm cấm sử dụng bộ công cụ để tạo thông điệp thanh toán gian lận hoặc không tuân thủ quy định.
+
+## Tuyên bố miễn trừ trách nhiệm xử lý thanh toán
+
+Bộ công cụ pacs008 tạo thông điệp XML theo ISO 20022 dựa trên dữ liệu đầu vào do người dùng cung cấp. Bộ công cụ không truyền tải, định tuyến hay thanh toán bù trừ các khoản thanh toán. Người dùng chịu trách nhiệm hoàn toàn về tính chính xác, đầy đủ và tuân thủ quy định của tất cả dữ liệu đầu vào và thông điệp được tạo ra. XML được tạo ra phải được xác thực theo các quy tắc riêng của từng hệ thống và yêu cầu của bên đối tác trước khi gửi tới bất kỳ mạng lưới thanh toán nào. pacs008.com và các nhà bảo trì không chịu trách nhiệm về các lỗi thanh toán, hình phạt vi phạm quy định hoặc tổn thất tài chính phát sinh từ việc sử dụng các thông điệp được tạo ra.
+
+## Độ chính xác của dữ liệu
+
+Chất lượng thông điệp thanh toán được tạo ra phụ thuộc hoàn toàn vào chất lượng dữ liệu đầu vào. Bộ công cụ xác thực cấu trúc và định dạng nhưng không xác minh tính chính xác thực tế của tên các bên, số tài khoản hoặc mã định tuyến. Người dùng có trách nhiệm đảm bảo rằng tất cả dữ liệu đầu vào là chính xác, cập nhật và tuân thủ các quy định hiện hành.
+
+## Sử dụng API và bộ công cụ
+
+REST API và gói PyPI được cung cấp để tích hợp vào quy trình thanh toán, pipeline kiểm thử và môi trường phát triển. Nguyên tắc sử dụng hợp lý được áp dụng. Các yêu cầu khối lượng lớn liên tục làm giảm chất lượng dịch vụ cho người dùng khác có thể bị giới hạn tốc độ hoặc chặn. Không có cam kết về thời gian hoạt động liên tục. API được cung cấp trên cơ sở nỗ lực tốt nhất.
+
+## ${t.termsLinksTitle}
+
+${t.termsLinksText}
+
+## ${t.termsLiabilityTitle}
+
+${t.termsLiabilityText}
+
+## ${t.termsGoverningTitle}
+
+${t.termsGoverningText}
+
+## ${t.termsChangesTitle}
+
+${t.termsChangesText}
+
+## ${t.termsContactTitle}
+
+${t.termsContactText}
+`;
+  }
+
   return `# ${t.termsTitle}
 
 ${t.termsIntro}
@@ -14480,6 +15381,555 @@ ${t.editorialAccuracyText}
 
 ${t.editorialContactText}`;
   }
+  if (localeKey === "ru") {
+    return `# ${t.editorialTitle}
+
+${t.editorialIntro}
+
+## ${t.editorialSourcesTitle}
+
+${t.editorialSourcesIntro}
+
+- [Каталог определений сообщений ISO 20022](https://www.iso20022.org/iso-20022-message-definitions) — спецификации сообщений и история версий.
+- [Руководство по использованию SWIFT CBPR+](https://www.swift.com/standards/iso-20022) — контекст трансграничных платежей.
+- [Правила EPC SEPA Credit Transfer](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) — правила кредитовых переводов в евро.
+- [Правила EPC SEPA Instant Credit Transfer](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) — правила мгновенных платежей.
+
+## Процесс проверки контента
+
+Каждая страница на pacs008.com проходит структурированную проверку перед публикацией. Новый контент начинается с черновика на основе первичных источников. Черновик проверяется на техническую точность по каталогу сообщений ISO 20022 и соответствующей документации схем. Номера версий, регистрационные идентификаторы и определения полей верифицируются по официальным записям каталога.
+
+После первоначальной проверки контент проходит структурный контроль для обеспечения согласованности с существующими страницами. Навигация, перекрёстные ссылки и терминология стандартизированы по всему сайту. Дата проверки на каждой странице сообщения отражает последнюю верификацию по первичным источникам.
+
+## ${t.editorialReviewTitle}
+
+${t.editorialReviewText}
+
+## Техническая точность
+
+Технический контент соответствует определениям сообщений ISO 20022, опубликованным в официальном каталоге. Наименования полей, типы данных и правила кардинальности соответствуют XSD-схемам для каждой версии сообщения. Когда использование в конкретной схеме отличается от базового стандарта, соответствующая документация схемы цитируется напрямую.
+
+Примеры кода в документации API протестированы на текущем релизе инструментария pacs008. Команды CLI, эндпоинты API и методы библиотеки Python соответствуют опубликованному пакету на PyPI. Примеры обновляются с каждым новым релизом для синхронизации с инструментарием.
+
+## Методология перевода
+
+pacs008.com доступен на 22 языках. Весь контент создаётся на английском языке. Переведённые страницы генерируются из проверенного английского исходного материала с помощью скрипта сборки, сохраняющего структуру страниц, иерархию заголовков и целевые ссылки во всех локалях.
+
+Технические термины, идентификаторы ISO и стандартные коды остаются без перевода во избежание неоднозначности. Такие термины, как pacs.008.001.13, BIC, IBAN и CBPR+, отображаются в стандартной форме на каждом языке. Нетехнический контент переводится для естественного чтения на каждом целевом языке. Переводы проверяются на структурную согласованность и перегенерируются при изменении английского исходного материала.
+
+## Частота обновлений
+
+Контент обновляется в ответ на три триггера. Первый — когда ISO 20022 публикует новую версию каталога сообщений, затрагивающую определения сообщений pacs. Второй — когда SWIFT выпускает обновлённое руководство по использованию CBPR+ или новые сроки миграции. Третий — когда EPC обновляет правила SEPA Credit Transfer или SEPA Instant Credit Transfer.
+
+Инструментарий pacs008 следует семантическому версионированию. Каждый новый релиз отражается в документации API и журнале изменений. Сайт пересобирается и повторно развёртывается при каждом обновлении контента или инструментария.
+
+## ${t.editorialGenerationTitle}
+
+${t.editorialGenerationText}
+
+## ${t.editorialAccuracyTitle}
+
+${t.editorialAccuracyText}
+
+## ${t.editorialContactTitle}
+
+${t.editorialContactText}`;
+  }
+  if (localeKey === "uk") {
+    return `# ${t.editorialTitle}
+
+${t.editorialIntro}
+
+## ${t.editorialSourcesTitle}
+
+${t.editorialSourcesIntro}
+
+- [Каталог визначень повідомлень ISO 20022](https://www.iso20022.org/iso-20022-message-definitions) — специфікації повідомлень та історія версій.
+- [Настанови з використання SWIFT CBPR+](https://www.swift.com/standards/iso-20022) — контекст транскордонних платежів.
+- [Правила EPC SEPA Credit Transfer](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) — правила кредитових переказів у євро.
+- [Правила EPC SEPA Instant Credit Transfer](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) — правила миттєвих платежів.
+
+## Процес перевірки контенту
+
+Кожна сторінка на pacs008.com проходить структуровану перевірку перед публікацією. Новий контент починається з чернетки на основі первинних джерел. Чернетка перевіряється на технічну точність за каталогом повідомлень ISO 20022 та відповідною документацією схем. Номери версій, реєстраційні ідентифікатори та визначення полів верифікуються за офіційними записами каталогу.
+
+Після початкової перевірки контент проходить структурний контроль для забезпечення узгодженості з наявними сторінками. Навігація, перехресні посилання та термінологія стандартизовані по всьому сайту. Дата перевірки на кожній сторінці повідомлення відображає останню верифікацію за первинними джерелами.
+
+## ${t.editorialReviewTitle}
+
+${t.editorialReviewText}
+
+## Технічна точність
+
+Технічний контент відповідає визначенням повідомлень ISO 20022, опублікованим в офіційному каталозі. Найменування полів, типи даних та правила кардинальності відповідають XSD-схемам для кожної версії повідомлення. Коли використання в конкретній схемі відрізняється від базового стандарту, відповідна документація схеми цитується безпосередньо.
+
+Приклади коду в документації API протестовані на поточному релізі інструментарію pacs008. Команди CLI, ендпоінти API та методи бібліотеки Python відповідають опублікованому пакету на PyPI. Приклади оновлюються з кожним новим релізом для синхронізації з інструментарієм.
+
+## Методологія перекладу
+
+pacs008.com доступний 22 мовами. Весь контент створюється англійською мовою. Перекладені сторінки генеруються з перевіреного англійського вихідного матеріалу за допомогою скрипта збірки, що зберігає структуру сторінок, ієрархію заголовків та цільові посилання в усіх локалях.
+
+Технічні терміни, ідентифікатори ISO та стандартні коди залишаються без перекладу для уникнення неоднозначності. Такі терміни, як pacs.008.001.13, BIC, IBAN та CBPR+, відображаються в стандартній формі кожною мовою. Нетехнічний контент перекладається для природного читання кожною цільовою мовою. Переклади перевіряються на структурну узгодженість та перегенеровуються при зміні англійського вихідного матеріалу.
+
+## Частота оновлень
+
+Контент оновлюється у відповідь на три тригери. Перший — коли ISO 20022 публікує нову версію каталогу повідомлень, що впливає на визначення повідомлень pacs. Другий — коли SWIFT випускає оновлені настанови з використання CBPR+ або нові терміни міграції. Третій — коли EPC оновлює правила SEPA Credit Transfer або SEPA Instant Credit Transfer.
+
+Інструментарій pacs008 дотримується семантичного версіонування. Кожен новий реліз відображається в документації API та журналі змін. Сайт перезбирається та повторно розгортається при кожному оновленні контенту або інструментарію.
+
+## ${t.editorialGenerationTitle}
+
+${t.editorialGenerationText}
+
+## ${t.editorialAccuracyTitle}
+
+${t.editorialAccuracyText}
+
+## ${t.editorialContactTitle}
+
+${t.editorialContactText}`;
+  }
+  if (localeKey === "de") { return `# ${t.editorialTitle}\n\n${t.editorialIntro}\n\n## ${t.editorialSourcesTitle}\n\n${t.editorialSourcesIntro}\n\n- [ISO 20022-Nachrichtendefinitionskatalog](https://www.iso20022.org/iso-20022-message-definitions) für Nachrichtenspezifikationen und Versionshistorie.\n- [SWIFT CBPR+-Nutzungsrichtlinien](https://www.swift.com/standards/iso-20022) für den Kontext grenzüberschreitender Zahlungen.\n- [EPC SEPA-Überweisungsregelwerk](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) für Euro-Überweisungsregeln.\n- [EPC SEPA-Sofortüberweisungsregelwerk](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) für Sofortzahlungsregeln.\n\n## Verfahren zur Inhaltsprüfung\n\nJede Seite auf pacs008.com durchläuft vor der Veröffentlichung eine strukturierte Prüfung. Neue Inhalte beginnen als Entwurf auf Basis der Primärquellen. Der Entwurf wird anhand des ISO 20022-Nachrichtenkatalogs und der relevanten Schemadokumentation auf technische Richtigkeit geprüft. Versionsnummern, Registrierungskennungen und Felddefinitionen werden gegen die offiziellen Katalogeinträge verifiziert.\n\nNach der Erstprüfung folgt eine Strukturprüfung, um die Konsistenz mit bestehenden Seiten sicherzustellen. Navigation, Querverweise und Terminologie sind standortweit vereinheitlicht. Das auf jeder Nachrichtenseite angezeigte Prüfdatum gibt die jüngste Verifizierung gegen die Primärquellen wieder.\n\n## ${t.editorialReviewTitle}\n\n${t.editorialReviewText}\n\n## Technische Richtigkeit\n\nTechnische Inhalte folgen den ISO 20022-Nachrichtendefinitionen, wie sie im offiziellen Katalog veröffentlicht sind. Feldnamen, Datentypen und Kardinalitätsregeln stimmen mit den XSD-Schemata der jeweiligen Nachrichtenversion überein. Wenn die schemaspezifische Nutzung vom Basisstandard abweicht, wird die betreffende Schemadokumentation direkt zitiert.\n\nCodebeispiele in der API-Dokumentation werden gegen die aktuelle Version des pacs008-Toolkits getestet. CLI-Befehle, API-Endpunkte und Python-Bibliotheksmethoden entsprechen dem auf PyPI veröffentlichten Paket. Beispiele werden mit jeder neuen Version aktualisiert, um mit dem Toolkit synchron zu bleiben.\n\n## Übersetzungsmethodik\n\npacs008.com ist in 22 Sprachen verfügbar. Alle Inhalte werden in Englisch erstellt. Übersetzte Seiten werden aus dem geprüften englischen Quellmaterial mithilfe eines Build-Skripts erzeugt, das Seitenstruktur, Überschriftenhierarchie und Link-Ziele über alle Sprachversionen hinweg beibehält.\n\nFachbegriffe, ISO-Kennungen und Standardcodes bleiben unübersetzt, um Mehrdeutigkeit zu vermeiden. Begriffe wie pacs.008.001.13, BIC, IBAN und CBPR+ erscheinen in jeder Sprache in ihrer Standardform. Nicht-technische Inhalte werden so übersetzt, dass sie in der jeweiligen Zielsprache natürlich klingen. Übersetzungen werden auf strukturelle Konsistenz geprüft und bei Änderungen des englischen Quellmaterials neu erzeugt.\n\n## Aktualisierungshäufigkeit\n\nInhalte werden aus drei Anlässen aktualisiert. Erstens, wenn ISO 20022 eine neue Katalogversion veröffentlicht, die pacs-Nachrichtendefinitionen betrifft. Zweitens, wenn SWIFT aktualisierte CBPR+-Nutzungsrichtlinien oder Migrationstermine herausgibt. Drittens, wenn der EPC die SEPA-Überweisungs- oder Sofortüberweisungsregelwerke aktualisiert.\n\nDas pacs008-Toolkit folgt dem Prinzip der semantischen Versionierung. Jede neue Version wird in der API-Dokumentation und im Änderungsprotokoll abgebildet. Die Website wird bei jeder Inhalts- oder Toolkit-Aktualisierung neu gebaut und bereitgestellt.\n\n## ${t.editorialGenerationTitle}\n\n${t.editorialGenerationText}\n\n## ${t.editorialAccuracyTitle}\n\n${t.editorialAccuracyText}\n\n## ${t.editorialContactTitle}\n\n${t.editorialContactText}`; }
+  if (localeKey === "es") { return `# ${t.editorialTitle}\n\n${t.editorialIntro}\n\n## ${t.editorialSourcesTitle}\n\n${t.editorialSourcesIntro}\n\n- [Catálogo de definiciones de mensajes ISO 20022](https://www.iso20022.org/iso-20022-message-definitions) para especificaciones de mensajes e historial de versiones.\n- [Directrices de uso de SWIFT CBPR+](https://www.swift.com/standards/iso-20022) para el contexto de pagos transfronterizos.\n- [Reglamento SEPA de transferencias de crédito del EPC](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) para las normas de transferencias de crédito en euros.\n- [Reglamento SEPA de transferencias de crédito instantáneas del EPC](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) para las normas de pagos instantáneos.\n\n## Proceso de revisión del contenido\n\nCada página de pacs008.com pasa por una revisión estructurada antes de su publicación. El contenido nuevo comienza con un borrador basado en fuentes primarias. El borrador se verifica en cuanto a precisión técnica frente al catálogo de mensajes ISO 20022 y la documentación del esquema pertinente. Los números de versión, los identificadores de registro y las definiciones de campo se contrastan con las entradas oficiales del catálogo.\n\nTras la revisión inicial, el contenido se somete a una comprobación estructural para garantizar la coherencia con las páginas existentes. La navegación, las referencias cruzadas y la terminología se estandarizan en todo el sitio. La fecha de revisión mostrada en cada página de mensaje refleja la verificación más reciente frente a las fuentes primarias.\n\n## ${t.editorialReviewTitle}\n\n${t.editorialReviewText}\n\n## Precisión técnica\n\nEl contenido técnico sigue las definiciones de mensajes ISO 20022 tal como se publican en el catálogo oficial. Los nombres de los campos, los tipos de datos y las reglas de cardinalidad coinciden con los esquemas XSD de cada versión de mensaje. Cuando el uso específico del esquema difiere del estándar base, se cita directamente la documentación del esquema correspondiente.\n\nLos ejemplos de código de la documentación de la API se prueban con la versión actual del toolkit pacs008. Los comandos CLI, los endpoints de la API y los métodos de la biblioteca Python reflejan el paquete publicado en PyPI. Los ejemplos se actualizan con cada nueva versión para mantenerse sincronizados con el toolkit.\n\n## Metodología de traducción\n\npacs008.com está disponible en 22 idiomas. Todo el contenido se crea en inglés. Las páginas traducidas se generan a partir del material fuente en inglés revisado mediante un script de compilación que conserva la estructura de la página, la jerarquía de encabezados y los destinos de los enlaces en todas las versiones lingüísticas.\n\nLos términos técnicos, los identificadores ISO y los códigos estándar no se traducen para evitar ambigüedades. Términos como pacs.008.001.13, BIC, IBAN y CBPR+ aparecen en su forma estándar en todos los idiomas. El contenido no técnico se traduce para que resulte natural en cada idioma de destino. Las traducciones se revisan en cuanto a coherencia estructural y se regeneran cuando cambia el material fuente en inglés.\n\n## Frecuencia de actualización\n\nEl contenido se actualiza en respuesta a tres factores desencadenantes. Primero, cuando ISO 20022 publica una nueva versión del catálogo de mensajes que afecta a las definiciones de mensajes pacs. Segundo, cuando SWIFT publica directrices de uso de CBPR+ actualizadas o plazos de migración. Tercero, cuando el EPC actualiza los reglamentos de transferencias de crédito o de transferencias de crédito instantáneas SEPA.\n\nEl toolkit pacs008 sigue el versionado semántico. Cada nueva versión se refleja en la documentación de la API y en el registro de cambios. El sitio se reconstruye y se vuelve a desplegar con cada actualización de contenido o del toolkit.\n\n## ${t.editorialGenerationTitle}\n\n${t.editorialGenerationText}\n\n## ${t.editorialAccuracyTitle}\n\n${t.editorialAccuracyText}\n\n## ${t.editorialContactTitle}\n\n${t.editorialContactText}`; }
+  if (localeKey === "fr") { return `# ${t.editorialTitle}\n\n${t.editorialIntro}\n\n## ${t.editorialSourcesTitle}\n\n${t.editorialSourcesIntro}\n\n- [Catalogue de définitions de messages ISO 20022](https://www.iso20022.org/iso-20022-message-definitions) pour les spécifications de messages et l'historique des versions.\n- [Directives d'utilisation SWIFT CBPR+](https://www.swift.com/standards/iso-20022) pour le contexte des paiements transfrontaliers.\n- [Règlement SEPA de virements du EPC](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) pour les règles de virement en euros.\n- [Règlement SEPA de virements instantanés du EPC](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) pour les règles de paiement instantané.\n\n## Processus de révision du contenu\n\nChaque page de pacs008.com fait l'objet d'une révision structurée avant publication. Le contenu nouveau débute par un brouillon fondé sur les sources primaires. Le brouillon est vérifié sur le plan technique par rapport au catalogue de messages ISO 20022 et à la documentation de schéma applicable. Les numéros de version, les identifiants d'enregistrement et les définitions de champs sont confrontés aux entrées du catalogue officiel.\n\nAprès cette première révision, le contenu passe par un contrôle de structure visant à garantir sa cohérence avec les pages existantes. La navigation, les renvois et la terminologie sont uniformisés sur l'ensemble du site. La date de révision affichée sur chaque page de message correspond à la dernière vérification par rapport aux sources primaires.\n\n## ${t.editorialReviewTitle}\n\n${t.editorialReviewText}\n\n## Exactitude technique\n\nLe contenu technique est conforme aux définitions de messages ISO 20022 telles que publiées dans le catalogue officiel. Les noms de champs, les types de données et les règles de cardinalité correspondent aux schémas XSD de chaque version de message. Lorsque l'utilisation propre à un schéma diverge du standard de base, la documentation du schéma concerné est citée directement.\n\nLes exemples de code de la documentation de l'API sont testés par rapport à la version courante du toolkit pacs008. Les commandes CLI, les points de terminaison de l'API et les méthodes de la bibliothèque Python reflètent le paquet publié sur PyPI. Les exemples sont mis à jour à chaque nouvelle version afin de rester synchronisés avec le toolkit.\n\n## Méthodologie de traduction\n\npacs008.com est disponible en 22 langues. L'ensemble du contenu est rédigé en anglais. Les pages traduites sont générées à partir du matériel source anglais révisé au moyen d'un script de construction qui préserve la structure des pages, la hiérarchie des titres et les cibles de liens dans toutes les versions linguistiques.\n\nLes termes techniques, les identifiants ISO et les codes normalisés ne sont pas traduits afin d'éviter toute ambiguïté. Des termes tels que pacs.008.001.13, BIC, IBAN et CBPR+ apparaissent sous leur forme standard dans toutes les langues. Le contenu non technique est traduit de manière à être lu naturellement dans chaque langue cible. Les traductions font l'objet d'un contrôle de cohérence structurelle et sont régénérées lorsque le matériel source anglais évolue.\n\n## Fréquence de mise à jour\n\nLe contenu est mis à jour en réponse à trois déclencheurs. Premièrement, lorsque ISO 20022 publie une nouvelle version du catalogue de messages affectant les définitions de messages pacs. Deuxièmement, lorsque SWIFT publie des directives CBPR+ mises à jour ou de nouvelles échéances de migration. Troisièmement, lorsque le EPC met à jour les règlements de virements ou de virements instantanés SEPA.\n\nLe toolkit pacs008 suit le versionnage sémantique. Chaque nouvelle version se reflète dans la documentation de l'API et le journal des modifications. Le site est reconstruit et redéployé à chaque mise à jour du contenu ou du toolkit.\n\n## ${t.editorialGenerationTitle}\n\n${t.editorialGenerationText}\n\n## ${t.editorialAccuracyTitle}\n\n${t.editorialAccuracyText}\n\n## ${t.editorialContactTitle}\n\n${t.editorialContactText}`; }
+  if (localeKey === "it") { return `# ${t.editorialTitle}\n\n${t.editorialIntro}\n\n## ${t.editorialSourcesTitle}\n\n${t.editorialSourcesIntro}\n\n- [Catalogo delle definizioni dei messaggi ISO 20022](https://www.iso20022.org/iso-20022-message-definitions) per le specifiche dei messaggi e la cronologia delle versioni.\n- [Linee guida sull'utilizzo SWIFT CBPR+](https://www.swift.com/standards/iso-20022) per il contesto dei pagamenti transfrontalieri.\n- [Regolamento SEPA bonifici del EPC](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) per le regole sui bonifici in euro.\n- [Regolamento SEPA bonifici istantanei del EPC](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) per le regole sui pagamenti istantanei.\n\n## Processo di revisione dei contenuti\n\nOgni pagina di pacs008.com è sottoposta a una revisione strutturata prima della pubblicazione. I nuovi contenuti partono da una bozza basata sulle fonti primarie. La bozza viene verificata dal punto di vista tecnico rispetto al catalogo dei messaggi ISO 20022 e alla documentazione dello schema pertinente. Numeri di versione, identificativi di registrazione e definizioni dei campi vengono confrontati con le voci ufficiali del catalogo.\n\nDopo la revisione iniziale, il contenuto viene sottoposto a un controllo strutturale per garantire la coerenza con le pagine esistenti. Navigazione, riferimenti incrociati e terminologia sono standardizzati su tutto il sito. La data di revisione mostrata in ogni pagina di messaggio riflette la verifica più recente rispetto alle fonti primarie.\n\n## ${t.editorialReviewTitle}\n\n${t.editorialReviewText}\n\n## Accuratezza tecnica\n\nIl contenuto tecnico segue le definizioni dei messaggi ISO 20022 pubblicate nel catalogo ufficiale. Nomi dei campi, tipi di dati e regole di cardinalità corrispondono agli schemi XSD di ciascuna versione di messaggio. Quando l'utilizzo specifico dello schema differisce dallo standard di base, la documentazione dello schema pertinente viene citata direttamente.\n\nGli esempi di codice nella documentazione dell'API sono testati rispetto alla versione corrente del toolkit pacs008. Comandi CLI, endpoint dell'API e metodi della libreria Python riflettono il pacchetto pubblicato su PyPI. Gli esempi vengono aggiornati a ogni nuova versione per restare sincronizzati con il toolkit.\n\n## Metodologia di traduzione\n\npacs008.com è disponibile in 22 lingue. Tutti i contenuti vengono creati in inglese. Le pagine tradotte sono generate dal materiale sorgente inglese revisionato tramite uno script di build che preserva struttura della pagina, gerarchia dei titoli e destinazioni dei link in tutte le versioni linguistiche.\n\nI termini tecnici, gli identificativi ISO e i codici standard non vengono tradotti per evitare ambiguità. Termini quali pacs.008.001.13, BIC, IBAN e CBPR+ compaiono nella loro forma standard in ogni lingua. Il contenuto non tecnico viene tradotto per risultare naturale in ciascuna lingua di destinazione. Le traduzioni vengono controllate per coerenza strutturale e rigenerate quando il materiale sorgente in inglese cambia.\n\n## Frequenza di aggiornamento\n\nI contenuti vengono aggiornati in risposta a tre fattori. Primo, quando ISO 20022 pubblica una nuova versione del catalogo dei messaggi che influisce sulle definizioni dei messaggi pacs. Secondo, quando SWIFT rilascia linee guida CBPR+ aggiornate o nuove scadenze di migrazione. Terzo, quando il EPC aggiorna i regolamenti dei bonifici o dei bonifici istantanei SEPA.\n\nIl toolkit pacs008 segue il versionamento semantico. Ogni nuova versione si riflette nella documentazione dell'API e nel registro delle modifiche. Il sito viene ricostruito e ridistribuito a ogni aggiornamento dei contenuti o del toolkit.\n\n## ${t.editorialGenerationTitle}\n\n${t.editorialGenerationText}\n\n## ${t.editorialAccuracyTitle}\n\n${t.editorialAccuracyText}\n\n## ${t.editorialContactTitle}\n\n${t.editorialContactText}`; }
+  if (localeKey === "nl") { return `# ${t.editorialTitle}\n\n${t.editorialIntro}\n\n## ${t.editorialSourcesTitle}\n\n${t.editorialSourcesIntro}\n\n- [ISO 20022-berichtdefinitiecatalogus](https://www.iso20022.org/iso-20022-message-definitions) voor berichtspecificaties en versiegeschiedenis.\n- [SWIFT CBPR+-gebruiksrichtlijnen](https://www.swift.com/standards/iso-20022) voor de context van grensoverschrijdende betalingen.\n- [EPC SEPA-overboekingsregelboek](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) voor de regels inzake overboekingen in euro.\n- [EPC SEPA-directe-overboekingsregelboek](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) voor de regels inzake directe betalingen.\n\n## Proces voor inhoudsbeoordeling\n\nElke pagina op pacs008.com doorloopt een gestructureerde beoordeling vóór publicatie. Nieuwe inhoud begint als concept op basis van primaire bronnen. Het concept wordt gecontroleerd op technische juistheid aan de hand van de ISO 20022-berichtcatalogus en de relevante schemadocumentatie. Versienummers, registratie-identificatoren en velddefinities worden geverifieerd tegen de officiële catalogusvermeldingen.\n\nNa de eerste beoordeling ondergaat de inhoud een structurele controle om consistentie met bestaande pagina's te waarborgen. Navigatie, kruisverwijzingen en terminologie zijn gestandaardiseerd over de gehele site. De beoordelingsdatum op elke berichtpagina geeft de meest recente verificatie tegen de primaire bronnen weer.\n\n## ${t.editorialReviewTitle}\n\n${t.editorialReviewText}\n\n## Technische juistheid\n\nTechnische inhoud volgt de ISO 20022-berichtdefinities zoals gepubliceerd in de officiële catalogus. Veldnamen, gegevenstypen en kardinaliteitsregels komen overeen met de XSD-schema's van elke berichtversie. Wanneer schemaspecifiek gebruik afwijkt van de basisstandaard, wordt de betreffende schemadocumentatie rechtstreeks geciteerd.\n\nCodevoorbeelden in de API-documentatie worden getest tegen de huidige versie van de pacs008-toolkit. CLI-commando's, API-endpoints en Python-bibliotheekmethoden weerspiegelen het op PyPI gepubliceerde pakket. Voorbeelden worden bij elke nieuwe versie bijgewerkt om gesynchroniseerd te blijven met de toolkit.\n\n## Vertaalmethodologie\n\npacs008.com is beschikbaar in 22 talen. Alle inhoud wordt in het Engels opgesteld. Vertaalde pagina's worden gegenereerd uit het beoordeelde Engelstalige bronmateriaal met behulp van een buildscript dat paginastructuur, koppenstructuur en linkbestemmingen in alle taalversies behoudt.\n\nTechnische termen, ISO-identificatoren en standaardcodes worden niet vertaald om dubbelzinnigheid te voorkomen. Termen als pacs.008.001.13, BIC, IBAN en CBPR+ verschijnen in elke taal in hun standaardvorm. Niet-technische inhoud wordt vertaald zodat deze natuurlijk leest in de doeltaal. Vertalingen worden gecontroleerd op structurele consistentie en opnieuw gegenereerd wanneer het Engelstalige bronmateriaal wijzigt.\n\n## Updatefrequentie\n\nInhoud wordt bijgewerkt naar aanleiding van drie triggers. Ten eerste wanneer ISO 20022 een nieuwe catalogusversie publiceert die van invloed is op de definities van pacs-berichten. Ten tweede wanneer SWIFT bijgewerkte CBPR+-gebruiksrichtlijnen of migratietermijnen uitbrengt. Ten derde wanneer het EPC de SEPA-overboekings- of directe-overboekingsregelboeken actualiseert.\n\nDe pacs008-toolkit volgt semantisch versiebeheer. Elke nieuwe versie wordt weerspiegeld in de API-documentatie en het wijzigingslogboek. De site wordt bij elke inhouds- of toolkitupdate opnieuw gebouwd en uitgerold.\n\n## ${t.editorialGenerationTitle}\n\n${t.editorialGenerationText}\n\n## ${t.editorialAccuracyTitle}\n\n${t.editorialAccuracyText}\n\n## ${t.editorialContactTitle}\n\n${t.editorialContactText}`; }
+  if (localeKey === "pl") { return `# ${t.editorialTitle}\n\n${t.editorialIntro}\n\n## ${t.editorialSourcesTitle}\n\n${t.editorialSourcesIntro}\n\n- [Katalog definicji komunikatów ISO 20022](https://www.iso20022.org/iso-20022-message-definitions) — specyfikacje komunikatów i historia wersji.\n- [Wytyczne użytkowania SWIFT CBPR+](https://www.swift.com/standards/iso-20022) — kontekst płatności transgranicznych.\n- [Regulamin przelewów SEPA EPC](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) — zasady przelewów w euro.\n- [Regulamin natychmiastowych przelewów SEPA EPC](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) — zasady płatności natychmiastowych.\n\n## Proces przeglądu treści\n\nKażda strona na pacs008.com przechodzi strukturalny przegląd przed publikacją. Nowe treści zaczynają się od szkicu opartego na źródłach pierwotnych. Szkic jest weryfikowany pod kątem technicznej dokładności względem katalogu komunikatów ISO 20022 i odpowiedniej dokumentacji schematu.\n\nPo wstępnym przeglądzie treść przechodzi kontrolę strukturalną, która zapewnia spójność z istniejącymi stronami. Nawigacja, odsyłacze i terminologia są ujednolicone w całym serwisie. Data przeglądu widoczna na każdej stronie komunikatu odzwierciedla ostatnią weryfikację względem źródeł pierwotnych.\n\n## ${t.editorialReviewTitle}\n\n${t.editorialReviewText}\n\n## Dokładność techniczna\n\nTreści techniczne opierają się na definicjach komunikatów ISO 20022 opublikowanych w oficjalnym katalogu. Nazwy pól, typy danych i reguły kardynalności odpowiadają schematom XSD poszczególnych wersji komunikatów. Gdy użycie właściwe dla danego schematu odbiega od standardu bazowego, bezpośrednio cytowana jest odpowiednia dokumentacja schematu.\n\nPrzykłady kodu w dokumentacji API są testowane względem bieżącego wydania toolkitu pacs008. Polecenia CLI, endpointy API i metody biblioteki Python odzwierciedlają pakiet opublikowany na PyPI. Przykłady są aktualizowane przy każdym nowym wydaniu, aby zachować synchronizację z toolkitem.\n\n## Metodologia tłumaczenia\n\npacs008.com jest dostępny w 22 językach. Wszystkie treści powstają w języku angielskim. Przetłumaczone strony są generowane z przejrzanego angielskiego materiału źródłowego za pomocą skryptu budującego, który zachowuje strukturę strony, hierarchię nagłówków i cele łączy we wszystkich wersjach językowych.\n\nTerminy techniczne, identyfikatory ISO i kody standardowe nie są tłumaczone, aby uniknąć niejednoznaczności. Terminy takie jak pacs.008.001.13, BIC, IBAN i CBPR+ występują w standardowej formie we wszystkich językach. Treści nietechniczne są tłumaczone tak, aby brzmiały naturalnie w każdym języku docelowym. Tłumaczenia są sprawdzane pod kątem spójności strukturalnej i regenerowane w przypadku zmian w angielskim materiale źródłowym.\n\n## Częstotliwość aktualizacji\n\nTreści są aktualizowane w odpowiedzi na trzy czynniki. Po pierwsze, gdy ISO 20022 opublikuje nową wersję katalogu komunikatów wpływającą na definicje komunikatów pacs. Po drugie, gdy SWIFT wyda zaktualizowane wytyczne CBPR+ lub nowe terminy migracji. Po trzecie, gdy EPC zaktualizuje regulaminy przelewów lub natychmiastowych przelewów SEPA.\n\nToolkit pacs008 stosuje wersjonowanie semantyczne. Każde nowe wydanie znajduje odzwierciedlenie w dokumentacji API i dzienniku zmian. Witryna jest przebudowywana i wdrażana ponownie przy każdej aktualizacji treści lub toolkitu.\n\n## ${t.editorialGenerationTitle}\n\n${t.editorialGenerationText}\n\n## ${t.editorialAccuracyTitle}\n\n${t.editorialAccuracyText}\n\n## ${t.editorialContactTitle}\n\n${t.editorialContactText}`; }
+  if (localeKey === "pt") { return `# ${t.editorialTitle}\n\n${t.editorialIntro}\n\n## ${t.editorialSourcesTitle}\n\n${t.editorialSourcesIntro}\n\n- [Catálogo de definições de mensagens ISO 20022](https://www.iso20022.org/iso-20022-message-definitions) para especificações de mensagens e histórico de versões.\n- [Diretrizes de utilização SWIFT CBPR+](https://www.swift.com/standards/iso-20022) para o contexto de pagamentos transfronteiriços.\n- [Regulamento SEPA de transferências a crédito do EPC](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) para as regras de transferências a crédito em euros.\n- [Regulamento SEPA de transferências a crédito instantâneas do EPC](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) para as regras de pagamentos instantâneos.\n\n## Processo de revisão de conteúdo\n\nCada página do pacs008.com passa por uma revisão estruturada antes da publicação. Os novos conteúdos começam com um rascunho baseado em fontes primárias. O rascunho é verificado quanto à precisão técnica face ao catálogo de mensagens ISO 20022 e à documentação do esquema pertinente.\n\nApós a revisão inicial, o conteúdo passa por uma verificação estrutural para garantir a coerência com as páginas existentes. Navegação, referências cruzadas e terminologia são normalizadas em todo o site. A data de revisão apresentada em cada página de mensagem reflete a verificação mais recente face às fontes primárias.\n\n## ${t.editorialReviewTitle}\n\n${t.editorialReviewText}\n\n## Precisão técnica\n\nO conteúdo técnico segue as definições de mensagens ISO 20022 conforme publicadas no catálogo oficial. Nomes de campos, tipos de dados e regras de cardinalidade correspondem aos esquemas XSD de cada versão de mensagem. Quando a utilização específica do esquema difere do padrão base, a documentação do esquema relevante é citada diretamente.\n\nOs exemplos de código na documentação da API são testados com a versão atual do toolkit pacs008. Comandos CLI, endpoints da API e métodos da biblioteca Python refletem o pacote publicado no PyPI. Os exemplos são atualizados a cada nova versão para se manterem sincronizados com o toolkit.\n\n## Metodologia de tradução\n\nO pacs008.com está disponível em 22 idiomas. Todo o conteúdo é criado em inglês. As páginas traduzidas são geradas a partir do material fonte inglês revisto através de um script de construção que preserva a estrutura da página, a hierarquia de títulos e os destinos dos links em todas as versões linguísticas.\n\nTermos técnicos, identificadores ISO e códigos normalizados não são traduzidos para evitar ambiguidade. Termos como pacs.008.001.13, BIC, IBAN e CBPR+ aparecem na sua forma padrão em todos os idiomas. O conteúdo não técnico é traduzido para soar natural em cada idioma de destino. As traduções são verificadas quanto à coerência estrutural e regeneradas quando o material fonte em inglês é alterado.\n\n## Frequência de atualização\n\nO conteúdo é atualizado em resposta a três fatores. Primeiro, quando a ISO 20022 publica uma nova versão do catálogo de mensagens que afeta as definições de mensagens pacs. Segundo, quando a SWIFT divulga diretrizes CBPR+ atualizadas ou novos prazos de migração. Terceiro, quando o EPC atualiza os regulamentos de transferências a crédito ou transferências a crédito instantâneas SEPA.\n\nO toolkit pacs008 segue o versionamento semântico. Cada nova versão é refletida na documentação da API e no registo de alterações. O site é reconstruído e reimplantado a cada atualização de conteúdo ou do toolkit.\n\n## ${t.editorialGenerationTitle}\n\n${t.editorialGenerationText}\n\n## ${t.editorialAccuracyTitle}\n\n${t.editorialAccuracyText}\n\n## ${t.editorialContactTitle}\n\n${t.editorialContactText}`; }
+  if (localeKey === "ro") { return `# ${t.editorialTitle}\n\n${t.editorialIntro}\n\n## ${t.editorialSourcesTitle}\n\n${t.editorialSourcesIntro}\n\n- [Catalogul definițiilor de mesaje ISO 20022](https://www.iso20022.org/iso-20022-message-definitions) pentru specificațiile mesajelor și istoricul versiunilor.\n- [Ghidul de utilizare SWIFT CBPR+](https://www.swift.com/standards/iso-20022) pentru contextul plăților transfrontaliere.\n- [Regulamentul SEPA de transferuri de credit al EPC](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) pentru regulile transferurilor de credit în euro.\n- [Regulamentul SEPA de transferuri de credit instantanee al EPC](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) pentru regulile plăților instantanee.\n\n## Procesul de revizuire a conținutului\n\nFiecare pagină de pe pacs008.com trece printr-o revizuire structurată înainte de publicare. Conținutul nou pornește de la o ciornă bazată pe surse primare. Ciorna este verificată din punct de vedere tehnic față de catalogul de mesaje ISO 20022 și documentația de schemă relevantă.\n\nDupă revizuirea inițială, conținutul trece printr-un control structural pentru a asigura coerența cu paginile existente. Navigația, referințele încrucișate și terminologia sunt standardizate pe întreg site-ul. Data de revizuire afișată pe fiecare pagină de mesaj reflectă cea mai recentă verificare față de sursele primare.\n\n## ${t.editorialReviewTitle}\n\n${t.editorialReviewText}\n\n## Acuratețe tehnică\n\nConținutul tehnic respectă definițiile de mesaje ISO 20022 așa cum sunt publicate în catalogul oficial. Numele câmpurilor, tipurile de date și regulile de cardinalitate corespund schemelor XSD ale fiecărei versiuni de mesaj. Când utilizarea specifică schemei diferă de standardul de bază, documentația schemei relevante este citată direct.\n\nExemplele de cod din documentația API sunt testate cu versiunea curentă a toolkitului pacs008. Comenzile CLI, endpointurile API și metodele bibliotecii Python reflectă pachetul publicat pe PyPI. Exemplele sunt actualizate la fiecare nouă versiune pentru a rămâne sincronizate cu toolkitul.\n\n## Metodologia de traducere\n\npacs008.com este disponibil în 22 de limbi. Tot conținutul este creat în limba engleză. Paginile traduse sunt generate din materialul sursă în limba engleză revizuit cu ajutorul unui script de construcție care păstrează structura paginii, ierarhia titlurilor și destinațiile linkurilor în toate versiunile lingvistice.\n\nTermenii tehnici, identificatorii ISO și codurile standard nu sunt traduși pentru a evita ambiguitatea. Termeni precum pacs.008.001.13, BIC, IBAN și CBPR+ apar în forma lor standard în fiecare limbă. Conținutul non-tehnic este tradus pentru a suna natural în fiecare limbă țintă. Traducerile sunt verificate pentru coerență structurală și regenerate atunci când materialul sursă în limba engleză se modifică.\n\n## Frecvența actualizărilor\n\nConținutul este actualizat ca răspuns la trei factori declanșatori. Primul, atunci când ISO 20022 publică o nouă versiune a catalogului de mesaje care afectează definițiile mesajelor pacs. Al doilea, atunci când SWIFT publică ghiduri CBPR+ actualizate sau noi termene de migrare. Al treilea, atunci când EPC actualizează regulamentele de transferuri de credit sau de transferuri de credit instantanee SEPA.\n\nToolkitul pacs008 respectă versionarea semantică. Fiecare nouă versiune este reflectată în documentația API și în jurnalul de modificări. Site-ul este reconstruit și redeploiat la fiecare actualizare de conținut sau a toolkitului.\n\n## ${t.editorialGenerationTitle}\n\n${t.editorialGenerationText}\n\n## ${t.editorialAccuracyTitle}\n\n${t.editorialAccuracyText}\n\n## ${t.editorialContactTitle}\n\n${t.editorialContactText}`; }
+  if (localeKey === "ar") {
+    return `# ${t.editorialTitle}
+
+${t.editorialIntro}
+
+## ${t.editorialSourcesTitle}
+
+${t.editorialSourcesIntro}
+
+- [ISO 20022 كتالوج تعريفات الرسائل](https://www.iso20022.org/iso-20022-message-definitions) لمواصفات الرسائل وتاريخ الإصدارات.
+- [SWIFT CBPR+ إرشادات الاستخدام](https://www.swift.com/standards/iso-20022) لسياق المدفوعات عبر الحدود.
+- [EPC SEPA دليل قواعد تحويل الائتمان](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) لقواعد تحويل الائتمان باليورو.
+- [EPC SEPA دليل قواعد تحويل الائتمان الفوري](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) لقواعد الدفع الفوري.
+
+## عملية مراجعة المحتوى
+
+كل صفحة على pacs008.com تمر بمراجعة منهجية قبل النشر. يبدأ المحتوى الجديد كمسودة مبنية على المصادر الأولية. تُفحص المسودة للتأكد من دقتها التقنية مقارنةً بكتالوج رسائل ISO 20022 ووثائق المنظومة ذات الصلة. تُتحقق أرقام الإصدارات ومعرّفات التسجيل وتعريفات الحقول مقابل إدخالات الكتالوج الرسمية.
+
+بعد المراجعة الأولية يخضع المحتوى لفحص هيكلي لضمان الاتساق مع الصفحات القائمة. تُوحّد التنقلات والإحالات المتبادلة والمصطلحات عبر الموقع. يعكس تاريخ المراجعة المعروض على كل صفحة رسائل آخر تحقق مقابل المصادر الأولية.
+
+## ${t.editorialReviewTitle}
+
+${t.editorialReviewText}
+
+## الدقة التقنية
+
+يتبع المحتوى التقني تعريفات رسائل ISO 20022 المنشورة في الكتالوج الرسمي. تتطابق أسماء الحقول وأنواع البيانات وقواعد العدد مع مخططات XSD لكل إصدار رسالة. عندما يختلف الاستخدام الخاص بالمنظومة عن المعيار الأساسي تُستشهد وثائق المنظومة ذات الصلة مباشرةً.
+
+أمثلة الشفرات في وثائق API مختبرة مقابل الإصدار الحالي لأداة pacs008. تعكس أوامر CLI ونقاط نهاية API وأساليب مكتبة Python الحزمة المنشورة على PyPI. تُحدَّث الأمثلة مع كل إصدار جديد للحفاظ على التزامن مع الأداة.
+
+## منهجية الترجمة
+
+pacs008.com متاح بـ 22 لغة. ينشأ كل المحتوى باللغة الإنجليزية. تُنتج الصفحات المترجمة من المادة المصدرية الإنجليزية المراجعة باستخدام سكربت بناء يحافظ على بنية الصفحة وتسلسل العناوين وأهداف الروابط عبر جميع اللغات.
+
+تبقى المصطلحات التقنية ومعرّفات ISO والرموز المعيارية دون ترجمة لتجنب الغموض. مصطلحات مثل pacs.008.001.13 وBIC وIBAN وCBPR+ تظهر بصيغتها المعيارية في كل لغة. يُترجم المحتوى غير التقني ليُقرأ بشكل طبيعي في كل لغة مستهدفة. تُراجع الترجمات من حيث الاتساق الهيكلي وتُعاد توليدها عند تغيير المادة المصدرية الإنجليزية.
+
+## تواتر التحديثات
+
+يُحدَّث المحتوى استجابةً لثلاثة محفزات. أولًا عندما تنشر ISO 20022 إصدار كتالوج رسائل جديدًا يؤثر على تعريفات رسائل pacs. ثانيًا عندما تصدر SWIFT إرشادات استخدام CBPR+ محدثة أو مواعيد نهائية للترحيل. ثالثًا عندما يُحدِّث EPC أدلة قواعد تحويل الائتمان أو تحويل الائتمان الفوري ضمن SEPA.
+
+تتبع أداة pacs008 نظام الإصدار الدلالي. ينعكس كل إصدار جديد في وثائق API وسجل التغييرات. يُعاد بناء الموقع وإعادة نشره مع كل تحديث للمحتوى أو الأداة.
+
+## ${t.editorialGenerationTitle}
+
+${t.editorialGenerationText}
+
+## ${t.editorialAccuracyTitle}
+
+${t.editorialAccuracyText}
+
+## ${t.editorialContactTitle}
+
+${t.editorialContactText}`;
+  }
+  if (localeKey === "he") {
+    return `# ${t.editorialTitle}
+
+${t.editorialIntro}
+
+## ${t.editorialSourcesTitle}
+
+${t.editorialSourcesIntro}
+
+- [ISO 20022 קטלוג הגדרות הודעות](https://www.iso20022.org/iso-20022-message-definitions) למפרטי הודעות והיסטוריית גרסאות.
+- [SWIFT CBPR+ הנחיות שימוש](https://www.swift.com/standards/iso-20022) להקשר תשלומים חוצי גבולות.
+- [EPC SEPA ספר כללי העברת אשראי](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) לכללי העברת אשראי באירו.
+- [EPC SEPA ספר כללי העברת אשראי מיידית](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) לכללי תשלום מיידי.
+
+## תהליך סקירת תוכן
+
+כל עמוד ב-pacs008.com עובר סקירה מובנית לפני פרסום. תוכן חדש מתחיל כטיוטה המבוססת על חומרי מקור ראשוניים. הטיוטה נבדקת לדיוק טכני מול קטלוג הודעות ISO 20022 ותיעוד מערכת רלוונטי. מספרי גרסה, מזהי רישום והגדרות שדות מאומתים מול רשומות הקטלוג הרשמי.
+
+לאחר הסקירה הראשונית, התוכן עובר בדיקה מבנית להבטחת עקביות עם עמודים קיימים. ניווט, הפניות צולבות ומינוח מתוקננים ברחבי האתר. תאריך הסקירה המוצג בכל עמוד הודעה משקף את האימות האחרון מול מקורות ראשוניים.
+
+## ${t.editorialReviewTitle}
+
+${t.editorialReviewText}
+
+## דיוק טכני
+
+תוכן טכני עוקב אחר הגדרות הודעות ISO 20022 כפי שפורסמו בקטלוג הרשמי. שמות שדות, סוגי נתונים וכללי עוצמה תואמים את סכמות XSD לכל גרסת הודעה. כאשר שימוש ספציפי למערכת שונה מהתקן הבסיסי, תיעוד המערכת הרלוונטי מצוטט ישירות.
+
+דוגמאות קוד בתיעוד API נבדקות מול הגרסה הנוכחית של ערכת הכלים pacs008. פקודות CLI, נקודות קצה API ושיטות ספריית Python משקפות את החבילה המפורסמת ב-PyPI. דוגמאות מתעדכנות עם כל גרסה חדשה לשמירה על סנכרון עם ערכת הכלים.
+
+## מתודולוגיית תרגום
+
+pacs008.com זמין ב-22 שפות. כל התוכן נוצר באנגלית. עמודים מתורגמים נוצרים מחומר המקור האנגלי המסוקר באמצעות סקריפט בנייה השומר על מבנה העמוד, היררכיית כותרות ויעדי קישורים בכל האזורים.
+
+מונחים טכניים, מזהי ISO וקודים תקניים נותרים ללא תרגום למניעת עמימות. מונחים כמו pacs.008.001.13, BIC, IBAN ו-CBPR+ מופיעים בצורתם התקנית בכל שפה. תוכן לא-טכני מתורגם לקריאה טבעית בכל שפת יעד. תרגומים נסקרים לעקביות מבנית ונוצרים מחדש כאשר חומר המקור האנגלי משתנה.
+
+## תדירות עדכונים
+
+תוכן מתעדכן בתגובה לשלושה גורמים. ראשית, כאשר ISO 20022 מפרסם גרסת קטלוג הודעות חדשה המשפיעה על הגדרות הודעות pacs. שנית, כאשר SWIFT מפרסם הנחיות שימוש CBPR+ מעודכנות או מועדי מעבר. שלישית, כאשר EPC מעדכן את ספרי הכללים של העברת אשראי או העברת אשראי מיידית ב-SEPA.
+
+ערכת הכלים pacs008 פועלת לפי גרסאות סמנטיות. כל גרסה חדשה משתקפת בתיעוד API וביומן השינויים. האתר נבנה מחדש ונפרס מחדש עם כל עדכון תוכן או ערכת כלים.
+
+## ${t.editorialGenerationTitle}
+
+${t.editorialGenerationText}
+
+## ${t.editorialAccuracyTitle}
+
+${t.editorialAccuracyText}
+
+## ${t.editorialContactTitle}
+
+${t.editorialContactText}`;
+  }
+  if (localeKey === "hi") {
+    return `# ${t.editorialTitle}
+
+${t.editorialIntro}
+
+## ${t.editorialSourcesTitle}
+
+${t.editorialSourcesIntro}
+
+- [ISO 20022 संदेश परिभाषा सूची](https://www.iso20022.org/iso-20022-message-definitions) संदेश विनिर्देशों और संस्करण इतिहास के लिए।
+- [SWIFT CBPR+ उपयोग दिशानिर्देश](https://www.swift.com/standards/iso-20022) सीमा-पार भुगतान संदर्भ के लिए।
+- [EPC SEPA क्रेडिट ट्रांसफर नियम पुस्तिका](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) यूरो क्रेडिट ट्रांसफर नियमों के लिए।
+- [EPC SEPA तत्काल क्रेडिट ट्रांसफर नियम पुस्तिका](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) तत्काल भुगतान नियमों के लिए।
+
+## सामग्री समीक्षा प्रक्रिया
+
+pacs008.com पर प्रत्येक पृष्ठ प्रकाशन से पहले एक व्यवस्थित समीक्षा से गुज़रता है। नई सामग्री प्राथमिक स्रोत सामग्री पर आधारित एक प्रारूप से शुरू होती है। प्रारूप की तकनीकी सटीकता ISO 20022 संदेश सूची और संबंधित योजना प्रलेखन के विरुद्ध जाँची जाती है। संस्करण संख्याएँ, पंजीकरण पहचानकर्ता और फ़ील्ड परिभाषाएँ आधिकारिक सूची प्रविष्टियों के विरुद्ध सत्यापित की जाती हैं।
+
+प्रारंभिक समीक्षा के बाद सामग्री की मौजूदा पृष्ठों के साथ संगतता सुनिश्चित करने के लिए संरचनात्मक जाँच होती है। नेविगेशन, क्रॉस-रेफ़रेंस और शब्दावली पूरी साइट पर मानकीकृत की जाती है। प्रत्येक संदेश पृष्ठ पर दिखाई गई समीक्षा तिथि प्राथमिक स्रोतों के विरुद्ध नवीनतम सत्यापन दर्शाती है।
+
+## ${t.editorialReviewTitle}
+
+${t.editorialReviewText}
+
+## तकनीकी सटीकता
+
+तकनीकी सामग्री आधिकारिक सूची में प्रकाशित ISO 20022 संदेश परिभाषाओं का पालन करती है। फ़ील्ड नाम, डेटा प्रकार और कार्डिनैलिटी नियम प्रत्येक संदेश संस्करण के XSD स्कीमा से मेल खाते हैं। जहाँ योजना-विशिष्ट उपयोग आधार मानक से भिन्न होता है, वहाँ संबंधित योजना प्रलेखन सीधे उद्धृत किया जाता है।
+
+API प्रलेखन में कोड उदाहरण pacs008 टूलकिट के वर्तमान रिलीज़ के विरुद्ध परीक्षित हैं। CLI कमांड, API एंडपॉइंट और Python लाइब्रेरी विधियाँ PyPI पर प्रकाशित पैकेज को दर्शाती हैं। उदाहरण प्रत्येक नई रिलीज़ के साथ टूलकिट के साथ समन्वय बनाए रखने के लिए अपडेट किए जाते हैं।
+
+## अनुवाद पद्धति
+
+pacs008.com 22 भाषाओं में उपलब्ध है। सारी सामग्री अंग्रेज़ी में उत्पन्न होती है। अनुवादित पृष्ठ समीक्षित अंग्रेज़ी स्रोत सामग्री से एक बिल्ड स्क्रिप्ट का उपयोग करके उत्पन्न किए जाते हैं जो सभी स्थानों पर पृष्ठ संरचना, शीर्षक पदानुक्रम और लिंक लक्ष्य संरक्षित रखती है।
+
+तकनीकी शब्द, ISO पहचानकर्ता और मानक कोड अस्पष्टता से बचने के लिए अनुवादित नहीं किए जाते। pacs.008.001.13, BIC, IBAN और CBPR+ जैसे शब्द हर भाषा में अपने मानक रूप में प्रकट होते हैं। गैर-तकनीकी सामग्री प्रत्येक लक्ष्य भाषा में स्वाभाविक रूप से पढ़ने योग्य अनुवादित की जाती है। अनुवादों की संरचनात्मक संगतता की समीक्षा की जाती है और अंग्रेज़ी स्रोत सामग्री बदलने पर पुनः उत्पन्न किए जाते हैं।
+
+## अपडेट आवृत्ति
+
+सामग्री तीन कारणों से अपडेट की जाती है। पहला, जब ISO 20022 pacs संदेश परिभाषाओं को प्रभावित करने वाला नया संदेश सूची संस्करण प्रकाशित करता है। दूसरा, जब SWIFT अपडेटेड CBPR+ उपयोग दिशानिर्देश या माइग्रेशन समय-सीमा जारी करता है। तीसरा, जब EPC SEPA क्रेडिट ट्रांसफर या तत्काल क्रेडिट ट्रांसफर नियम पुस्तिकाएँ अपडेट करता है।
+
+pacs008 टूलकिट सिमेंटिक वर्शनिंग का पालन करती है। प्रत्येक नई रिलीज़ API प्रलेखन और परिवर्तन लॉग में परिलक्षित होती है। प्रत्येक सामग्री या टूलकिट अपडेट के साथ साइट पुनर्निर्मित और पुनः तैनात की जाती है।
+
+## ${t.editorialGenerationTitle}
+
+${t.editorialGenerationText}
+
+## ${t.editorialAccuracyTitle}
+
+${t.editorialAccuracyText}
+
+## ${t.editorialContactTitle}
+
+${t.editorialContactText}`;
+  }
+  if (localeKey === "id") {
+    return `# ${t.editorialTitle}
+
+${t.editorialIntro}
+
+## ${t.editorialSourcesTitle}
+
+${t.editorialSourcesIntro}
+
+- [ISO 20022 katalog definisi pesan](https://www.iso20022.org/iso-20022-message-definitions) untuk spesifikasi pesan dan riwayat versi.
+- [SWIFT CBPR+ panduan penggunaan](https://www.swift.com/standards/iso-20022) untuk konteks pembayaran lintas batas.
+- [EPC SEPA buku aturan transfer kredit](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) untuk aturan transfer kredit euro.
+- [EPC SEPA buku aturan transfer kredit instan](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) untuk aturan pembayaran instan.
+
+## Proses peninjauan konten
+
+Setiap halaman di pacs008.com menjalani peninjauan terstruktur sebelum publikasi. Konten baru dimulai dari draf berdasarkan materi sumber primer. Draf diperiksa akurasi teknisnya terhadap katalog pesan ISO 20022 dan dokumentasi skema yang relevan. Nomor versi, pengidentifikasi registrasi, dan definisi bidang diverifikasi terhadap entri katalog resmi.
+
+Setelah peninjauan awal, konten menjalani pemeriksaan struktural untuk memastikan konsistensi dengan halaman yang ada. Navigasi, referensi silang, dan terminologi distandarisasi di seluruh situs. Tanggal peninjauan yang ditampilkan pada setiap halaman pesan mencerminkan verifikasi terbaru terhadap sumber primer.
+
+## ${t.editorialReviewTitle}
+
+${t.editorialReviewText}
+
+## Akurasi teknis
+
+Konten teknis mengikuti definisi pesan ISO 20022 sebagaimana dipublikasikan dalam katalog resmi. Nama bidang, tipe data, dan aturan kardinalitas sesuai dengan skema XSD untuk setiap versi pesan. Jika penggunaan khusus skema berbeda dari standar dasar, dokumentasi skema yang relevan dikutip secara langsung.
+
+Contoh kode dalam dokumentasi API diuji terhadap rilis terkini toolkit pacs008. Perintah CLI, endpoint API, dan metode pustaka Python mencerminkan paket yang dipublikasikan di PyPI. Contoh diperbarui dengan setiap rilis baru agar tetap sinkron dengan toolkit.
+
+## Metodologi penerjemahan
+
+pacs008.com tersedia dalam 22 bahasa. Semua konten berasal dari bahasa Inggris. Halaman terjemahan dihasilkan dari materi sumber bahasa Inggris yang telah ditinjau menggunakan skrip pembangunan yang mempertahankan struktur halaman, hierarki judul, dan target tautan di semua lokal.
+
+Istilah teknis, pengidentifikasi ISO, dan kode standar tetap tidak diterjemahkan untuk menghindari ambiguitas. Istilah seperti pacs.008.001.13, BIC, IBAN, dan CBPR+ muncul dalam bentuk standarnya di setiap bahasa. Konten non-teknis diterjemahkan agar terbaca secara alami di setiap bahasa sasaran. Terjemahan ditinjau untuk konsistensi struktural dan diregenerasi ketika materi sumber bahasa Inggris berubah.
+
+## Frekuensi pembaruan
+
+Konten diperbarui sebagai respons terhadap tiga pemicu. Pertama, ketika ISO 20022 menerbitkan versi katalog pesan baru yang memengaruhi definisi pesan pacs. Kedua, ketika SWIFT merilis panduan penggunaan CBPR+ yang diperbarui atau tenggat migrasi. Ketiga, ketika EPC memperbarui buku aturan transfer kredit SEPA atau transfer kredit instan SEPA.
+
+Toolkit pacs008 mengikuti semantic versioning. Setiap rilis baru tercermin dalam dokumentasi API dan changelog. Situs dibangun ulang dan di-deploy ulang dengan setiap pembaruan konten atau toolkit.
+
+## ${t.editorialGenerationTitle}
+
+${t.editorialGenerationText}
+
+## ${t.editorialAccuracyTitle}
+
+${t.editorialAccuracyText}
+
+## ${t.editorialContactTitle}
+
+${t.editorialContactText}`;
+  }
+  if (localeKey === "th") {
+    return `# ${t.editorialTitle}
+
+${t.editorialIntro}
+
+## ${t.editorialSourcesTitle}
+
+${t.editorialSourcesIntro}
+
+- [ISO 20022 แคตตาล็อกคำจำกัดความข้อความ](https://www.iso20022.org/iso-20022-message-definitions) สำหรับข้อกำหนดข้อความและประวัติเวอร์ชัน
+- [SWIFT CBPR+ แนวทางการใช้งาน](https://www.swift.com/standards/iso-20022) สำหรับบริบทการชำระเงินข้ามพรมแดน
+- [EPC SEPA คู่มือกฎการโอนเครดิต](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) สำหรับกฎการโอนเครดิตสกุลเงินยูโร
+- [EPC SEPA คู่มือกฎการโอนเครดิตทันที](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) สำหรับกฎการชำระเงินทันที
+
+## กระบวนการตรวจสอบเนื้อหา
+
+ทุกหน้าบน pacs008.com ผ่านการตรวจสอบอย่างเป็นระบบก่อนเผยแพร่ เนื้อหาใหม่เริ่มจากร่างที่อิงแหล่งข้อมูลหลัก ร่างถูกตรวจสอบความถูกต้องทางเทคนิคเทียบกับแคตตาล็อกข้อความ ISO 20022 และเอกสารระบบที่เกี่ยวข้อง หมายเลขเวอร์ชัน ตัวระบุการลงทะเบียน และคำจำกัดความฟิลด์ถูกตรวจสอบเทียบกับรายการแคตตาล็อกอย่างเป็นทางการ
+
+หลังการตรวจสอบเบื้องต้น เนื้อหาผ่านการตรวจสอบโครงสร้างเพื่อให้มั่นใจในความสอดคล้องกับหน้าที่มีอยู่ การนำทาง การอ้างอิงข้าม และคำศัพท์เฉพาะถูกทำให้เป็นมาตรฐานทั่วทั้งเว็บไซต์ วันที่ตรวจสอบที่แสดงบนหน้าข้อความแต่ละหน้าสะท้อนการตรวจสอบล่าสุดเทียบกับแหล่งข้อมูลหลัก
+
+## ${t.editorialReviewTitle}
+
+${t.editorialReviewText}
+
+## ความถูกต้องทางเทคนิค
+
+เนื้อหาทางเทคนิคเป็นไปตามคำจำกัดความข้อความ ISO 20022 ที่เผยแพร่ในแคตตาล็อกอย่างเป็นทางการ ชื่อฟิลด์ ประเภทข้อมูล และกฎเรื่องจำนวนตรงกับสกีมา XSD สำหรับแต่ละเวอร์ชันข้อความ เมื่อการใช้งานเฉพาะระบบแตกต่างจากมาตรฐานพื้นฐาน เอกสารระบบที่เกี่ยวข้องถูกอ้างอิงโดยตรง
+
+ตัวอย่างโค้ดในเอกสาร API ถูกทดสอบกับรุ่นปัจจุบันของชุดเครื่องมือ pacs008 คำสั่ง CLI จุดปลาย API และเมธอดไลบรารี Python สะท้อนแพ็กเกจที่เผยแพร่บน PyPI ตัวอย่างถูกอัปเดตกับทุกรุ่นใหม่เพื่อรักษาการซิงค์กับชุดเครื่องมือ
+
+## วิธีการแปล
+
+pacs008.com ให้บริการใน 22 ภาษา เนื้อหาทั้งหมดสร้างขึ้นเป็นภาษาอังกฤษ หน้าที่แปลแล้วถูกสร้างจากเนื้อหาต้นฉบับภาษาอังกฤษที่ผ่านการตรวจสอบโดยใช้สคริปต์สร้างที่รักษาโครงสร้างหน้า ลำดับชั้นหัวข้อ และเป้าหมายลิงก์ในทุกภาษา
+
+คำศัพท์ทางเทคนิค ตัวระบุ ISO และรหัสมาตรฐานไม่ถูกแปลเพื่อหลีกเลี่ยงความกำกวม คำเช่น pacs.008.001.13, BIC, IBAN และ CBPR+ ปรากฏในรูปแบบมาตรฐานในทุกภาษา เนื้อหาที่ไม่ใช่ทางเทคนิคถูกแปลให้อ่านได้อย่างเป็นธรรมชาติในแต่ละภาษาเป้าหมาย การแปลถูกตรวจสอบความสอดคล้องของโครงสร้างและสร้างใหม่เมื่อเนื้อหาต้นฉบับภาษาอังกฤษเปลี่ยนแปลง
+
+## ความถี่ในการอัปเดต
+
+เนื้อหาถูกอัปเดตตามสามปัจจัยกระตุ้น ประการแรก เมื่อ ISO 20022 เผยแพร่แคตตาล็อกข้อความเวอร์ชันใหม่ที่ส่งผลต่อคำจำกัดความข้อความ pacs ประการที่สอง เมื่อ SWIFT ออกแนวทางการใช้งาน CBPR+ ที่อัปเดตหรือกำหนดเวลาการย้ายระบบ ประการที่สาม เมื่อ EPC อัปเดตคู่มือกฎการโอนเครดิต SEPA หรือการโอนเครดิตทันที SEPA
+
+ชุดเครื่องมือ pacs008 ใช้ระบบเวอร์ชันเชิงความหมาย ทุกรุ่นใหม่สะท้อนในเอกสาร API และบันทึกการเปลี่ยนแปลง เว็บไซต์ถูกสร้างใหม่และปรับใช้ใหม่กับทุกการอัปเดตเนื้อหาหรือชุดเครื่องมือ
+
+## ${t.editorialGenerationTitle}
+
+${t.editorialGenerationText}
+
+## ${t.editorialAccuracyTitle}
+
+${t.editorialAccuracyText}
+
+## ${t.editorialContactTitle}
+
+${t.editorialContactText}`;
+  }
+  if (localeKey === "tr") {
+    return `# ${t.editorialTitle}
+
+${t.editorialIntro}
+
+## ${t.editorialSourcesTitle}
+
+${t.editorialSourcesIntro}
+
+- [ISO 20022 mesaj tanımları kataloğu](https://www.iso20022.org/iso-20022-message-definitions) mesaj spesifikasyonları ve sürüm geçmişi için.
+- [SWIFT CBPR+ kullanım kılavuzları](https://www.swift.com/standards/iso-20022) sınır ötesi ödeme bağlamı için.
+- [EPC SEPA kredi transferi kural kitabı](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) euro kredi transferi kuralları için.
+- [EPC SEPA anlık kredi transferi kural kitabı](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) anlık ödeme kuralları için.
+
+## İçerik inceleme süreci
+
+pacs008.com üzerindeki her sayfa yayınlanmadan önce yapılandırılmış bir inceleme sürecinden geçer. Yeni içerik, birincil kaynak materyale dayalı bir taslakla başlar. Taslak, ISO 20022 mesaj kataloğu ve ilgili şema dokümantasyonuna göre teknik doğruluğu açısından kontrol edilir. Sürüm numaraları, kayıt tanımlayıcıları ve alan tanımları resmi katalog kayıtlarına göre doğrulanır.
+
+İlk incelemeden sonra içerik, mevcut sayfalarla tutarlılığı sağlamak için yapısal bir kontrolden geçer. Navigasyon, çapraz referanslar ve terminoloji site genelinde standartlaştırılır. Her mesaj sayfasında gösterilen inceleme tarihi, birincil kaynaklara karşı en son doğrulamayı yansıtır.
+
+## ${t.editorialReviewTitle}
+
+${t.editorialReviewText}
+
+## Teknik doğruluk
+
+Teknik içerik, resmi katalogda yayımlanan ISO 20022 mesaj tanımlarını takip eder. Alan adları, veri türleri ve kardinalite kuralları her mesaj sürümünün XSD şemalarıyla eşleşir. Şemaya özgü kullanım temel standarttan farklı olduğunda, ilgili şema dokümantasyonu doğrudan alıntılanır.
+
+API dokümantasyonundaki kod örnekleri, pacs008 araç takımının güncel sürümüne karşı test edilir. CLI komutları, API uç noktaları ve Python kütüphane yöntemleri PyPI'de yayımlanan paketi yansıtır. Örnekler, araç takımıyla senkronizasyonu korumak için her yeni sürümle güncellenir.
+
+## Çeviri metodolojisi
+
+pacs008.com 22 dilde mevcuttur. Tüm içerik İngilizce olarak oluşturulur. Çevrilmiş sayfalar, tüm yerel ayarlarda sayfa yapısını, başlık hiyerarşisini ve bağlantı hedeflerini koruyan bir derleme betiği kullanılarak incelenmiş İngilizce kaynak materyalden üretilir.
+
+Teknik terimler, ISO tanımlayıcıları ve standart kodlar belirsizliği önlemek için çevrilmez. pacs.008.001.13, BIC, IBAN ve CBPR+ gibi terimler her dilde standart biçimleriyle görünür. Teknik olmayan içerik, her hedef dilde doğal okunacak şekilde çevrilir. Çeviriler yapısal tutarlılık açısından gözden geçirilir ve İngilizce kaynak materyal değiştiğinde yeniden üretilir.
+
+## Güncelleme sıklığı
+
+İçerik üç tetikleyiciye yanıt olarak güncellenir. Birincisi, ISO 20022 pacs mesaj tanımlarını etkileyen yeni bir mesaj kataloğu sürümü yayımladığında. İkincisi, SWIFT güncellenmiş CBPR+ kullanım kılavuzları veya geçiş son tarihleri yayınladığında. Üçüncüsü, EPC SEPA kredi transferi veya anlık kredi transferi kural kitaplarını güncellediğinde.
+
+pacs008 araç takımı semantik sürümlemeyi takip eder. Her yeni sürüm API dokümantasyonu ve değişiklik günlüğüne yansıtılır. Site, her içerik veya araç takımı güncellemesiyle yeniden derlenir ve yeniden dağıtılır.
+
+## ${t.editorialGenerationTitle}
+
+${t.editorialGenerationText}
+
+## ${t.editorialAccuracyTitle}
+
+${t.editorialAccuracyText}
+
+## ${t.editorialContactTitle}
+
+${t.editorialContactText}`;
+  }
+  if (localeKey === "uk") {
+    return `# ${t.editorialTitle}
+
+${t.editorialIntro}
+
+## ${t.editorialSourcesTitle}
+
+${t.editorialSourcesIntro}
+
+- [ISO 20022 каталог визначень повідомлень](https://www.iso20022.org/iso-20022-message-definitions) для специфікацій повідомлень та історії версій.
+- [SWIFT CBPR+ настанови з використання](https://www.swift.com/standards/iso-20022) для контексту транскордонних платежів.
+- [EPC SEPA зведення правил кредитового переказу](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) для правил кредитового переказу в євро.
+- [EPC SEPA зведення правил миттєвого кредитового переказу](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) для правил миттєвих платежів.
+
+## Процес перевірки контенту
+
+Кожна сторінка на pacs008.com проходить структуровану перевірку перед публікацією. Новий контент починається з чернетки на основі первинних джерел. Чернетка перевіряється на технічну точність відповідно до каталогу повідомлень ISO 20022 та відповідної документації схеми. Номери версій, ідентифікатори реєстрації та визначення полів верифікуються за офіційними записами каталогу.
+
+Після початкової перевірки контент проходить структурну перевірку для забезпечення узгодженості з існуючими сторінками. Навігація, перехресні посилання та термінологія стандартизовані по всьому сайту. Дата перевірки, показана на кожній сторінці повідомлення, відображає останню верифікацію відповідно до первинних джерел.
+
+## ${t.editorialReviewTitle}
+
+${t.editorialReviewText}
+
+## Технічна точність
+
+Технічний контент відповідає визначенням повідомлень ISO 20022, опублікованим в офіційному каталозі. Назви полів, типи даних та правила кардинальності відповідають XSD-схемам для кожної версії повідомлення. Коли використання, специфічне для схеми, відрізняється від базового стандарту, відповідна документація схеми цитується безпосередньо.
+
+Приклади коду в документації API протестовані на поточному випуску інструментарію pacs008. Команди CLI, кінцеві точки API та методи бібліотеки Python відображають опублікований пакет на PyPI. Приклади оновлюються з кожним новим випуском для підтримки синхронізації з інструментарієм.
+
+## Методологія перекладу
+
+pacs008.com доступний 22 мовами. Весь контент створюється англійською. Перекладені сторінки генеруються з перевіреного англомовного вихідного матеріалу за допомогою скрипта збірки, який зберігає структуру сторінки, ієрархію заголовків та цільові посилання у всіх локалях.
+
+Технічні терміни, ідентифікатори ISO та стандартні коди залишаються неперекладеними для уникнення двозначності. Такі терміни як pacs.008.001.13, BIC, IBAN та CBPR+ з'являються у своїй стандартній формі в кожній мові. Нетехнічний контент перекладається для природного читання кожною цільовою мовою. Переклади перевіряються на структурну узгодженість та перегенеровуються при зміні англомовного вихідного матеріалу.
+
+## Частота оновлень
+
+Контент оновлюється у відповідь на три тригери. По-перше, коли ISO 20022 публікує нову версію каталогу повідомлень, що впливає на визначення повідомлень pacs. По-друге, коли SWIFT випускає оновлені настанови з використання CBPR+ або терміни міграції. По-третє, коли EPC оновлює зведення правил кредитового переказу SEPA або миттєвого кредитового переказу SEPA.
+
+Інструментарій pacs008 дотримується семантичного версіонування. Кожен новий випуск відображається в документації API та журналі змін. Сайт перебудовується та повторно розгортається з кожним оновленням контенту або інструментарію.
+
+## ${t.editorialGenerationTitle}
+
+${t.editorialGenerationText}
+
+## ${t.editorialAccuracyTitle}
+
+${t.editorialAccuracyText}
+
+## ${t.editorialContactTitle}
+
+${t.editorialContactText}`;
+  }
+  if (localeKey === "vi") {
+    return `# ${t.editorialTitle}
+
+${t.editorialIntro}
+
+## ${t.editorialSourcesTitle}
+
+${t.editorialSourcesIntro}
+
+- [ISO 20022 danh mục định nghĩa thông điệp](https://www.iso20022.org/iso-20022-message-definitions) cho thông số kỹ thuật và lịch sử phiên bản.
+- [SWIFT CBPR+ hướng dẫn sử dụng](https://www.swift.com/standards/iso-20022) cho bối cảnh thanh toán xuyên biên giới.
+- [EPC SEPA sổ tay quy tắc chuyển khoản tín dụng](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) cho các quy tắc chuyển khoản tín dụng đồng euro.
+- [EPC SEPA sổ tay quy tắc chuyển khoản tín dụng tức thì](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) cho các quy tắc thanh toán tức thì.
+
+## Quy trình rà soát nội dung
+
+Mỗi trang trên pacs008.com đều trải qua quy trình rà soát có cấu trúc trước khi xuất bản. Nội dung mới bắt đầu từ bản nháp dựa trên tài liệu nguồn chính. Bản nháp được kiểm tra tính chính xác kỹ thuật so với danh mục thông điệp ISO 20022 và tài liệu hệ thống liên quan. Số phiên bản, mã định danh đăng ký và định nghĩa trường được xác minh với các mục trong danh mục chính thức.
+
+Sau rà soát ban đầu, nội dung trải qua kiểm tra cấu trúc để đảm bảo tính nhất quán với các trang hiện có. Điều hướng, tham chiếu chéo và thuật ngữ được chuẩn hóa trên toàn bộ trang web. Ngày rà soát hiển thị trên mỗi trang thông điệp phản ánh lần xác minh gần nhất với nguồn chính.
+
+## ${t.editorialReviewTitle}
+
+${t.editorialReviewText}
+
+## Độ chính xác kỹ thuật
+
+Nội dung kỹ thuật tuân theo các định nghĩa thông điệp ISO 20022 được công bố trong danh mục chính thức. Tên trường, kiểu dữ liệu và quy tắc lực lượng khớp với các lược đồ XSD cho mỗi phiên bản thông điệp. Khi cách sử dụng cụ thể của hệ thống khác với tiêu chuẩn cơ sở, tài liệu hệ thống liên quan được trích dẫn trực tiếp.
+
+Các ví dụ mã trong tài liệu API được kiểm tra với phiên bản hiện tại của bộ công cụ pacs008. Các lệnh CLI, điểm cuối API và phương thức thư viện Python phản ánh gói đã xuất bản trên PyPI. Các ví dụ được cập nhật với mỗi bản phát hành mới để duy trì đồng bộ với bộ công cụ.
+
+## Phương pháp dịch thuật
+
+pacs008.com có sẵn trong 22 ngôn ngữ. Toàn bộ nội dung được tạo bằng tiếng Anh. Các trang đã dịch được tạo từ tài liệu nguồn tiếng Anh đã rà soát bằng tập lệnh xây dựng giữ nguyên cấu trúc trang, phân cấp tiêu đề và đích liên kết trên tất cả các ngôn ngữ.
+
+Các thuật ngữ kỹ thuật, mã định danh ISO và mã tiêu chuẩn không được dịch để tránh mơ hồ. Các thuật ngữ như pacs.008.001.13, BIC, IBAN và CBPR+ xuất hiện ở dạng tiêu chuẩn trong mọi ngôn ngữ. Nội dung phi kỹ thuật được dịch để đọc tự nhiên trong mỗi ngôn ngữ đích. Bản dịch được rà soát tính nhất quán cấu trúc và tái tạo khi tài liệu nguồn tiếng Anh thay đổi.
+
+## Tần suất cập nhật
+
+Nội dung được cập nhật để phản hồi ba yếu tố kích hoạt. Thứ nhất, khi ISO 20022 xuất bản phiên bản danh mục thông điệp mới ảnh hưởng đến định nghĩa thông điệp pacs. Thứ hai, khi SWIFT phát hành hướng dẫn sử dụng CBPR+ cập nhật hoặc thời hạn chuyển đổi. Thứ ba, khi EPC cập nhật sổ tay quy tắc chuyển khoản tín dụng SEPA hoặc chuyển khoản tín dụng tức thì SEPA.
+
+Bộ công cụ pacs008 tuân theo phiên bản ngữ nghĩa. Mỗi bản phát hành mới được phản ánh trong tài liệu API và nhật ký thay đổi. Trang web được xây dựng lại và triển khai lại với mỗi lần cập nhật nội dung hoặc bộ công cụ.
+
+## ${t.editorialGenerationTitle}
+
+${t.editorialGenerationText}
+
+## ${t.editorialAccuracyTitle}
+
+${t.editorialAccuracyText}
+
+## ${t.editorialContactTitle}
+
+${t.editorialContactText}`;
+  }
+
   return `# ${t.editorialTitle}
 
 ${t.editorialIntro}
@@ -15839,47 +17289,134 @@ ${t.faqPageIntro}
 
 ### Что такое ISO 20022?
 
-ISO 20022 — международный стандарт финансовых сообщений. Определяет общий язык и модель для платёжных сообщений между финансовыми учреждениями. Использует XML и поддерживает более полные и структурированные данные.
+ISO 20022 — международный стандарт финансовых сообщений. Определяет общий язык и модель для платёжных сообщений, которыми обмениваются финансовые учреждения. В отличие от устаревших форматов, таких как SWIFT MT, ISO 20022 использует XML и поддерживает более полные и структурированные данные о сторонах, суммах и ссылках.
 
 ### Что такое сообщения pacs?
 
-Семейство сообщений pacs охватывает межбанковские платёжные инструкции, отчёты о статусе, возвраты, отмены и запросы. Включает pacs.002, pacs.003, pacs.004, pacs.007, pacs.008, pacs.009, pacs.010 и pacs.028.
+Семейство сообщений pacs (payments clearing and settlement) охватывает межбанковские платёжные инструкции, отчёты о статусе, возвраты, отмены и запросы. Включает pacs.002, pacs.003, pacs.004, pacs.007, pacs.008, pacs.009, pacs.010 и pacs.028. Каждое сообщение выполняет определённую роль в жизненном цикле платежа.
+
+### Чем сообщения pacs отличаются от сообщений SWIFT MT?
+
+Сообщения SWIFT MT используют плоский формат с тегами полей (например, MT103 для клиентских кредитовых переводов). Сообщения pacs используют иерархический XML с более богатыми структурами данных. Ключевые отличия: поддержка нескольких транзакций в одном сообщении, структурированная идентификация сторон (LEI, множественные идентификаторы), структурированные почтовые адреса и структурированная информация о назначении платежа. MT103 соответствует pacs.008, MT202 — pacs.009, текст статуса MT199 заменяется pacs.002.
+
+### Какова связь между сообщениями pain и pacs?
+
+Сообщения pain (payment initiation) передаются между клиентом и банком. Сообщения pacs передаются между банками. Инициирование кредитового перевода pain.001 от банка должника преобразуется в межбанковскую инструкцию pacs.008. Оба домена используют общие элементы данных, но обслуживают различные участки платёжной цепочки.
 
 ## Выбор сообщения
 
 ### Когда использовать pacs.008?
 
-Используйте pacs.008 для инструкций кредитового перевода клиента между банками.
+pacs.008 предназначен для инструкций клиентского кредитового перевода между банками. Содержит данные сторон — должника и кредитора, суммы, информацию о назначении платежа и детали расчёта. Это основное сообщение для отправки клиентских платежей через межбанковскую сеть, как внутри страны (SEPA), так и трансгранично (CBPR+).
+
+### Когда использовать pacs.009 вместо pacs.008?
+
+pacs.009 предназначен для переводов собственных средств между учреждениями, этапов финансирования и покрывающих платежей. В отличие от pacs.008, который несёт клиентский платёж от имени должника, pacs.009 перемещает средства между банками за собственный счёт. В покрывающих потоках pacs.009 обеспечивает финансирование, а pacs.008 передаёт клиентскую инструкцию отдельным маршрутом.
+
+### В чём разница между pacs.004 и pacs.007?
+
+pacs.004 возвращает рассчитанные средства от получающей стороны обратно по цепочке. pacs.007 отменяет платёж от исходной инструктирующей стороны вперёд по цепочке. pacs.004 — когда банк бенефициара не может зачислить средства после расчёта. pacs.007 — когда отправитель обнаруживает ошибку, дубликат или мошенничество.
+
+### Когда использовать pacs.028 вместо ожидания pacs.002?
+
+pacs.028 используется для активного запроса статуса платежа, который не получил своевременного обновления pacs.002. pacs.002 инициируется событием (получающий агент отправляет его проактивно), тогда как pacs.028 инициируется исключением (инструктирующий агент запрашивает его). pacs.028 — для задержанных, неясных или отсутствующих обновлений, а не для рутинного трафика.
+
+### Для чего предназначен pacs.003?
+
+pacs.003 передаёт инструкции прямого дебета клиента между банками. Агент кредитора отправляет его агенту должника для сбора средств. Требуется действительная ссылка на мандат. Поддерживаются схемы SEPA Core и B2B прямого дебета. Не используется для кредитовых переводов или дебетования собственных счетов учреждений.
+
+### Для чего предназначен pacs.010?
+
+pacs.010 обрабатывает прямые дебеты между финансовыми учреждениями по собственным счетам. Применяется для межбанковских сборов, маржинальных требований и аналогичных обязательств в рамках двусторонних соглашений. Не используется для клиентских прямых дебетов или кредитовых переводов.
 
 ## Структура сообщения
 
 ### Что такое заголовок группы (GrpHdr)?
 
-Заголовок группы появляется ровно один раз в каждом сообщении pacs. Содержит MsgId, CreDtTm, NbOfTxs, SttlmInf.
+Заголовок группы появляется ровно один раз в каждом сообщении pacs. Содержит идентификатор сообщения (MsgId), временную метку создания (CreDtTm), количество транзакций (NbOfTxs), информацию о расчёте (SttlmInf) и опционально общую сумму межбанковского расчёта и информацию о типе платежа. Определяет конверт сообщения, а не отдельные бизнес-транзакции.
+
+### Какие идентификаторы платежа используются в pacs.008?
+
+pacs.008 использует четыре основных идентификатора. MsgId идентифицирует конверт сообщения и изменяется на каждом шаге. InstrId — ссылка между смежными агентами, может изменяться на каждом шаге. EndToEndId устанавливается отправителем и не должен изменяться ни одним агентом в цепочке. TxId назначается первым инструктирующим агентом и остаётся постоянным в межбанковском пространстве. UETR — UUID, неизменный на всех сегментах для сквозного отслеживания.
+
+### Какие методы расчёта доступны?
+
+Определены четыре метода расчёта. CLRG — через клиринговую систему, такую как TARGET2, EURO1 или CHIPS. INDA — на счетах инструктируемого агента, где агент должника имеет счёт «ностро». INGA — на счетах инструктирующего агента, где инструктируемый агент имеет счёт «ностро». COVE — через отдельный покрывающий платёж, передаваемый pacs.009.
+
+### Что означают коды несения расходов?
+
+DEBT — все расходы несёт должник (эквивалент MT103 OUR). CRED — все расходы несёт кредитор (эквивалент BEN). SHAR — расходы разделяются между агентами должника и кредитора (эквивалент SHA). SLEV — расходы определяются уровнем сервиса, обязателен для переводов SEPA.
 
 ## CBPR+ и миграция
 
 ### Что такое CBPR+?
 
-CBPR+ — программа SWIFT по внедрению ISO 20022 для трансграничных платёжных сообщений. Запущена в марте 2023.
+CBPR+ (Cross-Border Payments and Reporting Plus) — программа SWIFT по внедрению ISO 20022 в трансграничной платёжной системе сообщений. Запущена в марте 2023 и заменяет сообщения MT эквивалентами pacs. CBPR+ требует pacs.002 для всех коммуникаций о статусе платежа, поддерживает расширенные данные сторон и структурированные адреса, использует отслеживание на основе UETR через gpi.
+
+### Что произошло с периодом сосуществования MT/MX?
+
+Период сосуществования для трансграничных платёжных инструкций завершился в ноябре 2025 года. С этого момента сообщения CBPR+ используют формат ISO 20022 (MX). Сервисы трансляции между MT и MX, работавшие в период перехода, более недоступны для новых потоков. Банки обязаны отправлять и получать нативные сообщения pacs.
+
+### Каков крайний срок ноября 2026 для структурированных адресов?
+
+С ноября 2026 года SWIFT CBPR+ требует структурированные почтовые адреса в трансграничных платёжных сообщениях. Неструктурированные строки адреса (только AdrLine) более не принимаются для ключевых полей сторон. Минимально требуются TwnNm и Ctry, рекомендуются StrtNm и BldgNb или PstBx. Это улучшает фильтрацию санкций и сокращает ручные исправления.
+
+### Как pacs.008 заменяет MT103?
+
+pacs.008 заменяет MT103 и MT103+ для клиентских кредитовых переводов. Основные соответствия: поле 20 MT103 — MsgId или InstrId; поле 32A разделяется на IntrBkSttlmDt и IntrBkSttlmAmt; поле 50a — Dbtr и DbtrAcct; поле 59a — Cdtr и CdtrAcct; поле 70 — RmtInf; поле 71A — ChrgBr. pacs.008 добавляет UETR, структурированную информацию о назначении платежа, идентификацию LEI и поддерживает несколько транзакций в одном сообщении.
 
 ## Технические детали
 
+### Что такое структурированные и неструктурированные адреса?
+
+Структурированные адреса используют отдельные XML-элементы для каждого компонента: StrtNm (улица), BldgNb (номер здания), PstCd (почтовый индекс), TwnNm (город), Ctry (страна) и опциональные элементы Flr, Room, DstrctNm. Неструктурированные адреса используют до семи элементов AdrLine со свободным текстом. Гибридные адреса сочетают оба формата в переходный период. После ноября 2026 CBPR+ требует структурированный формат.
+
 ### Что такое UETR и как работает отслеживание gpi?
 
-UETR — UUID v4, генерируемый агентом должника и передаваемый без изменений на всех этапах платежа для отслеживания gpi.
+UETR (Unique End-to-End Transaction Reference) — идентификатор UUID v4, генерируемый агентом должника и передаваемый без изменений на всех сегментах платежа. Присутствует в pacs.008, pacs.009, pacs.002, pacs.004, pacs.007 и pacs.028. SWIFT gpi использует UETR для отслеживания платежей через облачную базу данных Tracker. Каждый агент подтверждает получение и обработку, обеспечивая сквозную видимость и контроль SLA.
 
-## О pacs008
+### Какие коды статуса используются в pacs.002?
+
+ACCP — принято после проверки профиля клиента. ACSP — принято, расчёт выполняется. ACSC — расчёт на счёте должника завершён. RJCT — отклонено (с кодом причины в StsRsnInf). PDNG — ожидает дальнейшей обработки. RCVD — получено, но ещё не обработано. Каждый статус может включать структурированный код причины, такой как AC01 (неверный номер счёта), AM04 (недостаточно средств) или RC01 (неверный BIC).
+
+### Какие коды причин возврата используются в pacs.004?
+
+Частые коды причин возврата: AC01 (неверный номер счёта), AC04 (счёт закрыт), AC06 (счёт заблокирован), AM04 (недостаточно средств), BE04 (отсутствует адрес кредитора), CUST (запрос клиента), DUPL (дублирующий платёж), FOCR (по запросу на отмену) и FR01 (мошенничество). Полный список определён в External Code Sets ISO 20022.
+
+### Что такое структурированная информация о назначении платежа?
+
+Структурированная информация в pacs.008 использует элемент RmtInf/Strd для передачи ссылок на документы (номера счетов-фактур, кредитных авизо), сумм (причитающихся, перечисленных, налогов, скидок) и ссылок кредитора (ссылки RF по ISO 11649). Это позволяет автоматизировать сверку счетов-фактур. Распространённые коды типов документов: CINV (коммерческий счёт-фактура), CREN (кредитовое авизо) и SOAC (выписка по счёту).
+
+### Что такое LEI и когда он используется?
+
+LEI (Legal Entity Identifier) — 20-символьный буквенно-цифровой код по ISO 17442. Однозначно идентифицирует юридические лица, участвующие в финансовых транзакциях. В сообщениях pacs LEI указывается в OrgId/LEI для сторон и FinInstnId/LEI для агентов. CBPR+ всё активнее продвигает использование LEI для идентификации сторон и агентов. Улучшает разрешение неоднозначности юридических лиц и отвечает требованиям регуляторной отчётности.
+
+## Об инструментарии pacs008
 
 ### Что делает pacs008?
 
-pacs008 — Python-инструментарий для генерации, валидации и отправки платёжных сообщений ISO 20022.
+pacs008 — инструментарий на Python для генерации, валидации и отправки платёжных сообщений ISO 20022. Считывает платёжные данные из источников CSV, JSON, JSONL, SQLite и Parquet, выполняет валидацию по JSON Schema и XSD, проверяет идентификаторы IBAN и BIC, очищает данные для соответствия требованиям SWIFT к символам и формирует XML-файлы. Предоставляет REST API, CLI и библиотеку Python.
+
+### Какие типы сообщений поддерживает pacs008?
+
+pacs008 поддерживает восемь типов сообщений: pacs.002.001.12 (отчёт о статусе), pacs.003.001.09 (клиентский прямой дебет), pacs.004.001.11 (возврат платежа), pacs.007.001.11 (отмена платежа), pacs.008.001.13 (клиентский кредитовый перевод), pacs.009.001.10 (перевод между финансовыми учреждениями), pacs.010.001.05 (прямой дебет между финансовыми учреждениями) и pacs.028.001.05 (запрос статуса платежа).
+
+### Как pacs008 помогает с крайним сроком ноября 2026 для структурированных адресов?
+
+pacs008 проверяет поля структурированных и гибридных почтовых адресов перед генерацией XML. Выявляет неструктурированные адресные данные, которые будут отклонены после крайнего срока ноября 2026, поддерживает гибридные форматы до наступления срока и исключительно структурированные — после, интегрирует контроль качества адресов в пайплайны CI и пакетные процессы валидации.
+
+### Может ли pacs008 валидировать данные без генерации XML?
+
+Да. Используйте флаг CLI \`--dry-run\` или эндпоинт API \`POST /validate\` для валидации платёжных данных без генерации XML. Конвейер валидации проверяет соответствие JSON Schema, формат и контрольную сумму IBAN, структуру BIC и соответствие требованиям SWIFT к символам. Код завершения или ответ API указывает на успех или ошибку валидации.
 
 ## Ссылки
 
 - [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions)
 - [ISO 20022 external code sets](https://www.iso20022.org/external_code_list.page)
 - [SWIFT CBPR+ ISO 20022 usage guidelines](https://www.swift.com/standards/iso-20022)
+- [SWIFT CBPR+ migration roadmap](https://www.swift.com/swift-resource/252463/download)
+- [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and)
+- [EPC SEPA Instant Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook)
 - [SWIFT gpi](https://www.swift.com/our-solutions/swift-gpi)
 `;
 }
@@ -15893,47 +17430,134 @@ ${t.faqPageIntro}
 
 ### Що таке ISO 20022?
 
-ISO 20022 — міжнародний стандарт фінансових повідомлень. Визначає спільну мову та модель для платіжних повідомлень між фінансовими установами. Використовує XML та підтримує більш повні та структуровані дані.
+ISO 20022 — міжнародний стандарт фінансових повідомлень. Визначає спільну мову та модель для платіжних повідомлень, якими обмінюються фінансові установи. На відміну від застарілих форматів, таких як SWIFT MT, ISO 20022 використовує XML та підтримує більш повні та структуровані дані про сторони, суми та посилання.
 
 ### Що таке повідомлення pacs?
 
-Сімейство повідомлень pacs охоплює міжбанківські платіжні інструкції, звіти про статус, повернення, скасування та запити. Включає pacs.002, pacs.003, pacs.004, pacs.007, pacs.008, pacs.009, pacs.010 та pacs.028.
+Сімейство повідомлень pacs (payments clearing and settlement) охоплює міжбанківські платіжні інструкції, звіти про статус, повернення, скасування та запити. Включає pacs.002, pacs.003, pacs.004, pacs.007, pacs.008, pacs.009, pacs.010 та pacs.028. Кожне повідомлення виконує визначену роль у життєвому циклі платежу.
+
+### Чим повідомлення pacs відрізняються від повідомлень SWIFT MT?
+
+Повідомлення SWIFT MT використовують плоский формат із тегами полів (наприклад, MT103 для клієнтських кредитових переказів). Повідомлення pacs використовують ієрархічний XML із багатшими структурами даних. Ключові відмінності: підтримка кількох транзакцій в одному повідомленні, структурована ідентифікація сторін (LEI, множинні ідентифікатори), структуровані поштові адреси та структурована інформація про призначення платежу. MT103 відповідає pacs.008, MT202 — pacs.009, текст статусу MT199 замінюється pacs.002.
+
+### Який зв'язок між повідомленнями pain та pacs?
+
+Повідомлення pain (payment initiation) передаються між клієнтом та банком. Повідомлення pacs передаються між банками. Ініціювання кредитового переказу pain.001 від банку боржника перетворюється на міжбанківську інструкцію pacs.008. Обидва домени використовують спільні елементи даних, але обслуговують різні ділянки платіжного ланцюга.
 
 ## Вибір повідомлення
 
 ### Коли використовувати pacs.008?
 
-Використовуйте pacs.008 для інструкцій кредитового переказу клієнта між банками.
+pacs.008 призначений для інструкцій клієнтського кредитового переказу між банками. Містить дані сторін — боржника та кредитора, суми, інформацію про призначення платежу та деталі розрахунку. Це основне повідомлення для надсилання клієнтських платежів через міжбанківську мережу, як всередині країни (SEPA), так і транскордонно (CBPR+).
+
+### Коли використовувати pacs.009 замість pacs.008?
+
+pacs.009 призначений для переказів власних коштів між установами, етапів фінансування та покриваючих платежів. На відміну від pacs.008, який несе клієнтський платіж від імені боржника, pacs.009 переміщує кошти між банками за власний рахунок. У покриваючих потоках pacs.009 забезпечує фінансування, а pacs.008 передає клієнтську інструкцію окремим маршрутом.
+
+### У чому різниця між pacs.004 та pacs.007?
+
+pacs.004 повертає розраховані кошти від приймаючої сторони назад по ланцюгу. pacs.007 скасовує платіж від вихідної інструктуючої сторони вперед по ланцюгу. pacs.004 — коли банк бенефіціара не може зарахувати кошти після розрахунку. pacs.007 — коли відправник виявляє помилку, дублікат або шахрайство.
+
+### Коли використовувати pacs.028 замість очікування pacs.002?
+
+pacs.028 використовується для активного запиту статусу платежу, який не отримав своєчасного оновлення pacs.002. pacs.002 ініціюється подією (приймаючий агент надсилає його проактивно), тоді як pacs.028 ініціюється винятком (інструктуючий агент запитує його). pacs.028 — для затриманих, неясних або відсутніх оновлень, а не для рутинного трафіку.
+
+### Для чого призначений pacs.003?
+
+pacs.003 передає інструкції прямого дебету клієнта між банками. Агент кредитора надсилає його агенту боржника для збору коштів. Потрібне дійсне посилання на мандат. Підтримуються схеми SEPA Core та B2B прямого дебету. Не використовується для кредитових переказів або дебетування власних рахунків установ.
+
+### Для чого призначений pacs.010?
+
+pacs.010 обробляє прямі дебети між фінансовими установами за власними рахунками. Застосовується для міжбанківських зборів, маржинальних вимог та аналогічних зобов'язань у рамках двосторонніх угод. Не використовується для клієнтських прямих дебетів або кредитових переказів.
 
 ## Структура повідомлення
 
 ### Що таке заголовок групи (GrpHdr)?
 
-Заголовок групи з'являється рівно один раз у кожному повідомленні pacs. Містить MsgId, CreDtTm, NbOfTxs, SttlmInf.
+Заголовок групи з'являється рівно один раз у кожному повідомленні pacs. Містить ідентифікатор повідомлення (MsgId), часову мітку створення (CreDtTm), кількість транзакцій (NbOfTxs), інформацію про розрахунок (SttlmInf) та опціонально загальну суму міжбанківського розрахунку та інформацію про тип платежу. Визначає конверт повідомлення, а не окремі бізнес-транзакції.
+
+### Які ідентифікатори платежу використовуються в pacs.008?
+
+pacs.008 використовує чотири основні ідентифікатори. MsgId ідентифікує конверт повідомлення та змінюється на кожному кроці. InstrId — посилання між суміжними агентами, може змінюватися на кожному кроці. EndToEndId встановлюється відправником та не повинен змінюватися жодним агентом у ланцюгу. TxId призначається першим інструктуючим агентом та залишається постійним у міжбанківському просторі. UETR — UUID, незмінний на всіх сегментах для наскрізного відстеження.
+
+### Які методи розрахунку доступні?
+
+Визначено чотири методи розрахунку. CLRG — через клірингову систему, таку як TARGET2, EURO1 або CHIPS. INDA — на рахунках інструктованого агента, де агент боржника має рахунок «ностро». INGA — на рахунках інструктуючого агента, де інструктований агент має рахунок «ностро». COVE — через окремий покриваючий платіж, що передається pacs.009.
+
+### Що означають коди несення витрат?
+
+DEBT — усі витрати несе боржник (еквівалент MT103 OUR). CRED — усі витрати несе кредитор (еквівалент BEN). SHAR — витрати розподіляються між агентами боржника та кредитора (еквівалент SHA). SLEV — витрати визначаються рівнем сервісу, обов'язковий для переказів SEPA.
 
 ## CBPR+ та міграція
 
 ### Що таке CBPR+?
 
-CBPR+ — програма SWIFT із впровадження ISO 20022 для транскордонних платіжних повідомлень. Запущена у березні 2023.
+CBPR+ (Cross-Border Payments and Reporting Plus) — програма SWIFT із впровадження ISO 20022 у транскордонній платіжній системі повідомлень. Запущена у березні 2023 та замінює повідомлення MT еквівалентами pacs. CBPR+ вимагає pacs.002 для всіх комунікацій про статус платежу, підтримує розширені дані сторін та структуровані адреси, використовує відстеження на основі UETR через gpi.
+
+### Що сталося з періодом співіснування MT/MX?
+
+Період співіснування для транскордонних платіжних інструкцій завершився у листопаді 2025 року. Відтоді повідомлення CBPR+ використовують формат ISO 20022 (MX). Сервіси трансляції між MT та MX, що працювали в період переходу, більше недоступні для нових потоків. Банки зобов'язані надсилати та отримувати нативні повідомлення pacs.
+
+### Який граничний термін листопада 2026 для структурованих адрес?
+
+З листопада 2026 року SWIFT CBPR+ вимагає структуровані поштові адреси в транскордонних платіжних повідомленнях. Неструктуровані рядки адреси (лише AdrLine) більше не приймаються для ключових полів сторін. Мінімально потрібні TwnNm та Ctry, рекомендуються StrtNm та BldgNb або PstBx. Це покращує фільтрацію санкцій та скорочує ручні виправлення.
+
+### Як pacs.008 замінює MT103?
+
+pacs.008 замінює MT103 та MT103+ для клієнтських кредитових переказів. Основні відповідності: поле 20 MT103 — MsgId або InstrId; поле 32A розділяється на IntrBkSttlmDt та IntrBkSttlmAmt; поле 50a — Dbtr та DbtrAcct; поле 59a — Cdtr та CdtrAcct; поле 70 — RmtInf; поле 71A — ChrgBr. pacs.008 додає UETR, структуровану інформацію про призначення платежу, ідентифікацію LEI та підтримує кілька транзакцій в одному повідомленні.
 
 ## Технічні деталі
 
+### Що таке структуровані та неструктуровані адреси?
+
+Структуровані адреси використовують окремі XML-елементи для кожного компонента: StrtNm (вулиця), BldgNb (номер будинку), PstCd (поштовий індекс), TwnNm (місто), Ctry (країна) та опціональні елементи Flr, Room, DstrctNm. Неструктуровані адреси використовують до семи елементів AdrLine із вільним текстом. Гібридні адреси поєднують обидва формати в перехідний період. Після листопада 2026 CBPR+ вимагає структурований формат.
+
 ### Що таке UETR і як працює відстеження gpi?
 
-UETR — UUID v4, згенерований агентом боржника та переданий без змін на всіх етапах платежу для відстеження gpi.
+UETR (Unique End-to-End Transaction Reference) — ідентифікатор UUID v4, згенерований агентом боржника та переданий без змін на всіх сегментах платежу. Присутній у pacs.008, pacs.009, pacs.002, pacs.004, pacs.007 та pacs.028. SWIFT gpi використовує UETR для відстеження платежів через хмарну базу даних Tracker. Кожен агент підтверджує отримання та обробку, забезпечуючи наскрізну видимість та контроль SLA.
 
-## Про pacs008
+### Які коди статусу використовуються в pacs.002?
+
+ACCP — прийнято після перевірки профілю клієнта. ACSP — прийнято, розрахунок виконується. ACSC — розрахунок на рахунку боржника завершено. RJCT — відхилено (з кодом причини в StsRsnInf). PDNG — очікує подальшої обробки. RCVD — отримано, але ще не оброблено. Кожен статус може включати структурований код причини, такий як AC01 (невірний номер рахунку), AM04 (недостатньо коштів) або RC01 (невірний BIC).
+
+### Які коди причин повернення використовуються в pacs.004?
+
+Часті коди причин повернення: AC01 (невірний номер рахунку), AC04 (рахунок закрито), AC06 (рахунок заблоковано), AM04 (недостатньо коштів), BE04 (відсутня адреса кредитора), CUST (запит клієнта), DUPL (дублюючий платіж), FOCR (за запитом на скасування) та FR01 (шахрайство). Повний перелік визначено в External Code Sets ISO 20022.
+
+### Що таке структурована інформація про призначення платежу?
+
+Структурована інформація в pacs.008 використовує елемент RmtInf/Strd для передачі посилань на документи (номери рахунків-фактур, кредитових авізо), сум (належних, перерахованих, податків, знижок) та посилань кредитора (посилання RF за ISO 11649). Це дозволяє автоматизувати звірку рахунків-фактур. Поширені коди типів документів: CINV (комерційний рахунок-фактура), CREN (кредитове авізо) та SOAC (виписка за рахунком).
+
+### Що таке LEI і коли він використовується?
+
+LEI (Legal Entity Identifier) — 20-символьний буквено-цифровий код за ISO 17442. Однозначно ідентифікує юридичних осіб, що беруть участь у фінансових транзакціях. У повідомленнях pacs LEI вказується в OrgId/LEI для сторін та FinInstnId/LEI для агентів. CBPR+ дедалі активніше просуває використання LEI для ідентифікації сторін та агентів. Покращує розв'язання неоднозначності юридичних осіб та відповідає вимогам регуляторної звітності.
+
+## Про інструментарій pacs008
 
 ### Що робить pacs008?
 
-pacs008 — інструментарій мовою Python для генерації, валідації та відправки платіжних повідомлень ISO 20022.
+pacs008 — інструментарій мовою Python для генерації, валідації та відправки платіжних повідомлень ISO 20022. Зчитує платіжні дані з джерел CSV, JSON, JSONL, SQLite та Parquet, виконує валідацію за JSON Schema та XSD, перевіряє ідентифікатори IBAN та BIC, очищує дані для відповідності вимогам SWIFT до символів та формує XML-файли. Надає REST API, CLI та бібліотеку Python.
+
+### Які типи повідомлень підтримує pacs008?
+
+pacs008 підтримує вісім типів повідомлень: pacs.002.001.12 (звіт про статус), pacs.003.001.09 (клієнтський прямий дебет), pacs.004.001.11 (повернення платежу), pacs.007.001.11 (скасування платежу), pacs.008.001.13 (клієнтський кредитовий переказ), pacs.009.001.10 (переказ між фінансовими установами), pacs.010.001.05 (прямий дебет між фінансовими установами) та pacs.028.001.05 (запит статусу платежу).
+
+### Як pacs008 допомагає з граничним терміном листопада 2026 для структурованих адрес?
+
+pacs008 перевіряє поля структурованих та гібридних поштових адрес перед генерацією XML. Виявляє неструктуровані адресні дані, які будуть відхилені після граничного терміну листопада 2026, підтримує гібридні формати до настання терміну та виключно структуровані — після, інтегрує контроль якості адрес у пайплайни CI та пакетні процеси валідації.
+
+### Чи може pacs008 валідувати дані без генерації XML?
+
+Так. Використовуйте прапорець CLI \`--dry-run\` або ендпоінт API \`POST /validate\` для валідації платіжних даних без генерації XML. Конвеєр валідації перевіряє відповідність JSON Schema, формат та контрольну суму IBAN, структуру BIC та відповідність вимогам SWIFT до символів. Код завершення або відповідь API вказує на успіх або помилку валідації.
 
 ## Посилання
 
 - [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions)
 - [ISO 20022 external code sets](https://www.iso20022.org/external_code_list.page)
 - [SWIFT CBPR+ ISO 20022 usage guidelines](https://www.swift.com/standards/iso-20022)
+- [SWIFT CBPR+ migration roadmap](https://www.swift.com/swift-resource/252463/download)
+- [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and)
+- [EPC SEPA Instant Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook)
 - [SWIFT gpi](https://www.swift.com/our-solutions/swift-gpi)
 `;
 }
@@ -18277,17 +19901,17 @@ ${t.pacsExplainedIntro}
 
 Полный жизненный цикл платежа pacs включает шесть этапов и несколько типов сообщений, работающих совместно.
 
-**Этап 1 — Инициирование.** Платёж возникает в домене клиент-банк (pain.001).
+**Этап 1 — Инициирование.** Платёж возникает в домене клиент-банк (pain.001). Банк должника получает инструкцию и транспонирует её в межбанковский домен.
 
-**Этап 2 — Межбанковская инструкция.** Агент должника создаёт pacs.008 и отправляет его следующему агенту.
+**Этап 2 — Межбанковская инструкция.** Агент должника создаёт pacs.008 и отправляет его следующему агенту в цепочке. В последовательном потоке pacs.008 передаётся поэтапно через посредников. В покрывающем потоке pacs.008 идёт напрямую от агента должника к агенту кредитора, а отдельный pacs.009 обеспечивает финансирование через корреспондентскую цепочку.
 
-**Этап 3 — Отчёты о статусе.** Принимающий агент может отправить pacs.002 для подтверждения статуса.
+**Этап 3 — Отчёты о статусе.** На каждом этапе принимающий агент может вернуть pacs.002, подтверждающий принятие (ACCP/ACSP/ACSC), отклонение (RJCT) или статус ожидания (PDNG). В CBPR+ pacs.002 обязателен для всех коммуникаций о статусе платежа.
 
-**Этап 4 — Расчёт.** Выполняется через CLRG, INDA/INGA или COVE.
+**Этап 4 — Расчёт.** Расчёт выполняется через клиринговую систему (CLRG), на корреспондентских счетах (INDA/INGA) или через покрывающий платёж (COVE). Дата и сумма межбанковского расчёта определяют, когда и сколько рассчитывается.
 
-**Этап 5 — Зачисление бенефициару.** Агент кредитора зачисляет средства бенефициару.
+**Этап 5 — Зачисление бенефициару.** Агент кредитора зачисляет средства бенефициару и может отправить уведомление клиенту.
 
-**Этап 6 — Обработка исключений.** pacs.004 возвращает средства. pacs.007 отменяет платёж. pacs.028 запрашивает статус.
+**Этап 6 — Обработка исключений.** Если средства не могут быть зачислены бенефициару после расчёта, pacs.004 возвращает средства по цепочке. Если отправитель обнаруживает ошибку или мошенничество, pacs.007 продвигается вперёд по цепочке. Если статус неизвестен, pacs.028 запрашивает следующего агента, а ответ возвращается через pacs.002.
 
 ### Последовательный поток
 
@@ -18310,11 +19934,137 @@ Debtor Agent --(pacs.009)--> Cover Bank --(pacs.009)--> Creditor Agent [funding 
 
 pacs.008 состоит из двух основных блоков: заголовка группы (GrpHdr) и информации о транзакции кредитового перевода (CdtTrfTxInf).
 
+### Заголовок группы (GrpHdr)
+
+Заголовок группы появляется ровно один раз в каждом сообщении и содержит:
+
+- **MsgId** — Уникальный идентификатор сообщения, назначаемый отправляющим агентом. Максимум 35 символов, уникален в рамках отправителя.
+- **CreDtTm** — Временная метка создания в формате ISO 8601.
+- **NbOfTxs** — Количество отдельных транзакций в сообщении.
+- **SttlmInf** — Информация о расчёте, включая метод расчёта (SttlmMtd), опционально клиринговую систему и расчётный счёт.
+- **IntrBkSttlmDt** — Дата межбанковского расчёта.
+- **PmtTpInf** — Информация о типе платежа: приоритет, уровень сервиса, локальный инструмент и категория назначения.
+
+### Информация о транзакции кредитового перевода (CdtTrfTxInf)
+
+Каждая транзакция содержит:
+
+- **PmtId** — Идентификаторы платежа: InstrId, EndToEndId, TxId и UETR.
+- **IntrBkSttlmAmt** — Сумма межбанковского расчёта с кодом валюты.
+- **InstdAmt** — Исходная запрошенная сумма (может отличаться от суммы расчёта из-за конвертации).
+- **ChrgBr** — Код несения расходов (DEBT, CRED, SHAR или SLEV).
+- **Dbtr / DbtrAcct / DbtrAgt** — Имя, адрес, идентификация, счёт и агент должника.
+- **Cdtr / CdtrAcct / CdtrAgt** — Имя, адрес, идентификация, счёт и агент кредитора.
+- **IntrmyAgt1 / 2 / 3** — До трёх посреднических агентов в цепочке.
+- **RmtInf** — Информация о назначении платежа: неструктурированная (свободный текст) или структурированная (ссылки на документы, суммы, даты).
+- **Purp** — Структурированный код назначения.
+- **RgltryRptg** — Детали регуляторной отчётности.
+
+## Идентификаторы платежа
+
+Сообщения pacs используют несколько идентификаторов, выполняющих различные роли в платёжной цепочке.
+
+<div class="api-fields-table" tabindex="0" aria-label="Идентификаторы платежа">
+  <table>
+    <caption>Идентификаторы платежа и их роли</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Идентификатор</th>
+        <th scope="col">Назначается</th>
+        <th scope="col">Изменяется в цепочке?</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><strong>MsgId</strong></td>
+          <td class="api-fields-table__desc">Каждым отправляющим агентом</td>
+          <td class="api-fields-table__constraint">Да — новый для каждого сообщения</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><strong>InstrId</strong></td>
+          <td class="api-fields-table__desc">Каждым инструктирующим агентом</td>
+          <td class="api-fields-table__constraint">Да — может изменяться на каждом шаге</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><strong>EndToEndId</strong></td>
+          <td class="api-fields-table__desc">Отправителем (должником)</td>
+          <td class="api-fields-table__constraint">Нет — не должен изменяться</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><strong>TxId</strong></td>
+          <td class="api-fields-table__desc">Первым инструктирующим агентом</td>
+          <td class="api-fields-table__constraint">Нет — не должен изменяться</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><strong>UETR</strong></td>
+          <td class="api-fields-table__desc">Агентом должника</td>
+          <td class="api-fields-table__constraint">Нет — универсальное отслеживание</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+## Методы расчёта
+
+Элемент SttlmMtd определяет способ межбанковского расчёта.
+
+- **CLRG** — Расчёт через клиринговую систему, такую как TARGET2, EURO1 или CHIPS. Наиболее распространён для национального и регионального клиринга.
+- **INDA** — Расчёт на счетах инструктируемого агента. Агент должника имеет счёт «ностро» у следующего агента. Типичен для двустороннего корреспондентского банкинга.
+- **INGA** — Расчёт на счетах инструктирующего агента. Инструктируемый агент имеет счёт «ностро» у отправляющего агента. Менее распространён, чем INDA.
+- **COVE** — Расчёт через отдельный покрывающий платёж. pacs.009 обеспечивает финансирование, а pacs.008 передаёт данные клиента напрямую. Используется в трансграничном корреспондентском банкинге.
+
+## Коды несения расходов
+
+Элемент ChrgBr определяет, кто несёт расходы по платежу.
+
+- **DEBT** — Все расходы несёт должник (эквивалент MT103: OUR). Кредитор получает полную сумму.
+- **CRED** — Все расходы несёт кредитор (эквивалент MT103: BEN). Расходы вычитаются из перевода.
+- **SHAR** — Расходы разделяются (эквивалент MT103: SHA). Каждая сторона оплачивает расходы своего агента. Наиболее распространён для трансграничных платежей.
+- **SLEV** — Расходы определяются уровнем сервиса. Обязателен для SEPA. Без вычетов из суммы перевода.
+
+## Формат почтового адреса
+
+### Структурированный адрес
+
+\`\`\`xml
+<PstlAdr>
+  <StrtNm>High Street</StrtNm>
+  <BldgNb>42</BldgNb>
+  <PstCd>EC2V 8BX</PstCd>
+  <TwnNm>London</TwnNm>
+  <Ctry>GB</Ctry>
+</PstlAdr>
+\`\`\`
+
+### Неструктурированный адрес (устаревший для CBPR+ после ноября 2026)
+
+\`\`\`xml
+<PstlAdr>
+  <AdrLine>42 High Street</AdrLine>
+  <AdrLine>London EC2V 8BX</AdrLine>
+  <Ctry>GB</Ctry>
+</PstlAdr>
+\`\`\`
+
+Основные ограничения: StrtNm макс. 70 символов (CBPR+), TwnNm макс. 35 символов (CBPR+), Ctry в формате ISO 3166-1 alpha-2, AdrLine макс. 70 символов на строку и макс. 7 строк.
+
+## UETR и отслеживание gpi
+
+UETR (Unique End-to-End Transaction Reference) — UUID v4, генерируемый агентом должника. Присутствует в PmtId/UETR в pacs.008, pacs.009, pacs.002, pacs.004, pacs.007 и pacs.028. Не должен изменяться на протяжении всей платёжной цепочки.
+
+SWIFT gpi использует UETR для отслеживания платежей через облачную базу данных Tracker. Каждый агент подтверждает получение и обработку, обеспечивая сквозную видимость. Соглашение об уровне обслуживания gpi для трансграничных платежей предусматривает зачисление на счёт кредитора в тот же день.
+
 ## Ссылки
 
 - [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions)
 - [ISO 20022 external code sets](https://www.iso20022.org/external_code_list.page)
 - [SWIFT CBPR+ ISO 20022 usage guidelines](https://www.swift.com/standards/iso-20022)
+- [SWIFT CBPR+ migration roadmap PDF](https://www.swift.com/swift-resource/252463/download)
 - [SWIFT gpi](https://www.swift.com/our-solutions/swift-gpi)
 - [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and)
 `;
@@ -18329,17 +20079,17 @@ ${t.pacsExplainedIntro}
 
 Повний життєвий цикл платежу pacs включає шість етапів та кілька типів повідомлень, що працюють спільно.
 
-**Етап 1 — Ініціювання.** Платіж виникає у домені клієнт-банк (pain.001).
+**Етап 1 — Ініціювання.** Платіж виникає у домені клієнт-банк (pain.001). Банк боржника отримує інструкцію та транспонує її в міжбанківський домен.
 
-**Етап 2 — Міжбанківська інструкція.** Агент боржника створює pacs.008 та надсилає його наступному агенту.
+**Етап 2 — Міжбанківська інструкція.** Агент боржника створює pacs.008 та надсилає його наступному агенту в ланцюгу. У послідовному потоці pacs.008 передається поетапно через посередників. У покриваючому потоці pacs.008 іде напряму від агента боржника до агента кредитора, а окремий pacs.009 забезпечує фінансування через кореспондентський ланцюг.
 
-**Етап 3 — Звіти про статус.** Агент-отримувач може надіслати pacs.002 для підтвердження статусу.
+**Етап 3 — Звіти про статус.** На кожному етапі приймаючий агент може повернути pacs.002, що підтверджує прийняття (ACCP/ACSP/ACSC), відхилення (RJCT) або статус очікування (PDNG). У CBPR+ pacs.002 обов'язковий для всіх комунікацій про статус платежу.
 
-**Етап 4 — Розрахунок.** Виконується через CLRG, INDA/INGA або COVE.
+**Етап 4 — Розрахунок.** Розрахунок виконується через клірингову систему (CLRG), на кореспондентських рахунках (INDA/INGA) або через покриваючий платіж (COVE). Дата та сума міжбанківського розрахунку визначають, коли та скільки розраховується.
 
-**Етап 5 — Зарахування бенефіціару.** Агент кредитора зараховує кошти бенефіціару.
+**Етап 5 — Зарахування бенефіціару.** Агент кредитора зараховує кошти бенефіціару та може надіслати повідомлення клієнту.
 
-**Етап 6 — Обробка винятків.** pacs.004 повертає кошти. pacs.007 скасовує платіж. pacs.028 запитує статус.
+**Етап 6 — Обробка винятків.** Якщо кошти не можуть бути зараховані бенефіціару після розрахунку, pacs.004 повертає кошти по ланцюгу. Якщо відправник виявляє помилку або шахрайство, pacs.007 просувається вперед по ланцюгу. Якщо статус невідомий, pacs.028 запитує наступного агента, а відповідь повертається через pacs.002.
 
 ### Послідовний потік
 
@@ -18362,11 +20112,137 @@ Debtor Agent --(pacs.009)--> Cover Bank --(pacs.009)--> Creditor Agent [funding 
 
 pacs.008 складається з двох основних блоків: заголовка групи (GrpHdr) та інформації про транзакцію кредитового переказу (CdtTrfTxInf).
 
+### Заголовок групи (GrpHdr)
+
+Заголовок групи з'являється рівно один раз у кожному повідомленні та містить:
+
+- **MsgId** — Унікальний ідентифікатор повідомлення, призначений агентом-відправником. Максимум 35 символів, унікальний у межах відправника.
+- **CreDtTm** — Часова мітка створення у форматі ISO 8601.
+- **NbOfTxs** — Кількість окремих транзакцій у повідомленні.
+- **SttlmInf** — Інформація про розрахунок, включаючи метод розрахунку (SttlmMtd), опціонально клірингову систему та розрахунковий рахунок.
+- **IntrBkSttlmDt** — Дата міжбанківського розрахунку.
+- **PmtTpInf** — Інформація про тип платежу: пріоритет, рівень сервісу, локальний інструмент та категорія призначення.
+
+### Інформація про транзакцію кредитового переказу (CdtTrfTxInf)
+
+Кожна транзакція містить:
+
+- **PmtId** — Ідентифікатори платежу: InstrId, EndToEndId, TxId та UETR.
+- **IntrBkSttlmAmt** — Сума міжбанківського розрахунку з кодом валюти.
+- **InstdAmt** — Вихідна запитана сума (може відрізнятися від суми розрахунку через конвертацію).
+- **ChrgBr** — Код несення витрат (DEBT, CRED, SHAR або SLEV).
+- **Dbtr / DbtrAcct / DbtrAgt** — Ім'я, адреса, ідентифікація, рахунок та агент боржника.
+- **Cdtr / CdtrAcct / CdtrAgt** — Ім'я, адреса, ідентифікація, рахунок та агент кредитора.
+- **IntrmyAgt1 / 2 / 3** — До трьох посередницьких агентів у ланцюгу.
+- **RmtInf** — Інформація про призначення платежу: неструктурована (вільний текст) або структурована (посилання на документи, суми, дати).
+- **Purp** — Структурований код призначення.
+- **RgltryRptg** — Деталі регуляторної звітності.
+
+## Ідентифікатори платежу
+
+Повідомлення pacs використовують кілька ідентифікаторів, що виконують різні ролі в платіжному ланцюгу.
+
+<div class="api-fields-table" tabindex="0" aria-label="Ідентифікатори платежу">
+  <table>
+    <caption>Ідентифікатори платежу та їхні ролі</caption>
+    <colgroup>
+      <col class="api-fields-table__col-field">
+      <col class="api-fields-table__col-desc">
+      <col class="api-fields-table__col-constraint">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Ідентифікатор</th>
+        <th scope="col">Призначається</th>
+        <th scope="col">Змінюється в ланцюгу?</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="api-fields-table__field"><strong>MsgId</strong></td>
+          <td class="api-fields-table__desc">Кожним агентом-відправником</td>
+          <td class="api-fields-table__constraint">Так — новий для кожного повідомлення</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><strong>InstrId</strong></td>
+          <td class="api-fields-table__desc">Кожним інструктуючим агентом</td>
+          <td class="api-fields-table__constraint">Так — може змінюватися на кожному кроці</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><strong>EndToEndId</strong></td>
+          <td class="api-fields-table__desc">Відправником (боржником)</td>
+          <td class="api-fields-table__constraint">Ні — не повинен змінюватися</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><strong>TxId</strong></td>
+          <td class="api-fields-table__desc">Першим інструктуючим агентом</td>
+          <td class="api-fields-table__constraint">Ні — не повинен змінюватися</td>
+        </tr>
+        <tr>
+          <td class="api-fields-table__field"><strong>UETR</strong></td>
+          <td class="api-fields-table__desc">Агентом боржника</td>
+          <td class="api-fields-table__constraint">Ні — універсальне відстеження</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+## Методи розрахунку
+
+Елемент SttlmMtd визначає спосіб міжбанківського розрахунку.
+
+- **CLRG** — Розрахунок через клірингову систему, таку як TARGET2, EURO1 або CHIPS. Найпоширеніший для національного та регіонального клірингу.
+- **INDA** — Розрахунок на рахунках інструктованого агента. Агент боржника має рахунок «ностро» в наступного агента. Типовий для двостороннього кореспондентського банкінгу.
+- **INGA** — Розрахунок на рахунках інструктуючого агента. Інструктований агент має рахунок «ностро» в агента-відправника. Менш поширений, ніж INDA.
+- **COVE** — Розрахунок через окремий покриваючий платіж. pacs.009 забезпечує фінансування, а pacs.008 передає дані клієнта напряму. Використовується в транскордонному кореспондентському банкінгу.
+
+## Коди несення витрат
+
+Елемент ChrgBr визначає, хто несе витрати за платіж.
+
+- **DEBT** — Усі витрати несе боржник (еквівалент MT103: OUR). Кредитор отримує повну суму.
+- **CRED** — Усі витрати несе кредитор (еквівалент MT103: BEN). Витрати вираховуються з переказу.
+- **SHAR** — Витрати розподіляються (еквівалент MT103: SHA). Кожна сторона оплачує витрати свого агента. Найпоширеніший для транскордонних платежів.
+- **SLEV** — Витрати визначаються рівнем сервісу. Обов'язковий для SEPA. Без вирахувань із суми переказу.
+
+## Формат поштової адреси
+
+### Структурована адреса
+
+\`\`\`xml
+<PstlAdr>
+  <StrtNm>High Street</StrtNm>
+  <BldgNb>42</BldgNb>
+  <PstCd>EC2V 8BX</PstCd>
+  <TwnNm>London</TwnNm>
+  <Ctry>GB</Ctry>
+</PstlAdr>
+\`\`\`
+
+### Неструктурована адреса (застаріла для CBPR+ після листопада 2026)
+
+\`\`\`xml
+<PstlAdr>
+  <AdrLine>42 High Street</AdrLine>
+  <AdrLine>London EC2V 8BX</AdrLine>
+  <Ctry>GB</Ctry>
+</PstlAdr>
+\`\`\`
+
+Основні обмеження: StrtNm макс. 70 символів (CBPR+), TwnNm макс. 35 символів (CBPR+), Ctry у форматі ISO 3166-1 alpha-2, AdrLine макс. 70 символів на рядок та макс. 7 рядків.
+
+## UETR та відстеження gpi
+
+UETR (Unique End-to-End Transaction Reference) — UUID v4, згенерований агентом боржника. Присутній у PmtId/UETR в pacs.008, pacs.009, pacs.002, pacs.004, pacs.007 та pacs.028. Не повинен змінюватися протягом усього платіжного ланцюга.
+
+SWIFT gpi використовує UETR для відстеження платежів через хмарну базу даних Tracker. Кожен агент підтверджує отримання та обробку, забезпечуючи наскрізну видимість. Угода про рівень обслуговування gpi для транскордонних платежів передбачає зарахування на рахунок кредитора того самого дня.
+
 ## Посилання
 
 - [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions)
 - [ISO 20022 external code sets](https://www.iso20022.org/external_code_list.page)
 - [SWIFT CBPR+ ISO 20022 usage guidelines](https://www.swift.com/standards/iso-20022)
+- [SWIFT CBPR+ migration roadmap PDF](https://www.swift.com/swift-resource/252463/download)
 - [SWIFT gpi](https://www.swift.com/our-solutions/swift-gpi)
 - [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and)
 `;
@@ -20443,17 +22319,149 @@ ${t.glossaryIntro}
 
 **ACH** — Автоматизированная клиринговая палата. Сеть, обрабатывающая пакетные электронные платежи между финансовыми учреждениями.
 
-**AdrLine** — Строка адреса. Поле адреса в свободном формате в почтовых адресных структурах ISO 20022.
+**AdrLine** — Строка адреса. Поле адреса в свободном формате в почтовых адресных структурах ISO 20022. До 7 строк по 70 символов. Заменяется структурированными элементами адреса для CBPR+ к ноябрю 2026.
 
-**ACCP** — Профиль клиента принят. Код статуса pacs.002, указывающий на успешное прохождение проверок.
+**ACCP** — Профиль клиента принят. Код статуса pacs.002, указывающий на успешное прохождение предварительных проверок (синтаксис, профиль клиента).
 
-**ACSC** — Расчёт принят и завершён. Код статуса pacs.002, подтверждающий завершение расчёта.
+**ACSC** — Расчёт принят и завершён. Код статуса pacs.002, подтверждающий завершение расчёта на счёте должника.
 
-**ACSP** — Расчёт принят и выполняется. Код статуса pacs.002, указывающий на выполнение расчёта.
+**ACSP** — Расчёт принят и выполняется. Код статуса pacs.002, указывающий на успешное прохождение всех проверок и выполнение расчёта.
 
-## B–U
+## B
 
-Полный глоссарий от B до U соответствует английской версии с переведёнными определениями. Технические термины-заголовки остаются на английском языке.
+**BAH** — Заголовок бизнес-приложения (head.001). Стандартизированная обёртка для транспортировки бизнес-сообщений ISO 20022 через SWIFT. Содержит маршрутную информацию, идентификатор определения сообщения и BIC отправителя/получателя.
+
+**BIC** — Код идентификации предприятия (ISO 9362). 8- или 11-символьный код для однозначной идентификации финансового учреждения. Формат: BBBBCCLL (код банка + страна + расположение) с опциональным кодом филиала BBB.
+
+## C
+
+**CBPR+** — Cross-Border Payments and Reporting Plus. Программа SWIFT по миграции трансграничных платёжных сообщений с MT на ISO 20022. Запущена в марте 2023.
+
+**CdtTrfTxInf** — Информация о транзакции кредитового перевода. Основной транзакционный блок в pacs.008, содержащий реквизиты платежа, стороны, суммы и информацию о назначении.
+
+**ChrgBr** — Код несения расходов. Определяет, кто оплачивает комиссии. Значения: DEBT (должник), CRED (кредитор), SHAR (разделение), SLEV (уровень сервиса, только SEPA).
+
+**CLRG** — Расчёт через клиринговую систему. Метод расчёта через клиринговую систему, такую как TARGET2, EURO1 или CHIPS.
+
+**COVE** — Расчёт методом покрытия. Метод расчёта через отдельный покрывающий платёж pacs.009 для финансирования между корреспондентами, в то время как pacs.008 передаёт данные клиента напрямую.
+
+**CSM** — Клиринговый и расчётный механизм. Инфраструктура для обработки и расчёта платёжных инструкций между учреждениями-участниками.
+
+## D
+
+**Dbtr** — Должник. Сторона, которая должна средства и инициирует платёж. В pacs.008 элемент Dbtr содержит имя должника, почтовый адрес, идентификацию и страну проживания.
+
+**DbtrAgt** — Агент должника. Финансовое учреждение, обслуживающее счёт должника и отправляющее инструкцию pacs.008.
+
+## E
+
+**E2E ID** — Сквозная идентификация (EndToEndId). Ссылка, назначаемая отправителем и остающаяся неизменной через всех агентов в платёжной цепочке. Используется для отслеживания на уровне клиента.
+
+**EPC** — Европейский платёжный совет. Организация, управляющая правилами платёжных схем SEPA для кредитовых переводов и прямых дебетов.
+
+## F
+
+**FI** — Финансовое учреждение. Банк или другое учреждение, участвующее в клиринге и расчёте платежей.
+
+**FIToFI** — Финансовое учреждение — финансовому учреждению. Описывает межбанковский домен, в котором функционируют сообщения pacs.
+
+## G
+
+**gpi** — Global Payments Innovation. Инициатива SWIFT для ускорения и повышения прозрачности трансграничных платежей. Использует UETR для сквозного отслеживания через облачный Tracker.
+
+**GrpHdr** — Заголовок группы. Блок метаданных уровня сообщения в сообщениях pacs. Содержит MsgId, CreDtTm, NbOfTxs, информацию о расчёте и типе платежа.
+
+## H
+
+**Hybrid address** — Гибридный адрес. Формат почтового адреса, сочетающий структурированные элементы (StrtNm, TwnNm, Ctry) с неструктурированными элементами AdrLine. Допускается в переходный период до ноября 2026.
+
+## I
+
+**IBAN** — Международный номер банковского счёта (ISO 13616). Стандартизированный формат номера счёта для трансграничных и внутренних платежей. Проверяется контрольной суммой ISO 7064 Mod 97-10.
+
+**INDA** — Расчёт инструктируемым агентом. Метод расчёта на счетах инструктируемого агента, где агент должника имеет счёт «ностро».
+
+**INGA** — Расчёт инструктирующим агентом. Метод расчёта на счетах инструктирующего агента, где инструктируемый агент имеет счёт «ностро».
+
+**InstrId** — Идентификация инструкции. Ссылка между смежными агентами в платёжной цепочке. Может изменяться на каждом шаге.
+
+**IntrBkSttlmAmt** — Сумма межбанковского расчёта. Сумма расчёта между инструктирующим и инструктируемым агентами в валюте расчёта.
+
+**ISO 20022** — Международный стандарт обмена электронными данными между финансовыми учреждениями. Определяет общую модель данных и форматы сообщений на базе XML для платежей, ценных бумаг, торгового финансирования и других финансовых областей.
+
+## L
+
+**LEI** — Идентификатор юридического лица (ISO 17442). 20-символьный буквенно-цифровой код для однозначной идентификации юридических лиц в финансовых транзакциях. Используется в OrgId/LEI для сторон и FinInstnId/LEI для агентов.
+
+## M
+
+**MsgId** — Идентификация сообщения. Уникальный идентификатор конверта сообщения, назначаемый отправляющим агентом. Изменяется на каждом шаге платёжной цепочки.
+
+**MT** — Тип сообщения. Устаревший формат сообщений SWIFT (например, MT103 для клиентских переводов, MT202 для межбанковских переводов). Заменяется сообщениями MX ISO 20022.
+
+**MX** — Формат XML-сообщений ISO 20022, используемый SWIFT. Сообщения MX заменяют MT для трансграничных платежей в рамках CBPR+.
+
+## N
+
+**NbOfTxs** — Количество транзакций. Элемент заголовка группы, указывающий число отдельных транзакций в сообщении.
+
+## P
+
+**pacs** — Клиринг и расчёт платежей. Бизнес-домен ISO 20022, охватывающий межбанковские платёжные сообщения.
+
+**pacs.002** — Отчёт о статусе платежа FI-FI. Сообщает статус обработки (принят, отклонён, ожидает, рассчитан) предшествующей платёжной инструкции.
+
+**pacs.003** — Прямой дебет клиента FI-FI. Передаёт инструкцию прямого дебета клиента между банками для сбора средств.
+
+**pacs.004** — Возврат платежа. Возвращает рассчитанные средства по платёжной цепочке, когда платёж не может быть зачислен.
+
+**pacs.007** — Отмена платежа FI-FI. Отменяет платёжную инструкцию от исходного отправителя по цепочке.
+
+**pacs.008** — Клиентский кредитовый перевод FI-FI. Основное межбанковское сообщение для клиентских кредитовых переводов. Заменяет MT103.
+
+**pacs.009** — Перевод финансового учреждения. Перемещает средства между банками за собственный счёт. Покрытие, финансирование и управление ликвидностью. Заменяет MT202/MT202COV.
+
+**pacs.010** — Прямой дебет финансового учреждения. Позволяет банку дебетовать собственный счёт другого банка в рамках двустороннего соглашения.
+
+**pacs.028** — Запрос статуса платежа FI-FI. Активно запрашивает статус предшествующего платежа при отсутствии обновления pacs.002.
+
+**pain** — Инициирование платежа. Бизнес-домен ISO 20022 для сообщений клиент-банк (например, pain.001 для инициирования кредитового перевода).
+
+**PII** — Персональные идентифицирующие данные. Данные, позволяющие идентифицировать физическое лицо. pacs008 маскирует PII в структурированных журналах.
+
+**PstlAdr** — Почтовый адрес. Адресная структура для сторон в сообщениях pacs. Поддерживает структурированный (StrtNm, TwnNm, Ctry) и неструктурированный (AdrLine) форматы.
+
+## R
+
+**RJCT** — Отклонено. Код статуса pacs.002, указывающий на отклонение платежа.
+
+**RmtInf** — Информация о назначении платежа. Справочные данные платежа в pacs.008. Поддерживает неструктурированный (свободный текст, макс. 140 символов) и структурированный (ссылки на документы, суммы, ссылки кредитора) форматы.
+
+**RTGS** — Валовые расчёты в реальном времени. Платёжная система, где транзакции рассчитываются индивидуально и в реальном времени (например, TARGET2, Fedwire, CHAPS).
+
+## S
+
+**SCT** — Кредитовый перевод SEPA. Схема кредитовых переводов в евро, управляемая EPC, на базе pacs.008.
+
+**SCT Inst** — Мгновенный кредитовый перевод SEPA. Вариант мгновенного платежа SCT, расчёт менее чем за 10 секунд.
+
+**SDD** — Прямой дебет SEPA. Схема прямых дебетов в евро, управляемая EPC, на базе pacs.003.
+
+**SEPA** — Единое европейское платёжное пространство. Инициатива интеграции платежей для кредитовых переводов, прямых дебетов и карточных платежей в евро в 36 европейских странах.
+
+**SLEV** — Уровень сервиса. Обязательный код несения расходов для SEPA. Комиссии определяются правилами схемы без вычета из суммы перевода.
+
+**STP** — Сквозная автоматическая обработка. Полностью автоматизированная обработка платежей без ручного вмешательства.
+
+**SttlmMtd** — Метод расчёта. Определяет способ межбанковского расчёта: CLRG (клиринговая система), INDA (инструктируемый агент), INGA (инструктирующий агент) или COVE (покрывающий платёж).
+
+## T
+
+**TxId** — Идентификация транзакции. Межбанковская ссылка, назначаемая первым инструктирующим агентом. Не должна изменяться последующими агентами.
+
+## U
+
+**UETR** — Уникальная сквозная ссылка транзакции. Идентификатор UUID v4, генерируемый агентом должника и передаваемый без изменений на всех этапах платежа для отслеживания gpi.
 
 ## X
 
@@ -20478,17 +22486,149 @@ ${t.glossaryIntro}
 
 **ACH** — Автоматизована клірингова палата. Мережа, що обробляє пакетні електронні платежі між фінансовими установами.
 
-**AdrLine** — Рядок адреси. Поле адреси у вільному форматі в поштових адресних структурах ISO 20022.
+**AdrLine** — Рядок адреси. Поле адреси у вільному форматі в поштових адресних структурах ISO 20022. До 7 рядків по 70 символів. Замінюється структурованими елементами адреси для CBPR+ до листопада 2026.
 
-**ACCP** — Профіль клієнта прийнято. Код статусу pacs.002, що вказує на успішне проходження перевірок.
+**ACCP** — Профіль клієнта прийнято. Код статусу pacs.002, що вказує на успішне проходження попередніх перевірок (синтаксис, профіль клієнта).
 
-**ACSC** — Розрахунок прийнято та завершено. Код статусу pacs.002, що підтверджує завершення розрахунку.
+**ACSC** — Розрахунок прийнято та завершено. Код статусу pacs.002, що підтверджує завершення розрахунку на рахунку боржника.
 
-**ACSP** — Розрахунок прийнято та виконується. Код статусу pacs.002, що вказує на виконання розрахунку.
+**ACSP** — Розрахунок прийнято та виконується. Код статусу pacs.002, що вказує на успішне проходження всіх перевірок та виконання розрахунку.
 
-## B–U
+## B
 
-Повний глосарій від B до U відповідає англійській версії з перекладеними визначеннями. Технічні терміни-заголовки залишаються англійською мовою.
+**BAH** — Заголовок бізнес-застосунку (head.001). Стандартизована обгортка для транспортування бізнес-повідомлень ISO 20022 через SWIFT. Містить маршрутну інформацію, ідентифікатор визначення повідомлення та BIC відправника/отримувача.
+
+**BIC** — Код ідентифікації підприємства (ISO 9362). 8- або 11-символьний код для однозначної ідентифікації фінансової установи. Формат: BBBBCCLL (код банку + країна + розташування) з опціональним кодом філії BBB.
+
+## C
+
+**CBPR+** — Cross-Border Payments and Reporting Plus. Програма SWIFT з міграції транскордонних платіжних повідомлень із MT на ISO 20022. Запущена у березні 2023.
+
+**CdtTrfTxInf** — Інформація про транзакцію кредитового переказу. Основний транзакційний блок у pacs.008, що містить реквізити платежу, сторони, суми та інформацію про призначення.
+
+**ChrgBr** — Код несення витрат. Визначає, хто оплачує комісії. Значення: DEBT (боржник), CRED (кредитор), SHAR (розподіл), SLEV (рівень сервісу, лише SEPA).
+
+**CLRG** — Розрахунок через клірингову систему. Метод розрахунку через клірингову систему, таку як TARGET2, EURO1 або CHIPS.
+
+**COVE** — Розрахунок методом покриття. Метод розрахунку через окремий покриваючий платіж pacs.009 для фінансування між кореспондентами, тоді як pacs.008 передає дані клієнта напряму.
+
+**CSM** — Кліринговий та розрахунковий механізм. Інфраструктура для обробки та розрахунку платіжних інструкцій між установами-учасниками.
+
+## D
+
+**Dbtr** — Боржник. Сторона, яка заборгувала кошти та ініціює платіж. У pacs.008 елемент Dbtr містить ім'я боржника, поштову адресу, ідентифікацію та країну проживання.
+
+**DbtrAgt** — Агент боржника. Фінансова установа, що обслуговує рахунок боржника та надсилає інструкцію pacs.008.
+
+## E
+
+**E2E ID** — Наскрізна ідентифікація (EndToEndId). Посилання, призначене відправником, що залишається незмінним через усіх агентів у платіжному ланцюгу. Використовується для відстеження на рівні клієнта.
+
+**EPC** — Європейська платіжна рада. Організація, що керує правилами платіжних схем SEPA для кредитових переказів та прямих дебетів.
+
+## F
+
+**FI** — Фінансова установа. Банк або інша установа, що бере участь у клірингу та розрахунку платежів.
+
+**FIToFI** — Фінансова установа — фінансовій установі. Описує міжбанківський домен, у якому функціонують повідомлення pacs.
+
+## G
+
+**gpi** — Global Payments Innovation. Ініціатива SWIFT для прискорення та підвищення прозорості транскордонних платежів. Використовує UETR для наскрізного відстеження через хмарний Tracker.
+
+**GrpHdr** — Заголовок групи. Блок метаданих рівня повідомлення в повідомленнях pacs. Містить MsgId, CreDtTm, NbOfTxs, інформацію про розрахунок та тип платежу.
+
+## H
+
+**Hybrid address** — Гібридна адреса. Формат поштової адреси, що поєднує структуровані елементи (StrtNm, TwnNm, Ctry) із неструктурованими елементами AdrLine. Допускається в перехідний період до листопада 2026.
+
+## I
+
+**IBAN** — Міжнародний номер банківського рахунку (ISO 13616). Стандартизований формат номера рахунку для транскордонних та внутрішніх платежів. Перевіряється контрольною сумою ISO 7064 Mod 97-10.
+
+**INDA** — Розрахунок інструктованим агентом. Метод розрахунку на рахунках інструктованого агента, де агент боржника має рахунок «ностро».
+
+**INGA** — Розрахунок інструктуючим агентом. Метод розрахунку на рахунках інструктуючого агента, де інструктований агент має рахунок «ностро».
+
+**InstrId** — Ідентифікація інструкції. Посилання між суміжними агентами в платіжному ланцюгу. Може змінюватися на кожному кроці.
+
+**IntrBkSttlmAmt** — Сума міжбанківського розрахунку. Сума розрахунку між інструктуючим та інструктованим агентами у валюті розрахунку.
+
+**ISO 20022** — Міжнародний стандарт обміну електронними даними між фінансовими установами. Визначає спільну модель даних та формати повідомлень на базі XML для платежів, цінних паперів, торгового фінансування та інших фінансових сфер.
+
+## L
+
+**LEI** — Ідентифікатор юридичної особи (ISO 17442). 20-символьний буквено-цифровий код для однозначної ідентифікації юридичних осіб у фінансових транзакціях. Використовується в OrgId/LEI для сторін та FinInstnId/LEI для агентів.
+
+## M
+
+**MsgId** — Ідентифікація повідомлення. Унікальний ідентифікатор конверта повідомлення, призначений агентом-відправником. Змінюється на кожному кроці платіжного ланцюга.
+
+**MT** — Тип повідомлення. Застарілий формат повідомлень SWIFT (наприклад, MT103 для клієнтських переказів, MT202 для міжбанківських переказів). Замінюється повідомленнями MX ISO 20022.
+
+**MX** — Формат XML-повідомлень ISO 20022, що використовується SWIFT. Повідомлення MX замінюють MT для транскордонних платежів у рамках CBPR+.
+
+## N
+
+**NbOfTxs** — Кількість транзакцій. Елемент заголовка групи, що вказує число окремих транзакцій у повідомленні.
+
+## P
+
+**pacs** — Кліринг та розрахунок платежів. Бізнес-домен ISO 20022, що охоплює міжбанківські платіжні повідомлення.
+
+**pacs.002** — Звіт про статус платежу FI-FI. Повідомляє статус обробки (прийнято, відхилено, очікує, розраховано) попередньої платіжної інструкції.
+
+**pacs.003** — Прямий дебет клієнта FI-FI. Передає інструкцію прямого дебету клієнта між банками для збору коштів.
+
+**pacs.004** — Повернення платежу. Повертає розраховані кошти по платіжному ланцюгу, коли платіж не може бути зарахований.
+
+**pacs.007** — Скасування платежу FI-FI. Скасовує платіжну інструкцію від вихідного відправника по ланцюгу.
+
+**pacs.008** — Клієнтський кредитовий переказ FI-FI. Основне міжбанківське повідомлення для клієнтських кредитових переказів. Замінює MT103.
+
+**pacs.009** — Переказ фінансової установи. Переміщує кошти між банками за власний рахунок. Покриття, фінансування та управління ліквідністю. Замінює MT202/MT202COV.
+
+**pacs.010** — Прямий дебет фінансової установи. Дозволяє банку дебетувати власний рахунок іншого банку в рамках двосторонньої угоди.
+
+**pacs.028** — Запит статусу платежу FI-FI. Активно запитує статус попереднього платежу за відсутності оновлення pacs.002.
+
+**pain** — Ініціювання платежу. Бізнес-домен ISO 20022 для повідомлень клієнт-банк (наприклад, pain.001 для ініціювання кредитового переказу).
+
+**PII** — Персональні ідентифікаційні дані. Дані, що дозволяють ідентифікувати фізичну особу. pacs008 маскує PII у структурованих журналах.
+
+**PstlAdr** — Поштова адреса. Адресна структура для сторін у повідомленнях pacs. Підтримує структурований (StrtNm, TwnNm, Ctry) та неструктурований (AdrLine) формати.
+
+## R
+
+**RJCT** — Відхилено. Код статусу pacs.002, що вказує на відхилення платежу.
+
+**RmtInf** — Інформація про призначення платежу. Довідкові дані платежу в pacs.008. Підтримує неструктурований (вільний текст, макс. 140 символів) та структурований (посилання на документи, суми, посилання кредитора) формати.
+
+**RTGS** — Валові розрахунки в реальному часі. Платіжна система, де транзакції розраховуються індивідуально та в реальному часі (наприклад, TARGET2, Fedwire, CHAPS).
+
+## S
+
+**SCT** — Кредитовий переказ SEPA. Схема кредитових переказів у євро, керована EPC, на базі pacs.008.
+
+**SCT Inst** — Миттєвий кредитовий переказ SEPA. Варіант миттєвого платежу SCT, розрахунок менш ніж за 10 секунд.
+
+**SDD** — Прямий дебет SEPA. Схема прямих дебетів у євро, керована EPC, на базі pacs.003.
+
+**SEPA** — Єдиний європейський платіжний простір. Ініціатива інтеграції платежів для кредитових переказів, прямих дебетів та карткових платежів у євро в 36 європейських країнах.
+
+**SLEV** — Рівень сервісу. Обов'язковий код несення витрат для SEPA. Комісії визначаються правилами схеми без вирахування із суми переказу.
+
+**STP** — Наскрізна автоматична обробка. Повністю автоматизована обробка платежів без ручного втручання.
+
+**SttlmMtd** — Метод розрахунку. Визначає спосіб міжбанківського розрахунку: CLRG (клірингова система), INDA (інструктований агент), INGA (інструктуючий агент) або COVE (покриваючий платіж).
+
+## T
+
+**TxId** — Ідентифікація транзакції. Міжбанківське посилання, призначене першим інструктуючим агентом. Не повинне змінюватися наступними агентами.
+
+## U
+
+**UETR** — Унікальне наскрізне посилання транзакції. Ідентифікатор UUID v4, згенерований агентом боржника та переданий без змін на всіх етапах платежу для відстеження gpi.
 
 ## X
 
@@ -21429,6 +23569,82 @@ ${t.contactIntro}
 기여를 환영합니다. 저장소를 포크하고 기능 브랜치를 생성한 후 풀 리퀘스트를 제출하세요. 모든 풀 리퀘스트는 자동화된 검증과 수동 검토를 거칩니다. 기여 가이드라인은 저장소의 README에서 확인할 수 있습니다. 수락된 기여는 프로젝트 전체와 동일한 편집 및 코딩 표준을 따릅니다.`;
   }
 
+  if (localeKey === "ru") {
+    return `# ${t.contactTitle}
+
+${t.contactIntro}
+
+Репозиторий предназначен для отчётов об ошибках, запросов на функциональность и доступа к исходному коду. Раздел релизов содержит историю версий. PyPI предоставляет информацию об установке и метаданные пакета.
+
+При работе над внедрением начинайте с репозитория, когда нужны примеры, шаблоны или история обсуждений. Раздел релизов содержит полную запись выпущенных версий. PyPI — наиболее быстрый способ проверить актуальную версию пакета и команды установки.
+
+- ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>
+- ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>
+- ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>
+
+## Прежде чем обращаться
+
+На многие вопросы уже есть ответы в существующих ресурсах проекта. [Страница FAQ](/ru/faq/) охватывает распространённые вопросы о сообщениях ISO 20022 pacs, сроках миграции CBPR+ и использовании инструментария. [Документация API](/ru/api/) описывает установку, эндпоинты, параметры CLI и методы библиотеки Python. [Глоссарий](/ru/glossary/) определяет более 60 терминов ISO 20022 и платёжного обмена сообщениями.
+
+При сообщении об ошибке укажите тип сообщения, версию и краткий пример входных данных, вызывающих сбой. Приложите входной файл или минимальный воспроизводимый случай. Укажите версию Python и операционную систему. Чем больше контекста содержит отчёт, тем быстрее будет найдено решение.
+
+При планировании развёртывания сначала ознакомьтесь с последними релизами, чтобы привязать реализацию к известной версии пакета. Для получения информации об установке и зависимостях PyPI — самый быстрый источник актуальных данных о пакете.
+
+## Вопросы безопасности
+
+Уязвимости безопасности необходимо сообщать конфиденциально. Не создавайте публичный GitHub issue по вопросам безопасности. Используйте [форму GitHub security advisory](https://github.com/sebastienrousseau/pacs008/security/advisories/new) для подачи конфиденциального отчёта. Включите описание уязвимости, шаги воспроизведения и потенциальное воздействие. Отчёты о безопасности обрабатываются в приоритетном порядке.
+
+## Запросы на функциональность
+
+Запросы на новую функциональность приветствуются. Создайте GitHub issue с меткой \`enhancement\`. Опишите сценарий использования, ожидаемое поведение и релевантные типы или версии сообщений. Приоритет получают запросы, соответствующие внедрению стандартов ISO 20022 и рабочим процессам платёжных операций.
+
+## Время ответа
+
+Данный проект является открытым и поддерживается параллельно с другими обязательствами. Большинство обращений получают первоначальный ответ в течение нескольких рабочих дней. Приоритет отдаётся отчётам об ошибках с чёткими шагами воспроизведения. Запросы на функциональность рассматриваются на постоянной основе и планируются в соответствии с дорожной картой проекта.
+
+## Участие сообщества
+
+Вклад в проект приветствуется. Сделайте форк репозитория, создайте ветку для новой функциональности и откройте pull request. Все pull request проходят автоматическую валидацию и ручную проверку. Руководство для контрибьюторов доступно в README репозитория. Принятые вклады соответствуют тем же редакционным и кодовым стандартам, что и остальной проект.`;
+  }
+
+  if (localeKey === "uk") {
+    return `# ${t.contactTitle}
+
+${t.contactIntro}
+
+Репозиторій призначений для звітів про помилки, запитів на функціональність та доступу до вихідного коду. Розділ релізів містить історію версій. PyPI надає інформацію про встановлення та метадані пакета.
+
+При роботі над впровадженням починайте з репозиторію, коли потрібні приклади, шаблони або історія обговорень. Розділ релізів містить повний запис випущених версій. PyPI — найшвидший спосіб перевірити актуальну версію пакета та команди встановлення.
+
+- ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>
+- ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>
+- ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>
+
+## Перш ніж звертатися
+
+На багато питань вже є відповіді в наявних ресурсах проекту. [Сторінка FAQ](/uk/faq/) охоплює поширені запитання про повідомлення ISO 20022 pacs, терміни міграції CBPR+ та використання інструментарію. [Документація API](/uk/api/) описує встановлення, ендпоінти, параметри CLI та методи бібліотеки Python. [Глосарій](/uk/glossary/) визначає понад 60 термінів ISO 20022 та платіжного обміну повідомленнями.
+
+При повідомленні про помилку вкажіть тип повідомлення, версію та короткий приклад вхідних даних, що спричиняють збій. Додайте вхідний файл або мінімальний відтворюваний випадок. Зазначте версію Python та операційну систему. Що більше контексту містить звіт, то швидше буде знайдено рішення.
+
+При плануванні розгортання спочатку ознайомтеся з останніми релізами, щоб прив'язати реалізацію до відомої версії пакета. Для отримання інформації про встановлення та залежності PyPI — найшвидше джерело актуальних даних про пакет.
+
+## Питання безпеки
+
+Вразливості безпеки необхідно повідомляти конфіденційно. Не створюйте публічний GitHub issue з питань безпеки. Використовуйте [форму GitHub security advisory](https://github.com/sebastienrousseau/pacs008/security/advisories/new) для подання конфіденційного звіту. Включіть опис вразливості, кроки відтворення та потенційний вплив. Звіти про безпеку обробляються в пріоритетному порядку.
+
+## Запити на функціональність
+
+Запити на нову функціональність вітаються. Створіть GitHub issue з міткою \`enhancement\`. Опишіть сценарій використання, очікувану поведінку та релевантні типи або версії повідомлень. Пріоритет отримують запити, що відповідають впровадженню стандартів ISO 20022 та робочим процесам платіжних операцій.
+
+## Час відповіді
+
+Цей проект є відкритим і підтримується паралельно з іншими зобов'язаннями. Більшість звернень отримують початкову відповідь протягом кількох робочих днів. Пріоритет надається звітам про помилки з чіткими кроками відтворення. Запити на функціональність розглядаються на постійній основі та плануються відповідно до дорожньої карти проекту.
+
+## Участь спільноти
+
+Внесок у проект вітається. Зробіть форк репозиторію, створіть гілку для нової функціональності та відкрийте pull request. Усі pull request проходять автоматичну валідацію та ручну перевірку. Настанови для контриб'юторів доступні в README репозиторію. Прийняті внески відповідають тим самим редакційним та кодовим стандартам, що й решта проекту.`;
+  }
+
   if (localeKey === "zh") {
     return `# ${t.contactTitle}
 
@@ -21466,6 +23682,327 @@ ${t.contactIntro}
 
 欢迎社区贡献。请 fork 仓库、创建功能分支并提交 pull request。所有 pull request 都会经过自动化验证和人工审查。贡献指南可在仓库的 README 中查阅。被接受的贡献须遵循与项目其余部分相同的编辑和代码标准。`;
   }
+
+  if (localeKey === "de") { return `# ${t.contactTitle}\n\n${t.contactIntro}\n\nDas Repository dient zur Meldung von Fehlern, für Funktionswünsche und den Zugriff auf den Quellcode. Unter Releases ist die Versionshistorie einsehbar. PyPI liefert Installationsdetails und Paketmetadaten.\n\nBei Implementierungsarbeiten ist das Repository der beste Ausgangspunkt für Beispiele, Vorlagen und die Historie gemeldeter Probleme. Releases bieten eine klare Versionsübersicht. PyPI ist die schnellste Quelle für Paketmetadaten und Installationsbefehle.\n\n- ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>\n- ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>\n- ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>\n\n## Bevor Sie Kontakt aufnehmen\n\nViele Fragen sind bereits in bestehenden Projektressourcen beantwortet. Die [FAQ-Seite](/de/faq/) behandelt häufige Fragen zu ISO 20022 pacs-Nachrichten, CBPR+-Migrationsfristen und Toolkit-Nutzung. Die [API-Dokumentation](/de/api/) erläutert Installation, Endpunkte, CLI-Optionen und Python-Bibliotheksmethoden. Das [Glossar](/de/glossary/) definiert über 60 Begriffe aus den Bereichen ISO 20022 und Zahlungsverkehr.\n\nBei Fehlerberichten sind Nachrichtentyp, Version und ein kurzes Beispiel der fehlerhaften Eingabe anzugeben. Bitte fügen Sie die Eingabedatei oder einen minimalen Reproduktionsfall bei. Python-Version und Betriebssystem sind zu nennen. Je mehr Kontext ein Bericht enthält, desto schneller die Lösung.\n\nBei geplanten Rollouts empfiehlt es sich, zunächst die aktuellen Releases zu prüfen, um die Implementierung auf eine bekannte Paketversion abzustimmen. Für Installations- und Abhängigkeitsdetails ist PyPI die schnellste Informationsquelle.\n\n## Sicherheitsprobleme\n\nSicherheitslücken sind vertraulich zu melden. Bitte erstellen Sie kein öffentliches GitHub-Issue für Sicherheitsbelange. Nutzen Sie stattdessen das [GitHub-Security-Advisory-Formular](https://github.com/sebastienrousseau/pacs008/security/advisories/new) für einen vertraulichen Bericht. Beschreiben Sie die Schwachstelle, die Schritte zur Reproduktion und die möglichen Auswirkungen. Sicherheitsberichte werden vorrangig behandelt.\n\n## Funktionswünsche\n\nFunktionswünsche sind willkommen. Erstellen Sie ein GitHub-Issue mit dem Label \`enhancement\`. Beschreiben Sie den Anwendungsfall, das erwartete Verhalten und relevante Nachrichtentypen oder -versionen. Anfragen, die sich an der Einführung von ISO 20022-Standards und an Zahlungsverkehrsabläufen orientieren, werden bevorzugt berücksichtigt.\n\n## Antwortzeiten\n\nDieses Open-Source-Projekt wird neben anderen Verpflichtungen gepflegt. Die meisten Anfragen erhalten innerhalb weniger Werktage eine erste Antwort. Fehlerberichte mit klaren Reproduktionsschritten werden bevorzugt bearbeitet. Funktionswünsche werden fortlaufend geprüft und gemäß der Projekt-Roadmap eingeplant.\n\n## Beiträge aus der Community\n\nBeiträge sind erwünscht. Forken Sie das Repository, erstellen Sie einen Feature-Branch und eröffnen Sie einen Pull Request. Alle Pull Requests durchlaufen eine automatisierte Validierung und eine manuelle Prüfung. Beitragsrichtlinien sind in der README des Repositorys verfügbar. Akzeptierte Beiträge folgen denselben redaktionellen und Code-Standards wie der Rest des Projekts.`; }
+
+  if (localeKey === "es") { return `# ${t.contactTitle}\n\n${t.contactIntro}\n\nEl repositorio sirve para informar errores, solicitar funcionalidades y acceder al código fuente. En Releases se consulta el historial de versiones. PyPI ofrece los detalles de instalación y los metadatos del paquete.\n\nPara trabajos de implementación, el repositorio es el mejor punto de partida para encontrar ejemplos, plantillas e historial de incidencias. Releases proporciona un registro claro de versiones. PyPI es la fuente más rápida para obtener metadatos del paquete y comandos de instalación.\n\n- ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>\n- ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>\n- ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>\n\n## Antes de ponerse en contacto\n\nMuchas preguntas ya están respondidas en los recursos del proyecto. La [página de preguntas frecuentes](/es/faq/) cubre las consultas habituales sobre mensajes pacs ISO 20022, plazos de migración a CBPR+ y uso del toolkit. La [documentación de la API](/es/api/) explica la instalación, los endpoints, las opciones CLI y los métodos de la biblioteca Python. El [glosario](/es/glossary/) define más de 60 términos de ISO 20022 y mensajería de pagos.\n\nAl informar un error, incluya el tipo de mensaje, la versión y un breve ejemplo de la entrada que falla. Adjunte el archivo de entrada o un caso mínimo de reproducción. Indique la versión de Python y el sistema operativo. Cuanto más contexto contenga el informe, más rápida será la resolución.\n\nSi está planificando un despliegue, revise primero las versiones recientes para alinear el trabajo de implementación con una versión conocida del paquete. Para detalles de instalación o dependencias, PyPI es la fuente más rápida para confirmar el registro actual del paquete.\n\n## Problemas de seguridad\n\nLas vulnerabilidades de seguridad deben comunicarse de forma privada. No abra una incidencia pública en GitHub para asuntos de seguridad. En su lugar, utilice el [formulario de aviso de seguridad de GitHub](https://github.com/sebastienrousseau/pacs008/security/advisories/new) para enviar un informe confidencial. Incluya una descripción de la vulnerabilidad, los pasos para reproducirla y el impacto potencial. Los informes de seguridad reciben tratamiento prioritario.\n\n## Solicitudes de funcionalidades\n\nLas solicitudes de funcionalidades son bienvenidas. Abra una incidencia en GitHub con la etiqueta \`enhancement\`. Describa el caso de uso, el comportamiento esperado y los tipos de mensaje o versiones relevantes. Las solicitudes alineadas con la adopción de estándares ISO 20022 y los flujos de trabajo de operaciones de pago reciben prioridad.\n\n## Tiempos de respuesta\n\nEste es un proyecto de código abierto mantenido junto con otros compromisos. La mayoría de las incidencias reciben una respuesta inicial en pocos días hábiles. Los informes de errores con pasos claros de reproducción se priorizan. Las solicitudes de funcionalidades se revisan de forma continua y se programan según la alineación con la hoja de ruta del proyecto.\n\n## Contribuciones de la comunidad\n\nLas contribuciones son bienvenidas. Haga un fork del repositorio, cree una rama de funcionalidad y abra un pull request. Todos los pull requests pasan por una validación automatizada y una revisión manual. Las directrices de contribución están disponibles en el README del repositorio. Las contribuciones aceptadas siguen los mismos estándares editoriales y de código que el resto del proyecto.`; }
+
+  if (localeKey === "fr") { return `# ${t.contactTitle}\n\n${t.contactIntro}\n\nLe dépôt sert à signaler les bogues, formuler des demandes de fonctionnalités et accéder au code source. Les versions publiées permettent de consulter l'historique des versions. PyPI fournit les détails d'installation et les métadonnées du paquet.\n\nPour les travaux d'implémentation, le dépôt est le meilleur point de départ pour trouver des exemples, des modèles et l'historique des problèmes. Les versions publiées offrent un registre clair des versions. PyPI est la source la plus rapide pour obtenir les métadonnées du paquet et les commandes d'installation.\n\n- ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>\n- ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>\n- ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>\n\n## Avant de prendre contact\n\nDe nombreuses questions trouvent déjà leur réponse dans les ressources du projet. La [page FAQ](/fr/faq/) couvre les questions courantes sur les messages pacs ISO 20022, les échéances de migration CBPR+ et l'utilisation du toolkit. La [documentation de l'API](/fr/api/) explique l'installation, les points de terminaison, les options CLI et les méthodes de la bibliothèque Python. Le [glossaire](/fr/glossary/) définit plus de 60 termes liés à ISO 20022 et à la messagerie de paiement.\n\nPour signaler un bogue, indiquez le type de message, la version et un court exemple de l'entrée défaillante. Joignez le fichier d'entrée ou un cas de reproduction minimal. Précisez la version de Python et le système d'exploitation. Plus un rapport contient de contexte, plus la résolution est rapide.\n\nSi un déploiement est en préparation, consultez d'abord les versions récentes afin d'aligner les travaux d'implémentation sur une version connue du paquet. Pour les détails d'installation ou de dépendances, PyPI est la source la plus rapide pour vérifier l'enregistrement actuel du paquet.\n\n## Problèmes de sécurité\n\nLes vulnérabilités de sécurité doivent être signalées de manière confidentielle. Ne créez pas d'issue publique sur GitHub pour les questions de sécurité. Utilisez plutôt le [formulaire d'avis de sécurité GitHub](https://github.com/sebastienrousseau/pacs008/security/advisories/new) pour soumettre un rapport confidentiel. Incluez une description de la vulnérabilité, les étapes de reproduction et l'impact potentiel. Les rapports de sécurité bénéficient d'un traitement prioritaire.\n\n## Demandes de fonctionnalités\n\nLes demandes de fonctionnalités sont les bienvenues. Ouvrez une issue GitHub avec le label \`enhancement\`. Décrivez le cas d'utilisation, le comportement attendu et les types de messages ou versions concernés. Les demandes en phase avec l'adoption des standards ISO 20022 et les flux de travail des opérations de paiement sont traitées en priorité.\n\n## Délais de réponse\n\nCe projet open source est maintenu parallèlement à d'autres engagements. La plupart des issues reçoivent une première réponse dans un délai de quelques jours ouvrables. Les rapports de bogues comportant des étapes de reproduction claires sont traités en priorité. Les demandes de fonctionnalités sont examinées de manière continue et planifiées selon leur alignement avec la feuille de route du projet.\n\n## Contributions communautaires\n\nLes contributions sont encouragées. Forkez le dépôt, créez une branche de fonctionnalité et ouvrez une pull request. Toutes les pull requests font l'objet d'une validation automatisée et d'une revue manuelle. Les directives de contribution sont disponibles dans le README du dépôt. Les contributions acceptées respectent les mêmes standards rédactionnels et de code que le reste du projet.`; }
+
+  if (localeKey === "it") { return `# ${t.contactTitle}\n\n${t.contactIntro}\n\nIl repository serve per segnalare bug, richiedere funzionalità e accedere al codice sorgente. Le versioni pubblicate consentono di consultare la cronologia delle versioni. PyPI fornisce i dettagli di installazione e i metadati del pacchetto.\n\nPer i lavori di implementazione, il repository è il punto di partenza migliore per trovare esempi, template e la cronologia dei problemi. Le versioni pubblicate offrono un registro chiaro delle versioni. PyPI è la fonte più rapida per ottenere i metadati del pacchetto e i comandi di installazione.\n\n- ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>\n- ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>\n- ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>\n\n## Prima di mettersi in contatto\n\nMolte domande trovano già risposta nelle risorse del progetto. La [pagina FAQ](/it/faq/) tratta le domande più frequenti sui messaggi pacs ISO 20022, le scadenze di migrazione CBPR+ e l'utilizzo del toolkit. La [documentazione API](/it/api/) illustra installazione, endpoint, opzioni CLI e metodi della libreria Python. Il [glossario](/it/glossary/) definisce oltre 60 termini relativi a ISO 20022 e alla messaggistica dei pagamenti.\n\nPer segnalare un bug, indicare il tipo di messaggio, la versione e un breve esempio dell'input che causa l'errore. Allegare il file di input o un caso di riproduzione minimo. Specificare la versione di Python e il sistema operativo. Maggiore è il contesto fornito nel report, più rapida sarà la risoluzione.\n\nSe è in programma un rilascio in produzione, consultare prima le versioni recenti per allineare il lavoro di implementazione a una versione nota del pacchetto. Per i dettagli di installazione o dipendenze, PyPI è la fonte più rapida per verificare il record attuale del pacchetto.\n\n## Problemi di sicurezza\n\nLe vulnerabilità di sicurezza vanno segnalate in modo riservato. Non aprire un'issue pubblica su GitHub per questioni di sicurezza. Utilizzare invece il [modulo di avviso di sicurezza GitHub](https://github.com/sebastienrousseau/pacs008/security/advisories/new) per inviare una segnalazione confidenziale. Includere una descrizione della vulnerabilità, i passaggi per riprodurla e l'impatto potenziale. Le segnalazioni di sicurezza ricevono trattamento prioritario.\n\n## Richieste di funzionalità\n\nLe richieste di funzionalità sono benvenute. Aprire un'issue su GitHub con l'etichetta \`enhancement\`. Descrivere il caso d'uso, il comportamento atteso e i tipi di messaggio o le versioni pertinenti. Le richieste allineate con l'adozione degli standard ISO 20022 e i flussi operativi dei pagamenti ricevono priorità.\n\n## Tempi di risposta\n\nQuesto è un progetto open source mantenuto parallelamente ad altri impegni. La maggior parte delle issue riceve una prima risposta entro pochi giorni lavorativi. I report di bug con passaggi di riproduzione chiari vengono trattati con priorità. Le richieste di funzionalità vengono esaminate su base continuativa e pianificate in base all'allineamento con la roadmap del progetto.\n\n## Contributi della comunità\n\nI contributi sono incoraggiati. Eseguire il fork del repository, creare un branch di funzionalità e aprire una pull request. Tutte le pull request passano attraverso validazione automatizzata e revisione manuale. Le linee guida per i contributi sono disponibili nel README del repository. I contributi accettati rispettano gli stessi standard editoriali e di codice del resto del progetto.`; }
+
+  if (localeKey === "nl") { return `# ${t.contactTitle}\n\n${t.contactIntro}\n\nDe repository dient voor bugmeldingen, functionaliteitsverzoeken en toegang tot de broncode. Onder Releases is de versiegeschiedenis te raadplegen. PyPI biedt installatiegegevens en pakketmetadata.\n\nVoor implementatiewerkzaamheden is de repository het beste startpunt voor voorbeelden, sjablonen en de historie van gemelde problemen. Releases biedt een overzichtelijk versieoverzicht. PyPI is de snelste bron voor pakketmetadata en installatieopdrachten.\n\n- ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>\n- ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>\n- ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>\n\n## Voordat u contact opneemt\n\nVeel vragen zijn al beantwoord in bestaande projectbronnen. De [FAQ-pagina](/nl/faq/) behandelt veelgestelde vragen over ISO 20022 pacs-berichten, CBPR+-migratietijdlijnen en toolkitgebruik. De [API-documentatie](/nl/api/) licht installatie, endpoints, CLI-opties en Python-bibliotheekmethoden toe. De [begrippenlijst](/nl/glossary/) definieert meer dan 60 ISO 20022- en betalingsberichtentermen.\n\nBij het melden van een bug dienen berichttype, versie en een kort voorbeeld van de foutieve invoer te worden vermeld. Voeg het invoerbestand of een minimaal reproduceerbaar geval bij. Vermeld de Python-versie en het besturingssysteem. Hoe meer context een melding bevat, des te sneller de oplossing.\n\nBij een geplande uitrol is het raadzaam eerst de recente releases te raadplegen om het implementatiewerk af te stemmen op een bekende pakketversie. Voor installatie- en afhankelijkheidsdetails is PyPI de snelste bron om het huidige pakketrecord te bevestigen.\n\n## Beveiligingsproblemen\n\nBeveiligingskwetsbaarheden dienen vertrouwelijk te worden gemeld. Open geen publieke GitHub-issue voor beveiligingskwesties. Gebruik in plaats daarvan het [GitHub-beveiligingsadviesformulier](https://github.com/sebastienrousseau/pacs008/security/advisories/new) om een vertrouwelijk rapport in te dienen. Beschrijf de kwetsbaarheid, de reproductiestappen en de mogelijke impact. Beveiligingsrapporten krijgen voorrang.\n\n## Functieverzoeken\n\nFunctieverzoeken zijn welkom. Open een GitHub-issue met het label \`enhancement\`. Beschrijf de use case, het verwachte gedrag en eventuele relevante berichttypen of -versies. Verzoeken die aansluiten bij de invoering van ISO 20022-standaarden en betalingsoperationele workflows krijgen voorrang.\n\n## Reactietijden\n\nDit is een opensourceproject dat naast andere verplichtingen wordt onderhouden. De meeste issues ontvangen binnen enkele werkdagen een eerste reactie. Bugrapporten met duidelijke reproductiestappen krijgen voorrang. Functieverzoeken worden doorlopend beoordeeld en ingepland op basis van aansluiting bij de projectroadmap.\n\n## Bijdragen van de gemeenschap\n\nBijdragen worden aangemoedigd. Fork de repository, maak een feature-branch aan en open een pull request. Alle pull requests doorlopen geautomatiseerde validatie en een handmatige beoordeling. Bijdragerichtlijnen zijn beschikbaar in de README van de repository. Geaccepteerde bijdragen voldoen aan dezelfde redactionele en codestandaarden als de rest van het project.`; }
+
+  if (localeKey === "pl") { return `# ${t.contactTitle}\n\n${t.contactIntro}\n\nRepozytorium służy do zgłaszania błędów, składania propozycji nowych funkcji i dostępu do kodu źródłowego. W sekcji Releases dostępna jest historia wersji. PyPI dostarcza szczegóły instalacji i metadane pakietu.\n\nPrzy pracach implementacyjnych repozytorium jest najlepszym punktem wyjścia do znalezienia przykładów, szablonów i historii zgłoszonych problemów. Releases oferuje przejrzysty rejestr wersji. PyPI jest najszybszym źródłem metadanych pakietu i poleceń instalacyjnych.\n\n- ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>\n- ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>\n- ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>\n\n## Zanim napiszesz\n\nWiele pytań ma już odpowiedzi w istniejących zasobach projektu. [Strona FAQ](/pl/faq/) obejmuje najczęstsze pytania dotyczące komunikatów pacs ISO 20022, terminów migracji CBPR+ i korzystania z toolkitu. [Dokumentacja API](/pl/api/) wyjaśnia instalację, endpointy, opcje CLI i metody biblioteki Python. [Słownik](/pl/glossary/) definiuje ponad 60 terminów z zakresu ISO 20022 i komunikatów płatniczych.\n\nZgłaszając błąd, należy podać typ komunikatu, wersję oraz krótki przykład niepoprawnych danych wejściowych. Dołącz plik wejściowy lub minimalny przypadek reprodukcji. Podaj wersję Pythona i system operacyjny. Im więcej kontekstu zawiera zgłoszenie, tym szybsza będzie jego obsługa.\n\nPlanując wdrożenie, warto najpierw sprawdzić ostatnie wydania, aby dopasować prace implementacyjne do znanej wersji pakietu. W kwestii szczegółów instalacji lub zależności PyPI jest najszybszym źródłem potwierdzenia aktualnego rekordu pakietu.\n\n## Problemy bezpieczeństwa\n\nLuki bezpieczeństwa należy zgłaszać poufnie. Nie twórz publicznego issue na GitHub w sprawach bezpieczeństwa. Zamiast tego skorzystaj z [formularza doradztwa bezpieczeństwa GitHub](https://github.com/sebastienrousseau/pacs008/security/advisories/new) w celu złożenia poufnego raportu. Zamieść opis luki, kroki reprodukcji i potencjalny wpływ. Zgłoszenia bezpieczeństwa są traktowane priorytetowo.\n\n## Propozycje nowych funkcji\n\nPropozycje nowych funkcji są mile widziane. Utwórz issue na GitHub z etykietą \`enhancement\`. Opisz przypadek użycia, oczekiwane zachowanie oraz odpowiednie typy komunikatów lub wersje. Propozycje zgodne z wdrażaniem standardów ISO 20022 i procesami operacji płatniczych mają wyższy priorytet.\n\n## Czas odpowiedzi\n\nTo projekt open source utrzymywany równolegle z innymi zobowiązaniami. Większość zgłoszeń otrzymuje wstępną odpowiedź w ciągu kilku dni roboczych. Zgłoszenia błędów z jasnymi krokami reprodukcji są traktowane priorytetowo. Propozycje funkcji są przeglądane na bieżąco i planowane zgodnie ze zgodnością z mapą drogową projektu.\n\n## Wkład społeczności\n\nWkład jest mile widziany. Sforkuj repozytorium, utwórz gałąź funkcji i otwórz pull request. Wszystkie pull requesty przechodzą automatyczną walidację i ręczny przegląd. Wytyczne dotyczące wkładu są dostępne w README repozytorium. Zaakceptowany wkład podlega tym samym standardom redakcyjnym i kodowania co reszta projektu.`; }
+
+  if (localeKey === "pt") { return `# ${t.contactTitle}\n\n${t.contactIntro}\n\nO repositório serve para reportar erros, solicitar funcionalidades e aceder ao código-fonte. Em Releases consulta-se o histórico de versões. O PyPI fornece os detalhes de instalação e os metadados do pacote.\n\nPara trabalhos de implementação, o repositório é o melhor ponto de partida para encontrar exemplos, modelos e o histórico de problemas. Releases proporciona um registo claro de versões. O PyPI é a fonte mais rápida para obter metadados do pacote e comandos de instalação.\n\n- ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>\n- ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>\n- ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>\n\n## Antes de entrar em contacto\n\nMuitas perguntas já se encontram respondidas nos recursos existentes do projeto. A [página de perguntas frequentes](/pt/faq/) abrange as questões mais comuns sobre mensagens pacs ISO 20022, prazos de migração CBPR+ e utilização do toolkit. A [documentação da API](/pt/api/) explica a instalação, os endpoints, as opções CLI e os métodos da biblioteca Python. O [glossário](/pt/glossary/) define mais de 60 termos de ISO 20022 e mensagens de pagamento.\n\nAo reportar um erro, inclua o tipo de mensagem, a versão e um breve exemplo da entrada que falha. Anexe o ficheiro de entrada ou um caso mínimo de reprodução. Indique a versão do Python e o sistema operativo. Quanto mais contexto o relatório incluir, mais rápida será a resolução.\n\nSe está a planear um lançamento, consulte primeiro as versões recentes para alinhar o trabalho de implementação com uma versão conhecida do pacote. Para detalhes de instalação ou dependências, o PyPI é a fonte mais rápida para confirmar o registo atual do pacote.\n\n## Problemas de segurança\n\nAs vulnerabilidades de segurança devem ser comunicadas de forma privada. Não abra um issue público no GitHub para questões de segurança. Utilize antes o [formulário de aviso de segurança do GitHub](https://github.com/sebastienrousseau/pacs008/security/advisories/new) para submeter um relatório confidencial. Inclua uma descrição da vulnerabilidade, os passos para a reproduzir e o impacto potencial. Os relatórios de segurança recebem tratamento prioritário.\n\n## Pedidos de funcionalidades\n\nOs pedidos de funcionalidades são bem-vindos. Abra um issue no GitHub com o rótulo \`enhancement\`. Descreva o caso de uso, o comportamento esperado e os tipos de mensagem ou versões relevantes. Os pedidos alinhados com a adoção dos padrões ISO 20022 e os fluxos de trabalho de operações de pagamento recebem prioridade.\n\n## Tempos de resposta\n\nEste é um projeto de código aberto mantido em paralelo com outros compromissos. A maioria dos issues recebe uma resposta inicial em poucos dias úteis. Os relatórios de erros com passos claros de reprodução são priorizados. Os pedidos de funcionalidades são revistos de forma contínua e agendados de acordo com o alinhamento com o roteiro do projeto.\n\n## Contribuições da comunidade\n\nAs contribuições são encorajadas. Faça fork do repositório, crie um branch de funcionalidade e abra um pull request. Todos os pull requests passam por validação automatizada e revisão manual. As diretrizes de contribuição estão disponíveis no README do repositório. As contribuições aceites seguem os mesmos padrões editoriais e de código que o resto do projeto.`; }
+
+  if (localeKey === "ro") { return `# ${t.contactTitle}\n\n${t.contactIntro}\n\nDepozitul servește pentru raportarea erorilor, solicitări de funcționalități și accesul la codul sursă. Lansările permit consultarea istoricului versiunilor. PyPI oferă detaliile de instalare și metadatele pachetului.\n\nPentru lucrările de implementare, depozitul este cel mai bun punct de plecare pentru a găsi exemple, șabloane și istoricul problemelor raportate. Lansările oferă un registru clar al versiunilor. PyPI este sursa cea mai rapidă pentru metadatele pachetului și comenzile de instalare.\n\n- ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>\n- ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>\n- ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>\n\n## Înainte de a lua legătura\n\nMulte întrebări au deja răspunsuri în resursele existente ale proiectului. [Pagina de întrebări frecvente](/ro/faq/) acoperă întrebările obișnuite despre mesajele pacs ISO 20022, termenele de migrare CBPR+ și utilizarea toolkitului. [Documentația API](/ro/api/) explică instalarea, endpointurile, opțiunile CLI și metodele bibliotecii Python. [Glosarul](/ro/glossary/) definește peste 60 de termeni din domeniul ISO 20022 și al mesageriei de plăți.\n\nLa raportarea unei erori, includeți tipul mesajului, versiunea și un scurt exemplu al datelor de intrare care provoacă eroarea. Atașați fișierul de intrare sau un caz minim de reproducere. Specificați versiunea Python și sistemul de operare. Cu cât raportul conține mai mult context, cu atât rezolvarea este mai rapidă.\n\nDacă planificați o lansare în producție, consultați mai întâi versiunile recente pentru a alinia lucrările de implementare la o versiune cunoscută a pachetului. Pentru detalii de instalare sau dependențe, PyPI este sursa cea mai rapidă pentru a confirma înregistrarea curentă a pachetului.\n\n## Probleme de securitate\n\nVulnerabilitățile de securitate trebuie raportate în mod privat. Nu creați un issue public pe GitHub pentru probleme de securitate. Utilizați în schimb [formularul de aviz de securitate GitHub](https://github.com/sebastienrousseau/pacs008/security/advisories/new) pentru a trimite un raport confidențial. Includeți o descriere a vulnerabilității, pașii de reproducere și impactul potențial. Rapoartele de securitate primesc tratament prioritar.\n\n## Solicitări de funcționalități\n\nSolicitările de funcționalități sunt binevenite. Deschideți un issue pe GitHub cu eticheta \`enhancement\`. Descrieți cazul de utilizare, comportamentul așteptat și tipurile de mesaje sau versiunile relevante. Solicitările aliniate cu adoptarea standardelor ISO 20022 și fluxurile de lucru ale operațiunilor de plată primesc prioritate.\n\n## Timpii de răspuns\n\nAcesta este un proiect open source întreținut în paralel cu alte angajamente. Majoritatea problemelor primesc un prim răspuns în câteva zile lucrătoare. Rapoartele de erori cu pași clari de reproducere sunt prioritizate. Solicitările de funcționalități sunt revizuite continuu și planificate în funcție de alinierea cu foaia de parcurs a proiectului.\n\n## Contribuții ale comunității\n\nContribuțiile sunt încurajate. Realizați un fork al depozitului, creați un branch de funcționalitate și deschideți un pull request. Toate pull requesturile trec prin validare automatizată și revizuire manuală. Ghidul de contribuții este disponibil în README-ul depozitului. Contribuțiile acceptate respectă aceleași standarde editoriale și de cod ca restul proiectului.`; }
+
+  if (localeKey === "ar") {
+    return `# ${t.contactTitle}
+
+${t.contactIntro}
+
+استخدم المستودع للإبلاغ عن الأخطاء وطلب الميزات والوصول إلى الشفرة المصدرية. استخدم صفحة الإصدارات لسجل الإصدارات. استخدم PyPI لتفاصيل التثبيت.
+
+لأعمال التنفيذ، ابدأ بالمستودع عند الحاجة إلى أمثلة أو قوالب أو سجل المشكلات. راجع الإصدارات للحصول على سجل إصدارات واضح. راجع PyPI للبيانات الوصفية للحزمة وأوامر التثبيت.
+
+- ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>
+- ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>
+- ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>
+
+## قبل التواصل
+
+العديد من الأسئلة مُجاب عنها بالفعل في موارد المشروع الحالية. تغطي [صفحة الأسئلة الشائعة](/ar/faq/) الأسئلة المتكررة حول رسائل pacs وفق ISO 20022 وجداول ترحيل CBPR+ واستخدام الأداة. تشرح [وثائق API](/ar/api/) التثبيت ونقاط النهاية وخيارات CLI وأساليب مكتبة Python. يُعرّف [المسرد](/ar/glossary/) أكثر من 60 مصطلحًا في مجال ISO 20022 ورسائل الدفع.
+
+عند الإبلاغ عن خطأ، يُرجى تضمين نوع الرسالة والإصدار ومثال قصير للمدخلات التي سببت الخطأ. أرفق ملف الإدخال أو حالة إعادة إنتاج بسيطة. حدد إصدار Python ونظام التشغيل. كلما زادت المعلومات في التقرير، كان الحل أسرع.
+
+عند التخطيط لعملية إطلاق، راجع الإصدارات الأخيرة أولًا لمطابقة عمل التنفيذ مع إصدار حزمة معروف. للحصول على تفاصيل التثبيت أو التبعيات، PyPI هو أسرع مكان للتأكد من سجل الحزمة الحالي.
+
+## المسائل الأمنية
+
+يُرجى الإبلاغ عن الثغرات الأمنية بشكل خاص. لا تفتح مشكلة عامة على GitHub للمخاوف الأمنية. بدلًا من ذلك، استخدم [نموذج الاستشارة الأمنية على GitHub](https://github.com/sebastienrousseau/pacs008/security/advisories/new) لتقديم تقرير سري. ضمّن وصف الثغرة وخطوات إعادة إنتاجها والأثر المحتمل. تحظى التقارير الأمنية بمعالجة ذات أولوية.
+
+## طلبات الميزات
+
+طلبات الميزات مرحب بها. افتح مشكلة على GitHub بتسمية \`enhancement\`. صف حالة الاستخدام والسلوك المتوقع وأي أنواع رسائل أو إصدارات ذات صلة. تحظى الطلبات المتوافقة مع تبني معايير ISO 20022 وسير عمل عمليات الدفع بالأولوية.
+
+## أوقات الاستجابة
+
+هذا مشروع مفتوح المصدر يُدار إلى جانب التزامات أخرى. تتلقى معظم المشكلات ردًا أوليًا خلال بضعة أيام عمل. تُعطى الأولوية لتقارير الأخطاء ذات خطوات إعادة الإنتاج الواضحة. تُراجع طلبات الميزات بشكل مستمر وتُجدول وفقًا لتوافقها مع خارطة طريق المشروع.
+
+## المساهمات المجتمعية
+
+المساهمات مشجَّعة. انسخ المستودع وأنشئ فرعًا للميزة وافتح طلب سحب. تمر جميع طلبات السحب بالتحقق الآلي والمراجعة اليدوية. إرشادات المساهمة متاحة في ملف README الخاص بالمستودع. تلتزم المساهمات المقبولة بنفس معايير التحرير والبرمجة المطبقة على بقية المشروع.`;
+  }
+
+  if (localeKey === "he") {
+    return `# ${t.contactTitle}
+
+${t.contactIntro}
+
+השתמש במאגר לדיווח על באגים, בקשות תכונה וקוד מקור. השתמש בגרסאות להיסטוריית גרסאות. השתמש ב-PyPI לפרטי התקנה.
+
+לעבודת מימוש, התחל מהמאגר כשצריך דוגמאות, תבניות או היסטוריית בעיות. בדוק גרסאות כשצריך רשומת גרסאות ברורה. בדוק ב-PyPI כשצריך מטא-נתוני חבילה ופקודות התקנה.
+
+- ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>
+- ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>
+- ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>
+
+## לפני פנייה
+
+שאלות רבות כבר נענו במשאבי הפרויקט הקיימים. [עמוד שאלות נפוצות](/he/faq/) מכסה שאלות נפוצות על הודעות pacs לפי ISO 20022, לוחות זמנים למעבר CBPR+ ושימוש בערכת הכלים. [תיעוד API](/he/api/) מסביר התקנה, נקודות קצה, אפשרויות CLI ושיטות ספריית Python. [מילון מונחים](/he/glossary/) מגדיר למעלה מ-60 מונחי ISO 20022 והודעות תשלום.
+
+אם מדווחים על באג, יש לכלול את סוג ההודעה, הגרסה ודוגמה קצרה של הקלט שגרם לכשל. יש לצרף את קובץ הקלט או מקרה שחזור מינימלי. יש לציין את גרסת Python ומערכת ההפעלה. ככל שהדוח כולל יותר הקשר, כך הפתרון מהיר יותר.
+
+אם מתכננים פריסה, יש לבדוק קודם גרסאות אחרונות כדי להתאים את עבודת המימוש לגרסת חבילה ידועה. לפרטי התקנה או תלויות, PyPI הוא המקום המהיר ביותר לאימות רשומת החבילה הנוכחית.
+
+## בעיות אבטחה
+
+יש לדווח על פגיעויות אבטחה באופן פרטי. אין לפתוח issue ציבורי ב-GitHub לנושאי אבטחה. במקום זאת, יש להשתמש ב[טופס ייעוץ אבטחה של GitHub](https://github.com/sebastienrousseau/pacs008/security/advisories/new) להגשת דוח חסוי. יש לכלול תיאור הפגיעות, צעדי שחזור וההשפעה הפוטנציאלית. דוחות אבטחה מקבלים טיפול בעדיפות.
+
+## בקשות תכונה
+
+בקשות תכונה מתקבלות בברכה. יש לפתוח issue ב-GitHub עם תגית \`enhancement\`. יש לתאר את מקרה השימוש, ההתנהגות הצפויה וכל סוגי הודעות או גרסאות רלוונטיים. בקשות התואמות לאימוץ תקני ISO 20022 ותהליכי עבודה של תשלומים מקבלות עדיפות.
+
+## זמני תגובה
+
+זהו פרויקט קוד פתוח המתוחזק לצד מחויבויות אחרות. רוב הבעיות מקבלות תגובה ראשונית תוך מספר ימי עסקים. דוחות באגים עם שלבי שחזור ברורים מקבלים עדיפות. בקשות תכונה נסקרות באופן שוטף ומתוזמנות בהתאם להתאמה למפת הדרכים של הפרויקט.
+
+## תרומות קהילה
+
+תרומות מעודדות. יש לבצע fork למאגר, ליצור ענף תכונה ולפתוח pull request. כל בקשות ה-pull עוברות אימות אוטומטי וסקירה ידנית. הנחיות תרומה זמינות ב-README של המאגר. תרומות שהתקבלו עומדות באותם סטנדרטים עריכתיים וקידוד כמו שאר הפרויקט.`;
+  }
+
+  if (localeKey === "hi") {
+    return `# ${t.contactTitle}
+
+${t.contactIntro}
+
+बग रिपोर्ट, फ़ीचर अनुरोध और सोर्स कोड के लिए रिपॉज़िटरी का उपयोग करें। संस्करण इतिहास के लिए रिलीज़ पृष्ठ देखें। इंस्टॉल विवरण के लिए PyPI देखें।
+
+कार्यान्वयन कार्य के लिए, जब उदाहरण, टेम्पलेट या इश्यू इतिहास चाहिए तो रिपॉज़िटरी से शुरू करें। स्पष्ट संस्करण रिकॉर्ड चाहिए तो रिलीज़ देखें। पैकेज मेटाडेटा और इंस्टॉल कमांड चाहिए तो PyPI देखें।
+
+- ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>
+- ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>
+- ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>
+
+## संपर्क करने से पहले
+
+अनेक प्रश्नों के उत्तर मौजूदा प्रोजेक्ट संसाधनों में पहले से उपलब्ध हैं। [FAQ पृष्ठ](/hi/faq/) ISO 20022 pacs संदेशों, CBPR+ माइग्रेशन समय-सीमा और टूलकिट उपयोग के बारे में सामान्य प्रश्नों को कवर करता है। [API प्रलेखन](/hi/api/) इंस्टॉलेशन, एंडपॉइंट, CLI विकल्प और Python लाइब्रेरी विधियों की व्याख्या करता है। [शब्दावली](/hi/glossary/) 60 से अधिक ISO 20022 और भुगतान संदेश शब्दों को परिभाषित करती है।
+
+यदि बग रिपोर्ट कर रहे हैं, तो संदेश प्रकार, संस्करण और विफल इनपुट का संक्षिप्त उदाहरण शामिल करें। इनपुट फ़ाइल या न्यूनतम पुनरुत्पादन मामला संलग्न करें। Python संस्करण और ऑपरेटिंग सिस्टम निर्दिष्ट करें। रिपोर्ट में जितना अधिक संदर्भ होगा, समाधान उतना तेज़ होगा।
+
+यदि रोलआउट की योजना बना रहे हैं, तो पहले हाल की रिलीज़ देखें ताकि कार्यान्वयन कार्य को ज्ञात पैकेज संस्करण से मिलाया जा सके। इंस्टॉल या डिपेंडेंसी विवरण चाहिए तो PyPI वर्तमान पैकेज रिकॉर्ड की पुष्टि के लिए सबसे तेज़ स्थान है।
+
+## सुरक्षा संबंधी मुद्दे
+
+सुरक्षा कमज़ोरियों की रिपोर्ट निजी तौर पर करें। सुरक्षा चिंताओं के लिए सार्वजनिक GitHub issue न खोलें। इसके बजाय, गोपनीय रिपोर्ट प्रस्तुत करने के लिए [GitHub सुरक्षा सलाहकार फ़ॉर्म](https://github.com/sebastienrousseau/pacs008/security/advisories/new) का उपयोग करें। कमज़ोरी का विवरण, पुनरुत्पादन चरण और संभावित प्रभाव शामिल करें। सुरक्षा रिपोर्ट को प्राथमिकता से संभाला जाता है।
+
+## फ़ीचर अनुरोध
+
+फ़ीचर अनुरोधों का स्वागत है। \`enhancement\` लेबल के साथ GitHub issue खोलें। उपयोग मामला, अपेक्षित व्यवहार और कोई भी प्रासंगिक संदेश प्रकार या संस्करण बताएँ। ISO 20022 मानकों के अपनाने और भुगतान संचालन वर्कफ़्लो के अनुरूप अनुरोधों को प्राथमिकता दी जाती है।
+
+## प्रतिक्रिया समय
+
+यह एक ओपन-सोर्स प्रोजेक्ट है जो अन्य प्रतिबद्धताओं के साथ अनुरक्षित किया जाता है। अधिकांश इश्यू को कुछ कार्यदिवसों के भीतर प्रारंभिक प्रतिक्रिया मिलती है। स्पष्ट पुनरुत्पादन चरणों वाली बग रिपोर्ट को प्राथमिकता दी जाती है। फ़ीचर अनुरोधों की नियमित समीक्षा की जाती है और प्रोजेक्ट रोडमैप के अनुरूप शेड्यूल किया जाता है।
+
+## सामुदायिक योगदान
+
+योगदान प्रोत्साहित किए जाते हैं। रिपॉज़िटरी को फ़ॉर्क करें, फ़ीचर ब्रांच बनाएँ और पुल रिक्वेस्ट खोलें। सभी पुल रिक्वेस्ट स्वचालित सत्यापन और मैन्युअल समीक्षा से गुज़रते हैं। योगदान दिशानिर्देश रिपॉज़िटरी README में उपलब्ध हैं। स्वीकृत योगदान प्रोजेक्ट के शेष भाग के समान संपादकीय और कोडिंग मानकों का पालन करते हैं।`;
+  }
+
+  if (localeKey === "id") {
+    return `# ${t.contactTitle}
+
+${t.contactIntro}
+
+Gunakan repositori untuk laporan bug, permintaan fitur, dan kode sumber. Gunakan halaman rilis untuk riwayat versi. Gunakan PyPI untuk detail instalasi.
+
+Untuk pekerjaan implementasi, mulai dari repositori ketika membutuhkan contoh, templat, atau riwayat masalah. Periksa rilis ketika membutuhkan catatan versi yang jelas. Periksa PyPI ketika membutuhkan metadata paket dan perintah instalasi.
+
+- ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>
+- ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>
+- ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>
+
+## Sebelum menghubungi
+
+Banyak pertanyaan sudah terjawab di sumber daya proyek yang ada. [Halaman FAQ](/id/faq/) mencakup pertanyaan umum tentang pesan pacs ISO 20022, jadwal migrasi CBPR+, dan penggunaan toolkit. [Dokumentasi API](/id/api/) menjelaskan instalasi, endpoint, opsi CLI, dan metode pustaka Python. [Glosarium](/id/glossary/) mendefinisikan lebih dari 60 istilah ISO 20022 dan pesan pembayaran.
+
+Jika melaporkan bug, sertakan tipe pesan, versi, dan contoh singkat input yang gagal. Lampirkan file input atau kasus reproduksi minimal. Sebutkan versi Python dan sistem operasi. Semakin banyak konteks yang disertakan dalam laporan, semakin cepat penyelesaiannya.
+
+Jika merencanakan peluncuran, tinjau rilis terbaru terlebih dahulu agar pekerjaan implementasi sesuai dengan versi paket yang diketahui. Untuk detail instalasi atau dependensi, PyPI adalah tempat tercepat untuk memastikan catatan paket saat ini.
+
+## Masalah keamanan
+
+Laporkan kerentanan keamanan secara pribadi. Jangan membuat issue publik di GitHub untuk masalah keamanan. Gunakan [formulir advisory keamanan GitHub](https://github.com/sebastienrousseau/pacs008/security/advisories/new) untuk mengirimkan laporan rahasia. Sertakan deskripsi kerentanan, langkah reproduksi, dan dampak potensial. Laporan keamanan mendapatkan penanganan prioritas.
+
+## Permintaan fitur
+
+Permintaan fitur diterima dengan senang hati. Buat issue GitHub dengan label \`enhancement\`. Jelaskan kasus penggunaan, perilaku yang diharapkan, dan tipe pesan atau versi yang relevan. Permintaan yang selaras dengan adopsi standar ISO 20022 dan alur kerja operasi pembayaran mendapatkan prioritas.
+
+## Waktu respons
+
+Ini adalah proyek sumber terbuka yang dikelola bersama komitmen lain. Sebagian besar masalah menerima respons awal dalam beberapa hari kerja. Laporan bug dengan langkah reproduksi yang jelas diprioritaskan. Permintaan fitur ditinjau secara berkelanjutan dan dijadwalkan sesuai dengan keselarasan peta jalan proyek.
+
+## Kontribusi komunitas
+
+Kontribusi sangat dianjurkan. Fork repositori, buat branch fitur, dan buka pull request. Semua pull request melalui validasi otomatis dan peninjauan manual. Panduan kontribusi tersedia di README repositori. Kontribusi yang diterima mengikuti standar editorial dan pemrograman yang sama dengan bagian proyek lainnya.`;
+  }
+
+  if (localeKey === "th") {
+    return `# ${t.contactTitle}
+
+${t.contactIntro}
+
+ใช้ที่เก็บซอร์สสำหรับรายงานข้อผิดพลาด คำขอฟีเจอร์ และซอร์สโค้ด ใช้หน้ารีลีสสำหรับประวัติเวอร์ชัน ใช้ PyPI สำหรับรายละเอียดการติดตั้ง
+
+สำหรับงานติดตั้งใช้งาน เริ่มจากที่เก็บซอร์สเมื่อต้องการตัวอย่าง เทมเพลต หรือประวัติปัญหา ตรวจสอบรีลีสเมื่อต้องการบันทึกเวอร์ชันที่ชัดเจน ตรวจสอบ PyPI เมื่อต้องการข้อมูลเมตาของแพ็กเกจและคำสั่งติดตั้ง
+
+- ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>
+- ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>
+- ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>
+
+## ก่อนติดต่อ
+
+คำถามจำนวนมากได้รับคำตอบแล้วในทรัพยากรโปรเจกต์ที่มีอยู่ [หน้าคำถามที่พบบ่อย](/th/faq/) ครอบคลุมคำถามทั่วไปเกี่ยวกับข้อความ pacs ตามมาตรฐาน ISO 20022 ไทม์ไลน์การย้ายระบบ CBPR+ และการใช้งานชุดเครื่องมือ [เอกสาร API](/th/api/) อธิบายการติดตั้ง จุดปลาย ตัวเลือก CLI และเมธอดไลบรารี Python [อภิธานศัพท์](/th/glossary/) ให้คำจำกัดความคำศัพท์ ISO 20022 และข้อความการชำระเงินมากกว่า 60 คำ
+
+หากรายงานข้อผิดพลาด ให้ระบุประเภทข้อความ เวอร์ชัน และตัวอย่างสั้นๆ ของข้อมูลนำเข้าที่ทำให้เกิดปัญหา แนบไฟล์ข้อมูลนำเข้าหรือกรณีจำลองขั้นต่ำ ระบุเวอร์ชัน Python และระบบปฏิบัติการ ยิ่งรายงานมีบริบทมากเท่าไร การแก้ไขก็จะเร็วขึ้นเท่านั้น
+
+หากวางแผนเปิดใช้งาน ให้ตรวจสอบรีลีสล่าสุดก่อนเพื่อจับคู่งานติดตั้งกับเวอร์ชันแพ็กเกจที่ทราบ สำหรับรายละเอียดการติดตั้งหรือการพึ่งพา PyPI คือแหล่งที่เร็วที่สุดในการยืนยันข้อมูลแพ็กเกจปัจจุบัน
+
+## ปัญหาด้านความปลอดภัย
+
+รายงานช่องโหว่ด้านความปลอดภัยเป็นการส่วนตัว อย่าเปิด issue สาธารณะบน GitHub สำหรับข้อกังวลด้านความปลอดภัย ให้ใช้[แบบฟอร์มคำแนะนำด้านความปลอดภัยของ GitHub](https://github.com/sebastienrousseau/pacs008/security/advisories/new) เพื่อส่งรายงานที่เป็นความลับแทน ระบุคำอธิบายช่องโหว่ ขั้นตอนการจำลอง และผลกระทบที่อาจเกิดขึ้น รายงานด้านความปลอดภัยจะได้รับการจัดการอย่างเร่งด่วน
+
+## คำขอฟีเจอร์
+
+ยินดีรับคำขอฟีเจอร์ เปิด issue บน GitHub พร้อมป้ายกำกับ \`enhancement\` อธิบายกรณีการใช้งาน พฤติกรรมที่คาดหวัง และประเภทข้อความหรือเวอร์ชันที่เกี่ยวข้อง คำขอที่สอดคล้องกับการนำมาตรฐาน ISO 20022 มาใช้และเวิร์กโฟลว์ปฏิบัติการชำระเงินจะได้รับการพิจารณาเป็นลำดับแรก
+
+## เวลาตอบกลับ
+
+นี่คือโปรเจกต์โอเพนซอร์สที่ดูแลควบคู่กับภาระงานอื่น ปัญหาส่วนใหญ่จะได้รับการตอบกลับเบื้องต้นภายในไม่กี่วันทำการ รายงานข้อผิดพลาดที่มีขั้นตอนการจำลองที่ชัดเจนจะได้รับความสำคัญก่อน คำขอฟีเจอร์จะถูกตรวจสอบอย่างต่อเนื่องและจัดตารางตามความสอดคล้องกับแผนงานโปรเจกต์
+
+## การมีส่วนร่วมของชุมชน
+
+ส่งเสริมการมีส่วนร่วม Fork ที่เก็บซอร์ส สร้างแบรนช์ฟีเจอร์ และเปิด pull request pull request ทั้งหมดจะผ่านการตรวจสอบอัตโนมัติและการตรวจสอบด้วยตนเอง แนวทางการมีส่วนร่วมอยู่ใน README ของที่เก็บซอร์ส การมีส่วนร่วมที่ได้รับการยอมรับจะปฏิบัติตามมาตรฐานด้านบรรณาธิการและการเขียนโค้ดเดียวกับส่วนที่เหลือของโปรเจกต์`;
+  }
+
+  if (localeKey === "tr") {
+    return `# ${t.contactTitle}
+
+${t.contactIntro}
+
+Hata raporları, özellik istekleri ve kaynak kodu için depoyu kullanın. Sürüm geçmişi için sürümler sayfasını kontrol edin. Kurulum ayrıntıları için PyPI sayfasını inceleyin.
+
+Uygulama çalışmalarında örnekler, şablonlar veya sorun geçmişi gerektiğinde depodan başlayın. Net bir sürüm kaydı gerektiğinde sürümler sayfasını kontrol edin. Paket meta verileri ve kurulum komutları gerektiğinde PyPI en hızlı kaynaktır.
+
+- ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>
+- ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>
+- ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>
+
+## İletişime geçmeden önce
+
+Birçok soru mevcut proje kaynaklarında zaten yanıtlanmıştır. [SSS sayfası](/tr/faq/) ISO 20022 pacs mesajları, CBPR+ geçiş takvimleri ve araç takımı kullanımı hakkında sık sorulan soruları kapsar. [API dokümantasyonu](/tr/api/) kurulum, uç noktalar, CLI seçenekleri ve Python kütüphane yöntemlerini açıklar. [Sözlük](/tr/glossary/) 60'tan fazla ISO 20022 ve ödeme mesajlaşma terimini tanımlar.
+
+Bir hata bildiriyorsanız mesaj türünü, sürümü ve başarısız girdinin kısa bir örneğini ekleyin. Girdi dosyasını veya minimal bir yeniden oluşturma senaryosunu iliştirin. Python sürümünü ve işletim sistemini belirtin. Raporda ne kadar çok bağlam varsa çözüm o kadar hızlı olur.
+
+Bir yayına hazırlanıyorsanız, uygulama çalışmanızı bilinen bir paket sürümüyle eşleştirmek için önce son sürümleri gözden geçirin. Kurulum veya bağımlılık ayrıntıları için PyPI, mevcut paket kaydını doğrulamanın en hızlı yoludur.
+
+## Güvenlik sorunları
+
+Güvenlik açıklarını özel olarak bildirin. Güvenlik endişeleri için herkese açık bir GitHub issue oluşturmayın. Bunun yerine gizli rapor göndermek için [GitHub güvenlik danışma formunu](https://github.com/sebastienrousseau/pacs008/security/advisories/new) kullanın. Güvenlik açığının açıklamasını, yeniden oluşturma adımlarını ve potansiyel etkiyi ekleyin. Güvenlik raporları öncelikli olarak ele alınır.
+
+## Özellik istekleri
+
+Özellik istekleri memnuniyetle karşılanır. \`enhancement\` etiketiyle bir GitHub issue oluşturun. Kullanım senaryosunu, beklenen davranışı ve ilgili mesaj türlerini veya sürümlerini açıklayın. ISO 20022 standartları benimsemesi ve ödeme operasyonları iş akışlarıyla uyumlu istekler öncelik alır.
+
+## Yanıt süreleri
+
+Bu, diğer taahhütlerle birlikte sürdürülen açık kaynaklı bir projedir. Çoğu sorun birkaç iş günü içinde ilk yanıtı alır. Net yeniden oluşturma adımları içeren hata raporları önceliklendirilir. Özellik istekleri sürekli olarak gözden geçirilir ve proje yol haritasıyla uyuma göre planlanır.
+
+## Topluluk katkıları
+
+Katkılar teşvik edilir. Depoyu fork edin, bir özellik dalı oluşturun ve pull request açın. Tüm pull request'ler otomatik doğrulama ve manuel incelemeden geçer. Katkı kılavuzları deponun README dosyasında mevcuttur. Kabul edilen katkılar, projenin geri kalanıyla aynı editöryal ve kodlama standartlarını takip eder.`;
+  }
+
+  if (localeKey === "uk") {
+    return `# ${t.contactTitle}
+
+${t.contactIntro}
+
+Використовуйте репозиторій для звітів про помилки, запитів на нові функції та доступу до вихідного коду. Використовуйте сторінку релізів для історії версій. Використовуйте PyPI для деталей встановлення.
+
+Для роботи з впровадженням починайте з репозиторію, коли потрібні приклади, шаблони або історія завдань. Перевіряйте релізи, коли потрібен чіткий запис версій. Перевіряйте PyPI, коли потрібні метадані пакета та команди встановлення.
+
+- ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>
+- ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>
+- ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>
+
+## Перед зверненням
+
+Багато питань вже мають відповіді в існуючих ресурсах проєкту. [Сторінка FAQ](/uk/faq/) охоплює поширені питання про повідомлення pacs стандарту ISO 20022, терміни міграції CBPR+ та використання інструментарію. [Документація API](/uk/api/) пояснює встановлення, кінцеві точки, параметри CLI та методи бібліотеки Python. [Глосарій](/uk/glossary/) визначає понад 60 термінів ISO 20022 та платіжних повідомлень.
+
+Якщо повідомляєте про помилку, вкажіть тип повідомлення, версію та короткий приклад вхідних даних, що спричинили збій. Додайте вхідний файл або мінімальний випадок відтворення. Вкажіть версію Python та операційну систему. Чим більше контексту містить звіт, тим швидше буде вирішення.
+
+Якщо плануєте впровадження, спочатку перегляньте останні релізи, щоб узгодити роботу з впровадження з відомою версією пакета. Для деталей встановлення або залежностей PyPI є найшвидшим місцем для підтвердження поточного запису пакета.
+
+## Питання безпеки
+
+Повідомляйте про вразливості безпеки конфіденційно. Не створюйте публічний issue на GitHub щодо питань безпеки. Замість цього скористайтеся [формою рекомендацій з безпеки GitHub](https://github.com/sebastienrousseau/pacs008/security/advisories/new) для подання конфіденційного звіту. Включіть опис вразливості, кроки відтворення та потенційний вплив. Звіти з безпеки обробляються пріоритетно.
+
+## Запити на нові функції
+
+Запити на нові функції вітаються. Створіть issue на GitHub з міткою \`enhancement\`. Опишіть випадок використання, очікувану поведінку та будь-які відповідні типи повідомлень або версії. Запити, що відповідають впровадженню стандартів ISO 20022 та робочим процесам платіжних операцій, отримують пріоритет.
+
+## Час відповіді
+
+Це проєкт з відкритим кодом, який підтримується поряд з іншими зобов'язаннями. Більшість завдань отримують початкову відповідь протягом кількох робочих днів. Звіти про помилки з чіткими кроками відтворення мають пріоритет. Запити на нові функції розглядаються на постійній основі та плануються відповідно до узгодженості з дорожньою картою проєкту.
+
+## Внески спільноти
+
+Внески заохочуються. Зробіть fork репозиторію, створіть гілку для нової функції та відкрийте pull request. Усі pull request проходять автоматичну валідацію та ручну перевірку. Настанови щодо внесків доступні в README репозиторію. Прийняті внески дотримуються тих самих редакційних та кодувальних стандартів, що й решта проєкту.`;
+  }
+
+  if (localeKey === "vi") {
+    return `# ${t.contactTitle}
+
+${t.contactIntro}
+
+Sử dụng kho mã cho báo cáo lỗi, yêu cầu tính năng và mã nguồn. Sử dụng trang phát hành cho lịch sử phiên bản. Sử dụng PyPI cho chi tiết cài đặt.
+
+Đối với công việc triển khai, bắt đầu với kho mã khi cần ví dụ, mẫu hoặc lịch sử vấn đề. Kiểm tra trang phát hành khi cần bản ghi phiên bản rõ ràng. Kiểm tra PyPI khi cần siêu dữ liệu gói và lệnh cài đặt.
+
+- ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>
+- ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>
+- ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>
+
+## Trước khi liên hệ
+
+Nhiều câu hỏi đã được giải đáp trong các tài nguyên dự án hiện có. [Trang FAQ](/vi/faq/) bao gồm các câu hỏi thường gặp về thông điệp pacs theo ISO 20022, lịch trình chuyển đổi CBPR+ và cách sử dụng bộ công cụ. [Tài liệu API](/vi/api/) giải thích cài đặt, điểm cuối, tùy chọn CLI và phương thức thư viện Python. [Bảng thuật ngữ](/vi/glossary/) định nghĩa hơn 60 thuật ngữ ISO 20022 và nhắn tin thanh toán.
+
+Nếu báo cáo lỗi, hãy bao gồm loại thông điệp, phiên bản và một ví dụ ngắn về dữ liệu đầu vào gây lỗi. Đính kèm tệp đầu vào hoặc trường hợp tái tạo tối thiểu. Ghi rõ phiên bản Python và hệ điều hành. Báo cáo càng có nhiều ngữ cảnh, việc giải quyết càng nhanh.
+
+Nếu đang lên kế hoạch triển khai, hãy xem xét các bản phát hành gần đây trước để khớp công việc triển khai với phiên bản gói đã biết. Đối với chi tiết cài đặt hoặc phụ thuộc, PyPI là nơi nhanh nhất để xác nhận bản ghi gói hiện tại.
+
+## Vấn đề bảo mật
+
+Báo cáo lỗ hổng bảo mật một cách riêng tư. Không tạo issue công khai trên GitHub cho các vấn đề bảo mật. Thay vào đó, sử dụng [biểu mẫu tư vấn bảo mật GitHub](https://github.com/sebastienrousseau/pacs008/security/advisories/new) để gửi báo cáo bảo mật. Bao gồm mô tả lỗ hổng, các bước tái tạo và tác động tiềm ẩn. Báo cáo bảo mật được xử lý ưu tiên.
+
+## Yêu cầu tính năng
+
+Hoan nghênh các yêu cầu tính năng. Tạo issue trên GitHub với nhãn \`enhancement\`. Mô tả trường hợp sử dụng, hành vi mong đợi và bất kỳ loại thông điệp hoặc phiên bản liên quan nào. Các yêu cầu phù hợp với việc áp dụng tiêu chuẩn ISO 20022 và quy trình vận hành thanh toán được ưu tiên.
+
+## Thời gian phản hồi
+
+Đây là dự án mã nguồn mở được duy trì song song với các cam kết khác. Hầu hết các vấn đề nhận được phản hồi ban đầu trong vài ngày làm việc. Báo cáo lỗi có các bước tái tạo rõ ràng được ưu tiên. Yêu cầu tính năng được xem xét liên tục và lên lịch theo sự phù hợp với lộ trình dự án.
+
+## Đóng góp cộng đồng
+
+Khuyến khích đóng góp. Fork kho mã, tạo nhánh tính năng và mở pull request. Tất cả pull request đều trải qua xác thực tự động và đánh giá thủ công. Hướng dẫn đóng góp có sẵn trong README của kho mã. Các đóng góp được chấp nhận tuân theo cùng tiêu chuẩn biên tập và mã hóa như phần còn lại của dự án.`;
+  }
+
 
   return `# ${t.contactTitle}
 
