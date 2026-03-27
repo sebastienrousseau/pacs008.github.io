@@ -16017,135 +16017,303 @@ function faqPageBodyFr(t) {
 
 ${t.faqPageIntro}
 
-## Généralités
+## Generalites
 
 ### Qu'est-ce que ISO 20022 ?
 
-ISO 20022 est une norme internationale de messagerie financière. Elle définit un langage et un modèle communs pour les messages de paiement échangés entre institutions financières. Contrairement aux anciens formats tels que SWIFT MT, ISO 20022 utilise XML et prend en charge des données plus riches et plus structurées pour les parties, les montants et les références.
+ISO 20022 est la norme internationale de messagerie financiere. Elle definit un langage et un modele communs pour les messages de paiement echanges entre institutions financieres. Contrairement aux anciens formats tels que SWIFT MT, ISO 20022 repose sur XML et prend en charge des donnees plus riches et plus structurees pour les parties, les montants et les references.
 
 ### Que sont les messages pacs ?
 
-La famille de messages pacs (payments clearing and settlement) couvre les instructions de paiement interbancaires, les rapports de statut, les retours, les annulations et les demandes de renseignements. Elle inclut pacs.002, pacs.003, pacs.004, pacs.007, pacs.008, pacs.009, pacs.010 et pacs.028. Chaque message remplit un rôle spécifique dans le cycle de vie du paiement.
+La famille pacs (payments clearing and settlement) couvre l'ensemble des messages interbancaires de paiement :
 
-### En quoi les messages pacs diffèrent-ils des messages SWIFT MT ?
+- pacs.002 -- rapport de statut
+- pacs.003 -- prelevement de clientele
+- pacs.004 -- retour de paiement
+- pacs.007 -- annulation de paiement
+- pacs.008 -- virement de clientele
+- pacs.009 -- virement entre institutions financieres
+- pacs.010 -- prelevement entre institutions financieres
+- pacs.028 -- demande de statut de paiement
 
-Les messages SWIFT MT utilisent un format plat à balises de champs (par ex. MT103 pour les virements de clientèle). Les messages pacs utilisent un XML hiérarchique avec des structures de données plus riches. Les différences principales incluent la prise en charge de plusieurs transactions par message, l'identification structurée des parties (LEI, identifiants multiples), les adresses postales structurées et les informations de remise structurées. MT103 correspond à pacs.008, MT202 correspond à pacs.009, et le texte de statut MT199 est remplacé par pacs.002.
+Chaque message remplit un role precis dans le cycle de vie du paiement.
+
+### En quoi les messages pacs different-ils des messages SWIFT MT ?
+
+Les messages SWIFT MT utilisent un format plat a balises de champs (par ex. MT103 pour les virements de clientele). Les messages pacs utilisent un XML hierarchique avec des structures de donnees plus riches. Principales differences :
+
+- Prise en charge de plusieurs transactions par message
+- Identification structuree des parties (LEI, identifiants multiples)
+- Adresses postales structurees
+- Informations de remise structurees
+
+Correspondance : MT103 equivaut a pacs.008, MT202 equivaut a pacs.009, et le texte de statut MT199 est remplace par pacs.002.
 
 ### Quelle est la relation entre les messages pain et pacs ?
 
-Les messages pain (payment initiation) circulent entre le client et sa banque. Les messages pacs circulent entre les banques. Un pain.001 d'initiation de virement de la banque du débiteur devient une instruction interbancaire pacs.008. Les deux domaines partagent des éléments de données communs mais desservent des parties différentes de la chaîne de paiement.
+Les messages pain (payment initiation) circulent entre le client et sa banque. Les messages pacs circulent entre les banques. Un pain.001 d'initiation de virement de la banque du debiteur devient une instruction interbancaire pacs.008. Les deux domaines partagent des elements de donnees communs mais desservent des parties differentes de la chaine de paiement.
 
-## Sélection des messages
+## Selection des messages
 
-### Quand dois-je utiliser pacs.008 ?
+### Quand utiliser pacs.008 ?
 
-Utilisez pacs.008 pour les instructions de virement de clientèle entre banques. Il transporte les données des parties débiteur et créancier, les montants, les informations de remise et les détails de règlement. C'est le message principal pour l'envoi de paiements de clientèle sur le réseau interbancaire, que ce soit au niveau national (SEPA) ou transfrontalier (CBPR+).
+pacs.008 sert aux instructions de virement de clientele entre banques. Il transporte :
 
-### Quand dois-je utiliser pacs.009 au lieu de pacs.008 ?
+- les donnees des parties debiteur et creancier
+- les montants et la devise
+- les informations de remise
+- les details de reglement
 
-Utilisez pacs.009 pour les transferts de compte propre entre institutions, les segments de financement et les paiements de couverture. Contrairement à pacs.008, qui transporte un paiement de clientèle pour le compte d'un débiteur, pacs.009 déplace des fonds entre banques pour leur propre compte. Dans les flux de couverture, pacs.009 assure le financement tandis que pacs.008 transporte l'instruction du client sur un chemin séparé.
+C'est le message principal pour l'envoi de paiements de clientele sur le reseau interbancaire, que ce soit au niveau national (SEPA) ou transfrontalier (CBPR+).
 
-### Quelle est la différence entre pacs.004 et pacs.007 ?
+### Quand utiliser pacs.009 au lieu de pacs.008 ?
 
-pacs.004 retourne les fonds réglés depuis le côté récepteur à travers la chaîne. pacs.007 annule un paiement depuis le côté émetteur d'origine vers l'avant de la chaîne. Utilisez pacs.004 lorsque la banque bénéficiaire ne peut pas appliquer le crédit après le règlement. Utilisez pacs.007 lorsque l'émetteur découvre une erreur, un doublon ou une fraude.
+pacs.009 sert aux transferts de compte propre entre institutions, aux segments de financement et aux paiements de couverture. Contrairement a pacs.008, qui transporte un paiement de clientele pour le compte d'un debiteur, pacs.009 deplace des fonds entre banques pour leur propre compte. Dans les flux de couverture, pacs.009 assure le financement tandis que pacs.008 transporte l'instruction du client sur un chemin separe.
 
-### Quand dois-je utiliser pacs.028 au lieu d'attendre pacs.002 ?
+### Quelle est la difference entre pacs.004 et pacs.007 ?
 
-Utilisez pacs.028 lorsque vous devez demander activement le statut d'un paiement qui n'a pas reçu de mise à jour pacs.002 dans les délais. pacs.002 est déclenché par un événement (l'agent récepteur l'envoie de manière proactive), tandis que pacs.028 est déclenché par une exception (l'agent instructeur le demande). Utilisez pacs.028 pour les mises à jour de paiement retardées, incertaines ou manquantes, pas comme trafic de routine.
+- pacs.004 retourne les fonds regles depuis le cote recepteur a travers la chaine.
+- pacs.007 annule un paiement depuis le cote emetteur d'origine vers l'avant de la chaine.
 
-### À quoi sert pacs.003 ?
+Utiliser pacs.004 lorsque la banque beneficiaire ne peut pas appliquer le credit apres le reglement. Utiliser pacs.007 lorsque l'emetteur decouvre une erreur, un doublon ou une fraude.
 
-pacs.003 transporte les instructions de prélèvement de clientèle entre banques. L'agent du créancier l'envoie à l'agent du débiteur pour collecter les fonds. Il nécessite une référence de mandat valide et prend en charge les schémas de prélèvement SEPA Core et B2B. Il n'est pas utilisé pour les virements ni pour les prélèvements de compte propre entre institutions.
+### Quand utiliser pacs.028 au lieu d'attendre pacs.002 ?
 
-### À quoi sert pacs.010 ?
+pacs.028 sert a demander activement le statut d'un paiement qui n'a pas recu de mise a jour pacs.002 dans les delais. pacs.002 est declenche par un evenement (l'agent recepteur l'envoie de maniere proactive), tandis que pacs.028 est declenche par une exception (l'agent instructeur le demande). Utiliser pacs.028 pour les mises a jour de paiement retardees, incertaines ou manquantes -- pas comme trafic de routine.
 
-pacs.010 gère les prélèvements entre institutions financières sur leurs propres comptes. Il est utilisé pour les encaissements de banque à banque tels que les frais, les appels de marge et les obligations similaires dans le cadre d'accords bilatéraux. Il n'est pas utilisé pour les prélèvements de clientèle ni pour les virements.
+### A quoi sert pacs.003 ?
+
+pacs.003 transporte les instructions de prelevement de clientele entre banques. L'agent du creancier l'envoie a l'agent du debiteur pour collecter les fonds. Caracteristiques :
+
+- Reference de mandat obligatoire
+- Prise en charge des schemas SEPA Core et B2B
+- Non utilise pour les virements ni pour les prelevements de compte propre entre institutions
+
+### A quoi sert pacs.010 ?
+
+pacs.010 gere les prelevements entre institutions financieres sur leurs propres comptes. Cas d'usage :
+
+- Frais de banque a banque
+- Appels de marge
+- Obligations similaires dans le cadre d'accords bilateraux
+
+Non utilise pour les prelevements de clientele ni pour les virements.
 
 ## Structure des messages
 
 ### Qu'est-ce que le Group Header (GrpHdr) ?
 
-Le Group Header apparaît exactement une fois par message pacs. Il contient l'identifiant du message (MsgId), l'horodatage de création (CreDtTm), le nombre de transactions (NbOfTxs), les informations de règlement (SttlmInf), et éventuellement le montant total de règlement interbancaire et les informations sur le type de paiement. Il identifie l'enveloppe du message, pas les transactions métier individuelles.
+Le Group Header apparait exactement une fois par message pacs. Il contient :
+
+- MsgId -- identifiant du message
+- CreDtTm -- horodatage de creation
+- NbOfTxs -- nombre de transactions
+- SttlmInf -- informations de reglement
+- Montant total de reglement interbancaire (optionnel)
+- Informations sur le type de paiement (optionnel)
+
+Il identifie l'enveloppe du message, pas les transactions metier individuelles.
 
 ### Quels sont les identifiants de paiement dans pacs.008 ?
 
-pacs.008 utilise quatre identifiants principaux. MsgId identifie l'enveloppe du message et change à chaque saut. InstrId est une référence point à point entre agents adjacents et peut changer à chaque saut. EndToEndId est défini par l'émetteur et ne doit être modifié par aucun agent de la chaîne. TxId est attribué par le premier agent instructeur et reste constant dans l'espace interbancaire. UETR est un UUID qui reste inchangé sur tous les segments pour le suivi de bout en bout.
+pacs.008 utilise cinq identifiants :
 
-### Quelles méthodes de règlement sont disponibles ?
+- MsgId -- identifie l'enveloppe du message, change a chaque saut
+- InstrId -- reference point a point entre agents adjacents, peut changer a chaque saut
+- EndToEndId -- defini par l'emetteur, ne doit etre modifie par aucun agent de la chaine
+- TxId -- attribue par le premier agent instructeur, reste constant dans l'espace interbancaire
+- UETR -- UUID qui reste inchange sur tous les segments pour le suivi de bout en bout
 
-Quatre méthodes de règlement sont définies. CLRG règle via un système de compensation tel que TARGET2, EURO1 ou CHIPS. INDA règle dans les livres de l'agent instruit où l'agent du débiteur détient un compte. INGA règle dans les livres de l'agent instructeur où l'agent instruit détient un compte. COVE règle via un paiement de couverture séparé porté par pacs.009.
+### Quelles methodes de reglement sont disponibles ?
+
+Quatre methodes de reglement sont definies :
+
+- CLRG -- reglement via un systeme de compensation (TARGET2, EURO1, CHIPS)
+- INDA -- reglement dans les livres de l'agent instruit ou l'agent du debiteur detient un compte
+- INGA -- reglement dans les livres de l'agent instructeur ou l'agent instruit detient un compte
+- COVE -- reglement via un paiement de couverture separe porte par pacs.009
 
 ### Que signifient les codes de prise en charge des frais ?
 
-DEBT signifie que tous les frais sont à la charge du débiteur (équivalent MT103 OUR). CRED signifie que tous les frais sont à la charge du créancier (équivalent BEN). SHAR signifie que les frais sont partagés entre les agents du débiteur et du créancier (équivalent SHA). SLEV signifie que les frais suivent les règles du niveau de service et est obligatoire pour les virements SEPA.
+Quatre codes definissent qui supporte les frais :
+
+- DEBT -- tous les frais a la charge du debiteur (equivalent MT103 OUR)
+- CRED -- tous les frais a la charge du creancier (equivalent BEN)
+- SHAR -- frais partages entre les agents du debiteur et du creancier (equivalent SHA)
+- SLEV -- frais selon les regles du niveau de service, obligatoire pour les virements SEPA
 
 ## CBPR+ et migration
 
 ### Qu'est-ce que CBPR+ ?
 
-CBPR+ (Cross-Border Payments and Reporting Plus) est le programme de SWIFT pour l'adoption de ISO 20022 dans la messagerie de paiement transfrontalière. Il est entré en service en mars 2023 et remplace les messages MT par leurs équivalents pacs. CBPR+ impose pacs.002 pour toute communication de statut, prend en charge des données de parties plus riches et des adresses structurées, et utilise le suivi basé sur UETR via gpi.
+CBPR+ (Cross-Border Payments and Reporting Plus) est le programme de SWIFT pour l'adoption de ISO 20022 dans la messagerie de paiement transfrontaliere. En service depuis mars 2023, il remplace les messages MT par leurs equivalents pacs. Points cles :
 
-### Qu'est-il advenu de la période de coexistence MT/MX ?
+- pacs.002 obligatoire pour toute communication de statut
+- Donnees de parties plus riches et adresses structurees
+- Suivi base sur UETR via gpi
 
-La période de coexistence pour les instructions de paiement transfrontalières s'est terminée en novembre 2025. Depuis lors, les messages CBPR+ doivent utiliser le format ISO 20022 (MX). Les services de traduction qui convertissaient entre MT et MX pendant la transition ne sont plus disponibles pour les nouveaux flux. Les banques doivent désormais envoyer et recevoir des messages pacs natifs.
+### Qu'est-il advenu de la periode de coexistence MT/MX ?
 
-### Quelle est l'échéance de novembre 2026 pour les adresses structurées ?
+La periode de coexistence pour les instructions de paiement transfrontalieres s'est terminee en novembre 2025. Depuis lors :
 
-À partir de novembre 2026, SWIFT CBPR+ exige des adresses postales structurées dans les messages de paiement transfrontaliers. Les lignes d'adresse non structurées (AdrLine seul) ne seront plus acceptées pour les champs de parties clés. Au minimum, TwnNm et Ctry sont requis, avec StrtNm et BldgNb ou PstBx recommandés. Cela améliore le filtrage des sanctions et réduit les réparations manuelles.
+- Les messages CBPR+ doivent utiliser le format ISO 20022 (MX)
+- Les services de traduction MT/MX ne sont plus disponibles pour les nouveaux flux
+- Les banques doivent envoyer et recevoir des messages pacs natifs
+
+### Quelle est l'echeance de novembre 2026 pour les adresses structurees ?
+
+A partir de novembre 2026, SWIFT CBPR+ exige des adresses postales structurees dans les messages de paiement transfrontaliers. Les lignes d'adresse non structurees (AdrLine seul) ne seront plus acceptees pour les champs de parties cles. Exigences minimales :
+
+- TwnNm et Ctry obligatoires
+- StrtNm et BldgNb ou PstBx recommandes
+
+Cela ameliore le filtrage des sanctions et reduit les reparations manuelles.
 
 ### Comment pacs.008 remplace-t-il MT103 ?
 
-pacs.008 remplace MT103 et MT103+ pour les virements de clientèle. Correspondance principale : le champ 20 de MT103 correspond à MsgId ou InstrId ; le champ 32A se divise en IntrBkSttlmDt et IntrBkSttlmAmt ; le champ 50a correspond à Dbtr et DbtrAcct ; le champ 59a correspond à Cdtr et CdtrAcct ; le champ 70 correspond à RmtInf ; le champ 71A correspond à ChrgBr. pacs.008 ajoute UETR, la remise structurée, l'identification LEI, et prend en charge plusieurs transactions par message.
+pacs.008 remplace MT103 et MT103+ pour les virements de clientele. Correspondance principale :
+
+- Champ 20 → MsgId ou InstrId
+- Champ 32A → IntrBkSttlmDt et IntrBkSttlmAmt
+- Champ 50a → Dbtr et DbtrAcct
+- Champ 59a → Cdtr et CdtrAcct
+- Champ 70 → RmtInf
+- Champ 71A → ChrgBr
+
+pacs.008 ajoute UETR, la remise structuree, l'identification LEI, et prend en charge plusieurs transactions par message.
 
 ### Comment pacs.009 remplace-t-il MT202 ?
 
-pacs.009 remplace MT202 et MT202COV pour les transferts entre institutions. Dans les flux de couverture, le MT202COV (qui transportait à la fois le financement et les données du client sous-jacent) se divise proprement : pacs.009 transporte le segment de financement tandis que pacs.008 transporte directement l'instruction du client. Cette séparation améliore la qualité des données et réduit les problèmes de rapprochement.
+pacs.009 remplace MT202 et MT202COV pour les transferts entre institutions. Dans les flux de couverture, le MT202COV (qui transportait a la fois le financement et les donnees du client sous-jacent) se divise proprement :
 
-## Détails techniques
+- pacs.009 transporte le segment de financement
+- pacs.008 transporte directement l'instruction du client
 
-### Que sont les adresses structurées et non structurées ?
+Cette separation ameliore la qualite des donnees et reduit les problemes de rapprochement.
 
-Les adresses structurées utilisent des éléments XML distincts pour chaque composant : StrtNm (rue), BldgNb (numéro de bâtiment), PstCd (code postal), TwnNm (ville), Ctry (pays), et des éléments optionnels comme Flr, Room et DstrctNm. Les adresses non structurées utilisent jusqu'à sept éléments AdrLine en texte libre. Les adresses hybrides combinent les deux pendant la période de transition. Après novembre 2026, CBPR+ exige le format structuré.
+## Details techniques
+
+### Que sont les adresses structurees et non structurees ?
+
+Les adresses structurees utilisent des elements XML distincts pour chaque composant :
+
+- StrtNm -- rue
+- BldgNb -- numero de batiment
+- PstCd -- code postal
+- TwnNm -- ville
+- Ctry -- pays
+- Elements optionnels : Flr, Room, DstrctNm
+
+Les adresses non structurees utilisent jusqu'a sept elements AdrLine en texte libre. Les adresses hybrides combinent les deux pendant la periode de transition. Apres novembre 2026, CBPR+ exige le format structure.
 
 ### Qu'est-ce que UETR et comment fonctionne le suivi gpi ?
 
-UETR (Unique End-to-End Transaction Reference) est un identifiant UUID v4 généré par l'agent du débiteur et transporté sans modification sur tous les segments d'un paiement. Il apparaît dans pacs.008, pacs.009, pacs.002, pacs.004, pacs.007 et pacs.028. SWIFT gpi utilise le UETR pour suivre les paiements via une base de données Tracker dans le cloud. Chaque agent confirme la réception et le traitement, permettant une visibilité de bout en bout et un suivi des SLA.
+UETR (Unique End-to-End Transaction Reference) est un identifiant UUID v4 genere par l'agent du debiteur et transporte sans modification sur tous les segments d'un paiement. Il apparait dans :
+
+- pacs.008, pacs.009, pacs.002
+- pacs.004, pacs.007, pacs.028
+
+SWIFT gpi utilise le UETR pour suivre les paiements via une base de donnees Tracker dans le cloud. Chaque agent confirme la reception et le traitement, permettant une visibilite de bout en bout et un suivi des SLA.
 
 ### Quels sont les codes de statut courants dans pacs.002 ?
 
-ACCP signifie accepté après vérifications du profil client. ACSP signifie accepté et le règlement est en cours. ACSC signifie que le règlement sur le compte du débiteur est terminé. RJCT signifie rejeté (avec un code de motif dans StsRsnInf). PDNG signifie en attente de traitement ultérieur. RCVD signifie reçu mais pas encore traité. Chaque statut peut inclure un code de motif structuré tel que AC01 (numéro de compte incorrect), AM04 (fonds insuffisants) ou RC01 (BIC incorrect).
+Codes de statut principaux :
+
+- ACCP -- accepte apres verifications du profil client
+- ACSP -- accepte, reglement en cours
+- ACSC -- reglement sur le compte du debiteur termine
+- RJCT -- rejete (avec un code de motif dans StsRsnInf)
+- PDNG -- en attente de traitement ulterieur
+- RCVD -- recu mais pas encore traite
+
+Chaque statut peut inclure un code de motif structure tel que AC01 (numero de compte incorrect), AM04 (fonds insuffisants) ou RC01 (BIC incorrect).
 
 ### Quels sont les codes de motif de retour courants dans pacs.004 ?
 
-Les codes de motif de retour fréquents incluent AC01 (numéro de compte incorrect), AC04 (compte clôturé), AC06 (compte bloqué), AM04 (fonds insuffisants), BE04 (adresse du créancier manquante), CUST (demandé par le client), DUPL (paiement en double), FOCR (suite à une demande d'annulation) et FR01 (fraude). La liste complète est définie dans les External Code Sets de ISO 20022.
+Codes de motif de retour frequents :
 
-### Qu'est-ce que l'information de remise structurée ?
+- AC01 -- numero de compte incorrect
+- AC04 -- compte cloture
+- AC06 -- compte bloque
+- AM04 -- fonds insuffisants
+- BE04 -- adresse du creancier manquante
+- CUST -- demande par le client
+- DUPL -- paiement en double
+- FOCR -- suite a une demande d'annulation
+- FR01 -- fraude
 
-La remise structurée dans pacs.008 utilise l'élément RmtInf/Strd pour transporter des références de documents (numéros de facture, notes de crédit), des montants (dû, remis, taxe, remise), et des références créancier (références RF selon ISO 11649). Cela permet la correspondance automatisée des factures et le rapprochement. Les codes de type de document courants incluent CINV (facture commerciale), CREN (note de crédit) et SOAC (relevé de compte).
+La liste complete est definie dans les External Code Sets de ISO 20022.
 
-### Qu'est-ce que LEI et quand est-il utilisé ?
+### Qu'est-ce que l'information de remise structuree ?
 
-LEI (Legal Entity Identifier) est un code alphanumérique de 20 caractères selon ISO 17442. Il identifie de manière unique les entités juridiques participant aux transactions financières. Dans les messages pacs, LEI apparaît dans OrgId/LEI pour les parties et FinInstnId/LEI pour les agents. CBPR+ encourage de plus en plus l'utilisation de LEI pour l'identification des parties et des agents. Il améliore la désambiguïsation des entités et répond aux exigences de reporting réglementaire.
+La remise structuree dans pacs.008 utilise l'element RmtInf/Strd pour transporter :
 
-## À propos du toolkit pacs008
+- References de documents (numeros de facture, notes de credit)
+- Montants (du, remis, taxe, remise)
+- References creancier (references RF selon ISO 11649)
+
+Cela permet la correspondance automatisee des factures et le rapprochement. Codes de type de document courants :
+
+- CINV -- facture commerciale
+- CREN -- note de credit
+- SOAC -- releve de compte
+
+### Qu'est-ce que LEI et quand est-il utilise ?
+
+LEI (Legal Entity Identifier) est un code alphanumerique de 20 caracteres selon ISO 17442. Il identifie de maniere unique les entites juridiques participant aux transactions financieres. Dans les messages pacs :
+
+- OrgId/LEI -- identification des parties
+- FinInstnId/LEI -- identification des agents
+
+CBPR+ encourage de plus en plus l'utilisation de LEI pour l'identification des parties et des agents. Il ameliore la desambiguisation des entites et repond aux exigences de reporting reglementaire.
+
+## A propos du toolkit pacs008
 
 ### Que fait pacs008 ?
 
-pacs008 est un toolkit Python qui génère, valide et expédie des messages de paiement ISO 20022. Il lit les données de paiement à partir de sources CSV, JSON, JSONL, SQLite et Parquet, valide selon JSON Schema et XSD, vérifie les identifiants IBAN et BIC, nettoie les données pour la conformité aux caractères SWIFT, et produit des fichiers XML. Il fournit une API REST, un CLI et une bibliothèque Python.
+pacs008 est un toolkit Python qui genere, valide et expedie des messages de paiement ISO 20022. Fonctionnalites :
+
+- Lecture des donnees de paiement a partir de sources CSV, JSON, JSONL, SQLite et Parquet
+- Validation selon JSON Schema et XSD
+- Verification des identifiants IBAN et BIC
+- Nettoyage des donnees pour la conformite aux caracteres SWIFT
+- Production de fichiers XML
+
+Trois interfaces disponibles : API REST, CLI et bibliotheque Python.
 
 ### Quels types de messages pacs008 prend-il en charge ?
 
-pacs008 prend en charge huit types de messages : pacs.002.001.12 (rapport de statut), pacs.003.001.09 (prélèvement de clientèle), pacs.004.001.11 (retour de paiement), pacs.007.001.11 (annulation de paiement), pacs.008.001.13 (virement de clientèle), pacs.009.001.10 (virement entre institutions financières), pacs.010.001.05 (prélèvement entre institutions financières) et pacs.028.001.05 (demande de statut de paiement).
+pacs008 prend en charge huit types de messages :
 
-### Comment pacs008 aide-t-il avec l'échéance de novembre 2026 pour les adresses structurées ?
+- pacs.002.001.12 -- rapport de statut
+- pacs.003.001.09 -- prelevement de clientele
+- pacs.004.001.11 -- retour de paiement
+- pacs.007.001.11 -- annulation de paiement
+- pacs.008.001.13 -- virement de clientele
+- pacs.009.001.10 -- virement entre institutions financieres
+- pacs.010.001.05 -- prelevement entre institutions financieres
+- pacs.028.001.05 -- demande de statut de paiement
 
-pacs008 valide les champs d'adresse postale structurée et hybride avant la génération XML. Il signale les données d'adresse non structurées qui échoueraient après l'échéance de novembre 2026, prend en charge les formats hybrides avant l'échéance et les formats exclusivement structurés après l'échéance, et intègre les contrôles de qualité d'adresse dans les pipelines CI et les workflows de validation par lots.
+### Comment pacs008 aide-t-il avec l'echeance de novembre 2026 pour les adresses structurees ?
 
-### pacs008 peut-il valider les données sans générer de XML ?
+pacs008 valide les champs d'adresse postale structuree et hybride avant la generation XML :
 
-Oui. Utilisez le flag CLI \`--dry-run\` ou le point de terminaison API \`POST /validate\` pour valider les données de paiement sans générer de XML. Le pipeline de validation vérifie la conformité JSON Schema, le format et la somme de contrôle IBAN, la structure BIC et la conformité aux caractères SWIFT. Le code de sortie ou la réponse API indique si la validation a réussi ou échoué.
+- Signalement des donnees d'adresse non structurees qui echoueraient apres l'echeance de novembre 2026
+- Prise en charge des formats hybrides avant l'echeance et des formats exclusivement structures apres l'echeance
+- Integration des controles de qualite d'adresse dans les pipelines CI et les workflows de validation par lots
 
-## Références
+### pacs008 peut-il valider les donnees sans generer de XML ?
+
+Oui. Utiliser le flag CLI \`--dry-run\` ou le point de terminaison API \`POST /validate\` pour valider les donnees de paiement sans generer de XML. Le pipeline de validation verifie :
+
+- Conformite JSON Schema
+- Format et somme de controle IBAN
+- Structure BIC
+- Conformite aux caracteres SWIFT
+
+Le code de sortie ou la reponse API indique si la validation a reussi ou echoue.
+
+## References
 
 - [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions)
 - [ISO 20022 external code sets](https://www.iso20022.org/external_code_list.page)
@@ -16166,129 +16334,297 @@ ${t.faqPageIntro}
 
 ### Was ist ISO 20022?
 
-ISO 20022 ist ein internationaler Standard für Finanznachrichten. Er definiert eine gemeinsame Sprache und ein gemeinsames Modell für Zahlungsnachrichten, die zwischen Finanzinstituten ausgetauscht werden. Im Gegensatz zu älteren Formaten wie SWIFT MT verwendet ISO 20022 XML und unterstützt reichhaltigere, besser strukturierte Daten für Parteien, Beträge und Referenzen.
+ISO 20022 ist der internationale Standard fuer Finanznachrichten. Er definiert eine gemeinsame Sprache und ein gemeinsames Modell fuer Zahlungsnachrichten, die zwischen Finanzinstituten ausgetauscht werden. Im Gegensatz zu aelteren Formaten wie SWIFT MT setzt ISO 20022 auf XML und unterstuetzt reichhaltigere, besser strukturierte Daten fuer Parteien, Betraege und Referenzen.
 
 ### Was sind pacs-Nachrichten?
 
-Die pacs-Nachrichtenfamilie (payments clearing and settlement) umfasst Interbanken-Zahlungsanweisungen, Statusberichte, Rückgaben, Stornierungen und Anfragen. Sie beinhaltet pacs.002, pacs.003, pacs.004, pacs.007, pacs.008, pacs.009, pacs.010 und pacs.028. Jede Nachricht erfüllt eine bestimmte Funktion im Zahlungslebenszyklus.
+Die pacs-Familie (payments clearing and settlement) umfasst saemtliche Interbanken-Zahlungsnachrichten:
+
+- pacs.002 -- Statusbericht
+- pacs.003 -- Kundenlastschrift
+- pacs.004 -- Zahlungsrueckgabe
+- pacs.007 -- Zahlungsstornierung
+- pacs.008 -- Kundenueberweisung
+- pacs.009 -- Institutsueberweisung
+- pacs.010 -- Institutslastschrift
+- pacs.028 -- Zahlungsstatusanfrage
+
+Jede Nachricht erfuellt eine bestimmte Funktion im Zahlungslebenszyklus.
 
 ### Wie unterscheiden sich pacs-Nachrichten von SWIFT-MT-Nachrichten?
 
-SWIFT-MT-Nachrichten verwenden ein flaches Feld-Tag-Format (z. B. MT103 für Kundenüberweisungen). Pacs-Nachrichten verwenden hierarchisches XML mit reichhaltigeren Datenstrukturen. Wesentliche Unterschiede umfassen die Unterstützung mehrerer Transaktionen pro Nachricht, strukturierte Parteiidentifikation (LEI, mehrere IDs), strukturierte Postanschriften und strukturierte Überweisungsinformationen. MT103 entspricht pacs.008, MT202 entspricht pacs.009 und der MT199-Statustext wird durch pacs.002 ersetzt.
+SWIFT-MT-Nachrichten verwenden ein flaches Feld-Tag-Format (z. B. MT103 fuer Kundenueberweisungen). Pacs-Nachrichten verwenden hierarchisches XML mit reichhaltigeren Datenstrukturen. Wesentliche Unterschiede:
+
+- Unterstuetzung mehrerer Transaktionen pro Nachricht
+- Strukturierte Parteiidentifikation (LEI, mehrere IDs)
+- Strukturierte Postanschriften
+- Strukturierte Ueberweisungsinformationen
+
+Zuordnung: MT103 entspricht pacs.008, MT202 entspricht pacs.009, und der MT199-Statustext wird durch pacs.002 ersetzt.
 
 ### Welche Beziehung besteht zwischen pain- und pacs-Nachrichten?
 
-Pain-Nachrichten (payment initiation) werden zwischen dem Kunden und seiner Bank übermittelt. Pacs-Nachrichten werden zwischen Banken übermittelt. Ein pain.001 zur Überweisungsinitiierung von der Bank des Schuldners wird zu einer pacs.008-Interbankenanweisung. Beide Domänen teilen gemeinsame Datenelemente, bedienen aber unterschiedliche Teile der Zahlungskette.
+Pain-Nachrichten (payment initiation) werden zwischen dem Kunden und seiner Bank uebermittelt. Pacs-Nachrichten werden zwischen Banken uebermittelt. Ein pain.001 zur Ueberweisungsinitiierung von der Bank des Schuldners wird zu einer pacs.008-Interbankenanweisung. Beide Domaenen teilen gemeinsame Datenelemente, bedienen aber unterschiedliche Teile der Zahlungskette.
 
 ## Nachrichtenauswahl
 
-### Wann sollte ich pacs.008 verwenden?
+### Wann pacs.008 verwenden?
 
-Verwenden Sie pacs.008 für Kundenüberweisungsanweisungen zwischen Banken. Es enthält Daten der Schuldner- und Gläubigerparteien, Beträge, Überweisungsinformationen und Abwicklungsdetails. Es ist die Hauptnachricht für den Versand von Kundenzahlungen über das Interbankennetzwerk, sowohl im Inland (SEPA) als auch grenzüberschreitend (CBPR+).
+pacs.008 dient Kundenueberweisungsanweisungen zwischen Banken. Es transportiert:
 
-### Wann sollte ich pacs.009 statt pacs.008 verwenden?
+- Daten der Schuldner- und Glaeubigerparteien
+- Betraege und Waehrung
+- Ueberweisungsinformationen
+- Abwicklungsdetails
 
-Verwenden Sie pacs.009 für Eigenkontoüberweisungen zwischen Instituten, Finanzierungstranchen und Deckungszahlungen. Im Gegensatz zu pacs.008, das eine Kundenzahlung im Auftrag eines Schuldners transportiert, bewegt pacs.009 Mittel zwischen Banken auf eigene Rechnung. In Deckungsflüssen übernimmt pacs.009 die Finanzierung, während pacs.008 die Kundenanweisung auf einem separaten Weg transportiert.
+Es ist die Hauptnachricht fuer den Versand von Kundenzahlungen ueber das Interbankennetzwerk -- sowohl im Inland (SEPA) als auch grenzueberschreitend (CBPR+).
+
+### Wann pacs.009 statt pacs.008 verwenden?
+
+pacs.009 dient Eigenkontouebertragungen zwischen Instituten, Finanzierungstranchen und Deckungszahlungen. Im Gegensatz zu pacs.008, das eine Kundenzahlung im Auftrag eines Schuldners transportiert, bewegt pacs.009 Mittel zwischen Banken auf eigene Rechnung. In Deckungsfluessen uebernimmt pacs.009 die Finanzierung, waehrend pacs.008 die Kundenanweisung auf einem separaten Weg transportiert.
 
 ### Was ist der Unterschied zwischen pacs.004 und pacs.007?
 
-pacs.004 gibt abgewickelte Gelder von der Empfängerseite durch die Kette zurück. pacs.007 storniert eine Zahlung von der ursprünglichen Anweisungsseite vorwärts durch die Kette. Verwenden Sie pacs.004, wenn die Begünstigtenbank den Kredit nach der Abwicklung nicht verbuchen kann. Verwenden Sie pacs.007, wenn der Auftraggeber einen Fehler, eine Dopplung oder einen Betrug entdeckt.
+- pacs.004 gibt abgewickelte Gelder von der Empfaengerseite durch die Kette zurueck.
+- pacs.007 storniert eine Zahlung von der urspruenglichen Anweisungsseite vorwaerts durch die Kette.
 
-### Wann sollte ich pacs.028 verwenden, anstatt auf pacs.002 zu warten?
+pacs.004 verwenden, wenn die Beguenstigtenbank den Kredit nach der Abwicklung nicht verbuchen kann. pacs.007 verwenden, wenn der Auftraggeber einen Fehler, eine Dopplung oder Betrug entdeckt.
 
-Verwenden Sie pacs.028, wenn Sie den Status einer Zahlung aktiv anfragen müssen, die keine rechtzeitige pacs.002-Aktualisierung erhalten hat. pacs.002 ist ereignisgesteuert (der empfangende Agent sendet es proaktiv), während pacs.028 ausnahmegesteuert ist (der anweisende Agent fordert es an). Verwenden Sie pacs.028 für verzögerte, unklare oder fehlende Zahlungsaktualisierungen, nicht als Routineverkehr.
+### Wann pacs.028 verwenden, anstatt auf pacs.002 zu warten?
 
-### Wofür wird pacs.003 verwendet?
+pacs.028 dient der aktiven Statusanfrage fuer eine Zahlung, die keine rechtzeitige pacs.002-Aktualisierung erhalten hat. pacs.002 ist ereignisgesteuert (der empfangende Agent sendet es proaktiv), waehrend pacs.028 ausnahmegesteuert ist (der anweisende Agent fordert es an). pacs.028 verwenden fuer verzoegerte, unklare oder fehlende Zahlungsaktualisierungen -- nicht als Routineverkehr.
 
-pacs.003 transportiert Kundenlastschriftanweisungen zwischen Banken. Der Agent des Gläubigers sendet es an den Agenten des Schuldners, um Gelder einzuziehen. Es erfordert eine gültige Mandatsreferenz und unterstützt die SEPA-Core- und B2B-Lastschriftverfahren. Es wird nicht für Überweisungen oder institutseigene Lastschriften verwendet.
+### Wofuer wird pacs.003 verwendet?
 
-### Wofür wird pacs.010 verwendet?
+pacs.003 transportiert Kundenlastschriftanweisungen zwischen Banken. Der Agent des Glaeubigers sendet es an den Agenten des Schuldners, um Gelder einzuziehen. Merkmale:
 
-pacs.010 behandelt Lastschriften zwischen Finanzinstituten auf deren eigenen Konten. Es wird für Bank-zu-Bank-Einzüge wie Gebühren, Margin Calls und ähnliche Verpflichtungen im Rahmen bilateraler Vereinbarungen verwendet. Es wird nicht für Kundenlastschriften oder Überweisungen verwendet.
+- Gueltige Mandatsreferenz erforderlich
+- Unterstuetzung der SEPA-Core- und B2B-Lastschriftverfahren
+- Nicht fuer Ueberweisungen oder institutseigene Lastschriften verwendet
+
+### Wofuer wird pacs.010 verwendet?
+
+pacs.010 behandelt Lastschriften zwischen Finanzinstituten auf deren eigenen Konten. Einsatzbereiche:
+
+- Bank-zu-Bank-Gebuehren
+- Margin Calls
+- Aehnliche Verpflichtungen im Rahmen bilateraler Vereinbarungen
+
+Nicht fuer Kundenlastschriften oder Ueberweisungen verwendet.
 
 ## Nachrichtenstruktur
 
 ### Was ist der Group Header (GrpHdr)?
 
-Der Group Header erscheint genau einmal pro pacs-Nachricht. Er enthält die Nachrichtenkennung (MsgId), den Erstellungszeitstempel (CreDtTm), die Anzahl der Transaktionen (NbOfTxs), die Abwicklungsinformationen (SttlmInf) und optional den Gesamtbetrag der Interbankenabwicklung sowie Informationen zum Zahlungstyp. Er identifiziert den Nachrichtenumschlag, nicht die einzelnen Geschäftstransaktionen.
+Der Group Header erscheint genau einmal pro pacs-Nachricht. Er enthaelt:
+
+- MsgId -- Nachrichtenkennung
+- CreDtTm -- Erstellungszeitstempel
+- NbOfTxs -- Anzahl der Transaktionen
+- SttlmInf -- Abwicklungsinformationen
+- Gesamtbetrag der Interbankenabwicklung (optional)
+- Informationen zum Zahlungstyp (optional)
+
+Er identifiziert den Nachrichtenumschlag, nicht die einzelnen Geschaeftstransaktionen.
 
 ### Welche Zahlungsidentifikatoren gibt es in pacs.008?
 
-pacs.008 verwendet vier Hauptidentifikatoren. MsgId identifiziert den Nachrichtenumschlag und ändert sich bei jedem Hop. InstrId ist eine Punkt-zu-Punkt-Referenz zwischen benachbarten Agenten und kann sich pro Hop ändern. EndToEndId wird vom Auftraggeber gesetzt und darf von keinem Agenten in der Kette geändert werden. TxId wird vom ersten anweisenden Agenten vergeben und bleibt im Interbankenraum konstant. UETR ist eine UUID, die über alle Abschnitte hinweg für die End-to-End-Verfolgung unverändert bleibt.
+pacs.008 verwendet fuenf Identifikatoren:
 
-### Welche Abwicklungsmethoden sind verfügbar?
+- MsgId -- identifiziert den Nachrichtenumschlag, aendert sich bei jedem Hop
+- InstrId -- Punkt-zu-Punkt-Referenz zwischen benachbarten Agenten, kann sich pro Hop aendern
+- EndToEndId -- vom Auftraggeber gesetzt, darf von keinem Agenten in der Kette geaendert werden
+- TxId -- vom ersten anweisenden Agenten vergeben, bleibt im Interbankenraum konstant
+- UETR -- UUID, die ueber alle Abschnitte hinweg fuer die End-to-End-Verfolgung unveraendert bleibt
 
-Vier Abwicklungsmethoden sind definiert. CLRG wickelt über ein Clearingsystem wie TARGET2, EURO1 oder CHIPS ab. INDA wickelt in den Büchern des beauftragten Agenten ab, bei dem der Schuldneragent ein Konto führt. INGA wickelt in den Büchern des anweisenden Agenten ab, bei dem der beauftragte Agent ein Konto führt. COVE wickelt über eine separate Deckungszahlung ab, die von pacs.009 getragen wird.
+### Welche Abwicklungsmethoden sind verfuegbar?
 
-### Was bedeuten die Gebührenträgercodes?
+Vier Abwicklungsmethoden sind definiert:
 
-DEBT bedeutet, dass alle Gebühren vom Schuldner getragen werden (MT103-Äquivalent OUR). CRED bedeutet, dass alle Gebühren vom Gläubiger getragen werden (Äquivalent BEN). SHAR bedeutet, dass die Gebühren zwischen Schuldner- und Gläubigeragenten aufgeteilt werden (Äquivalent SHA). SLEV bedeutet, dass die Gebühren den Servicelevel-Regeln folgen und ist für SEPA-Überweisungen obligatorisch.
+- CLRG -- Abwicklung ueber ein Clearingsystem (TARGET2, EURO1, CHIPS)
+- INDA -- Abwicklung in den Buechern des beauftragten Agenten, bei dem der Schuldneragent ein Konto fuehrt
+- INGA -- Abwicklung in den Buechern des anweisenden Agenten, bei dem der beauftragte Agent ein Konto fuehrt
+- COVE -- Abwicklung ueber eine separate Deckungszahlung, getragen von pacs.009
+
+### Was bedeuten die Gebuehrentraegercodes?
+
+Vier Codes definieren, wer die Gebuehren traegt:
+
+- DEBT -- alle Gebuehren zulasten des Schuldners (MT103-Aequivalent OUR)
+- CRED -- alle Gebuehren zulasten des Glaeubigers (Aequivalent BEN)
+- SHAR -- Gebuehren aufgeteilt zwischen Schuldner- und Glaeubigeragenten (Aequivalent SHA)
+- SLEV -- Gebuehren nach Servicelevel-Regeln, obligatorisch fuer SEPA-Ueberweisungen
 
 ## CBPR+ und Migration
 
 ### Was ist CBPR+?
 
-CBPR+ (Cross-Border Payments and Reporting Plus) ist das Programm von SWIFT zur Einführung von ISO 20022 im grenzüberschreitenden Zahlungsverkehr. Es ging im März 2023 in Betrieb und ersetzt MT-Nachrichten durch pacs-Äquivalente. CBPR+ schreibt pacs.002 für die gesamte Statuskommunikation vor, unterstützt reichhaltigere Parteidaten und strukturierte Adressen und verwendet UETR-basiertes Tracking über gpi.
+CBPR+ (Cross-Border Payments and Reporting Plus) ist das Programm von SWIFT zur Einfuehrung von ISO 20022 im grenzueberschreitenden Zahlungsverkehr. Seit Maerz 2023 in Betrieb, ersetzt es MT-Nachrichten durch pacs-Aequivalente. Wesentliche Punkte:
+
+- pacs.002 obligatorisch fuer die gesamte Statuskommunikation
+- Reichhaltigere Parteidaten und strukturierte Adressen
+- UETR-basiertes Tracking ueber gpi
 
 ### Was geschah mit der MT/MX-Koexistenzperiode?
 
-Die Koexistenzperiode für grenzüberschreitende Zahlungsanweisungen endete im November 2025. Seitdem müssen CBPR+-Nachrichten das ISO 20022 (MX)-Format verwenden. Übersetzungsdienste, die während der Übergangszeit zwischen MT und MX konvertierten, sind für neue Flüsse nicht mehr verfügbar. Banken müssen jetzt native pacs-Nachrichten senden und empfangen.
+Die Koexistenzperiode fuer grenzueberschreitende Zahlungsanweisungen endete im November 2025. Seitdem:
 
-### Was ist die Frist für strukturierte Adressen im November 2026?
+- CBPR+-Nachrichten muessen das ISO 20022 (MX)-Format verwenden
+- Uebersetzungsdienste MT/MX sind fuer neue Fluesse nicht mehr verfuegbar
+- Banken muessen native pacs-Nachrichten senden und empfangen
 
-Ab November 2026 verlangt SWIFT CBPR+ strukturierte Postanschriften in grenzüberschreitenden Zahlungsnachrichten. Unstrukturierte Adresszeilen (nur AdrLine) werden für wichtige Parteifelder nicht mehr akzeptiert. Mindestens TwnNm und Ctry sind erforderlich, wobei StrtNm und BldgNb oder PstBx empfohlen werden. Dies verbessert das Sanktionsscreening und reduziert manuelle Nachbesserungen.
+### Was ist die Frist fuer strukturierte Adressen im November 2026?
+
+Ab November 2026 verlangt SWIFT CBPR+ strukturierte Postanschriften in grenzueberschreitenden Zahlungsnachrichten. Unstrukturierte Adresszeilen (nur AdrLine) werden fuer wichtige Parteifelder nicht mehr akzeptiert. Mindestanforderungen:
+
+- TwnNm und Ctry obligatorisch
+- StrtNm und BldgNb oder PstBx empfohlen
+
+Dies verbessert das Sanktionsscreening und reduziert manuelle Nachbesserungen.
 
 ### Wie ersetzt pacs.008 MT103?
 
-pacs.008 ersetzt MT103 und MT103+ für Kundenüberweisungen. Wichtige Zuordnung: MT103-Feld 20 entspricht MsgId oder InstrId; Feld 32A teilt sich in IntrBkSttlmDt und IntrBkSttlmAmt; Feld 50a entspricht Dbtr und DbtrAcct; Feld 59a entspricht Cdtr und CdtrAcct; Feld 70 entspricht RmtInf; Feld 71A entspricht ChrgBr. pacs.008 fügt UETR, strukturierte Überweisungsinformationen, LEI-Identifikation hinzu und unterstützt mehrere Transaktionen pro Nachricht.
+pacs.008 ersetzt MT103 und MT103+ fuer Kundenueberweisungen. Wichtige Zuordnung:
+
+- Feld 20 → MsgId oder InstrId
+- Feld 32A → IntrBkSttlmDt und IntrBkSttlmAmt
+- Feld 50a → Dbtr und DbtrAcct
+- Feld 59a → Cdtr und CdtrAcct
+- Feld 70 → RmtInf
+- Feld 71A → ChrgBr
+
+pacs.008 fuegt UETR, strukturierte Ueberweisungsinformationen, LEI-Identifikation hinzu und unterstuetzt mehrere Transaktionen pro Nachricht.
 
 ### Wie ersetzt pacs.009 MT202?
 
-pacs.009 ersetzt MT202 und MT202COV für Institutsüberweisungen. In Deckungsflüssen wird der MT202COV (der sowohl die Finanzierung als auch die zugrunde liegenden Kundendaten trug) sauber aufgeteilt: pacs.009 trägt die Finanzierungstranche, während pacs.008 die Kundenanweisung direkt transportiert. Diese Trennung verbessert die Datenqualität und reduziert Abstimmungsprobleme.
+pacs.009 ersetzt MT202 und MT202COV fuer Institutsueberweisungen. In Deckungsfluessen wird der MT202COV (der sowohl die Finanzierung als auch die zugrunde liegenden Kundendaten trug) sauber aufgeteilt:
+
+- pacs.009 traegt die Finanzierungstranche
+- pacs.008 transportiert die Kundenanweisung direkt
+
+Diese Trennung verbessert die Datenqualitaet und reduziert Abstimmungsprobleme.
 
 ## Technische Details
 
 ### Was sind strukturierte und unstrukturierte Adressen?
 
-Strukturierte Adressen verwenden separate XML-Elemente für jede Komponente: StrtNm (Straße), BldgNb (Hausnummer), PstCd (Postleitzahl), TwnNm (Stadt), Ctry (Land) und optionale Elemente wie Flr, Room und DstrctNm. Unstrukturierte Adressen verwenden bis zu sieben AdrLine-Elemente mit Freitext. Hybride Adressen kombinieren beide während der Übergangszeit. Nach November 2026 verlangt CBPR+ das strukturierte Format.
+Strukturierte Adressen verwenden separate XML-Elemente fuer jede Komponente:
+
+- StrtNm -- Strasse
+- BldgNb -- Hausnummer
+- PstCd -- Postleitzahl
+- TwnNm -- Stadt
+- Ctry -- Land
+- Optionale Elemente: Flr, Room, DstrctNm
+
+Unstrukturierte Adressen verwenden bis zu sieben AdrLine-Elemente mit Freitext. Hybride Adressen kombinieren beide waehrend der Uebergangszeit. Nach November 2026 verlangt CBPR+ das strukturierte Format.
 
 ### Was ist UETR und wie funktioniert das gpi-Tracking?
 
-UETR (Unique End-to-End Transaction Reference) ist eine UUID v4-Kennung, die vom Schuldneragenten generiert und unverändert über alle Abschnitte einer Zahlung transportiert wird. Sie erscheint in pacs.008, pacs.009, pacs.002, pacs.004, pacs.007 und pacs.028. SWIFT gpi verwendet die UETR, um Zahlungen über eine cloudbasierte Tracker-Datenbank zu verfolgen. Jeder Agent bestätigt den Empfang und die Verarbeitung, was eine End-to-End-Transparenz und SLA-Überwachung ermöglicht.
+UETR (Unique End-to-End Transaction Reference) ist eine UUID v4-Kennung, die vom Schuldneragenten generiert und unveraendert ueber alle Abschnitte einer Zahlung transportiert wird. Sie erscheint in:
 
-### Was sind häufige Statuscodes in pacs.002?
+- pacs.008, pacs.009, pacs.002
+- pacs.004, pacs.007, pacs.028
 
-ACCP bedeutet akzeptiert nach Kundenprofilprüfungen. ACSP bedeutet akzeptiert und die Abwicklung ist in Bearbeitung. ACSC bedeutet, dass die Abwicklung auf dem Schuldnerkonto abgeschlossen ist. RJCT bedeutet abgelehnt (mit einem Grundcode in StsRsnInf). PDNG bedeutet ausstehend, weitere Bearbeitung erforderlich. RCVD bedeutet empfangen, aber noch nicht bearbeitet. Jeder Status kann einen strukturierten Grundcode enthalten, wie AC01 (falsche Kontonummer), AM04 (unzureichende Deckung) oder RC01 (falscher BIC).
+SWIFT gpi verwendet die UETR, um Zahlungen ueber eine cloudbasierte Tracker-Datenbank zu verfolgen. Jeder Agent bestaetigt den Empfang und die Verarbeitung, was End-to-End-Transparenz und SLA-Ueberwachung ermoeglicht.
 
-### Was sind häufige Rückgabegrundcodes in pacs.004?
+### Was sind haeufige Statuscodes in pacs.002?
 
-Häufige Rückgabegrundcodes umfassen AC01 (falsche Kontonummer), AC04 (geschlossenes Konto), AC06 (gesperrtes Konto), AM04 (unzureichende Deckung), BE04 (fehlende Gläubigeradresse), CUST (vom Kunden angefordert), DUPL (doppelte Zahlung), FOCR (nach Stornierungsanfrage) und FR01 (Betrug). Die vollständige Liste ist in den External Code Sets von ISO 20022 definiert.
+Wichtigste Statuscodes:
 
-### Was sind strukturierte Überweisungsinformationen?
+- ACCP -- akzeptiert nach Kundenprofilpruefungen
+- ACSP -- akzeptiert, Abwicklung in Bearbeitung
+- ACSC -- Abwicklung auf dem Schuldnerkonto abgeschlossen
+- RJCT -- abgelehnt (mit einem Grundcode in StsRsnInf)
+- PDNG -- ausstehend, weitere Bearbeitung erforderlich
+- RCVD -- empfangen, aber noch nicht bearbeitet
 
-Strukturierte Überweisungsinformationen in pacs.008 verwenden das Element RmtInf/Strd, um Dokumentreferenzen (Rechnungsnummern, Gutschriften), Beträge (fällig, überwiesen, Steuer, Rabatt) und Gläubigerreferenzen (ISO 11649 RF-Referenzen) zu transportieren. Dies ermöglicht eine automatisierte Rechnungszuordnung und Abstimmung. Häufige Dokumenttypcodes sind CINV (Handelsrechnung), CREN (Gutschrift) und SOAC (Kontoauszug).
+Jeder Status kann einen strukturierten Grundcode enthalten, wie AC01 (falsche Kontonummer), AM04 (unzureichende Deckung) oder RC01 (falscher BIC).
+
+### Was sind haeufige Rueckgabegrundcodes in pacs.004?
+
+Haeufige Rueckgabegrundcodes:
+
+- AC01 -- falsche Kontonummer
+- AC04 -- geschlossenes Konto
+- AC06 -- gesperrtes Konto
+- AM04 -- unzureichende Deckung
+- BE04 -- fehlende Glaeubigeradresse
+- CUST -- vom Kunden angefordert
+- DUPL -- doppelte Zahlung
+- FOCR -- nach Stornierungsanfrage
+- FR01 -- Betrug
+
+Die vollstaendige Liste ist in den External Code Sets von ISO 20022 definiert.
+
+### Was sind strukturierte Ueberweisungsinformationen?
+
+Strukturierte Ueberweisungsinformationen in pacs.008 verwenden das Element RmtInf/Strd fuer:
+
+- Dokumentreferenzen (Rechnungsnummern, Gutschriften)
+- Betraege (faellig, ueberwiesen, Steuer, Rabatt)
+- Glaeubigerreferenzen (ISO 11649 RF-Referenzen)
+
+Dies ermoeglicht automatisierte Rechnungszuordnung und Abstimmung. Haeufige Dokumenttypcodes:
+
+- CINV -- Handelsrechnung
+- CREN -- Gutschrift
+- SOAC -- Kontoauszug
 
 ### Was ist LEI und wann wird es verwendet?
 
-LEI (Legal Entity Identifier) ist ein 20-stelliger alphanumerischer Code gemäß ISO 17442. Er identifiziert Rechtsträger, die an Finanztransaktionen teilnehmen, eindeutig. In pacs-Nachrichten erscheint LEI in OrgId/LEI für Parteien und FinInstnId/LEI für Agenten. CBPR+ fördert zunehmend die Verwendung von LEI für die Identifikation von Parteien und Agenten. Es verbessert die Entitätsunterscheidung und unterstützt regulatorische Meldepflichten.
+LEI (Legal Entity Identifier) ist ein 20-stelliger alphanumerischer Code gemaess ISO 17442. Er identifiziert Rechtstraeger, die an Finanztransaktionen teilnehmen, eindeutig. In pacs-Nachrichten:
 
-## Über das Toolkit pacs008
+- OrgId/LEI -- Identifikation der Parteien
+- FinInstnId/LEI -- Identifikation der Agenten
+
+CBPR+ foerdert zunehmend die Verwendung von LEI fuer die Identifikation von Parteien und Agenten. Es verbessert die Entitaetsunterscheidung und unterstuetzt regulatorische Meldepflichten.
+
+## Ueber das Toolkit pacs008
 
 ### Was macht pacs008?
 
-pacs008 ist ein Python-Toolkit, das ISO 20022-Zahlungsnachrichten generiert, validiert und versendet. Es liest Zahlungsdaten aus CSV-, JSON-, JSONL-, SQLite- und Parquet-Quellen, validiert gegen JSON Schema und XSD, prüft IBAN- und BIC-Kennungen, bereinigt Daten für SWIFT-Zeichenkonformität und gibt XML-Dateien aus. Es bietet eine REST-API, ein CLI und eine Python-Bibliothek.
+pacs008 ist ein Python-Toolkit, das ISO 20022-Zahlungsnachrichten generiert, validiert und versendet. Funktionen:
 
-### Welche Nachrichtentypen unterstützt pacs008?
+- Einlesen von Zahlungsdaten aus CSV-, JSON-, JSONL-, SQLite- und Parquet-Quellen
+- Validierung gegen JSON Schema und XSD
+- Pruefung von IBAN- und BIC-Kennungen
+- Datenbereinigung fuer SWIFT-Zeichenkonformitaet
+- Ausgabe von XML-Dateien
 
-pacs008 unterstützt acht Nachrichtentypen: pacs.002.001.12 (Statusbericht), pacs.003.001.09 (Kundenlastschrift), pacs.004.001.11 (Zahlungsrückgabe), pacs.007.001.11 (Zahlungsstornierung), pacs.008.001.13 (Kundenüberweisung), pacs.009.001.10 (Institutsüberweisung), pacs.010.001.05 (Institutslastschrift) und pacs.028.001.05 (Zahlungsstatusanfrage).
+Drei Schnittstellen: REST-API, CLI und Python-Bibliothek.
 
-### Wie hilft pacs008 bei der Frist für strukturierte Adressen im November 2026?
+### Welche Nachrichtentypen unterstuetzt pacs008?
 
-pacs008 validiert strukturierte und hybride Postanschriftfelder vor der XML-Generierung. Es kennzeichnet unstrukturierte Adressdaten, die nach der Frist im November 2026 fehlschlagen würden, unterstützt sowohl hybride Formate vor der Frist als auch rein strukturierte Formate nach der Frist und integriert Adressqualitätsprüfungen in CI-Pipelines und Batch-Validierungs-Workflows.
+pacs008 unterstuetzt acht Nachrichtentypen:
+
+- pacs.002.001.12 -- Statusbericht
+- pacs.003.001.09 -- Kundenlastschrift
+- pacs.004.001.11 -- Zahlungsrueckgabe
+- pacs.007.001.11 -- Zahlungsstornierung
+- pacs.008.001.13 -- Kundenueberweisung
+- pacs.009.001.10 -- Institutsueberweisung
+- pacs.010.001.05 -- Institutslastschrift
+- pacs.028.001.05 -- Zahlungsstatusanfrage
+
+### Wie hilft pacs008 bei der Frist fuer strukturierte Adressen im November 2026?
+
+pacs008 validiert strukturierte und hybride Postanschriftfelder vor der XML-Generierung:
+
+- Kennzeichnung unstrukturierter Adressdaten, die nach der Frist im November 2026 fehlschlagen wuerden
+- Unterstuetzung sowohl hybrider Formate vor der Frist als auch rein strukturierter Formate nach der Frist
+- Integration von Adressqualitaetspruefungen in CI-Pipelines und Batch-Validierungs-Workflows
 
 ### Kann pacs008 Daten validieren, ohne XML zu generieren?
 
-Ja. Verwenden Sie das CLI-Flag \`--dry-run\` oder den API-Endpunkt \`POST /validate\`, um Zahlungsdaten ohne XML-Generierung zu validieren. Die Validierungspipeline prüft JSON-Schema-Konformität, IBAN-Format und Prüfsumme, BIC-Struktur und SWIFT-Zeichenkonformität. Der Exit-Code oder die API-Antwort zeigt an, ob die Validierung bestanden oder fehlgeschlagen ist.
+Ja. Das CLI-Flag \`--dry-run\` oder den API-Endpunkt \`POST /validate\` verwenden, um Zahlungsdaten ohne XML-Generierung zu validieren. Die Validierungspipeline prueft:
+
+- JSON-Schema-Konformitaet
+- IBAN-Format und Pruefsumme
+- BIC-Struktur
+- SWIFT-Zeichenkonformitaet
+
+Der Exit-Code oder die API-Antwort zeigt an, ob die Validierung bestanden oder fehlgeschlagen ist.
 
 ## Referenzen
 
@@ -16309,131 +16645,299 @@ ${t.faqPageIntro}
 
 ## General
 
-### ¿Qué es ISO 20022?
+### ¿Que es ISO 20022?
 
-ISO 20022 es un estándar internacional para la mensajería financiera. Define un lenguaje y un modelo comunes para los mensajes de pago intercambiados entre instituciones financieras. A diferencia de formatos anteriores como SWIFT MT, ISO 20022 utiliza XML y admite datos más ricos y estructurados para las partes, los importes y las referencias.
+ISO 20022 es el estandar internacional de mensajeria financiera. Define un lenguaje y un modelo comunes para los mensajes de pago intercambiados entre instituciones financieras. A diferencia de formatos anteriores como SWIFT MT, ISO 20022 utiliza XML y admite datos mas ricos y estructurados para las partes, los importes y las referencias.
 
-### ¿Qué son los mensajes pacs?
+### ¿Que son los mensajes pacs?
 
-La familia de mensajes pacs (payments clearing and settlement) cubre las instrucciones de pago interbancarias, los informes de estado, las devoluciones, las reversiones y las consultas. Incluye pacs.002, pacs.003, pacs.004, pacs.007, pacs.008, pacs.009, pacs.010 y pacs.028. Cada mensaje cumple una función específica en el ciclo de vida del pago.
+La familia pacs (payments clearing and settlement) cubre todos los mensajes interbancarios de pago:
 
-### ¿En qué se diferencian los mensajes pacs de los mensajes SWIFT MT?
+- pacs.002 -- informe de estado
+- pacs.003 -- adeudo directo de cliente
+- pacs.004 -- devolucion de pago
+- pacs.007 -- reversion de pago
+- pacs.008 -- transferencia de credito de cliente
+- pacs.009 -- transferencia entre instituciones financieras
+- pacs.010 -- adeudo directo entre instituciones financieras
+- pacs.028 -- solicitud de estado de pago
 
-Los mensajes SWIFT MT utilizan un formato plano de etiquetas de campo (por ejemplo, MT103 para transferencias de clientes). Los mensajes pacs utilizan XML jerárquico con estructuras de datos más ricas. Las diferencias clave incluyen soporte para múltiples transacciones por mensaje, identificación estructurada de las partes (LEI, múltiples IDs), direcciones postales estructuradas e información de remesa estructurada. MT103 corresponde a pacs.008, MT202 corresponde a pacs.009 y el texto de estado MT199 se reemplaza por pacs.002.
+Cada mensaje cumple una funcion especifica en el ciclo de vida del pago.
 
-### ¿Cuál es la relación entre los mensajes pain y pacs?
+### ¿En que se diferencian los mensajes pacs de los mensajes SWIFT MT?
 
-Los mensajes pain (payment initiation) circulan entre el cliente y su banco. Los mensajes pacs circulan entre bancos. Un pain.001 de iniciación de transferencia del banco del deudor se convierte en una instrucción interbancaria pacs.008. Los dos dominios comparten elementos de datos comunes pero sirven a partes diferentes de la cadena de pago.
+Los mensajes SWIFT MT utilizan un formato plano de etiquetas de campo (por ejemplo, MT103 para transferencias de clientes). Los mensajes pacs utilizan XML jerarquico con estructuras de datos mas ricas. Diferencias principales:
 
-## Selección de mensajes
+- Soporte para multiples transacciones por mensaje
+- Identificacion estructurada de las partes (LEI, multiples IDs)
+- Direcciones postales estructuradas
+- Informacion de remesa estructurada
 
-### ¿Cuándo debo usar pacs.008?
+Correspondencia: MT103 equivale a pacs.008, MT202 equivale a pacs.009, y el texto de estado MT199 se reemplaza por pacs.002.
 
-Use pacs.008 para instrucciones de transferencia de clientes entre bancos. Contiene datos de las partes deudora y acreedora, importes, información de remesa y detalles de liquidación. Es el mensaje principal para el envío de pagos de clientes a través de la red interbancaria, ya sea a nivel nacional (SEPA) o transfronterizo (CBPR+).
+### ¿Cual es la relacion entre los mensajes pain y pacs?
 
-### ¿Cuándo debo usar pacs.009 en lugar de pacs.008?
+Los mensajes pain (payment initiation) circulan entre el cliente y su banco. Los mensajes pacs circulan entre bancos. Un pain.001 de iniciacion de transferencia del banco del deudor se convierte en una instruccion interbancaria pacs.008. Los dos dominios comparten elementos de datos comunes pero sirven a partes diferentes de la cadena de pago.
 
-Use pacs.009 para transferencias de cuenta propia entre instituciones, tramos de financiación y pagos de cobertura. A diferencia de pacs.008, que transporta un pago de cliente en nombre de un deudor, pacs.009 mueve fondos entre bancos por cuenta propia. En los flujos de cobertura, pacs.009 se encarga de la financiación mientras que pacs.008 transporta la instrucción del cliente por una vía separada.
+## Seleccion de mensajes
 
-### ¿Cuál es la diferencia entre pacs.004 y pacs.007?
+### ¿Cuando usar pacs.008?
 
-pacs.004 devuelve los fondos liquidados desde el lado receptor a través de la cadena. pacs.007 revierte un pago desde el lado emisor original hacia adelante en la cadena. Use pacs.004 cuando el banco beneficiario no pueda aplicar el crédito después de la liquidación. Use pacs.007 cuando el ordenante descubra un error, un duplicado o un fraude.
+pacs.008 se utiliza para instrucciones de transferencia de clientes entre bancos. Transporta:
 
-### ¿Cuándo debo usar pacs.028 en lugar de esperar pacs.002?
+- Datos de las partes deudora y acreedora
+- Importes y divisa
+- Informacion de remesa
+- Detalles de liquidacion
 
-Use pacs.028 cuando necesite solicitar activamente el estado de un pago que no ha recibido una actualización pacs.002 oportuna. pacs.002 se activa por eventos (el agente receptor lo envía de forma proactiva), mientras que pacs.028 se activa por excepciones (el agente ordenante lo solicita). Use pacs.028 para actualizaciones de pago retrasadas, inciertas o faltantes, no como tráfico rutinario.
+Es el mensaje principal para el envio de pagos de clientes a traves de la red interbancaria, ya sea a nivel nacional (SEPA) o transfronterizo (CBPR+).
 
-### ¿Para qué se utiliza pacs.003?
+### ¿Cuando usar pacs.009 en lugar de pacs.008?
 
-pacs.003 transporta instrucciones de adeudo directo de clientes entre bancos. El agente del acreedor lo envía al agente del deudor para cobrar fondos. Requiere una referencia de mandato válida y admite los esquemas de adeudo directo SEPA Core y B2B. No se utiliza para transferencias ni para adeudos directos de cuenta propia entre instituciones.
+pacs.009 se utiliza para transferencias de cuenta propia entre instituciones, tramos de financiacion y pagos de cobertura. A diferencia de pacs.008, que transporta un pago de cliente en nombre de un deudor, pacs.009 mueve fondos entre bancos por cuenta propia. En los flujos de cobertura, pacs.009 se encarga de la financiacion mientras que pacs.008 transporta la instruccion del cliente por una via separada.
 
-### ¿Para qué se utiliza pacs.010?
+### ¿Cual es la diferencia entre pacs.004 y pacs.007?
 
-pacs.010 gestiona los adeudos directos entre instituciones financieras sobre sus propias cuentas. Se utiliza para cobros de banco a banco, como comisiones, llamadas de margen y obligaciones similares en el marco de acuerdos bilaterales. No se utiliza para adeudos directos de clientes ni para transferencias.
+- pacs.004 devuelve los fondos liquidados desde el lado receptor a traves de la cadena.
+- pacs.007 revierte un pago desde el lado emisor original hacia adelante en la cadena.
+
+Usar pacs.004 cuando el banco beneficiario no pueda aplicar el credito despues de la liquidacion. Usar pacs.007 cuando el ordenante descubra un error, un duplicado o un fraude.
+
+### ¿Cuando usar pacs.028 en lugar de esperar pacs.002?
+
+pacs.028 se utiliza para solicitar activamente el estado de un pago que no ha recibido una actualizacion pacs.002 oportuna. pacs.002 se activa por eventos (el agente receptor lo envia de forma proactiva), mientras que pacs.028 se activa por excepciones (el agente ordenante lo solicita). Usar pacs.028 para actualizaciones de pago retrasadas, inciertas o faltantes -- no como trafico rutinario.
+
+### ¿Para que se utiliza pacs.003?
+
+pacs.003 transporta instrucciones de adeudo directo de clientes entre bancos. El agente del acreedor lo envia al agente del deudor para cobrar fondos. Caracteristicas:
+
+- Referencia de mandato valida obligatoria
+- Soporte de los esquemas SEPA Core y B2B
+- No se utiliza para transferencias ni para adeudos directos de cuenta propia entre instituciones
+
+### ¿Para que se utiliza pacs.010?
+
+pacs.010 gestiona los adeudos directos entre instituciones financieras sobre sus propias cuentas. Casos de uso:
+
+- Comisiones de banco a banco
+- Llamadas de margen
+- Obligaciones similares en el marco de acuerdos bilaterales
+
+No se utiliza para adeudos directos de clientes ni para transferencias.
 
 ## Estructura de los mensajes
 
-### ¿Qué es el Group Header (GrpHdr)?
+### ¿Que es el Group Header (GrpHdr)?
 
-El Group Header aparece exactamente una vez por mensaje pacs. Contiene el identificador del mensaje (MsgId), la marca de tiempo de creación (CreDtTm), el número de transacciones (NbOfTxs), la información de liquidación (SttlmInf) y, opcionalmente, el importe total de liquidación interbancaria e información del tipo de pago. Identifica el sobre del mensaje, no las transacciones comerciales individuales.
+El Group Header aparece exactamente una vez por mensaje pacs. Contiene:
 
-### ¿Cuáles son los identificadores de pago en pacs.008?
+- MsgId -- identificador del mensaje
+- CreDtTm -- marca de tiempo de creacion
+- NbOfTxs -- numero de transacciones
+- SttlmInf -- informacion de liquidacion
+- Importe total de liquidacion interbancaria (opcional)
+- Informacion del tipo de pago (opcional)
 
-pacs.008 utiliza cuatro identificadores principales. MsgId identifica el sobre del mensaje y cambia en cada salto. InstrId es una referencia punto a punto entre agentes adyacentes y puede cambiar en cada salto. EndToEndId lo establece el ordenante y no debe ser modificado por ningún agente de la cadena. TxId lo asigna el primer agente ordenante y permanece constante en el espacio interbancario. UETR es un UUID que permanece sin cambios en todos los tramos para el seguimiento de extremo a extremo.
+Identifica el sobre del mensaje, no las transacciones comerciales individuales.
 
-### ¿Qué métodos de liquidación están disponibles?
+### ¿Cuales son los identificadores de pago en pacs.008?
 
-Se definen cuatro métodos de liquidación. CLRG liquida a través de un sistema de compensación como TARGET2, EURO1 o CHIPS. INDA liquida en los libros del agente instruido, donde el agente del deudor mantiene una cuenta. INGA liquida en los libros del agente ordenante, donde el agente instruido mantiene una cuenta. COVE liquida mediante un pago de cobertura separado transportado por pacs.009.
+pacs.008 utiliza cinco identificadores:
 
-### ¿Qué significan los códigos de cargo de comisiones?
+- MsgId -- identifica el sobre del mensaje, cambia en cada salto
+- InstrId -- referencia punto a punto entre agentes adyacentes, puede cambiar en cada salto
+- EndToEndId -- establecido por el ordenante, no debe ser modificado por ningun agente de la cadena
+- TxId -- asignado por el primer agente ordenante, permanece constante en el espacio interbancario
+- UETR -- UUID que permanece sin cambios en todos los tramos para el seguimiento de extremo a extremo
 
-DEBT significa que todas las comisiones son a cargo del deudor (equivalente MT103 OUR). CRED significa que todas las comisiones son a cargo del acreedor (equivalente BEN). SHAR significa que las comisiones se comparten entre los agentes del deudor y del acreedor (equivalente SHA). SLEV significa que las comisiones siguen las reglas del nivel de servicio y es obligatorio para las transferencias SEPA.
+### ¿Que metodos de liquidacion estan disponibles?
 
-## CBPR+ y migración
+Se definen cuatro metodos de liquidacion:
 
-### ¿Qué es CBPR+?
+- CLRG -- liquidacion a traves de un sistema de compensacion (TARGET2, EURO1, CHIPS)
+- INDA -- liquidacion en los libros del agente instruido, donde el agente del deudor mantiene una cuenta
+- INGA -- liquidacion en los libros del agente ordenante, donde el agente instruido mantiene una cuenta
+- COVE -- liquidacion mediante un pago de cobertura separado transportado por pacs.009
 
-CBPR+ (Cross-Border Payments and Reporting Plus) es el programa de SWIFT para la adopción de ISO 20022 en la mensajería de pagos transfronterizos. Entró en funcionamiento en marzo de 2023 y reemplaza los mensajes MT por sus equivalentes pacs. CBPR+ exige pacs.002 para toda la comunicación de estados, admite datos de partes más ricos y direcciones estructuradas, y utiliza el seguimiento basado en UETR a través de gpi.
+### ¿Que significan los codigos de cargo de comisiones?
 
-### ¿Qué ocurrió con el período de coexistencia MT/MX?
+Cuatro codigos definen quien asume las comisiones:
 
-El período de coexistencia para instrucciones de pago transfronterizas finalizó en noviembre de 2025. Desde entonces, los mensajes CBPR+ deben utilizar el formato ISO 20022 (MX). Los servicios de traducción que convertían entre MT y MX durante la transición ya no están disponibles para nuevos flujos. Los bancos deben enviar y recibir mensajes pacs nativos.
+- DEBT -- todas las comisiones a cargo del deudor (equivalente MT103 OUR)
+- CRED -- todas las comisiones a cargo del acreedor (equivalente BEN)
+- SHAR -- comisiones compartidas entre los agentes del deudor y del acreedor (equivalente SHA)
+- SLEV -- comisiones segun las reglas del nivel de servicio, obligatorio para transferencias SEPA
 
-### ¿Cuál es la fecha límite de noviembre de 2026 para direcciones estructuradas?
+## CBPR+ y migracion
 
-A partir de noviembre de 2026, SWIFT CBPR+ exige direcciones postales estructuradas en los mensajes de pago transfronterizos. Las líneas de dirección no estructuradas (solo AdrLine) ya no se aceptarán para campos de partes clave. Como mínimo, se requieren TwnNm y Ctry, y se recomiendan StrtNm y BldgNb o PstBx. Esto mejora el filtrado de sanciones y reduce la reparación manual.
+### ¿Que es CBPR+?
 
-### ¿Cómo reemplaza pacs.008 a MT103?
+CBPR+ (Cross-Border Payments and Reporting Plus) es el programa de SWIFT para la adopcion de ISO 20022 en la mensajeria de pagos transfronterizos. En funcionamiento desde marzo de 2023, reemplaza los mensajes MT por sus equivalentes pacs. Puntos clave:
 
-pacs.008 reemplaza a MT103 y MT103+ para transferencias de clientes. Mapeo clave: el campo 20 de MT103 corresponde a MsgId o InstrId; el campo 32A se divide en IntrBkSttlmDt e IntrBkSttlmAmt; el campo 50a corresponde a Dbtr y DbtrAcct; el campo 59a corresponde a Cdtr y CdtrAcct; el campo 70 corresponde a RmtInf; el campo 71A corresponde a ChrgBr. pacs.008 añade UETR, remesa estructurada, identificación LEI y admite múltiples transacciones por mensaje.
+- pacs.002 obligatorio para toda la comunicacion de estados
+- Datos de partes mas ricos y direcciones estructuradas
+- Seguimiento basado en UETR a traves de gpi
 
-### ¿Cómo reemplaza pacs.009 a MT202?
+### ¿Que ocurrio con el periodo de coexistencia MT/MX?
 
-pacs.009 reemplaza a MT202 y MT202COV para transferencias entre instituciones. En los flujos de cobertura, el MT202COV (que transportaba tanto la financiación como los datos del cliente subyacente) se divide de forma limpia: pacs.009 transporta el tramo de financiación mientras que pacs.008 transporta directamente la instrucción del cliente. Esta separación mejora la calidad de los datos y reduce los problemas de conciliación.
+El periodo de coexistencia para instrucciones de pago transfronterizas finalizo en noviembre de 2025. Desde entonces:
 
-## Detalles técnicos
+- Los mensajes CBPR+ deben utilizar el formato ISO 20022 (MX)
+- Los servicios de traduccion MT/MX ya no estan disponibles para nuevos flujos
+- Los bancos deben enviar y recibir mensajes pacs nativos
 
-### ¿Qué son las direcciones estructuradas y no estructuradas?
+### ¿Cual es la fecha limite de noviembre de 2026 para direcciones estructuradas?
 
-Las direcciones estructuradas utilizan elementos XML separados para cada componente: StrtNm (calle), BldgNb (número de edificio), PstCd (código postal), TwnNm (ciudad), Ctry (país) y elementos opcionales como Flr, Room y DstrctNm. Las direcciones no estructuradas utilizan hasta siete elementos AdrLine con texto libre. Las direcciones híbridas combinan ambas durante el período de transición. Después de noviembre de 2026, CBPR+ exige el formato estructurado.
+A partir de noviembre de 2026, SWIFT CBPR+ exige direcciones postales estructuradas en los mensajes de pago transfronterizos. Las lineas de direccion no estructuradas (solo AdrLine) ya no se aceptaran para campos de partes clave. Requisitos minimos:
 
-### ¿Qué es UETR y cómo funciona el seguimiento gpi?
+- TwnNm y Ctry obligatorios
+- StrtNm y BldgNb o PstBx recomendados
 
-UETR (Unique End-to-End Transaction Reference) es un identificador UUID v4 generado por el agente del deudor y transportado sin cambios a través de todos los tramos de un pago. Aparece en pacs.008, pacs.009, pacs.002, pacs.004, pacs.007 y pacs.028. SWIFT gpi utiliza el UETR para rastrear pagos a través de una base de datos Tracker en la nube. Cada agente confirma la recepción y el procesamiento, lo que permite una visibilidad de extremo a extremo y el seguimiento de los SLA.
+Esto mejora el filtrado de sanciones y reduce la reparacion manual.
 
-### ¿Cuáles son los códigos de estado comunes en pacs.002?
+### ¿Como reemplaza pacs.008 a MT103?
 
-ACCP significa aceptado tras las verificaciones del perfil del cliente. ACSP significa aceptado y la liquidación está en curso. ACSC significa que la liquidación en la cuenta del deudor se ha completado. RJCT significa rechazado (con un código de motivo en StsRsnInf). PDNG significa pendiente de procesamiento adicional. RCVD significa recibido pero aún no procesado. Cada estado puede incluir un código de motivo estructurado como AC01 (número de cuenta incorrecto), AM04 (fondos insuficientes) o RC01 (BIC incorrecto).
+pacs.008 reemplaza a MT103 y MT103+ para transferencias de clientes. Correspondencia principal:
 
-### ¿Cuáles son los códigos de motivo de devolución comunes en pacs.004?
+- Campo 20 → MsgId o InstrId
+- Campo 32A → IntrBkSttlmDt e IntrBkSttlmAmt
+- Campo 50a → Dbtr y DbtrAcct
+- Campo 59a → Cdtr y CdtrAcct
+- Campo 70 → RmtInf
+- Campo 71A → ChrgBr
 
-Los códigos de motivo de devolución frecuentes incluyen AC01 (número de cuenta incorrecto), AC04 (cuenta cerrada), AC06 (cuenta bloqueada), AM04 (fondos insuficientes), BE04 (dirección del acreedor faltante), CUST (solicitado por el cliente), DUPL (pago duplicado), FOCR (tras solicitud de cancelación) y FR01 (fraude). La lista completa se define en los External Code Sets de ISO 20022.
+pacs.008 anade UETR, remesa estructurada, identificacion LEI y admite multiples transacciones por mensaje.
 
-### ¿Qué es la información de remesa estructurada?
+### ¿Como reemplaza pacs.009 a MT202?
 
-La remesa estructurada en pacs.008 utiliza el elemento RmtInf/Strd para transportar referencias de documentos (números de factura, notas de crédito), importes (vencido, remitido, impuesto, descuento) y referencias del acreedor (referencias RF según ISO 11649). Esto permite la conciliación automatizada de facturas. Los códigos de tipo de documento comunes incluyen CINV (factura comercial), CREN (nota de crédito) y SOAC (extracto de cuenta).
+pacs.009 reemplaza a MT202 y MT202COV para transferencias entre instituciones. En los flujos de cobertura, el MT202COV (que transportaba tanto la financiacion como los datos del cliente subyacente) se divide de forma limpia:
 
-### ¿Qué es LEI y cuándo se utiliza?
+- pacs.009 transporta el tramo de financiacion
+- pacs.008 transporta directamente la instruccion del cliente
 
-LEI (Legal Entity Identifier) es un código alfanumérico de 20 caracteres según ISO 17442. Identifica de forma única a las entidades jurídicas que participan en transacciones financieras. En los mensajes pacs, LEI aparece en OrgId/LEI para las partes y en FinInstnId/LEI para los agentes. CBPR+ fomenta cada vez más el uso de LEI para la identificación de partes y agentes. Mejora la desambiguación de entidades y apoya los requisitos de informes regulatorios.
+Esta separacion mejora la calidad de los datos y reduce los problemas de conciliacion.
+
+## Detalles tecnicos
+
+### ¿Que son las direcciones estructuradas y no estructuradas?
+
+Las direcciones estructuradas utilizan elementos XML separados para cada componente:
+
+- StrtNm -- calle
+- BldgNb -- numero de edificio
+- PstCd -- codigo postal
+- TwnNm -- ciudad
+- Ctry -- pais
+- Elementos opcionales: Flr, Room, DstrctNm
+
+Las direcciones no estructuradas utilizan hasta siete elementos AdrLine con texto libre. Las direcciones hibridas combinan ambas durante el periodo de transicion. Despues de noviembre de 2026, CBPR+ exige el formato estructurado.
+
+### ¿Que es UETR y como funciona el seguimiento gpi?
+
+UETR (Unique End-to-End Transaction Reference) es un identificador UUID v4 generado por el agente del deudor y transportado sin cambios a traves de todos los tramos de un pago. Aparece en:
+
+- pacs.008, pacs.009, pacs.002
+- pacs.004, pacs.007, pacs.028
+
+SWIFT gpi utiliza el UETR para rastrear pagos a traves de una base de datos Tracker en la nube. Cada agente confirma la recepcion y el procesamiento, lo que permite una visibilidad de extremo a extremo y el seguimiento de los SLA.
+
+### ¿Cuales son los codigos de estado comunes en pacs.002?
+
+Codigos de estado principales:
+
+- ACCP -- aceptado tras las verificaciones del perfil del cliente
+- ACSP -- aceptado, liquidacion en curso
+- ACSC -- liquidacion en la cuenta del deudor completada
+- RJCT -- rechazado (con un codigo de motivo en StsRsnInf)
+- PDNG -- pendiente de procesamiento adicional
+- RCVD -- recibido pero aun no procesado
+
+Cada estado puede incluir un codigo de motivo estructurado como AC01 (numero de cuenta incorrecto), AM04 (fondos insuficientes) o RC01 (BIC incorrecto).
+
+### ¿Cuales son los codigos de motivo de devolucion comunes en pacs.004?
+
+Codigos de motivo de devolucion frecuentes:
+
+- AC01 -- numero de cuenta incorrecto
+- AC04 -- cuenta cerrada
+- AC06 -- cuenta bloqueada
+- AM04 -- fondos insuficientes
+- BE04 -- direccion del acreedor faltante
+- CUST -- solicitado por el cliente
+- DUPL -- pago duplicado
+- FOCR -- tras solicitud de cancelacion
+- FR01 -- fraude
+
+La lista completa se define en los External Code Sets de ISO 20022.
+
+### ¿Que es la informacion de remesa estructurada?
+
+La remesa estructurada en pacs.008 utiliza el elemento RmtInf/Strd para transportar:
+
+- Referencias de documentos (numeros de factura, notas de credito)
+- Importes (vencido, remitido, impuesto, descuento)
+- Referencias del acreedor (referencias RF segun ISO 11649)
+
+Esto permite la conciliacion automatizada de facturas. Codigos de tipo de documento comunes:
+
+- CINV -- factura comercial
+- CREN -- nota de credito
+- SOAC -- extracto de cuenta
+
+### ¿Que es LEI y cuando se utiliza?
+
+LEI (Legal Entity Identifier) es un codigo alfanumerico de 20 caracteres segun ISO 17442. Identifica de forma unica a las entidades juridicas que participan en transacciones financieras. En los mensajes pacs:
+
+- OrgId/LEI -- identificacion de las partes
+- FinInstnId/LEI -- identificacion de los agentes
+
+CBPR+ fomenta cada vez mas el uso de LEI para la identificacion de partes y agentes. Mejora la desambiguacion de entidades y apoya los requisitos de informes regulatorios.
 
 ## Acerca del toolkit pacs008
 
-### ¿Qué hace pacs008?
+### ¿Que hace pacs008?
 
-pacs008 es un toolkit de Python que genera, valida y envía mensajes de pago ISO 20022. Lee datos de pago de fuentes CSV, JSON, JSONL, SQLite y Parquet, valida contra JSON Schema y XSD, verifica identificadores IBAN y BIC, limpia los datos para cumplir con los caracteres SWIFT y produce archivos XML. Proporciona una API REST, un CLI y una biblioteca de Python.
+pacs008 es un toolkit Python que genera, valida y envia mensajes de pago ISO 20022. Funcionalidades:
 
-### ¿Qué tipos de mensajes admite pacs008?
+- Lectura de datos de pago de fuentes CSV, JSON, JSONL, SQLite y Parquet
+- Validacion contra JSON Schema y XSD
+- Verificacion de identificadores IBAN y BIC
+- Limpieza de datos para cumplir con los caracteres SWIFT
+- Produccion de archivos XML
 
-pacs008 admite ocho tipos de mensajes: pacs.002.001.12 (informe de estado), pacs.003.001.09 (adeudo directo de cliente), pacs.004.001.11 (devolución de pago), pacs.007.001.11 (reversión de pago), pacs.008.001.13 (transferencia de cliente), pacs.009.001.10 (transferencia entre instituciones financieras), pacs.010.001.05 (adeudo directo entre instituciones financieras) y pacs.028.001.05 (solicitud de estado de pago).
+Tres interfaces disponibles: API REST, CLI y biblioteca Python.
 
-### ¿Cómo ayuda pacs008 con la fecha límite de direcciones estructuradas de noviembre de 2026?
+### ¿Que tipos de mensajes admite pacs008?
 
-pacs008 valida los campos de dirección postal estructurada e híbrida antes de la generación XML. Señala los datos de dirección no estructurados que fallarían después de la fecha límite de noviembre de 2026, admite tanto formatos híbridos antes de la fecha límite como formatos exclusivamente estructurados después, e integra las verificaciones de calidad de direcciones en los pipelines CI y los flujos de trabajo de validación por lotes.
+pacs008 admite ocho tipos de mensajes:
+
+- pacs.002.001.12 -- informe de estado
+- pacs.003.001.09 -- adeudo directo de cliente
+- pacs.004.001.11 -- devolucion de pago
+- pacs.007.001.11 -- reversion de pago
+- pacs.008.001.13 -- transferencia de credito de cliente
+- pacs.009.001.10 -- transferencia entre instituciones financieras
+- pacs.010.001.05 -- adeudo directo entre instituciones financieras
+- pacs.028.001.05 -- solicitud de estado de pago
+
+### ¿Como ayuda pacs008 con la fecha limite de direcciones estructuradas de noviembre de 2026?
+
+pacs008 valida los campos de direccion postal estructurada e hibrida antes de la generacion XML:
+
+- Senalamiento de datos de direccion no estructurados que fallarian despues de la fecha limite de noviembre de 2026
+- Soporte de formatos hibridos antes de la fecha limite y formatos exclusivamente estructurados despues
+- Integracion de verificaciones de calidad de direcciones en los pipelines CI y los flujos de trabajo de validacion por lotes
 
 ### ¿Puede pacs008 validar datos sin generar XML?
 
-Sí. Use el flag CLI \`--dry-run\` o el endpoint de API \`POST /validate\` para validar datos de pago sin generar XML. El pipeline de validación verifica la conformidad con JSON Schema, el formato y la suma de verificación IBAN, la estructura BIC y la conformidad con los caracteres SWIFT. El código de salida o la respuesta de la API indica si la validación fue exitosa o falló.
+Si. Usar el flag CLI \`--dry-run\` o el endpoint de API \`POST /validate\` para validar datos de pago sin generar XML. El pipeline de validacion verifica:
+
+- Conformidad con JSON Schema
+- Formato y suma de verificacion IBAN
+- Estructura BIC
+- Conformidad con los caracteres SWIFT
+
+El codigo de salida o la respuesta de la API indica si la validacion fue exitosa o fallo.
 
 ## Referencias
 
@@ -16454,131 +16958,299 @@ ${t.faqPageIntro}
 
 ## Generale
 
-### Cos'è ISO 20022?
+### Cos'e ISO 20022?
 
-ISO 20022 è uno standard internazionale per la messaggistica finanziaria. Definisce un linguaggio e un modello comuni per i messaggi di pagamento scambiati tra istituzioni finanziarie. A differenza dei formati precedenti come SWIFT MT, ISO 20022 utilizza XML e supporta dati più ricchi e strutturati per le parti, gli importi e i riferimenti.
+ISO 20022 e lo standard internazionale per la messaggistica finanziaria. Definisce un linguaggio e un modello comuni per i messaggi di pagamento scambiati tra istituzioni finanziarie. A differenza dei formati precedenti come SWIFT MT, ISO 20022 si basa su XML e supporta dati piu ricchi e strutturati per le parti, gli importi e i riferimenti.
 
 ### Cosa sono i messaggi pacs?
 
-La famiglia di messaggi pacs (payments clearing and settlement) copre le istruzioni di pagamento interbancarie, i rapporti sullo stato, le restituzioni, gli storni e le richieste. Include pacs.002, pacs.003, pacs.004, pacs.007, pacs.008, pacs.009, pacs.010 e pacs.028. Ogni messaggio svolge un ruolo specifico nel ciclo di vita del pagamento.
+La famiglia pacs (payments clearing and settlement) copre tutti i messaggi interbancari di pagamento:
+
+- pacs.002 -- rapporto sullo stato
+- pacs.003 -- addebito diretto cliente
+- pacs.004 -- restituzione del pagamento
+- pacs.007 -- storno del pagamento
+- pacs.008 -- bonifico cliente
+- pacs.009 -- bonifico tra istituzioni finanziarie
+- pacs.010 -- addebito diretto tra istituzioni finanziarie
+- pacs.028 -- richiesta stato pagamento
+
+Ogni messaggio svolge un ruolo preciso nel ciclo di vita del pagamento.
 
 ### Come differiscono i messaggi pacs dai messaggi SWIFT MT?
 
-I messaggi SWIFT MT utilizzano un formato piatto con etichette di campo (es. MT103 per i bonifici clienti). I messaggi pacs utilizzano XML gerarchico con strutture dati più ricche. Le differenze principali includono il supporto per più transazioni per messaggio, l'identificazione strutturata delle parti (LEI, ID multipli), gli indirizzi postali strutturati e le informazioni di rimessa strutturate.
+I messaggi SWIFT MT utilizzano un formato piatto con etichette di campo (es. MT103 per i bonifici clienti). I messaggi pacs utilizzano XML gerarchico con strutture dati piu ricche. Differenze principali:
 
-### Qual è la relazione tra i messaggi pain e pacs?
+- Supporto per piu transazioni per messaggio
+- Identificazione strutturata delle parti (LEI, ID multipli)
+- Indirizzi postali strutturati
+- Informazioni di rimessa strutturate
+
+Corrispondenza: MT103 equivale a pacs.008, MT202 equivale a pacs.009, e il testo di stato MT199 e sostituito da pacs.002.
+
+### Qual e la relazione tra i messaggi pain e pacs?
 
 I messaggi pain (payment initiation) viaggiano tra il cliente e la sua banca. I messaggi pacs viaggiano tra le banche. Un'iniziazione di bonifico pain.001 dalla banca del debitore diventa un'istruzione interbancaria pacs.008. I due domini condividono elementi di dati comuni ma servono parti diverse della catena di pagamento.
 
 ## Selezione del messaggio
 
-### Quando dovrei usare pacs.008?
+### Quando usare pacs.008?
 
-Usare pacs.008 per le istruzioni di bonifico cliente tra banche. Trasporta i dati delle parti debitore e creditore, gli importi, le informazioni di rimessa e i dettagli del regolamento. È il messaggio principale per l'invio di pagamenti clienti attraverso la rete interbancaria.
+pacs.008 serve per le istruzioni di bonifico cliente tra banche. Trasporta:
 
-### Quando dovrei usare pacs.009 invece di pacs.008?
+- Dati delle parti debitore e creditore
+- Importi e valuta
+- Informazioni di rimessa
+- Dettagli di regolamento
 
-Usare pacs.009 per i trasferimenti su conto proprio dell'istituzione, le tratte di finanziamento e i pagamenti di copertura. A differenza di pacs.008, che trasporta un pagamento cliente per conto di un debitore, pacs.009 muove fondi tra banche per proprio conto.
+E il messaggio principale per l'invio di pagamenti clienti attraverso la rete interbancaria, sia a livello nazionale (SEPA) che transfrontaliero (CBPR+).
 
-### Qual è la differenza tra pacs.004 e pacs.007?
+### Quando usare pacs.009 invece di pacs.008?
 
-pacs.004 restituisce i fondi regolati dal lato ricevente attraverso la catena. pacs.007 storna un pagamento dal lato istruttore originale in avanti attraverso la catena. Usare pacs.004 quando la banca beneficiaria non può applicare il credito dopo il regolamento. Usare pacs.007 quando l'originatore scopre un errore, un duplicato o una frode.
+pacs.009 serve per i trasferimenti su conto proprio dell'istituzione, le tratte di finanziamento e i pagamenti di copertura. A differenza di pacs.008, che trasporta un pagamento cliente per conto di un debitore, pacs.009 muove fondi tra banche per proprio conto. Nei flussi di copertura, pacs.009 gestisce il finanziamento mentre pacs.008 trasporta l'istruzione del cliente su un percorso separato.
 
-### Quando dovrei usare pacs.028 invece di aspettare pacs.002?
+### Qual e la differenza tra pacs.004 e pacs.007?
 
-Usare pacs.028 quando è necessario richiedere attivamente lo stato di un pagamento che non ha ricevuto un aggiornamento pacs.002 tempestivo. pacs.002 è guidato dagli eventi, mentre pacs.028 è guidato dalle eccezioni.
+- pacs.004 restituisce i fondi regolati dal lato ricevente attraverso la catena.
+- pacs.007 storna un pagamento dal lato istruttore originale in avanti attraverso la catena.
+
+Usare pacs.004 quando la banca beneficiaria non puo applicare il credito dopo il regolamento. Usare pacs.007 quando l'originatore scopre un errore, un duplicato o una frode.
+
+### Quando usare pacs.028 invece di aspettare pacs.002?
+
+pacs.028 serve a richiedere attivamente lo stato di un pagamento che non ha ricevuto un aggiornamento pacs.002 tempestivo. pacs.002 e guidato dagli eventi (l'agente ricevente lo invia proattivamente), mentre pacs.028 e guidato dalle eccezioni (l'agente istruttore lo richiede). Usare pacs.028 per aggiornamenti di pagamento in ritardo, incerti o mancanti -- non come traffico di routine.
 
 ### A cosa serve pacs.003?
 
-pacs.003 trasporta le istruzioni di addebito diretto del cliente tra banche. L'agente del creditore lo invia all'agente del debitore per raccogliere fondi. Richiede un riferimento di mandato valido e supporta gli schemi SEPA Core e B2B.
+pacs.003 trasporta le istruzioni di addebito diretto del cliente tra banche. L'agente del creditore lo invia all'agente del debitore per raccogliere fondi. Caratteristiche:
+
+- Riferimento di mandato valido obbligatorio
+- Supporto degli schemi SEPA Core e B2B
+- Non utilizzato per bonifici ne per addebiti diretti su conto proprio tra istituzioni
 
 ### A cosa serve pacs.010?
 
-pacs.010 gestisce gli addebiti diretti tra istituzioni finanziarie sui propri conti. È utilizzato per le raccolte banca-a-banca come commissioni, margin call e obblighi simili nell'ambito di accordi bilaterali.
+pacs.010 gestisce gli addebiti diretti tra istituzioni finanziarie sui propri conti. Casi d'uso:
+
+- Commissioni banca-a-banca
+- Margin call
+- Obblighi simili nell'ambito di accordi bilaterali
+
+Non utilizzato per addebiti diretti clienti ne per bonifici.
 
 ## Struttura del messaggio
 
-### Cos'è l'intestazione di gruppo (GrpHdr)?
+### Cos'e il Group Header (GrpHdr)?
 
-L'intestazione di gruppo appare esattamente una volta per messaggio pacs. Contiene l'identificatore del messaggio (MsgId), il timestamp di creazione (CreDtTm), il numero di transazioni (NbOfTxs), le informazioni di regolamento (SttlmInf) e facoltativamente l'importo totale del regolamento interbancario.
+Il Group Header appare esattamente una volta per messaggio pacs. Contiene:
+
+- MsgId -- identificatore del messaggio
+- CreDtTm -- timestamp di creazione
+- NbOfTxs -- numero di transazioni
+- SttlmInf -- informazioni di regolamento
+- Importo totale del regolamento interbancario (facoltativo)
+- Informazioni sul tipo di pagamento (facoltativo)
+
+Identifica la busta del messaggio, non le singole transazioni commerciali.
 
 ### Quali sono gli identificatori di pagamento in pacs.008?
 
-pacs.008 utilizza quattro identificatori principali. MsgId identifica la busta del messaggio e cambia ad ogni passaggio. InstrId è un riferimento punto a punto tra agenti adiacenti. EndToEndId è impostato dall'originatore e non deve essere alterato. TxId è assegnato dal primo agente istruttore e rimane costante. UETR è un UUID che rimane invariato per il tracciamento end-to-end.
+pacs.008 utilizza cinque identificatori:
+
+- MsgId -- identifica la busta del messaggio, cambia ad ogni passaggio
+- InstrId -- riferimento punto a punto tra agenti adiacenti, puo cambiare ad ogni passaggio
+- EndToEndId -- impostato dall'originatore, non deve essere alterato da nessun agente nella catena
+- TxId -- assegnato dal primo agente istruttore, rimane costante nello spazio interbancario
+- UETR -- UUID che rimane invariato su tutte le tratte per il tracciamento end-to-end
 
 ### Quali metodi di regolamento sono disponibili?
 
-Sono definiti quattro metodi: CLRG regola attraverso un sistema di compensazione. INDA regola nei libri dell'agente istruito. INGA regola nei libri dell'agente istruttore. COVE regola attraverso un pagamento di copertura separato pacs.009.
+Quattro metodi di regolamento sono definiti:
+
+- CLRG -- regolamento attraverso un sistema di compensazione (TARGET2, EURO1, CHIPS)
+- INDA -- regolamento nei libri dell'agente istruito, dove l'agente del debitore detiene un conto
+- INGA -- regolamento nei libri dell'agente istruttore, dove l'agente istruito detiene un conto
+- COVE -- regolamento attraverso un pagamento di copertura separato portato da pacs.009
 
 ### Cosa significano i codici portatore delle spese?
 
-DEBT significa che tutte le spese sono a carico del debitore. CRED significa che tutte le spese sono a carico del creditore. SHAR significa che le spese sono condivise. SLEV significa che le spese seguono le regole del livello di servizio ed è obbligatorio per SEPA.
+Quattro codici definiscono chi sostiene le spese:
+
+- DEBT -- tutte le spese a carico del debitore (equivalente MT103 OUR)
+- CRED -- tutte le spese a carico del creditore (equivalente BEN)
+- SHAR -- spese condivise tra gli agenti del debitore e del creditore (equivalente SHA)
+- SLEV -- spese secondo le regole del livello di servizio, obbligatorio per i bonifici SEPA
 
 ## CBPR+ e migrazione
 
-### Cos'è CBPR+?
+### Cos'e CBPR+?
 
-CBPR+ (Cross-Border Payments and Reporting Plus) è il programma SWIFT per l'adozione di ISO 20022 nella messaggistica dei pagamenti transfrontalieri. È entrato in funzione a marzo 2023 e sostituisce i messaggi MT con gli equivalenti pacs.
+CBPR+ (Cross-Border Payments and Reporting Plus) e il programma SWIFT per l'adozione di ISO 20022 nella messaggistica dei pagamenti transfrontalieri. In funzione da marzo 2023, sostituisce i messaggi MT con gli equivalenti pacs. Punti chiave:
 
-### Cos'è successo al periodo di coesistenza MT/MX?
+- pacs.002 obbligatorio per tutta la comunicazione di stato
+- Dati delle parti piu ricchi e indirizzi strutturati
+- Tracciamento basato su UETR tramite gpi
 
-Il periodo di coesistenza per le istruzioni di pagamento transfrontaliere si è concluso a novembre 2025. Da allora, i messaggi CBPR+ devono utilizzare il formato ISO 20022 (MX).
+### Cos'e successo al periodo di coesistenza MT/MX?
 
-### Qual è la scadenza degli indirizzi strutturati di novembre 2026?
+Il periodo di coesistenza per le istruzioni di pagamento transfrontaliere si e concluso a novembre 2025. Da allora:
 
-Da novembre 2026, SWIFT CBPR+ richiede indirizzi postali strutturati nei messaggi di pagamento transfrontalieri. Le righe di indirizzo non strutturate (solo AdrLine) non saranno più accettate. Come minimo, sono richiesti TwnNm e Ctry.
+- I messaggi CBPR+ devono utilizzare il formato ISO 20022 (MX)
+- I servizi di traduzione MT/MX non sono piu disponibili per i nuovi flussi
+- Le banche devono inviare e ricevere messaggi pacs nativi
+
+### Qual e la scadenza degli indirizzi strutturati di novembre 2026?
+
+Da novembre 2026, SWIFT CBPR+ richiede indirizzi postali strutturati nei messaggi di pagamento transfrontalieri. Le righe di indirizzo non strutturate (solo AdrLine) non saranno piu accettate per i campi delle parti chiave. Requisiti minimi:
+
+- TwnNm e Ctry obbligatori
+- StrtNm e BldgNb o PstBx raccomandati
+
+Questo migliora lo screening delle sanzioni e riduce le riparazioni manuali.
 
 ### Come pacs.008 sostituisce MT103?
 
-pacs.008 sostituisce MT103 e MT103+ per i bonifici clienti. Il campo 20 di MT103 mappa su MsgId o InstrId; il campo 32A si divide in IntrBkSttlmDt e IntrBkSttlmAmt; il campo 50a mappa su Dbtr e DbtrAcct; il campo 59a mappa su Cdtr e CdtrAcct; il campo 70 mappa su RmtInf; il campo 71A mappa su ChrgBr.
+pacs.008 sostituisce MT103 e MT103+ per i bonifici clienti. Corrispondenza principale:
+
+- Campo 20 → MsgId o InstrId
+- Campo 32A → IntrBkSttlmDt e IntrBkSttlmAmt
+- Campo 50a → Dbtr e DbtrAcct
+- Campo 59a → Cdtr e CdtrAcct
+- Campo 70 → RmtInf
+- Campo 71A → ChrgBr
+
+pacs.008 aggiunge UETR, rimessa strutturata, identificazione LEI, e supporta piu transazioni per messaggio.
 
 ### Come pacs.009 sostituisce MT202?
 
-pacs.009 sostituisce MT202 e MT202COV per i trasferimenti tra istituzioni. Nei flussi con metodo di copertura, il MT202COV si divide: pacs.009 trasporta la tratta di finanziamento mentre pacs.008 trasporta l'istruzione cliente direttamente.
+pacs.009 sostituisce MT202 e MT202COV per i trasferimenti tra istituzioni. Nei flussi con metodo di copertura, il MT202COV (che trasportava sia il finanziamento che i dati del cliente sottostante) si divide in modo netto:
+
+- pacs.009 trasporta la tratta di finanziamento
+- pacs.008 trasporta direttamente l'istruzione del cliente
+
+Questa separazione migliora la qualita dei dati e riduce i problemi di riconciliazione.
 
 ## Dettagli tecnici
 
 ### Cosa sono gli indirizzi strutturati e non strutturati?
 
-Gli indirizzi strutturati utilizzano elementi XML separati per ogni componente: StrtNm, BldgNb, PstCd, TwnNm, Ctry. Gli indirizzi non strutturati utilizzano fino a sette elementi AdrLine con testo libero. Dopo novembre 2026, CBPR+ richiede il formato strutturato.
+Gli indirizzi strutturati utilizzano elementi XML separati per ogni componente:
 
-### Cos'è l'UETR e come funziona il tracciamento gpi?
+- StrtNm -- via
+- BldgNb -- numero civico
+- PstCd -- codice postale
+- TwnNm -- citta
+- Ctry -- paese
+- Elementi facoltativi: Flr, Room, DstrctNm
 
-UETR (Unique End-to-End Transaction Reference) è un identificatore UUID v4 generato dall'agente del debitore e trasportato invariato attraverso tutte le tratte di un pagamento. SWIFT gpi utilizza l'UETR per tracciare i pagamenti attraverso un database Tracker basato su cloud.
+Gli indirizzi non strutturati utilizzano fino a sette elementi AdrLine con testo libero. Gli indirizzi ibridi combinano entrambi durante il periodo di transizione. Dopo novembre 2026, CBPR+ richiede il formato strutturato.
+
+### Cos'e l'UETR e come funziona il tracciamento gpi?
+
+UETR (Unique End-to-End Transaction Reference) e un identificatore UUID v4 generato dall'agente del debitore e trasportato invariato attraverso tutte le tratte di un pagamento. Appare in:
+
+- pacs.008, pacs.009, pacs.002
+- pacs.004, pacs.007, pacs.028
+
+SWIFT gpi utilizza l'UETR per tracciare i pagamenti attraverso un database Tracker basato su cloud. Ogni agente conferma la ricezione e l'elaborazione, consentendo la visibilita end-to-end e il monitoraggio degli SLA.
 
 ### Quali sono i codici di stato pacs.002 comuni?
 
-ACCP significa accettato dopo i controlli del profilo cliente. ACSP significa accettato e regolamento in corso. ACSC significa regolamento completato. RJCT significa rifiutato. PDNG significa in attesa di ulteriore elaborazione.
+Codici di stato principali:
+
+- ACCP -- accettato dopo i controlli del profilo cliente
+- ACSP -- accettato, regolamento in corso
+- ACSC -- regolamento sul conto del debitore completato
+- RJCT -- rifiutato (con un codice di motivo in StsRsnInf)
+- PDNG -- in attesa di ulteriore elaborazione
+- RCVD -- ricevuto ma non ancora elaborato
+
+Ogni stato puo includere un codice di motivo strutturato come AC01 (numero di conto errato), AM04 (fondi insufficienti) o RC01 (BIC errato).
 
 ### Quali sono i codici di motivo di restituzione comuni in pacs.004?
 
-I codici frequenti includono AC01 (numero di conto errato), AC04 (conto chiuso), AC06 (conto bloccato), AM04 (fondi insufficienti), BE04 (indirizzo creditore mancante), CUST (richiesto dal cliente), DUPL (pagamento duplicato), FOCR (a seguito di richiesta di annullamento) e FR01 (frode).
+Codici di motivo di restituzione frequenti:
+
+- AC01 -- numero di conto errato
+- AC04 -- conto chiuso
+- AC06 -- conto bloccato
+- AM04 -- fondi insufficienti
+- BE04 -- indirizzo creditore mancante
+- CUST -- richiesto dal cliente
+- DUPL -- pagamento duplicato
+- FOCR -- a seguito di richiesta di annullamento
+- FR01 -- frode
+
+La lista completa e definita negli External Code Sets di ISO 20022.
 
 ### Cosa sono le informazioni di rimessa strutturate?
 
-La rimessa strutturata in pacs.008 utilizza l'elemento RmtInf/Strd per trasportare riferimenti di documenti, importi e riferimenti creditore. Consente la riconciliazione automatizzata delle fatture.
+La rimessa strutturata in pacs.008 utilizza l'elemento RmtInf/Strd per trasportare:
 
-### Cos'è il LEI e quando viene utilizzato?
+- Riferimenti di documenti (numeri di fattura, note di credito)
+- Importi (dovuto, rimesso, imposta, sconto)
+- Riferimenti creditore (riferimenti RF secondo ISO 11649)
 
-LEI (Legal Entity Identifier) è un codice alfanumerico di 20 caratteri per ISO 17442. Nei messaggi pacs, LEI appare in OrgId/LEI per le parti e FinInstnId/LEI per gli agenti. CBPR+ incoraggia sempre più l'uso del LEI.
+Questo consente la corrispondenza automatizzata delle fatture e la riconciliazione. Codici di tipo documento comuni:
+
+- CINV -- fattura commerciale
+- CREN -- nota di credito
+- SOAC -- estratto conto
+
+### Cos'e il LEI e quando viene utilizzato?
+
+LEI (Legal Entity Identifier) e un codice alfanumerico di 20 caratteri secondo ISO 17442. Identifica in modo univoco le entita giuridiche che partecipano a transazioni finanziarie. Nei messaggi pacs:
+
+- OrgId/LEI -- identificazione delle parti
+- FinInstnId/LEI -- identificazione degli agenti
+
+CBPR+ incoraggia sempre piu l'uso del LEI per l'identificazione delle parti e degli agenti. Migliora la disambiguazione delle entita e supporta i requisiti di rendicontazione normativa.
 
 ## Informazioni sul toolkit pacs008
 
 ### Cosa fa pacs008?
 
-pacs008 è un toolkit Python che genera, valida e distribuisce messaggi di pagamento ISO 20022. Legge i dati di pagamento da sorgenti CSV, JSON, JSONL, SQLite e Parquet, valida contro JSON Schema e XSD, controlla gli identificatori IBAN e BIC e produce file XML.
+pacs008 e un toolkit Python che genera, valida e distribuisce messaggi di pagamento ISO 20022. Funzionalita:
+
+- Lettura dei dati di pagamento da sorgenti CSV, JSON, JSONL, SQLite e Parquet
+- Validazione contro JSON Schema e XSD
+- Controllo degli identificatori IBAN e BIC
+- Pulizia dei dati per la conformita ai caratteri SWIFT
+- Produzione di file XML
+
+Tre interfacce disponibili: API REST, CLI e libreria Python.
 
 ### Quali tipi di messaggio supporta pacs008?
 
-pacs008 supporta otto tipi di messaggio: pacs.002.001.12, pacs.003.001.09, pacs.004.001.11, pacs.007.001.11, pacs.008.001.13, pacs.009.001.10, pacs.010.001.05 e pacs.028.001.05.
+pacs008 supporta otto tipi di messaggio:
 
-### Come aiuta pacs008 con la scadenza degli indirizzi strutturati del 2026?
+- pacs.002.001.12 -- rapporto sullo stato
+- pacs.003.001.09 -- addebito diretto cliente
+- pacs.004.001.11 -- restituzione del pagamento
+- pacs.007.001.11 -- storno del pagamento
+- pacs.008.001.13 -- bonifico cliente
+- pacs.009.001.10 -- bonifico tra istituzioni finanziarie
+- pacs.010.001.05 -- addebito diretto tra istituzioni finanziarie
+- pacs.028.001.05 -- richiesta stato pagamento
 
-pacs008 valida i campi degli indirizzi postali strutturati e ibridi prima della generazione XML. Segnala i dati di indirizzo non strutturati che fallirebbero dopo la scadenza di novembre 2026.
+### Come aiuta pacs008 con la scadenza degli indirizzi strutturati di novembre 2026?
 
-### pacs008 può validare i dati senza generare XML?
+pacs008 valida i campi degli indirizzi postali strutturati e ibridi prima della generazione XML:
 
-Sì. Utilizzare il flag CLI \`--dry-run\` o l'endpoint API \`POST /validate\` per validare i dati di pagamento senza generare XML.
+- Segnalazione dei dati di indirizzo non strutturati che fallirebbero dopo la scadenza di novembre 2026
+- Supporto dei formati ibridi prima della scadenza e dei formati esclusivamente strutturati dopo la scadenza
+- Integrazione dei controlli di qualita degli indirizzi nei pipeline CI e nei flussi di lavoro di validazione batch
+
+### pacs008 puo validare i dati senza generare XML?
+
+Si. Utilizzare il flag CLI \`--dry-run\` o l'endpoint API \`POST /validate\` per validare i dati di pagamento senza generare XML. Il pipeline di validazione verifica:
+
+- Conformita JSON Schema
+- Formato e checksum IBAN
+- Struttura BIC
+- Conformita ai caratteri SWIFT
+
+Il codice di uscita o la risposta API indica se la validazione e riuscita o fallita.
 
 ## Riferimenti
 
