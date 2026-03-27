@@ -66,11 +66,20 @@ function localizeShell(html, locale) {
 }
 
 try {
-  const sitemap = await fs.readFile(sitemapPath, "utf8");
-  const cleaned = sitemap.replace(/<url><loc>https:\/\/pacs008\.com\/en\/<\/loc>.*?<\/url>/, "");
-  if (cleaned !== sitemap) {
-    await fs.writeFile(sitemapPath, cleaned, "utf8");
-  }
+  let sitemap = await fs.readFile(sitemapPath, "utf8");
+  // Remove /en/ canonical redirect entry
+  sitemap = sitemap.replace(/<url><loc>https:\/\/pacs008\.com\/en\/<\/loc>.*?<\/url>/, "");
+  // Pretty-print: add line breaks and indentation for valid XML rendering
+  sitemap = sitemap
+    .replace(/(<urlset)/g, "\n$1")
+    .replace(/(<\/urlset>)/g, "\n$1\n")
+    .replace(/<url>/g, "\n  <url>")
+    .replace(/<\/url>/g, "\n  </url>")
+    .replace(/<loc>/g, "\n    <loc>")
+    .replace(/<lastmod>/g, "\n    <lastmod>")
+    .replace(/<xhtml:link /g, "\n    <xhtml:link ");
+  await fs.writeFile(sitemapPath, sitemap, "utf8");
+  console.log("Sitemap formatted.");
 
   const htmlFiles = await walkHtml(distDir);
   await Promise.all(
