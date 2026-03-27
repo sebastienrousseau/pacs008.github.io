@@ -8,7 +8,7 @@ image: /logo.webp
 
 # Редакционная политика
 
-This page explains how content on pacs008.com is created, reviewed, and kept current.
+How content on pacs008.com is created, reviewed, and kept current.
 
 ## Sources
 

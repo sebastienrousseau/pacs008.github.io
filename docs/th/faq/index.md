@@ -8,7 +8,7 @@ image: /logo.webp
 
 # คำถามที่พบบ่อยเกี่ยวกับ ISO 20022
 
-This page answers common questions about ISO 20022 pacs messages, how they work together, and how pacs008 helps teams implement them.
+Common questions about ISO 20022 pacs messages, how they work together, and how pacs008 helps teams implement them.
 
 ## ทั่วไป
 

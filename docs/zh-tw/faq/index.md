@@ -8,7 +8,7 @@ image: /logo.webp
 
 # ISO 20022 常見問題
 
-This page answers common questions about ISO 20022 pacs messages, how they work together, and how pacs008 helps teams implement them.
+Common questions about ISO 20022 pacs messages, how they work together, and how pacs008 helps teams implement them.
 
 ## General
 
@@ -30,11 +30,11 @@ Pain (payment initiation) messages travel between the customer and their bank. P
 
 ## Message selection
 
-### When should I use pacs.008?
+### When to use pacs.008
 
 Use pacs.008 for customer credit-transfer instructions between banks. It carries debtor and creditor party data, amounts, remittance information, and settlement details. It is the main message for sending customer payments across the interbank network, whether domestically (SEPA) or cross-border (CBPR+).
 
-### When should I use pacs.009 instead of pacs.008?
+### When to use pacs.009 instead of pacs.008
 
 Use pacs.009 for institution-own-account transfers, funding legs, and cover payments. Unlike pacs.008, which carries a customer payment on behalf of a debtor, pacs.009 moves funds between banks on their own behalf. In cover-method flows, pacs.009 carries the funding while pacs.008 carries the customer instruction on a separate path.
 
@@ -42,7 +42,7 @@ Use pacs.009 for institution-own-account transfers, funding legs, and cover paym
 
 pacs.004 returns settled funds from the receiving side back through the chain. pacs.007 reverses a payment from the original instructing side forward through the chain. Use pacs.004 when the beneficiary bank cannot apply the credit after settlement. Use pacs.007 when the originator discovers an error, duplicate, or fraud.
 
-### When should I use pacs.028 instead of waiting for pacs.002?
+### When to use pacs.028 instead of waiting for pacs.002
 
 Use pacs.028 when you need to actively request the status of a payment that has not received a timely pacs.002 update. pacs.002 is event-driven (the receiving agent sends it proactively), while pacs.028 is exception-driven (the instructing agent requests it). Use pacs.028 for delayed, unclear, or missing payment updates, not as routine traffic.
 

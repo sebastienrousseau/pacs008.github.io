@@ -12,14 +12,14 @@ howto:
   - name: "Step 2"
     text: "Map existing unstructured address fields to the structured format (street, building, post code, town, country)."
   - name: "Step 3"
-    text: "Add address validation to your pre-generation pipeline using pacs008."
+    text: "Add address validation to the pre-generation pipeline using pacs008."
   - name: "Step 4"
     text: "Test with representative payment data before the deadline."
 ---
 
 # Prazo de endereço estruturado novembro 2026
 
-SWIFT requires structured postal addresses in cross-border payment messages from November 2026. This page explains what changes, which messages are affected, and how pacs008 helps teams prepare.
+SWIFT requires structured postal addresses in cross-border payment messages from November 2026. What changes, which messages are affected, and how pacs008 helps teams prepare.
 
 ## What is changing
 
@@ -56,7 +56,7 @@ SWIFT CBPR+ is moving from unstructured postal addresses to structured address f
 
 - Audit current address data quality across debtor, creditor, and agent records.
 - Map existing unstructured address fields to the structured format (street, building, post code, town, country).
-- Add address validation to your pre-generation pipeline using pacs008.
+- Add address validation to the pre-generation pipeline using pacs008.
 - Test with representative payment data before the deadline.
 
 ## References

@@ -22,7 +22,7 @@ Use one path for local checks, one for service runs, and one for embedded code.
 
 ## Installation
 
-Install the package from PyPI. You need Python 3.9.2 or later.
+Install the package from PyPI. Requires Python 3.9.2 or later.
 
 ```bash
 python -m pip install pacs008
@@ -95,7 +95,7 @@ See [Message Types](/message-types/) for the full list of supported message page
 
 ### Validation example
 
-Validate payment data before you generate XML.
+Validate payment data before generating XML.
 
 ```bash
 curl -X POST http://localhost:8000/api/validate \

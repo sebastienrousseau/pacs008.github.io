@@ -62,19 +62,19 @@ pacs008 applies defence in depth across every layer of the processing pipeline:
 
 pacs008 is built around the operational deadlines and data-quality requirements relevant to 2026:
 
-- structured and hybrid postal-address handling for CBPR+ and scheme migrations.
-- stronger validation of debtor, creditor, and agent data quality.
-- version-aware generation across older and current pacs.008 revisions.
-- automation paths that fit CI, batch operations, and internal payment services.
+- Structured and hybrid postal-address handling for CBPR+ and scheme migrations.
+- Stronger validation of debtor, creditor, and agent data quality.
+- Version-aware generation across older and current pacs.008 revisions.
+- Automation paths that fit CI, batch operations, and internal payment services.
 
 ## Operational focus
 
 pacs008 goes beyond message-definition reference to support operational implementation:
 
-- generate XML from real source data.
-- validate before delivery.
-- model payment chains and downstream formats.
-- make scheme-specific changes testable in code.
+- Generate XML from real source data.
+- Validate before delivery.
+- Model payment chains and downstream formats.
+- Make scheme-specific changes testable in code.
 
 ## Implementation checklist
 

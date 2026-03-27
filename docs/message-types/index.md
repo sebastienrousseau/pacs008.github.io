@@ -98,7 +98,7 @@ Start with the business event, not the message code.
 
 Use the [message selection guide](/message-selection/) for a one-page view across the supported pacs flows.
 
-Keep the payment owner, settlement stage, and exception path clear before you pick a message.
+Keep the payment owner, settlement stage, and exception path clear before pick a message.
 
 ## 2026 market context
 

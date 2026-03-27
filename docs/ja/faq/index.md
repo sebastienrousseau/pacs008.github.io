@@ -8,143 +8,143 @@ image: /logo.webp
 
 # ISO 20022 に関するよくある質問
 
-This page answers common questions about ISO 20022 pacs messages, how they work together, and how pacs008 helps teams implement them.
+Common questions about ISO 20022 pacs messages, how they work together, and how pacs008 helps teams implement them.
 
-## General
+## 概要
 
-### What is ISO 20022?
+### ISO 20022 とは何ですか？
 
-ISO 20022 is an international standard for financial messaging. It defines a common language and model for payment messages exchanged between financial institutions. Unlike older formats such as SWIFT MT, ISO 20022 uses XML and supports richer, more structured data for parties, amounts, and references.
+ISO 20022 は金融メッセージングの国際標準です。金融機関間で交換される決済メッセージの共通言語とモデルを定義しています。SWIFT MT のような旧来のフォーマットとは異なり、ISO 20022 は XML を使用し、当事者、金額、参照情報についてより豊富で構造化されたデータをサポートします。
 
-### What are pacs messages?
+### pacs メッセージとは何ですか？
 
-The pacs (payments clearing and settlement) message family covers interbank payment instructions, status reports, returns, reversals, and enquiries. It includes pacs.002, pacs.003, pacs.004, pacs.007, pacs.008, pacs.009, pacs.010, and pacs.028. Each message serves a specific role in the payment lifecycle.
+pacs（payments clearing and settlement）メッセージファミリーは、銀行間決済指図、ステータス報告、返金、取消、照会をカバーします。pacs.002、pacs.003、pacs.004、pacs.007、pacs.008、pacs.009、pacs.010、pacs.028 が含まれます。各メッセージは決済ライフサイクルにおいて特定の役割を担います。
 
-### How do pacs messages differ from SWIFT MT messages?
+### pacs メッセージと SWIFT MT メッセージの違いは何ですか？
 
-SWIFT MT messages use a flat, field-tag format (e.g. MT103 for customer credit transfers). Pacs messages use hierarchical XML with richer data structures. Key differences include support for multiple transactions per message, structured party identification (LEI, multiple IDs), structured postal addresses, and structured remittance information. MT103 maps to pacs.008, MT202 maps to pacs.009, and MT199 status text is replaced by pacs.002.
+SWIFT MT メッセージはフラットなフィールドタグ形式を使用します（例：顧客クレジットトランスファー向けの MT103）。pacs メッセージは階層的な XML を使用し、より豊富なデータ構造を持ちます。主な違いには、1メッセージあたり複数トランザクションのサポート、構造化された当事者識別（LEI、複数 ID）、構造化された住所、構造化された送金情報が含まれます。MT103 は pacs.008 に、MT202 は pacs.009 に対応し、MT199 のステータステキストは pacs.002 に置き換わります。
 
-### What is the relationship between pain and pacs messages?
+### pain メッセージと pacs メッセージの関係は何ですか？
 
-Pain (payment initiation) messages travel between the customer and their bank. Pacs messages travel between banks. A pain.001 customer credit-transfer initiation from the debtor's bank becomes a pacs.008 interbank instruction. The two domains share common data elements but serve different parts of the payment chain.
+pain（payment initiation）メッセージは顧客とその銀行の間を移動します。pacs メッセージは銀行間を移動します。債務者銀行からの pain.001 顧客クレジットトランスファー開始指図は、pacs.008 銀行間指図となります。両ドメインは共通のデータ要素を共有しますが、決済チェーンの異なる部分を担います。
 
-## Message selection
+## メッセージの選択
 
-### When should I use pacs.008?
+### pacs.008 はいつ使用すべきですか？
 
-Use pacs.008 for customer credit-transfer instructions between banks. It carries debtor and creditor party data, amounts, remittance information, and settlement details. It is the main message for sending customer payments across the interbank network, whether domestically (SEPA) or cross-border (CBPR+).
+pacs.008 は銀行間の顧客クレジットトランスファー指図に使用します。債務者・債権者の当事者データ、金額、送金情報、決済詳細を含みます。国内（SEPA）でもクロスボーダー（CBPR+）でも、銀行間ネットワークを通じて顧客決済を送信する際の主要メッセージです。
 
-### When should I use pacs.009 instead of pacs.008?
+### pacs.008 ではなく pacs.009 を使用すべきなのはいつですか？
 
-Use pacs.009 for institution-own-account transfers, funding legs, and cover payments. Unlike pacs.008, which carries a customer payment on behalf of a debtor, pacs.009 moves funds between banks on their own behalf. In cover-method flows, pacs.009 carries the funding while pacs.008 carries the customer instruction on a separate path.
+pacs.009 は金融機関自身の勘定間の資金移動、ファンディングレッグ、カバー決済に使用します。債務者に代わって顧客決済を行う pacs.008 とは異なり、pacs.009 は銀行間で自行のために資金を移動します。カバー方式のフローでは、pacs.009 がファンディングを行い、pacs.008 が別経路で顧客指図を運びます。
 
-### What is the difference between pacs.004 and pacs.007?
+### pacs.004 と pacs.007 の違いは何ですか？
 
-pacs.004 returns settled funds from the receiving side back through the chain. pacs.007 reverses a payment from the original instructing side forward through the chain. Use pacs.004 when the beneficiary bank cannot apply the credit after settlement. Use pacs.007 when the originator discovers an error, duplicate, or fraud.
+pacs.004 は受領側から決済済み資金をチェーンに沿って戻します。pacs.007 は元の指図側から順方向にチェーンを通じて決済を取り消します。受取人銀行が決済後に入金できない場合は pacs.004 を使用します。発信者がエラー、重複、不正を発見した場合は pacs.007 を使用します。
 
-### When should I use pacs.028 instead of waiting for pacs.002?
+### pacs.002 を待つ代わりに pacs.028 を使用すべきなのはいつですか？
 
-Use pacs.028 when you need to actively request the status of a payment that has not received a timely pacs.002 update. pacs.002 is event-driven (the receiving agent sends it proactively), while pacs.028 is exception-driven (the instructing agent requests it). Use pacs.028 for delayed, unclear, or missing payment updates, not as routine traffic.
+pacs.028 は、タイムリーな pacs.002 の更新を受け取っていない決済のステータスを積極的にリクエストする必要がある場合に使用します。pacs.002 はイベント駆動型（受領エージェントが自発的に送信）であるのに対し、pacs.028 は例外駆動型（指図エージェントがリクエスト）です。遅延、不明確、欠落している決済更新に対して pacs.028 を使用し、日常的なトラフィックとしては使用しません。
 
-### What is pacs.003 used for?
+### pacs.003 は何に使用されますか？
 
-pacs.003 carries customer direct-debit instructions between banks. The creditor agent sends it to the debtor agent to collect funds. It requires a valid mandate reference and supports SEPA Core and B2B direct-debit schemes. It is not used for credit transfers or institution-own-account debits.
+pacs.003 は銀行間の顧客ダイレクトデビット指図を運びます。債権者エージェントが債務者エージェントに送信して資金を回収します。有効な委任状参照が必要であり、SEPA Core および B2B ダイレクトデビットスキームをサポートします。クレジットトランスファーや金融機関間の自行勘定デビットには使用されません。
 
-### What is pacs.010 used for?
+### pacs.010 は何に使用されますか？
 
-pacs.010 handles direct debits between financial institutions on their own accounts. It is used for bank-to-bank collections such as fees, margin calls, and similar obligations under bilateral agreements. It is not used for customer direct debits or credit transfers.
+pacs.010 は金融機関間の自行勘定でのダイレクトデビットを処理します。手数料、マージンコール、二者間契約に基づく類似の義務などの銀行間回収に使用されます。顧客ダイレクトデビットやクレジットトランスファーには使用されません。
 
-## Message structure
+## メッセージ構造
 
-### What is the Group Header (GrpHdr)?
+### Group Header（GrpHdr）とは何ですか？
 
-The Group Header appears exactly once per pacs message. It contains the message identifier (MsgId), creation timestamp (CreDtTm), number of transactions (NbOfTxs), settlement information (SttlmInf), and optionally the total interbank settlement amount and payment type information. It identifies the message envelope, not the individual business transactions.
+Group Header は pacs メッセージごとに 1 回だけ出現します。メッセージ識別子（MsgId）、作成タイムスタンプ（CreDtTm）、トランザクション数（NbOfTxs）、決済情報（SttlmInf）、およびオプションで銀行間決済合計金額と支払種類情報を含みます。個々のビジネストランザクションではなく、メッセージエンベロープを識別します。
 
-### What are the payment identifiers in pacs.008?
+### pacs.008 の支払識別子は何ですか？
 
-pacs.008 uses four main identifiers. MsgId identifies the message envelope and changes at each hop. InstrId is a point-to-point reference between adjacent agents and may change per hop. EndToEndId is set by the originator and must not be altered by any agent in the chain. TxId is assigned by the first instructing agent and remains constant in the interbank space. UETR is a UUID that stays unchanged across all legs for end-to-end tracking.
+pacs.008 は 4 つの主要な識別子を使用します。MsgId はメッセージエンベロープを識別し、各ホップで変更されます。InstrId は隣接するエージェント間のポイントツーポイント参照で、ホップごとに変更される場合があります。EndToEndId は発信者が設定し、チェーン内のどのエージェントも変更してはなりません。TxId は最初の指図エージェントが割り当て、銀行間空間で不変です。UETR はエンドツーエンド追跡のためにすべてのレッグを通じて不変の UUID です。
 
-### What settlement methods are available?
+### どのような決済方法がありますか？
 
-Four settlement methods are defined. CLRG settles through a clearing system such as TARGET2, EURO1, or CHIPS. INDA settles on the books of the instructed agent where the debtor agent holds an account. INGA settles on the books of the instructing agent where the instructed agent holds an account. COVE settles through a separate cover payment carried by pacs.009.
+4 つの決済方法が定義されています。CLRG は TARGET2、EURO1、CHIPS などの清算システムを通じて決済します。INDA は債務者エージェントが口座を保有する被指図エージェントの帳簿上で決済します。INGA は被指図エージェントが口座を保有する指図エージェントの帳簿上で決済します。COVE は pacs.009 が運ぶ別個のカバー決済を通じて決済します。
 
-### What do the charge bearer codes mean?
+### 手数料負担者コードの意味は何ですか？
 
-DEBT means all charges are borne by the debtor (equivalent to MT103 OUR). CRED means all charges are borne by the creditor (equivalent to BEN). SHAR means charges are shared between debtor and creditor agents (equivalent to SHA). SLEV means charges follow the service level rules and is mandatory for SEPA credit transfers.
+DEBT はすべての手数料を債務者が負担することを意味します（MT103 OUR に相当）。CRED はすべての手数料を債権者が負担することを意味します（BEN に相当）。SHAR は債務者エージェントと債権者エージェント間で手数料を分担することを意味します（SHA に相当）。SLEV はサービスレベルルールに従う手数料を意味し、SEPA クレジットトランスファーでは必須です。
 
-## CBPR+ and migration
+## CBPR+ と移行
 
-### What is CBPR+?
+### CBPR+ とは何ですか？
 
-CBPR+ (Cross-Border Payments and Reporting Plus) is SWIFT's programme for adopting ISO 20022 in cross-border payment messaging. It went live in March 2023 and replaces MT messages with pacs equivalents. CBPR+ mandates pacs.002 for all status communication, supports richer party data and structured addresses, and uses UETR-based tracking through gpi.
+CBPR+（Cross-Border Payments and Reporting Plus）はクロスボーダー決済メッセージングにおける ISO 20022 の採用を推進する SWIFT のプログラムです。2023 年 3 月に稼働を開始し、MT メッセージを pacs の同等メッセージに置き換えます。CBPR+ はすべてのステータス通信に pacs.002 を義務付け、より豊富な当事者データと構造化住所をサポートし、gpi を通じた UETR ベースの追跡を使用します。
 
-### What happened to the MT/MX coexistence period?
+### MT/MX 共存期間はどうなりましたか？
 
-The coexistence period for cross-border payment instructions ended in November 2025. Since then, CBPR+ messages must use the ISO 20022 (MX) format. Translation services that converted between MT and MX during the transition are no longer available for new flows. Banks must now send and receive native pacs messages.
+クロスボーダー決済指図の共存期間は 2025 年 11 月に終了しました。それ以降、CBPR+ メッセージは ISO 20022（MX）形式を使用する必要があります。移行期間中に MT と MX の間で変換していた翻訳サービスは、新しいフローでは利用できなくなりました。銀行はネイティブの pacs メッセージを送受信する必要があります。
 
-### What is the November 2026 structured-address deadline?
+### 2026 年 11 月の構造化住所の期限とは何ですか？
 
-From November 2026, SWIFT CBPR+ requires structured postal addresses in cross-border payment messages. Unstructured address lines (AdrLine alone) will no longer be accepted for key party fields. At minimum, TwnNm and Ctry are required, with StrtNm and BldgNb or PstBx recommended. This improves sanctions screening and reduces manual repair.
+2026 年 11 月以降、SWIFT CBPR+ はクロスボーダー決済メッセージにおいて構造化された住所を要求します。非構造化住所行（AdrLine のみ）は、主要な当事者フィールドでは受け付けられなくなります。最低限 TwnNm と Ctry が必要で、StrtNm と BldgNb または PstBx が推奨されます。これにより制裁スクリーニングが改善され、手動修正が削減されます。
 
-### How does pacs.008 replace MT103?
+### pacs.008 は MT103 をどのように置き換えますか？
 
-pacs.008 replaces MT103 and MT103+ for customer credit transfers. Key mapping: MT103 field 20 maps to MsgId or InstrId; field 32A splits into IntrBkSttlmDt and IntrBkSttlmAmt; field 50a maps to Dbtr and DbtrAcct; field 59a maps to Cdtr and CdtrAcct; field 70 maps to RmtInf; field 71A maps to ChrgBr. pacs.008 adds UETR, structured remittance, LEI identification, and supports multiple transactions per message.
+pacs.008 は顧客クレジットトランスファー向けの MT103 および MT103+ を置き換えます。主な対応関係：MT103 フィールド 20 は MsgId または InstrId に対応、フィールド 32A は IntrBkSttlmDt と IntrBkSttlmAmt に分割、フィールド 50a は Dbtr と DbtrAcct に対応、フィールド 59a は Cdtr と CdtrAcct に対応、フィールド 70 は RmtInf に対応、フィールド 71A は ChrgBr に対応。pacs.008 は UETR、構造化送金情報、LEI 識別、1メッセージ当たり複数トランザクションのサポートを追加します。
 
-### How does pacs.009 replace MT202?
+### pacs.009 は MT202 をどのように置き換えますか？
 
-pacs.009 replaces MT202 and MT202COV for institution-to-institution transfers. In cover-method flows, the MT202COV (which carried both funding and underlying customer data) splits cleanly: pacs.009 carries the funding leg while pacs.008 carries the customer instruction directly. This separation improves data quality and reduces reconciliation issues.
+pacs.009 は金融機関間送金向けの MT202 および MT202COV を置き換えます。カバー方式のフローでは、MT202COV（ファンディングと基本的な顧客データの両方を運んでいた）がきれいに分離されます：pacs.009 がファンディングレッグを運び、pacs.008 が顧客指図を直接運びます。この分離によりデータ品質が向上し、照合の問題が軽減されます。
 
-## Technical details
+## 技術的詳細
 
-### What are structured vs unstructured addresses?
+### 構造化住所と非構造化住所とは何ですか？
 
-Structured addresses use separate XML elements for each component: StrtNm (street), BldgNb (building number), PstCd (post code), TwnNm (town), Ctry (country), and optional elements like Flr, Room, and DstrctNm. Unstructured addresses use up to seven AdrLine elements with free text. Hybrid addresses combine both during the transition period. After November 2026, CBPR+ requires the structured format.
+構造化住所は各構成要素に個別の XML 要素を使用します：StrtNm（通り）、BldgNb（建物番号）、PstCd（郵便番号）、TwnNm（市区町村）、Ctry（国）、および Flr、Room、DstrctNm などのオプション要素。非構造化住所は最大 7 つの AdrLine 要素にフリーテキストを使用します。ハイブリッド住所は移行期間中に両方を組み合わせます。2026 年 11 月以降、CBPR+ は構造化形式を要求します。
 
-### What is UETR and how does gpi tracking work?
+### UETR とは何ですか？gpi 追跡はどのように機能しますか？
 
-UETR (Unique End-to-End Transaction Reference) is a UUID v4 identifier generated by the debtor agent and carried unchanged across all legs of a payment. It appears in pacs.008, pacs.009, pacs.002, pacs.004, pacs.007, and pacs.028. SWIFT gpi uses the UETR to track payments through a cloud-based Tracker database. Each agent confirms receipt and processing, enabling end-to-end visibility and SLA monitoring.
+UETR（Unique End-to-End Transaction Reference）は債務者エージェントが生成する UUID v4 識別子で、決済のすべてのレッグを通じて変更されずに運ばれます。pacs.008、pacs.009、pacs.002、pacs.004、pacs.007、pacs.028 に出現します。SWIFT gpi は UETR を使用してクラウドベースの Tracker データベースを通じて決済を追跡します。各エージェントが受領と処理を確認し、エンドツーエンドの可視性と SLA モニタリングを実現します。
 
-### What are common pacs.002 status codes?
+### 一般的な pacs.002 ステータスコードは何ですか？
 
-ACCP means accepted after customer-profile checks. ACSP means accepted and settlement is in progress. ACSC means settlement on the debtor account is complete. RJCT means rejected (with a reason code in StsRsnInf). PDNG means pending further processing. RCVD means received but not yet processed. Each status may include a structured reason code such as AC01 (incorrect account), AM04 (insufficient funds), or RC01 (incorrect BIC).
+ACCP は顧客プロファイルチェック後に受理されたことを意味します。ACSP は受理され決済が進行中であることを意味します。ACSC は債務者口座での決済が完了したことを意味します。RJCT は拒否されたことを意味します（StsRsnInf に理由コードが含まれます）。PDNG はさらなる処理が保留中であることを意味します。RCVD は受領したが未処理であることを意味します。各ステータスには AC01（口座番号不正）、AM04（残高不足）、RC01（BIC 不正）などの構造化された理由コードが含まれる場合があります。
 
-### What are common return reason codes in pacs.004?
+### pacs.004 の一般的な返金理由コードは何ですか？
 
-Frequent return reason codes include AC01 (incorrect account number), AC04 (closed account), AC06 (blocked account), AM04 (insufficient funds), BE04 (missing creditor address), CUST (requested by customer), DUPL (duplicate payment), FOCR (following cancellation request), and FR01 (fraud). The full list is defined in the ISO 20022 External Code Sets.
+よく使用される返金理由コードには、AC01（口座番号不正）、AC04（解約済み口座）、AC06（凍結口座）、AM04（残高不足）、BE04（債権者住所欠落）、CUST（顧客による要求）、DUPL（重複支払い）、FOCR（取消要求に基づく）、FR01（不正）が含まれます。完全なリストは ISO 20022 External Code Sets で定義されています。
 
-### What is structured remittance information?
+### 構造化送金情報とは何ですか？
 
-Structured remittance in pacs.008 uses the RmtInf/Strd element to carry document references (invoice numbers, credit notes), amounts (due, remitted, tax, discount), and creditor references (ISO 11649 RF references). This enables automated invoice matching and reconciliation. Common document type codes include CINV (commercial invoice), CREN (credit note), and SOAC (statement of account).
+pacs.008 の構造化送金情報は RmtInf/Strd 要素を使用して、文書参照（請求書番号、クレジットノート）、金額（支払期日、送金済み、税金、割引）、および債権者参照（ISO 11649 RF 参照）を運びます。これにより自動請求書照合と照合が可能になります。一般的な文書タイプコードには CINV（商業請求書）、CREN（クレジットノート）、SOAC（口座明細書）が含まれます。
 
-### What is LEI and when is it used?
+### LEI とは何ですか？いつ使用されますか？
 
-LEI (Legal Entity Identifier) is a 20-character alphanumeric code per ISO 17442. It uniquely identifies legal entities participating in financial transactions. In pacs messages, LEI appears in OrgId/LEI for parties and FinInstnId/LEI for agents. CBPR+ increasingly encourages LEI for party and agent identification. It improves entity disambiguation and supports regulatory reporting requirements.
+LEI（Legal Entity Identifier）は ISO 17442 に基づく 20 文字の英数字コードです。金融取引に参加する法人を一意に識別します。pacs メッセージでは、LEI は当事者の OrgId/LEI およびエージェントの FinInstnId/LEI に出現します。CBPR+ は当事者とエージェントの識別に LEI の使用をますます推奨しています。LEI はエンティティの明確化を改善し、規制報告要件をサポートします。
 
-## About pacs008 toolkit
+## pacs008 ツールキットについて
 
-### What does pacs008 do?
+### pacs008 は何をしますか？
 
-pacs008 is a Python toolkit that generates, validates, and ships ISO 20022 payment messages. It reads payment data from CSV, JSON, JSONL, SQLite, and Parquet sources, validates against JSON Schema and XSD, checks IBAN and BIC identifiers, cleans data for SWIFT character compliance, and outputs XML files. It provides a REST API, CLI, and Python library.
+pacs008 は ISO 20022 決済メッセージを生成、検証、配信する Python ツールキットです。CSV、JSON、JSONL、SQLite、Parquet ソースから決済データを読み取り、JSON Schema と XSD に対して検証し、IBAN と BIC 識別子をチェックし、SWIFT 文字コンプライアンスのためにデータをクリーンアップし、XML ファイルを出力します。REST API、CLI、Python ライブラリを提供します。
 
-### Which message types does pacs008 support?
+### pacs008 はどのメッセージタイプをサポートしていますか？
 
-pacs008 supports eight message types: pacs.002.001.12 (status report), pacs.003.001.09 (customer direct debit), pacs.004.001.11 (payment return), pacs.007.001.11 (payment reversal), pacs.008.001.13 (customer credit transfer), pacs.009.001.10 (financial institution credit transfer), pacs.010.001.05 (financial institution direct debit), and pacs.028.001.05 (payment status request).
+pacs008 は 8 つのメッセージタイプをサポートしています：pacs.002.001.12（ステータスレポート）、pacs.003.001.09（顧客ダイレクトデビット）、pacs.004.001.11（支払返金）、pacs.007.001.11（支払取消）、pacs.008.001.13（顧客クレジットトランスファー）、pacs.009.001.10（金融機関クレジットトランスファー）、pacs.010.001.05（金融機関ダイレクトデビット）、pacs.028.001.05（支払ステータスリクエスト）。
 
-### How does pacs008 help with the 2026 structured-address deadline?
+### pacs008 は 2026 年の構造化住所期限にどのように役立ちますか？
 
-pacs008 validates structured and hybrid postal address fields before XML generation. It flags unstructured address data that would fail after the November 2026 deadline, supports both pre-deadline hybrid and post-deadline structured-only formats, and integrates address quality checks into CI pipelines and batch validation workflows.
+pacs008 は XML 生成前に構造化およびハイブリッドの住所フィールドを検証します。2026 年 11 月の期限後に失敗する非構造化住所データにフラグを立て、期限前のハイブリッド形式と期限後の構造化専用形式の両方をサポートし、住所品質チェックを CI パイプラインとバッチ検証ワークフローに統合します。
 
-### Can pacs008 validate data without generating XML?
+### pacs008 は XML を生成せずにデータを検証できますか？
 
-Yes. Use the `--dry-run` CLI flag or the `POST /validate` API endpoint to validate payment data without generating XML. The validation pipeline checks JSON Schema conformance, IBAN format and checksum, BIC structure, and SWIFT character compliance. The exit code or API response indicates whether validation passed or failed.
+はい。CLI フラグ `--dry-run` または API エンドポイント `POST /validate` を使用して、XML を生成せずに決済データを検証できます。検証パイプラインは JSON Schema 準拠、IBAN 形式とチェックサム、BIC 構造、SWIFT 文字コンプライアンスをチェックします。終了コードまたは API レスポンスにより、検証が成功したか失敗したかが示されます。
 
-## References
+## 参考文献
 
-- [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions)
-- [ISO 20022 external code sets](https://www.iso20022.org/external_code_list.page)
-- [SWIFT CBPR+ ISO 20022 usage guidelines](https://www.swift.com/standards/iso-20022)
-- [SWIFT CBPR+ migration roadmap](https://www.swift.com/swift-resource/252463/download)
-- [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and)
-- [EPC SEPA Instant Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook)
+- [ISO 20022 メッセージ定義カタログ](https://www.iso20022.org/iso-20022-message-definitions)
+- [ISO 20022 外部コードセット](https://www.iso20022.org/external_code_list.page)
+- [SWIFT CBPR+ ISO 20022 利用ガイドライン](https://www.swift.com/standards/iso-20022)
+- [SWIFT CBPR+ 移行ロードマップ](https://www.swift.com/swift-resource/252463/download)
+- [EPC SEPA クレジットトランスファー規則集](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and)
+- [EPC SEPA インスタントクレジットトランスファー規則集](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook)
 - [SWIFT gpi](https://www.swift.com/our-solutions/swift-gpi)
 

@@ -30,6 +30,6 @@ features:
     details: "JSON Schema validation against 20 message-specific schemas; IBAN format and checksum verification covering 75 countries; XSD validation of generated XML against official ISO 20022 schemas"
   - title: "Security"
     details: "XXE prevention via defusedxml for all XML parsing operations; Path traversal protection with strict directory allowlist; PII masking in structured JSON logs for GDPR and PCI DSS compliance"
-  - title: "2026 Readiness"
+  - title: "2026 readiness"
     details: "Structured and hybrid postal address handling for CBPR+ and schema migrations; Stronger debtor, creditor, and agent data-quality validation; Version-aware generation across legacy and current pacs.008 revisions"
 ---

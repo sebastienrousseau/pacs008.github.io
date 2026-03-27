@@ -8,7 +8,7 @@ image: /logo.webp
 
 # Terms
 
-By using pacs008.com, you agree to these terms of use.
+Use of pacs008.com constitutes acceptance of these terms.
 
 ## Intellectual property
 

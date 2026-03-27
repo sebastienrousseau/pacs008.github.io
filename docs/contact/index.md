@@ -18,13 +18,13 @@ For implementation work, start with the repository when you need examples, templ
 - Releases: <https://github.com/sebastienrousseau/pacs008/releases>
 - Package: <https://pypi.org/project/pacs008/>
 
-## Before you get in touch
+## Before reaching out
 
 Many questions are already answered in existing project resources. The [FAQ page](/faq/) covers common questions about ISO 20022 pacs messages, CBPR+ migration timelines, and toolkit usage. The [API documentation](/api/) explains installation, endpoints, CLI options, and Python library methods. The [glossary](/glossary/) defines over 60 ISO 20022 and payment messaging terms.
 
-If you are reporting a bug, include the message type, version, and a short example of the failing input. Attach the input file or a minimal reproduction case. Specify the Python version and operating system. The more context a report includes, the faster the resolution.
+Bug reports benefit from including the message type, version, and a short example of the failing input. Attach the input file or a minimal reproduction case. Specify the Python version and operating system. The more context a report includes, the faster the resolution.
 
-If you are planning a rollout, review recent releases first so you can match your implementation work to a known package version. If you need install or dependency details, PyPI is the fastest place to confirm the current package record.
+Before a rollout, review recent releases first to match implementation work to a known package version. If you need install or dependency details, PyPI is the fastest place to confirm the current package record.
 
 ## Security issues
 

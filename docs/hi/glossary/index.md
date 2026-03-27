@@ -8,7 +8,7 @@ image: /logo.webp
 
 # ISO 20022 शब्दावली
 
-This glossary defines the key terms, abbreviations, and technical concepts used across ISO 20022 pacs messages and this site.
+Key terms, abbreviations, and technical concepts used across ISO 20022 pacs messages and this site.
 
 ## A
 

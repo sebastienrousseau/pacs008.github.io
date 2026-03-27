@@ -8,9 +8,9 @@ image: /logo.webp
 
 # Privacy
 
-This page explains what data pacs008.com handles when you visit the site.
+How pacs008.com handles data during site visits.
 
-## Information we collect
+## Information collected
 
 pacs008.com does not collect personal data. The site does not use cookies or tracking tools to identify visitors.
 
@@ -38,9 +38,9 @@ No personal data is collected, so no personal data is retained. Server logs mana
 
 The entire source code for pacs008.com is publicly available on [GitHub](https://github.com/pacs008/pacs008.github.io). Every page, script, and configuration file can be inspected. The build process, content generation logic, and deployment pipeline are fully visible. This transparency makes it possible to verify exactly what the site does and does not do with visitor data.
 
-## Your rights
+## Data rights
 
-Depending on your jurisdiction, you may have rights over personal data, such as access, correction, or deletion. Because pacs008.com does not collect personal data, those rights are unlikely to apply here.
+Depending on the applicable jurisdiction, data rights over personal data, such as access, correction, or deletion, may apply. Because pacs008.com does not collect personal data, those rights are unlikely to apply here.
 
 ## Changes to this statement
 
