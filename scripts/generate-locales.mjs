@@ -3965,18 +3965,18 @@ const pageCopy = {
     apiFieldExpiry: "メッセージ有効期限タイムスタンプ",
     apiFieldExpiryC: "v13 で利用可能",
     editorialTitle: "編集方針",
-    editorialDescription: "How pacs008.com content is created, reviewed, and maintained. Sources, review process, and update schedule.",
-    editorialIntro: "This page explains how content on pacs008.com is created, reviewed, and kept current.",
-    editorialSourcesTitle: "Sources",
-    editorialSourcesIntro: "All message documentation is based on primary sources:",
-    editorialReviewTitle: "Review process",
-    editorialReviewText: "Each message page shows a review date. Reviews check that version numbers, registration status, and scheme context still match the primary sources listed above.\n\nContent is updated when ISO 20022 publishes new catalogue versions, when SWIFT releases updated usage guidelines, or when scheme rules change.",
-    editorialGenerationTitle: "Content generation",
-    editorialGenerationText: "Page structure and translated content are generated from reviewed English source material using a build script. This ensures structural consistency across all 22 languages while keeping technical terms and ISO identifiers in their standard form.",
-    editorialAccuracyTitle: "Accuracy and limits",
-    editorialAccuracyText: "pacs008.com aims to be accurate and current, but it is not a substitute for scheme rulebooks, counterparty agreements, or legal advice. Always confirm implementation details against the primary sources and the specific rules of the market or scheme you operate in.",
-    editorialContactTitle: "Contact",
-    editorialContactText: "If you find an error or have a correction, please open an issue in the [pacs008 repository](https://github.com/sebastienrousseau/pacs008/issues).",
+    editorialDescription: "pacs008.com のコンテンツがどのように作成、レビュー、維持されているか。ソース、レビュープロセス、更新スケジュール。",
+    editorialIntro: "このページでは、pacs008.com のコンテンツがどのように作成、レビューされ、最新の状態に保たれているかを説明します。",
+    editorialSourcesTitle: "情報源",
+    editorialSourcesIntro: "すべてのメッセージドキュメントは以下の一次情報源に基づいています：",
+    editorialReviewTitle: "レビュープロセス",
+    editorialReviewText: "各メッセージページにはレビュー日が表示されています。レビューでは、バージョン番号、登録状況、およびスキームのコンテキストが上記の一次情報源と一致しているかを確認します。\n\nISO 20022 が新しいカタログバージョンを公開した場合、SWIFT が更新された利用ガイドラインをリリースした場合、またはスキームルールが変更された場合にコンテンツが更新されます。",
+    editorialGenerationTitle: "コンテンツ生成",
+    editorialGenerationText: "ページ構造と翻訳コンテンツは、レビュー済みの英語ソース資料からビルドスクリプトを使用して生成されます。これにより、技術用語と ISO 識別子を標準形式のまま維持しながら、22言語すべてで構造的一貫性が確保されます。",
+    editorialAccuracyTitle: "正確性と限界",
+    editorialAccuracyText: "pacs008.com は正確で最新の情報を目指していますが、スキームルールブック、取引先契約、または法的助言の代替にはなりません。実装の詳細については、常に一次情報源および運用するマーケットやスキームの具体的なルールで確認してください。",
+    editorialContactTitle: "お問い合わせ",
+    editorialContactText: "誤りを発見された場合や訂正がある場合は、[pacs008 リポジトリ](https://github.com/sebastienrousseau/pacs008/issues)で issue を作成してください。",
     structuredAddressTitle: "2026年11月 構造化住所の期限",
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT requires structured postal addresses in cross-border payment messages from November 2026. This page explains what changes, which messages are affected, and how pacs008 helps teams prepare.",
@@ -4322,18 +4322,18 @@ const pageCopy = {
     apiFieldExpiry: "메시지 만료 타임스탬프",
     apiFieldExpiryC: "v13에서 사용 가능",
     editorialTitle: "편집 방침",
-    editorialDescription: "How pacs008.com content is created, reviewed, and maintained. Sources, review process, and update schedule.",
-    editorialIntro: "This page explains how content on pacs008.com is created, reviewed, and kept current.",
-    editorialSourcesTitle: "Sources",
-    editorialSourcesIntro: "All message documentation is based on primary sources:",
-    editorialReviewTitle: "Review process",
-    editorialReviewText: "Each message page shows a review date. Reviews check that version numbers, registration status, and scheme context still match the primary sources listed above.\n\nContent is updated when ISO 20022 publishes new catalogue versions, when SWIFT releases updated usage guidelines, or when scheme rules change.",
-    editorialGenerationTitle: "Content generation",
-    editorialGenerationText: "Page structure and translated content are generated from reviewed English source material using a build script. This ensures structural consistency across all 22 languages while keeping technical terms and ISO identifiers in their standard form.",
-    editorialAccuracyTitle: "Accuracy and limits",
-    editorialAccuracyText: "pacs008.com aims to be accurate and current, but it is not a substitute for scheme rulebooks, counterparty agreements, or legal advice. Always confirm implementation details against the primary sources and the specific rules of the market or scheme you operate in.",
-    editorialContactTitle: "Contact",
-    editorialContactText: "If you find an error or have a correction, please open an issue in the [pacs008 repository](https://github.com/sebastienrousseau/pacs008/issues).",
+    editorialDescription: "pacs008.com 콘텐츠의 작성, 검토 및 유지 관리 방법. 출처, 검토 프로세스 및 업데이트 일정.",
+    editorialIntro: "이 페이지는 pacs008.com의 콘텐츠가 어떻게 작성, 검토 및 최신 상태로 유지되는지 설명합니다.",
+    editorialSourcesTitle: "출처",
+    editorialSourcesIntro: "모든 메시지 문서는 주요 출처를 기반으로 합니다:",
+    editorialReviewTitle: "검토 프로세스",
+    editorialReviewText: "각 메시지 페이지에는 검토 날짜가 표시됩니다. 검토 시 버전 번호, 등록 상태 및 체계 맥락이 위에 나열된 주요 출처와 여전히 일치하는지 확인합니다.\n\nISO 20022가 새로운 카탈로그 버전을 게시하거나, SWIFT가 업데이트된 사용 지침을 발표하거나, 체계 규칙이 변경될 때 콘텐츠가 업데이트됩니다.",
+    editorialGenerationTitle: "콘텐츠 생성",
+    editorialGenerationText: "페이지 구조와 번역된 콘텐츠는 검토된 영어 원본 자료에서 빌드 스크립트를 사용하여 생성됩니다. 이를 통해 기술 용어와 ISO 식별자를 표준 형식으로 유지하면서 22개 언어 전체에서 구조적 일관성을 보장합니다.",
+    editorialAccuracyTitle: "정확성 및 한계",
+    editorialAccuracyText: "pacs008.com은 정확하고 최신의 정보를 제공하는 것을 목표로 하지만, 체계 규정집, 상대방 계약 또는 법률 자문을 대체할 수 없습니다. 구현 세부 사항은 항상 주요 출처 및 운영하는 시장 또는 체계의 특정 규칙에 대해 확인하시기 바랍니다.",
+    editorialContactTitle: "연락처",
+    editorialContactText: "오류를 발견하거나 수정 사항이 있으면 [pacs008 저장소](https://github.com/sebastienrousseau/pacs008/issues)에 이슈를 등록해 주세요.",
     structuredAddressTitle: "2026년 11월 구조화 주소 마감",
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT requires structured postal addresses in cross-border payment messages from November 2026. This page explains what changes, which messages are affected, and how pacs008 helps teams prepare.",
@@ -8249,18 +8249,18 @@ const pageCopy = {
     apiFieldExpiry: "訊息到期時間戳記",
     apiFieldExpiryC: "在 v13 中可用",
     editorialTitle: "編輯政策",
-    editorialDescription: "How pacs008.com content is created, reviewed, and maintained. Sources, review process, and update schedule.",
-    editorialIntro: "This page explains how content on pacs008.com is created, reviewed, and kept current.",
-    editorialSourcesTitle: "Sources",
-    editorialSourcesIntro: "All message documentation is based on primary sources:",
-    editorialReviewTitle: "Review process",
-    editorialReviewText: "Each message page shows a review date. Reviews check that version numbers, registration status, and scheme context still match the primary sources listed above.\n\nContent is updated when ISO 20022 publishes new catalogue versions, when SWIFT releases updated usage guidelines, or when scheme rules change.",
-    editorialGenerationTitle: "Content generation",
-    editorialGenerationText: "Page structure and translated content are generated from reviewed English source material using a build script. This ensures structural consistency across all 22 languages while keeping technical terms and ISO identifiers in their standard form.",
-    editorialAccuracyTitle: "Accuracy and limits",
-    editorialAccuracyText: "pacs008.com aims to be accurate and current, but it is not a substitute for scheme rulebooks, counterparty agreements, or legal advice. Always confirm implementation details against the primary sources and the specific rules of the market or scheme you operate in.",
-    editorialContactTitle: "Contact",
-    editorialContactText: "If you find an error or have a correction, please open an issue in the [pacs008 repository](https://github.com/sebastienrousseau/pacs008/issues).",
+    editorialDescription: "pacs008.com 內容的建立、審查與維護方式。來源、審查流程與更新時程。",
+    editorialIntro: "本頁說明 pacs008.com 上的內容是如何建立、審查及保持最新的。",
+    editorialSourcesTitle: "來源",
+    editorialSourcesIntro: "所有訊息文件均以主要來源為依據：",
+    editorialReviewTitle: "審查流程",
+    editorialReviewText: "每個訊息頁面都會顯示審查日期。審查會確認版本號碼、註冊狀態及方案背景是否仍與上述主要來源一致。\n\n當 ISO 20022 發布新版目錄、SWIFT 發布更新的使用指引或方案規則變更時，內容即會更新。",
+    editorialGenerationTitle: "內容產生",
+    editorialGenerationText: "頁面結構和翻譯內容是透過建置腳本從已審查的英文原始資料產生的。這確保了所有 22 種語言在結構上的一致性，同時保持技術術語和 ISO 識別碼的標準形式。",
+    editorialAccuracyTitle: "準確性與限制",
+    editorialAccuracyText: "pacs008.com 致力於提供準確且最新的資訊，但不能取代方案規則手冊、交易對手協議或法律建議。請務必根據主要來源以及您所營運的市場或方案的特定規則確認實施細節。",
+    editorialContactTitle: "聯絡方式",
+    editorialContactText: "如果您發現錯誤或需要更正，請在 [pacs008 儲存庫](https://github.com/sebastienrousseau/pacs008/issues)中提交問題。",
     structuredAddressTitle: "2026年11月結構化地址截止日期",
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT requires structured postal addresses in cross-border payment messages from November 2026. This page explains what changes, which messages are affected, and how pacs008 helps teams prepare.",
@@ -13664,6 +13664,190 @@ ${t.privacyChangesText}
 ${t.privacyContactText}
 `;
   }
+  if (localeKey === "ja") {
+    return `# ${t.privacyTitle}
+
+${t.privacyIntro}
+
+## ${t.privacyCollectionTitle}
+
+${t.privacyCollectionText}
+
+## ${t.privacyAnalyticsTitle}
+
+${t.privacyAnalyticsText}
+
+## ホスティングとインフラストラクチャ
+
+pacs008.com は GitHub Pages でホスティングされ、CDN を通じて配信されています。GitHub は通常のインフラストラクチャ運用の一環として、IP アドレス、ブラウザの種類、参照元ページなどの標準的なサーバーログを収集する場合があります。これらのログは GitHub 自身の[プライバシーステートメント](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement)に基づいて管理されています。pacs008.com はこれらのサーバーログを管理またはアクセスしません。
+
+## セキュリティ対策
+
+すべてのページは HTTPS で配信されています。本プロジェクトが管理するサーバーにユーザーデータは保存されません。認証やログインは不要です。フォーム送信は収集されません。本サイトは完全に静的な読み取り専用サイトです。
+
+## Cookie ポリシー
+
+pacs008.com は Cookie を設定しません。ファーストパーティ Cookie、セッション Cookie、トラッキング Cookie は使用されていません。サードパーティのアナリティクスサービスが Cookie を設定する場合、その Cookie は当該サービス自身の Cookie ポリシーの下で運用され、pacs008.com によって管理されるものではありません。
+
+## データ保持
+
+個人データは収集されないため、個人データの保持もありません。ホスティングプロバイダーが管理するサーバーログは、当該プロバイダー自身の保持スケジュールに従います。pacs008.com はデータベース、ユーザーアカウントシステム、またはデータストアを一切保持しません。
+
+## オープンソースの透明性
+
+pacs008.com の全ソースコードは [GitHub](https://github.com/pacs008/pacs008.github.io) で公開されています。すべてのページ、スクリプト、設定ファイルを検査できます。ビルドプロセス、コンテンツ生成ロジック、デプロイメントパイプラインは完全に可視化されています。この透明性により、本サイトが訪問者のデータに対して何を行い、何を行わないかを正確に確認することが可能です。
+
+## ${t.privacyRightsTitle}
+
+${t.privacyRightsText}
+
+## ${t.privacyChangesTitle}
+
+${t.privacyChangesText}
+
+## ${t.privacyContactTitle}
+
+${t.privacyContactText}
+`;
+  }
+  if (localeKey === "zh") {
+    return `# ${t.privacyTitle}
+
+${t.privacyIntro}
+
+## ${t.privacyCollectionTitle}
+
+${t.privacyCollectionText}
+
+## ${t.privacyAnalyticsTitle}
+
+${t.privacyAnalyticsText}
+
+## 托管与基础设施
+
+pacs008.com 托管于 GitHub Pages，并通过内容分发网络（CDN）提供服务。GitHub 在正常基础设施运维过程中可能会收集标准服务器日志，包括 IP 地址、浏览器类型和引荐页面。这些日志由 GitHub 根据其自身的[隐私声明](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement)进行管理。pacs008.com 不控制也不访问这些服务器日志。
+
+## 安全措施
+
+所有页面均通过 HTTPS 提供。本项目控制的任何服务器上均不存储用户数据。无需身份验证或登录。不收集任何表单提交内容。本站为完全静态的只读网站。
+
+## Cookie 政策
+
+pacs008.com 不设置 Cookie。不使用第一方 Cookie、会话 Cookie 或跟踪 Cookie。如果第三方分析服务设置了 Cookie，该 Cookie 在该服务自身的 Cookie 政策下运行，不受 pacs008.com 控制。
+
+## 数据保留
+
+由于不收集个人数据，因此不保留任何个人数据。由托管服务提供商管理的服务器日志遵循该提供商自身的保留计划。pacs008.com 不维护任何数据库、用户账户系统或数据存储。
+
+## 开源透明
+
+pacs008.com 的全部源代码均在 [GitHub](https://github.com/pacs008/pacs008.github.io) 上公开可用。每个页面、脚本和配置文件均可审查。构建流程、内容生成逻辑和部署管道完全可见。这种透明性使得可以准确验证本站对访问者数据做了什么以及没有做什么。
+
+## ${t.privacyRightsTitle}
+
+${t.privacyRightsText}
+
+## ${t.privacyChangesTitle}
+
+${t.privacyChangesText}
+
+## ${t.privacyContactTitle}
+
+${t.privacyContactText}
+`;
+  }
+  if (localeKey === "ko") {
+    return `# ${t.privacyTitle}
+
+${t.privacyIntro}
+
+## ${t.privacyCollectionTitle}
+
+${t.privacyCollectionText}
+
+## ${t.privacyAnalyticsTitle}
+
+${t.privacyAnalyticsText}
+
+## 호스팅 및 인프라
+
+pacs008.com은 GitHub Pages에서 호스팅되며 콘텐츠 전송 네트워크(CDN)를 통해 제공됩니다. GitHub는 일반적인 인프라 운영의 일환으로 IP 주소, 브라우저 유형 및 참조 페이지를 포함하는 표준 서버 로그를 수집할 수 있습니다. 이러한 로그는 GitHub 자체의 [개인정보 처리방침](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement)에 따라 관리됩니다. pacs008.com은 해당 서버 로그를 통제하거나 접근하지 않습니다.
+
+## 보안 조치
+
+모든 페이지는 HTTPS를 통해 제공됩니다. 이 프로젝트가 관리하는 어떠한 서버에도 사용자 데이터가 저장되지 않습니다. 인증이나 로그인이 필요하지 않습니다. 양식 제출 내용은 수집되지 않습니다. 사이트는 완전히 정적이며 읽기 전용입니다.
+
+## 쿠키 정책
+
+pacs008.com은 쿠키를 설정하지 않습니다. 자사 쿠키, 세션 쿠키 또는 추적 쿠키를 사용하지 않습니다. 제3자 분석 서비스가 쿠키를 설정하는 경우, 해당 쿠키는 해당 서비스의 자체 쿠키 정책에 따라 운영되며 pacs008.com이 통제하지 않습니다.
+
+## 데이터 보존
+
+개인 데이터를 수집하지 않으므로 보존되는 개인 데이터도 없습니다. 호스팅 제공업체가 관리하는 서버 로그는 해당 제공업체의 자체 보존 일정을 따릅니다. pacs008.com은 어떠한 데이터베이스, 사용자 계정 시스템 또는 데이터 저장소도 운영하지 않습니다.
+
+## 오픈소스 투명성
+
+pacs008.com의 전체 소스 코드는 [GitHub](https://github.com/pacs008/pacs008.github.io)에 공개되어 있습니다. 모든 페이지, 스크립트 및 설정 파일을 검사할 수 있습니다. 빌드 프로세스, 콘텐츠 생성 로직 및 배포 파이프라인이 완전히 공개되어 있습니다. 이러한 투명성 덕분에 사이트가 방문자 데이터로 무엇을 하고 무엇을 하지 않는지 정확히 확인할 수 있습니다.
+
+## ${t.privacyRightsTitle}
+
+${t.privacyRightsText}
+
+## ${t.privacyChangesTitle}
+
+${t.privacyChangesText}
+
+## ${t.privacyContactTitle}
+
+${t.privacyContactText}
+`;
+  }
+  if (localeKey === "zh-tw") {
+    return `# ${t.privacyTitle}
+
+${t.privacyIntro}
+
+## ${t.privacyCollectionTitle}
+
+${t.privacyCollectionText}
+
+## ${t.privacyAnalyticsTitle}
+
+${t.privacyAnalyticsText}
+
+## 託管與基礎設施
+
+pacs008.com 託管於 GitHub Pages，並透過內容傳遞網路（CDN）提供服務。GitHub 在正常基礎設施營運過程中可能會收集標準伺服器日誌，包括 IP 位址、瀏覽器類型和引薦頁面。這些日誌由 GitHub 根據其自身的[隱私聲明](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement)進行管理。pacs008.com 不控制也不存取這些伺服器日誌。
+
+## 安全措施
+
+所有頁面均透過 HTTPS 提供。本專案控制的任何伺服器上均不儲存使用者資料。無需身分驗證或登入。不收集任何表單提交內容。本網站為完全靜態的唯讀網站。
+
+## Cookie 政策
+
+pacs008.com 不設定 Cookie。不使用第一方 Cookie、工作階段 Cookie 或追蹤 Cookie。如果第三方分析服務設定了 Cookie，該 Cookie 在該服務自身的 Cookie 政策下運作，不受 pacs008.com 控制。
+
+## 資料保留
+
+由於不收集個人資料，因此不保留任何個人資料。由託管服務提供商管理的伺服器日誌遵循該提供商自身的保留排程。pacs008.com 不維護任何資料庫、使用者帳戶系統或資料儲存區。
+
+## 開源透明
+
+pacs008.com 的全部原始碼均在 [GitHub](https://github.com/pacs008/pacs008.github.io) 上公開提供。每個頁面、腳本和設定檔案均可檢視。建置流程、內容產生邏輯和部署管線完全透明可見。這種透明度使得訪客可以精確驗證本網站對訪客資料做了什麼以及沒有做什麼。
+
+## ${t.privacyRightsTitle}
+
+${t.privacyRightsText}
+
+## ${t.privacyChangesTitle}
+
+${t.privacyChangesText}
+
+## ${t.privacyContactTitle}
+
+${t.privacyContactText}
+`;
+  }
   return `# ${t.privacyTitle}
 
 ${t.privacyIntro}
@@ -13720,6 +13904,206 @@ The quality of generated payment messages depends entirely on the quality of inp
 ## API and toolkit usage
 
 The REST API and PyPI package are provided for integration into payment workflows, testing pipelines, and development environments. Fair use applies. Sustained high-volume requests that degrade service for other users may be rate-limited or blocked. No uptime guarantee is provided. The API is offered on a best-effort basis.
+
+## ${t.termsLinksTitle}
+
+${t.termsLinksText}
+
+## ${t.termsLiabilityTitle}
+
+${t.termsLiabilityText}
+
+## ${t.termsGoverningTitle}
+
+${t.termsGoverningText}
+
+## ${t.termsChangesTitle}
+
+${t.termsChangesText}
+
+## ${t.termsContactTitle}
+
+${t.termsContactText}
+`;
+  }
+  if (localeKey === "ja") {
+    return `# ${t.termsTitle}
+
+${t.termsIntro}
+
+## ${t.termsIpTitle}
+
+${t.termsIpText}
+
+## オープンソースライセンス
+
+pacs008 Python ツールキットは MIT ライセンスの下で公開されています。ライセンス全文は[プロジェクトリポジトリ](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE)でご確認いただけます。MIT ライセンスは最小限の制約の下で使用、変更、再配布を許可します。原作者への帰属表示が必要です。pacs008.com 上のドキュメントも、特に断りがない限り同一ライセンスで提供されます。
+
+## 許容される利用
+
+pacs008.com および pacs008 ツールキットは、ISO 20022 決済メッセージの生成、検証、参照に関連する合法的な目的で使用することを意図しています。自動スクレイピング、サービス拒否攻撃、およびサイトやリポジトリの可用性を妨げるいかなる利用も禁止されています。不正なまたは規制に準拠しない決済メッセージを生成するためにツールキットを使用することは厳格に禁止されています。
+
+## 決済処理に関する免責事項
+
+pacs008 ツールキットは、ユーザーが提供した入力データに基づいて ISO 20022 XML メッセージを生成します。ツールキットは決済の送信、ルーティング、または決済処理を行いません。すべての入力データおよび生成されたメッセージの正確性、完全性、および規制準拠について、ユーザーが全責任を負います。生成された XML は、決済ネットワークへの送信前にスキーム固有のルールおよび取引先の要件に照らして検証する必要があります。pacs008.com およびその管理者は、生成されたメッセージの使用により生じた決済の失敗、規制上の罰則、または経済的損失について一切の責任を負いません。
+
+## データの正確性
+
+生成される決済メッセージの品質は、入力データの品質に完全に依存します。ツールキットは構造とフォーマットを検証しますが、当事者名、口座番号、またはルーティングコードの事実の正確性は検証しません。すべての入力データが正確かつ最新であり、適用される規制に準拠していることを確認する責任はユーザーにあります。
+
+## API およびツールキットの利用
+
+REST API および PyPI パッケージは、決済ワークフロー、テストパイプライン、および開発環境への統合のために提供されています。公正利用が適用されます。他のユーザーのサービスを低下させるような持続的な大量リクエストは、レート制限またはブロックされる場合があります。稼働時間の保証は提供されません。API はベストエフォートベースで提供されます。
+
+## ${t.termsLinksTitle}
+
+${t.termsLinksText}
+
+## ${t.termsLiabilityTitle}
+
+${t.termsLiabilityText}
+
+## ${t.termsGoverningTitle}
+
+${t.termsGoverningText}
+
+## ${t.termsChangesTitle}
+
+${t.termsChangesText}
+
+## ${t.termsContactTitle}
+
+${t.termsContactText}
+`;
+  }
+  if (localeKey === "zh") {
+    return `# ${t.termsTitle}
+
+${t.termsIntro}
+
+## ${t.termsIpTitle}
+
+${t.termsIpText}
+
+## 开源许可
+
+pacs008 Python 工具包在 MIT 许可下发布。完整的许可文本可在[项目仓库](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE)中查阅。MIT 许可允许在最低限制下使用、修改和分发。要求注明原作者。pacs008.com 上的文档在相同许可下提供，除非另有说明。
+
+## 可接受使用
+
+pacs008.com 和 pacs008 工具包仅用于与 ISO 20022 支付报文生成、验证和参考相关的合法目的。禁止自动化抓取、拒绝服务攻击以及任何破坏网站或仓库可用性的行为。严禁使用工具包生成欺诈性或不合规的支付报文。
+
+## 支付处理免责声明
+
+pacs008 工具包根据用户提供的输入数据生成 ISO 20022 XML 报文。工具包不传输、路由或结算支付。用户对所有输入数据和生成报文的准确性、完整性和合规性承担全部责任。生成的 XML 在提交至任何支付网络之前，必须根据方案特定规则和对手方要求进行验证。pacs008.com 及其维护者不对因使用生成报文而导致的支付失败、监管处罚或财务损失承担任何责任。
+
+## 数据准确性
+
+生成的支付报文质量完全取决于输入数据的质量。工具包验证结构和格式，但不验证当事方名称、账号或路由代码的事实准确性。用户有责任确保所有输入数据正确、最新，并符合适用法规。
+
+## API 和工具包使用
+
+REST API 和 PyPI 软件包供集成到支付工作流、测试管道和开发环境中使用。适用公平使用原则。持续的大批量请求如果降低了其他用户的服务质量，可能会被限速或阻止。不提供正常运行时间保证。API 以尽力而为的方式提供。
+
+## ${t.termsLinksTitle}
+
+${t.termsLinksText}
+
+## ${t.termsLiabilityTitle}
+
+${t.termsLiabilityText}
+
+## ${t.termsGoverningTitle}
+
+${t.termsGoverningText}
+
+## ${t.termsChangesTitle}
+
+${t.termsChangesText}
+
+## ${t.termsContactTitle}
+
+${t.termsContactText}
+`;
+  }
+  if (localeKey === "zh-tw") {
+    return `# ${t.termsTitle}
+
+${t.termsIntro}
+
+## ${t.termsIpTitle}
+
+${t.termsIpText}
+
+## 開源授權
+
+pacs008 Python 工具組在 MIT 授權下發布。完整的授權文字可在[專案儲存庫](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE)中查閱。MIT 授權允許在最低限制下使用、修改和散布。需註明原始作者。pacs008.com 上的文件在相同授權下提供，除非另有說明。
+
+## 可接受使用
+
+pacs008.com 和 pacs008 工具組僅用於與 ISO 20022 支付訊息產生、驗證和參考相關的合法目的。禁止自動化擷取、阻斷服務攻擊以及任何破壞網站或儲存庫可用性的行為。嚴禁使用工具組產生詐欺性或不合規的支付訊息。
+
+## 支付處理免責聲明
+
+pacs008 工具組根據使用者提供的輸入資料產生 ISO 20022 XML 訊息。工具組不傳輸、路由或清算支付款項。使用者對所有輸入資料和產生訊息的準確性、完整性和法規合規性承擔全部責任。產生的 XML 在提交至任何支付網路之前，必須根據方案特定規則和交易對手要求進行驗證。pacs008.com 及其維護者不對因使用產生訊息而導致的支付失敗、監管處罰或財務損失承擔任何責任。
+
+## 資料準確性
+
+產生的支付訊息品質完全取決於輸入資料的品質。工具組驗證結構和格式，但不驗證當事方名稱、帳號或路由代碼的事實準確性。使用者有責任確保所有輸入資料正確、最新，並符合適用法規。
+
+## API 和工具組使用
+
+REST API 和 PyPI 套件供整合到支付工作流程、測試管線和開發環境中使用。適用公平使用原則。持續的大量請求如果降低了其他使用者的服務品質，可能會被限速或封鎖。不提供正常運作時間保證。API 以盡力而為的方式提供。
+
+## ${t.termsLinksTitle}
+
+${t.termsLinksText}
+
+## ${t.termsLiabilityTitle}
+
+${t.termsLiabilityText}
+
+## ${t.termsGoverningTitle}
+
+${t.termsGoverningText}
+
+## ${t.termsChangesTitle}
+
+${t.termsChangesText}
+
+## ${t.termsContactTitle}
+
+${t.termsContactText}
+`;
+  }
+  if (localeKey === "ko") {
+    return `# ${t.termsTitle}
+
+${t.termsIntro}
+
+## ${t.termsIpTitle}
+
+${t.termsIpText}
+
+## 오픈소스 라이선스
+
+pacs008 Python 툴킷은 MIT 라이선스로 배포됩니다. 전체 라이선스 텍스트는 [프로젝트 저장소](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE)에서 확인할 수 있습니다. MIT 라이선스는 최소한의 제한으로 사용, 수정 및 배포를 허용합니다. 원저작자에 대한 귀속 표시가 필요합니다. pacs008.com의 문서는 별도로 명시되지 않는 한 동일한 라이선스에 따라 제공됩니다.
+
+## 허용되는 사용
+
+pacs008.com과 pacs008 툴킷은 ISO 20022 결제 메시지 생성, 검증 및 참조와 관련된 합법적인 목적으로만 사용해야 합니다. 자동화된 스크래핑, 서비스 거부 공격, 사이트 또는 저장소의 가용성을 방해하는 모든 사용은 금지됩니다. 사기성 또는 규정 미준수 결제 메시지를 생성하기 위해 툴킷을 사용하는 것은 엄격히 금지됩니다.
+
+## 결제 처리 면책 조항
+
+pacs008 툴킷은 사용자가 제공한 입력 데이터를 기반으로 ISO 20022 XML 메시지를 생성합니다. 툴킷은 결제를 전송, 라우팅 또는 정산하지 않습니다. 사용자는 모든 입력 데이터와 생성된 메시지의 정확성, 완전성 및 규정 준수에 대한 전적인 책임을 집니다. 생성된 XML은 결제 네트워크에 제출하기 전에 체계별 규칙과 상대방 요구 사항에 따라 검증되어야 합니다. pacs008.com과 그 유지 관리자는 생성된 메시지 사용으로 인한 결제 실패, 규제 제재 또는 재정적 손실에 대해 어떠한 책임도 지지 않습니다.
+
+## 데이터 정확성
+
+생성되는 결제 메시지의 품질은 전적으로 입력 데이터의 품질에 달려 있습니다. 툴킷은 구조와 형식을 검증하지만 당사자 이름, 계좌 번호 또는 라우팅 코드의 사실적 정확성은 확인하지 않습니다. 모든 입력 데이터가 정확하고 최신이며 관련 규정을 준수하는지 확인하는 것은 사용자의 책임입니다.
+
+## API 및 툴킷 사용
+
+REST API와 PyPI 패키지는 결제 워크플로, 테스트 파이프라인 및 개발 환경에 통합하기 위해 제공됩니다. 공정 사용 원칙이 적용됩니다. 다른 사용자에게 서비스 품질을 저하시키는 지속적인 대량 요청은 속도 제한 또는 차단될 수 있습니다. 가동 시간 보장은 제공되지 않습니다. API는 최선의 노력 기반으로 제공됩니다.
 
 ## ${t.termsLinksTitle}
 
@@ -13865,6 +14249,224 @@ Technical terms, ISO identifiers, and standard codes remain untranslated to avoi
 Content is updated in response to three triggers. First, when ISO 20022 publishes a new message catalogue version that affects pacs message definitions. Second, when SWIFT releases updated CBPR+ usage guidelines or migration deadlines. Third, when EPC updates SEPA Credit Transfer or Instant Credit Transfer rulebooks.
 
 The pacs008 toolkit follows semantic versioning. Each new release is reflected in the API documentation and changelog. The site is rebuilt and redeployed with every content or toolkit update.
+
+## ${t.editorialGenerationTitle}
+
+${t.editorialGenerationText}
+
+## ${t.editorialAccuracyTitle}
+
+${t.editorialAccuracyText}
+
+## ${t.editorialContactTitle}
+
+${t.editorialContactText}`;
+  }
+  if (localeKey === "zh") {
+    return `# ${t.editorialTitle}
+
+本页说明 pacs008.com 上的内容是如何创建、审查和保持更新的。
+
+## 来源
+
+所有报文文档均基于权威原始资料：
+
+- [ISO 20022 报文定义目录](https://www.iso20022.org/iso-20022-message-definitions)，提供报文规范和版本历史。
+- [SWIFT CBPR+ 使用指南](https://www.swift.com/standards/iso-20022)，提供跨境支付背景。
+- [EPC SEPA 信贷转账规则手册](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and)，提供欧元信贷转账规则。
+- [EPC SEPA 即时信贷转账规则手册](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook)，提供即时支付规则。
+
+## 内容审查流程
+
+pacs008.com 上的每个页面在发布前都经过结构化审查。新内容首先基于原始资料撰写草稿。草稿会对照 ISO 20022 报文目录和相关方案文档进行技术准确性检查。版本号、注册标识符和字段定义均根据官方目录条目进行核实。
+
+初步审查后，内容会经过结构检查以确保与现有页面的一致性。导航、交叉引用和术语在整个站点中保持标准化。每个报文页面上显示的审查日期反映了最近一次针对原始资料的核实时间。
+
+## 审查流程
+
+每个报文页面都显示审查日期。审查确认版本号、注册状态和方案背景仍然与上述原始资料一致。
+
+当 ISO 20022 发布新的目录版本、SWIFT 发布更新的使用指南或方案规则变更时，内容会相应更新。
+
+## 技术准确性
+
+技术内容遵循官方目录中发布的 ISO 20022 报文定义。字段名称、数据类型和基数规则与每个报文版本的 XSD 模式匹配。当方案特定用法与基础标准不同时，直接引用相关方案文档。
+
+API 文档中的代码示例均针对 pacs008 工具包的当前发行版进行测试。CLI 命令、API 端点和 Python 库方法反映了 PyPI 上已发布的软件包。每次新发布都会更新示例以与工具包保持同步。
+
+## 翻译方法
+
+pacs008.com 提供 22 种语言版本。所有内容均以英语为源语言。翻译页面使用构建脚本从经过审查的英语源材料生成，该脚本在所有区域设置中保留页面结构、标题层级和链接目标。
+
+技术术语、ISO 标识符和标准代码保持不翻译以避免歧义。pacs.008.001.13、BIC、IBAN 和 CBPR+ 等术语在每种语言中均以其标准形式出现。非技术内容被翻译为在每种目标语言中自然流畅的表达。翻译会检查结构一致性，并在英语源材料变更时重新生成。
+
+## 更新频率
+
+内容根据三个触发条件进行更新。第一，当 ISO 20022 发布影响 pacs 报文定义的新报文目录版本时。第二，当 SWIFT 发布更新的 CBPR+ 使用指南或迁移截止日期时。第三，当 EPC 更新 SEPA 信贷转账或即时信贷转账规则手册时。
+
+pacs008 工具包遵循语义化版本控制。每次新发布都会反映在 API 文档和更新日志中。每次内容或工具包更新时，站点都会重新构建和重新部署。
+
+## 内容生成
+
+页面结构和翻译内容使用构建脚本从经过审查的英语源材料生成。这确保了 22 种语言之间的结构一致性，同时保持技术术语和 ISO 标识符的标准形式。
+
+## 准确性与限制
+
+pacs008.com 力求准确和及时，但不能替代方案规则手册、对手方协议或法律建议。请始终根据原始资料以及您所运营的市场或方案的具体规则确认实施细节。
+
+## 联系方式
+
+如果您发现错误或有更正建议，请在 [pacs008 仓库](https://github.com/sebastienrousseau/pacs008/issues)中提交问题。`;
+  }
+  if (localeKey === "zh-tw") {
+    return `# ${t.editorialTitle}
+
+${t.editorialIntro}
+
+## ${t.editorialSourcesTitle}
+
+${t.editorialSourcesIntro}
+
+- [ISO 20022 訊息定義目錄](https://www.iso20022.org/iso-20022-message-definitions)，提供訊息規格和版本歷史。
+- [SWIFT CBPR+ 使用指引](https://www.swift.com/standards/iso-20022)，提供跨境支付背景。
+- [EPC SEPA 信用轉帳規則手冊](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and)，提供歐元信用轉帳規則。
+- [EPC SEPA 即時信用轉帳規則手冊](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook)，提供即時支付規則。
+
+## 內容審查流程
+
+pacs008.com 上的每一個頁面在發布前都會經過結構化審查。新內容從基於主要來源資料的草稿開始。草稿會依據 ISO 20022 訊息目錄和相關方案文件進行技術準確性檢查。版本號碼、註冊識別碼和欄位定義會與官方目錄條目進行比對驗證。
+
+初步審查後，內容會經過結構性檢查，以確保與現有頁面的一致性。網站的導覽、交叉參考和術語會進行標準化統一。每個訊息頁面上顯示的審查日期反映的是最近一次與主要來源比對驗證的時間。
+
+## ${t.editorialReviewTitle}
+
+${t.editorialReviewText}
+
+## 技術準確性
+
+技術內容遵循官方目錄中發布的 ISO 20022 訊息定義。欄位名稱、資料類型和基數規則與每個訊息版本的 XSD 結構描述相符。當方案特定用法與基本標準不同時，會直接引用相關方案文件。
+
+API 文件中的程式碼範例會針對 pacs008 工具組的當前版本進行測試。CLI 命令、API 端點和 Python 程式庫方法反映了 PyPI 上已發布的套件。範例會在每次新版本發布時更新，以與工具組保持同步。
+
+## 翻譯方法
+
+pacs008.com 提供 22 種語言版本。所有內容均以英文為原始語言。翻譯頁面透過建置腳本從已審查的英文原始資料產生，該腳本在所有語言版本中保留頁面結構、標題層次和連結目標。
+
+技術術語、ISO 識別碼和標準代碼保持不翻譯以避免歧義。如 pacs.008.001.13、BIC、IBAN 和 CBPR+ 等術語在每種語言中都以其標準形式出現。非技術性內容會翻譯為各目標語言的自然表達。翻譯內容會進行結構一致性審查，並在英文原始資料變更時重新產生。
+
+## 更新頻率
+
+內容會因應三種觸發因素進行更新。首先，當 ISO 20022 發布影響 pacs 訊息定義的新版訊息目錄時。其次，當 SWIFT 發布更新的 CBPR+ 使用指引或遷移期限時。第三，當 EPC 更新 SEPA 信用轉帳或即時信用轉帳規則手冊時。
+
+pacs008 工具組遵循語意版本控制。每次新版本發布都會反映在 API 文件和更新日誌中。網站會在每次內容或工具組更新時重新建置和部署。
+
+## ${t.editorialGenerationTitle}
+
+${t.editorialGenerationText}
+
+## ${t.editorialAccuracyTitle}
+
+${t.editorialAccuracyText}
+
+## ${t.editorialContactTitle}
+
+${t.editorialContactText}`;
+  }
+  if (localeKey === "ko") {
+    return `# ${t.editorialTitle}
+
+${t.editorialIntro}
+
+## ${t.editorialSourcesTitle}
+
+${t.editorialSourcesIntro}
+
+- [ISO 20022 메시지 정의 카탈로그](https://www.iso20022.org/iso-20022-message-definitions) - 메시지 사양 및 버전 이력 참조.
+- [SWIFT CBPR+ 사용 지침](https://www.swift.com/standards/iso-20022) - 국경 간 결제 맥락 참조.
+- [EPC SEPA 신용이체 규정집](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) - 유로 신용이체 규칙 참조.
+- [EPC SEPA 즉시 신용이체 규정집](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) - 즉시 결제 규칙 참조.
+
+## 콘텐츠 검토 프로세스
+
+pacs008.com의 모든 페이지는 게시 전에 체계적인 검토를 거칩니다. 새 콘텐츠는 주요 출처 자료를 기반으로 한 초안에서 시작됩니다. 초안은 ISO 20022 메시지 카탈로그 및 관련 체계 문서에 대해 기술적 정확성이 검증됩니다. 버전 번호, 등록 식별자 및 필드 정의는 공식 카탈로그 항목과 대조하여 확인됩니다.
+
+초기 검토 후 콘텐츠는 기존 페이지와의 일관성을 보장하기 위한 구조적 점검을 거칩니다. 사이트 전체에서 내비게이션, 교차 참조 및 용어가 표준화됩니다. 각 메시지 페이지에 표시되는 검토 날짜는 주요 출처와의 가장 최근 검증 시점을 반영합니다.
+
+## ${t.editorialReviewTitle}
+
+${t.editorialReviewText}
+
+## 기술적 정확성
+
+기술 콘텐츠는 공식 카탈로그에 게시된 ISO 20022 메시지 정의를 따릅니다. 필드 이름, 데이터 유형 및 카디널리티 규칙은 각 메시지 버전의 XSD 스키마와 일치합니다. 체계별 사용법이 기본 표준과 다른 경우 관련 체계 문서를 직접 인용합니다.
+
+API 문서의 코드 예제는 pacs008 툴킷의 현재 릴리스에 대해 테스트됩니다. CLI 명령, API 엔드포인트 및 Python 라이브러리 메서드는 PyPI에 게시된 패키지를 반영합니다. 예제는 새로운 릴리스마다 업데이트되어 툴킷과 동기화를 유지합니다.
+
+## 번역 방법론
+
+pacs008.com은 22개 언어로 제공됩니다. 모든 콘텐츠는 영어로 작성됩니다. 번역된 페이지는 검토된 영어 원본 자료로부터 빌드 스크립트를 사용하여 생성되며, 이 스크립트는 모든 로케일에서 페이지 구조, 제목 계층 및 링크 대상을 보존합니다.
+
+기술 용어, ISO 식별자 및 표준 코드는 모호함을 피하기 위해 번역하지 않습니다. pacs.008.001.13, BIC, IBAN, CBPR+ 등의 용어는 모든 언어에서 표준 형식 그대로 표시됩니다. 비기술적 콘텐츠는 각 대상 언어에서 자연스럽게 읽히도록 번역됩니다. 번역은 구조적 일관성을 검토하며 영어 원본 자료가 변경될 때 재생성됩니다.
+
+## 업데이트 빈도
+
+콘텐츠는 세 가지 트리거에 대응하여 업데이트됩니다. 첫째, ISO 20022가 pacs 메시지 정의에 영향을 미치는 새로운 메시지 카탈로그 버전을 게시할 때입니다. 둘째, SWIFT가 업데이트된 CBPR+ 사용 지침 또는 마이그레이션 기한을 발표할 때입니다. 셋째, EPC가 SEPA 신용이체 또는 즉시 신용이체 규정집을 업데이트할 때입니다.
+
+pacs008 툴킷은 시맨틱 버전 관리를 따릅니다. 새로운 릴리스는 API 문서 및 변경 이력에 반영됩니다. 사이트는 콘텐츠 또는 툴킷이 업데이트될 때마다 재빌드 및 재배포됩니다.
+
+## ${t.editorialGenerationTitle}
+
+${t.editorialGenerationText}
+
+## ${t.editorialAccuracyTitle}
+
+${t.editorialAccuracyText}
+
+## ${t.editorialContactTitle}
+
+${t.editorialContactText}`;
+  }
+  if (localeKey === "ja") {
+    return `# ${t.editorialTitle}
+
+${t.editorialIntro}
+
+## ${t.editorialSourcesTitle}
+
+${t.editorialSourcesIntro}
+
+- [ISO 20022 メッセージ定義カタログ](https://www.iso20022.org/iso-20022-message-definitions) — メッセージ仕様とバージョン履歴。
+- [SWIFT CBPR+ 利用ガイドライン](https://www.swift.com/standards/iso-20022) — クロスボーダー決済のコンテキスト。
+- [EPC SEPA クレジットトランスファー ルールブック](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) — ユーロ圏のクレジットトランスファー規則。
+- [EPC SEPA 即時クレジットトランスファー ルールブック](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) — 即時決済規則。
+
+## コンテンツレビュープロセス
+
+pacs008.com のすべてのページは、公開前に構造化されたレビューを受けます。新しいコンテンツは一次情報源に基づくドラフトから始まります。ドラフトは ISO 20022 メッセージカタログおよび関連するスキームドキュメントに照らして技術的な正確性が確認されます。バージョン番号、登録識別子、フィールド定義は公式カタログのエントリに対して検証されます。
+
+初回レビュー後、既存ページとの一貫性を確保するための構造チェックが行われます。ナビゲーション、相互参照、用語はサイト全体で標準化されています。各メッセージページに表示されるレビュー日は、一次情報源に対する最新の検証を反映しています。
+
+## ${t.editorialReviewTitle}
+
+${t.editorialReviewText}
+
+## 技術的正確性
+
+技術コンテンツは、公式カタログで公開されている ISO 20022 メッセージ定義に従います。フィールド名、データ型、カーディナリティルールは各メッセージバージョンの XSD スキーマと一致しています。スキーム固有の利用法が基本標準と異なる場合は、関連するスキームドキュメントが直接引用されます。
+
+API ドキュメントのコード例は、pacs008 ツールキットの最新リリースに対してテストされています。CLI コマンド、API エンドポイント、Python ライブラリのメソッドは PyPI で公開されているパッケージを反映しています。例は新しいリリースごとに更新され、ツールキットとの同期が維持されます。
+
+## 翻訳方法論
+
+pacs008.com は22言語で利用可能です。すべてのコンテンツは英語で作成されます。翻訳ページは、レビュー済みの英語ソース資料からビルドスクリプトを使用して生成されます。ビルドスクリプトは、すべてのロケールにわたってページ構造、見出し階層、リンクターゲットを保持します。
+
+技術用語、ISO 識別子、標準コードは曖昧さを避けるために翻訳されません。pacs.008.001.13、BIC、IBAN、CBPR+ などの用語は、すべての言語で標準形式のまま表示されます。非技術的なコンテンツは、各対象言語で自然に読めるように翻訳されます。翻訳は構造的一貫性がレビューされ、英語のソース資料が変更された際に再生成されます。
+
+## 更新頻度
+
+コンテンツは3つの契機に応じて更新されます。第一に、ISO 20022 が pacs メッセージ定義に影響する新しいメッセージカタログバージョンを公開した場合。第二に、SWIFT が更新された CBPR+ 利用ガイドラインまたは移行期限をリリースした場合。第三に、EPC が SEPA クレジットトランスファーまたは即時クレジットトランスファーのルールブックを更新した場合。
+
+pacs008 ツールキットはセマンティックバージョニングに従います。新しいリリースはそれぞれ API ドキュメントと変更履歴に反映されます。サイトはコンテンツまたはツールキットの更新のたびに再ビルドおよび再デプロイされます。
 
 ## ${t.editorialGenerationTitle}
 
@@ -20711,6 +21313,158 @@ This is an open-source project maintained alongside other commitments. Most issu
 ## Community contributions
 
 Contributions are encouraged. Fork the repository, create a feature branch, and open a pull request. All pull requests go through automated validation and a manual review. Contribution guidelines are available in the repository README. Accepted contributions follow the same editorial and coding standards as the rest of the project.`;
+  }
+
+  if (localeKey === "ja") {
+    return `# ${t.contactTitle}
+
+${t.contactIntro}
+
+バグ報告、機能リクエスト、ソースコードについてはリポジトリをご利用ください。バージョン履歴についてはリリースページをご確認ください。インストールの詳細については PyPI をご参照ください。
+
+実装作業では、サンプル、テンプレート、または issue の履歴が必要な場合はリポジトリからお始めください。明確なバージョン記録が必要な場合はリリースページをご確認ください。パッケージのメタデータやインストールコマンドが必要な場合は PyPI が最も迅速な情報源です。
+
+- ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>
+- ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>
+- ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>
+
+## お問い合わせの前に
+
+多くの質問は既存のプロジェクトリソースで回答されています。[FAQ ページ](/ja/faq/)では、ISO 20022 pacs メッセージ、CBPR+ 移行タイムライン、ツールキットの使用方法に関するよくある質問を掲載しています。[API ドキュメント](/ja/api/)では、インストール、エンドポイント、CLI オプション、Python ライブラリのメソッドについて説明しています。[用語集](/ja/glossary/)では、60以上の ISO 20022 および決済メッセージング用語を定義しています。
+
+バグを報告する場合は、メッセージタイプ、バージョン、および失敗する入力の短い例を含めてください。入力ファイルまたは最小限の再現ケースを添付してください。Python のバージョンとオペレーティングシステムを明記してください。報告に含まれるコンテキストが多いほど、解決が早くなります。
+
+ロールアウトを計画している場合は、まず最近のリリースを確認して、実装作業を既知のパッケージバージョンに合わせてください。インストールや依存関係の詳細が必要な場合は、PyPI が現在のパッケージ情報を確認する最も迅速な手段です。
+
+## セキュリティに関する問題
+
+セキュリティの脆弱性は非公開で報告してください。セキュリティに関する懸念について、公開の GitHub issue を作成しないでください。代わりに、[GitHub セキュリティアドバイザリフォーム](https://github.com/sebastienrousseau/pacs008/security/advisories/new)を使用して機密報告を提出してください。脆弱性の説明、再現手順、および潜在的な影響を含めてください。セキュリティ報告は優先的に処理されます。
+
+## 機能リクエスト
+
+機能リクエストは歓迎いたします。\`enhancement\` ラベルを付けて GitHub issue を作成してください。ユースケース、期待される動作、および関連するメッセージタイプやバージョンを記述してください。ISO 20022 標準の採用と決済オペレーションワークフローに沿ったリクエストが優先的に検討されます。
+
+## 応答時間
+
+本プロジェクトはオープンソースであり、他の業務と並行して運営されています。ほとんどの issue は数営業日以内に初回応答が行われます。明確な再現手順を含むバグ報告が優先されます。機能リクエストは随時レビューされ、プロジェクトロードマップとの整合性に応じてスケジュールされます。
+
+## コミュニティからの貢献
+
+貢献を歓迎いたします。リポジトリをフォークし、機能ブランチを作成して、プルリクエストを提出してください。すべてのプルリクエストは自動検証と手動レビューを経ます。コントリビューションガイドラインはリポジトリの README に掲載されています。受理された貢献は、プロジェクト全体と同一の編集およびコーディング基準に従います。`;
+  }
+
+  if (localeKey === "zh-tw") {
+    return `# ${t.contactTitle}
+
+${t.contactIntro}
+
+請使用儲存庫提交錯誤報告、功能請求及查閱原始碼。請使用發行版本查閱版本歷史。請使用 PyPI 查閱安裝詳情。
+
+在實施工作中，當您需要範例、範本或問題歷史時，請從儲存庫開始。當您需要明確的版本記錄時，請查閱發行版本。當您需要套件中繼資料和安裝指令時，請查閱 PyPI。
+
+- ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>
+- ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>
+- ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>
+
+## 聯絡前請先閱讀
+
+許多問題已在現有專案資源中獲得解答。[常見問題頁面](/zh-tw/faq/)涵蓋了關於 ISO 20022 pacs 訊息、CBPR+ 遷移時程和工具組使用的常見問題。[API 文件](/zh-tw/api/)說明了安裝方式、端點、CLI 選項和 Python 程式庫方法。[詞彙表](/zh-tw/glossary/)定義了 60 餘個 ISO 20022 及支付訊息傳遞術語。
+
+如果您要回報錯誤，請包含訊息類型、版本以及導致失敗的輸入的簡短範例。請附上輸入檔案或最小重現案例。請註明 Python 版本和作業系統。報告中包含的背景資訊越多，解決速度就越快。
+
+如果您正在規劃上線部署，請先查閱最近的發行版本，以便將您的實施工作與已知的套件版本對應。如果您需要安裝或依賴項詳情，PyPI 是確認當前套件記錄最快速的來源。
+
+## 安全問題
+
+請以私密方式回報安全弱點。請勿就安全問題建立公開的 GitHub issue。請改用 [GitHub 安全建議表單](https://github.com/sebastienrousseau/pacs008/security/advisories/new)提交機密報告。請包含弱點說明、重現步驟以及潛在影響。安全報告將獲得優先處理。
+
+## 功能請求
+
+歡迎提出功能請求。請建立帶有 \`enhancement\` 標籤的 GitHub issue。請描述使用情境、預期行為以及任何相關的訊息類型或版本。符合 ISO 20022 標準採用和支付營運工作流程的請求將獲得優先考慮。
+
+## 回應時間
+
+本專案為開源專案，與其他工作並行維護。大多數問題會在數個工作日內收到初步回應。包含明確重現步驟的錯誤報告將獲得優先處理。功能請求會持續進行審查，並根據與專案路線圖的一致性進行排程。
+
+## 社群貢獻
+
+歡迎社群貢獻。請 fork 儲存庫、建立功能分支並提交 pull request。所有 pull request 都會經過自動化驗證和人工審查。貢獻指引可在儲存庫的 README 中查閱。被接受的貢獻須遵循與專案其餘部分相同的編輯和程式碼標準。`;
+  }
+
+  if (localeKey === "ko") {
+    return `# ${t.contactTitle}
+
+${t.contactIntro}
+
+버그 리포트, 기능 요청 및 소스 코드에는 저장소를 이용하세요. 버전 이력은 릴리스 페이지에서 확인하세요. 설치 세부 정보는 PyPI를 참조하세요.
+
+구현 작업 시, 예제, 템플릿 또는 이슈 이력이 필요하면 저장소에서 시작하세요. 명확한 버전 기록이 필요하면 릴리스 페이지를 확인하세요. 패키지 메타데이터와 설치 명령이 필요하면 PyPI가 가장 빠른 정보원입니다.
+
+- ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>
+- ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>
+- ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>
+
+## 문의하기 전에
+
+많은 질문은 기존 프로젝트 리소스에서 이미 답변되어 있습니다. [FAQ 페이지](/ko/faq/)에서는 ISO 20022 pacs 메시지, CBPR+ 마이그레이션 일정 및 툴킷 사용에 관한 자주 묻는 질문을 다룹니다. [API 문서](/ko/api/)에서는 설치, 엔드포인트, CLI 옵션 및 Python 라이브러리 메서드를 설명합니다. [용어집](/ko/glossary/)에서는 60개 이상의 ISO 20022 및 결제 메시징 용어를 정의합니다.
+
+버그를 신고하는 경우 메시지 유형, 버전 및 실패하는 입력의 간단한 예시를 포함하세요. 입력 파일 또는 최소한의 재현 사례를 첨부하세요. Python 버전과 운영 체제를 명시하세요. 리포트에 포함된 정보가 많을수록 해결이 빨라집니다.
+
+출시를 계획하고 있다면 먼저 최근 릴리스를 검토하여 구현 작업을 알려진 패키지 버전에 맞추세요. 설치 또는 종속성 세부 정보가 필요하면 PyPI에서 현재 패키지 기록을 가장 빠르게 확인할 수 있습니다.
+
+## 보안 문제
+
+보안 취약점은 비공개로 신고하세요. 보안 문제에 대해 공개 GitHub issue를 생성하지 마세요. 대신 [GitHub 보안 권고 양식](https://github.com/sebastienrousseau/pacs008/security/advisories/new)을 사용하여 기밀 보고서를 제출하세요. 취약점에 대한 설명, 재현 단계 및 잠재적 영향을 포함하세요. 보안 보고서는 우선적으로 처리됩니다.
+
+## 기능 요청
+
+기능 요청은 환영합니다. \`enhancement\` 레이블을 달아 GitHub issue를 생성하세요. 사용 사례, 예상 동작 및 관련 메시지 유형 또는 버전을 설명하세요. ISO 20022 표준 채택 및 결제 운영 워크플로에 부합하는 요청이 우선적으로 검토됩니다.
+
+## 응답 시간
+
+이 프로젝트는 다른 업무와 병행하여 유지되는 오픈소스 프로젝트입니다. 대부분의 이슈는 수 영업일 이내에 초기 응답을 받습니다. 명확한 재현 단계가 포함된 버그 리포트가 우선 처리됩니다. 기능 요청은 수시로 검토되며 프로젝트 로드맵과의 정합성에 따라 일정이 조정됩니다.
+
+## 커뮤니티 기여
+
+기여를 환영합니다. 저장소를 포크하고 기능 브랜치를 생성한 후 풀 리퀘스트를 제출하세요. 모든 풀 리퀘스트는 자동화된 검증과 수동 검토를 거칩니다. 기여 가이드라인은 저장소의 README에서 확인할 수 있습니다. 수락된 기여는 프로젝트 전체와 동일한 편집 및 코딩 표준을 따릅니다.`;
+  }
+
+  if (localeKey === "zh") {
+    return `# ${t.contactTitle}
+
+${t.contactIntro}
+
+请使用仓库提交错误报告、功能请求及查阅源代码。请使用发布版本查阅版本历史。请使用 PyPI 查阅安装详情。
+
+在实施工作中，当您需要示例、模板或问题历史时，请从仓库开始。当您需要明确的版本记录时，请查阅发布版本。当您需要软件包元数据和安装命令时，请查阅 PyPI。
+
+- ${translateContactLabel(localeKey, "repository")}: <https://github.com/sebastienrousseau/pacs008>
+- ${translateContactLabel(localeKey, "releases")}: <https://github.com/sebastienrousseau/pacs008/releases>
+- ${translateContactLabel(localeKey, "package")}: <https://pypi.org/project/pacs008/>
+
+## 联系前请先阅读
+
+许多问题已在现有项目资源中获得解答。[常见问题页面](/zh/faq/)涵盖了关于 ISO 20022 pacs 报文、CBPR+ 迁移时间表和工具包使用的常见问题。[API 文档](/zh/api/)说明了安装方式、端点、CLI 选项和 Python 库方法。[术语表](/zh/glossary/)定义了 60 余个 ISO 20022 及支付报文传递术语。
+
+如果您要报告错误，请包含报文类型、版本以及导致失败的输入的简短示例。请附上输入文件或最小重现案例。请注明 Python 版本和操作系统。报告中包含的背景信息越多，解决速度就越快。
+
+如果您正在规划上线部署，请先查阅最近的发布版本，以便将您的实施工作与已知的软件包版本对应。如果您需要安装或依赖项详情，PyPI 是确认当前软件包记录最快速的来源。
+
+## 安全问题
+
+请以私密方式报告安全漏洞。请勿就安全问题创建公开的 GitHub issue。请改用 [GitHub 安全公告表单](https://github.com/sebastienrousseau/pacs008/security/advisories/new)提交机密报告。请包含漏洞描述、重现步骤以及潜在影响。安全报告将获得优先处理。
+
+## 功能请求
+
+欢迎提出功能请求。请创建带有 \`enhancement\` 标签的 GitHub issue。请描述使用场景、预期行为以及任何相关的报文类型或版本。符合 ISO 20022 标准采用和支付运营工作流的请求将获得优先考虑。
+
+## 响应时间
+
+本项目为开源项目，与其他工作并行维护。大多数问题会在数个工作日内收到初步回应。包含明确重现步骤的错误报告将获得优先处理。功能请求会持续进行审查，并根据与项目路线图的一致性进行排期。
+
+## 社区贡献
+
+欢迎社区贡献。请 fork 仓库、创建功能分支并提交 pull request。所有 pull request 都会经过自动化验证和人工审查。贡献指南可在仓库的 README 中查阅。被接受的贡献须遵循与项目其余部分相同的编辑和代码标准。`;
   }
 
   return `# ${t.contactTitle}

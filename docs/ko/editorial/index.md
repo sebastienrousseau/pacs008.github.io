@@ -1,6 +1,6 @@
 ---
 title: "편집 방침 | pacs008"
-description: How pacs008.com content is created, reviewed, and maintained. Sources, review process, and update schedule.
+description: pacs008.com 콘텐츠의 작성, 검토 및 유지 관리 방법. 출처, 검토 프로세스 및 업데이트 일정. 금융기관 간 고객 신용 이체 워크플로를 위한 생성, 검증, API 오케스트레이션, 규정 준수 지원.
 lang: ko-KR
 lastUpdated: true
 image: /logo.webp
@@ -8,31 +8,55 @@ image: /logo.webp
 
 # 편집 방침
 
-This page explains how content on pacs008.com is created, reviewed, and kept current.
+이 페이지는 pacs008.com의 콘텐츠가 어떻게 작성, 검토 및 최신 상태로 유지되는지 설명합니다.
 
-## Sources
+## 출처
 
-All message documentation is based on primary sources:
+모든 메시지 문서는 주요 출처를 기반으로 합니다:
 
-- [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions) for message specifications and version history.
-- [SWIFT CBPR+ usage guidelines](https://www.swift.com/standards/iso-20022) for cross-border payment context.
-- [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) for euro credit transfer rules.
-- [EPC SEPA Instant Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) for instant payment rules.
+- [ISO 20022 메시지 정의 카탈로그](https://www.iso20022.org/iso-20022-message-definitions) - 메시지 사양 및 버전 이력 참조.
+- [SWIFT CBPR+ 사용 지침](https://www.swift.com/standards/iso-20022) - 국경 간 결제 맥락 참조.
+- [EPC SEPA 신용이체 규정집](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) - 유로 신용이체 규칙 참조.
+- [EPC SEPA 즉시 신용이체 규정집](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) - 즉시 결제 규칙 참조.
 
-## Review process
+## 콘텐츠 검토 프로세스
 
-Each message page shows a review date. Reviews check that version numbers, registration status, and scheme context still match the primary sources listed above.
+pacs008.com의 모든 페이지는 게시 전에 체계적인 검토를 거칩니다. 새 콘텐츠는 주요 출처 자료를 기반으로 한 초안에서 시작됩니다. 초안은 ISO 20022 메시지 카탈로그 및 관련 체계 문서에 대해 기술적 정확성이 검증됩니다. 버전 번호, 등록 식별자 및 필드 정의는 공식 카탈로그 항목과 대조하여 확인됩니다.
 
-Content is updated when ISO 20022 publishes new catalogue versions, when SWIFT releases updated usage guidelines, or when scheme rules change.
+초기 검토 후 콘텐츠는 기존 페이지와의 일관성을 보장하기 위한 구조적 점검을 거칩니다. 사이트 전체에서 내비게이션, 교차 참조 및 용어가 표준화됩니다. 각 메시지 페이지에 표시되는 검토 날짜는 주요 출처와의 가장 최근 검증 시점을 반영합니다.
 
-## Content generation
+## 검토 프로세스
 
-Page structure and translated content are generated from reviewed English source material using a build script. This ensures structural consistency across all 22 languages while keeping technical terms and ISO identifiers in their standard form.
+각 메시지 페이지에는 검토 날짜가 표시됩니다. 검토 시 버전 번호, 등록 상태 및 체계 맥락이 위에 나열된 주요 출처와 여전히 일치하는지 확인합니다.
 
-## Accuracy and limits
+ISO 20022가 새로운 카탈로그 버전을 게시하거나, SWIFT가 업데이트된 사용 지침을 발표하거나, 체계 규칙이 변경될 때 콘텐츠가 업데이트됩니다.
 
-pacs008.com aims to be accurate and current, but it is not a substitute for scheme rulebooks, counterparty agreements, or legal advice. Always confirm implementation details against the primary sources and the specific rules of the market or scheme you operate in.
+## 기술적 정확성
 
-## Contact
+기술 콘텐츠는 공식 카탈로그에 게시된 ISO 20022 메시지 정의를 따릅니다. 필드 이름, 데이터 유형 및 카디널리티 규칙은 각 메시지 버전의 XSD 스키마와 일치합니다. 체계별 사용법이 기본 표준과 다른 경우 관련 체계 문서를 직접 인용합니다.
 
-If you find an error or have a correction, please open an issue in the [pacs008 repository](https://github.com/sebastienrousseau/pacs008/issues).
+API 문서의 코드 예제는 pacs008 툴킷의 현재 릴리스에 대해 테스트됩니다. CLI 명령, API 엔드포인트 및 Python 라이브러리 메서드는 PyPI에 게시된 패키지를 반영합니다. 예제는 새로운 릴리스마다 업데이트되어 툴킷과 동기화를 유지합니다.
+
+## 번역 방법론
+
+pacs008.com은 22개 언어로 제공됩니다. 모든 콘텐츠는 영어로 작성됩니다. 번역된 페이지는 검토된 영어 원본 자료로부터 빌드 스크립트를 사용하여 생성되며, 이 스크립트는 모든 로케일에서 페이지 구조, 제목 계층 및 링크 대상을 보존합니다.
+
+기술 용어, ISO 식별자 및 표준 코드는 모호함을 피하기 위해 번역하지 않습니다. pacs.008.001.13, BIC, IBAN, CBPR+ 등의 용어는 모든 언어에서 표준 형식 그대로 표시됩니다. 비기술적 콘텐츠는 각 대상 언어에서 자연스럽게 읽히도록 번역됩니다. 번역은 구조적 일관성을 검토하며 영어 원본 자료가 변경될 때 재생성됩니다.
+
+## 업데이트 빈도
+
+콘텐츠는 세 가지 트리거에 대응하여 업데이트됩니다. 첫째, ISO 20022가 pacs 메시지 정의에 영향을 미치는 새로운 메시지 카탈로그 버전을 게시할 때입니다. 둘째, SWIFT가 업데이트된 CBPR+ 사용 지침 또는 마이그레이션 기한을 발표할 때입니다. 셋째, EPC가 SEPA 신용이체 또는 즉시 신용이체 규정집을 업데이트할 때입니다.
+
+pacs008 툴킷은 시맨틱 버전 관리를 따릅니다. 새로운 릴리스는 API 문서 및 변경 이력에 반영됩니다. 사이트는 콘텐츠 또는 툴킷이 업데이트될 때마다 재빌드 및 재배포됩니다.
+
+## 콘텐츠 생성
+
+페이지 구조와 번역된 콘텐츠는 검토된 영어 원본 자료에서 빌드 스크립트를 사용하여 생성됩니다. 이를 통해 기술 용어와 ISO 식별자를 표준 형식으로 유지하면서 22개 언어 전체에서 구조적 일관성을 보장합니다.
+
+## 정확성 및 한계
+
+pacs008.com은 정확하고 최신의 정보를 제공하는 것을 목표로 하지만, 체계 규정집, 상대방 계약 또는 법률 자문을 대체할 수 없습니다. 구현 세부 사항은 항상 주요 출처 및 운영하는 시장 또는 체계의 특정 규칙에 대해 확인하시기 바랍니다.
+
+## 연락처
+
+오류를 발견하거나 수정 사항이 있으면 [pacs008 저장소](https://github.com/sebastienrousseau/pacs008/issues)에 이슈를 등록해 주세요.

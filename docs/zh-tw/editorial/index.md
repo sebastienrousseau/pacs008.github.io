@@ -1,6 +1,6 @@
 ---
 title: "編輯政策 | pacs008"
-description: How pacs008.com content is created, reviewed, and maintained. Sources, review process, and update schedule. 面向金融機構間客戶信貸轉帳工作流程的產生、驗證、API 編排與合規支援。
+description: pacs008.com 內容的建立、審查與維護方式。來源、審查流程與更新時程。 面向金融機構間客戶信貸轉帳工作流程的產生、驗證、API 編排與合規支援。
 lang: zh-TW
 lastUpdated: true
 image: /logo.webp
@@ -8,31 +8,55 @@ image: /logo.webp
 
 # 編輯政策
 
-This page explains how content on pacs008.com is created, reviewed, and kept current.
+本頁說明 pacs008.com 上的內容是如何建立、審查及保持最新的。
 
-## Sources
+## 來源
 
-All message documentation is based on primary sources:
+所有訊息文件均以主要來源為依據：
 
-- [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions) for message specifications and version history.
-- [SWIFT CBPR+ usage guidelines](https://www.swift.com/standards/iso-20022) for cross-border payment context.
-- [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and) for euro credit transfer rules.
-- [EPC SEPA Instant Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook) for instant payment rules.
+- [ISO 20022 訊息定義目錄](https://www.iso20022.org/iso-20022-message-definitions)，提供訊息規格和版本歷史。
+- [SWIFT CBPR+ 使用指引](https://www.swift.com/standards/iso-20022)，提供跨境支付背景。
+- [EPC SEPA 信用轉帳規則手冊](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and)，提供歐元信用轉帳規則。
+- [EPC SEPA 即時信用轉帳規則手冊](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook)，提供即時支付規則。
 
-## Review process
+## 內容審查流程
 
-Each message page shows a review date. Reviews check that version numbers, registration status, and scheme context still match the primary sources listed above.
+pacs008.com 上的每一個頁面在發布前都會經過結構化審查。新內容從基於主要來源資料的草稿開始。草稿會依據 ISO 20022 訊息目錄和相關方案文件進行技術準確性檢查。版本號碼、註冊識別碼和欄位定義會與官方目錄條目進行比對驗證。
 
-Content is updated when ISO 20022 publishes new catalogue versions, when SWIFT releases updated usage guidelines, or when scheme rules change.
+初步審查後，內容會經過結構性檢查，以確保與現有頁面的一致性。網站的導覽、交叉參考和術語會進行標準化統一。每個訊息頁面上顯示的審查日期反映的是最近一次與主要來源比對驗證的時間。
 
-## Content generation
+## 審查流程
 
-Page structure and translated content are generated from reviewed English source material using a build script. This ensures structural consistency across all 22 languages while keeping technical terms and ISO identifiers in their standard form.
+每個訊息頁面都會顯示審查日期。審查會確認版本號碼、註冊狀態及方案背景是否仍與上述主要來源一致。
 
-## Accuracy and limits
+當 ISO 20022 發布新版目錄、SWIFT 發布更新的使用指引或方案規則變更時，內容即會更新。
 
-pacs008.com aims to be accurate and current, but it is not a substitute for scheme rulebooks, counterparty agreements, or legal advice. Always confirm implementation details against the primary sources and the specific rules of the market or scheme you operate in.
+## 技術準確性
 
-## Contact
+技術內容遵循官方目錄中發布的 ISO 20022 訊息定義。欄位名稱、資料類型和基數規則與每個訊息版本的 XSD 結構描述相符。當方案特定用法與基本標準不同時，會直接引用相關方案文件。
 
-If you find an error or have a correction, please open an issue in the [pacs008 repository](https://github.com/sebastienrousseau/pacs008/issues).
+API 文件中的程式碼範例會針對 pacs008 工具組的當前版本進行測試。CLI 命令、API 端點和 Python 程式庫方法反映了 PyPI 上已發布的套件。範例會在每次新版本發布時更新，以與工具組保持同步。
+
+## 翻譯方法
+
+pacs008.com 提供 22 種語言版本。所有內容均以英文為原始語言。翻譯頁面透過建置腳本從已審查的英文原始資料產生，該腳本在所有語言版本中保留頁面結構、標題層次和連結目標。
+
+技術術語、ISO 識別碼和標準代碼保持不翻譯以避免歧義。如 pacs.008.001.13、BIC、IBAN 和 CBPR+ 等術語在每種語言中都以其標準形式出現。非技術性內容會翻譯為各目標語言的自然表達。翻譯內容會進行結構一致性審查，並在英文原始資料變更時重新產生。
+
+## 更新頻率
+
+內容會因應三種觸發因素進行更新。首先，當 ISO 20022 發布影響 pacs 訊息定義的新版訊息目錄時。其次，當 SWIFT 發布更新的 CBPR+ 使用指引或遷移期限時。第三，當 EPC 更新 SEPA 信用轉帳或即時信用轉帳規則手冊時。
+
+pacs008 工具組遵循語意版本控制。每次新版本發布都會反映在 API 文件和更新日誌中。網站會在每次內容或工具組更新時重新建置和部署。
+
+## 內容產生
+
+頁面結構和翻譯內容是透過建置腳本從已審查的英文原始資料產生的。這確保了所有 22 種語言在結構上的一致性，同時保持技術術語和 ISO 識別碼的標準形式。
+
+## 準確性與限制
+
+pacs008.com 致力於提供準確且最新的資訊，但不能取代方案規則手冊、交易對手協議或法律建議。請務必根據主要來源以及您所營運的市場或方案的特定規則確認實施細節。
+
+## 聯絡方式
+
+如果您發現錯誤或需要更正，請在 [pacs008 儲存庫](https://github.com/sebastienrousseau/pacs008/issues)中提交問題。
