@@ -1025,12 +1025,59 @@ strong {
   line-height: 1.618;
 }
 
-/* ---------- Language picker: scrollable dropdown ---------- */
-.VPNavBarTranslations .items,
+/* ---------- Language picker: multi-column mega menu ---------- */
+.VPNavBarTranslations .items {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  max-height: 80vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  min-width: 560px;
+  padding: 0.5rem;
+}
+
+/* Current language label at top spans full width */
+.VPNavBarTranslations .items > p {
+  grid-column: 1 / -1;
+  margin: 0 0 0.25rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--pacs-text-secondary);
+  border-bottom: 1px solid var(--pacs-divider);
+}
+
+/* Each language link in the grid */
+.VPNavBarTranslations .items .VPMenuLink {
+  margin: 0;
+}
+
+.VPNavBarTranslations .items .VPMenuLink a {
+  padding: 0.375rem 0.5rem;
+  font-size: 0.875rem;
+  min-height: 40px;
+  white-space: nowrap;
+}
+
+/* Mobile: extra menu translations stay single column */
 .VPNavBarExtra .group.translations {
   max-height: 60vh;
   overflow-y: auto;
   overscroll-behavior: contain;
+}
+
+/* Tablet: 3 columns */
+@media (max-width: 768px) {
+  .VPNavBarTranslations .items {
+    grid-template-columns: repeat(3, 1fr);
+    min-width: 420px;
+  }
+}
+
+/* Position the mega menu from the right edge */
+.VPNavBarTranslations .menu {
+  right: 0;
+  left: auto;
 }
 
 /* ---------- Scroll progress indicator for doc pages ---------- */

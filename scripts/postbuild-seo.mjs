@@ -29,7 +29,13 @@ const UI = {
   uk: { mainNavigation: "Основна навігація", extraNavigation: "додаткова навігація", mobileNavigation: "мобільна навігація", toggleDarkMode: "Перемкнути темний режим", permalinkTo: "Постійне посилання на", breadcrumb: "Хлібні крихти", copyCode: "Копіювати код", githubLabel: "GitHub" },
   vi: { mainNavigation: "Điều hướng chính", extraNavigation: "điều hướng bổ sung", mobileNavigation: "điều hướng di động", toggleDarkMode: "Chuyển chế độ tối", permalinkTo: "Liên kết cố định tới", breadcrumb: "Đường dẫn điều hướng", copyCode: "Sao chép mã", githubLabel: "GitHub" },
   zh: { mainNavigation: "主导航", extraNavigation: "附加导航", mobileNavigation: "移动导航", toggleDarkMode: "切换深色模式", permalinkTo: "固定链接到", breadcrumb: "面包屑导航", copyCode: "复制代码", githubLabel: "GitHub" },
-  "zh-tw": { mainNavigation: "主導覽", extraNavigation: "額外導覽", mobileNavigation: "行動導覽", toggleDarkMode: "切換深色模式", permalinkTo: "固定連結到", breadcrumb: "麵包屑導覽", copyCode: "複製程式碼", githubLabel: "GitHub" }
+  "zh-tw": { mainNavigation: "主導覽", extraNavigation: "額外導覽", mobileNavigation: "行動導覽", toggleDarkMode: "切換深色模式", permalinkTo: "固定連結到", breadcrumb: "麵包屑導覽", copyCode: "複製程式碼", githubLabel: "GitHub" },
+  bn: { mainNavigation: "প্রধান নেভিগেশন", extraNavigation: "অতিরিক্ত নেভিগেশন", mobileNavigation: "মোবাইল নেভিগেশন", toggleDarkMode: "ডার্ক মোড টগল", permalinkTo: "স্থায়ী লিঙ্ক", breadcrumb: "ব্রেডক্রাম্ব নেভিগেশন", copyCode: "কোড কপি করুন", githubLabel: "GitHub" },
+  cs: { mainNavigation: "Hlavní navigace", extraNavigation: "Další navigace", mobileNavigation: "Mobilní navigace", toggleDarkMode: "Přepnout tmavý režim", permalinkTo: "Trvalý odkaz na", breadcrumb: "Drobečková navigace", copyCode: "Kopírovat kód", githubLabel: "GitHub" },
+  ha: { mainNavigation: "Babban kewayawa", extraNavigation: "Ƙarin kewayawa", mobileNavigation: "Kewayawan hannu", toggleDarkMode: "Canja yanayin duhu", permalinkTo: "Hanyar dindindin zuwa", breadcrumb: "Hanyar kewayawa", copyCode: "Kwafi lambar", githubLabel: "GitHub" },
+  sv: { mainNavigation: "Huvudnavigering", extraNavigation: "Extra navigering", mobileNavigation: "Mobilnavigering", toggleDarkMode: "Växla mörkt läge", permalinkTo: "Permanent länk till", breadcrumb: "Brödsmulor", copyCode: "Kopiera kod", githubLabel: "GitHub" },
+  tl: { mainNavigation: "Pangunahing navigasyon", extraNavigation: "Karagdagang navigasyon", mobileNavigation: "Mobile na navigasyon", toggleDarkMode: "I-toggle ang dark mode", permalinkTo: "Permanenteng link sa", breadcrumb: "Breadcrumb", copyCode: "Kopyahin ang code", githubLabel: "GitHub" },
+  yo: { mainNavigation: "Ìlílọ́ àkọ́kọ́", extraNavigation: "Ìlílọ́ àfikún", mobileNavigation: "Ìlílọ́ alágbèéká", toggleDarkMode: "Yí ọ̀nà dúdú padà", permalinkTo: "Ìtọ́kasí tó dúró", breadcrumb: "Ọ̀nà àbáwọlé", copyCode: "Dà koodu", githubLabel: "GitHub" }
 };
 
 async function walkHtml(dir) {

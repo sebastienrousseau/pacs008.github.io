@@ -26,6 +26,7 @@ export const LOCALE_META: Record<string, { lang: string; home: string }> = {
   vi: { lang: "vi-VN", home: "Trang chủ" },
   zh: { lang: "zh-CN", home: "首页" },
   "zh-tw": { lang: "zh-TW", home: "首頁" }
+  // New locales (bn, cs, ha, sv, tl, yo) will be added after content generation
 };
 
 export const LOCALE_KEYS = new Set(Object.keys(LOCALE_META));
