@@ -116,7 +116,13 @@ const locales = Object.fromEntries(
         uk: "\u{1F1FA}\u{1F1E6} Українська",
         vi: "\u{1F1FB}\u{1F1F3} Tiếng Việt",
         zh: "\u{1F1E8}\u{1F1F3} 简体中文",
-        "zh-tw": "\u{1F1F9}\u{1F1FC} 繁體中文"
+        "zh-tw": "\u{1F1F9}\u{1F1FC} 繁體中文",
+        bn: "\u{1F1E7}\u{1F1E9} বাংলা",
+        cs: "\u{1F1E8}\u{1F1FF} Čeština",
+        ha: "\u{1F1F3}\u{1F1EC} Hausa",
+        sv: "\u{1F1F8}\u{1F1EA} Svenska",
+        tl: "\u{1F1F5}\u{1F1ED} Filipino",
+        yo: "\u{1F1F3}\u{1F1EC} Yorùbá"
       }[key],
       lang: value.lang,
       dir: RTL_LOCALES.has(key) ? "rtl" : "ltr",

@@ -25,8 +25,13 @@ export const LOCALE_META: Record<string, { lang: string; home: string }> = {
   uk: { lang: "uk-UA", home: "Головна" },
   vi: { lang: "vi-VN", home: "Trang chủ" },
   zh: { lang: "zh-CN", home: "首页" },
-  "zh-tw": { lang: "zh-TW", home: "首頁" }
-  // New locales (bn, cs, ha, sv, tl, yo) will be added after content generation
+  "zh-tw": { lang: "zh-TW", home: "首頁" },
+  bn: { lang: "bn-BD", home: "হোম" },
+  cs: { lang: "cs-CZ", home: "Domů" },
+  ha: { lang: "ha-NG", home: "Gida" },
+  sv: { lang: "sv-SE", home: "Hem" },
+  tl: { lang: "tl-PH", home: "Home" },
+  yo: { lang: "yo-NG", home: "Ilé" }
 };
 
 export const LOCALE_KEYS = new Set(Object.keys(LOCALE_META));
