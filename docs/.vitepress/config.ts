@@ -513,13 +513,9 @@ ${items.join("\n")}
     code = code.replace(/<link rel="modulepreload"[^>]*>\n?/g, '');
     code = code.replace(/<link rel="preload"[^>]*as="font"[^>]*>\n?/g, '');
 
-    // --- Performance: defer JS to idle time on all pages ---
-    // All pages are server-rendered; JS is only needed for interactivity
-    // (search, theme toggle, client-side routing).
-    code = code.replace(
-      /<script type="module" src="([^"]+)"><\/script>/,
-      '<script>(typeof requestIdleCallback!=="undefined"?requestIdleCallback:setTimeout)(function(){var s=document.createElement("script");s.type="module";s.src="$1";document.head.appendChild(s)});</script>'
-    );
+    // Note: JS deferral via requestIdleCallback was removed because it
+    // breaks VitePress client-side routing and hydration. The framework
+    // module must load synchronously for nav links to work.
 
     return code;
   },
