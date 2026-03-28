@@ -1,5 +1,5 @@
 ---
-title: ISO 20022 PACS Message Types — Supported Versions
+title: ISO 20022 pacs Message Types — Supported Versions
 description: Browse the ISO 20022 pacs messages supported by pacs008 and see where each message fits in payment initiation, status, returns, reversals, and enquiries.
 lang: en-GB
 lastUpdated: true
@@ -98,7 +98,7 @@ Start with the business event, not the message code.
 
 Use the [message selection guide](/message-selection/) for a one-page view across the supported pacs flows.
 
-Keep the payment owner, settlement stage, and exception path clear before pick a message.
+Keep the payment owner, settlement stage, and exception path clear before picking a message.
 
 ## 2026 market context
 

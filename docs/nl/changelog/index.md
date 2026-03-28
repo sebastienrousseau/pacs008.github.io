@@ -8,14 +8,14 @@ image: /logo.webp
 
 # Wijzigingslogboek
 
-This page tracks significant changes to the pacs008 toolkit and this documentation site.
+Significant changes to the pacs008 toolkit and this documentation site.
 
 ## 2026
 
 ### Maart 2026
 
 - Uitgebreide FAQ-pagina toegevoegd met meer dan 25 vraag-en-antwoordparen over ISO 20022 pacs-berichten.
-- Pagina met uitleg over PACS-berichten toegevoegd met gedetailleerde technische referentie voor de gehele pacs-familie.
+- Pagina met uitleg over pacs-berichten toegevoegd met gedetailleerde technische referentie voor de gehele pacs-familie.
 - Woordenlijstpagina toegevoegd met definities van meer dan 60 termen uit ISO 20022 en betalingsberichtenverkeer.
 - Pagina over de deadline voor gestructureerde adressen toegevoegd met betrekking tot de CBPR+-vereiste van november 2026.
 - Pagina over het redactioneel beleid toegevoegd met uitleg over inhoudsbronnen, beoordelingsproces en methodologie.

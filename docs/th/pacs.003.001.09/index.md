@@ -173,8 +173,8 @@ faq:
 ## เอกสารอ้างอิงหลัก
 
 - [ISO 20022 message definitions catalogue for `pacs.003.001.09`](https://www.iso20022.org/iso-20022-message-definitions?search=Pacs.003.001.09)
-- [Swift CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released)
-- [Swift CBPR+ migration roadmap PDF](https://www.swift.com/swift-resource/252463/download)
+- [SWIFT CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released)
+- [SWIFT CBPR+ migration roadmap PDF](https://www.swift.com/swift-resource/252463/download)
 
 ## ข้อความที่เกี่ยวข้อง
 <div class="related-messages-table" tabindex="0" aria-label="ข้อความที่เกี่ยวข้อง">

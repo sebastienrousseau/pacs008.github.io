@@ -8,7 +8,7 @@ image: /logo.webp
 
 # 更新日誌
 
-This page tracks significant changes to the pacs008 toolkit and this documentation site.
+Significant changes to the pacs008 toolkit and this documentation site.
 
 ## 2026
 

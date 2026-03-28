@@ -8,14 +8,14 @@ image: /logo.webp
 
 # 변경 이력
 
-This page tracks significant changes to the pacs008 toolkit and this documentation site.
+Significant changes to the pacs008 toolkit and this documentation site.
 
 ## 2026
 
 ### 2026년 3월
 
 - ISO 20022 pacs 메시지를 다루는 25개 이상의 Q&A 쌍이 포함된 종합 FAQ 페이지를 추가했습니다.
-- pacs 메시지 패밀리 전체에 대한 상세 기술 참조를 포함하는 PACS 메시지 설명 페이지를 추가했습니다.
+- pacs 메시지 패밀리 전체에 대한 상세 기술 참조를 포함하는 pacs 메시지 설명 페이지를 추가했습니다.
 - 60개 이상의 ISO 20022 및 결제 메시징 용어를 정의하는 용어집 페이지를 추가했습니다.
 - 2026년 11월 CBPR+ 요구사항을 다루는 구조화 주소 기한 페이지를 추가했습니다.
 - 콘텐츠 소스, 검토 프로세스 및 방법론을 설명하는 편집 정책 페이지를 추가했습니다.

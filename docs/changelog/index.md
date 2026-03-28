@@ -8,14 +8,14 @@ image: /logo.webp
 
 # Changelog
 
-This page tracks significant changes to the pacs008 toolkit and this documentation site.
+Significant changes to the pacs008 toolkit and this documentation site.
 
 ## 2026
 
 ### March 2026
 
 - Added comprehensive FAQ page with 25+ Q&A pairs covering ISO 20022 pacs messages.
-- Added PACS Messages Explained page with detailed technical reference for the entire pacs family.
+- Added pacs Messages Explained page with detailed technical reference for the entire pacs family.
 - Added glossary page defining 60+ ISO 20022 and payment messaging terms.
 - Added structured-address deadline page covering the November 2026 CBPR+ requirement.
 - Added editorial policy page explaining content sources, review process, and methodology.

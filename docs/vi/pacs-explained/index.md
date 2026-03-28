@@ -1,12 +1,12 @@
 ---
-title: "Giải thích các thông điệp PACS | pacs008"
+title: "Giải thích các thông điệp pacs | pacs008"
 description: "Detailed technical reference for ISO 20022 pacs messages: lifecycle, XML structure, settlement methods, reason codes, address types, identifiers..."
 lang: vi-VN
 lastUpdated: true
 image: /logo.webp
 ---
 
-# Giải thích các thông điệp PACS
+# Giải thích các thông điệp pacs
 
 A detailed technical reference for the ISO 20022 pacs message family. It covers how messages work together in a complete payment lifecycle, the XML structure, settlement methods, reason codes, party identification, remittance information, and end-to-end tracking.
 

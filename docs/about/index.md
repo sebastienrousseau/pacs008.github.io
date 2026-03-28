@@ -45,7 +45,7 @@ pacs008 is a Python toolkit for teams that need to generate, validate, and ship 
 Multiple validation layers run before any XML is written:
 
 - JSON Schema validation against 20 message-specific schemas.
-- IBAN format and checksum verification covering 75 countries.
+- IBAN format and checksum verification covering 75 countries supported by the toolkit.
 - BIC structure and country-code validation per ISO 9362.
 - XSD validation of generated XML against official ISO 20022 schemas.
 

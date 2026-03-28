@@ -111,7 +111,7 @@ Supported message pages are listed in [Message Types](/message-types/).
 - Start with the business event.
 - Check who owns the payment at that stage.
 - Check whether value is moving, being reported, being returned, or being queried.
-- Confirm the scheme and counterparty rules before freeze the template.
+- Confirm the scheme and counterparty rules before freezing the template.
 
 ## 2026 implementation signals
 

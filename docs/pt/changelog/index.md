@@ -8,14 +8,14 @@ image: /logo.webp
 
 # Registro de alterações
 
-This page tracks significant changes to the pacs008 toolkit and this documentation site.
+Significant changes to the pacs008 toolkit and this documentation site.
 
 ## 2026
 
 ### Março 2026
 
 - Adicionada página de perguntas frequentes abrangente com mais de 25 pares de perguntas e respostas sobre mensagens ISO 20022 pacs.
-- Adicionada página explicativa de mensagens PACS com referência técnica detalhada para toda a família pacs.
+- Adicionada página explicativa de mensagens pacs com referência técnica detalhada para toda a família pacs.
 - Adicionada página de glossário definindo mais de 60 termos de ISO 20022 e mensagens de pagamento.
 - Adicionada página sobre o prazo de endereços estruturados cobrindo o requisito CBPR+ de novembro de 2026.
 - Adicionada página de política editorial explicando as fontes de conteúdo, processo de revisão e metodologia.

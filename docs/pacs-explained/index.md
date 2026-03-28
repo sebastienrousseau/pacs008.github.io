@@ -1,12 +1,12 @@
 ---
-title: PACS Messages Explained — ISO 20022 Payment Clearing
+title: pacs Messages Explained — ISO 20022 Payment Clearing
 description: "Detailed technical reference for ISO 20022 pacs messages: lifecycle, XML structure, settlement methods, reason codes, address types, identifiers..."
 lang: en-GB
 lastUpdated: true
 image: /logo.webp
 ---
 
-# PACS messages explained
+# pacs messages explained
 
 A detailed technical reference for the ISO 20022 pacs message family. It covers how messages work together in a complete payment lifecycle, the XML structure, settlement methods, reason codes, party identification, remittance information, and end-to-end tracking.
 

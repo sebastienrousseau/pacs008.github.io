@@ -1,12 +1,12 @@
 ---
-title: "Описание сообщений PACS | pacs008"
+title: "Описание сообщений pacs | pacs008"
 description: "Detailed technical reference for ISO 20022 pacs messages: lifecycle, XML structure, settlement methods, reason codes, address types, identifiers..."
 lang: ru-RU
 lastUpdated: true
 image: /logo.webp
 ---
 
-# Описание сообщений PACS
+# Описание сообщений pacs
 
 A detailed technical reference for the ISO 20022 pacs message family. It covers how messages work together in a complete payment lifecycle, the XML structure, settlement methods, reason codes, party identification, remittance information, and end-to-end tracking.
 

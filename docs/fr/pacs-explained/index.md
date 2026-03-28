@@ -1,12 +1,12 @@
 ---
-title: "Les messages PACS expliqués | pacs008"
+title: "Les messages pacs expliqués | pacs008"
 description: "Référence technique détaillée pour les messages pacs ISO 20022 : cycle de vie, structure XML, méthodes de règlement, codes motif, types d'adresse..."
 lang: fr-FR
 lastUpdated: true
 image: /logo.webp
 ---
 
-# Les messages PACS expliqués
+# Les messages pacs expliqués
 
 Cette page fournit une référence technique détaillée pour la famille de messages pacs ISO 20022. Elle couvre le fonctionnement des messages dans le cycle de vie complet d'un paiement, la structure XML, les méthodes de règlement, les codes motif, l'identification des parties, les informations de remise et le suivi de bout en bout.
 

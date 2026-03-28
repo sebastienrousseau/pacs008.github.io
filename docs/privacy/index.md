@@ -36,7 +36,7 @@ No personal data is collected, so no personal data is retained. Server logs mana
 
 ## Open-source transparency
 
-The entire source code for pacs008.com is publicly available on [GitHub](https://github.com/pacs008/pacs008.github.io). Every page, script, and configuration file can be inspected. The build process, content generation logic, and deployment pipeline are fully visible. This transparency makes it possible to verify exactly what the site does and does not do with visitor data.
+The entire source code for pacs008.com is publicly available on [GitHub](https://github.com/sebastienrousseau/pacs008.github.io). Every page, script, and configuration file can be inspected. The build process, content generation logic, and deployment pipeline are fully visible. This transparency makes it possible to verify exactly what the site does and does not do with visitor data.
 
 ## Data rights
 

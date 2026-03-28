@@ -8,14 +8,14 @@ image: /logo.webp
 
 # Jurnal de modificări
 
-This page tracks significant changes to the pacs008 toolkit and this documentation site.
+Significant changes to the pacs008 toolkit and this documentation site.
 
 ## 2026
 
 ### Martie 2026
 
 - Adăugată pagină FAQ cuprinzătoare cu peste 25 de perechi de întrebări și răspunsuri despre mesajele ISO 20022 pacs.
-- Adăugată pagină explicativă a mesajelor PACS cu referință tehnică detaliată pentru întreaga familie pacs.
+- Adăugată pagină explicativă a mesajelor pacs cu referință tehnică detaliată pentru întreaga familie pacs.
 - Adăugată pagină de glosar cu definițiile a peste 60 de termeni ISO 20022 și de mesagerie a plăților.
 - Adăugată pagină privind termenul limită pentru adrese structurate care acoperă cerința CBPR+ din noiembrie 2026.
 - Adăugată pagină de politică editorială care explică sursele de conținut, procesul de revizuire și metodologia.

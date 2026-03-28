@@ -8,14 +8,14 @@ image: /logo.webp
 
 # Dziennik zmian
 
-This page tracks significant changes to the pacs008 toolkit and this documentation site.
+Significant changes to the pacs008 toolkit and this documentation site.
 
 ## 2026
 
 ### Marzec 2026
 
 - Dodano kompleksową stronę FAQ z ponad 25 parami pytań i odpowiedzi dotyczącymi komunikatów ISO 20022 pacs.
-- Dodano stronę z objaśnieniem komunikatów PACS ze szczegółową dokumentacją techniczną dla całej rodziny pacs.
+- Dodano stronę z objaśnieniem komunikatów pacs ze szczegółową dokumentacją techniczną dla całej rodziny pacs.
 - Dodano stronę glosariusza definiującą ponad 60 terminów ISO 20022 i komunikatów płatniczych.
 - Dodano stronę dotyczącą terminu wdrożenia adresów strukturalnych obejmującą wymóg CBPR+ z listopada 2026.
 - Dodano stronę polityki redakcyjnej wyjaśniającą źródła treści, proces recenzji i metodologię.

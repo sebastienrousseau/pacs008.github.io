@@ -1,12 +1,12 @@
 ---
-title: "PACS-Nachrichten erklärt | pacs008"
+title: "pacs-Nachrichten erklärt | pacs008"
 description: "Detaillierte technische Referenz für ISO 20022 pacs-Nachrichten: Lebenszyklus, XML-Struktur, Abwicklungsmethoden, Begründungscodes, Adresstypen..."
 lang: de-DE
 lastUpdated: true
 image: /logo.webp
 ---
 
-# PACS-Nachrichten erklärt
+# pacs-Nachrichten erklärt
 
 Diese Seite bietet eine detaillierte technische Referenz für die ISO 20022 pacs-Nachrichtenfamilie. Sie behandelt den vollständigen Zahlungslebenszyklus, die XML-Struktur, Abwicklungsmethoden, Begründungscodes, Parteiidentifikation, Überweisungsinformationen und End-to-End-Tracking.
 

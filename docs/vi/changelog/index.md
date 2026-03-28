@@ -8,14 +8,14 @@ image: /logo.webp
 
 # Nhật ký thay đổi
 
-This page tracks significant changes to the pacs008 toolkit and this documentation site.
+Significant changes to the pacs008 toolkit and this documentation site.
 
 ## 2026
 
 ### Tháng 3 năm 2026
 
 - Thêm trang câu hỏi thường gặp toàn diện với hơn 25 cặp hỏi-đáp về các thông điệp ISO 20022 pacs.
-- Thêm trang giải thích thông điệp PACS với tài liệu tham khảo kỹ thuật chi tiết cho toàn bộ họ pacs.
+- Thêm trang giải thích thông điệp pacs với tài liệu tham khảo kỹ thuật chi tiết cho toàn bộ họ pacs.
 - Thêm trang thuật ngữ định nghĩa hơn 60 thuật ngữ ISO 20022 và nhắn tin thanh toán.
 - Thêm trang hạn chót địa chỉ có cấu trúc về yêu cầu CBPR+ tháng 11 năm 2026.
 - Thêm trang chính sách biên tập giải thích nguồn nội dung, quy trình đánh giá và phương pháp luận.
