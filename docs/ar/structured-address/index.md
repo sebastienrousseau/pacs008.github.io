@@ -8,58 +8,58 @@ howtoName: "How to prepare for the November 2026 structured postal address deadl
 howtoDescription: "Steps to audit, map, validate, and test postal address data before the SWIFT CBPR+ November 2026 deadline."
 howto:
   - name: "Step 1"
-    text: "Audit current address data quality across debtor, creditor, and agent records."
+    text: "تدقيق جودة بيانات العناوين الحالية عبر سجلات المدين والدائن والوكيل."
   - name: "Step 2"
-    text: "Map existing unstructured address fields to the structured format (street, building, post code, town, country)."
+    text: "تعيين حقول العناوين غير المهيكلة الحالية إلى التنسيق المهيكل (الشارع، المبنى، الرمز البريدي، المدينة، البلد)."
   - name: "Step 3"
-    text: "Add address validation to the pre-generation pipeline using pacs008."
+    text: "إضافة التحقق من العنوان إلى خط أنابيب ما قبل الإنشاء باستخدام pacs008."
   - name: "Step 4"
-    text: "Test with representative payment data before the deadline."
+    text: "الاختبار ببيانات دفع تمثيلية قبل الموعد النهائي."
 ---
 
 # الموعد النهائي للعنوان المهيكل نوفمبر 2026
 
-SWIFT requires structured postal addresses in cross-border payment messages from November 2026. What changes, which messages are affected, and how pacs008 helps teams prepare.
+يتطلب SWIFT عناوين بريدية مهيكلة في رسائل الدفع عبر الحدود اعتبارًا من نوفمبر 2026. ما الذي يتغير، وما الرسائل المتأثرة، وكيف يساعد pacs008 الفرق في الاستعداد.
 
-## What is changing
+## ما الذي يتغير
 
-SWIFT CBPR+ is moving from unstructured postal addresses to structured address fields in cross-border payment messages. After the November 2026 deadline, key party address fields must use the structured format with separate elements for street name, building number, post code, town, and country.
+ينتقل SWIFT CBPR+ من العناوين البريدية غير المهيكلة إلى حقول عنوان مهيكلة في رسائل الدفع عبر الحدود. بعد الموعد النهائي في نوفمبر 2026، يجب أن تستخدم حقول عناوين الأطراف الرئيسية التنسيق المهيكل مع عناصر منفصلة لاسم الشارع ورقم المبنى والرمز البريدي والمدينة والبلد.
 
-## Why it matters
+## لماذا هذا مهم
 
-- Unstructured addresses increase manual repair rates and delay straight-through processing.
-- Structured addresses improve sanctions screening accuracy by separating party name from location data.
-- Regulatory and scheme requirements increasingly mandate structured data for compliance and reporting.
-- Cross-border payment rejection rates rise when address quality does not meet counterparty expectations.
+- تزيد العناوين غير المهيكلة من معدلات الإصلاح اليدوي وتؤخر المعالجة المباشرة.
+- تُحسّن العناوين المهيكلة دقة فحص العقوبات من خلال فصل اسم الطرف عن بيانات الموقع.
+- تفرض المتطلبات التنظيمية ومتطلبات الأنظمة بشكل متزايد بيانات مهيكلة للامتثال وإعداد التقارير.
+- ترتفع معدلات رفض المدفوعات عبر الحدود عندما لا تلبي جودة العناوين توقعات الأطراف المقابلة.
 
-## Which messages are affected
+## ما الرسائل المتأثرة
 
-- **pacs.008** — debtor and creditor postal addresses in customer credit transfers.
-- **pacs.009** — institution addresses in financial institution credit transfers and cover payments.
-- **pacs.004** — party addresses in payment returns.
-- **pacs.003** — creditor and debtor addresses in customer direct debits.
+- **pacs.008** — العناوين البريدية للمدين والدائن في تحويلات ائتمان العملاء.
+- **pacs.009** — عناوين المؤسسات في تحويلات الائتمان بين المؤسسات المالية ومدفوعات التغطية.
+- **pacs.004** — عناوين الأطراف في مرتجعات الدفع.
+- **pacs.003** — عناوين الدائن والمدين في الخصم المباشر للعملاء.
 
-## How pacs008 helps
+## كيف يساعد pacs008
 
-- Validates structured and hybrid postal address fields before XML generation.
-- Flags unstructured address data that would fail after the deadline.
-- Supports both pre-deadline hybrid formats and post-deadline structured-only formats.
-- Integrates address quality checks into CI pipelines and batch validation workflows.
+- يتحقق من صحة حقول العنوان البريدي المهيكلة والمختلطة قبل إنشاء XML.
+- يُحدّد بيانات العنوان غير المهيكلة التي ستفشل بعد الموعد النهائي.
+- يدعم التنسيقات المختلطة قبل الموعد النهائي والتنسيقات المهيكلة فقط بعد الموعد النهائي.
+- يدمج فحوصات جودة العنوان في خطوط أنابيب CI وسير عمل التحقق الدُفعي.
 
-## Timeline
+## الجدول الزمني
 
-- **March 2023** — SWIFT CBPR+ goes live with ISO 20022 for cross-border payments.
-- **November 2025** — coexistence period for MT and MX payment instructions ends.
-- **November 2026** — structured postal address requirement takes effect for CBPR+ messages.
+- **مارس 2023** — إطلاق SWIFT CBPR+ مع ISO 20022 للمدفوعات عبر الحدود.
+- **نوفمبر 2025** — انتهاء فترة التعايش بين تعليمات الدفع MT و MX.
+- **نوفمبر 2026** — دخول متطلبات العنوان البريدي المهيكل حيز التنفيذ لرسائل CBPR+.
 
-## What to do now
+## ما يجب فعله الآن
 
-- Audit current address data quality across debtor, creditor, and agent records.
-- Map existing unstructured address fields to the structured format (street, building, post code, town, country).
-- Add address validation to the pre-generation pipeline using pacs008.
-- Test with representative payment data before the deadline.
+- تدقيق جودة بيانات العناوين الحالية عبر سجلات المدين والدائن والوكيل.
+- تعيين حقول العناوين غير المهيكلة الحالية إلى التنسيق المهيكل (الشارع، المبنى، الرمز البريدي، المدينة، البلد).
+- إضافة التحقق من العنوان إلى خط أنابيب ما قبل الإنشاء باستخدام pacs008.
+- الاختبار ببيانات دفع تمثيلية قبل الموعد النهائي.
 
-## References
+## المراجع
 
 - [SWIFT CBPR+ roadmap and standards programme](https://www.swift.com/standards/iso-20022/iso-20022-programme/cbpr-roadmap)
 - [SWIFT CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released)

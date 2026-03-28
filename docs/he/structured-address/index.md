@@ -8,58 +8,58 @@ howtoName: "How to prepare for the November 2026 structured postal address deadl
 howtoDescription: "Steps to audit, map, validate, and test postal address data before the SWIFT CBPR+ November 2026 deadline."
 howto:
   - name: "Step 1"
-    text: "Audit current address data quality across debtor, creditor, and agent records."
+    text: "לבצע ביקורת על איכות נתוני הכתובות הנוכחיים ברשומות חייב, נושה וסוכן."
   - name: "Step 2"
-    text: "Map existing unstructured address fields to the structured format (street, building, post code, town, country)."
+    text: "למפות שדות כתובת לא מובנים קיימים לפורמט המובנה (רחוב, בניין, מיקוד, עיר, מדינה)."
   - name: "Step 3"
-    text: "Add address validation to the pre-generation pipeline using pacs008."
+    text: "להוסיף אימות כתובת לצינור קדם-היצירה באמצעות pacs008."
   - name: "Step 4"
-    text: "Test with representative payment data before the deadline."
+    text: "לבדוק עם נתוני תשלום מייצגים לפני המועד האחרון."
 ---
 
 # מועד אחרון לכתובת מובנית נובמבר 2026
 
-SWIFT requires structured postal addresses in cross-border payment messages from November 2026. What changes, which messages are affected, and how pacs008 helps teams prepare.
+SWIFT דורש כתובות דואר מובנות בהודעות תשלום חוצות גבולות החל מנובמבר 2026. מה משתנה, אילו הודעות מושפעות וכיצד pacs008 עוזר לצוותים להתכונן.
 
-## What is changing
+## מה משתנה
 
-SWIFT CBPR+ is moving from unstructured postal addresses to structured address fields in cross-border payment messages. After the November 2026 deadline, key party address fields must use the structured format with separate elements for street name, building number, post code, town, and country.
+SWIFT CBPR+ עובר מכתובות דואר לא מובנות לשדות כתובת מובנים בהודעות תשלום חוצות גבולות. לאחר המועד האחרון בנובמבר 2026, שדות הכתובת של הצדדים המרכזיים חייבים להשתמש בפורמט המובנה עם אלמנטים נפרדים לשם רחוב, מספר בניין, מיקוד, עיר ומדינה.
 
-## Why it matters
+## למה זה חשוב
 
-- Unstructured addresses increase manual repair rates and delay straight-through processing.
-- Structured addresses improve sanctions screening accuracy by separating party name from location data.
-- Regulatory and scheme requirements increasingly mandate structured data for compliance and reporting.
-- Cross-border payment rejection rates rise when address quality does not meet counterparty expectations.
+- כתובות לא מובנות מגדילות את שיעורי התיקון הידני ומעכבות עיבוד ישיר.
+- כתובות מובנות משפרות את דיוק סינון הסנקציות על ידי הפרדת שם הצד מנתוני המיקום.
+- דרישות רגולטוריות ודרישות סכמה מחייבות יותר ויותר נתונים מובנים לציות ודיווח.
+- שיעורי דחיית תשלומים חוצי גבולות עולים כאשר איכות הכתובת אינה עומדת בציפיות הצד הנגדי.
 
-## Which messages are affected
+## אילו הודעות מושפעות
 
-- **pacs.008** — debtor and creditor postal addresses in customer credit transfers.
-- **pacs.009** — institution addresses in financial institution credit transfers and cover payments.
-- **pacs.004** — party addresses in payment returns.
-- **pacs.003** — creditor and debtor addresses in customer direct debits.
+- **pacs.008** — כתובות דואר של החייב והנושה בהעברות אשראי ללקוחות.
+- **pacs.009** — כתובות מוסדות בהעברות אשראי בין מוסדות פיננסיים ותשלומי כיסוי.
+- **pacs.004** — כתובות צדדים בהחזרי תשלומים.
+- **pacs.003** — כתובות נושה וחייב בחיובים ישירים של לקוחות.
 
-## How pacs008 helps
+## כיצד pacs008 עוזר
 
-- Validates structured and hybrid postal address fields before XML generation.
-- Flags unstructured address data that would fail after the deadline.
-- Supports both pre-deadline hybrid formats and post-deadline structured-only formats.
-- Integrates address quality checks into CI pipelines and batch validation workflows.
+- מאמת שדות כתובת דואר מובנים והיברידיים לפני יצירת XML.
+- מסמן נתוני כתובת לא מובנים שייכשלו לאחר המועד האחרון.
+- תומך הן בפורמטים היברידיים לפני המועד האחרון והן בפורמטים מובנים בלבד לאחריו.
+- משלב בדיקות איכות כתובת בצינורות CI ובתהליכי אימות אצווה.
 
-## Timeline
+## ציר זמן
 
-- **March 2023** — SWIFT CBPR+ goes live with ISO 20022 for cross-border payments.
-- **November 2025** — coexistence period for MT and MX payment instructions ends.
-- **November 2026** — structured postal address requirement takes effect for CBPR+ messages.
+- **מרץ 2023** — SWIFT CBPR+ עולה לאוויר עם ISO 20022 לתשלומים חוצי גבולות.
+- **נובמבר 2025** — תקופת הדו-קיום להוראות תשלום MT ו-MX מסתיימת.
+- **נובמבר 2026** — דרישת כתובת דואר מובנית נכנסת לתוקף עבור הודעות CBPR+.
 
-## What to do now
+## מה לעשות עכשיו
 
-- Audit current address data quality across debtor, creditor, and agent records.
-- Map existing unstructured address fields to the structured format (street, building, post code, town, country).
-- Add address validation to the pre-generation pipeline using pacs008.
-- Test with representative payment data before the deadline.
+- לבצע ביקורת על איכות נתוני הכתובות הנוכחיים ברשומות חייב, נושה וסוכן.
+- למפות שדות כתובת לא מובנים קיימים לפורמט המובנה (רחוב, בניין, מיקוד, עיר, מדינה).
+- להוסיף אימות כתובת לצינור קדם-היצירה באמצעות pacs008.
+- לבדוק עם נתוני תשלום מייצגים לפני המועד האחרון.
 
-## References
+## הפניות
 
 - [SWIFT CBPR+ roadmap and standards programme](https://www.swift.com/standards/iso-20022/iso-20022-programme/cbpr-roadmap)
 - [SWIFT CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released)

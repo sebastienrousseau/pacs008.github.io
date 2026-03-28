@@ -8,58 +8,58 @@ howtoName: "How to prepare for the November 2026 structured postal address deadl
 howtoDescription: "Steps to audit, map, validate, and test postal address data before the SWIFT CBPR+ November 2026 deadline."
 howto:
   - name: "Step 1"
-    text: "Audit current address data quality across debtor, creditor, and agent records."
+    text: "Huidige adresgegevenskwaliteit auditen over debiteur-, crediteur- en agentrecords."
   - name: "Step 2"
-    text: "Map existing unstructured address fields to the structured format (street, building, post code, town, country)."
+    text: "Bestaande ongestructureerde adresvelden toewijzen aan het gestructureerde formaat (straat, gebouw, postcode, plaats, land)."
   - name: "Step 3"
-    text: "Add address validation to the pre-generation pipeline using pacs008."
+    text: "Adresvalidatie toevoegen aan de pre-generatiepipeline met pacs008."
   - name: "Step 4"
-    text: "Test with representative payment data before the deadline."
+    text: "Testen met representatieve betalingsgegevens vóór de deadline."
 ---
 
 # Deadline gestructureerd adres november 2026
 
-SWIFT requires structured postal addresses in cross-border payment messages from November 2026. What changes, which messages are affected, and how pacs008 helps teams prepare.
+SWIFT vereist gestructureerde postadressen in grensoverschrijdende betalingsberichten vanaf november 2026. Wat er verandert, welke berichten betrokken zijn en hoe pacs008 teams helpt zich voor te bereiden.
 
-## What is changing
+## Wat er verandert
 
-SWIFT CBPR+ is moving from unstructured postal addresses to structured address fields in cross-border payment messages. After the November 2026 deadline, key party address fields must use the structured format with separate elements for street name, building number, post code, town, and country.
+SWIFT CBPR+ stapt over van ongestructureerde postadressen naar gestructureerde adresvelden in grensoverschrijdende betalingsberichten. Na de deadline van november 2026 moeten de adresvelden van de belangrijkste partijen het gestructureerde formaat gebruiken met afzonderlijke elementen voor straatnaam, huisnummer, postcode, plaats en land.
 
-## Why it matters
+## Waarom het belangrijk is
 
-- Unstructured addresses increase manual repair rates and delay straight-through processing.
-- Structured addresses improve sanctions screening accuracy by separating party name from location data.
-- Regulatory and scheme requirements increasingly mandate structured data for compliance and reporting.
-- Cross-border payment rejection rates rise when address quality does not meet counterparty expectations.
+- Ongestructureerde adressen verhogen het percentage handmatige reparaties en vertragen directe verwerking.
+- Gestructureerde adressen verbeteren de nauwkeurigheid van sanctiescreening door partijnaam te scheiden van locatiegegevens.
+- Regelgevende en schema-eisen schrijven steeds vaker gestructureerde gegevens voor ten behoeve van compliance en rapportage.
+- Afwijzingspercentages van grensoverschrijdende betalingen stijgen wanneer de adreskwaliteit niet aan de verwachtingen van de tegenpartij voldoet.
 
-## Which messages are affected
+## Welke berichten betrokken zijn
 
-- **pacs.008** — debtor and creditor postal addresses in customer credit transfers.
-- **pacs.009** — institution addresses in financial institution credit transfers and cover payments.
-- **pacs.004** — party addresses in payment returns.
-- **pacs.003** — creditor and debtor addresses in customer direct debits.
+- **pacs.008** — postadressen van debiteur en crediteur in klantoverschrijvingen.
+- **pacs.009** — instellingsadressen in kredietoverdrachten tussen financiële instellingen en dekkingsbetalingen.
+- **pacs.004** — partij-adressen bij betalingsretourzendingen.
+- **pacs.003** — adressen van crediteur en debiteur bij automatische incasso's van klanten.
 
-## How pacs008 helps
+## Hoe pacs008 helpt
 
-- Validates structured and hybrid postal address fields before XML generation.
-- Flags unstructured address data that would fail after the deadline.
-- Supports both pre-deadline hybrid formats and post-deadline structured-only formats.
-- Integrates address quality checks into CI pipelines and batch validation workflows.
+- Valideert gestructureerde en hybride postadresvelden vóór XML-generatie.
+- Markeert ongestructureerde adresgegevens die na de deadline zouden falen.
+- Ondersteunt zowel hybride formaten vóór de deadline als uitsluitend gestructureerde formaten na de deadline.
+- Integreert adresqualiteitscontroles in CI-pipelines en batchvalidatieworkflows.
 
-## Timeline
+## Tijdlijn
 
-- **March 2023** — SWIFT CBPR+ goes live with ISO 20022 for cross-border payments.
-- **November 2025** — coexistence period for MT and MX payment instructions ends.
-- **November 2026** — structured postal address requirement takes effect for CBPR+ messages.
+- **Maart 2023** — SWIFT CBPR+ gaat live met ISO 20022 voor grensoverschrijdende betalingen.
+- **November 2025** — coëxistentieperiode voor MT- en MX-betalingsinstructies eindigt.
+- **November 2026** — vereiste van gestructureerd postadres treedt in werking voor CBPR+-berichten.
 
-## What to do now
+## Wat nu te doen
 
-- Audit current address data quality across debtor, creditor, and agent records.
-- Map existing unstructured address fields to the structured format (street, building, post code, town, country).
-- Add address validation to the pre-generation pipeline using pacs008.
-- Test with representative payment data before the deadline.
+- Huidige adresgegevenskwaliteit auditen over debiteur-, crediteur- en agentrecords.
+- Bestaande ongestructureerde adresvelden toewijzen aan het gestructureerde formaat (straat, gebouw, postcode, plaats, land).
+- Adresvalidatie toevoegen aan de pre-generatiepipeline met pacs008.
+- Testen met representatieve betalingsgegevens vóór de deadline.
 
-## References
+## Referenties
 
 - [SWIFT CBPR+ roadmap and standards programme](https://www.swift.com/standards/iso-20022/iso-20022-programme/cbpr-roadmap)
 - [SWIFT CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released)

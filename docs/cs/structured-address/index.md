@@ -8,58 +8,58 @@ howtoName: "How to prepare for the November 2026 structured postal address deadl
 howtoDescription: "Steps to audit, map, validate, and test postal address data before the SWIFT CBPR+ November 2026 deadline."
 howto:
   - name: "Step 1"
-    text: "Audit current address data quality across debtor, creditor, and agent records."
+    text: "Provést audit současné kvality adresních údajů v záznamech dlužníků, věřitelů a agentů."
   - name: "Step 2"
-    text: "Map existing unstructured address fields to the structured format (street, building, post code, town, country)."
+    text: "Namapovat existující nestrukturovaná adresní pole na strukturovaný formát (ulice, budova, PSČ, město, země)."
   - name: "Step 3"
-    text: "Add address validation to the pre-generation pipeline using pacs008."
+    text: "Přidat validaci adres do pre-generačního pipeline pomocí pacs008."
   - name: "Step 4"
-    text: "Test with representative payment data before the deadline."
+    text: "Otestovat s reprezentativními platebními daty před uplynutím lhůty."
 ---
 
 # Termín strukturovaných adres v listopadu 2026
 
-SWIFT requires structured postal addresses in cross-border payment messages from November 2026. What changes, which messages are affected, and how pacs008 helps teams prepare.
+SWIFT vyžaduje strukturované poštovní adresy v přeshraničních platebních zprávách od listopadu 2026. Co se mění, které zprávy jsou dotčeny a jak pacs008 pomáhá týmům s přípravou.
 
-## What is changing
+## Co se mění
 
-SWIFT CBPR+ is moving from unstructured postal addresses to structured address fields in cross-border payment messages. After the November 2026 deadline, key party address fields must use the structured format with separate elements for street name, building number, post code, town, and country.
+SWIFT CBPR+ přechází z nestrukturovaných poštovních adres na strukturovaná adresní pole v přeshraničních platebních zprávách. Po uplynutí lhůty v listopadu 2026 musí adresní pole klíčových stran používat strukturovaný formát s oddělenými prvky pro název ulice, číslo budovy, poštovní směrovací číslo, město a zemi.
 
-## Why it matters
+## Proč je to důležité
 
-- Unstructured addresses increase manual repair rates and delay straight-through processing.
-- Structured addresses improve sanctions screening accuracy by separating party name from location data.
-- Regulatory and scheme requirements increasingly mandate structured data for compliance and reporting.
-- Cross-border payment rejection rates rise when address quality does not meet counterparty expectations.
+- Nestrukturované adresy zvyšují míru manuálních oprav a zpožďují přímé zpracování.
+- Strukturované adresy zlepšují přesnost prověřování sankcí oddělením jména strany od lokalizačních údajů.
+- Regulatorní požadavky a požadavky schémat stále více nařizují strukturovaná data pro dodržování předpisů a výkaznictví.
+- Míra zamítnutí přeshraničních plateb roste, když kvalita adres nesplňuje očekávání protistrany.
 
-## Which messages are affected
+## Které zprávy jsou dotčeny
 
-- **pacs.008** — debtor and creditor postal addresses in customer credit transfers.
-- **pacs.009** — institution addresses in financial institution credit transfers and cover payments.
-- **pacs.004** — party addresses in payment returns.
-- **pacs.003** — creditor and debtor addresses in customer direct debits.
+- **pacs.008** — poštovní adresy dlužníka a věřitele v zákaznických úhradách.
+- **pacs.009** — adresy institucí v mezibankovních úhradách a krycích platbách.
+- **pacs.004** — adresy stran ve vratných platbách.
+- **pacs.003** — adresy věřitele a dlužníka v přímých inkasech zákazníků.
 
-## How pacs008 helps
+## Jak pacs008 pomáhá
 
-- Validates structured and hybrid postal address fields before XML generation.
-- Flags unstructured address data that would fail after the deadline.
-- Supports both pre-deadline hybrid formats and post-deadline structured-only formats.
-- Integrates address quality checks into CI pipelines and batch validation workflows.
+- Validuje strukturovaná a hybridní pole poštovní adresy před generováním XML.
+- Označuje nestrukturované adresní údaje, které by po uplynutí lhůty neprošly.
+- Podporuje jak hybridní formáty před lhůtou, tak výhradně strukturované formáty po lhůtě.
+- Integruje kontroly kvality adres do CI pipeline a dávkových validačních pracovních postupů.
 
-## Timeline
+## Časová osa
 
-- **March 2023** — SWIFT CBPR+ goes live with ISO 20022 for cross-border payments.
-- **November 2025** — coexistence period for MT and MX payment instructions ends.
-- **November 2026** — structured postal address requirement takes effect for CBPR+ messages.
+- **Březen 2023** — SWIFT CBPR+ spuštěn s ISO 20022 pro přeshraniční platby.
+- **Listopad 2025** — období koexistence platebních instrukcí MT a MX končí.
+- **Listopad 2026** — požadavek na strukturovanou poštovní adresu nabývá účinnosti pro zprávy CBPR+.
 
-## What to do now
+## Co dělat nyní
 
-- Audit current address data quality across debtor, creditor, and agent records.
-- Map existing unstructured address fields to the structured format (street, building, post code, town, country).
-- Add address validation to the pre-generation pipeline using pacs008.
-- Test with representative payment data before the deadline.
+- Provést audit současné kvality adresních údajů v záznamech dlužníků, věřitelů a agentů.
+- Namapovat existující nestrukturovaná adresní pole na strukturovaný formát (ulice, budova, PSČ, město, země).
+- Přidat validaci adres do pre-generačního pipeline pomocí pacs008.
+- Otestovat s reprezentativními platebními daty před uplynutím lhůty.
 
-## References
+## Reference
 
 - [SWIFT CBPR+ roadmap and standards programme](https://www.swift.com/standards/iso-20022/iso-20022-programme/cbpr-roadmap)
 - [SWIFT CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released)

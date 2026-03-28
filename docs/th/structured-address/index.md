@@ -8,58 +8,58 @@ howtoName: "How to prepare for the November 2026 structured postal address deadl
 howtoDescription: "Steps to audit, map, validate, and test postal address data before the SWIFT CBPR+ November 2026 deadline."
 howto:
   - name: "Step 1"
-    text: "Audit current address data quality across debtor, creditor, and agent records."
+    text: "ตรวจสอบคุณภาพข้อมูลที่อยู่ปัจจุบันในบันทึกของผู้ชำระหนี้ ผู้รับชำระหนี้ และตัวแทน"
   - name: "Step 2"
-    text: "Map existing unstructured address fields to the structured format (street, building, post code, town, country)."
+    text: "แมปฟิลด์ที่อยู่แบบไม่มีโครงสร้างที่มีอยู่ไปยังรูปแบบมีโครงสร้าง (ถนน อาคาร รหัสไปรษณีย์ เมือง ประเทศ)"
   - name: "Step 3"
-    text: "Add address validation to the pre-generation pipeline using pacs008."
+    text: "เพิ่มการตรวจสอบที่อยู่ในไปป์ไลน์ก่อนการสร้างโดยใช้ pacs008"
   - name: "Step 4"
-    text: "Test with representative payment data before the deadline."
+    text: "ทดสอบด้วยข้อมูลการชำระเงินตัวแทนก่อนกำหนดเส้นตาย"
 ---
 
 # กำหนดเวลาที่อยู่แบบมีโครงสร้าง พฤศจิกายน 2026
 
-SWIFT requires structured postal addresses in cross-border payment messages from November 2026. What changes, which messages are affected, and how pacs008 helps teams prepare.
+SWIFT กำหนดให้ใช้ที่อยู่ไปรษณีย์แบบมีโครงสร้างในข้อความการชำระเงินข้ามพรมแดนตั้งแต่เดือนพฤศจิกายน 2026 มีอะไรเปลี่ยนแปลง ข้อความใดได้รับผลกระทบ และ pacs008 ช่วยทีมเตรียมความพร้อมอย่างไร
 
-## What is changing
+## สิ่งที่เปลี่ยนแปลง
 
-SWIFT CBPR+ is moving from unstructured postal addresses to structured address fields in cross-border payment messages. After the November 2026 deadline, key party address fields must use the structured format with separate elements for street name, building number, post code, town, and country.
+SWIFT CBPR+ กำลังเปลี่ยนจากที่อยู่ไปรษณีย์แบบไม่มีโครงสร้างเป็นฟิลด์ที่อยู่แบบมีโครงสร้างในข้อความการชำระเงินข้ามพรมแดน หลังจากกำหนดเส้นตายเดือนพฤศจิกายน 2026 ฟิลด์ที่อยู่ของฝ่ายหลักต้องใช้รูปแบบมีโครงสร้างที่มีองค์ประกอบแยกสำหรับชื่อถนน หมายเลขอาคาร รหัสไปรษณีย์ เมือง และประเทศ
 
-## Why it matters
+## ทำไมจึงสำคัญ
 
-- Unstructured addresses increase manual repair rates and delay straight-through processing.
-- Structured addresses improve sanctions screening accuracy by separating party name from location data.
-- Regulatory and scheme requirements increasingly mandate structured data for compliance and reporting.
-- Cross-border payment rejection rates rise when address quality does not meet counterparty expectations.
+- ที่อยู่แบบไม่มีโครงสร้างเพิ่มอัตราการแก้ไขด้วยตนเองและทำให้การประมวลผลโดยตรงล่าช้า
+- ที่อยู่แบบมีโครงสร้างช่วยเพิ่มความแม่นยำในการคัดกรองการลงโทษโดยแยกชื่อฝ่ายออกจากข้อมูลตำแหน่ง
+- ข้อกำหนดด้านกฎระเบียบและแผนงานกำหนดให้ใช้ข้อมูลแบบมีโครงสร้างมากขึ้นเพื่อการปฏิบัติตามกฎและการรายงาน
+- อัตราการปฏิเสธการชำระเงินข้ามพรมแดนเพิ่มขึ้นเมื่อคุณภาพที่อยู่ไม่เป็นไปตามความคาดหวังของคู่สัญญา
 
-## Which messages are affected
+## ข้อความใดได้รับผลกระทบ
 
-- **pacs.008** — debtor and creditor postal addresses in customer credit transfers.
-- **pacs.009** — institution addresses in financial institution credit transfers and cover payments.
-- **pacs.004** — party addresses in payment returns.
-- **pacs.003** — creditor and debtor addresses in customer direct debits.
+- **pacs.008** — ที่อยู่ไปรษณีย์ของผู้ชำระหนี้และผู้รับชำระหนี้ในการโอนเครดิตลูกค้า
+- **pacs.009** — ที่อยู่สถาบันในการโอนเครดิตระหว่างสถาบันการเงินและการชำระเงินแบบครอบคลุม
+- **pacs.004** — ที่อยู่ของฝ่ายในการคืนเงิน
+- **pacs.003** — ที่อยู่ของผู้รับชำระหนี้และผู้ชำระหนี้ในการหักบัญชีโดยตรงของลูกค้า
 
-## How pacs008 helps
+## pacs008 ช่วยอย่างไร
 
-- Validates structured and hybrid postal address fields before XML generation.
-- Flags unstructured address data that would fail after the deadline.
-- Supports both pre-deadline hybrid formats and post-deadline structured-only formats.
-- Integrates address quality checks into CI pipelines and batch validation workflows.
+- ตรวจสอบฟิลด์ที่อยู่ไปรษณีย์แบบมีโครงสร้างและแบบผสมก่อนการสร้าง XML
+- แจ้งเตือนข้อมูลที่อยู่แบบไม่มีโครงสร้างที่จะไม่ผ่านหลังจากกำหนดเส้นตาย
+- รองรับทั้งรูปแบบผสมก่อนกำหนดเส้นตายและรูปแบบมีโครงสร้างเท่านั้นหลังกำหนดเส้นตาย
+- ผสานการตรวจสอบคุณภาพที่อยู่เข้ากับไปป์ไลน์ CI และเวิร์กโฟลว์การตรวจสอบแบบแบตช์
 
-## Timeline
+## ไทม์ไลน์
 
-- **March 2023** — SWIFT CBPR+ goes live with ISO 20022 for cross-border payments.
-- **November 2025** — coexistence period for MT and MX payment instructions ends.
-- **November 2026** — structured postal address requirement takes effect for CBPR+ messages.
+- **มีนาคม 2023** — SWIFT CBPR+ เริ่มใช้งานจริงกับ ISO 20022 สำหรับการชำระเงินข้ามพรมแดน
+- **พฤศจิกายน 2025** — ระยะเวลาอยู่ร่วมกันของคำสั่งการชำระเงิน MT และ MX สิ้นสุด
+- **พฤศจิกายน 2026** — ข้อกำหนดที่อยู่ไปรษณีย์แบบมีโครงสร้างมีผลบังคับใช้สำหรับข้อความ CBPR+
 
-## What to do now
+## สิ่งที่ต้องทำตอนนี้
 
-- Audit current address data quality across debtor, creditor, and agent records.
-- Map existing unstructured address fields to the structured format (street, building, post code, town, country).
-- Add address validation to the pre-generation pipeline using pacs008.
-- Test with representative payment data before the deadline.
+- ตรวจสอบคุณภาพข้อมูลที่อยู่ปัจจุบันในบันทึกของผู้ชำระหนี้ ผู้รับชำระหนี้ และตัวแทน
+- แมปฟิลด์ที่อยู่แบบไม่มีโครงสร้างที่มีอยู่ไปยังรูปแบบมีโครงสร้าง (ถนน อาคาร รหัสไปรษณีย์ เมือง ประเทศ)
+- เพิ่มการตรวจสอบที่อยู่ในไปป์ไลน์ก่อนการสร้างโดยใช้ pacs008
+- ทดสอบด้วยข้อมูลการชำระเงินตัวแทนก่อนกำหนดเส้นตาย
 
-## References
+## เอกสารอ้างอิง
 
 - [SWIFT CBPR+ roadmap and standards programme](https://www.swift.com/standards/iso-20022/iso-20022-programme/cbpr-roadmap)
 - [SWIFT CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released)

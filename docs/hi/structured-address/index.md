@@ -8,58 +8,58 @@ howtoName: "How to prepare for the November 2026 structured postal address deadl
 howtoDescription: "Steps to audit, map, validate, and test postal address data before the SWIFT CBPR+ November 2026 deadline."
 howto:
   - name: "Step 1"
-    text: "Audit current address data quality across debtor, creditor, and agent records."
+    text: "देनदार, लेनदार और एजेंट रिकॉर्ड में वर्तमान पता डेटा गुणवत्ता का ऑडिट करें।"
   - name: "Step 2"
-    text: "Map existing unstructured address fields to the structured format (street, building, post code, town, country)."
+    text: "मौजूदा असंरचित पता फ़ील्ड को संरचित प्रारूप में मैप करें (सड़क, भवन, पिन कोड, शहर, देश)।"
   - name: "Step 3"
-    text: "Add address validation to the pre-generation pipeline using pacs008."
+    text: "pacs008 का उपयोग करके प्री-जनरेशन पाइपलाइन में पता सत्यापन जोड़ें।"
   - name: "Step 4"
-    text: "Test with representative payment data before the deadline."
+    text: "समय सीमा से पहले प्रतिनिधि भुगतान डेटा के साथ परीक्षण करें।"
 ---
 
 # संरचित पता समय-सीमा नवंबर 2026
 
-SWIFT requires structured postal addresses in cross-border payment messages from November 2026. What changes, which messages are affected, and how pacs008 helps teams prepare.
+SWIFT को नवंबर 2026 से सीमा-पार भुगतान संदेशों में संरचित डाक पते की आवश्यकता है। क्या बदल रहा है, कौन से संदेश प्रभावित हैं, और pacs008 टीमों को तैयार होने में कैसे मदद करता है।
 
-## What is changing
+## क्या बदल रहा है
 
-SWIFT CBPR+ is moving from unstructured postal addresses to structured address fields in cross-border payment messages. After the November 2026 deadline, key party address fields must use the structured format with separate elements for street name, building number, post code, town, and country.
+SWIFT CBPR+ सीमा-पार भुगतान संदेशों में असंरचित डाक पतों से संरचित पता फ़ील्ड की ओर बढ़ रहा है। नवंबर 2026 की समय सीमा के बाद, प्रमुख पक्ष पता फ़ील्ड को सड़क का नाम, भवन संख्या, पिन कोड, शहर और देश के लिए अलग-अलग तत्वों के साथ संरचित प्रारूप का उपयोग करना होगा।
 
-## Why it matters
+## यह क्यों महत्वपूर्ण है
 
-- Unstructured addresses increase manual repair rates and delay straight-through processing.
-- Structured addresses improve sanctions screening accuracy by separating party name from location data.
-- Regulatory and scheme requirements increasingly mandate structured data for compliance and reporting.
-- Cross-border payment rejection rates rise when address quality does not meet counterparty expectations.
+- असंरचित पते मैनुअल मरम्मत दरों को बढ़ाते हैं और सीधे प्रसंस्करण में देरी करते हैं।
+- संरचित पते पक्ष के नाम को स्थान डेटा से अलग करके प्रतिबंध जांच सटीकता में सुधार करते हैं।
+- नियामक और योजना आवश्यकताएं अनुपालन और रिपोर्टिंग के लिए संरचित डेटा को तेजी से अनिवार्य बना रही हैं।
+- जब पते की गुणवत्ता प्रतिपक्ष अपेक्षाओं को पूरा नहीं करती, तो सीमा-पार भुगतान अस्वीकृति दरें बढ़ती हैं।
 
-## Which messages are affected
+## कौन से संदेश प्रभावित हैं
 
-- **pacs.008** — debtor and creditor postal addresses in customer credit transfers.
-- **pacs.009** — institution addresses in financial institution credit transfers and cover payments.
-- **pacs.004** — party addresses in payment returns.
-- **pacs.003** — creditor and debtor addresses in customer direct debits.
+- **pacs.008** — ग्राहक क्रेडिट ट्रांसफर में देनदार और लेनदार के डाक पते।
+- **pacs.009** — वित्तीय संस्थान क्रेडिट ट्रांसफर और कवर भुगतानों में संस्था के पते।
+- **pacs.004** — भुगतान वापसी में पक्षों के पते।
+- **pacs.003** — ग्राहक प्रत्यक्ष डेबिट में लेनदार और देनदार के पते।
 
-## How pacs008 helps
+## pacs008 कैसे मदद करता है
 
-- Validates structured and hybrid postal address fields before XML generation.
-- Flags unstructured address data that would fail after the deadline.
-- Supports both pre-deadline hybrid formats and post-deadline structured-only formats.
-- Integrates address quality checks into CI pipelines and batch validation workflows.
+- XML जनरेशन से पहले संरचित और हाइब्रिड डाक पता फ़ील्ड को मान्य करता है।
+- असंरचित पता डेटा को चिह्नित करता है जो समय सीमा के बाद विफल हो जाएगा।
+- समय सीमा से पहले के हाइब्रिड प्रारूपों और समय सीमा के बाद के केवल-संरचित प्रारूपों दोनों का समर्थन करता है।
+- CI पाइपलाइनों और बैच सत्यापन वर्कफ़्लो में पता गुणवत्ता जांच को एकीकृत करता है।
 
-## Timeline
+## समयरेखा
 
-- **March 2023** — SWIFT CBPR+ goes live with ISO 20022 for cross-border payments.
-- **November 2025** — coexistence period for MT and MX payment instructions ends.
-- **November 2026** — structured postal address requirement takes effect for CBPR+ messages.
+- **मार्च 2023** — SWIFT CBPR+ सीमा-पार भुगतानों के लिए ISO 20022 के साथ लाइव हुआ।
+- **नवंबर 2025** — MT और MX भुगतान निर्देशों के लिए सह-अस्तित्व अवधि समाप्त।
+- **नवंबर 2026** — CBPR+ संदेशों के लिए संरचित डाक पता आवश्यकता प्रभावी।
 
-## What to do now
+## अब क्या करें
 
-- Audit current address data quality across debtor, creditor, and agent records.
-- Map existing unstructured address fields to the structured format (street, building, post code, town, country).
-- Add address validation to the pre-generation pipeline using pacs008.
-- Test with representative payment data before the deadline.
+- देनदार, लेनदार और एजेंट रिकॉर्ड में वर्तमान पता डेटा गुणवत्ता का ऑडिट करें।
+- मौजूदा असंरचित पता फ़ील्ड को संरचित प्रारूप में मैप करें (सड़क, भवन, पिन कोड, शहर, देश)।
+- pacs008 का उपयोग करके प्री-जनरेशन पाइपलाइन में पता सत्यापन जोड़ें।
+- समय सीमा से पहले प्रतिनिधि भुगतान डेटा के साथ परीक्षण करें।
 
-## References
+## संदर्भ
 
 - [SWIFT CBPR+ roadmap and standards programme](https://www.swift.com/standards/iso-20022/iso-20022-programme/cbpr-roadmap)
 - [SWIFT CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released)

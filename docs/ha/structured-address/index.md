@@ -1,6 +1,6 @@
 ---
 title: "Ƙayyadaddun lokacin adireshin da aka tsara na Nuwamba 2026 | pacs008"
-description: How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.
+description: Yadda ƙayyadaddun lokacin adireshin da SWIFT CBPR+ ta tsara na Nuwamba 2026 ke shafar pacs.008 da saƙonnin biyan kuɗi masu alaƙa, da yadda pacs008 ke...
 lang: ha-NG
 lastUpdated: true
 image: /logo.webp
@@ -8,58 +8,58 @@ howtoName: "How to prepare for the November 2026 structured postal address deadl
 howtoDescription: "Steps to audit, map, validate, and test postal address data before the SWIFT CBPR+ November 2026 deadline."
 howto:
   - name: "Step 1"
-    text: "Audit current address data quality across debtor, creditor, and agent records."
+    text: "Bincika ingancin bayanan adireshin yanzu a cikin bayanan mai bashi, mai karɓa, da wakili."
   - name: "Step 2"
-    text: "Map existing unstructured address fields to the structured format (street, building, post code, town, country)."
+    text: "Taswirar filayen adireshi marasa tsari da ke akwai zuwa tsarin mai tsari (titi, gini, lambar gidan waya, gari, ƙasa)."
   - name: "Step 3"
-    text: "Add address validation to the pre-generation pipeline using pacs008."
+    text: "Ƙara tabbatar da adireshi zuwa bututun kafin ƙirƙira ta amfani da pacs008."
   - name: "Step 4"
-    text: "Test with representative payment data before the deadline."
+    text: "Gwada tare da bayanan biyan kuɗi na wakilci kafin wa'adin."
 ---
 
 # Ƙayyadaddun lokacin adireshin da aka tsara na Nuwamba 2026
 
-SWIFT requires structured postal addresses in cross-border payment messages from November 2026. What changes, which messages are affected, and how pacs008 helps teams prepare.
+SWIFT na buƙatar adireshi na gidan waya masu tsari a cikin saƙonnin biyan kuɗi na ƙetare iyaka daga Nuwamba 2026. Menene ke canzawa, waɗanne saƙonni ne abin ya shafa, da yadda pacs008 ke taimaka wa ƙungiyoyi su shirya.
 
-## What is changing
+## Menene ke canzawa
 
-SWIFT CBPR+ is moving from unstructured postal addresses to structured address fields in cross-border payment messages. After the November 2026 deadline, key party address fields must use the structured format with separate elements for street name, building number, post code, town, and country.
+SWIFT CBPR+ na matsawa daga adireshi na gidan waya marasa tsari zuwa filayen adireshin da ke da tsari a cikin saƙonnin biyan kuɗi na ƙetare iyaka. Bayan ƙarshen wa'adin Nuwamba 2026, filayen adireshin manyan ɓangarori dole ne su yi amfani da tsarin da ke da sassa daban-daban na sunan titi, lambar gini, lambar gidan waya, gari, da ƙasa.
 
-## Why it matters
+## Me ya sa wannan yana da muhimmanci
 
-- Unstructured addresses increase manual repair rates and delay straight-through processing.
-- Structured addresses improve sanctions screening accuracy by separating party name from location data.
-- Regulatory and scheme requirements increasingly mandate structured data for compliance and reporting.
-- Cross-border payment rejection rates rise when address quality does not meet counterparty expectations.
+- Adireshi marasa tsari suna ƙara yawan gyare-gyare na hannu kuma suna jinkirta sarrafa kai tsaye.
+- Adireshi masu tsari suna inganta daidaiton tantance takunkumi ta hanyar raba sunan ɓangare daga bayanan wurin.
+- Buƙatun doka da na tsarin suna ƙara tilasta bayanan da ke da tsari don bin doka da ba da rahoto.
+- Adadin ƙin biyan kuɗi na ƙetare iyaka yana ƙaruwa idan ingancin adireshin bai cika tsammanin abokin ciniki ba.
 
-## Which messages are affected
+## Waɗanne saƙonni ne abin ya shafa
 
-- **pacs.008** — debtor and creditor postal addresses in customer credit transfers.
-- **pacs.009** — institution addresses in financial institution credit transfers and cover payments.
-- **pacs.004** — party addresses in payment returns.
-- **pacs.003** — creditor and debtor addresses in customer direct debits.
+- **pacs.008** — adireshi na gidan waya na mai bashi da mai karɓa a cikin canja wurin kuɗin abokin ciniki.
+- **pacs.009** — adireshi na cibiyoyi a cikin canja wurin kuɗi tsakanin cibiyoyin kuɗi da biyan kuɗin rufewa.
+- **pacs.004** — adireshi na ɓangarori a cikin mayar da kuɗi.
+- **pacs.003** — adireshi na mai karɓa da mai bashi a cikin cire kuɗi kai tsaye na abokin ciniki.
 
-## How pacs008 helps
+## Yadda pacs008 ke taimakawa
 
-- Validates structured and hybrid postal address fields before XML generation.
-- Flags unstructured address data that would fail after the deadline.
-- Supports both pre-deadline hybrid formats and post-deadline structured-only formats.
-- Integrates address quality checks into CI pipelines and batch validation workflows.
+- Yana tabbatar da filayen adireshin gidan waya masu tsari da na haɗin gwiwa kafin ƙirƙirar XML.
+- Yana nuna bayanan adireshin da ba su da tsari waɗanda za su gaza bayan wa'adin.
+- Yana tallafawa duka tsarin haɗin gwiwa kafin wa'adi da tsarin masu tsari kaɗai bayan wa'adi.
+- Yana haɗa binciken ingancin adireshi cikin bututun CI da tsarin tabbatar da ayyukan tari.
 
-## Timeline
+## Jadawalin lokaci
 
-- **March 2023** — SWIFT CBPR+ goes live with ISO 20022 for cross-border payments.
-- **November 2025** — coexistence period for MT and MX payment instructions ends.
-- **November 2026** — structured postal address requirement takes effect for CBPR+ messages.
+- **Maris 2023** — SWIFT CBPR+ ya fara aiki tare da ISO 20022 don biyan kuɗi na ƙetare iyaka.
+- **Nuwamba 2025** — lokacin zaman tare na umarnin biyan kuɗi MT da MX ya ƙare.
+- **Nuwamba 2026** — buƙatar adireshin gidan waya mai tsari ta fara aiki ga saƙonnin CBPR+.
 
-## What to do now
+## Abin da za a yi yanzu
 
-- Audit current address data quality across debtor, creditor, and agent records.
-- Map existing unstructured address fields to the structured format (street, building, post code, town, country).
-- Add address validation to the pre-generation pipeline using pacs008.
-- Test with representative payment data before the deadline.
+- Bincika ingancin bayanan adireshin yanzu a cikin bayanan mai bashi, mai karɓa, da wakili.
+- Taswirar filayen adireshi marasa tsari da ke akwai zuwa tsarin mai tsari (titi, gini, lambar gidan waya, gari, ƙasa).
+- Ƙara tabbatar da adireshi zuwa bututun kafin ƙirƙira ta amfani da pacs008.
+- Gwada tare da bayanan biyan kuɗi na wakilci kafin wa'adin.
 
-## References
+## Nassoshi
 
 - [SWIFT CBPR+ roadmap and standards programme](https://www.swift.com/standards/iso-20022/iso-20022-programme/cbpr-roadmap)
 - [SWIFT CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released)

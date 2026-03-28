@@ -1,6 +1,6 @@
 ---
 title: "Deadline ng structured address noong Nobyembre 2026 | pacs008"
-description: How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.
+description: Paano naaapektuhan ng SWIFT CBPR+ November 2026 structured postal address deadline ang pacs.008 at mga kaugnay na mensahe ng pagbabayad, at paano...
 lang: tl-PH
 lastUpdated: true
 image: /logo.webp
@@ -8,58 +8,58 @@ howtoName: "How to prepare for the November 2026 structured postal address deadl
 howtoDescription: "Steps to audit, map, validate, and test postal address data before the SWIFT CBPR+ November 2026 deadline."
 howto:
   - name: "Step 1"
-    text: "Audit current address data quality across debtor, creditor, and agent records."
+    text: "I-audit ang kasalukuyang kalidad ng address data sa mga record ng debtor, creditor, at agent."
   - name: "Step 2"
-    text: "Map existing unstructured address fields to the structured format (street, building, post code, town, country)."
+    text: "I-map ang mga umiiral na unstructured na address field sa structured na format (kalye, gusali, postal code, lungsod, bansa)."
   - name: "Step 3"
-    text: "Add address validation to the pre-generation pipeline using pacs008."
+    text: "Magdagdag ng address validation sa pre-generation pipeline gamit ang pacs008."
   - name: "Step 4"
-    text: "Test with representative payment data before the deadline."
+    text: "Mag-test gamit ang representative na payment data bago ang deadline."
 ---
 
 # Deadline ng structured address noong Nobyembre 2026
 
-SWIFT requires structured postal addresses in cross-border payment messages from November 2026. What changes, which messages are affected, and how pacs008 helps teams prepare.
+Kinakailangan ng SWIFT ang mga structured na postal address sa mga cross-border na mensahe ng pagbabayad mula Nobyembre 2026. Ano ang nagbabago, aling mga mensahe ang apektado, at paano tumutulong ang pacs008 sa mga team na maghanda.
 
-## What is changing
+## Ano ang nagbabago
 
-SWIFT CBPR+ is moving from unstructured postal addresses to structured address fields in cross-border payment messages. After the November 2026 deadline, key party address fields must use the structured format with separate elements for street name, building number, post code, town, and country.
+Ang SWIFT CBPR+ ay lumilipat mula sa mga unstructured na postal address patungo sa mga structured na address field sa mga cross-border na mensahe ng pagbabayad. Pagkatapos ng deadline sa Nobyembre 2026, ang mga address field ng mga pangunahing partido ay kailangang gumamit ng structured na format na may hiwalay na mga elemento para sa pangalan ng kalye, numero ng gusali, postal code, lungsod, at bansa.
 
-## Why it matters
+## Bakit ito mahalaga
 
-- Unstructured addresses increase manual repair rates and delay straight-through processing.
-- Structured addresses improve sanctions screening accuracy by separating party name from location data.
-- Regulatory and scheme requirements increasingly mandate structured data for compliance and reporting.
-- Cross-border payment rejection rates rise when address quality does not meet counterparty expectations.
+- Ang mga unstructured na address ay nagpapataas ng rate ng manu-manong pag-aayos at nagpapabagal ng direktang pagproseso.
+- Ang mga structured na address ay nagpapabuti ng katumpakan ng sanctions screening sa pamamagitan ng paghihiwalay ng pangalan ng partido mula sa data ng lokasyon.
+- Ang mga regulatoryo at scheme na kinakailangan ay lalong nag-uutos ng structured na data para sa pagsunod at pag-uulat.
+- Ang mga rate ng pagtanggi sa cross-border na pagbabayad ay tumataas kapag ang kalidad ng address ay hindi nakakatugon sa mga inaasahan ng counterparty.
 
-## Which messages are affected
+## Aling mga mensahe ang apektado
 
-- **pacs.008** — debtor and creditor postal addresses in customer credit transfers.
-- **pacs.009** — institution addresses in financial institution credit transfers and cover payments.
-- **pacs.004** — party addresses in payment returns.
-- **pacs.003** — creditor and debtor addresses in customer direct debits.
+- **pacs.008** — mga postal address ng debtor at creditor sa mga customer credit transfer.
+- **pacs.009** — mga address ng institusyon sa mga credit transfer sa pagitan ng mga financial institution at cover payment.
+- **pacs.004** — mga address ng partido sa mga payment return.
+- **pacs.003** — mga address ng creditor at debtor sa mga customer direct debit.
 
-## How pacs008 helps
+## Paano tumutulong ang pacs008
 
-- Validates structured and hybrid postal address fields before XML generation.
-- Flags unstructured address data that would fail after the deadline.
-- Supports both pre-deadline hybrid formats and post-deadline structured-only formats.
-- Integrates address quality checks into CI pipelines and batch validation workflows.
+- Vine-validate ang mga structured at hybrid na postal address field bago ang XML generation.
+- Mina-mark ang mga unstructured na address data na mabibigo pagkatapos ng deadline.
+- Sinusuportahan ang parehong mga hybrid na format bago ang deadline at structured-only na format pagkatapos ng deadline.
+- Ini-integrate ang mga address quality check sa mga CI pipeline at batch validation workflow.
 
 ## Timeline
 
-- **March 2023** — SWIFT CBPR+ goes live with ISO 20022 for cross-border payments.
-- **November 2025** — coexistence period for MT and MX payment instructions ends.
-- **November 2026** — structured postal address requirement takes effect for CBPR+ messages.
+- **Marso 2023** — naging live ang SWIFT CBPR+ na may ISO 20022 para sa mga cross-border na pagbabayad.
+- **Nobyembre 2025** — natapos ang panahon ng coexistence para sa mga MT at MX na instruksiyon ng pagbabayad.
+- **Nobyembre 2026** — ang kinakailangan ng structured na postal address ay nagkakabisa para sa mga mensahe ng CBPR+.
 
-## What to do now
+## Ano ang dapat gawin ngayon
 
-- Audit current address data quality across debtor, creditor, and agent records.
-- Map existing unstructured address fields to the structured format (street, building, post code, town, country).
-- Add address validation to the pre-generation pipeline using pacs008.
-- Test with representative payment data before the deadline.
+- I-audit ang kasalukuyang kalidad ng address data sa mga record ng debtor, creditor, at agent.
+- I-map ang mga umiiral na unstructured na address field sa structured na format (kalye, gusali, postal code, lungsod, bansa).
+- Magdagdag ng address validation sa pre-generation pipeline gamit ang pacs008.
+- Mag-test gamit ang representative na payment data bago ang deadline.
 
-## References
+## Mga Sanggunian
 
 - [SWIFT CBPR+ roadmap and standards programme](https://www.swift.com/standards/iso-20022/iso-20022-programme/cbpr-roadmap)
 - [SWIFT CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released)

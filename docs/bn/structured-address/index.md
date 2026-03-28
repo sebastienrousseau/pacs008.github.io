@@ -8,58 +8,58 @@ howtoName: "How to prepare for the November 2026 structured postal address deadl
 howtoDescription: "Steps to audit, map, validate, and test postal address data before the SWIFT CBPR+ November 2026 deadline."
 howto:
   - name: "Step 1"
-    text: "Audit current address data quality across debtor, creditor, and agent records."
+    text: "ঋণগ্রহীতা, ঋণদাতা এবং এজেন্ট রেকর্ড জুড়ে বর্তমান ঠিকানা ডেটা মান নিরীক্ষা করুন।"
   - name: "Step 2"
-    text: "Map existing unstructured address fields to the structured format (street, building, post code, town, country)."
+    text: "বিদ্যমান অকাঠামোগত ঠিকানা ক্ষেত্রগুলি কাঠামোগত বিন্যাসে ম্যাপ করুন (রাস্তা, ভবন, পোস্ট কোড, শহর, দেশ)।"
   - name: "Step 3"
-    text: "Add address validation to the pre-generation pipeline using pacs008."
+    text: "pacs008 ব্যবহার করে প্রি-জেনারেশন পাইপলাইনে ঠিকানা যাচাইকরণ যোগ করুন।"
   - name: "Step 4"
-    text: "Test with representative payment data before the deadline."
+    text: "সময়সীমার আগে প্রতিনিধিত্বমূলক পেমেন্ট ডেটা দিয়ে পরীক্ষা করুন।"
 ---
 
 # নভেম্বর 2026 কাঠামোগত ঠিকানার সময়সীমা
 
-SWIFT requires structured postal addresses in cross-border payment messages from November 2026. What changes, which messages are affected, and how pacs008 helps teams prepare.
+SWIFT ২০২৬ সালের নভেম্বর থেকে সীমান্ত-পার পেমেন্ট বার্তায় কাঠামোগত ডাক ঠিকানা বাধ্যতামূলক করছে। কী পরিবর্তন হচ্ছে, কোন বার্তাগুলি প্রভাবিত এবং pacs008 কীভাবে দলগুলিকে প্রস্তুত হতে সাহায্য করে।
 
-## What is changing
+## কী পরিবর্তন হচ্ছে
 
-SWIFT CBPR+ is moving from unstructured postal addresses to structured address fields in cross-border payment messages. After the November 2026 deadline, key party address fields must use the structured format with separate elements for street name, building number, post code, town, and country.
+SWIFT CBPR+ সীমান্ত-পার পেমেন্ট বার্তায় অকাঠামোগত ডাক ঠিকানা থেকে কাঠামোগত ঠিকানা ক্ষেত্রে রূপান্তরিত হচ্ছে। ২০২৬ সালের নভেম্বরের সময়সীমার পরে, প্রধান পক্ষের ঠিকানা ক্ষেত্রগুলিতে রাস্তার নাম, ভবন নম্বর, পোস্ট কোড, শহর এবং দেশের জন্য পৃথক উপাদান সহ কাঠামোগত বিন্যাস ব্যবহার করতে হবে।
 
-## Why it matters
+## কেন এটি গুরুত্বপূর্ণ
 
-- Unstructured addresses increase manual repair rates and delay straight-through processing.
-- Structured addresses improve sanctions screening accuracy by separating party name from location data.
-- Regulatory and scheme requirements increasingly mandate structured data for compliance and reporting.
-- Cross-border payment rejection rates rise when address quality does not meet counterparty expectations.
+- অকাঠামোগত ঠিকানা ম্যানুয়াল মেরামতের হার বাড়ায় এবং সরাসরি প্রক্রিয়াকরণে বিলম্ব ঘটায়।
+- কাঠামোগত ঠিকানা পক্ষের নাম থেকে অবস্থান ডেটা আলাদা করে নিষেধাজ্ঞা স্ক্রিনিং নির্ভুলতা উন্নত করে।
+- নিয়ন্ত্রক এবং স্কিম প্রয়োজনীয়তা সম্মতি এবং রিপোর্টিংয়ের জন্য ক্রমবর্ধমানভাবে কাঠামোগত ডেটা বাধ্যতামূলক করছে।
+- ঠিকানার মান প্রতিপক্ষের প্রত্যাশা পূরণ না করলে সীমান্ত-পার পেমেন্ট প্রত্যাখ্যানের হার বৃদ্ধি পায়।
 
-## Which messages are affected
+## কোন বার্তাগুলি প্রভাবিত
 
-- **pacs.008** — debtor and creditor postal addresses in customer credit transfers.
-- **pacs.009** — institution addresses in financial institution credit transfers and cover payments.
-- **pacs.004** — party addresses in payment returns.
-- **pacs.003** — creditor and debtor addresses in customer direct debits.
+- **pacs.008** — গ্রাহক ক্রেডিট ট্রান্সফারে ঋণগ্রহীতা এবং ঋণদাতার ডাক ঠিকানা।
+- **pacs.009** — আর্থিক প্রতিষ্ঠান ক্রেডিট ট্রান্সফার এবং কভার পেমেন্টে প্রতিষ্ঠানের ঠিকানা।
+- **pacs.004** — পেমেন্ট রিটার্নে পক্ষের ঠিকানা।
+- **pacs.003** — গ্রাহক সরাসরি ডেবিটে ঋণদাতা এবং ঋণগ্রহীতার ঠিকানা।
 
-## How pacs008 helps
+## pacs008 কীভাবে সাহায্য করে
 
-- Validates structured and hybrid postal address fields before XML generation.
-- Flags unstructured address data that would fail after the deadline.
-- Supports both pre-deadline hybrid formats and post-deadline structured-only formats.
-- Integrates address quality checks into CI pipelines and batch validation workflows.
+- XML তৈরির আগে কাঠামোগত এবং হাইব্রিড ডাক ঠিকানা ক্ষেত্র যাচাই করে।
+- সময়সীমার পরে ব্যর্থ হবে এমন অকাঠামোগত ঠিকানা ডেটা চিহ্নিত করে।
+- সময়সীমার আগের হাইব্রিড বিন্যাস এবং সময়সীমার পরের শুধুমাত্র-কাঠামোগত বিন্যাস উভয়ই সমর্থন করে।
+- CI পাইপলাইন এবং ব্যাচ যাচাইকরণ ওয়ার্কফ্লোতে ঠিকানা মান পরীক্ষা সংহত করে।
 
-## Timeline
+## সময়রেখা
 
-- **March 2023** — SWIFT CBPR+ goes live with ISO 20022 for cross-border payments.
-- **November 2025** — coexistence period for MT and MX payment instructions ends.
-- **November 2026** — structured postal address requirement takes effect for CBPR+ messages.
+- **মার্চ ২০২৩** — SWIFT CBPR+ সীমান্ত-পার পেমেন্টের জন্য ISO 20022 সহ চালু হয়েছে।
+- **নভেম্বর ২০২৫** — MT এবং MX পেমেন্ট নির্দেশনার সহাবস্থান সময়কাল শেষ হয়।
+- **নভেম্বর ২০২৬** — CBPR+ বার্তার জন্য কাঠামোগত ডাক ঠিকানার প্রয়োজনীয়তা কার্যকর হয়।
 
-## What to do now
+## এখন কী করতে হবে
 
-- Audit current address data quality across debtor, creditor, and agent records.
-- Map existing unstructured address fields to the structured format (street, building, post code, town, country).
-- Add address validation to the pre-generation pipeline using pacs008.
-- Test with representative payment data before the deadline.
+- ঋণগ্রহীতা, ঋণদাতা এবং এজেন্ট রেকর্ড জুড়ে বর্তমান ঠিকানা ডেটা মান নিরীক্ষা করুন।
+- বিদ্যমান অকাঠামোগত ঠিকানা ক্ষেত্রগুলি কাঠামোগত বিন্যাসে ম্যাপ করুন (রাস্তা, ভবন, পোস্ট কোড, শহর, দেশ)।
+- pacs008 ব্যবহার করে প্রি-জেনারেশন পাইপলাইনে ঠিকানা যাচাইকরণ যোগ করুন।
+- সময়সীমার আগে প্রতিনিধিত্বমূলক পেমেন্ট ডেটা দিয়ে পরীক্ষা করুন।
 
-## References
+## তথ্যসূত্র
 
 - [SWIFT CBPR+ roadmap and standards programme](https://www.swift.com/standards/iso-20022/iso-20022-programme/cbpr-roadmap)
 - [SWIFT CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released)

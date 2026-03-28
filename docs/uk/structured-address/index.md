@@ -8,58 +8,58 @@ howtoName: "How to prepare for the November 2026 structured postal address deadl
 howtoDescription: "Steps to audit, map, validate, and test postal address data before the SWIFT CBPR+ November 2026 deadline."
 howto:
   - name: "Step 1"
-    text: "Audit current address data quality across debtor, creditor, and agent records."
+    text: "Провести аудит поточної якості адресних даних у записах боржників, кредиторів та агентів."
   - name: "Step 2"
-    text: "Map existing unstructured address fields to the structured format (street, building, post code, town, country)."
+    text: "Зіставити існуючі неструктуровані поля адрес зі структурованим форматом (вулиця, будівля, поштовий індекс, місто, країна)."
   - name: "Step 3"
-    text: "Add address validation to the pre-generation pipeline using pacs008."
+    text: "Додати валідацію адрес до конвеєра попередньої генерації за допомогою pacs008."
   - name: "Step 4"
-    text: "Test with representative payment data before the deadline."
+    text: "Провести тестування з репрезентативними платіжними даними до граничного терміну."
 ---
 
 # Термін структурованої адреси листопад 2026
 
-SWIFT requires structured postal addresses in cross-border payment messages from November 2026. What changes, which messages are affected, and how pacs008 helps teams prepare.
+SWIFT вимагає структуровані поштові адреси в транскордонних платіжних повідомленнях з листопада 2026 року. Що змінюється, які повідомлення зачеплені та як pacs008 допомагає командам підготуватися.
 
-## What is changing
+## Що змінюється
 
-SWIFT CBPR+ is moving from unstructured postal addresses to structured address fields in cross-border payment messages. After the November 2026 deadline, key party address fields must use the structured format with separate elements for street name, building number, post code, town, and country.
+SWIFT CBPR+ переходить від неструктурованих поштових адрес до структурованих полів адрес у транскордонних платіжних повідомленнях. Після граничного терміну в листопаді 2026 року поля адрес ключових сторін повинні використовувати структурований формат з окремими елементами для назви вулиці, номера будівлі, поштового індексу, міста та країни.
 
-## Why it matters
+## Чому це важливо
 
-- Unstructured addresses increase manual repair rates and delay straight-through processing.
-- Structured addresses improve sanctions screening accuracy by separating party name from location data.
-- Regulatory and scheme requirements increasingly mandate structured data for compliance and reporting.
-- Cross-border payment rejection rates rise when address quality does not meet counterparty expectations.
+- Неструктуровані адреси збільшують частку ручних виправлень та затримують наскрізну обробку.
+- Структуровані адреси підвищують точність санкційного скринінгу шляхом відокремлення імені сторони від даних про місцезнаходження.
+- Регуляторні вимоги та вимоги схем дедалі частіше наказують використовувати структуровані дані для комплаєнсу та звітності.
+- Рівень відхилення транскордонних платежів зростає, коли якість адрес не відповідає очікуванням контрагентів.
 
-## Which messages are affected
+## Які повідомлення зачеплені
 
-- **pacs.008** — debtor and creditor postal addresses in customer credit transfers.
-- **pacs.009** — institution addresses in financial institution credit transfers and cover payments.
-- **pacs.004** — party addresses in payment returns.
-- **pacs.003** — creditor and debtor addresses in customer direct debits.
+- **pacs.008** — поштові адреси боржника та кредитора в клієнтських кредитових переказах.
+- **pacs.009** — адреси установ у кредитових переказах між фінансовими установами та покриваючих платежах.
+- **pacs.004** — адреси сторін у поверненнях платежів.
+- **pacs.003** — адреси кредитора та боржника в прямих дебетуваннях клієнтів.
 
-## How pacs008 helps
+## Як допомагає pacs008
 
-- Validates structured and hybrid postal address fields before XML generation.
-- Flags unstructured address data that would fail after the deadline.
-- Supports both pre-deadline hybrid formats and post-deadline structured-only formats.
-- Integrates address quality checks into CI pipelines and batch validation workflows.
+- Валідує структуровані та гібридні поля поштової адреси перед генерацією XML.
+- Позначає неструктуровані адресні дані, які не пройдуть перевірку після граничного терміну.
+- Підтримує як гібридні формати до граничного терміну, так і виключно структуровані формати після нього.
+- Інтегрує перевірки якості адрес у CI-конвеєри та пакетні робочі процеси валідації.
 
-## Timeline
+## Хронологія
 
-- **March 2023** — SWIFT CBPR+ goes live with ISO 20022 for cross-border payments.
-- **November 2025** — coexistence period for MT and MX payment instructions ends.
-- **November 2026** — structured postal address requirement takes effect for CBPR+ messages.
+- **Березень 2023** — SWIFT CBPR+ запущено з ISO 20022 для транскордонних платежів.
+- **Листопад 2025** — період співіснування платіжних інструкцій MT та MX завершується.
+- **Листопад 2026** — вимога структурованої поштової адреси набуває чинності для повідомлень CBPR+.
 
-## What to do now
+## Що робити зараз
 
-- Audit current address data quality across debtor, creditor, and agent records.
-- Map existing unstructured address fields to the structured format (street, building, post code, town, country).
-- Add address validation to the pre-generation pipeline using pacs008.
-- Test with representative payment data before the deadline.
+- Провести аудит поточної якості адресних даних у записах боржників, кредиторів та агентів.
+- Зіставити існуючі неструктуровані поля адрес зі структурованим форматом (вулиця, будівля, поштовий індекс, місто, країна).
+- Додати валідацію адрес до конвеєра попередньої генерації за допомогою pacs008.
+- Провести тестування з репрезентативними платіжними даними до граничного терміну.
 
-## References
+## Посилання
 
 - [SWIFT CBPR+ roadmap and standards programme](https://www.swift.com/standards/iso-20022/iso-20022-programme/cbpr-roadmap)
 - [SWIFT CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released)

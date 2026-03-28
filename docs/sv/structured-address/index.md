@@ -1,6 +1,6 @@
 ---
 title: "Tidsfrist för strukturerade adresser november 2026 | pacs008"
-description: How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.
+description: Hur SWIFT CBPR+ tidsfrist för strukturerade postadresser i november 2026 påverkar pacs.008 och relaterade betalningsmeddelanden, och hur pacs008 hjälper...
 lang: sv-SE
 lastUpdated: true
 image: /logo.webp
@@ -8,58 +8,58 @@ howtoName: "How to prepare for the November 2026 structured postal address deadl
 howtoDescription: "Steps to audit, map, validate, and test postal address data before the SWIFT CBPR+ November 2026 deadline."
 howto:
   - name: "Step 1"
-    text: "Audit current address data quality across debtor, creditor, and agent records."
+    text: "Granska nuvarande adressdatakvalitet i gäldenärs-, borgenärs- och agentposter."
   - name: "Step 2"
-    text: "Map existing unstructured address fields to the structured format (street, building, post code, town, country)."
+    text: "Mappa befintliga ostrukturerade adressfält till det strukturerade formatet (gata, byggnad, postnummer, stad, land)."
   - name: "Step 3"
-    text: "Add address validation to the pre-generation pipeline using pacs008."
+    text: "Lägg till adressvalidering i förgenereringspipelinen med pacs008."
   - name: "Step 4"
-    text: "Test with representative payment data before the deadline."
+    text: "Testa med representativa betalningsdata före tidsfristen."
 ---
 
 # Tidsfrist för strukturerade adresser november 2026
 
-SWIFT requires structured postal addresses in cross-border payment messages from November 2026. What changes, which messages are affected, and how pacs008 helps teams prepare.
+SWIFT kräver strukturerade postadresser i gränsöverskridande betalningsmeddelanden från november 2026. Vad som ändras, vilka meddelanden som påverkas och hur pacs008 hjälper team att förbereda sig.
 
-## What is changing
+## Vad som ändras
 
-SWIFT CBPR+ is moving from unstructured postal addresses to structured address fields in cross-border payment messages. After the November 2026 deadline, key party address fields must use the structured format with separate elements for street name, building number, post code, town, and country.
+SWIFT CBPR+ övergår från ostrukturerade postadresser till strukturerade adressfält i gränsöverskridande betalningsmeddelanden. Efter tidsfristen i november 2026 måste adressfälten för viktiga parter använda det strukturerade formatet med separata element för gatunamn, byggnadsnummer, postnummer, stad och land.
 
-## Why it matters
+## Varför det är viktigt
 
-- Unstructured addresses increase manual repair rates and delay straight-through processing.
-- Structured addresses improve sanctions screening accuracy by separating party name from location data.
-- Regulatory and scheme requirements increasingly mandate structured data for compliance and reporting.
-- Cross-border payment rejection rates rise when address quality does not meet counterparty expectations.
+- Ostrukturerade adresser ökar andelen manuella reparationer och försenar direkt genomströmning.
+- Strukturerade adresser förbättrar noggrannheten i sanktionsgranskning genom att separera partnamn från platsdata.
+- Regulatoriska krav och schemakrav kräver i allt större utsträckning strukturerade data för efterlevnad och rapportering.
+- Avvisningsfrekvensen för gränsöverskridande betalningar ökar när adresskvaliteten inte uppfyller motpartens förväntningar.
 
-## Which messages are affected
+## Vilka meddelanden som påverkas
 
-- **pacs.008** — debtor and creditor postal addresses in customer credit transfers.
-- **pacs.009** — institution addresses in financial institution credit transfers and cover payments.
-- **pacs.004** — party addresses in payment returns.
-- **pacs.003** — creditor and debtor addresses in customer direct debits.
+- **pacs.008** — postadresser för gäldenär och borgenär i kundkreditöverföringar.
+- **pacs.009** — institutionsadresser i kreditöverföringar mellan finansinstitut och täckningsbetalningar.
+- **pacs.004** — partadresser i betalningsreturer.
+- **pacs.003** — borgenärs- och gäldenärsadresser i kundautogiro.
 
-## How pacs008 helps
+## Hur pacs008 hjälper
 
-- Validates structured and hybrid postal address fields before XML generation.
-- Flags unstructured address data that would fail after the deadline.
-- Supports both pre-deadline hybrid formats and post-deadline structured-only formats.
-- Integrates address quality checks into CI pipelines and batch validation workflows.
+- Validerar strukturerade och hybridpostadressfält före XML-generering.
+- Flaggar ostrukturerade adressdata som skulle misslyckas efter tidsfristen.
+- Stöder både hybridformat före tidsfristen och enbart strukturerade format efter tidsfristen.
+- Integrerar adresskvalitetskontroller i CI-pipelines och batchvalideringsarbetsflöden.
 
-## Timeline
+## Tidslinje
 
-- **March 2023** — SWIFT CBPR+ goes live with ISO 20022 for cross-border payments.
-- **November 2025** — coexistence period for MT and MX payment instructions ends.
-- **November 2026** — structured postal address requirement takes effect for CBPR+ messages.
+- **Mars 2023** — SWIFT CBPR+ driftsätts med ISO 20022 för gränsöverskridande betalningar.
+- **November 2025** — samexistensperioden för MT- och MX-betalningsinstruktioner upphör.
+- **November 2026** — kravet på strukturerad postadress träder i kraft för CBPR+-meddelanden.
 
-## What to do now
+## Vad man ska göra nu
 
-- Audit current address data quality across debtor, creditor, and agent records.
-- Map existing unstructured address fields to the structured format (street, building, post code, town, country).
-- Add address validation to the pre-generation pipeline using pacs008.
-- Test with representative payment data before the deadline.
+- Granska nuvarande adressdatakvalitet i gäldenärs-, borgenärs- och agentposter.
+- Mappa befintliga ostrukturerade adressfält till det strukturerade formatet (gata, byggnad, postnummer, stad, land).
+- Lägg till adressvalidering i förgenereringspipelinen med pacs008.
+- Testa med representativa betalningsdata före tidsfristen.
 
-## References
+## Referenser
 
 - [SWIFT CBPR+ roadmap and standards programme](https://www.swift.com/standards/iso-20022/iso-20022-programme/cbpr-roadmap)
 - [SWIFT CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released)

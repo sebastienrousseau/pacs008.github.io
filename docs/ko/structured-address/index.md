@@ -8,58 +8,58 @@ howtoName: "How to prepare for the November 2026 structured postal address deadl
 howtoDescription: "Steps to audit, map, validate, and test postal address data before the SWIFT CBPR+ November 2026 deadline."
 howto:
   - name: "Step 1"
-    text: "Audit current address data quality across debtor, creditor, and agent records."
+    text: "채무자, 채권자, 에이전트 기록 전반에 걸쳐 현재 주소 데이터 품질을 감사합니다."
   - name: "Step 2"
-    text: "Map existing unstructured address fields to the structured format (street, building, post code, town, country)."
+    text: "기존 비구조화 주소 필드를 구조화된 형식(도로, 건물, 우편번호, 도시, 국가)으로 매핑합니다."
   - name: "Step 3"
-    text: "Add address validation to the pre-generation pipeline using pacs008."
+    text: "pacs008을 사용하여 사전 생성 파이프라인에 주소 검증을 추가합니다."
   - name: "Step 4"
-    text: "Test with representative payment data before the deadline."
+    text: "마감일 전에 대표적인 결제 데이터로 테스트합니다."
 ---
 
 # 2026년 11월 구조화 주소 마감
 
-SWIFT requires structured postal addresses in cross-border payment messages from November 2026. What changes, which messages are affected, and how pacs008 helps teams prepare.
+SWIFT는 2026년 11월부터 국경 간 결제 메시지에 구조화된 우편 주소를 요구합니다. 무엇이 변경되는지, 어떤 메시지가 영향을 받는지, pacs008이 팀의 준비를 어떻게 지원하는지 설명합니다.
 
-## What is changing
+## 무엇이 변경되는가
 
-SWIFT CBPR+ is moving from unstructured postal addresses to structured address fields in cross-border payment messages. After the November 2026 deadline, key party address fields must use the structured format with separate elements for street name, building number, post code, town, and country.
+SWIFT CBPR+는 국경 간 결제 메시지에서 비구조화 우편 주소를 구조화된 주소 필드로 전환하고 있습니다. 2026년 11월 마감일 이후, 주요 당사자 주소 필드는 도로명, 건물 번호, 우편번호, 도시, 국가에 대한 개별 요소를 포함한 구조화된 형식을 사용해야 합니다.
 
-## Why it matters
+## 왜 중요한가
 
-- Unstructured addresses increase manual repair rates and delay straight-through processing.
-- Structured addresses improve sanctions screening accuracy by separating party name from location data.
-- Regulatory and scheme requirements increasingly mandate structured data for compliance and reporting.
-- Cross-border payment rejection rates rise when address quality does not meet counterparty expectations.
+- 비구조화 주소는 수동 수정 비율을 높이고 직통 처리를 지연시킵니다.
+- 구조화된 주소는 당사자 이름을 위치 데이터에서 분리하여 제재 심사 정확도를 향상시킵니다.
+- 규제 및 스킴 요구사항이 규정 준수와 보고를 위해 구조화된 데이터를 점점 더 의무화하고 있습니다.
+- 주소 품질이 거래 상대방의 기대를 충족하지 못하면 국경 간 결제 거부율이 상승합니다.
 
-## Which messages are affected
+## 영향을 받는 메시지
 
-- **pacs.008** — debtor and creditor postal addresses in customer credit transfers.
-- **pacs.009** — institution addresses in financial institution credit transfers and cover payments.
-- **pacs.004** — party addresses in payment returns.
-- **pacs.003** — creditor and debtor addresses in customer direct debits.
+- **pacs.008** — 고객 신용 이체에서 채무자와 채권자의 우편 주소.
+- **pacs.009** — 금융기관 간 신용 이체 및 커버 결제에서 기관 주소.
+- **pacs.004** — 결제 반환에서 당사자 주소.
+- **pacs.003** — 고객 자동이체에서 채권자와 채무자 주소.
 
-## How pacs008 helps
+## pacs008의 지원 방법
 
-- Validates structured and hybrid postal address fields before XML generation.
-- Flags unstructured address data that would fail after the deadline.
-- Supports both pre-deadline hybrid formats and post-deadline structured-only formats.
-- Integrates address quality checks into CI pipelines and batch validation workflows.
+- XML 생성 전에 구조화 및 하이브리드 우편 주소 필드를 검증합니다.
+- 마감일 이후 실패할 비구조화 주소 데이터에 플래그를 표시합니다.
+- 마감일 이전의 하이브리드 형식과 마감일 이후의 구조화 전용 형식을 모두 지원합니다.
+- 주소 품질 검사를 CI 파이프라인 및 배치 검증 워크플로에 통합합니다.
 
-## Timeline
+## 타임라인
 
-- **March 2023** — SWIFT CBPR+ goes live with ISO 20022 for cross-border payments.
-- **November 2025** — coexistence period for MT and MX payment instructions ends.
-- **November 2026** — structured postal address requirement takes effect for CBPR+ messages.
+- **2023년 3월** — SWIFT CBPR+가 ISO 20022로 국경 간 결제에서 가동 개시.
+- **2025년 11월** — MT 및 MX 결제 지시의 공존 기간 종료.
+- **2026년 11월** — CBPR+ 메시지에 대한 구조화된 우편 주소 요구사항 발효.
 
-## What to do now
+## 지금 해야 할 일
 
-- Audit current address data quality across debtor, creditor, and agent records.
-- Map existing unstructured address fields to the structured format (street, building, post code, town, country).
-- Add address validation to the pre-generation pipeline using pacs008.
-- Test with representative payment data before the deadline.
+- 채무자, 채권자, 에이전트 기록 전반에 걸쳐 현재 주소 데이터 품질을 감사합니다.
+- 기존 비구조화 주소 필드를 구조화된 형식(도로, 건물, 우편번호, 도시, 국가)으로 매핑합니다.
+- pacs008을 사용하여 사전 생성 파이프라인에 주소 검증을 추가합니다.
+- 마감일 전에 대표적인 결제 데이터로 테스트합니다.
 
-## References
+## 참고 자료
 
 - [SWIFT CBPR+ roadmap and standards programme](https://www.swift.com/standards/iso-20022/iso-20022-programme/cbpr-roadmap)
 - [SWIFT CBPR+ ISO 20022 usage-guidelines announcement](https://www.swift.com/news-events/news/updated-iso-20022-usage-guidelines-cross-border-payments-released)
