@@ -202,12 +202,19 @@ strong {
 }
 
 /* ---------- Touch target enforcement (WCAG 2.5.5: 44x44px minimum) ---------- */
+/* Touch target via invisible padding — no visual change to the switch */
 .VPSwitchAppearance {
+  position: relative;
+}
+
+.VPSwitchAppearance::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   min-width: 44px;
   min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .VPSocialLink {
