@@ -181,4 +181,10 @@ function localLink(path: string): string {
     flex-direction: column;
   }
 }
+
+@media (max-width: 480px) {
+  .dot-footer-nav {
+    grid-template-columns: 1fr;
+  }
+}
 </style>

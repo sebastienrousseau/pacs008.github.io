@@ -201,6 +201,32 @@ strong {
   border-radius: 4px;
 }
 
+/* ---------- Touch target enforcement (WCAG 2.5.5: 44x44px minimum) ---------- */
+.VPSwitchAppearance {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.VPSocialLink {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.DocSearch.DocSearch-Button {
+  min-height: 44px;
+}
+
+.vp-doc div[class*="language-"] > button.copy {
+  width: 44px;
+  height: 44px;
+}
+
 /* ---------- Skip Link (VitePress default, styled) ---------- */
 /* Screen-reader-only text for icon links (SEO: no-anchor-text fix) */
 .sr-only {

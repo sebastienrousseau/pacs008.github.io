@@ -86,6 +86,13 @@ const localePrefix = computed(() => {
   padding: 0;
 }
 
+.vp-breadcrumb a,
+.vp-breadcrumb .current {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
 .vp-breadcrumb a {
   color: var(--pacs-link);
   text-decoration: none;
