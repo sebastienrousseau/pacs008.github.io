@@ -95,28 +95,28 @@ const locales = Object.fromEntries(
     key === "en" ? "root" : key,
     {
       label: {
-        en: "🇬🇧 English",
-        ar: "🇸🇦 العربية",
-        de: "🇩🇪 Deutsch",
-        es: "🇪🇸 Español",
-        fr: "🇫🇷 Français",
-        he: "🇮🇱 עברית",
-        hi: "🇮🇳 हिन्दी",
-        id: "🇮🇩 Bahasa Indonesia",
-        it: "🇮🇹 Italiano",
-        ja: "🇯🇵 日本語",
-        ko: "🇰🇷 한국어",
-        nl: "🇳🇱 Nederlands",
-        pl: "🇵🇱 Polski",
-        pt: "🇧🇷 Português",
-        ro: "🇷🇴 Română",
-        ru: "🇷🇺 Русский",
-        th: "🇹🇭 ไทย",
-        tr: "🇹🇷 Türkçe",
-        uk: "🇺🇦 Українська",
-        vi: "🇻🇳 Tiếng Việt",
-        zh: "🇨🇳 简体中文",
-        "zh-tw": "🇹🇼 繁體中文"
+        en: "\u{1F1EC}\u{1F1E7} English",
+        ar: "\u{1F1F8}\u{1F1E6} العربية",
+        de: "\u{1F1E9}\u{1F1EA} Deutsch",
+        es: "\u{1F1EA}\u{1F1F8} Español",
+        fr: "\u{1F1EB}\u{1F1F7} Français",
+        he: "\u{1F1EE}\u{1F1F1} עברית",
+        hi: "\u{1F1EE}\u{1F1F3} हिन्दी",
+        id: "\u{1F1EE}\u{1F1E9} Bahasa Indonesia",
+        it: "\u{1F1EE}\u{1F1F9} Italiano",
+        ja: "\u{1F1EF}\u{1F1F5} 日本語",
+        ko: "\u{1F1F0}\u{1F1F7} 한국어",
+        nl: "\u{1F1F3}\u{1F1F1} Nederlands",
+        pl: "\u{1F1F5}\u{1F1F1} Polski",
+        pt: "\u{1F1E7}\u{1F1F7} Português",
+        ro: "\u{1F1F7}\u{1F1F4} Română",
+        ru: "\u{1F1F7}\u{1F1FA} Русский",
+        th: "\u{1F1F9}\u{1F1ED} ไทย",
+        tr: "\u{1F1F9}\u{1F1F7} Türkçe",
+        uk: "\u{1F1FA}\u{1F1E6} Українська",
+        vi: "\u{1F1FB}\u{1F1F3} Tiếng Việt",
+        zh: "\u{1F1E8}\u{1F1F3} 简体中文",
+        "zh-tw": "\u{1F1F9}\u{1F1FC} 繁體中文"
       }[key],
       lang: value.lang,
       dir: RTL_LOCALES.has(key) ? "rtl" : "ltr",
@@ -477,6 +477,11 @@ ${items.join("\n")}
     code = code.replace(
       /(<span class="DocSearch-Button-Keys")(?![^>]*aria-hidden)/g,
       '$1 aria-hidden="true"'
+    );
+    // SSR: wrap flag emojis in aria-hidden so screen readers only announce the language name
+    code = code.replace(
+      /([\u{1F1E0}-\u{1F1FF}]{2})\s/gu,
+      '<span aria-hidden="true">$1</span> '
     );
     // SSR: add visible sr-only text to icon-only links for SEO (no-anchor-text fix)
     code = code.replace(
