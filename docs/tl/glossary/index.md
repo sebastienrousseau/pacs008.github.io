@@ -1,6 +1,6 @@
 ---
 title: "Talasalitaan ng ISO 20022 | pacs008"
-description: Definitions of key ISO 20022 and payment messaging terms used in pacs.008 and related messages. Covers SWIFT, CBPR+, IBAN, BIC, settlement methods, and...
+description: Mga kahulugan ng mga pangunahing terminong ISO 20022 at payment messaging na ginagamit sa pacs.008 at mga kaugnay na mensahe. Saklaw ang SWIFT, CBPR+...
 lang: tl-PH
 lastUpdated: true
 image: /logo.webp
@@ -8,7 +8,7 @@ image: /logo.webp
 
 # Talasalitaan ng ISO 20022
 
-Key terms, abbreviations, and technical concepts used across ISO 20022 pacs messages and this site.
+Mga pangunahing termino, pagpapaikli, at mga teknikal na konsepto na ginagamit sa mga mensaheng pacs ng ISO 20022 at sa site na ito.
 
 ## A
 

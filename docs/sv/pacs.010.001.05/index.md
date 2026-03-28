@@ -132,8 +132,8 @@ The collecting bank sends pacs.010 under a bilateral agreement. The receiving ba
     </colgroup>
     <thead>
       <tr>
-        <th>Message type</th>
-        <th>Description</th>
+        <th>Meddelandetyp</th>
+        <th>Beskrivning</th>
         <th>Översikt</th>
       </tr>
     </thead>
@@ -141,17 +141,17 @@ The collecting bank sends pacs.010 under a bilateral agreement. The receiving ba
         <tr>
           <td class="related-messages-table__id"><a href="/sv/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
           <td class="related-messages-table__name">Kreditöverföring mellan finansinstitut</td>
-          <td class="related-messages-table__overview">The pacs.009 message moves funds between banks on their own behalf. It supports funding, cover payments, and liquidity management.</td>
+          <td class="related-messages-table__overview">Meddelandet pacs.009 flyttar medel mellan banker för egen räkning. Det stöder finansiering, cover-betalningar och likviditetshantering.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/sv/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="related-messages-table__name">Statusrapport för betalning mellan finansinstitut</td>
-          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected, pending, or settled.</td>
+          <td class="related-messages-table__overview">Meddelandet pacs.002 rapporterar statusen för en tidigare betalningsinstruktion. Det informerar en annan institution om betalningen accepterades, avvisades, väntar eller avvecklades.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/sv/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
           <td class="related-messages-table__name">Autogiro för kund mellan finansinstitut</td>
-          <td class="related-messages-table__overview">The pacs.003 message carries a customer direct debit between banks. It lets the creditor bank collect funds from the debtor bank.</td>
+          <td class="related-messages-table__overview">Meddelandet pacs.003 överför ett kundautogiro mellan banker. Det låter borgenärsbanken inkassera medel från gäldenärsbanken.</td>
         </tr>
     </tbody>
   </table>

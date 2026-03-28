@@ -1,6 +1,6 @@
 ---
 title: "pacs.002.001.12 | Rahoton matsayin biyan kuɗi tsakanin cibiyoyin kuɗi | pacs008"
-description: The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected...
+description: Saƙon pacs.002 yana ba da rahoton matsayin umarnin biyan kuɗi da ya gabata. Yana sanar da wata cibiya ko an karɓi biyan kuɗi, an ƙi, yana jiran, ko an biya.
 lang: ha-NG
 lastUpdated: true
 image: /logo.webp
@@ -48,24 +48,24 @@ faq:
 
 ## Bayyani
 
-The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected, pending, or settled.
+Saƙon pacs.002 yana ba da rahoton matsayin umarnin biyan kuɗi da ya gabata. Yana sanar da wata cibiya ko an karɓi biyan kuɗi, an ƙi, yana jiran, ko an biya.
 
 > Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
 
 ## Muhimman abubuwan bayanai
 
-- **GrpHdr** — Group Header with message identification and creation timestamp
-- **OrgnlGrpInfAndSts** — Original Group Information and Status for bulk-level reporting
-- **TxInfAndSts** — Transaction Information and Status for individual transaction outcomes
-- **StsRsnInf** — Status Reason Information with structured reason codes
-- **OrgnlTxRef** — Original Transaction Reference linking back to the source instruction
+- **GrpHdr** — Kan Ƙungiya tare da ganowa saƙo da tambarin lokaci ƙirƙira
+- **OrgnlGrpInfAndSts** — Asalin Bayanan Ƙungiya da Matsayi don rahoton matakin tari
+- **TxInfAndSts** — Bayanan Ciniki da Matsayi don sakamakon ciniki ɗaya-ɗaya
+- **StsRsnInf** — Bayanan Dalilin Matsayi tare da lambobin dalili masu tsari
+- **OrgnlTxRef** — Asalin Nassarin Ciniki da ke haɗa zuwa umarnin tushe
 
 ## Mahallin kasuwanci
 
-- Confirms settlement or rejection of credit transfers, direct debits, and returns
-- Supports reconciliation between instructing and instructed agents
-- Used in CBPR+ flows for pacs.008 and pacs.009 status reporting
-- Supports group-level and transaction-level status reporting
+- Yana tabbatar da biyan kuɗi ko ƙi na canja wurin kuɗi, cire kuɗi kai tsaye, da mayarwa
+- Yana tallafawa daidaitawa tsakanin wakilin mai umarni da wanda aka umarni
+- Ana amfani da shi a cikin kwararar CBPR+ don rahoton matsayin pacs.008 da pacs.009
+- Yana tallafawa rahoton matsayin matakin ƙungiya da matakin ciniki
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Muhimman abubuwan bayanai Mahallin kasuwanci">
   <table>
@@ -82,24 +82,24 @@ The pacs.002 message reports the status of an earlier payment instruction. It te
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message identification and creation timestamp</td>
-          <td class="operational-matrix-table__right">Confirms settlement or rejection of credit transfers, direct debits, and returns</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Kan Ƙungiya tare da ganowa saƙo da tambarin lokaci ƙirƙira</td>
+          <td class="operational-matrix-table__right">Yana tabbatar da biyan kuɗi ko ƙi na canja wurin kuɗi, cire kuɗi kai tsaye, da mayarwa</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>OrgnlGrpInfAndSts</strong> — Original Group Information and Status for bulk-level reporting</td>
-          <td class="operational-matrix-table__right">Supports reconciliation between instructing and instructed agents</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInfAndSts</strong> — Asalin Bayanan Ƙungiya da Matsayi don rahoton matakin tari</td>
+          <td class="operational-matrix-table__right">Yana tallafawa daidaitawa tsakanin wakilin mai umarni da wanda aka umarni</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>TxInfAndSts</strong> — Transaction Information and Status for individual transaction outcomes</td>
-          <td class="operational-matrix-table__right">Used in CBPR+ flows for pacs.008 and pacs.009 status reporting</td>
+          <td class="operational-matrix-table__left"><strong>TxInfAndSts</strong> — Bayanan Ciniki da Matsayi don sakamakon ciniki ɗaya-ɗaya</td>
+          <td class="operational-matrix-table__right">Ana amfani da shi a cikin kwararar CBPR+ don rahoton matsayin pacs.008 da pacs.009</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>StsRsnInf</strong> — Status Reason Information with structured reason codes</td>
-          <td class="operational-matrix-table__right">Supports group-level and transaction-level status reporting</td>
+          <td class="operational-matrix-table__left"><strong>StsRsnInf</strong> — Bayanan Dalilin Matsayi tare da lambobin dalili masu tsari</td>
+          <td class="operational-matrix-table__right">Yana tallafawa rahoton matsayin matakin ƙungiya da matakin ciniki</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Original Transaction Reference linking back to the source instruction</td>
-          <td class="operational-matrix-table__right">The instructed agent sends pacs.002 back to the instructing agent to confirm acceptance, settlement, or rejection of a payment instruction such as pacs.008 or pacs.009.</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Asalin Nassarin Ciniki da ke haɗa zuwa umarnin tushe</td>
+          <td class="operational-matrix-table__right">Wakilin da aka umarni yana aika pacs.002 zuwa ga wakilin mai umarni don tabbatar da karɓa, biyan kuɗi, ko ƙin umarnin biyan kuɗi kamar pacs.008 ko pacs.009.</td>
         </tr>
     </tbody>
   </table>
@@ -107,14 +107,14 @@ The pacs.002 message reports the status of an earlier payment instruction. It te
 
 ## Mahallin CBPR+ da tsari
 
-- Replaces MT199 and field 79 status text in MT messages
-- CBPR+ mandates pacs.002 for all payment status communication
-- Structured reason codes replace free-text rejection explanations
-- SWIFT gpi tracking integration requires pacs.002 for end-to-end transparency
+- Yana maye gurbin MT199 da rubutun matsayi na fili 79 a cikin saƙonnin MT
+- CBPR+ ya tilasta pacs.002 don duk sadarwar matsayin biyan kuɗi
+- Lambobin dalili masu tsari suna maye gurbin bayanin ƙin da ba a tsara ba
+- Haɗin gwiwar bin diddigin SWIFT gpi yana buƙatar pacs.002 don ganuwa daga farko zuwa ƙarshe
 
 ## Kwararar saƙo
 
-The instructed agent sends pacs.002 back to the instructing agent to confirm acceptance, settlement, or rejection of a payment instruction such as pacs.008 or pacs.009.
+Wakilin da aka umarni yana aika pacs.002 zuwa ga wakilin mai umarni don tabbatar da karɓa, biyan kuɗi, ko ƙin umarnin biyan kuɗi kamar pacs.008 ko pacs.009.
 
 ## Primary references
 
@@ -134,8 +134,8 @@ The instructed agent sends pacs.002 back to the instructing agent to confirm acc
     </colgroup>
     <thead>
       <tr>
-        <th>Message type</th>
-        <th>Description</th>
+        <th>Nau&#39;in saƙo</th>
+        <th>Bayani</th>
         <th>Bayyani</th>
       </tr>
     </thead>
@@ -143,12 +143,12 @@ The instructed agent sends pacs.002 back to the instructing agent to confirm acc
         <tr>
           <td class="related-messages-table__id"><a href="/ha/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
           <td class="related-messages-table__name">Canja wurin kuɗi na abokin ciniki tsakanin cibiyoyin kuɗi</td>
-          <td class="related-messages-table__overview">The pacs.008 message is the main customer credit-transfer instruction between banks. It carries party, amount, and remittance data.</td>
+          <td class="related-messages-table__overview">Saƙon pacs.008 shine babban umarnin canja wurin kuɗi na abokin ciniki tsakanin bankuna. Yana ɗaukar bayanan ɓangare, adadi, da aiko kuɗi.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/ha/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
           <td class="related-messages-table__name">Canja wurin kuɗi tsakanin cibiyoyin kuɗi</td>
-          <td class="related-messages-table__overview">The pacs.009 message moves funds between banks on their own behalf. It supports funding, cover payments, and liquidity management.</td>
+          <td class="related-messages-table__overview">Saƙon pacs.009 yana matsar da kuɗi tsakanin bankuna a madadin kansu. Yana tallafawa tallafin kuɗi, biyan kuɗin rufewa, da sarrafa ruwa.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/ha/pacs.028.001.05/"><code>pacs.028.001.05</code></a></td>

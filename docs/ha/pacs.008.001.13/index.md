@@ -1,6 +1,6 @@
 ---
 title: "pacs.008.001.13 | Canja wurin kuɗi na abokin ciniki tsakanin cibiyoyin kuɗi | pacs008"
-description: The pacs.008 message is the main customer credit-transfer instruction between banks. It carries party, amount, and remittance data.
+description: Saƙon pacs.008 shine babban umarnin canja wurin kuɗi na abokin ciniki tsakanin bankuna. Yana ɗaukar bayanan ɓangare, adadi, da aiko kuɗi.
 lang: ha-NG
 lastUpdated: true
 image: /logo.webp
@@ -48,24 +48,24 @@ faq:
 
 ## Bayyani
 
-The pacs.008 message is the main customer credit-transfer instruction between banks. It carries party, amount, and remittance data.
+Saƙon pacs.008 shine babban umarnin canja wurin kuɗi na abokin ciniki tsakanin bankuna. Yana ɗaukar bayanan ɓangare, adadi, da aiko kuɗi.
 
 > Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
 
 ## Muhimman abubuwan bayanai
 
-- **GrpHdr** — Group Header with message ID, creation date, number of transactions, and settlement information
-- **CdtTrfTxInf** — Credit Transfer Transaction Information with amount, charges, and purpose
-- **Dbtr / DbtrAgt** — Debtor and Debtor Agent identification and account details
-- **Cdtr / CdtrAgt** — Creditor and Creditor Agent identification and account details
-- **RmtInf** — Remittance Information for structured or unstructured payment references
+- **GrpHdr** — Kan Ƙungiya tare da ID saƙo, ranar ƙirƙira, adadin ciniki, da bayanan biyan kuɗi
+- **CdtTrfTxInf** — Bayanan Ciniki na Canja Wurin Kuɗi tare da adadi, cajoji, da manufa
+- **Dbtr / DbtrAgt** — Ganowa da bayanan asusu na Mai Bashi da Wakilin Mai Bashi
+- **Cdtr / CdtrAgt** — Ganowa da bayanan asusu na Mai Ba da Bashi da Wakilin Mai Ba da Bashi
+- **RmtInf** — Bayanan Aiko Kuɗi don nassarori na biyan kuɗi masu tsari ko marasa tsari
 
 ## Mahallin kasuwanci
 
-- Main message for customer credit transfers
-- Used across SEPA, CBPR+, and national clearing systems
-- Carries remittance data for reconciliation
-- Supports serial, cover, and direct settlement methods
+- Babban saƙo don canja wurin kuɗi na abokin ciniki
+- Ana amfani da shi a cikin SEPA, CBPR+, da tsarin ƙasa na biyan kuɗi
+- Yana ɗaukar bayanan aiko kuɗi don daidaitawa
+- Yana tallafawa hanyoyin biyan kuɗi na jeri, rufewa, da kai tsaye
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Muhimman abubuwan bayanai Mahallin kasuwanci">
   <table>
@@ -82,24 +82,24 @@ The pacs.008 message is the main customer credit-transfer instruction between ba
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message ID, creation date, number of transactions, and settlement information</td>
-          <td class="operational-matrix-table__right">Main message for customer credit transfers</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Kan Ƙungiya tare da ID saƙo, ranar ƙirƙira, adadin ciniki, da bayanan biyan kuɗi</td>
+          <td class="operational-matrix-table__right">Babban saƙo don canja wurin kuɗi na abokin ciniki</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Credit Transfer Transaction Information with amount, charges, and purpose</td>
-          <td class="operational-matrix-table__right">Used across SEPA, CBPR+, and national clearing systems</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Bayanan Ciniki na Canja Wurin Kuɗi tare da adadi, cajoji, da manufa</td>
+          <td class="operational-matrix-table__right">Ana amfani da shi a cikin SEPA, CBPR+, da tsarin ƙasa na biyan kuɗi</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Debtor and Debtor Agent identification and account details</td>
-          <td class="operational-matrix-table__right">Carries remittance data for reconciliation</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Ganowa da bayanan asusu na Mai Bashi da Wakilin Mai Bashi</td>
+          <td class="operational-matrix-table__right">Yana ɗaukar bayanan aiko kuɗi don daidaitawa</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Creditor and Creditor Agent identification and account details</td>
-          <td class="operational-matrix-table__right">Supports serial, cover, and direct settlement methods</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Ganowa da bayanan asusu na Mai Ba da Bashi da Wakilin Mai Ba da Bashi</td>
+          <td class="operational-matrix-table__right">Yana tallafawa hanyoyin biyan kuɗi na jeri, rufewa, da kai tsaye</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>RmtInf</strong> — Remittance Information for structured or unstructured payment references</td>
-          <td class="operational-matrix-table__right">The debtor agent sends pacs.008 to the creditor agent, either directly or through intermediaries. Each agent checks and forwards the instruction until the creditor agent credits the beneficiary.</td>
+          <td class="operational-matrix-table__left"><strong>RmtInf</strong> — Bayanan Aiko Kuɗi don nassarori na biyan kuɗi masu tsari ko marasa tsari</td>
+          <td class="operational-matrix-table__right">Wakilin mai bashi yana aika pacs.008 zuwa wakilin mai ba da bashi, ko kai tsaye ko ta hanyar masu shiga tsakani. Kowane wakili yana duba kuma yana tura umarnin har sai wakilin mai ba da bashi ya tura kuɗi zuwa asusun mai amfana.</td>
         </tr>
     </tbody>
   </table>
@@ -107,14 +107,14 @@ The pacs.008 message is the main customer credit-transfer instruction between ba
 
 ## Mahallin CBPR+ da tsari
 
-- Replaces MT103 and MT103+ for cross-border customer credit transfers
-- The November 2026 structured-address deadline applies to party addresses
-- SWIFT gpi uses pacs.008 for UETR-based tracking
-- Version 13 is the current catalogue revision
+- Yana maye gurbin MT103 da MT103+ don canja wurin kuɗi na ƙetare iyaka na abokin ciniki
+- Ƙarshen wa'adin adireshi mai tsari na Nuwamba 2026 ya shafi adireshin gidan waya na ɓangare
+- SWIFT gpi yana amfani da pacs.008 don bin diddigin bisa UETR
+- Siga ta 13 ita ce bugu na yanzu na kundin
 
 ## Kwararar saƙo
 
-The debtor agent sends pacs.008 to the creditor agent, either directly or through intermediaries. Each agent checks and forwards the instruction until the creditor agent credits the beneficiary.
+Wakilin mai bashi yana aika pacs.008 zuwa wakilin mai ba da bashi, ko kai tsaye ko ta hanyar masu shiga tsakani. Kowane wakili yana duba kuma yana tura umarnin har sai wakilin mai ba da bashi ya tura kuɗi zuwa asusun mai amfana.
 
 ## Primary references
 
@@ -209,8 +209,8 @@ The debtor agent sends pacs.008 to the creditor agent, either directly or throug
     </colgroup>
     <thead>
       <tr>
-        <th>Message type</th>
-        <th>Description</th>
+        <th>Nau&#39;in saƙo</th>
+        <th>Bayani</th>
         <th>Bayyani</th>
       </tr>
     </thead>
@@ -218,17 +218,17 @@ The debtor agent sends pacs.008 to the creditor agent, either directly or throug
         <tr>
           <td class="related-messages-table__id"><a href="/ha/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="related-messages-table__name">Rahoton matsayin biyan kuɗi tsakanin cibiyoyin kuɗi</td>
-          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected, pending, or settled.</td>
+          <td class="related-messages-table__overview">Saƙon pacs.002 yana ba da rahoton matsayin umarnin biyan kuɗi da ya gabata. Yana sanar da wata cibiya ko an karɓi biyan kuɗi, an ƙi, yana jiran, ko an biya.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/ha/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
           <td class="related-messages-table__name">Mayar da biyan kuɗi</td>
-          <td class="related-messages-table__overview">The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied.</td>
+          <td class="related-messages-table__overview">Saƙon pacs.004 yana mayar da biyan kuɗi da aka riga aka biya. Yana aika kuɗi baya lokacin da ba za a iya amfani da biyan kuɗi ba.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/ha/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
           <td class="related-messages-table__name">Canja wurin kuɗi tsakanin cibiyoyin kuɗi</td>
-          <td class="related-messages-table__overview">The pacs.009 message moves funds between banks on their own behalf. It supports funding, cover payments, and liquidity management.</td>
+          <td class="related-messages-table__overview">Saƙon pacs.009 yana matsar da kuɗi tsakanin bankuna a madadin kansu. Yana tallafawa tallafin kuɗi, biyan kuɗin rufewa, da sarrafa ruwa.</td>
         </tr>
     </tbody>
   </table>

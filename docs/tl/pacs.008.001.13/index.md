@@ -1,6 +1,6 @@
 ---
 title: "pacs.008.001.13 | Credit transfer ng kliyente sa pagitan ng mga institusyong pinansyal | pacs008"
-description: The pacs.008 message is the main customer credit-transfer instruction between banks. It carries party, amount, and remittance data.
+description: Ang mensaheng pacs.008 ang pangunahing instruksiyon ng customer credit transfer sa pagitan ng mga bangko. Nagdadala ito ng datos ng partido, halaga, at...
 lang: tl-PH
 lastUpdated: true
 image: /logo.webp
@@ -48,24 +48,24 @@ faq:
 
 ## Pangkalahatang-ideya
 
-The pacs.008 message is the main customer credit-transfer instruction between banks. It carries party, amount, and remittance data.
+Ang mensaheng pacs.008 ang pangunahing instruksiyon ng customer credit transfer sa pagitan ng mga bangko. Nagdadala ito ng datos ng partido, halaga, at remittance.
 
 > Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
 
 ## Mga pangunahing elemento ng datos
 
-- **GrpHdr** — Group Header with message ID, creation date, number of transactions, and settlement information
-- **CdtTrfTxInf** — Credit Transfer Transaction Information with amount, charges, and purpose
-- **Dbtr / DbtrAgt** — Debtor and Debtor Agent identification and account details
-- **Cdtr / CdtrAgt** — Creditor and Creditor Agent identification and account details
-- **RmtInf** — Remittance Information for structured or unstructured payment references
+- **GrpHdr** — Group Header na may message ID, petsa ng paglikha, bilang ng mga transaksyon, at impormasyon ng settlement
+- **CdtTrfTxInf** — Impormasyon ng Transaksyon ng Credit Transfer na may halaga, mga singil, at layunin
+- **Dbtr / DbtrAgt** — Pagkakakilanlan at mga detalye ng account ng Debtor at Debtor Agent
+- **Cdtr / CdtrAgt** — Pagkakakilanlan at mga detalye ng account ng Creditor at Creditor Agent
+- **RmtInf** — Impormasyon ng Remittance para sa mga structured o unstructured na reperensya ng pagbabayad
 
 ## Konteksto ng negosyo
 
-- Main message for customer credit transfers
-- Used across SEPA, CBPR+, and national clearing systems
-- Carries remittance data for reconciliation
-- Supports serial, cover, and direct settlement methods
+- Pangunahing mensahe para sa mga customer credit transfer
+- Ginagamit sa SEPA, CBPR+, at mga pambansang clearing system
+- Nagdadala ng datos ng remittance para sa reconciliation
+- Sinusuportahan ang serial, cover, at direktang mga paraan ng settlement
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Mga pangunahing elemento ng datos Konteksto ng negosyo">
   <table>
@@ -82,24 +82,24 @@ The pacs.008 message is the main customer credit-transfer instruction between ba
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message ID, creation date, number of transactions, and settlement information</td>
-          <td class="operational-matrix-table__right">Main message for customer credit transfers</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header na may message ID, petsa ng paglikha, bilang ng mga transaksyon, at impormasyon ng settlement</td>
+          <td class="operational-matrix-table__right">Pangunahing mensahe para sa mga customer credit transfer</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Credit Transfer Transaction Information with amount, charges, and purpose</td>
-          <td class="operational-matrix-table__right">Used across SEPA, CBPR+, and national clearing systems</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Impormasyon ng Transaksyon ng Credit Transfer na may halaga, mga singil, at layunin</td>
+          <td class="operational-matrix-table__right">Ginagamit sa SEPA, CBPR+, at mga pambansang clearing system</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Debtor and Debtor Agent identification and account details</td>
-          <td class="operational-matrix-table__right">Carries remittance data for reconciliation</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Pagkakakilanlan at mga detalye ng account ng Debtor at Debtor Agent</td>
+          <td class="operational-matrix-table__right">Nagdadala ng datos ng remittance para sa reconciliation</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Creditor and Creditor Agent identification and account details</td>
-          <td class="operational-matrix-table__right">Supports serial, cover, and direct settlement methods</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Pagkakakilanlan at mga detalye ng account ng Creditor at Creditor Agent</td>
+          <td class="operational-matrix-table__right">Sinusuportahan ang serial, cover, at direktang mga paraan ng settlement</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>RmtInf</strong> — Remittance Information for structured or unstructured payment references</td>
-          <td class="operational-matrix-table__right">The debtor agent sends pacs.008 to the creditor agent, either directly or through intermediaries. Each agent checks and forwards the instruction until the creditor agent credits the beneficiary.</td>
+          <td class="operational-matrix-table__left"><strong>RmtInf</strong> — Impormasyon ng Remittance para sa mga structured o unstructured na reperensya ng pagbabayad</td>
+          <td class="operational-matrix-table__right">Nagpapadala ang debtor agent ng pacs.008 sa creditor agent, direkta o sa pamamagitan ng mga intermediary. Sinusuri at ipinapasa ng bawat agent ang instruksiyon hanggang sa i-credit ng creditor agent ang beneficiary.</td>
         </tr>
     </tbody>
   </table>
@@ -107,14 +107,14 @@ The pacs.008 message is the main customer credit-transfer instruction between ba
 
 ## Konteksto ng CBPR+ at schema
 
-- Replaces MT103 and MT103+ for cross-border customer credit transfers
-- The November 2026 structured-address deadline applies to party addresses
-- SWIFT gpi uses pacs.008 for UETR-based tracking
-- Version 13 is the current catalogue revision
+- Pinapalitan ang MT103 at MT103+ para sa mga cross-border na customer credit transfer
+- Naaangkop ang deadline ng structured address sa Nobyembre 2026 sa mga address ng partido
+- Ginagamit ng SWIFT gpi ang pacs.008 para sa UETR-based na tracking
+- Bersyon 13 ang kasalukuyang rebisyon ng katalogo
 
 ## Daloy ng mensahe
 
-The debtor agent sends pacs.008 to the creditor agent, either directly or through intermediaries. Each agent checks and forwards the instruction until the creditor agent credits the beneficiary.
+Nagpapadala ang debtor agent ng pacs.008 sa creditor agent, direkta o sa pamamagitan ng mga intermediary. Sinusuri at ipinapasa ng bawat agent ang instruksiyon hanggang sa i-credit ng creditor agent ang beneficiary.
 
 ## Primary references
 
@@ -209,8 +209,8 @@ The debtor agent sends pacs.008 to the creditor agent, either directly or throug
     </colgroup>
     <thead>
       <tr>
-        <th>Message type</th>
-        <th>Description</th>
+        <th>Uri ng mensahe</th>
+        <th>Paglalarawan</th>
         <th>Pangkalahatang-ideya</th>
       </tr>
     </thead>
@@ -218,17 +218,17 @@ The debtor agent sends pacs.008 to the creditor agent, either directly or throug
         <tr>
           <td class="related-messages-table__id"><a href="/tl/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="related-messages-table__name">Ulat ng kalagayan ng pagbabayad sa pagitan ng mga institusyong pinansyal</td>
-          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected, pending, or settled.</td>
+          <td class="related-messages-table__overview">Ang mensaheng pacs.002 ay nag-uulat ng katayuan ng naunang instruksiyon sa pagbabayad. Ipinapaalam nito sa ibang institusyon kung ang pagbabayad ay tinanggap, tinanggihan, nakabinbin, o na-settle.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/tl/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
           <td class="related-messages-table__name">Pagbabalik ng bayad</td>
-          <td class="related-messages-table__overview">The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied.</td>
+          <td class="related-messages-table__overview">Ang mensaheng pacs.004 ay nagbabalik ng pagbabayad na na-settle na. Nagpapadala ito ng pondo pabalik kapag hindi maaaring ma-apply ang pagbabayad.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/tl/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
           <td class="related-messages-table__name">Credit transfer sa pagitan ng mga institusyong pinansyal</td>
-          <td class="related-messages-table__overview">The pacs.009 message moves funds between banks on their own behalf. It supports funding, cover payments, and liquidity management.</td>
+          <td class="related-messages-table__overview">Ang mensaheng pacs.009 ay naglilipat ng pondo sa pagitan ng mga bangko para sa kanilang sariling account. Sinusuportahan nito ang financing, cover payment, at pamamahala ng liquidity.</td>
         </tr>
     </tbody>
   </table>

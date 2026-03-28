@@ -1,6 +1,6 @@
 ---
 title: "Àtòjọ ọ̀rọ̀ ISO 20022 | pacs008"
-description: Definitions of key ISO 20022 and payment messaging terms used in pacs.008 and related messages. Covers SWIFT, CBPR+, IBAN, BIC, settlement methods, and...
+description: Àwọn ìtumọ̀ àwọn ọ̀rọ̀ pàtàkì ISO 20022 àti ìfiránṣẹ́ ìsanwó tí a ń lò nínú pacs.008 àti àwọn ìfiránṣẹ́ tí ó jọra.
 lang: yo-NG
 lastUpdated: true
 image: /logo.webp
@@ -8,7 +8,7 @@ image: /logo.webp
 
 # Àtòjọ ọ̀rọ̀ ISO 20022
 
-Key terms, abbreviations, and technical concepts used across ISO 20022 pacs messages and this site.
+Àwọn ọ̀rọ̀ pàtàkì, àwọn gẹ̀gẹ̀rẹ̀, àti àwọn èrò ìmọ̀-ẹ̀rọ tí a ń lò nínú àwọn ìfiránṣẹ́ pacs ISO 20022.
 
 ## A
 

@@ -1,6 +1,6 @@
 ---
 title: "pacs.002.001.12 | Ulat ng kalagayan ng pagbabayad sa pagitan ng mga institusyong pinansyal | pacs008"
-description: The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected...
+description: Ang mensaheng pacs.002 ay nag-uulat ng katayuan ng naunang instruksiyon sa pagbabayad. Ipinapaalam nito sa ibang institusyon kung ang pagbabayad ay...
 lang: tl-PH
 lastUpdated: true
 image: /logo.webp
@@ -48,24 +48,24 @@ faq:
 
 ## Pangkalahatang-ideya
 
-The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected, pending, or settled.
+Ang mensaheng pacs.002 ay nag-uulat ng katayuan ng naunang instruksiyon sa pagbabayad. Ipinapaalam nito sa ibang institusyon kung ang pagbabayad ay tinanggap, tinanggihan, nakabinbin, o na-settle.
 
 > Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
 
 ## Mga pangunahing elemento ng datos
 
-- **GrpHdr** — Group Header with message identification and creation timestamp
-- **OrgnlGrpInfAndSts** — Original Group Information and Status for bulk-level reporting
-- **TxInfAndSts** — Transaction Information and Status for individual transaction outcomes
-- **StsRsnInf** — Status Reason Information with structured reason codes
-- **OrgnlTxRef** — Original Transaction Reference linking back to the source instruction
+- **GrpHdr** — Group Header na may pagkakakilanlan ng mensahe at timestamp ng paglikha
+- **OrgnlGrpInfAndSts** — Orihinal na Impormasyon ng Grupo at Katayuan para sa pag-uulat sa antas ng bulk
+- **TxInfAndSts** — Impormasyon ng Transaksyon at Katayuan para sa mga indibidwal na resulta ng transaksyon
+- **StsRsnInf** — Impormasyon ng Dahilan ng Katayuan na may mga structured na reason code
+- **OrgnlTxRef** — Orihinal na Reperensya ng Transaksyon na nag-uugnay pabalik sa pinagmulang instruksiyon
 
 ## Konteksto ng negosyo
 
-- Confirms settlement or rejection of credit transfers, direct debits, and returns
-- Supports reconciliation between instructing and instructed agents
-- Used in CBPR+ flows for pacs.008 and pacs.009 status reporting
-- Supports group-level and transaction-level status reporting
+- Kinukumpirma ang settlement o pagtanggi ng mga credit transfer, direct debit, at return
+- Sinusuportahan ang reconciliation sa pagitan ng instruerande at instruktadong agent
+- Ginagamit sa mga daloy ng CBPR+ para sa pag-uulat ng katayuan ng pacs.008 at pacs.009
+- Sinusuportahan ang pag-uulat ng katayuan sa antas ng grupo at transaksyon
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Mga pangunahing elemento ng datos Konteksto ng negosyo">
   <table>
@@ -82,24 +82,24 @@ The pacs.002 message reports the status of an earlier payment instruction. It te
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message identification and creation timestamp</td>
-          <td class="operational-matrix-table__right">Confirms settlement or rejection of credit transfers, direct debits, and returns</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header na may pagkakakilanlan ng mensahe at timestamp ng paglikha</td>
+          <td class="operational-matrix-table__right">Kinukumpirma ang settlement o pagtanggi ng mga credit transfer, direct debit, at return</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>OrgnlGrpInfAndSts</strong> — Original Group Information and Status for bulk-level reporting</td>
-          <td class="operational-matrix-table__right">Supports reconciliation between instructing and instructed agents</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInfAndSts</strong> — Orihinal na Impormasyon ng Grupo at Katayuan para sa pag-uulat sa antas ng bulk</td>
+          <td class="operational-matrix-table__right">Sinusuportahan ang reconciliation sa pagitan ng instruerande at instruktadong agent</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>TxInfAndSts</strong> — Transaction Information and Status for individual transaction outcomes</td>
-          <td class="operational-matrix-table__right">Used in CBPR+ flows for pacs.008 and pacs.009 status reporting</td>
+          <td class="operational-matrix-table__left"><strong>TxInfAndSts</strong> — Impormasyon ng Transaksyon at Katayuan para sa mga indibidwal na resulta ng transaksyon</td>
+          <td class="operational-matrix-table__right">Ginagamit sa mga daloy ng CBPR+ para sa pag-uulat ng katayuan ng pacs.008 at pacs.009</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>StsRsnInf</strong> — Status Reason Information with structured reason codes</td>
-          <td class="operational-matrix-table__right">Supports group-level and transaction-level status reporting</td>
+          <td class="operational-matrix-table__left"><strong>StsRsnInf</strong> — Impormasyon ng Dahilan ng Katayuan na may mga structured na reason code</td>
+          <td class="operational-matrix-table__right">Sinusuportahan ang pag-uulat ng katayuan sa antas ng grupo at transaksyon</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Original Transaction Reference linking back to the source instruction</td>
-          <td class="operational-matrix-table__right">The instructed agent sends pacs.002 back to the instructing agent to confirm acceptance, settlement, or rejection of a payment instruction such as pacs.008 or pacs.009.</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Orihinal na Reperensya ng Transaksyon na nag-uugnay pabalik sa pinagmulang instruksiyon</td>
+          <td class="operational-matrix-table__right">Nagpapadala ang instruktadong agent ng pacs.002 pabalik sa instruerande agent upang kumpirmahin ang pagtanggap, settlement, o pagtanggi ng instruksiyon sa pagbabayad tulad ng pacs.008 o pacs.009.</td>
         </tr>
     </tbody>
   </table>
@@ -107,14 +107,14 @@ The pacs.002 message reports the status of an earlier payment instruction. It te
 
 ## Konteksto ng CBPR+ at schema
 
-- Replaces MT199 and field 79 status text in MT messages
-- CBPR+ mandates pacs.002 for all payment status communication
-- Structured reason codes replace free-text rejection explanations
-- SWIFT gpi tracking integration requires pacs.002 for end-to-end transparency
+- Pinapalitan ang MT199 at field 79 status text sa mga mensaheng MT
+- Inoobliga ng CBPR+ ang pacs.002 para sa lahat ng komunikasyon ng katayuan ng pagbabayad
+- Pinapalitan ng mga structured na reason code ang mga paliwanag ng pagtanggi sa free-text
+- Nangangailangan ng pacs.002 ang SWIFT gpi tracking integration para sa transparency mula simula hanggang dulo
 
 ## Daloy ng mensahe
 
-The instructed agent sends pacs.002 back to the instructing agent to confirm acceptance, settlement, or rejection of a payment instruction such as pacs.008 or pacs.009.
+Nagpapadala ang instruktadong agent ng pacs.002 pabalik sa instruerande agent upang kumpirmahin ang pagtanggap, settlement, o pagtanggi ng instruksiyon sa pagbabayad tulad ng pacs.008 o pacs.009.
 
 ## Primary references
 
@@ -134,8 +134,8 @@ The instructed agent sends pacs.002 back to the instructing agent to confirm acc
     </colgroup>
     <thead>
       <tr>
-        <th>Message type</th>
-        <th>Description</th>
+        <th>Uri ng mensahe</th>
+        <th>Paglalarawan</th>
         <th>Pangkalahatang-ideya</th>
       </tr>
     </thead>
@@ -143,12 +143,12 @@ The instructed agent sends pacs.002 back to the instructing agent to confirm acc
         <tr>
           <td class="related-messages-table__id"><a href="/tl/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
           <td class="related-messages-table__name">Credit transfer ng kliyente sa pagitan ng mga institusyong pinansyal</td>
-          <td class="related-messages-table__overview">The pacs.008 message is the main customer credit-transfer instruction between banks. It carries party, amount, and remittance data.</td>
+          <td class="related-messages-table__overview">Ang mensaheng pacs.008 ang pangunahing instruksiyon ng customer credit transfer sa pagitan ng mga bangko. Nagdadala ito ng datos ng partido, halaga, at remittance.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/tl/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
           <td class="related-messages-table__name">Credit transfer sa pagitan ng mga institusyong pinansyal</td>
-          <td class="related-messages-table__overview">The pacs.009 message moves funds between banks on their own behalf. It supports funding, cover payments, and liquidity management.</td>
+          <td class="related-messages-table__overview">Ang mensaheng pacs.009 ay naglilipat ng pondo sa pagitan ng mga bangko para sa kanilang sariling account. Sinusuportahan nito ang financing, cover payment, at pamamahala ng liquidity.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/tl/pacs.028.001.05/"><code>pacs.028.001.05</code></a></td>

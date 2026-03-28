@@ -1,6 +1,6 @@
 ---
 title: "Talaan ng pagbabago | pacs008"
-description: Version history and release notes for the pacs008 toolkit. Track new features, improvements, and fixes across releases.
+description: Kasaysayan ng bersyon at mga tala ng release para sa toolkit na pacs008. Subaybayan ang mga bagong feature, pagpapabuti, at mga ayos sa bawat release.
 lang: tl-PH
 lastUpdated: true
 image: /logo.webp
@@ -8,7 +8,7 @@ image: /logo.webp
 
 # Talaan ng pagbabago
 
-Significant changes to the pacs008 toolkit and this documentation site.
+Mga makabuluhang pagbabago sa toolkit na pacs008 at sa documentation site na ito.
 
 ## 2026
 

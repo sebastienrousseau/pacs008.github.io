@@ -10,9 +10,9 @@ image: /logo.webp
 
 Common questions about ISO 20022 pacs messages, how they work together, and how pacs008 helps teams implement them.
 
-## General
+## Pangkalahatan
 
-### What is ISO 20022?
+### Ano ang ISO 20022?
 
 ISO 20022 is an international standard for financial messaging. It defines a common language and model for payment messages exchanged between financial institutions. Unlike older formats such as SWIFT MT, ISO 20022 uses XML and supports richer, more structured data for parties, amounts, and references.
 

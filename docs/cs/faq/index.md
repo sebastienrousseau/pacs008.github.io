@@ -10,141 +10,141 @@ image: /logo.webp
 
 Běžné dotazy o zprávách ISO 20022 pacs, jak spolupracují a jak pacs008 pomáhá týmům s implementací.
 
-## General
+## Obecné
 
-### What is ISO 20022?
+### Co je ISO 20022?
 
-ISO 20022 is an international standard for financial messaging. It defines a common language and model for payment messages exchanged between financial institutions. Unlike older formats such as SWIFT MT, ISO 20022 uses XML and supports richer, more structured data for parties, amounts, and references.
+ISO 20022 je mezinárodní standard pro finanční zprávy. Definuje společný jazyk a model pro platební zprávy vyměňované mezi finančními institucemi. Na rozdíl od starších formátů, jako je SWIFT MT, používá ISO 20022 XML a podporuje bohatší, strukturovanější data pro strany, částky a reference.
 
-### What are pacs messages?
+### Co jsou pacs zprávy?
 
-The pacs (payments clearing and settlement) message family covers interbank payment instructions, status reports, returns, reversals, and enquiries. It includes pacs.002, pacs.003, pacs.004, pacs.007, pacs.008, pacs.009, pacs.010, and pacs.028. Each message serves a specific role in the payment lifecycle.
+Rodina zpráv pacs (payments clearing and settlement) pokrývá mezibankovní platební instrukce, stavové zprávy, vrácení, reverze a dotazy. Zahrnuje pacs.002, pacs.003, pacs.004, pacs.007, pacs.008, pacs.009, pacs.010 a pacs.028. Každá zpráva plní specifickou roli v životním cyklu platby.
 
-### How do pacs messages differ from SWIFT MT messages?
+### Jak se pacs zprávy liší od SWIFT MT zpráv?
 
-SWIFT MT messages use a flat, field-tag format (e.g. MT103 for customer credit transfers). pacs messages use hierarchical XML with richer data structures. Key differences include support for multiple transactions per message, structured party identification (LEI, multiple IDs), structured postal addresses, and structured remittance information. MT103 maps to pacs.008, MT202 maps to pacs.009, and MT199 status text is replaced by pacs.002.
+SWIFT MT zprávy používají plochý formát s tagy polí (např. MT103 pro zákaznické kreditní převody). pacs zprávy používají hierarchické XML s bohatšími datovými strukturami. Klíčové rozdíly zahrnují podporu více transakcí v jedné zprávě, strukturovanou identifikaci stran (LEI, více ID), strukturované poštovní adresy a strukturované informace o úhradě. MT103 odpovídá pacs.008, MT202 odpovídá pacs.009 a stavový text MT199 je nahrazen pacs.002.
 
-### What is the relationship between pain and pacs messages?
+### Jaký je vztah mezi pain a pacs zprávami?
 
-Pain (payment initiation) messages travel between the customer and their bank. pacs messages travel between banks. A pain.001 customer credit-transfer initiation from the debtor's bank becomes a pacs.008 interbank instruction. The two domains share common data elements but serve different parts of the payment chain.
+Pain (payment initiation) zprávy putují mezi zákazníkem a jeho bankou. pacs zprávy putují mezi bankami. Iniciace zákaznického kreditního převodu pain.001 z banky dlužníka se stává mezibankovní instrukcí pacs.008. Obě domény sdílejí společné datové prvky, ale obsluhují různé části platebního řetězce.
 
-## Message selection
+## Výběr zprávy
 
-### When to use pacs.008
+### Kdy použít pacs.008
 
-Use pacs.008 for customer credit-transfer instructions between banks. It carries debtor and creditor party data, amounts, remittance information, and settlement details. It is the main message for sending customer payments across the interbank network, whether domestically (SEPA) or cross-border (CBPR+).
+Použijte pacs.008 pro instrukce zákaznických kreditních převodů mezi bankami. Nese data o stranách dlužníka a věřitele, částky, informace o úhradě a detaily vypořádání. Je to hlavní zpráva pro odesílání zákaznických plateb přes mezibankovní síť, ať už tuzemsky (SEPA) nebo přeshraničně (CBPR+).
 
-### When to use pacs.009 instead of pacs.008
+### Kdy použít pacs.009 místo pacs.008
 
-Use pacs.009 for institution-own-account transfers, funding legs, and cover payments. Unlike pacs.008, which carries a customer payment on behalf of a debtor, pacs.009 moves funds between banks on their own behalf. In cover-method flows, pacs.009 carries the funding while pacs.008 carries the customer instruction on a separate path.
+Použijte pacs.009 pro převody z vlastních účtů institucí, financující větve a krycí platby. Na rozdíl od pacs.008, která nese zákaznickou platbu jménem dlužníka, pacs.009 přesouvá prostředky mezi bankami na jejich vlastní účet. V tocích krycí metody nese pacs.009 financování, zatímco pacs.008 nese zákaznickou instrukci na oddělené cestě.
 
-### What is the difference between pacs.004 and pacs.007?
+### Jaký je rozdíl mezi pacs.004 a pacs.007?
 
-pacs.004 returns settled funds from the receiving side back through the chain. pacs.007 reverses a payment from the original instructing side forward through the chain. Use pacs.004 when the beneficiary bank cannot apply the credit after settlement. Use pacs.007 when the originator discovers an error, duplicate, or fraud.
+pacs.004 vrací vypořádané prostředky z přijímající strany zpět řetězcem. pacs.007 reverzuje platbu z původní instruující strany vpřed řetězcem. Použijte pacs.004, když banka příjemce nemůže uplatnit kredit po vypořádání. Použijte pacs.007, když původce objeví chybu, duplikát nebo podvod.
 
-### When to use pacs.028 instead of waiting for pacs.002
+### Kdy použít pacs.028 místo čekání na pacs.002
 
-Use pacs.028 when you need to actively request the status of a payment that has not received a timely pacs.002 update. pacs.002 is event-driven (the receiving agent sends it proactively), while pacs.028 is exception-driven (the instructing agent requests it). Use pacs.028 for delayed, unclear, or missing payment updates, not as routine traffic.
+Použijte pacs.028, když potřebujete aktivně požádat o stav platby, která neobdržela včasnou aktualizaci pacs.002. pacs.002 je řízena událostmi (přijímající agent ji posílá proaktivně), zatímco pacs.028 je řízena výjimkami (instruující agent o ni žádá). Použijte pacs.028 pro zpožděné, nejasné nebo chybějící platební aktualizace, ne jako rutinní provoz.
 
-### What is pacs.003 used for?
+### K čemu se používá pacs.003?
 
-pacs.003 carries customer direct-debit instructions between banks. The creditor agent sends it to the debtor agent to collect funds. It requires a valid mandate reference and supports SEPA Core and B2B direct-debit schemes. It is not used for credit transfers or institution-own-account debits.
+pacs.003 nese instrukce zákaznického inkasa mezi bankami. Agent věřitele ji posílá agentu dlužníka k inkasu prostředků. Vyžaduje platný odkaz na mandát a podporuje schémata SEPA Core a B2B inkasa. Nepoužívá se pro kreditní převody nebo inkaso z vlastních účtů institucí.
 
-### What is pacs.010 used for?
+### K čemu se používá pacs.010?
 
-pacs.010 handles direct debits between financial institutions on their own accounts. It is used for bank-to-bank collections such as fees, margin calls, and similar obligations under bilateral agreements. It is not used for customer direct debits or credit transfers.
+pacs.010 zpracovává inkasa mezi finančními institucemi na jejich vlastních účtech. Používá se pro mezibankovní inkaso, jako jsou poplatky, výzvy k dodatkové úhradě a podobné závazky na základě bilaterálních dohod. Nepoužívá se pro zákaznické inkaso nebo kreditní převody.
 
-## Message structure
+## Struktura zprávy
 
-### What is the Group Header (GrpHdr)?
+### Co je záhlaví skupiny (GrpHdr)?
 
-The Group Header appears exactly once per pacs message. It contains the message identifier (MsgId), creation timestamp (CreDtTm), number of transactions (NbOfTxs), settlement information (SttlmInf), and optionally the total interbank settlement amount and payment type information. It identifies the message envelope, not the individual business transactions.
+Záhlaví skupiny se v každé pacs zprávě vyskytuje přesně jednou. Obsahuje identifikátor zprávy (MsgId), časové razítko vytvoření (CreDtTm), počet transakcí (NbOfTxs), informace o vypořádání (SttlmInf) a volitelně celkovou mezibankovní částku vypořádání a informace o typu platby. Identifikuje obálku zprávy, nikoli jednotlivé obchodní transakce.
 
-### What are the payment identifiers in pacs.008?
+### Jaké jsou platební identifikátory v pacs.008?
 
-pacs.008 uses four main identifiers. MsgId identifies the message envelope and changes at each hop. InstrId is a point-to-point reference between adjacent agents and may change per hop. EndToEndId is set by the originator and must not be altered by any agent in the chain. TxId is assigned by the first instructing agent and remains constant in the interbank space. UETR is a UUID that stays unchanged across all legs for end-to-end tracking.
+pacs.008 používá čtyři hlavní identifikátory. MsgId identifikuje obálku zprávy a mění se při každém skoku. InstrId je reference bod-bod mezi sousedními agenty a může se měnit při každém skoku. EndToEndId je nastaven původcem a nesmí být změněn žádným agentem v řetězci. TxId je přidělen prvním instruujícím agentem a zůstává konstantní v mezibankovním prostoru. UETR je UUID, které zůstává nezměněné napříč všemi větvemi pro sledování od konce ke konci.
 
-### What settlement methods are available?
+### Jaké metody vypořádání jsou k dispozici?
 
-Four settlement methods are defined. CLRG settles through a clearing system such as TARGET2, EURO1, or CHIPS. INDA settles on the books of the instructed agent where the debtor agent holds an account. INGA settles on the books of the instructing agent where the instructed agent holds an account. COVE settles through a separate cover payment carried by pacs.009.
+Jsou definovány čtyři metody vypořádání. CLRG vypořádává prostřednictvím clearingového systému, jako je TARGET2, EURO1 nebo CHIPS. INDA vypořádává v knihách instruovaného agenta, kde agent dlužníka drží účet. INGA vypořádává v knihách instruujícího agenta, kde instruovaný agent drží účet. COVE vypořádává prostřednictvím samostatné krycí platby nesené pacs.009.
 
-### What do the charge bearer codes mean?
+### Co znamenají kódy nositele poplatků?
 
-DEBT means all charges are borne by the debtor (equivalent to MT103 OUR). CRED means all charges are borne by the creditor (equivalent to BEN). SHAR means charges are shared between debtor and creditor agents (equivalent to SHA). SLEV means charges follow the service level rules and is mandatory for SEPA credit transfers.
+DEBT znamená, že všechny poplatky nese dlužník (ekvivalent MT103 OUR). CRED znamená, že všechny poplatky nese věřitel (ekvivalent BEN). SHAR znamená, že poplatky jsou sdíleny mezi agenty dlužníka a věřitele (ekvivalent SHA). SLEV znamená, že poplatky se řídí pravidly úrovně služby a je povinný pro SEPA kreditní převody.
 
-## CBPR+ and migration
+## CBPR+ a migrace
 
-### What is CBPR+?
+### Co je CBPR+?
 
-CBPR+ (Cross-Border Payments and Reporting Plus) is SWIFT's programme for adopting ISO 20022 in cross-border payment messaging. It went live in March 2023 and replaces MT messages with pacs equivalents. CBPR+ mandates pacs.002 for all status communication, supports richer party data and structured addresses, and uses UETR-based tracking through gpi.
+CBPR+ (Cross-Border Payments and Reporting Plus) je program SWIFT pro přijetí ISO 20022 v přeshraničních platebních zprávách. Spuštěn byl v březnu 2023 a nahrazuje MT zprávy ekvivalenty pacs. CBPR+ vyžaduje pacs.002 pro veškerou stavovou komunikaci, podporuje bohatší data o stranách a strukturované adresy a používá sledování založené na UETR prostřednictvím gpi.
 
-### What happened to the MT/MX coexistence period?
+### Co se stalo s obdobím koexistence MT/MX?
 
-The coexistence period for cross-border payment instructions ended in November 2025. Since then, CBPR+ messages must use the ISO 20022 (MX) format. Translation services that converted between MT and MX during the transition are no longer available for new flows. Banks must now send and receive native pacs messages.
+Období koexistence pro přeshraniční platební instrukce skončilo v listopadu 2025. Od té doby musí zprávy CBPR+ používat formát ISO 20022 (MX). Překladové služby, které konvertovaly mezi MT a MX během přechodu, již nejsou k dispozici pro nové toky. Banky nyní musí odesílat a přijímat nativní pacs zprávy.
 
-### What is the November 2026 structured-address deadline?
+### Jaký je termín pro strukturované adresy v listopadu 2026?
 
-From November 2026, SWIFT CBPR+ requires structured postal addresses in cross-border payment messages. Unstructured address lines (AdrLine alone) will no longer be accepted for key party fields. At minimum, TwnNm and Ctry are required, with StrtNm and BldgNb or PstBx recommended. This improves sanctions screening and reduces manual repair.
+Od listopadu 2026 vyžaduje SWIFT CBPR+ strukturované poštovní adresy v přeshraničních platebních zprávách. Nestrukturované řádky adres (pouze AdrLine) nebudou nadále akceptovány pro klíčová pole stran. Minimálně jsou vyžadovány TwnNm a Ctry, s doporučenými StrtNm a BldgNb nebo PstBx. To zlepšuje prověřování sankcí a snižuje manuální opravy.
 
-### How does pacs.008 replace MT103?
+### Jak pacs.008 nahrazuje MT103?
 
-pacs.008 replaces MT103 and MT103+ for customer credit transfers. Key mapping: MT103 field 20 maps to MsgId or InstrId; field 32A splits into IntrBkSttlmDt and IntrBkSttlmAmt; field 50a maps to Dbtr and DbtrAcct; field 59a maps to Cdtr and CdtrAcct; field 70 maps to RmtInf; field 71A maps to ChrgBr. pacs.008 adds UETR, structured remittance, LEI identification, and supports multiple transactions per message.
+pacs.008 nahrazuje MT103 a MT103+ pro zákaznické kreditní převody. Klíčové mapování: pole 20 MT103 odpovídá MsgId nebo InstrId; pole 32A se rozděluje na IntrBkSttlmDt a IntrBkSttlmAmt; pole 50a odpovídá Dbtr a DbtrAcct; pole 59a odpovídá Cdtr a CdtrAcct; pole 70 odpovídá RmtInf; pole 71A odpovídá ChrgBr. pacs.008 přidává UETR, strukturovanou úhradu, identifikaci LEI a podporuje více transakcí v jedné zprávě.
 
-### How does pacs.009 replace MT202?
+### Jak pacs.009 nahrazuje MT202?
 
-pacs.009 replaces MT202 and MT202COV for institution-to-institution transfers. In cover-method flows, the MT202COV (which carried both funding and underlying customer data) splits cleanly: pacs.009 carries the funding leg while pacs.008 carries the customer instruction directly. This separation improves data quality and reduces reconciliation issues.
+pacs.009 nahrazuje MT202 a MT202COV pro převody mezi institucemi. V tocích krycí metody se MT202COV (který nesl jak financování, tak podkladová zákaznická data) čistě rozděluje: pacs.009 nese financující větev, zatímco pacs.008 nese zákaznickou instrukci přímo. Toto oddělení zlepšuje kvalitu dat a snižuje problémy s rekonciliací.
 
-## Technical details
+## Technické detaily
 
-### What are structured vs unstructured addresses?
+### Co jsou strukturované vs. nestrukturované adresy?
 
-Structured addresses use separate XML elements for each component: StrtNm (street), BldgNb (building number), PstCd (post code), TwnNm (town), Ctry (country), and optional elements like Flr, Room, and DstrctNm. Unstructured addresses use up to seven AdrLine elements with free text. Hybrid addresses combine both during the transition period. After November 2026, CBPR+ requires the structured format.
+Strukturované adresy používají samostatné XML elementy pro každou složku: StrtNm (ulice), BldgNb (číslo budovy), PstCd (PSČ), TwnNm (město), Ctry (země) a volitelné elementy jako Flr, Room a DstrctNm. Nestrukturované adresy používají až sedm elementů AdrLine s volným textem. Hybridní adresy kombinují obojí během přechodného období. Po listopadu 2026 vyžaduje CBPR+ strukturovaný formát.
 
-### What is UETR and how does gpi tracking work?
+### Co je UETR a jak funguje sledování gpi?
 
-UETR (Unique End-to-End Transaction Reference) is a UUID v4 identifier generated by the debtor agent and carried unchanged across all legs of a payment. It appears in pacs.008, pacs.009, pacs.002, pacs.004, pacs.007, and pacs.028. SWIFT gpi uses the UETR to track payments through a cloud-based Tracker database. Each agent confirms receipt and processing, enabling end-to-end visibility and SLA monitoring.
+UETR (Unique End-to-End Transaction Reference) je identifikátor UUID v4 generovaný agentem dlužníka a nesený beze změny napříč všemi větvemi platby. Vyskytuje se v pacs.008, pacs.009, pacs.002, pacs.004, pacs.007 a pacs.028. SWIFT gpi používá UETR ke sledování plateb prostřednictvím cloudové databáze Tracker. Každý agent potvrzuje příjem a zpracování, což umožňuje viditelnost od konce ke konci a monitorování SLA.
 
-### What are common pacs.002 status codes?
+### Jaké jsou běžné stavové kódy pacs.002?
 
-ACCP means accepted after customer-profile checks. ACSP means accepted and settlement is in progress. ACSC means settlement on the debtor account is complete. RJCT means rejected (with a reason code in StsRsnInf). PDNG means pending further processing. RCVD means received but not yet processed. Each status may include a structured reason code such as AC01 (incorrect account), AM04 (insufficient funds), or RC01 (incorrect BIC).
+ACCP znamená přijato po kontrolách zákaznického profilu. ACSP znamená přijato a vypořádání probíhá. ACSC znamená, že vypořádání na účtu dlužníka je dokončeno. RJCT znamená zamítnuto (s kódem důvodu v StsRsnInf). PDNG znamená čekající na další zpracování. RCVD znamená přijato, ale dosud nezpracováno. Každý stav může zahrnovat strukturovaný kód důvodu, jako je AC01 (nesprávný účet), AM04 (nedostatečné prostředky) nebo RC01 (nesprávný BIC).
 
-### What are common return reason codes in pacs.004?
+### Jaké jsou běžné kódy důvodů vrácení v pacs.004?
 
-Frequent return reason codes include AC01 (incorrect account number), AC04 (closed account), AC06 (blocked account), AM04 (insufficient funds), BE04 (missing creditor address), CUST (requested by customer), DUPL (duplicate payment), FOCR (following cancellation request), and FR01 (fraud). The full list is defined in the ISO 20022 External Code Sets.
+Časté kódy důvodů vrácení zahrnují AC01 (nesprávné číslo účtu), AC04 (uzavřený účet), AC06 (blokovaný účet), AM04 (nedostatečné prostředky), BE04 (chybějící adresa věřitele), CUST (požadováno zákazníkem), DUPL (duplicitní platba), FOCR (na základě žádosti o zrušení) a FR01 (podvod). Úplný seznam je definován v ISO 20022 External Code Sets.
 
-### What is structured remittance information?
+### Co jsou strukturované informace o úhradě?
 
-Structured remittance in pacs.008 uses the RmtInf/Strd element to carry document references (invoice numbers, credit notes), amounts (due, remitted, tax, discount), and creditor references (ISO 11649 RF references). This enables automated invoice matching and reconciliation. Common document type codes include CINV (commercial invoice), CREN (credit note), and SOAC (statement of account).
+Strukturovaná úhrada v pacs.008 používá element RmtInf/Strd k nesení odkazů na dokumenty (čísla faktur, dobropisy), částek (splatné, uhrazené, daň, sleva) a referencí věřitele (ISO 11649 RF reference). To umožňuje automatizované párování faktur a rekonciliaci. Běžné kódy typů dokumentů zahrnují CINV (obchodní faktura), CREN (dobropis) a SOAC (výpis z účtu).
 
-### What is LEI and when is it used?
+### Co je LEI a kdy se používá?
 
-LEI (Legal Entity Identifier) is a 20-character alphanumeric code per ISO 17442. It uniquely identifies legal entities participating in financial transactions. In pacs messages, LEI appears in OrgId/LEI for parties and FinInstnId/LEI for agents. CBPR+ increasingly encourages LEI for party and agent identification. It improves entity disambiguation and supports regulatory reporting requirements.
+LEI (Legal Entity Identifier) je 20znakový alfanumerický kód podle ISO 17442. Jednoznačně identifikuje právnické osoby účastnící se finančních transakcí. Ve zprávách pacs se LEI vyskytuje v OrgId/LEI pro strany a FinInstnId/LEI pro agenty. CBPR+ stále více podporuje LEI pro identifikaci stran a agentů. Zlepšuje disambiguaci entit a podporuje požadavky na regulatorní hlášení.
 
-## About pacs008 toolkit
+## O nástroji pacs008
 
-### What does pacs008 do?
+### Co dělá pacs008?
 
-pacs008 is a Python toolkit that generates, validates, and ships ISO 20022 payment messages. It reads payment data from CSV, JSON, JSONL, SQLite, and Parquet sources, validates against JSON Schema and XSD, checks IBAN and BIC identifiers, cleans data for SWIFT character compliance, and outputs XML files. It provides a REST API, CLI, and Python library.
+pacs008 je Python nástroj, který generuje, validuje a odesílá platební zprávy ISO 20022. Čte platební data z CSV, JSON, JSONL, SQLite a Parquet zdrojů, validuje proti JSON Schema a XSD, kontroluje identifikátory IBAN a BIC, čistí data pro soulad se znaky SWIFT a produkuje XML soubory. Poskytuje REST API, CLI a Python knihovnu.
 
-### Which message types does pacs008 support?
+### Jaké typy zpráv pacs008 podporuje?
 
-pacs008 supports eight message types: pacs.002.001.12 (status report), pacs.003.001.09 (customer direct debit), pacs.004.001.11 (payment return), pacs.007.001.11 (payment reversal), pacs.008.001.13 (customer credit transfer), pacs.009.001.10 (financial institution credit transfer), pacs.010.001.05 (financial institution direct debit), and pacs.028.001.05 (payment status request).
+pacs008 podporuje osm typů zpráv: pacs.002.001.12 (stavová zpráva), pacs.003.001.09 (zákaznické inkaso), pacs.004.001.11 (vrácení platby), pacs.007.001.11 (reverze platby), pacs.008.001.13 (zákaznický kreditní převod), pacs.009.001.10 (kreditní převod finanční instituce), pacs.010.001.05 (inkaso finanční instituce) a pacs.028.001.05 (žádost o stav platby).
 
-### How does pacs008 help with the 2026 structured-address deadline?
+### Jak pacs008 pomáhá s termínem strukturovaných adres 2026?
 
-pacs008 validates structured and hybrid postal address fields before XML generation. It flags unstructured address data that would fail after the November 2026 deadline, supports both pre-deadline hybrid and post-deadline structured-only formats, and integrates address quality checks into CI pipelines and batch validation workflows.
+pacs008 validuje strukturovaná a hybridní pole poštovních adres před generováním XML. Označuje nestrukturovaná adresní data, která by selhala po termínu v listopadu 2026, podporuje formáty hybridní před termínem i pouze strukturované po termínu a integruje kontroly kvality adres do CI pipeline a pracovních postupů dávkové validace.
 
-### Can pacs008 validate data without generating XML?
+### Může pacs008 validovat data bez generování XML?
 
-Yes. Use the `--dry-run` CLI flag or the `POST /validate` API endpoint to validate payment data without generating XML. The validation pipeline checks JSON Schema conformance, IBAN format and checksum, BIC structure, and SWIFT character compliance. The exit code or API response indicates whether validation passed or failed.
+Ano. Použijte CLI příznak `--dry-run` nebo API endpoint `POST /validate` k validaci platebních dat bez generování XML. Validační pipeline kontroluje shodu s JSON Schema, formát a kontrolní součet IBAN, strukturu BIC a soulad se znaky SWIFT. Návratový kód nebo odpověď API indikuje, zda validace prošla nebo selhala.
 
-## References
+## Reference
 
-- [ISO 20022 message definitions catalogue](https://www.iso20022.org/iso-20022-message-definitions)
-- [ISO 20022 external code sets](https://www.iso20022.org/external_code_list.page)
-- [SWIFT CBPR+ ISO 20022 usage guidelines](https://www.swift.com/standards/iso-20022)
-- [SWIFT CBPR+ migration roadmap](https://www.swift.com/swift-resource/252463/download)
-- [EPC SEPA Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and)
-- [EPC SEPA Instant Credit Transfer rulebook](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook)
+- [Katalog definic zpráv ISO 20022](https://www.iso20022.org/iso-20022-message-definitions)
+- [Externí sady kódů ISO 20022](https://www.iso20022.org/external_code_list.page)
+- [Pokyny pro použití SWIFT CBPR+ ISO 20022](https://www.swift.com/standards/iso-20022)
+- [Plán migrace SWIFT CBPR+](https://www.swift.com/swift-resource/252463/download)
+- [Pravidla EPC SEPA kreditních převodů](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-credit-transfer/sepa-credit-transfer-rulebook-and)
+- [Pravidla EPC SEPA okamžitých kreditních převodů](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook)
 - [SWIFT gpi](https://www.swift.com/our-solutions/swift-gpi)
 

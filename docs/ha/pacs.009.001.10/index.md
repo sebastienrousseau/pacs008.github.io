@@ -1,6 +1,6 @@
 ---
 title: "pacs.009.001.10 | Canja wurin kuɗi tsakanin cibiyoyin kuɗi | pacs008"
-description: The pacs.009 message moves funds between banks on their own behalf. It supports funding, cover payments, and liquidity management.
+description: Saƙon pacs.009 yana matsar da kuɗi tsakanin bankuna a madadin kansu. Yana tallafawa tallafin kuɗi, biyan kuɗin rufewa, da sarrafa ruwa.
 lang: ha-NG
 lastUpdated: true
 image: /logo.webp
@@ -48,24 +48,24 @@ faq:
 
 ## Bayyani
 
-The pacs.009 message moves funds between banks on their own behalf. It supports funding, cover payments, and liquidity management.
+Saƙon pacs.009 yana matsar da kuɗi tsakanin bankuna a madadin kansu. Yana tallafawa tallafin kuɗi, biyan kuɗin rufewa, da sarrafa ruwa.
 
 > Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
 
 ## Muhimman abubuwan bayanai
 
-- **GrpHdr** — Group Header with message identification and settlement information
-- **CdtTrfTxInf** — Credit Transfer Transaction Information with interbank settlement amount
-- **Dbtr / DbtrAgt** — Debtor institution and its agent identification
-- **Cdtr / CdtrAgt** — Creditor institution and its agent identification
-- **IntrBkSttlmAmt** — Interbank Settlement Amount in the settlement currency
+- **GrpHdr** — Kan Ƙungiya tare da ganowa saƙo da bayanan biyan kuɗi
+- **CdtTrfTxInf** — Bayanan Ciniki na Canja Wurin Kuɗi tare da adadin biyan kuɗi tsakanin bankuna
+- **Dbtr / DbtrAgt** — Ganowa na cibiyar mai bashi da wakilinta
+- **Cdtr / CdtrAgt** — Ganowa na cibiyar mai ba da bashi da wakilinta
+- **IntrBkSttlmAmt** — Adadin Biyan Kuɗi Tsakanin Bankuna a cikin kuɗin biyan kuɗi
 
 ## Mahallin kasuwanci
 
-- Used for bank-to-bank own-account transfers and cover payments
-- Supports liquidity management between correspondent banks
-- Carries the cover leg of customer credit transfers
-- Supports treasury and funding operations
+- Ana amfani da shi don canja wurin asusun nasu tsakanin bankuna da biyan kuɗin rufewa
+- Yana tallafawa sarrafa ruwa tsakanin abokan ciniki na wakilci
+- Yana ɗaukar ɓangaren rufewa na canja wurin kuɗi na abokin ciniki
+- Yana tallafawa ayyukan baitulmali da tallafin kuɗi
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Muhimman abubuwan bayanai Mahallin kasuwanci">
   <table>
@@ -82,24 +82,24 @@ The pacs.009 message moves funds between banks on their own behalf. It supports 
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message identification and settlement information</td>
-          <td class="operational-matrix-table__right">Used for bank-to-bank own-account transfers and cover payments</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Kan Ƙungiya tare da ganowa saƙo da bayanan biyan kuɗi</td>
+          <td class="operational-matrix-table__right">Ana amfani da shi don canja wurin asusun nasu tsakanin bankuna da biyan kuɗin rufewa</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Credit Transfer Transaction Information with interbank settlement amount</td>
-          <td class="operational-matrix-table__right">Supports liquidity management between correspondent banks</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Bayanan Ciniki na Canja Wurin Kuɗi tare da adadin biyan kuɗi tsakanin bankuna</td>
+          <td class="operational-matrix-table__right">Yana tallafawa sarrafa ruwa tsakanin abokan ciniki na wakilci</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Debtor institution and its agent identification</td>
-          <td class="operational-matrix-table__right">Carries the cover leg of customer credit transfers</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Ganowa na cibiyar mai bashi da wakilinta</td>
+          <td class="operational-matrix-table__right">Yana ɗaukar ɓangaren rufewa na canja wurin kuɗi na abokin ciniki</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Creditor institution and its agent identification</td>
-          <td class="operational-matrix-table__right">Supports treasury and funding operations</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Ganowa na cibiyar mai ba da bashi da wakilinta</td>
+          <td class="operational-matrix-table__right">Yana tallafawa ayyukan baitulmali da tallafin kuɗi</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Interbank Settlement Amount in the settlement currency</td>
-          <td class="operational-matrix-table__right">The debtor bank sends pacs.009 to the creditor bank to transfer its own funds. In cover flows, pacs.009 carries the funding leg while pacs.008 carries the customer instruction on a separate path.</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Adadin Biyan Kuɗi Tsakanin Bankuna a cikin kuɗin biyan kuɗi</td>
+          <td class="operational-matrix-table__right">Bankin mai bashi yana aika pacs.009 zuwa bankin mai ba da bashi don matsar da kuɗinsa. A cikin kwararar rufewa, pacs.009 yana ɗaukar ɓangaren tallafin kuɗi yayin da pacs.008 yana ɗaukar umarnin abokin ciniki a wata hanya daban.</td>
         </tr>
     </tbody>
   </table>
@@ -107,14 +107,14 @@ The pacs.009 message moves funds between banks on their own behalf. It supports 
 
 ## Mahallin CBPR+ da tsari
 
-- Replaces MT202 and MT202COV for institution-to-institution transfers
-- Cover-method flows pair pacs.009 with the underlying pacs.008 instruction
-- Structured party data and LEI identification matter more often
-- SWIFT gpi also covers pacs.009
+- Yana maye gurbin MT202 da MT202COV don canja wurin tsakanin cibiyoyi
+- Kwararar hanyar rufewa tana haɗa pacs.009 da umarnin pacs.008 na abokin ciniki
+- Bayanan ɓangare masu tsari da ganowa ta LEI suna da mahimmanci
+- SWIFT gpi kuma ya ƙunshi pacs.009
 
 ## Kwararar saƙo
 
-The debtor bank sends pacs.009 to the creditor bank to transfer its own funds. In cover flows, pacs.009 carries the funding leg while pacs.008 carries the customer instruction on a separate path.
+Bankin mai bashi yana aika pacs.009 zuwa bankin mai ba da bashi don matsar da kuɗinsa. A cikin kwararar rufewa, pacs.009 yana ɗaukar ɓangaren tallafin kuɗi yayin da pacs.008 yana ɗaukar umarnin abokin ciniki a wata hanya daban.
 
 ## Primary references
 
@@ -134,8 +134,8 @@ The debtor bank sends pacs.009 to the creditor bank to transfer its own funds. I
     </colgroup>
     <thead>
       <tr>
-        <th>Message type</th>
-        <th>Description</th>
+        <th>Nau&#39;in saƙo</th>
+        <th>Bayani</th>
         <th>Bayyani</th>
       </tr>
     </thead>
@@ -143,12 +143,12 @@ The debtor bank sends pacs.009 to the creditor bank to transfer its own funds. I
         <tr>
           <td class="related-messages-table__id"><a href="/ha/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
           <td class="related-messages-table__name">Canja wurin kuɗi na abokin ciniki tsakanin cibiyoyin kuɗi</td>
-          <td class="related-messages-table__overview">The pacs.008 message is the main customer credit-transfer instruction between banks. It carries party, amount, and remittance data.</td>
+          <td class="related-messages-table__overview">Saƙon pacs.008 shine babban umarnin canja wurin kuɗi na abokin ciniki tsakanin bankuna. Yana ɗaukar bayanan ɓangare, adadi, da aiko kuɗi.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/ha/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="related-messages-table__name">Rahoton matsayin biyan kuɗi tsakanin cibiyoyin kuɗi</td>
-          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected, pending, or settled.</td>
+          <td class="related-messages-table__overview">Saƙon pacs.002 yana ba da rahoton matsayin umarnin biyan kuɗi da ya gabata. Yana sanar da wata cibiya ko an karɓi biyan kuɗi, an ƙi, yana jiran, ko an biya.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/ha/pacs.010.001.05/"><code>pacs.010.001.05</code></a></td>

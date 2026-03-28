@@ -1,6 +1,6 @@
 ---
 title: "pacs.003.001.09 | Direct debit ng kliyente sa pagitan ng mga institusyong pinansyal | pacs008"
-description: The pacs.003 message carries a customer direct debit between banks. It lets the creditor bank collect funds from the debtor bank.
+description: Ang mensaheng pacs.003 ay nagdadala ng customer direct debit sa pagitan ng mga bangko. Pinapayagan nito ang bangko ng creditor na mangolekta ng pondo mula...
 lang: tl-PH
 lastUpdated: true
 image: /logo.webp
@@ -48,24 +48,24 @@ faq:
 
 ## Pangkalahatang-ideya
 
-The pacs.003 message carries a customer direct debit between banks. It lets the creditor bank collect funds from the debtor bank.
+Ang mensaheng pacs.003 ay nagdadala ng customer direct debit sa pagitan ng mga bangko. Pinapayagan nito ang bangko ng creditor na mangolekta ng pondo mula sa bangko ng debtor.
 
 > Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
 
 ## Mga pangunahing elemento ng datos
 
-- **GrpHdr** — Group Header with message identification and settlement information
-- **DrctDbtTxInf** — Direct Debit Transaction Information with amount and parties
-- **Cdtr** — Creditor identification and account details
-- **CdtrAgt** — Creditor Agent (collecting institution) identification
-- **DbtrAgt** — Debtor Agent (paying institution) identification
+- **GrpHdr** — Group Header na may pagkakakilanlan ng mensahe at impormasyon ng settlement
+- **DrctDbtTxInf** — Impormasyon ng Transaksyon ng Direct Debit na may halaga at mga partido
+- **Cdtr** — Pagkakakilanlan ng creditor at mga detalye ng account
+- **CdtrAgt** — Pagkakakilanlan ng Creditor Agent (nangongolektang institusyon)
+- **DbtrAgt** — Pagkakakilanlan ng Debtor Agent (nagbabayad na institusyon)
 
 ## Konteksto ng negosyo
 
-- Supports SEPA Core and B2B direct debit schemes
-- Used for recurring collections such as subscriptions and bills
-- Needs a valid mandate reference
-- Can carry many direct debits in one message
+- Sinusuportahan ang mga SEPA Core at B2B na esquema ng direct debit
+- Ginagamit para sa mga paulit-ulit na koleksiyon tulad ng mga subscription at bill
+- Nangangailangan ng wastong reperensya ng mandato
+- Kayang magdala ng maraming direct debit sa iisang mensahe
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Mga pangunahing elemento ng datos Konteksto ng negosyo">
   <table>
@@ -82,24 +82,24 @@ The pacs.003 message carries a customer direct debit between banks. It lets the 
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message identification and settlement information</td>
-          <td class="operational-matrix-table__right">Supports SEPA Core and B2B direct debit schemes</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header na may pagkakakilanlan ng mensahe at impormasyon ng settlement</td>
+          <td class="operational-matrix-table__right">Sinusuportahan ang mga SEPA Core at B2B na esquema ng direct debit</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Direct Debit Transaction Information with amount and parties</td>
-          <td class="operational-matrix-table__right">Used for recurring collections such as subscriptions and bills</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Impormasyon ng Transaksyon ng Direct Debit na may halaga at mga partido</td>
+          <td class="operational-matrix-table__right">Ginagamit para sa mga paulit-ulit na koleksiyon tulad ng mga subscription at bill</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>Cdtr</strong> — Creditor identification and account details</td>
-          <td class="operational-matrix-table__right">Needs a valid mandate reference</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr</strong> — Pagkakakilanlan ng creditor at mga detalye ng account</td>
+          <td class="operational-matrix-table__right">Nangangailangan ng wastong reperensya ng mandato</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>CdtrAgt</strong> — Creditor Agent (collecting institution) identification</td>
-          <td class="operational-matrix-table__right">Can carry many direct debits in one message</td>
+          <td class="operational-matrix-table__left"><strong>CdtrAgt</strong> — Pagkakakilanlan ng Creditor Agent (nangongolektang institusyon)</td>
+          <td class="operational-matrix-table__right">Kayang magdala ng maraming direct debit sa iisang mensahe</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>DbtrAgt</strong> — Debtor Agent (paying institution) identification</td>
-          <td class="operational-matrix-table__right">The creditor agent sends pacs.003 to the debtor agent. The debtor agent checks the mandate and either settles or returns the transaction.</td>
+          <td class="operational-matrix-table__left"><strong>DbtrAgt</strong> — Pagkakakilanlan ng Debtor Agent (nagbabayad na institusyon)</td>
+          <td class="operational-matrix-table__right">Nagpapadala ang creditor agent ng pacs.003 sa debtor agent. Sinusuri ng debtor agent ang mandato at ise-settle o ibabalik ang transaksyon.</td>
         </tr>
     </tbody>
   </table>
@@ -107,14 +107,14 @@ The pacs.003 message carries a customer direct debit between banks. It lets the 
 
 ## Konteksto ng CBPR+ at schema
 
-- Structured address and party-data rules also apply here.
-- Mandate data must be structured from November 2026.
-- It replaces older MT104-style direct-debit formats in cross-border flows.
-- Creditor scheme identifiers need closer validation.
+- Naaangkop din ang mga patakaran sa structured na address at datos ng partido dito.
+- Ang datos ng mandato ay kailangang maging structured mula Nobyembre 2026.
+- Pinapalitan ang mas lumang format ng direct debit na estilo ng MT104 sa mga cross-border na daloy.
+- Ang mga identifier ng esquema ng creditor ay nangangailangan ng mas masinsinang validation.
 
 ## Daloy ng mensahe
 
-The creditor agent sends pacs.003 to the debtor agent. The debtor agent checks the mandate and either settles or returns the transaction.
+Nagpapadala ang creditor agent ng pacs.003 sa debtor agent. Sinusuri ng debtor agent ang mandato at ise-settle o ibabalik ang transaksyon.
 
 ## Primary references
 
@@ -132,8 +132,8 @@ The creditor agent sends pacs.003 to the debtor agent. The debtor agent checks t
     </colgroup>
     <thead>
       <tr>
-        <th>Message type</th>
-        <th>Description</th>
+        <th>Uri ng mensahe</th>
+        <th>Paglalarawan</th>
         <th>Pangkalahatang-ideya</th>
       </tr>
     </thead>
@@ -141,17 +141,17 @@ The creditor agent sends pacs.003 to the debtor agent. The debtor agent checks t
         <tr>
           <td class="related-messages-table__id"><a href="/tl/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
           <td class="related-messages-table__name">Pagbabalik ng bayad</td>
-          <td class="related-messages-table__overview">The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied.</td>
+          <td class="related-messages-table__overview">Ang mensaheng pacs.004 ay nagbabalik ng pagbabayad na na-settle na. Nagpapadala ito ng pondo pabalik kapag hindi maaaring ma-apply ang pagbabayad.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/tl/pacs.007.001.11/"><code>pacs.007.001.11</code></a></td>
           <td class="related-messages-table__name">Pagbaligtad ng bayad sa pagitan ng mga institusyong pinansyal</td>
-          <td class="related-messages-table__overview">The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, it starts from the original sender.</td>
+          <td class="related-messages-table__overview">Ang mensaheng pacs.007 ay nagre-reverse ng naunang instruksiyon sa pagbabayad. Hindi tulad ng pacs.004, nagsisimula ito mula sa orihinal na nagpadala.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/tl/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="related-messages-table__name">Ulat ng kalagayan ng pagbabayad sa pagitan ng mga institusyong pinansyal</td>
-          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected, pending, or settled.</td>
+          <td class="related-messages-table__overview">Ang mensaheng pacs.002 ay nag-uulat ng katayuan ng naunang instruksiyon sa pagbabayad. Ipinapaalam nito sa ibang institusyon kung ang pagbabayad ay tinanggap, tinanggihan, nakabinbin, o na-settle.</td>
         </tr>
     </tbody>
   </table>

@@ -1,6 +1,6 @@
 ---
 title: "pacs.007.001.11 | Soke biyan kuɗi tsakanin cibiyoyin kuɗi | pacs008"
-description: The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, it starts from the original sender.
+description: Saƙon pacs.007 yana soke umarnin biyan kuɗi da ya gabata. Banbanci da pacs.004, yana farawa daga mai aika na asali.
 lang: ha-NG
 lastUpdated: true
 image: /logo.webp
@@ -48,24 +48,24 @@ faq:
 
 ## Bayyani
 
-The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, it starts from the original sender.
+Saƙon pacs.007 yana soke umarnin biyan kuɗi da ya gabata. Banbanci da pacs.004, yana farawa daga mai aika na asali.
 
 > Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
 
 ## Muhimman abubuwan bayanai
 
-- **GrpHdr** — Group Header with message identification and creation timestamp
-- **TxInf** — Transaction Information with reversal amount and parties
-- **OrgnlGrpInf** — Original Group Information referencing the source message
-- **RvslRsnInf** — Reversal Reason Information with structured reason codes
-- **OrgnlTxRef** — Original Transaction Reference for end-to-end traceability
+- **GrpHdr** — Kan Ƙungiya tare da ganowa saƙo da tambarin lokaci ƙirƙira
+- **TxInf** — Bayanan Ciniki tare da adadin sokewa da ɓangarori
+- **OrgnlGrpInf** — Asalin Bayanan Ƙungiya da ke nuna saƙon tushe
+- **RvslRsnInf** — Bayanan Dalilin Sokewa tare da lambobin dalili masu tsari
+- **OrgnlTxRef** — Asalin Nassarin Ciniki don ganuwa daga farko zuwa ƙarshe
 
 ## Mahallin kasuwanci
 
-- Used when the original sender finds an error before or after settlement
-- Used in fraud cases that need fast reversal
-- Supports both full and partial reversal of original payment amounts
-- Carries structured reversal reason codes
+- Ana amfani da shi lokacin da mai aika na asali ya sami kuskure kafin ko bayan biyan kuɗi
+- Ana amfani da shi a cikin lamuran zamba da ke buƙatar saurin sokewa
+- Yana tallafawa sokewar cikakken ko ɓangarori na adadin biyan kuɗi na asali
+- Yana ɗaukar lambobin dalilin sokewa masu tsari
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Muhimman abubuwan bayanai Mahallin kasuwanci">
   <table>
@@ -82,24 +82,24 @@ The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, i
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message identification and creation timestamp</td>
-          <td class="operational-matrix-table__right">Used when the original sender finds an error before or after settlement</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Kan Ƙungiya tare da ganowa saƙo da tambarin lokaci ƙirƙira</td>
+          <td class="operational-matrix-table__right">Ana amfani da shi lokacin da mai aika na asali ya sami kuskure kafin ko bayan biyan kuɗi</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Transaction Information with reversal amount and parties</td>
-          <td class="operational-matrix-table__right">Used in fraud cases that need fast reversal</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Bayanan Ciniki tare da adadin sokewa da ɓangarori</td>
+          <td class="operational-matrix-table__right">Ana amfani da shi a cikin lamuran zamba da ke buƙatar saurin sokewa</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Original Group Information referencing the source message</td>
-          <td class="operational-matrix-table__right">Supports both full and partial reversal of original payment amounts</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Asalin Bayanan Ƙungiya da ke nuna saƙon tushe</td>
+          <td class="operational-matrix-table__right">Yana tallafawa sokewar cikakken ko ɓangarori na adadin biyan kuɗi na asali</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>RvslRsnInf</strong> — Reversal Reason Information with structured reason codes</td>
-          <td class="operational-matrix-table__right">Carries structured reversal reason codes</td>
+          <td class="operational-matrix-table__left"><strong>RvslRsnInf</strong> — Bayanan Dalilin Sokewa tare da lambobin dalili masu tsari</td>
+          <td class="operational-matrix-table__right">Yana ɗaukar lambobin dalilin sokewa masu tsari</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Original Transaction Reference for end-to-end traceability</td>
-          <td class="operational-matrix-table__right">The instructing agent sends pacs.007 forward through the payment chain to reverse an earlier payment. Each agent processes the reversal and adjusts settlement.</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Asalin Nassarin Ciniki don ganuwa daga farko zuwa ƙarshe</td>
+          <td class="operational-matrix-table__right">Wakilin mai umarni yana aika pacs.007 gaba ta hanyar jerin biyan kuɗi don soke biyan kuɗin da ya gabata. Kowane wakili yana sarrafa sokewar kuma yana daidaita biyan kuɗi.</td>
         </tr>
     </tbody>
   </table>
@@ -107,14 +107,14 @@ The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, i
 
 ## Mahallin CBPR+ da tsari
 
-- It differs from pacs.004 by direction: reversals move forward, returns move back
-- CBPR+ requires pairing with original message identifiers for automated matching
-- Structured reason codes replace free-text narratives from legacy MT messages
-- Used more often in instant-payment recall and fraud workflows
+- Ya bambanta da pacs.004 ta hanyar alkibla: sokewa na ci gaba, mayarwa na komawa baya
+- CBPR+ yana buƙatar haɗawa da masu ganowa saƙon asali don dacewa ta atomatik
+- Lambobin dalili masu tsari suna maye gurbin labarin da ba a tsara ba daga tsofaffin saƙonnin MT
+- Ana amfani da shi sosai a cikin tuno biyan kuɗi nan take da ayyukan zamba
 
 ## Kwararar saƙo
 
-The instructing agent sends pacs.007 forward through the payment chain to reverse an earlier payment. Each agent processes the reversal and adjusts settlement.
+Wakilin mai umarni yana aika pacs.007 gaba ta hanyar jerin biyan kuɗi don soke biyan kuɗin da ya gabata. Kowane wakili yana sarrafa sokewar kuma yana daidaita biyan kuɗi.
 
 ## Primary references
 
@@ -132,8 +132,8 @@ The instructing agent sends pacs.007 forward through the payment chain to revers
     </colgroup>
     <thead>
       <tr>
-        <th>Message type</th>
-        <th>Description</th>
+        <th>Nau&#39;in saƙo</th>
+        <th>Bayani</th>
         <th>Bayyani</th>
       </tr>
     </thead>
@@ -141,17 +141,17 @@ The instructing agent sends pacs.007 forward through the payment chain to revers
         <tr>
           <td class="related-messages-table__id"><a href="/ha/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
           <td class="related-messages-table__name">Canja wurin kuɗi na abokin ciniki tsakanin cibiyoyin kuɗi</td>
-          <td class="related-messages-table__overview">The pacs.008 message is the main customer credit-transfer instruction between banks. It carries party, amount, and remittance data.</td>
+          <td class="related-messages-table__overview">Saƙon pacs.008 shine babban umarnin canja wurin kuɗi na abokin ciniki tsakanin bankuna. Yana ɗaukar bayanan ɓangare, adadi, da aiko kuɗi.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/ha/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
           <td class="related-messages-table__name">Mayar da biyan kuɗi</td>
-          <td class="related-messages-table__overview">The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied.</td>
+          <td class="related-messages-table__overview">Saƙon pacs.004 yana mayar da biyan kuɗi da aka riga aka biya. Yana aika kuɗi baya lokacin da ba za a iya amfani da biyan kuɗi ba.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/ha/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="related-messages-table__name">Rahoton matsayin biyan kuɗi tsakanin cibiyoyin kuɗi</td>
-          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected, pending, or settled.</td>
+          <td class="related-messages-table__overview">Saƙon pacs.002 yana ba da rahoton matsayin umarnin biyan kuɗi da ya gabata. Yana sanar da wata cibiya ko an karɓi biyan kuɗi, an ƙi, yana jiran, ko an biya.</td>
         </tr>
     </tbody>
   </table>

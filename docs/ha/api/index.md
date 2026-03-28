@@ -10,9 +10,9 @@ image: /logo.webp
 
 Aikin yana ba da REST API da CLI don ayyukan sarrafa saƙonnin biyan kuɗi.
 
-## Installation
+## Shigarwa
 
-Install the package from PyPI. Requires Python 3.9.2 or later.
+Shigar da fakitin daga PyPI. Ana buƙatar Python 3.9.2 ko na baya.
 
 ```bash
 python -m pip install pacs008
@@ -22,17 +22,17 @@ python -m pip install pacs008
 
 ## REST API
 
-Start the FastAPI server to validate payment data and generate XML.
+Fara sabar FastAPI ɗin da aka gina a ciki don samar da ƙarshen HTTP don tabbatarwa da ƙirƙira.
 
-### Start the server
+### Fara sabar
 
 ```bash
 uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 ```
 
-### Endpoints
+### Ƙarshen hanyoyi
 
-<div class="api-endpoints-table" tabindex="0" aria-label="Endpoints">
+<div class="api-endpoints-table" tabindex="0" aria-label="Ƙarshen hanyoyi">
   <table>
     <colgroup>
       <col class="api-endpoints-table__col-endpoint">
@@ -41,41 +41,41 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
     <thead>
       <tr>
         <th>Endpoint</th>
-        <th>Description</th>
+        <th>Bayani</th>
       </tr>
     </thead>
     <tbody>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /health</code></td>
-          <td class="api-endpoints-table__desc">Health check that returns service status</td>
+          <td class="api-endpoints-table__desc">Binciken lafiya — yana mayar da matsayin sabis</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>POST /validate</code></td>
-          <td class="api-endpoints-table__desc">Validate payment data without generating XML</td>
+          <td class="api-endpoints-table__desc">Tabbatar da bayanan biyan kuɗi akan tsari ba tare da ƙirƙirar XML ba</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>POST /generate</code></td>
-          <td class="api-endpoints-table__desc">Generate XML now and return the file</td>
+          <td class="api-endpoints-table__desc">Ƙirƙirar XML a daidai lokaci kuma mayar da fayil</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>POST /generate/async</code></td>
-          <td class="api-endpoints-table__desc">Submit an async generation job</td>
+          <td class="api-endpoints-table__desc">Ƙaddamar da aikin ƙirƙira mara daidaituwa</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /status/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">Check job status by ID</td>
+          <td class="api-endpoints-table__desc">Bincika matsayin aiki ta ID</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /download/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">Download XML after the job completes</td>
+          <td class="api-endpoints-table__desc">Saukar da XML ɗin da aka ƙirƙira bayan aikin ya kammala</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>DELETE /jobs/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">Cancel a pending or running job</td>
+          <td class="api-endpoints-table__desc">Soke aikin da ke jira ko wanda ke gudana</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /docs</code></td>
-          <td class="api-endpoints-table__desc">Swagger UI for testing all endpoints</td>
+          <td class="api-endpoints-table__desc">Swagger UI mai hulɗa don bincika da gwada duk ƙarshen hanyoyi</td>
         </tr>
     </tbody>
   </table>
@@ -90,9 +90,9 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 - [`pacs.010.001.05`](/ha/pacs.010.001.05/) — Cire kuɗi kai tsaye tsakanin cibiyoyin kuɗi
 - [`pacs.028.001.05`](/ha/pacs.028.001.05/) — Neman matsayin biyan kuɗi tsakanin cibiyoyin kuɗi
 
-### Validation example
+### Misalin tabbatarwa
 
-Validate payment data before generating XML.
+Ƙaddamar da bayanan biyan kuɗi don tabbatarwa kafin ƙirƙirar XML.
 
 ```bash
 curl -X POST http://localhost:8000/api/validate \
@@ -126,9 +126,9 @@ curl -X POST http://localhost:8000/api/validate \
 }
 ```
 
-### Synchronous generation example
+### Misalin ƙirƙira a daidai lokaci
 
-Generate a `pacs.008.001.13` XML file from JSON data.
+Ƙirƙirar fayilin XML pacs.008.001.13 daga bayanan JSON.
 
 ```bash
 curl -X POST http://localhost:8000/api/generate \
@@ -156,9 +156,9 @@ curl -X POST http://localhost:8000/api/generate \
   }' --output pacs008_output.xml
 ```
 
-### Asynchronous generation
+### Ƙirƙira mara daidaituwa
 
-For large files, submit an async job and poll until it finishes.
+Don manyan fayiloli ko amfani da bututu, ƙaddamar da aikin mara daidaituwa kuma bincika har sai ya kammala.
 
 ```bash
 # Submit the job
@@ -188,9 +188,9 @@ curl http://localhost:8000/api/download/$JOB_ID --output result.xml
 
 ## CLI
 
-The CLI takes a data file, message version, template, and schema. It validates the input and writes XML to the output directory.
+Hanyar layin umarni tana karɓar fayilin bayanai, sigar saƙo, samfuri, da tsari. Tana tabbatar da shigarwa kuma tana rubuta XML ɗin da aka ƙirƙira zuwa kundin fitarwa.
 
-### Basic usage
+### Amfani na asali
 
 ```bash
 pacs008 -t <message_type> \
@@ -199,7 +199,7 @@ pacs008 -t <message_type> \
   -d <data_file>
 ```
 
-### Example
+### Misali
 
 ```bash
 pacs008 -t pacs.008.001.13 \
@@ -208,9 +208,9 @@ pacs008 -t pacs.008.001.13 \
   -d payments.csv
 ```
 
-### Dry-run mode
+### Yanayin gwaji-bushewa
 
-Use `--dry-run` to validate input data without generating XML. The exit code shows whether validation passed (`0`) or failed (`1`).
+Yi amfani da `--dry-run` don tabbatar da bayanan shigarwa ba tare da ƙirƙirar XML ba. Lambar fitarwa tana nuna ko tabbatarwa ta wuce (`0`) ko ta gaza (`1`).
 
 ```bash
 pacs008 -t pacs.008.001.13 \
@@ -220,15 +220,15 @@ pacs008 -t pacs.008.001.13 \
   --dry-run
 ```
 
-Add `--verbose` for detailed output during generation.
+Ƙara `--verbose` don cikakken fitarwa yayin ƙirƙira.
 
 ---
 
 ## Python API
 
-Use the library directly in Python scripts or services.
+Yi amfani da ɗakin karatu kai tsaye a cikin rubutun Python ko sabis.
 
-### Generate XML from payment records
+### Ƙirƙirar XML daga bayanan biyan kuɗi
 
 ```python
 from pacs008 import generate_xml_string
@@ -259,9 +259,9 @@ xml = generate_xml_string(
 print(xml)
 ```
 
-### SWIFT compliance check
+### Binciken biyayya na SWIFT
 
-Check and clean data against SWIFT character and field-length rules before generation.
+Bincika kuma tsaftace bayanai akan ƙa'idodin haruffa da tsawon fili na SWIFT kafin ƙirƙira.
 
 ```python
 from pacs008.compliance import cleanse_data_with_report
@@ -275,7 +275,7 @@ print(report.summary())
 
 ## Docker
 
-Run the API in a container using the bundled Dockerfile.
+Gudanar da API a cikin akwati ta amfani da Dockerfile ɗin da aka haɗa.
 
 ```bash
 docker build -t pacs008:latest .
@@ -288,9 +288,9 @@ docker run --rm   -e PACS008_LOG_LEVEL=INFO   -v $PWD/examples:/data   -p 8000:8
 
 ---
 
-## IBAN and BIC validation
+## Tabbatar da IBAN da BIC
 
-Validate financial identifiers independently of XML generation.
+Tabbatar da masu ganowa na kuɗi daban da ƙirƙirar XML.
 
 ```python
 from pacs008.validation import validate_iban, validate_bic
@@ -301,9 +301,9 @@ is_valid, error = validate_bic("DEUTDEFF", strict=False)
 
 ---
 
-## Streaming
+## Kwararar bayanai
 
-Load large datasets in configurable chunks to limit memory usage.
+Ɗaukar manyan bayanan bayanai a cikin guntaye masu iya saiti don iyakance amfani da ƙwaƙwalwar ajiya.
 
 ```python
 from pacs008.data.loader import load_payment_data_streaming
@@ -322,9 +322,9 @@ for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
 
 ---
 
-## Validation service
+## Sabis na tabbatarwa
 
-Run the full pre-generation validation pipeline programmatically.
+Gudanar da cikakken bututun tabbatarwa kafin ƙirƙira ta hanyar shirye-shirye.
 
 ```python
 from pacs008.validation import ValidationService, ValidationConfig
@@ -341,11 +341,11 @@ print(report.is_valid, report.errors)
 
 ---
 
-## Required data fields
+## Filayen bayanai da ake buƙata
 
-Each payment record must include these fields. Version-specific fields are listed below.
+Kowane rikodin biyan kuɗi dole ne ya ƙunshi waɗannan filaye. Filayen da suka danganci siga an lissafa su a ƙasa.
 
-<div class="api-fields-table" tabindex="0" aria-label="Required data fields">
+<div class="api-fields-table" tabindex="0" aria-label="Filayen bayanai da ake buƙata">
   <table>
     <colgroup>
       <col class="api-fields-table__col-field">
@@ -354,79 +354,79 @@ Each payment record must include these fields. Version-specific fields are liste
     </colgroup>
     <thead>
       <tr>
-        <th>Field</th>
-        <th>Description</th>
-        <th>Constraint</th>
+        <th>Fili</th>
+        <th>Bayani</th>
+        <th>Ƙayyadaddun sharadi</th>
       </tr>
     </thead>
     <tbody>
         <tr>
           <td class="api-fields-table__field"><code>msg_id</code></td>
-          <td class="api-fields-table__desc">Message identifier</td>
-          <td class="api-fields-table__constraint">Max 35 characters</td>
+          <td class="api-fields-table__desc">Mai ganowa saƙo</td>
+          <td class="api-fields-table__constraint">Mafi yawan haruffa 35</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>creation_date_time</code></td>
-          <td class="api-fields-table__desc">Creation timestamp</td>
-          <td class="api-fields-table__constraint">ISO 8601 format</td>
+          <td class="api-fields-table__desc">Tambarin lokaci na ƙirƙira</td>
+          <td class="api-fields-table__constraint">Tsarin ISO 8601</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>nb_of_txs</code></td>
-          <td class="api-fields-table__desc">Number of transactions</td>
-          <td class="api-fields-table__constraint">Positive integer</td>
+          <td class="api-fields-table__desc">Adadin ciniki</td>
+          <td class="api-fields-table__constraint">Adadi mai kyau</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>settlement_method</code></td>
-          <td class="api-fields-table__desc">Settlement method</td>
-          <td class="api-fields-table__constraint">CLRG, INDA, COVE, or INGA</td>
+          <td class="api-fields-table__desc">Hanyar biyan kuɗi</td>
+          <td class="api-fields-table__constraint">CLRG, INDA, COVE, ko INGA</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>end_to_end_id</code></td>
-          <td class="api-fields-table__desc">End-to-end identifier</td>
-          <td class="api-fields-table__constraint">Max 35 characters</td>
+          <td class="api-fields-table__desc">Mai ganowa daga farko zuwa ƙarshe</td>
+          <td class="api-fields-table__constraint">Mafi yawan haruffa 35</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>interbank_settlement_amount</code></td>
-          <td class="api-fields-table__desc">Interbank settlement amount</td>
-          <td class="api-fields-table__constraint">Decimal, e.g. `25000.00`</td>
+          <td class="api-fields-table__desc">Adadin biyan kuɗi tsakanin bankuna</td>
+          <td class="api-fields-table__constraint">Adadi mai dasimai, misali `25000.00`</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>interbank_settlement_currency</code></td>
-          <td class="api-fields-table__desc">Settlement currency</td>
-          <td class="api-fields-table__constraint">ISO 4217 code</td>
+          <td class="api-fields-table__desc">Kuɗin biyan kuɗi</td>
+          <td class="api-fields-table__constraint">Lambar ISO 4217</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>charge_bearer</code></td>
-          <td class="api-fields-table__desc">Charge bearer</td>
-          <td class="api-fields-table__constraint">DEBT, CRED, SHAR, or SLEV</td>
+          <td class="api-fields-table__desc">Mai ɗaukar cajin</td>
+          <td class="api-fields-table__constraint">DEBT, CRED, SHAR, ko SLEV</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>debtor_name</code></td>
-          <td class="api-fields-table__desc">Debtor name</td>
-          <td class="api-fields-table__constraint">Max 140 characters</td>
+          <td class="api-fields-table__desc">Sunan mai bashi</td>
+          <td class="api-fields-table__constraint">Mafi yawan haruffa 140</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>debtor_agent_bic</code></td>
-          <td class="api-fields-table__desc">Debtor agent BIC</td>
-          <td class="api-fields-table__constraint">8 or 11 characters</td>
+          <td class="api-fields-table__desc">BIC na wakilin mai bashi</td>
+          <td class="api-fields-table__constraint">Haruffa 8 ko 11</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>creditor_agent_bic</code></td>
-          <td class="api-fields-table__desc">Creditor agent BIC</td>
-          <td class="api-fields-table__constraint">8 or 11 characters</td>
+          <td class="api-fields-table__desc">BIC na wakilin mai ba da bashi</td>
+          <td class="api-fields-table__constraint">Haruffa 8 ko 11</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>creditor_name</code></td>
-          <td class="api-fields-table__desc">Creditor name</td>
-          <td class="api-fields-table__constraint">Max 140 characters</td>
+          <td class="api-fields-table__desc">Sunan mai ba da bashi</td>
+          <td class="api-fields-table__constraint">Mafi yawan haruffa 140</td>
         </tr>
     </tbody>
   </table>
 </div>
 
-### Version-specific fields
+### Filayen da suka danganci siga
 
-<div class="api-fields-table api-fields-table--versioned" tabindex="0" aria-label="Version-specific fields">
+<div class="api-fields-table api-fields-table--versioned" tabindex="0" aria-label="Filayen da suka danganci siga">
   <table>
     <colgroup>
       <col class="api-fields-table__col-field">
@@ -435,26 +435,26 @@ Each payment record must include these fields. Version-specific fields are liste
     </colgroup>
     <thead>
       <tr>
-        <th>Field</th>
-        <th>Description</th>
-        <th>Constraint</th>
+        <th>Fili</th>
+        <th>Bayani</th>
+        <th>Ƙayyadaddun sharadi</th>
       </tr>
     </thead>
     <tbody>
         <tr>
           <td class="api-fields-table__field"><code>uetr</code></td>
-          <td class="api-fields-table__desc">Unique end-to-end transaction reference</td>
-          <td class="api-fields-table__constraint">UUID format — available from v08</td>
+          <td class="api-fields-table__desc">Nassarin ciniki na musamman daga farko zuwa ƙarshe</td>
+          <td class="api-fields-table__constraint">Tsarin UUID — yana samuwa daga v08</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>mandate_id</code></td>
-          <td class="api-fields-table__desc">Mandate identifier</td>
-          <td class="api-fields-table__constraint">Available from v10</td>
+          <td class="api-fields-table__desc">Mai ganowa izini</td>
+          <td class="api-fields-table__constraint">Yana samuwa daga v10</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>expiry_date_time</code></td>
-          <td class="api-fields-table__desc">Message expiry timestamp</td>
-          <td class="api-fields-table__constraint">Available in v13</td>
+          <td class="api-fields-table__desc">Tambarin lokaci na ƙarewar saƙo</td>
+          <td class="api-fields-table__constraint">Yana samuwa a v13</td>
         </tr>
     </tbody>
   </table>

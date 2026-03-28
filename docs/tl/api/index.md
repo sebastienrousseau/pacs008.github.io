@@ -10,9 +10,9 @@ image: /logo.webp
 
 Ang proyekto ay nagbibigay ng parehong REST API at CLI para sa mga operational na workflow ng pagproseso ng mensahe ng pagbabayad.
 
-## Installation
+## Pag-install
 
-Install the package from PyPI. Requires Python 3.9.2 or later.
+I-install ang package mula sa PyPI. Nangangailangan ng Python 3.9.2 o mas bago.
 
 ```bash
 python -m pip install pacs008
@@ -22,17 +22,17 @@ python -m pip install pacs008
 
 ## REST API
 
-Start the FastAPI server to validate payment data and generate XML.
+Simulan ang built-in na FastAPI server upang magbigay ng HTTP endpoint para sa validation at generation.
 
-### Start the server
+### Simulan ang server
 
 ```bash
 uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 ```
 
-### Endpoints
+### Mga Endpoint
 
-<div class="api-endpoints-table" tabindex="0" aria-label="Endpoints">
+<div class="api-endpoints-table" tabindex="0" aria-label="Mga Endpoint">
   <table>
     <colgroup>
       <col class="api-endpoints-table__col-endpoint">
@@ -41,41 +41,41 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
     <thead>
       <tr>
         <th>Endpoint</th>
-        <th>Description</th>
+        <th>Paglalarawan</th>
       </tr>
     </thead>
     <tbody>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /health</code></td>
-          <td class="api-endpoints-table__desc">Health check that returns service status</td>
+          <td class="api-endpoints-table__desc">Health check — nagbabalik ng katayuan ng serbisyo</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>POST /validate</code></td>
-          <td class="api-endpoints-table__desc">Validate payment data without generating XML</td>
+          <td class="api-endpoints-table__desc">I-validate ang datos ng pagbabayad laban sa schema nang hindi gumagawa ng XML</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>POST /generate</code></td>
-          <td class="api-endpoints-table__desc">Generate XML now and return the file</td>
+          <td class="api-endpoints-table__desc">Gumawa ng XML nang sabay-sabay at ibalik ang file</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>POST /generate/async</code></td>
-          <td class="api-endpoints-table__desc">Submit an async generation job</td>
+          <td class="api-endpoints-table__desc">Magsumite ng asynchronous na trabaho ng generation</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /status/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">Check job status by ID</td>
+          <td class="api-endpoints-table__desc">Suriin ang katayuan ng trabaho ayon sa ID</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /download/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">Download XML after the job completes</td>
+          <td class="api-endpoints-table__desc">I-download ang nabuong XML pagkatapos makumpleto ang trabaho</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>DELETE /jobs/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">Cancel a pending or running job</td>
+          <td class="api-endpoints-table__desc">Kanselahin ang nakabinbin o tumatakbong trabaho</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /docs</code></td>
-          <td class="api-endpoints-table__desc">Swagger UI for testing all endpoints</td>
+          <td class="api-endpoints-table__desc">Interactive na Swagger UI para sa paggalugad at pagsubok ng lahat ng endpoint</td>
         </tr>
     </tbody>
   </table>
@@ -90,9 +90,9 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 - [`pacs.010.001.05`](/tl/pacs.010.001.05/) — Direct debit sa pagitan ng mga institusyong pinansyal
 - [`pacs.028.001.05`](/tl/pacs.028.001.05/) — Kahilingan ng kalagayan ng bayad sa pagitan ng mga institusyong pinansyal
 
-### Validation example
+### Halimbawa ng validation
 
-Validate payment data before generating XML.
+Magsumite ng datos ng pagbabayad para sa validation bago gumawa ng XML.
 
 ```bash
 curl -X POST http://localhost:8000/api/validate \
@@ -126,9 +126,9 @@ curl -X POST http://localhost:8000/api/validate \
 }
 ```
 
-### Synchronous generation example
+### Halimbawa ng synchronous na generation
 
-Generate a `pacs.008.001.13` XML file from JSON data.
+Gumawa ng XML file na pacs.008.001.13 mula sa datos na JSON.
 
 ```bash
 curl -X POST http://localhost:8000/api/generate \
@@ -156,9 +156,9 @@ curl -X POST http://localhost:8000/api/generate \
   }' --output pacs008_output.xml
 ```
 
-### Asynchronous generation
+### Asynchronous na generation
 
-For large files, submit an async job and poll until it finishes.
+Para sa mas malalaking file o paggamit sa pipeline, magsumite ng asynchronous na trabaho at mag-poll hanggang sa makumpleto.
 
 ```bash
 # Submit the job
@@ -188,9 +188,9 @@ curl http://localhost:8000/api/download/$JOB_ID --output result.xml
 
 ## CLI
 
-The CLI takes a data file, message version, template, and schema. It validates the input and writes XML to the output directory.
+Ang command-line interface ay tumatanggap ng data file, bersyon ng mensahe, template, at schema. Vine-validate nito ang input at isinusulat ang nabuong XML sa output directory.
 
-### Basic usage
+### Pangunahing paggamit
 
 ```bash
 pacs008 -t <message_type> \
@@ -199,7 +199,7 @@ pacs008 -t <message_type> \
   -d <data_file>
 ```
 
-### Example
+### Halimbawa
 
 ```bash
 pacs008 -t pacs.008.001.13 \
@@ -210,7 +210,7 @@ pacs008 -t pacs.008.001.13 \
 
 ### Dry-run mode
 
-Use `--dry-run` to validate input data without generating XML. The exit code shows whether validation passed (`0`) or failed (`1`).
+Gamitin ang `--dry-run` para i-validate ang input data nang hindi gumagawa ng XML. Ang exit code ay nagpapakita kung pumasa (`0`) o nabigo (`1`) ang validation.
 
 ```bash
 pacs008 -t pacs.008.001.13 \
@@ -220,15 +220,15 @@ pacs008 -t pacs.008.001.13 \
   --dry-run
 ```
 
-Add `--verbose` for detailed output during generation.
+Magdagdag ng `--verbose` para sa detalyadong output sa panahon ng generation.
 
 ---
 
 ## Python API
 
-Use the library directly in Python scripts or services.
+Gamitin ang library nang direkta sa mga Python script o serbisyo.
 
-### Generate XML from payment records
+### Gumawa ng XML mula sa mga record ng pagbabayad
 
 ```python
 from pacs008 import generate_xml_string
@@ -261,7 +261,7 @@ print(xml)
 
 ### SWIFT compliance check
 
-Check and clean data against SWIFT character and field-length rules before generation.
+Suriin at linisin ang datos laban sa mga patakaran ng character at haba ng field ng SWIFT bago ang generation.
 
 ```python
 from pacs008.compliance import cleanse_data_with_report
@@ -275,7 +275,7 @@ print(report.summary())
 
 ## Docker
 
-Run the API in a container using the bundled Dockerfile.
+Patakbuhin ang API sa isang container gamit ang kasama na Dockerfile.
 
 ```bash
 docker build -t pacs008:latest .
@@ -288,9 +288,9 @@ docker run --rm   -e PACS008_LOG_LEVEL=INFO   -v $PWD/examples:/data   -p 8000:8
 
 ---
 
-## IBAN and BIC validation
+## Validation ng IBAN at BIC
 
-Validate financial identifiers independently of XML generation.
+I-validate ang mga financial identifier nang hiwalay sa XML generation.
 
 ```python
 from pacs008.validation import validate_iban, validate_bic
@@ -303,7 +303,7 @@ is_valid, error = validate_bic("DEUTDEFF", strict=False)
 
 ## Streaming
 
-Load large datasets in configurable chunks to limit memory usage.
+I-load ang malalaking dataset sa mga nako-configure na tipak upang limitahan ang paggamit ng memory.
 
 ```python
 from pacs008.data.loader import load_payment_data_streaming
@@ -322,9 +322,9 @@ for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
 
 ---
 
-## Validation service
+## Serbisyo ng validation
 
-Run the full pre-generation validation pipeline programmatically.
+Patakbuhin ang buong pre-generation validation pipeline nang programmatically.
 
 ```python
 from pacs008.validation import ValidationService, ValidationConfig
@@ -341,11 +341,11 @@ print(report.is_valid, report.errors)
 
 ---
 
-## Required data fields
+## Mga kinakailangang data field
 
-Each payment record must include these fields. Version-specific fields are listed below.
+Bawat record ng pagbabayad ay dapat maglaman ng mga field na ito. Ang mga field na tukoy sa bersyon ay nakalista sa ibaba.
 
-<div class="api-fields-table" tabindex="0" aria-label="Required data fields">
+<div class="api-fields-table" tabindex="0" aria-label="Mga kinakailangang data field">
   <table>
     <colgroup>
       <col class="api-fields-table__col-field">
@@ -355,40 +355,40 @@ Each payment record must include these fields. Version-specific fields are liste
     <thead>
       <tr>
         <th>Field</th>
-        <th>Description</th>
-        <th>Constraint</th>
+        <th>Paglalarawan</th>
+        <th>Limitasyon</th>
       </tr>
     </thead>
     <tbody>
         <tr>
           <td class="api-fields-table__field"><code>msg_id</code></td>
-          <td class="api-fields-table__desc">Message identifier</td>
-          <td class="api-fields-table__constraint">Max 35 characters</td>
+          <td class="api-fields-table__desc">Identifier ng mensahe</td>
+          <td class="api-fields-table__constraint">Pinakamataas na 35 character</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>creation_date_time</code></td>
-          <td class="api-fields-table__desc">Creation timestamp</td>
-          <td class="api-fields-table__constraint">ISO 8601 format</td>
+          <td class="api-fields-table__desc">Timestamp ng paglikha</td>
+          <td class="api-fields-table__constraint">Format na ISO 8601</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>nb_of_txs</code></td>
-          <td class="api-fields-table__desc">Number of transactions</td>
-          <td class="api-fields-table__constraint">Positive integer</td>
+          <td class="api-fields-table__desc">Bilang ng mga transaksyon</td>
+          <td class="api-fields-table__constraint">Positibong integer</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>settlement_method</code></td>
-          <td class="api-fields-table__desc">Settlement method</td>
-          <td class="api-fields-table__constraint">CLRG, INDA, COVE, or INGA</td>
+          <td class="api-fields-table__desc">Paraan ng settlement</td>
+          <td class="api-fields-table__constraint">CLRG, INDA, COVE, o INGA</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>end_to_end_id</code></td>
           <td class="api-fields-table__desc">End-to-end identifier</td>
-          <td class="api-fields-table__constraint">Max 35 characters</td>
+          <td class="api-fields-table__constraint">Pinakamataas na 35 character</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>interbank_settlement_amount</code></td>
           <td class="api-fields-table__desc">Interbank settlement amount</td>
-          <td class="api-fields-table__constraint">Decimal, e.g. `25000.00`</td>
+          <td class="api-fields-table__constraint">Decimal, hal. `25000.00`</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>interbank_settlement_currency</code></td>
@@ -398,35 +398,35 @@ Each payment record must include these fields. Version-specific fields are liste
         <tr>
           <td class="api-fields-table__field"><code>charge_bearer</code></td>
           <td class="api-fields-table__desc">Charge bearer</td>
-          <td class="api-fields-table__constraint">DEBT, CRED, SHAR, or SLEV</td>
+          <td class="api-fields-table__constraint">DEBT, CRED, SHAR, o SLEV</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>debtor_name</code></td>
-          <td class="api-fields-table__desc">Debtor name</td>
-          <td class="api-fields-table__constraint">Max 140 characters</td>
+          <td class="api-fields-table__desc">Pangalan ng debtor</td>
+          <td class="api-fields-table__constraint">Pinakamataas na 140 character</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>debtor_agent_bic</code></td>
-          <td class="api-fields-table__desc">Debtor agent BIC</td>
-          <td class="api-fields-table__constraint">8 or 11 characters</td>
+          <td class="api-fields-table__desc">BIC ng debtor agent</td>
+          <td class="api-fields-table__constraint">8 o 11 character</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>creditor_agent_bic</code></td>
-          <td class="api-fields-table__desc">Creditor agent BIC</td>
-          <td class="api-fields-table__constraint">8 or 11 characters</td>
+          <td class="api-fields-table__desc">BIC ng creditor agent</td>
+          <td class="api-fields-table__constraint">8 o 11 character</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>creditor_name</code></td>
-          <td class="api-fields-table__desc">Creditor name</td>
-          <td class="api-fields-table__constraint">Max 140 characters</td>
+          <td class="api-fields-table__desc">Pangalan ng creditor</td>
+          <td class="api-fields-table__constraint">Pinakamataas na 140 character</td>
         </tr>
     </tbody>
   </table>
 </div>
 
-### Version-specific fields
+### Mga field na tukoy sa bersyon
 
-<div class="api-fields-table api-fields-table--versioned" tabindex="0" aria-label="Version-specific fields">
+<div class="api-fields-table api-fields-table--versioned" tabindex="0" aria-label="Mga field na tukoy sa bersyon">
   <table>
     <colgroup>
       <col class="api-fields-table__col-field">
@@ -436,25 +436,25 @@ Each payment record must include these fields. Version-specific fields are liste
     <thead>
       <tr>
         <th>Field</th>
-        <th>Description</th>
-        <th>Constraint</th>
+        <th>Paglalarawan</th>
+        <th>Limitasyon</th>
       </tr>
     </thead>
     <tbody>
         <tr>
           <td class="api-fields-table__field"><code>uetr</code></td>
-          <td class="api-fields-table__desc">Unique end-to-end transaction reference</td>
-          <td class="api-fields-table__constraint">UUID format — available from v08</td>
+          <td class="api-fields-table__desc">Natatanging reperensya ng transaksyon mula simula hanggang dulo</td>
+          <td class="api-fields-table__constraint">Format na UUID — available mula v08</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>mandate_id</code></td>
-          <td class="api-fields-table__desc">Mandate identifier</td>
-          <td class="api-fields-table__constraint">Available from v10</td>
+          <td class="api-fields-table__desc">Identifier ng mandato</td>
+          <td class="api-fields-table__constraint">Available mula v10</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>expiry_date_time</code></td>
-          <td class="api-fields-table__desc">Message expiry timestamp</td>
-          <td class="api-fields-table__constraint">Available in v13</td>
+          <td class="api-fields-table__desc">Timestamp ng pag-expire ng mensahe</td>
+          <td class="api-fields-table__constraint">Available sa v13</td>
         </tr>
     </tbody>
   </table>

@@ -132,8 +132,8 @@ The instructing agent sends pacs.007 forward through the payment chain to revers
     </colgroup>
     <thead>
       <tr>
-        <th>Message type</th>
-        <th>Description</th>
+        <th>Irú ìfiránṣẹ́</th>
+        <th>Àlàyé</th>
         <th>Àkópọ̀</th>
       </tr>
     </thead>

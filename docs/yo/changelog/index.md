@@ -1,6 +1,6 @@
 ---
 title: "Àkọsílẹ̀ àyípadà | pacs008"
-description: Version history and release notes for the pacs008 toolkit. Track new features, improvements, and fixes across releases.
+description: Ìtàn àwọn ẹ̀dà àti àwọn àkọsílẹ̀ ìtújáde fún ohun èlò pacs008.
 lang: yo-NG
 lastUpdated: true
 image: /logo.webp
@@ -8,7 +8,7 @@ image: /logo.webp
 
 # Àkọsílẹ̀ àyípadà
 
-Significant changes to the pacs008 toolkit and this documentation site.
+Àwọn àyípadà pàtàkì sí ohun èlò pacs008 àti ojú àyélujára àkọsílẹ̀ yìí.
 
 ## 2026
 

@@ -1,6 +1,6 @@
 ---
 title: "ISO 20022-ordlista | pacs008"
-description: Definitions of key ISO 20022 and payment messaging terms used in pacs.008 and related messages. Covers SWIFT, CBPR+, IBAN, BIC, settlement methods, and...
+description: Definitioner av viktiga ISO 20022- och betalningstermer som används i pacs.008 och relaterade meddelanden. Täcker SWIFT, CBPR+, IBAN, BIC...
 lang: sv-SE
 lastUpdated: true
 image: /logo.webp
@@ -8,13 +8,13 @@ image: /logo.webp
 
 # ISO 20022-ordlista
 
-Key terms, abbreviations, and technical concepts used across ISO 20022 pacs messages and this site.
+Nyckeltermer, förkortningar och tekniska koncept som används i ISO 20022 pacs-meddelanden och på denna webbplats.
 
 ## A
 
-**ACH** — Automated Clearing House. A network that processes batched electronic payments between financial institutions.
+**ACH** — Automated Clearing House. Ett nätverk som bearbetar batchade elektroniska betalningar mellan finansiella institutioner.
 
-**AdrLine** — Address Line. A free-text address field in ISO 20022 postal address structures. Up to 7 lines of 70 characters each. Being replaced by structured address elements for CBPR+ by November 2026.
+**AdrLine** — Address Line. Ett fritextadressfält i ISO 20022 postadressstrukturer. Upp till 7 rader med 70 tecken vardera. Ersätts av strukturerade adresselement för CBPR+ senast november 2026.
 
 **ACCP** — Accepted Customer Profile. A pacs.002 status code indicating that preceding checks (syntax, customer profile) have passed.
 

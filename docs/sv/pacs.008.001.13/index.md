@@ -1,6 +1,6 @@
 ---
 title: "pacs.008.001.13 | Kundkreditöverföring mellan finansinstitut | pacs008"
-description: The pacs.008 message is the main customer credit-transfer instruction between banks. It carries party, amount, and remittance data.
+description: Meddelandet pacs.008 är den huvudsakliga kundkreditöverföringsinstruktionen mellan banker. Det bär parti-, belopps- och remitteringsdata.
 lang: sv-SE
 lastUpdated: true
 image: /logo.webp
@@ -48,24 +48,24 @@ faq:
 
 ## Översikt
 
-The pacs.008 message is the main customer credit-transfer instruction between banks. It carries party, amount, and remittance data.
+Meddelandet pacs.008 är den huvudsakliga kundkreditöverföringsinstruktionen mellan banker. Det bär parti-, belopps- och remitteringsdata.
 
 > Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
 
 ## Nyckeldataelement
 
-- **GrpHdr** — Group Header with message ID, creation date, number of transactions, and settlement information
-- **CdtTrfTxInf** — Credit Transfer Transaction Information with amount, charges, and purpose
-- **Dbtr / DbtrAgt** — Debtor and Debtor Agent identification and account details
-- **Cdtr / CdtrAgt** — Creditor and Creditor Agent identification and account details
-- **RmtInf** — Remittance Information for structured or unstructured payment references
+- **GrpHdr** — Grupphuvud med meddelande-ID, skapandedatum, antal transaktioner och avvecklingsinformation
+- **CdtTrfTxInf** — Kreditöverföringstransaktionsinformation med belopp, avgifter och syfte
+- **Dbtr / DbtrAgt** — Gäldenär och gäldenärsagent identifiering och kontouppgifter
+- **Cdtr / CdtrAgt** — Borgenär och borgenärsagent identifiering och kontouppgifter
+- **RmtInf** — Remitteringsinformation för strukturerade eller ostrukturerade betalningsreferenser
 
 ## Affärskontext
 
-- Main message for customer credit transfers
-- Used across SEPA, CBPR+, and national clearing systems
-- Carries remittance data for reconciliation
-- Supports serial, cover, and direct settlement methods
+- Huvudmeddelande för kundkreditöverföringar
+- Används inom SEPA, CBPR+ och nationella clearingsystem
+- Bär remitteringsdata för avstämning
+- Stöder seriella, cover- och direkta avvecklingsmetoder
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Nyckeldataelement Affärskontext">
   <table>
@@ -82,24 +82,24 @@ The pacs.008 message is the main customer credit-transfer instruction between ba
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message ID, creation date, number of transactions, and settlement information</td>
-          <td class="operational-matrix-table__right">Main message for customer credit transfers</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Grupphuvud med meddelande-ID, skapandedatum, antal transaktioner och avvecklingsinformation</td>
+          <td class="operational-matrix-table__right">Huvudmeddelande för kundkreditöverföringar</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Credit Transfer Transaction Information with amount, charges, and purpose</td>
-          <td class="operational-matrix-table__right">Used across SEPA, CBPR+, and national clearing systems</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Kreditöverföringstransaktionsinformation med belopp, avgifter och syfte</td>
+          <td class="operational-matrix-table__right">Används inom SEPA, CBPR+ och nationella clearingsystem</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Debtor and Debtor Agent identification and account details</td>
-          <td class="operational-matrix-table__right">Carries remittance data for reconciliation</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Gäldenär och gäldenärsagent identifiering och kontouppgifter</td>
+          <td class="operational-matrix-table__right">Bär remitteringsdata för avstämning</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Creditor and Creditor Agent identification and account details</td>
-          <td class="operational-matrix-table__right">Supports serial, cover, and direct settlement methods</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Borgenär och borgenärsagent identifiering och kontouppgifter</td>
+          <td class="operational-matrix-table__right">Stöder seriella, cover- och direkta avvecklingsmetoder</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>RmtInf</strong> — Remittance Information for structured or unstructured payment references</td>
-          <td class="operational-matrix-table__right">The debtor agent sends pacs.008 to the creditor agent, either directly or through intermediaries. Each agent checks and forwards the instruction until the creditor agent credits the beneficiary.</td>
+          <td class="operational-matrix-table__left"><strong>RmtInf</strong> — Remitteringsinformation för strukturerade eller ostrukturerade betalningsreferenser</td>
+          <td class="operational-matrix-table__right">Gäldenärsagenten skickar pacs.008 till borgenärsagenten, antingen direkt eller via mellanhänder. Varje agent kontrollerar och vidarebefordrar instruktionen tills borgenärsagenten krediterar mottagaren.</td>
         </tr>
     </tbody>
   </table>
@@ -107,14 +107,14 @@ The pacs.008 message is the main customer credit-transfer instruction between ba
 
 ## CBPR+- och schemakontext
 
-- Replaces MT103 and MT103+ for cross-border customer credit transfers
-- The November 2026 structured-address deadline applies to party addresses
-- SWIFT gpi uses pacs.008 for UETR-based tracking
-- Version 13 is the current catalogue revision
+- Ersätter MT103 och MT103+ för gränsöverskridande kundkreditöverföringar
+- Tidsfristen för strukturerade adresser i november 2026 gäller partadresser
+- SWIFT gpi använder pacs.008 för UETR-baserad spårning
+- Version 13 är den aktuella katalogrevisionen
 
 ## Meddelandeflöde
 
-The debtor agent sends pacs.008 to the creditor agent, either directly or through intermediaries. Each agent checks and forwards the instruction until the creditor agent credits the beneficiary.
+Gäldenärsagenten skickar pacs.008 till borgenärsagenten, antingen direkt eller via mellanhänder. Varje agent kontrollerar och vidarebefordrar instruktionen tills borgenärsagenten krediterar mottagaren.
 
 ## Primary references
 
@@ -209,8 +209,8 @@ The debtor agent sends pacs.008 to the creditor agent, either directly or throug
     </colgroup>
     <thead>
       <tr>
-        <th>Message type</th>
-        <th>Description</th>
+        <th>Meddelandetyp</th>
+        <th>Beskrivning</th>
         <th>Översikt</th>
       </tr>
     </thead>
@@ -218,17 +218,17 @@ The debtor agent sends pacs.008 to the creditor agent, either directly or throug
         <tr>
           <td class="related-messages-table__id"><a href="/sv/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="related-messages-table__name">Statusrapport för betalning mellan finansinstitut</td>
-          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected, pending, or settled.</td>
+          <td class="related-messages-table__overview">Meddelandet pacs.002 rapporterar statusen för en tidigare betalningsinstruktion. Det informerar en annan institution om betalningen accepterades, avvisades, väntar eller avvecklades.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/sv/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
           <td class="related-messages-table__name">Betalningsretur</td>
-          <td class="related-messages-table__overview">The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied.</td>
+          <td class="related-messages-table__overview">Meddelandet pacs.004 returnerar en betalning som redan har avvecklats. Det skickar tillbaka medel när en betalning inte kan tillämpas.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/sv/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
           <td class="related-messages-table__name">Kreditöverföring mellan finansinstitut</td>
-          <td class="related-messages-table__overview">The pacs.009 message moves funds between banks on their own behalf. It supports funding, cover payments, and liquidity management.</td>
+          <td class="related-messages-table__overview">Meddelandet pacs.009 flyttar medel mellan banker för egen räkning. Det stöder finansiering, cover-betalningar och likviditetshantering.</td>
         </tr>
     </tbody>
   </table>

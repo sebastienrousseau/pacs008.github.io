@@ -1,6 +1,6 @@
 ---
 title: "Àlàyé àwọn ìfiránṣẹ́ pacs | pacs008"
-description: "Detailed technical reference for ISO 20022 pacs messages: lifecycle, XML structure, settlement methods, reason codes, address types, identifiers..."
+description: Ìtọ́kasí ìmọ̀-ẹ̀rọ àlàyé fún àwọn ìfiránṣẹ́ pacs ISO 20022.
 lang: yo-NG
 lastUpdated: true
 image: /logo.webp
@@ -8,7 +8,7 @@ image: /logo.webp
 
 # Àlàyé àwọn ìfiránṣẹ́ pacs
 
-A detailed technical reference for the ISO 20022 pacs message family. It covers how messages work together in a complete payment lifecycle, the XML structure, settlement methods, reason codes, party identification, remittance information, and end-to-end tracking.
+Ìtọ́kasí ìmọ̀-ẹ̀rọ àlàyé fún ẹbí àwọn ìfiránṣẹ́ pacs ISO 20022.
 
 ## Payment lifecycle
 

@@ -132,8 +132,8 @@ The creditor agent sends pacs.003 to the debtor agent. The debtor agent checks t
     </colgroup>
     <thead>
       <tr>
-        <th>Message type</th>
-        <th>Description</th>
+        <th>Irú ìfiránṣẹ́</th>
+        <th>Àlàyé</th>
         <th>Àkópọ̀</th>
       </tr>
     </thead>

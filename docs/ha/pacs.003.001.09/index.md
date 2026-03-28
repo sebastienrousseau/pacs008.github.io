@@ -1,6 +1,6 @@
 ---
 title: "pacs.003.001.09 | Cire kuɗi kai tsaye na abokin ciniki tsakanin cibiyoyin kuɗi | pacs008"
-description: The pacs.003 message carries a customer direct debit between banks. It lets the creditor bank collect funds from the debtor bank.
+description: Saƙon pacs.003 yana ɗaukar cire kuɗi kai tsaye na abokin ciniki tsakanin bankuna. Yana ba bankin mai ba da bashi damar tattara kuɗi daga bankin mai bashi.
 lang: ha-NG
 lastUpdated: true
 image: /logo.webp
@@ -48,24 +48,24 @@ faq:
 
 ## Bayyani
 
-The pacs.003 message carries a customer direct debit between banks. It lets the creditor bank collect funds from the debtor bank.
+Saƙon pacs.003 yana ɗaukar cire kuɗi kai tsaye na abokin ciniki tsakanin bankuna. Yana ba bankin mai ba da bashi damar tattara kuɗi daga bankin mai bashi.
 
 > Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
 
 ## Muhimman abubuwan bayanai
 
-- **GrpHdr** — Group Header with message identification and settlement information
-- **DrctDbtTxInf** — Direct Debit Transaction Information with amount and parties
-- **Cdtr** — Creditor identification and account details
-- **CdtrAgt** — Creditor Agent (collecting institution) identification
-- **DbtrAgt** — Debtor Agent (paying institution) identification
+- **GrpHdr** — Kan Ƙungiya tare da ganowa saƙo da bayanan biyan kuɗi
+- **DrctDbtTxInf** — Bayanan Ciniki na Cire Kuɗi Kai Tsaye tare da adadi da ɓangarori
+- **Cdtr** — Ganowa da bayanan asusu na mai ba da bashi
+- **CdtrAgt** — Ganowa na Wakilin Mai Ba da Bashi (cibiyar tattarawa)
+- **DbtrAgt** — Ganowa na Wakilin Mai Bashi (cibiyar biyan kuɗi)
 
 ## Mahallin kasuwanci
 
-- Supports SEPA Core and B2B direct debit schemes
-- Used for recurring collections such as subscriptions and bills
-- Needs a valid mandate reference
-- Can carry many direct debits in one message
+- Yana tallafawa tsarin cire kuɗi kai tsaye na SEPA Core da B2B
+- Ana amfani da shi don tattarawa akai-akai kamar biyan kuɗi da lasisi
+- Yana buƙatar nassarin izini mai inganci
+- Zai iya ɗaukar cire kuɗi kai tsaye da yawa a cikin saƙo guda
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Muhimman abubuwan bayanai Mahallin kasuwanci">
   <table>
@@ -82,24 +82,24 @@ The pacs.003 message carries a customer direct debit between banks. It lets the 
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message identification and settlement information</td>
-          <td class="operational-matrix-table__right">Supports SEPA Core and B2B direct debit schemes</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Kan Ƙungiya tare da ganowa saƙo da bayanan biyan kuɗi</td>
+          <td class="operational-matrix-table__right">Yana tallafawa tsarin cire kuɗi kai tsaye na SEPA Core da B2B</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Direct Debit Transaction Information with amount and parties</td>
-          <td class="operational-matrix-table__right">Used for recurring collections such as subscriptions and bills</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Bayanan Ciniki na Cire Kuɗi Kai Tsaye tare da adadi da ɓangarori</td>
+          <td class="operational-matrix-table__right">Ana amfani da shi don tattarawa akai-akai kamar biyan kuɗi da lasisi</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>Cdtr</strong> — Creditor identification and account details</td>
-          <td class="operational-matrix-table__right">Needs a valid mandate reference</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr</strong> — Ganowa da bayanan asusu na mai ba da bashi</td>
+          <td class="operational-matrix-table__right">Yana buƙatar nassarin izini mai inganci</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>CdtrAgt</strong> — Creditor Agent (collecting institution) identification</td>
-          <td class="operational-matrix-table__right">Can carry many direct debits in one message</td>
+          <td class="operational-matrix-table__left"><strong>CdtrAgt</strong> — Ganowa na Wakilin Mai Ba da Bashi (cibiyar tattarawa)</td>
+          <td class="operational-matrix-table__right">Zai iya ɗaukar cire kuɗi kai tsaye da yawa a cikin saƙo guda</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>DbtrAgt</strong> — Debtor Agent (paying institution) identification</td>
-          <td class="operational-matrix-table__right">The creditor agent sends pacs.003 to the debtor agent. The debtor agent checks the mandate and either settles or returns the transaction.</td>
+          <td class="operational-matrix-table__left"><strong>DbtrAgt</strong> — Ganowa na Wakilin Mai Bashi (cibiyar biyan kuɗi)</td>
+          <td class="operational-matrix-table__right">Wakilin mai ba da bashi yana aika pacs.003 zuwa wakilin mai bashi. Wakilin mai bashi yana duba izinin kuma ya biya ko ya mayar da cinikin.</td>
         </tr>
     </tbody>
   </table>
@@ -107,14 +107,14 @@ The pacs.003 message carries a customer direct debit between banks. It lets the 
 
 ## Mahallin CBPR+ da tsari
 
-- Structured address and party-data rules also apply here.
-- Mandate data must be structured from November 2026.
-- It replaces older MT104-style direct-debit formats in cross-border flows.
-- Creditor scheme identifiers need closer validation.
+- Ƙa'idodin adireshi mai tsari da bayanan ɓangare sun shafi nan ma.
+- Bayanan izini dole ne su kasance masu tsari daga Nuwamba 2026.
+- Yana maye gurbin tsofaffin tsarin cire kuɗi kai tsaye na MT104 a cikin kwararar ƙetare iyaka.
+- Masu ganowa na tsarin mai ba da bashi suna buƙatar ƙarin tabbatarwa.
 
 ## Kwararar saƙo
 
-The creditor agent sends pacs.003 to the debtor agent. The debtor agent checks the mandate and either settles or returns the transaction.
+Wakilin mai ba da bashi yana aika pacs.003 zuwa wakilin mai bashi. Wakilin mai bashi yana duba izinin kuma ya biya ko ya mayar da cinikin.
 
 ## Primary references
 
@@ -132,8 +132,8 @@ The creditor agent sends pacs.003 to the debtor agent. The debtor agent checks t
     </colgroup>
     <thead>
       <tr>
-        <th>Message type</th>
-        <th>Description</th>
+        <th>Nau&#39;in saƙo</th>
+        <th>Bayani</th>
         <th>Bayyani</th>
       </tr>
     </thead>
@@ -141,17 +141,17 @@ The creditor agent sends pacs.003 to the debtor agent. The debtor agent checks t
         <tr>
           <td class="related-messages-table__id"><a href="/ha/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
           <td class="related-messages-table__name">Mayar da biyan kuɗi</td>
-          <td class="related-messages-table__overview">The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied.</td>
+          <td class="related-messages-table__overview">Saƙon pacs.004 yana mayar da biyan kuɗi da aka riga aka biya. Yana aika kuɗi baya lokacin da ba za a iya amfani da biyan kuɗi ba.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/ha/pacs.007.001.11/"><code>pacs.007.001.11</code></a></td>
           <td class="related-messages-table__name">Soke biyan kuɗi tsakanin cibiyoyin kuɗi</td>
-          <td class="related-messages-table__overview">The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, it starts from the original sender.</td>
+          <td class="related-messages-table__overview">Saƙon pacs.007 yana soke umarnin biyan kuɗi da ya gabata. Banbanci da pacs.004, yana farawa daga mai aika na asali.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/ha/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="related-messages-table__name">Rahoton matsayin biyan kuɗi tsakanin cibiyoyin kuɗi</td>
-          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected, pending, or settled.</td>
+          <td class="related-messages-table__overview">Saƙon pacs.002 yana ba da rahoton matsayin umarnin biyan kuɗi da ya gabata. Yana sanar da wata cibiya ko an karɓi biyan kuɗi, an ƙi, yana jiran, ko an biya.</td>
         </tr>
     </tbody>
   </table>

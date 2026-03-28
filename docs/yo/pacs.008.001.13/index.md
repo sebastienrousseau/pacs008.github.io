@@ -209,8 +209,8 @@ The debtor agent sends pacs.008 to the creditor agent, either directly or throug
     </colgroup>
     <thead>
       <tr>
-        <th>Message type</th>
-        <th>Description</th>
+        <th>Irú ìfiránṣẹ́</th>
+        <th>Àlàyé</th>
         <th>Àkópọ̀</th>
       </tr>
     </thead>

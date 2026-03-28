@@ -1,6 +1,6 @@
 ---
 title: "pacs.004.001.11 | Pagbabalik ng bayad | pacs008"
-description: The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied.
+description: Ang mensaheng pacs.004 ay nagbabalik ng pagbabayad na na-settle na. Nagpapadala ito ng pondo pabalik kapag hindi maaaring ma-apply ang pagbabayad.
 lang: tl-PH
 lastUpdated: true
 image: /logo.webp
@@ -48,24 +48,24 @@ faq:
 
 ## Pangkalahatang-ideya
 
-The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied.
+Ang mensaheng pacs.004 ay nagbabalik ng pagbabayad na na-settle na. Nagpapadala ito ng pondo pabalik kapag hindi maaaring ma-apply ang pagbabayad.
 
 > Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
 
 ## Mga pangunahing elemento ng datos
 
-- **GrpHdr** — Group Header with message identification and creation timestamp
-- **TxInf** — Transaction Information with return amount and parties
-- **OrgnlGrpInf** — Original Group Information linking to the source message
-- **RtrRsnInf** — Return Reason Information with structured reason codes
-- **OrgnlTxRef** — Original Transaction Reference for matching and reconciliation
+- **GrpHdr** — Group Header na may pagkakakilanlan ng mensahe at timestamp ng paglikha
+- **TxInf** — Impormasyon ng Transaksyon na may halaga ng pagbabalik at mga partido
+- **OrgnlGrpInf** — Orihinal na Impormasyon ng Grupo na nag-uugnay sa pinagmulang mensahe
+- **RtrRsnInf** — Impormasyon ng Dahilan ng Pagbabalik na may mga structured na reason code
+- **OrgnlTxRef** — Orihinal na Reperensya ng Transaksyon para sa pagtutugma at reconciliation
 
 ## Konteksto ng negosyo
 
-- Handles post-settlement returns when the beneficiary's account cannot be credited
-- Supports recall scenarios where the originator requests funds back
-- Carries structured return reason codes
-- Applies to both credit transfer returns (pacs.008) and direct debit returns (pacs.003)
+- Pinapangasiwaan ang mga pagbabalik pagkatapos ng settlement kapag hindi ma-credit ang account ng beneficiary
+- Sinusuportahan ang mga senaryo ng recall kung saan hinihingi ng nagpadala ang pondo pabalik
+- Nagdadala ng mga structured na return reason code
+- Naaangkop sa parehong credit transfer return (pacs.008) at direct debit return (pacs.003)
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Mga pangunahing elemento ng datos Konteksto ng negosyo">
   <table>
@@ -82,24 +82,24 @@ The pacs.004 message returns a payment that has already settled. It sends funds 
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message identification and creation timestamp</td>
-          <td class="operational-matrix-table__right">Handles post-settlement returns when the beneficiary&#39;s account cannot be credited</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header na may pagkakakilanlan ng mensahe at timestamp ng paglikha</td>
+          <td class="operational-matrix-table__right">Pinapangasiwaan ang mga pagbabalik pagkatapos ng settlement kapag hindi ma-credit ang account ng beneficiary</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Transaction Information with return amount and parties</td>
-          <td class="operational-matrix-table__right">Supports recall scenarios where the originator requests funds back</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Impormasyon ng Transaksyon na may halaga ng pagbabalik at mga partido</td>
+          <td class="operational-matrix-table__right">Sinusuportahan ang mga senaryo ng recall kung saan hinihingi ng nagpadala ang pondo pabalik</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Original Group Information linking to the source message</td>
-          <td class="operational-matrix-table__right">Carries structured return reason codes</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Orihinal na Impormasyon ng Grupo na nag-uugnay sa pinagmulang mensahe</td>
+          <td class="operational-matrix-table__right">Nagdadala ng mga structured na return reason code</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>RtrRsnInf</strong> — Return Reason Information with structured reason codes</td>
-          <td class="operational-matrix-table__right">Applies to both credit transfer returns (pacs.008) and direct debit returns (pacs.003)</td>
+          <td class="operational-matrix-table__left"><strong>RtrRsnInf</strong> — Impormasyon ng Dahilan ng Pagbabalik na may mga structured na reason code</td>
+          <td class="operational-matrix-table__right">Naaangkop sa parehong credit transfer return (pacs.008) at direct debit return (pacs.003)</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Original Transaction Reference for matching and reconciliation</td>
-          <td class="operational-matrix-table__right">The instructed agent sends pacs.004 back through the payment chain to return settled funds. Each agent in the chain processes the return and credits back the relevant accounts.</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Orihinal na Reperensya ng Transaksyon para sa pagtutugma at reconciliation</td>
+          <td class="operational-matrix-table__right">Nagpapadala ang instruktadong agent ng pacs.004 pabalik sa payment chain upang ibalik ang mga na-settle na pondo. Pinoproseso ng bawat agent sa chain ang pagbabalik at kini-credit pabalik sa mga kaugnay na account.</td>
         </tr>
     </tbody>
   </table>
@@ -107,14 +107,14 @@ The pacs.004 message returns a payment that has already settled. It sends funds 
 
 ## Konteksto ng CBPR+ at schema
 
-- Replaces MT103 RETURN and cover-method return messaging
-- Return reason codes are standardised and machine-readable under ISO 20022
-- CBPR+ requires the full original transaction reference for matching
-- SWIFT gpi tracking also covers returns
+- Pinapalitan ang MT103 RETURN at return messaging na may cover-method
+- Ang mga return reason code ay naka-standardize at nababasa ng makina sa ilalim ng ISO 20022
+- Kinakailangan ng CBPR+ ang kumpletong orihinal na reperensya ng transaksyon para sa pagtutugma
+- Sinasaklaw din ng SWIFT gpi tracking ang mga pagbabalik
 
 ## Daloy ng mensahe
 
-The instructed agent sends pacs.004 back through the payment chain to return settled funds. Each agent in the chain processes the return and credits back the relevant accounts.
+Nagpapadala ang instruktadong agent ng pacs.004 pabalik sa payment chain upang ibalik ang mga na-settle na pondo. Pinoproseso ng bawat agent sa chain ang pagbabalik at kini-credit pabalik sa mga kaugnay na account.
 
 ## Primary references
 
@@ -134,8 +134,8 @@ The instructed agent sends pacs.004 back through the payment chain to return set
     </colgroup>
     <thead>
       <tr>
-        <th>Message type</th>
-        <th>Description</th>
+        <th>Uri ng mensahe</th>
+        <th>Paglalarawan</th>
         <th>Pangkalahatang-ideya</th>
       </tr>
     </thead>
@@ -143,17 +143,17 @@ The instructed agent sends pacs.004 back through the payment chain to return set
         <tr>
           <td class="related-messages-table__id"><a href="/tl/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
           <td class="related-messages-table__name">Credit transfer ng kliyente sa pagitan ng mga institusyong pinansyal</td>
-          <td class="related-messages-table__overview">The pacs.008 message is the main customer credit-transfer instruction between banks. It carries party, amount, and remittance data.</td>
+          <td class="related-messages-table__overview">Ang mensaheng pacs.008 ang pangunahing instruksiyon ng customer credit transfer sa pagitan ng mga bangko. Nagdadala ito ng datos ng partido, halaga, at remittance.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/tl/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
           <td class="related-messages-table__name">Direct debit ng kliyente sa pagitan ng mga institusyong pinansyal</td>
-          <td class="related-messages-table__overview">The pacs.003 message carries a customer direct debit between banks. It lets the creditor bank collect funds from the debtor bank.</td>
+          <td class="related-messages-table__overview">Ang mensaheng pacs.003 ay nagdadala ng customer direct debit sa pagitan ng mga bangko. Pinapayagan nito ang bangko ng creditor na mangolekta ng pondo mula sa bangko ng debtor.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/tl/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="related-messages-table__name">Ulat ng kalagayan ng pagbabayad sa pagitan ng mga institusyong pinansyal</td>
-          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected, pending, or settled.</td>
+          <td class="related-messages-table__overview">Ang mensaheng pacs.002 ay nag-uulat ng katayuan ng naunang instruksiyon sa pagbabayad. Ipinapaalam nito sa ibang institusyon kung ang pagbabayad ay tinanggap, tinanggihan, nakabinbin, o na-settle.</td>
         </tr>
     </tbody>
   </table>

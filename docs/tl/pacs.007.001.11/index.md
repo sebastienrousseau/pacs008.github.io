@@ -1,6 +1,6 @@
 ---
 title: "pacs.007.001.11 | Pagbaligtad ng bayad sa pagitan ng mga institusyong pinansyal | pacs008"
-description: The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, it starts from the original sender.
+description: Ang mensaheng pacs.007 ay nagre-reverse ng naunang instruksiyon sa pagbabayad. Hindi tulad ng pacs.004, nagsisimula ito mula sa orihinal na nagpadala.
 lang: tl-PH
 lastUpdated: true
 image: /logo.webp
@@ -48,24 +48,24 @@ faq:
 
 ## Pangkalahatang-ideya
 
-The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, it starts from the original sender.
+Ang mensaheng pacs.007 ay nagre-reverse ng naunang instruksiyon sa pagbabayad. Hindi tulad ng pacs.004, nagsisimula ito mula sa orihinal na nagpadala.
 
 > Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
 
 ## Mga pangunahing elemento ng datos
 
-- **GrpHdr** — Group Header with message identification and creation timestamp
-- **TxInf** — Transaction Information with reversal amount and parties
-- **OrgnlGrpInf** — Original Group Information referencing the source message
-- **RvslRsnInf** — Reversal Reason Information with structured reason codes
-- **OrgnlTxRef** — Original Transaction Reference for end-to-end traceability
+- **GrpHdr** — Group Header na may pagkakakilanlan ng mensahe at timestamp ng paglikha
+- **TxInf** — Impormasyon ng Transaksyon na may halaga ng reversal at mga partido
+- **OrgnlGrpInf** — Orihinal na Impormasyon ng Grupo na tumutukoy sa pinagmulang mensahe
+- **RvslRsnInf** — Impormasyon ng Dahilan ng Reversal na may mga structured na reason code
+- **OrgnlTxRef** — Orihinal na Reperensya ng Transaksyon para sa traceability mula simula hanggang dulo
 
 ## Konteksto ng negosyo
 
-- Used when the original sender finds an error before or after settlement
-- Used in fraud cases that need fast reversal
-- Supports both full and partial reversal of original payment amounts
-- Carries structured reversal reason codes
+- Ginagamit kapag nakahanap ang orihinal na nagpadala ng error bago o pagkatapos ng settlement
+- Ginagamit sa mga kaso ng fraud na nangangailangan ng mabilis na reversal
+- Sinusuportahan ang parehong buo at bahagyang reversal ng mga orihinal na halaga ng pagbabayad
+- Nagdadala ng mga structured na reversal reason code
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Mga pangunahing elemento ng datos Konteksto ng negosyo">
   <table>
@@ -82,24 +82,24 @@ The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, i
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message identification and creation timestamp</td>
-          <td class="operational-matrix-table__right">Used when the original sender finds an error before or after settlement</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header na may pagkakakilanlan ng mensahe at timestamp ng paglikha</td>
+          <td class="operational-matrix-table__right">Ginagamit kapag nakahanap ang orihinal na nagpadala ng error bago o pagkatapos ng settlement</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Transaction Information with reversal amount and parties</td>
-          <td class="operational-matrix-table__right">Used in fraud cases that need fast reversal</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Impormasyon ng Transaksyon na may halaga ng reversal at mga partido</td>
+          <td class="operational-matrix-table__right">Ginagamit sa mga kaso ng fraud na nangangailangan ng mabilis na reversal</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Original Group Information referencing the source message</td>
-          <td class="operational-matrix-table__right">Supports both full and partial reversal of original payment amounts</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Orihinal na Impormasyon ng Grupo na tumutukoy sa pinagmulang mensahe</td>
+          <td class="operational-matrix-table__right">Sinusuportahan ang parehong buo at bahagyang reversal ng mga orihinal na halaga ng pagbabayad</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>RvslRsnInf</strong> — Reversal Reason Information with structured reason codes</td>
-          <td class="operational-matrix-table__right">Carries structured reversal reason codes</td>
+          <td class="operational-matrix-table__left"><strong>RvslRsnInf</strong> — Impormasyon ng Dahilan ng Reversal na may mga structured na reason code</td>
+          <td class="operational-matrix-table__right">Nagdadala ng mga structured na reversal reason code</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Original Transaction Reference for end-to-end traceability</td>
-          <td class="operational-matrix-table__right">The instructing agent sends pacs.007 forward through the payment chain to reverse an earlier payment. Each agent processes the reversal and adjusts settlement.</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Orihinal na Reperensya ng Transaksyon para sa traceability mula simula hanggang dulo</td>
+          <td class="operational-matrix-table__right">Nagpapadala ang instruerande agent ng pacs.007 pasulong sa payment chain upang i-reverse ang naunang pagbabayad. Pinoproseso ng bawat agent ang reversal at ina-adjust ang settlement.</td>
         </tr>
     </tbody>
   </table>
@@ -107,14 +107,14 @@ The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, i
 
 ## Konteksto ng CBPR+ at schema
 
-- It differs from pacs.004 by direction: reversals move forward, returns move back
-- CBPR+ requires pairing with original message identifiers for automated matching
-- Structured reason codes replace free-text narratives from legacy MT messages
-- Used more often in instant-payment recall and fraud workflows
+- Naiiba sa pacs.004 sa direksyon: ang mga reversal ay pasulong, ang mga return ay pabalik
+- Kinakailangan ng CBPR+ ang pagpapares sa mga orihinal na identifier ng mensahe para sa automated na pagtutugma
+- Pinapalitan ng mga structured na reason code ang mga free-text na salaysay mula sa mga legacy na mensaheng MT
+- Mas madalas na ginagamit sa mga workflow ng recall ng instant payment at fraud
 
 ## Daloy ng mensahe
 
-The instructing agent sends pacs.007 forward through the payment chain to reverse an earlier payment. Each agent processes the reversal and adjusts settlement.
+Nagpapadala ang instruerande agent ng pacs.007 pasulong sa payment chain upang i-reverse ang naunang pagbabayad. Pinoproseso ng bawat agent ang reversal at ina-adjust ang settlement.
 
 ## Primary references
 
@@ -132,8 +132,8 @@ The instructing agent sends pacs.007 forward through the payment chain to revers
     </colgroup>
     <thead>
       <tr>
-        <th>Message type</th>
-        <th>Description</th>
+        <th>Uri ng mensahe</th>
+        <th>Paglalarawan</th>
         <th>Pangkalahatang-ideya</th>
       </tr>
     </thead>
@@ -141,17 +141,17 @@ The instructing agent sends pacs.007 forward through the payment chain to revers
         <tr>
           <td class="related-messages-table__id"><a href="/tl/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
           <td class="related-messages-table__name">Credit transfer ng kliyente sa pagitan ng mga institusyong pinansyal</td>
-          <td class="related-messages-table__overview">The pacs.008 message is the main customer credit-transfer instruction between banks. It carries party, amount, and remittance data.</td>
+          <td class="related-messages-table__overview">Ang mensaheng pacs.008 ang pangunahing instruksiyon ng customer credit transfer sa pagitan ng mga bangko. Nagdadala ito ng datos ng partido, halaga, at remittance.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/tl/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
           <td class="related-messages-table__name">Pagbabalik ng bayad</td>
-          <td class="related-messages-table__overview">The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied.</td>
+          <td class="related-messages-table__overview">Ang mensaheng pacs.004 ay nagbabalik ng pagbabayad na na-settle na. Nagpapadala ito ng pondo pabalik kapag hindi maaaring ma-apply ang pagbabayad.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/tl/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="related-messages-table__name">Ulat ng kalagayan ng pagbabayad sa pagitan ng mga institusyong pinansyal</td>
-          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected, pending, or settled.</td>
+          <td class="related-messages-table__overview">Ang mensaheng pacs.002 ay nag-uulat ng katayuan ng naunang instruksiyon sa pagbabayad. Ipinapaalam nito sa ibang institusyon kung ang pagbabayad ay tinanggap, tinanggihan, nakabinbin, o na-settle.</td>
         </tr>
     </tbody>
   </table>

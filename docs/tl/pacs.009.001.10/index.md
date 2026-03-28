@@ -1,6 +1,6 @@
 ---
 title: "pacs.009.001.10 | Credit transfer sa pagitan ng mga institusyong pinansyal | pacs008"
-description: The pacs.009 message moves funds between banks on their own behalf. It supports funding, cover payments, and liquidity management.
+description: Ang mensaheng pacs.009 ay naglilipat ng pondo sa pagitan ng mga bangko para sa kanilang sariling account. Sinusuportahan nito ang financing, cover...
 lang: tl-PH
 lastUpdated: true
 image: /logo.webp
@@ -48,24 +48,24 @@ faq:
 
 ## Pangkalahatang-ideya
 
-The pacs.009 message moves funds between banks on their own behalf. It supports funding, cover payments, and liquidity management.
+Ang mensaheng pacs.009 ay naglilipat ng pondo sa pagitan ng mga bangko para sa kanilang sariling account. Sinusuportahan nito ang financing, cover payment, at pamamahala ng liquidity.
 
 > Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
 
 ## Mga pangunahing elemento ng datos
 
-- **GrpHdr** — Group Header with message identification and settlement information
-- **CdtTrfTxInf** — Credit Transfer Transaction Information with interbank settlement amount
-- **Dbtr / DbtrAgt** — Debtor institution and its agent identification
-- **Cdtr / CdtrAgt** — Creditor institution and its agent identification
-- **IntrBkSttlmAmt** — Interbank Settlement Amount in the settlement currency
+- **GrpHdr** — Group Header na may pagkakakilanlan ng mensahe at impormasyon ng settlement
+- **CdtTrfTxInf** — Impormasyon ng Transaksyon ng Credit Transfer na may interbank settlement amount
+- **Dbtr / DbtrAgt** — Pagkakakilanlan ng institusyon ng debtor at ng agent nito
+- **Cdtr / CdtrAgt** — Pagkakakilanlan ng institusyon ng creditor at ng agent nito
+- **IntrBkSttlmAmt** — Interbank Settlement Amount sa settlement currency
 
 ## Konteksto ng negosyo
 
-- Used for bank-to-bank own-account transfers and cover payments
-- Supports liquidity management between correspondent banks
-- Carries the cover leg of customer credit transfers
-- Supports treasury and funding operations
+- Ginagamit para sa sariling-account na transfer sa pagitan ng mga bangko at cover payment
+- Sinusuportahan ang pamamahala ng liquidity sa pagitan ng mga correspondent banking partner
+- Nagdadala ng cover leg ng mga customer credit transfer
+- Sinusuportahan ang mga treasury at financing operation
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Mga pangunahing elemento ng datos Konteksto ng negosyo">
   <table>
@@ -82,24 +82,24 @@ The pacs.009 message moves funds between banks on their own behalf. It supports 
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message identification and settlement information</td>
-          <td class="operational-matrix-table__right">Used for bank-to-bank own-account transfers and cover payments</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header na may pagkakakilanlan ng mensahe at impormasyon ng settlement</td>
+          <td class="operational-matrix-table__right">Ginagamit para sa sariling-account na transfer sa pagitan ng mga bangko at cover payment</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Credit Transfer Transaction Information with interbank settlement amount</td>
-          <td class="operational-matrix-table__right">Supports liquidity management between correspondent banks</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Impormasyon ng Transaksyon ng Credit Transfer na may interbank settlement amount</td>
+          <td class="operational-matrix-table__right">Sinusuportahan ang pamamahala ng liquidity sa pagitan ng mga correspondent banking partner</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Debtor institution and its agent identification</td>
-          <td class="operational-matrix-table__right">Carries the cover leg of customer credit transfers</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Pagkakakilanlan ng institusyon ng debtor at ng agent nito</td>
+          <td class="operational-matrix-table__right">Nagdadala ng cover leg ng mga customer credit transfer</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Creditor institution and its agent identification</td>
-          <td class="operational-matrix-table__right">Supports treasury and funding operations</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Pagkakakilanlan ng institusyon ng creditor at ng agent nito</td>
+          <td class="operational-matrix-table__right">Sinusuportahan ang mga treasury at financing operation</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Interbank Settlement Amount in the settlement currency</td>
-          <td class="operational-matrix-table__right">The debtor bank sends pacs.009 to the creditor bank to transfer its own funds. In cover flows, pacs.009 carries the funding leg while pacs.008 carries the customer instruction on a separate path.</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Interbank Settlement Amount sa settlement currency</td>
+          <td class="operational-matrix-table__right">Nagpapadala ang bangko ng debtor ng pacs.009 sa bangko ng creditor upang ilipat ang sarili nitong pondo. Sa mga cover flow, nagdadala ang pacs.009 ng financing leg habang nagdadala ang pacs.008 ng instruksiyon ng customer sa ibang landas.</td>
         </tr>
     </tbody>
   </table>
@@ -107,14 +107,14 @@ The pacs.009 message moves funds between banks on their own behalf. It supports 
 
 ## Konteksto ng CBPR+ at schema
 
-- Replaces MT202 and MT202COV for institution-to-institution transfers
-- Cover-method flows pair pacs.009 with the underlying pacs.008 instruction
-- Structured party data and LEI identification matter more often
-- SWIFT gpi also covers pacs.009
+- Pinapalitan ang MT202 at MT202COV para sa mga institution-to-institution na transfer
+- Ipinapares ng mga cover-method flow ang pacs.009 sa pinagbabatayan na instruksiyon ng pacs.008
+- Lalong nagiging mahalaga ang structured na datos ng partido at pagkakakilanlan sa LEI
+- Sinasaklaw din ng SWIFT gpi ang pacs.009
 
 ## Daloy ng mensahe
 
-The debtor bank sends pacs.009 to the creditor bank to transfer its own funds. In cover flows, pacs.009 carries the funding leg while pacs.008 carries the customer instruction on a separate path.
+Nagpapadala ang bangko ng debtor ng pacs.009 sa bangko ng creditor upang ilipat ang sarili nitong pondo. Sa mga cover flow, nagdadala ang pacs.009 ng financing leg habang nagdadala ang pacs.008 ng instruksiyon ng customer sa ibang landas.
 
 ## Primary references
 
@@ -134,8 +134,8 @@ The debtor bank sends pacs.009 to the creditor bank to transfer its own funds. I
     </colgroup>
     <thead>
       <tr>
-        <th>Message type</th>
-        <th>Description</th>
+        <th>Uri ng mensahe</th>
+        <th>Paglalarawan</th>
         <th>Pangkalahatang-ideya</th>
       </tr>
     </thead>
@@ -143,12 +143,12 @@ The debtor bank sends pacs.009 to the creditor bank to transfer its own funds. I
         <tr>
           <td class="related-messages-table__id"><a href="/tl/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
           <td class="related-messages-table__name">Credit transfer ng kliyente sa pagitan ng mga institusyong pinansyal</td>
-          <td class="related-messages-table__overview">The pacs.008 message is the main customer credit-transfer instruction between banks. It carries party, amount, and remittance data.</td>
+          <td class="related-messages-table__overview">Ang mensaheng pacs.008 ang pangunahing instruksiyon ng customer credit transfer sa pagitan ng mga bangko. Nagdadala ito ng datos ng partido, halaga, at remittance.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/tl/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="related-messages-table__name">Ulat ng kalagayan ng pagbabayad sa pagitan ng mga institusyong pinansyal</td>
-          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected, pending, or settled.</td>
+          <td class="related-messages-table__overview">Ang mensaheng pacs.002 ay nag-uulat ng katayuan ng naunang instruksiyon sa pagbabayad. Ipinapaalam nito sa ibang institusyon kung ang pagbabayad ay tinanggap, tinanggihan, nakabinbin, o na-settle.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/tl/pacs.010.001.05/"><code>pacs.010.001.05</code></a></td>

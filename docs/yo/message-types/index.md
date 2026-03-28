@@ -22,8 +22,8 @@ pacs008 bo ìtumọ̀ ìfiránṣẹ́ àkọ́kọ́ pacs.008 àti àwọn ìfi
     </colgroup>
     <thead>
       <tr>
-        <th>Message type</th>
-        <th>Description</th>
+        <th>Irú ìfiránṣẹ́</th>
+        <th>Àlàyé</th>
         <th>Ọdún</th>
         <th>Àkópọ̀</th>
       </tr>

@@ -134,8 +134,8 @@ The debtor bank sends pacs.009 to the creditor bank to transfer its own funds. I
     </colgroup>
     <thead>
       <tr>
-        <th>Message type</th>
-        <th>Description</th>
+        <th>Irú ìfiránṣẹ́</th>
+        <th>Àlàyé</th>
         <th>Àkópọ̀</th>
       </tr>
     </thead>

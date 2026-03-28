@@ -1,6 +1,6 @@
 ---
 title: "pacs.004.001.11 | Mayar da biyan kuɗi | pacs008"
-description: The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied.
+description: Saƙon pacs.004 yana mayar da biyan kuɗi da aka riga aka biya. Yana aika kuɗi baya lokacin da ba za a iya amfani da biyan kuɗi ba.
 lang: ha-NG
 lastUpdated: true
 image: /logo.webp
@@ -48,24 +48,24 @@ faq:
 
 ## Bayyani
 
-The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied.
+Saƙon pacs.004 yana mayar da biyan kuɗi da aka riga aka biya. Yana aika kuɗi baya lokacin da ba za a iya amfani da biyan kuɗi ba.
 
 > Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
 
 ## Muhimman abubuwan bayanai
 
-- **GrpHdr** — Group Header with message identification and creation timestamp
-- **TxInf** — Transaction Information with return amount and parties
-- **OrgnlGrpInf** — Original Group Information linking to the source message
-- **RtrRsnInf** — Return Reason Information with structured reason codes
-- **OrgnlTxRef** — Original Transaction Reference for matching and reconciliation
+- **GrpHdr** — Kan Ƙungiya tare da ganowa saƙo da tambarin lokaci ƙirƙira
+- **TxInf** — Bayanan Ciniki tare da adadin mayarwa da ɓangarori
+- **OrgnlGrpInf** — Asalin Bayanan Ƙungiya da ke haɗa zuwa saƙon tushe
+- **RtrRsnInf** — Bayanan Dalilin Mayarwa tare da lambobin dalili masu tsari
+- **OrgnlTxRef** — Asalin Nassarin Ciniki don dacewa da daidaitawa
 
 ## Mahallin kasuwanci
 
-- Handles post-settlement returns when the beneficiary's account cannot be credited
-- Supports recall scenarios where the originator requests funds back
-- Carries structured return reason codes
-- Applies to both credit transfer returns (pacs.008) and direct debit returns (pacs.003)
+- Yana sarrafa mayarwa bayan biyan kuɗi lokacin da ba za a iya tura kuɗi zuwa asusun mai amfana ba
+- Yana tallafawa yanayin tuno inda mai aika ke neman kuɗi baya
+- Yana ɗaukar lambobin dalilin mayarwa masu tsari
+- Ya shafi mayar da canja wurin kuɗi (pacs.008) da mayar da cire kuɗi kai tsaye (pacs.003)
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Muhimman abubuwan bayanai Mahallin kasuwanci">
   <table>
@@ -82,24 +82,24 @@ The pacs.004 message returns a payment that has already settled. It sends funds 
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message identification and creation timestamp</td>
-          <td class="operational-matrix-table__right">Handles post-settlement returns when the beneficiary&#39;s account cannot be credited</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Kan Ƙungiya tare da ganowa saƙo da tambarin lokaci ƙirƙira</td>
+          <td class="operational-matrix-table__right">Yana sarrafa mayarwa bayan biyan kuɗi lokacin da ba za a iya tura kuɗi zuwa asusun mai amfana ba</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Transaction Information with return amount and parties</td>
-          <td class="operational-matrix-table__right">Supports recall scenarios where the originator requests funds back</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Bayanan Ciniki tare da adadin mayarwa da ɓangarori</td>
+          <td class="operational-matrix-table__right">Yana tallafawa yanayin tuno inda mai aika ke neman kuɗi baya</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Original Group Information linking to the source message</td>
-          <td class="operational-matrix-table__right">Carries structured return reason codes</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Asalin Bayanan Ƙungiya da ke haɗa zuwa saƙon tushe</td>
+          <td class="operational-matrix-table__right">Yana ɗaukar lambobin dalilin mayarwa masu tsari</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>RtrRsnInf</strong> — Return Reason Information with structured reason codes</td>
-          <td class="operational-matrix-table__right">Applies to both credit transfer returns (pacs.008) and direct debit returns (pacs.003)</td>
+          <td class="operational-matrix-table__left"><strong>RtrRsnInf</strong> — Bayanan Dalilin Mayarwa tare da lambobin dalili masu tsari</td>
+          <td class="operational-matrix-table__right">Ya shafi mayar da canja wurin kuɗi (pacs.008) da mayar da cire kuɗi kai tsaye (pacs.003)</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Original Transaction Reference for matching and reconciliation</td>
-          <td class="operational-matrix-table__right">The instructed agent sends pacs.004 back through the payment chain to return settled funds. Each agent in the chain processes the return and credits back the relevant accounts.</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Asalin Nassarin Ciniki don dacewa da daidaitawa</td>
+          <td class="operational-matrix-table__right">Wakilin da aka umarni yana aika pacs.004 baya ta hanyar jerin biyan kuɗi don mayar da kuɗin da aka biya. Kowane wakili a cikin jerin yana sarrafa mayarwa kuma yana tura kuɗi zuwa asusun da suka dace.</td>
         </tr>
     </tbody>
   </table>
@@ -107,14 +107,14 @@ The pacs.004 message returns a payment that has already settled. It sends funds 
 
 ## Mahallin CBPR+ da tsari
 
-- Replaces MT103 RETURN and cover-method return messaging
-- Return reason codes are standardised and machine-readable under ISO 20022
-- CBPR+ requires the full original transaction reference for matching
-- SWIFT gpi tracking also covers returns
+- Yana maye gurbin MT103 RETURN da saƙonnin mayar da hanyar rufewa
+- Lambobin dalilin mayarwa sun daidaitu kuma injuna za su iya karanta su a ƙarƙashin ISO 20022
+- CBPR+ yana buƙatar cikakken nassarin asalin ciniki don dacewa
+- Bin diddigin SWIFT gpi kuma ya ƙunshi mayarwa
 
 ## Kwararar saƙo
 
-The instructed agent sends pacs.004 back through the payment chain to return settled funds. Each agent in the chain processes the return and credits back the relevant accounts.
+Wakilin da aka umarni yana aika pacs.004 baya ta hanyar jerin biyan kuɗi don mayar da kuɗin da aka biya. Kowane wakili a cikin jerin yana sarrafa mayarwa kuma yana tura kuɗi zuwa asusun da suka dace.
 
 ## Primary references
 
@@ -134,8 +134,8 @@ The instructed agent sends pacs.004 back through the payment chain to return set
     </colgroup>
     <thead>
       <tr>
-        <th>Message type</th>
-        <th>Description</th>
+        <th>Nau&#39;in saƙo</th>
+        <th>Bayani</th>
         <th>Bayyani</th>
       </tr>
     </thead>
@@ -143,17 +143,17 @@ The instructed agent sends pacs.004 back through the payment chain to return set
         <tr>
           <td class="related-messages-table__id"><a href="/ha/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
           <td class="related-messages-table__name">Canja wurin kuɗi na abokin ciniki tsakanin cibiyoyin kuɗi</td>
-          <td class="related-messages-table__overview">The pacs.008 message is the main customer credit-transfer instruction between banks. It carries party, amount, and remittance data.</td>
+          <td class="related-messages-table__overview">Saƙon pacs.008 shine babban umarnin canja wurin kuɗi na abokin ciniki tsakanin bankuna. Yana ɗaukar bayanan ɓangare, adadi, da aiko kuɗi.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/ha/pacs.003.001.09/"><code>pacs.003.001.09</code></a></td>
           <td class="related-messages-table__name">Cire kuɗi kai tsaye na abokin ciniki tsakanin cibiyoyin kuɗi</td>
-          <td class="related-messages-table__overview">The pacs.003 message carries a customer direct debit between banks. It lets the creditor bank collect funds from the debtor bank.</td>
+          <td class="related-messages-table__overview">Saƙon pacs.003 yana ɗaukar cire kuɗi kai tsaye na abokin ciniki tsakanin bankuna. Yana ba bankin mai ba da bashi damar tattara kuɗi daga bankin mai bashi.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/ha/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="related-messages-table__name">Rahoton matsayin biyan kuɗi tsakanin cibiyoyin kuɗi</td>
-          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected, pending, or settled.</td>
+          <td class="related-messages-table__overview">Saƙon pacs.002 yana ba da rahoton matsayin umarnin biyan kuɗi da ya gabata. Yana sanar da wata cibiya ko an karɓi biyan kuɗi, an ƙi, yana jiran, ko an biya.</td>
         </tr>
     </tbody>
   </table>

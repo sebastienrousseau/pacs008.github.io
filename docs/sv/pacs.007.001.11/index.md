@@ -1,6 +1,6 @@
 ---
 title: "pacs.007.001.11 | Betalningsåterföring mellan finansinstitut | pacs008"
-description: The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, it starts from the original sender.
+description: Meddelandet pacs.007 reverserar en tidigare betalningsinstruktion. Till skillnad från pacs.004 utgår det från den ursprungliga avsändaren.
 lang: sv-SE
 lastUpdated: true
 image: /logo.webp
@@ -48,24 +48,24 @@ faq:
 
 ## Översikt
 
-The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, it starts from the original sender.
+Meddelandet pacs.007 reverserar en tidigare betalningsinstruktion. Till skillnad från pacs.004 utgår det från den ursprungliga avsändaren.
 
 > Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
 
 ## Nyckeldataelement
 
-- **GrpHdr** — Group Header with message identification and creation timestamp
-- **TxInf** — Transaction Information with reversal amount and parties
-- **OrgnlGrpInf** — Original Group Information referencing the source message
-- **RvslRsnInf** — Reversal Reason Information with structured reason codes
-- **OrgnlTxRef** — Original Transaction Reference for end-to-end traceability
+- **GrpHdr** — Grupphuvud med meddelandeidentifiering och tidsstämpel för skapande
+- **TxInf** — Transaktionsinformation med reverseringsbelopp och parter
+- **OrgnlGrpInf** — Ursprunglig gruppinformation som refererar till källmeddelandet
+- **RvslRsnInf** — Reverseringsorsaksinformation med strukturerade orsakskoder
+- **OrgnlTxRef** — Ursprunglig transaktionsreferens för spårbarhet från början till slut
 
 ## Affärskontext
 
-- Used when the original sender finds an error before or after settlement
-- Used in fraud cases that need fast reversal
-- Supports both full and partial reversal of original payment amounts
-- Carries structured reversal reason codes
+- Används när den ursprungliga avsändaren hittar ett fel före eller efter avveckling
+- Används i bedrägerifall som kräver snabb reversering
+- Stöder både hel och delvis reversering av ursprungliga betalningsbelopp
+- Bär strukturerade reverseringsorsakskoder
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Nyckeldataelement Affärskontext">
   <table>
@@ -82,24 +82,24 @@ The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, i
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message identification and creation timestamp</td>
-          <td class="operational-matrix-table__right">Used when the original sender finds an error before or after settlement</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Grupphuvud med meddelandeidentifiering och tidsstämpel för skapande</td>
+          <td class="operational-matrix-table__right">Används när den ursprungliga avsändaren hittar ett fel före eller efter avveckling</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Transaction Information with reversal amount and parties</td>
-          <td class="operational-matrix-table__right">Used in fraud cases that need fast reversal</td>
+          <td class="operational-matrix-table__left"><strong>TxInf</strong> — Transaktionsinformation med reverseringsbelopp och parter</td>
+          <td class="operational-matrix-table__right">Används i bedrägerifall som kräver snabb reversering</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Original Group Information referencing the source message</td>
-          <td class="operational-matrix-table__right">Supports both full and partial reversal of original payment amounts</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInf</strong> — Ursprunglig gruppinformation som refererar till källmeddelandet</td>
+          <td class="operational-matrix-table__right">Stöder både hel och delvis reversering av ursprungliga betalningsbelopp</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>RvslRsnInf</strong> — Reversal Reason Information with structured reason codes</td>
-          <td class="operational-matrix-table__right">Carries structured reversal reason codes</td>
+          <td class="operational-matrix-table__left"><strong>RvslRsnInf</strong> — Reverseringsorsaksinformation med strukturerade orsakskoder</td>
+          <td class="operational-matrix-table__right">Bär strukturerade reverseringsorsakskoder</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Original Transaction Reference for end-to-end traceability</td>
-          <td class="operational-matrix-table__right">The instructing agent sends pacs.007 forward through the payment chain to reverse an earlier payment. Each agent processes the reversal and adjusts settlement.</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Ursprunglig transaktionsreferens för spårbarhet från början till slut</td>
+          <td class="operational-matrix-table__right">Den instruerande agenten skickar pacs.007 framåt genom betalningskedjan för att reversera en tidigare betalning. Varje agent bearbetar reverseringen och justerar avvecklingen.</td>
         </tr>
     </tbody>
   </table>
@@ -107,14 +107,14 @@ The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, i
 
 ## CBPR+- och schemakontext
 
-- It differs from pacs.004 by direction: reversals move forward, returns move back
-- CBPR+ requires pairing with original message identifiers for automated matching
-- Structured reason codes replace free-text narratives from legacy MT messages
-- Used more often in instant-payment recall and fraud workflows
+- Skiljer sig från pacs.004 i riktning: reverseringar går framåt, returer går bakåt
+- CBPR+ kräver koppling med ursprungliga meddelandeidentifierare för automatisk matchning
+- Strukturerade orsakskoder ersätter fritextbeskrivningar från äldre MT-meddelanden
+- Används oftare i arbetsflöden för snabbbetalningsåterkallelse och bedrägeri
 
 ## Meddelandeflöde
 
-The instructing agent sends pacs.007 forward through the payment chain to reverse an earlier payment. Each agent processes the reversal and adjusts settlement.
+Den instruerande agenten skickar pacs.007 framåt genom betalningskedjan för att reversera en tidigare betalning. Varje agent bearbetar reverseringen och justerar avvecklingen.
 
 ## Primary references
 
@@ -132,8 +132,8 @@ The instructing agent sends pacs.007 forward through the payment chain to revers
     </colgroup>
     <thead>
       <tr>
-        <th>Message type</th>
-        <th>Description</th>
+        <th>Meddelandetyp</th>
+        <th>Beskrivning</th>
         <th>Översikt</th>
       </tr>
     </thead>
@@ -141,17 +141,17 @@ The instructing agent sends pacs.007 forward through the payment chain to revers
         <tr>
           <td class="related-messages-table__id"><a href="/sv/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
           <td class="related-messages-table__name">Kundkreditöverföring mellan finansinstitut</td>
-          <td class="related-messages-table__overview">The pacs.008 message is the main customer credit-transfer instruction between banks. It carries party, amount, and remittance data.</td>
+          <td class="related-messages-table__overview">Meddelandet pacs.008 är den huvudsakliga kundkreditöverföringsinstruktionen mellan banker. Det bär parti-, belopps- och remitteringsdata.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/sv/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
           <td class="related-messages-table__name">Betalningsretur</td>
-          <td class="related-messages-table__overview">The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied.</td>
+          <td class="related-messages-table__overview">Meddelandet pacs.004 returnerar en betalning som redan har avvecklats. Det skickar tillbaka medel när en betalning inte kan tillämpas.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/sv/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="related-messages-table__name">Statusrapport för betalning mellan finansinstitut</td>
-          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected, pending, or settled.</td>
+          <td class="related-messages-table__overview">Meddelandet pacs.002 rapporterar statusen för en tidigare betalningsinstruktion. Det informerar en annan institution om betalningen accepterades, avvisades, väntar eller avvecklades.</td>
         </tr>
     </tbody>
   </table>

@@ -1,6 +1,6 @@
 ---
 title: "pacs.002.001.12 | Statusrapport för betalning mellan finansinstitut | pacs008"
-description: The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected...
+description: Meddelandet pacs.002 rapporterar statusen för en tidigare betalningsinstruktion. Det informerar en annan institution om betalningen accepterades...
 lang: sv-SE
 lastUpdated: true
 image: /logo.webp
@@ -48,24 +48,24 @@ faq:
 
 ## Översikt
 
-The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected, pending, or settled.
+Meddelandet pacs.002 rapporterar statusen för en tidigare betalningsinstruktion. Det informerar en annan institution om betalningen accepterades, avvisades, väntar eller avvecklades.
 
 > Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
 
 ## Nyckeldataelement
 
-- **GrpHdr** — Group Header with message identification and creation timestamp
-- **OrgnlGrpInfAndSts** — Original Group Information and Status for bulk-level reporting
-- **TxInfAndSts** — Transaction Information and Status for individual transaction outcomes
-- **StsRsnInf** — Status Reason Information with structured reason codes
-- **OrgnlTxRef** — Original Transaction Reference linking back to the source instruction
+- **GrpHdr** — Grupphuvud med meddelandeidentifiering och tidsstämpel för skapande
+- **OrgnlGrpInfAndSts** — Ursprunglig gruppinformation och status för rapportering på bulknivå
+- **TxInfAndSts** — Transaktionsinformation och status för individuella transaktionsutfall
+- **StsRsnInf** — Statusorsaksinformation med strukturerade orsakskoder
+- **OrgnlTxRef** — Ursprunglig transaktionsreferens som kopplar tillbaka till källinstruktionen
 
 ## Affärskontext
 
-- Confirms settlement or rejection of credit transfers, direct debits, and returns
-- Supports reconciliation between instructing and instructed agents
-- Used in CBPR+ flows for pacs.008 and pacs.009 status reporting
-- Supports group-level and transaction-level status reporting
+- Bekräftar avveckling eller avvisning av kreditöverföringar, autogiro och returer
+- Stöder avstämning mellan instruerande och instruerad agent
+- Används i CBPR+-flöden för pacs.008- och pacs.009-statusrapportering
+- Stöder statusrapportering på grupp- och transaktionsnivå
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Nyckeldataelement Affärskontext">
   <table>
@@ -82,24 +82,24 @@ The pacs.002 message reports the status of an earlier payment instruction. It te
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message identification and creation timestamp</td>
-          <td class="operational-matrix-table__right">Confirms settlement or rejection of credit transfers, direct debits, and returns</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Grupphuvud med meddelandeidentifiering och tidsstämpel för skapande</td>
+          <td class="operational-matrix-table__right">Bekräftar avveckling eller avvisning av kreditöverföringar, autogiro och returer</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>OrgnlGrpInfAndSts</strong> — Original Group Information and Status for bulk-level reporting</td>
-          <td class="operational-matrix-table__right">Supports reconciliation between instructing and instructed agents</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlGrpInfAndSts</strong> — Ursprunglig gruppinformation och status för rapportering på bulknivå</td>
+          <td class="operational-matrix-table__right">Stöder avstämning mellan instruerande och instruerad agent</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>TxInfAndSts</strong> — Transaction Information and Status for individual transaction outcomes</td>
-          <td class="operational-matrix-table__right">Used in CBPR+ flows for pacs.008 and pacs.009 status reporting</td>
+          <td class="operational-matrix-table__left"><strong>TxInfAndSts</strong> — Transaktionsinformation och status för individuella transaktionsutfall</td>
+          <td class="operational-matrix-table__right">Används i CBPR+-flöden för pacs.008- och pacs.009-statusrapportering</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>StsRsnInf</strong> — Status Reason Information with structured reason codes</td>
-          <td class="operational-matrix-table__right">Supports group-level and transaction-level status reporting</td>
+          <td class="operational-matrix-table__left"><strong>StsRsnInf</strong> — Statusorsaksinformation med strukturerade orsakskoder</td>
+          <td class="operational-matrix-table__right">Stöder statusrapportering på grupp- och transaktionsnivå</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Original Transaction Reference linking back to the source instruction</td>
-          <td class="operational-matrix-table__right">The instructed agent sends pacs.002 back to the instructing agent to confirm acceptance, settlement, or rejection of a payment instruction such as pacs.008 or pacs.009.</td>
+          <td class="operational-matrix-table__left"><strong>OrgnlTxRef</strong> — Ursprunglig transaktionsreferens som kopplar tillbaka till källinstruktionen</td>
+          <td class="operational-matrix-table__right">Den instruerade agenten skickar pacs.002 tillbaka till den instruerande agenten för att bekräfta godkännande, avveckling eller avvisning av en betalningsinstruktion som pacs.008 eller pacs.009.</td>
         </tr>
     </tbody>
   </table>
@@ -107,14 +107,14 @@ The pacs.002 message reports the status of an earlier payment instruction. It te
 
 ## CBPR+- och schemakontext
 
-- Replaces MT199 and field 79 status text in MT messages
-- CBPR+ mandates pacs.002 for all payment status communication
-- Structured reason codes replace free-text rejection explanations
-- SWIFT gpi tracking integration requires pacs.002 for end-to-end transparency
+- Ersätter MT199 och fält 79-statustext i MT-meddelanden
+- CBPR+ kräver pacs.002 för all betalningsstatuskommunikation
+- Strukturerade orsakskoder ersätter fritextförklaringar vid avvisning
+- SWIFT gpi-spårningsintegration kräver pacs.002 för transparens från början till slut
 
 ## Meddelandeflöde
 
-The instructed agent sends pacs.002 back to the instructing agent to confirm acceptance, settlement, or rejection of a payment instruction such as pacs.008 or pacs.009.
+Den instruerade agenten skickar pacs.002 tillbaka till den instruerande agenten för att bekräfta godkännande, avveckling eller avvisning av en betalningsinstruktion som pacs.008 eller pacs.009.
 
 ## Primary references
 
@@ -134,8 +134,8 @@ The instructed agent sends pacs.002 back to the instructing agent to confirm acc
     </colgroup>
     <thead>
       <tr>
-        <th>Message type</th>
-        <th>Description</th>
+        <th>Meddelandetyp</th>
+        <th>Beskrivning</th>
         <th>Översikt</th>
       </tr>
     </thead>
@@ -143,12 +143,12 @@ The instructed agent sends pacs.002 back to the instructing agent to confirm acc
         <tr>
           <td class="related-messages-table__id"><a href="/sv/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
           <td class="related-messages-table__name">Kundkreditöverföring mellan finansinstitut</td>
-          <td class="related-messages-table__overview">The pacs.008 message is the main customer credit-transfer instruction between banks. It carries party, amount, and remittance data.</td>
+          <td class="related-messages-table__overview">Meddelandet pacs.008 är den huvudsakliga kundkreditöverföringsinstruktionen mellan banker. Det bär parti-, belopps- och remitteringsdata.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/sv/pacs.009.001.10/"><code>pacs.009.001.10</code></a></td>
           <td class="related-messages-table__name">Kreditöverföring mellan finansinstitut</td>
-          <td class="related-messages-table__overview">The pacs.009 message moves funds between banks on their own behalf. It supports funding, cover payments, and liquidity management.</td>
+          <td class="related-messages-table__overview">Meddelandet pacs.009 flyttar medel mellan banker för egen räkning. Det stöder finansiering, cover-betalningar och likviditetshantering.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/sv/pacs.028.001.05/"><code>pacs.028.001.05</code></a></td>

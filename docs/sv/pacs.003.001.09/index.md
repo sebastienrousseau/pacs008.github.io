@@ -1,6 +1,6 @@
 ---
 title: "pacs.003.001.09 | Autogiro för kund mellan finansinstitut | pacs008"
-description: The pacs.003 message carries a customer direct debit between banks. It lets the creditor bank collect funds from the debtor bank.
+description: Meddelandet pacs.003 överför ett kundautogiro mellan banker. Det låter borgenärsbanken inkassera medel från gäldenärsbanken.
 lang: sv-SE
 lastUpdated: true
 image: /logo.webp
@@ -48,24 +48,24 @@ faq:
 
 ## Översikt
 
-The pacs.003 message carries a customer direct debit between banks. It lets the creditor bank collect funds from the debtor bank.
+Meddelandet pacs.003 överför ett kundautogiro mellan banker. Det låter borgenärsbanken inkassera medel från gäldenärsbanken.
 
 > Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
 
 ## Nyckeldataelement
 
-- **GrpHdr** — Group Header with message identification and settlement information
-- **DrctDbtTxInf** — Direct Debit Transaction Information with amount and parties
-- **Cdtr** — Creditor identification and account details
-- **CdtrAgt** — Creditor Agent (collecting institution) identification
-- **DbtrAgt** — Debtor Agent (paying institution) identification
+- **GrpHdr** — Grupphuvud med meddelandeidentifiering och avvecklingsinformation
+- **DrctDbtTxInf** — Autogiro-transaktionsinformation med belopp och parter
+- **Cdtr** — Borgenärsidentifiering och kontouppgifter
+- **CdtrAgt** — Borgenärsagent (inkasserande institution) identifiering
+- **DbtrAgt** — Gäldenärsagent (betalande institution) identifiering
 
 ## Affärskontext
 
-- Supports SEPA Core and B2B direct debit schemes
-- Used for recurring collections such as subscriptions and bills
-- Needs a valid mandate reference
-- Can carry many direct debits in one message
+- Stöder SEPA Core och B2B autogiroscheman
+- Används för återkommande inkasseringar som prenumerationer och räkningar
+- Kräver en giltig mandatreferens
+- Kan överföra många autogiro i ett meddelande
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Nyckeldataelement Affärskontext">
   <table>
@@ -82,24 +82,24 @@ The pacs.003 message carries a customer direct debit between banks. It lets the 
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message identification and settlement information</td>
-          <td class="operational-matrix-table__right">Supports SEPA Core and B2B direct debit schemes</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Grupphuvud med meddelandeidentifiering och avvecklingsinformation</td>
+          <td class="operational-matrix-table__right">Stöder SEPA Core och B2B autogiroscheman</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Direct Debit Transaction Information with amount and parties</td>
-          <td class="operational-matrix-table__right">Used for recurring collections such as subscriptions and bills</td>
+          <td class="operational-matrix-table__left"><strong>DrctDbtTxInf</strong> — Autogiro-transaktionsinformation med belopp och parter</td>
+          <td class="operational-matrix-table__right">Används för återkommande inkasseringar som prenumerationer och räkningar</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>Cdtr</strong> — Creditor identification and account details</td>
-          <td class="operational-matrix-table__right">Needs a valid mandate reference</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr</strong> — Borgenärsidentifiering och kontouppgifter</td>
+          <td class="operational-matrix-table__right">Kräver en giltig mandatreferens</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>CdtrAgt</strong> — Creditor Agent (collecting institution) identification</td>
-          <td class="operational-matrix-table__right">Can carry many direct debits in one message</td>
+          <td class="operational-matrix-table__left"><strong>CdtrAgt</strong> — Borgenärsagent (inkasserande institution) identifiering</td>
+          <td class="operational-matrix-table__right">Kan överföra många autogiro i ett meddelande</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>DbtrAgt</strong> — Debtor Agent (paying institution) identification</td>
-          <td class="operational-matrix-table__right">The creditor agent sends pacs.003 to the debtor agent. The debtor agent checks the mandate and either settles or returns the transaction.</td>
+          <td class="operational-matrix-table__left"><strong>DbtrAgt</strong> — Gäldenärsagent (betalande institution) identifiering</td>
+          <td class="operational-matrix-table__right">Borgenärsagenten skickar pacs.003 till gäldenärsagenten. Gäldenärsagenten kontrollerar mandatet och antingen avvecklar eller returnerar transaktionen.</td>
         </tr>
     </tbody>
   </table>
@@ -107,14 +107,14 @@ The pacs.003 message carries a customer direct debit between banks. It lets the 
 
 ## CBPR+- och schemakontext
 
-- Structured address and party-data rules also apply here.
-- Mandate data must be structured from November 2026.
-- It replaces older MT104-style direct-debit formats in cross-border flows.
-- Creditor scheme identifiers need closer validation.
+- Strukturerade adress- och partdataregler gäller även här.
+- Mandatdata måste vara strukturerade från november 2026.
+- Ersätter äldre autogiroformat i MT104-stil i gränsöverskridande flöden.
+- Borgenärens schemaidentifierare kräver noggrannare validering.
 
 ## Meddelandeflöde
 
-The creditor agent sends pacs.003 to the debtor agent. The debtor agent checks the mandate and either settles or returns the transaction.
+Borgenärsagenten skickar pacs.003 till gäldenärsagenten. Gäldenärsagenten kontrollerar mandatet och antingen avvecklar eller returnerar transaktionen.
 
 ## Primary references
 
@@ -132,8 +132,8 @@ The creditor agent sends pacs.003 to the debtor agent. The debtor agent checks t
     </colgroup>
     <thead>
       <tr>
-        <th>Message type</th>
-        <th>Description</th>
+        <th>Meddelandetyp</th>
+        <th>Beskrivning</th>
         <th>Översikt</th>
       </tr>
     </thead>
@@ -141,17 +141,17 @@ The creditor agent sends pacs.003 to the debtor agent. The debtor agent checks t
         <tr>
           <td class="related-messages-table__id"><a href="/sv/pacs.004.001.11/"><code>pacs.004.001.11</code></a></td>
           <td class="related-messages-table__name">Betalningsretur</td>
-          <td class="related-messages-table__overview">The pacs.004 message returns a payment that has already settled. It sends funds back when a payment cannot be applied.</td>
+          <td class="related-messages-table__overview">Meddelandet pacs.004 returnerar en betalning som redan har avvecklats. Det skickar tillbaka medel när en betalning inte kan tillämpas.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/sv/pacs.007.001.11/"><code>pacs.007.001.11</code></a></td>
           <td class="related-messages-table__name">Betalningsåterföring mellan finansinstitut</td>
-          <td class="related-messages-table__overview">The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, it starts from the original sender.</td>
+          <td class="related-messages-table__overview">Meddelandet pacs.007 reverserar en tidigare betalningsinstruktion. Till skillnad från pacs.004 utgår det från den ursprungliga avsändaren.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/sv/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="related-messages-table__name">Statusrapport för betalning mellan finansinstitut</td>
-          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected, pending, or settled.</td>
+          <td class="related-messages-table__overview">Meddelandet pacs.002 rapporterar statusen för en tidigare betalningsinstruktion. Det informerar en annan institution om betalningen accepterades, avvisades, väntar eller avvecklades.</td>
         </tr>
     </tbody>
   </table>

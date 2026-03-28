@@ -1,6 +1,6 @@
 ---
 title: "Ändringslogg | pacs008"
-description: Version history and release notes for the pacs008 toolkit. Track new features, improvements, and fixes across releases.
+description: Versionshistorik och utgåvenoteringar för pacs008-verktygslådan. Följ nya funktioner, förbättringar och korrigeringar mellan utgåvor.
 lang: sv-SE
 lastUpdated: true
 image: /logo.webp
@@ -8,7 +8,7 @@ image: /logo.webp
 
 # Ändringslogg
 
-Significant changes to the pacs008 toolkit and this documentation site.
+Betydande förändringar av pacs008-verktygslådan och denna dokumentationswebbplats.
 
 ## 2026
 

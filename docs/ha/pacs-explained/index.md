@@ -1,6 +1,6 @@
 ---
 title: "Bayyanar saƙonnin pacs | pacs008"
-description: "Detailed technical reference for ISO 20022 pacs messages: lifecycle, XML structure, settlement methods, reason codes, address types, identifiers..."
+description: "Cikakken bayyanar fasaha na saƙonnin pacs na ISO 20022: tsarin rayuwa, tsarin XML, hanyoyin biyan kuɗi, lambobin dalili, nau'o'in adireshi, masu ganowa..."
 lang: ha-NG
 lastUpdated: true
 image: /logo.webp
@@ -8,7 +8,7 @@ image: /logo.webp
 
 # Bayyanar saƙonnin pacs
 
-A detailed technical reference for the ISO 20022 pacs message family. It covers how messages work together in a complete payment lifecycle, the XML structure, settlement methods, reason codes, party identification, remittance information, and end-to-end tracking.
+Cikakken bayyanar fasaha don dangin saƙonnin pacs na ISO 20022.
 
 ## Payment lifecycle
 

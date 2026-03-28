@@ -12,7 +12,7 @@ Projektet tillhandahåller både ett REST-API och CLI för operativa arbetsflöd
 
 ## Installation
 
-Install the package from PyPI. Requires Python 3.9.2 or later.
+Installera paketet från PyPI. Kräver Python 3.9.2 eller senare.
 
 ```bash
 python -m pip install pacs008
@@ -22,17 +22,17 @@ python -m pip install pacs008
 
 ## REST API
 
-Start the FastAPI server to validate payment data and generate XML.
+Starta den inbyggda FastAPI-servern för att tillhandahålla HTTP-ändpunkter för validering och generering.
 
-### Start the server
+### Starta servern
 
 ```bash
 uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 ```
 
-### Endpoints
+### Ändpunkter
 
-<div class="api-endpoints-table" tabindex="0" aria-label="Endpoints">
+<div class="api-endpoints-table" tabindex="0" aria-label="Ändpunkter">
   <table>
     <colgroup>
       <col class="api-endpoints-table__col-endpoint">
@@ -41,41 +41,41 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
     <thead>
       <tr>
         <th>Endpoint</th>
-        <th>Description</th>
+        <th>Beskrivning</th>
       </tr>
     </thead>
     <tbody>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /health</code></td>
-          <td class="api-endpoints-table__desc">Health check that returns service status</td>
+          <td class="api-endpoints-table__desc">Hälsokontroll — returnerar tjänstens status</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>POST /validate</code></td>
-          <td class="api-endpoints-table__desc">Validate payment data without generating XML</td>
+          <td class="api-endpoints-table__desc">Validera betalningsdata mot schema utan att generera XML</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>POST /generate</code></td>
-          <td class="api-endpoints-table__desc">Generate XML now and return the file</td>
+          <td class="api-endpoints-table__desc">Generera XML synkront och returnera filen</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>POST /generate/async</code></td>
-          <td class="api-endpoints-table__desc">Submit an async generation job</td>
+          <td class="api-endpoints-table__desc">Skicka in ett asynkront genereringsjobb</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /status/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">Check job status by ID</td>
+          <td class="api-endpoints-table__desc">Kontrollera jobbstatus med ID</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /download/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">Download XML after the job completes</td>
+          <td class="api-endpoints-table__desc">Ladda ner genererad XML efter att jobbet är klart</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>DELETE /jobs/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">Cancel a pending or running job</td>
+          <td class="api-endpoints-table__desc">Avbryt ett väntande eller pågående jobb</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /docs</code></td>
-          <td class="api-endpoints-table__desc">Swagger UI for testing all endpoints</td>
+          <td class="api-endpoints-table__desc">Interaktivt Swagger UI för att utforska och testa alla ändpunkter</td>
         </tr>
     </tbody>
   </table>
@@ -90,9 +90,9 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
 - [`pacs.010.001.05`](/sv/pacs.010.001.05/) — Autogiro mellan finansinstitut
 - [`pacs.028.001.05`](/sv/pacs.028.001.05/) — Statusförfrågan för betalning mellan finansinstitut
 
-### Validation example
+### Valideringsexempel
 
-Validate payment data before generating XML.
+Skicka in betalningsdata för validering innan XML genereras.
 
 ```bash
 curl -X POST http://localhost:8000/api/validate \
@@ -126,9 +126,9 @@ curl -X POST http://localhost:8000/api/validate \
 }
 ```
 
-### Synchronous generation example
+### Synkront genereringsexempel
 
-Generate a `pacs.008.001.13` XML file from JSON data.
+Generera en XML-fil för pacs.008.001.13 från JSON-data.
 
 ```bash
 curl -X POST http://localhost:8000/api/generate \
@@ -156,9 +156,9 @@ curl -X POST http://localhost:8000/api/generate \
   }' --output pacs008_output.xml
 ```
 
-### Asynchronous generation
+### Asynkron generering
 
-For large files, submit an async job and poll until it finishes.
+För större filer eller pipelineanvändning, skicka in ett asynkront jobb och polla tills det är klart.
 
 ```bash
 # Submit the job
@@ -188,9 +188,9 @@ curl http://localhost:8000/api/download/$JOB_ID --output result.xml
 
 ## CLI
 
-The CLI takes a data file, message version, template, and schema. It validates the input and writes XML to the output directory.
+Kommandoradsgränssnittet tar en datafil, meddelandeversion, mall och schema. Det validerar indata och skriver genererad XML till utdatakatalogen.
 
-### Basic usage
+### Grundläggande användning
 
 ```bash
 pacs008 -t <message_type> \
@@ -199,7 +199,7 @@ pacs008 -t <message_type> \
   -d <data_file>
 ```
 
-### Example
+### Exempel
 
 ```bash
 pacs008 -t pacs.008.001.13 \
@@ -208,9 +208,9 @@ pacs008 -t pacs.008.001.13 \
   -d payments.csv
 ```
 
-### Dry-run mode
+### Torrkörningsläge
 
-Use `--dry-run` to validate input data without generating XML. The exit code shows whether validation passed (`0`) or failed (`1`).
+Använd `--dry-run` för att validera indata utan att generera XML. Utgångskoden visar om valideringen lyckades (`0`) eller misslyckades (`1`).
 
 ```bash
 pacs008 -t pacs.008.001.13 \
@@ -220,15 +220,15 @@ pacs008 -t pacs.008.001.13 \
   --dry-run
 ```
 
-Add `--verbose` for detailed output during generation.
+Lägg till `--verbose` för detaljerad utdata under generering.
 
 ---
 
 ## Python API
 
-Use the library directly in Python scripts or services.
+Använd biblioteket direkt i Python-skript eller tjänster.
 
-### Generate XML from payment records
+### Generera XML från betalningsposter
 
 ```python
 from pacs008 import generate_xml_string
@@ -259,9 +259,9 @@ xml = generate_xml_string(
 print(xml)
 ```
 
-### SWIFT compliance check
+### SWIFT-efterlevnadskontroll
 
-Check and clean data against SWIFT character and field-length rules before generation.
+Kontrollera och rensa data mot SWIFT:s tecken- och fältlängdsregler före generering.
 
 ```python
 from pacs008.compliance import cleanse_data_with_report
@@ -275,7 +275,7 @@ print(report.summary())
 
 ## Docker
 
-Run the API in a container using the bundled Dockerfile.
+Kör API:et i en container med den medföljande Dockerfile.
 
 ```bash
 docker build -t pacs008:latest .
@@ -288,9 +288,9 @@ docker run --rm   -e PACS008_LOG_LEVEL=INFO   -v $PWD/examples:/data   -p 8000:8
 
 ---
 
-## IBAN and BIC validation
+## IBAN- och BIC-validering
 
-Validate financial identifiers independently of XML generation.
+Validera finansiella identifierare oberoende av XML-generering.
 
 ```python
 from pacs008.validation import validate_iban, validate_bic
@@ -301,9 +301,9 @@ is_valid, error = validate_bic("DEUTDEFF", strict=False)
 
 ---
 
-## Streaming
+## Strömning
 
-Load large datasets in configurable chunks to limit memory usage.
+Ladda stora dataset i konfigurerbara block för att begränsa minnesanvändningen.
 
 ```python
 from pacs008.data.loader import load_payment_data_streaming
@@ -322,9 +322,9 @@ for chunk in load_payment_data_streaming("large_payments.csv", chunk_size=500):
 
 ---
 
-## Validation service
+## Valideringstjänst
 
-Run the full pre-generation validation pipeline programmatically.
+Kör hela förgenereringens valideringspipeline programmatiskt.
 
 ```python
 from pacs008.validation import ValidationService, ValidationConfig
@@ -341,11 +341,11 @@ print(report.is_valid, report.errors)
 
 ---
 
-## Required data fields
+## Obligatoriska datafält
 
-Each payment record must include these fields. Version-specific fields are listed below.
+Varje betalningspost måste innehålla dessa fält. Versionsspecifika fält listas nedan.
 
-<div class="api-fields-table" tabindex="0" aria-label="Required data fields">
+<div class="api-fields-table" tabindex="0" aria-label="Obligatoriska datafält">
   <table>
     <colgroup>
       <col class="api-fields-table__col-field">
@@ -354,79 +354,79 @@ Each payment record must include these fields. Version-specific fields are liste
     </colgroup>
     <thead>
       <tr>
-        <th>Field</th>
-        <th>Description</th>
-        <th>Constraint</th>
+        <th>Fält</th>
+        <th>Beskrivning</th>
+        <th>Begränsning</th>
       </tr>
     </thead>
     <tbody>
         <tr>
           <td class="api-fields-table__field"><code>msg_id</code></td>
-          <td class="api-fields-table__desc">Message identifier</td>
-          <td class="api-fields-table__constraint">Max 35 characters</td>
+          <td class="api-fields-table__desc">Meddelandeidentifierare</td>
+          <td class="api-fields-table__constraint">Max 35 tecken</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>creation_date_time</code></td>
-          <td class="api-fields-table__desc">Creation timestamp</td>
-          <td class="api-fields-table__constraint">ISO 8601 format</td>
+          <td class="api-fields-table__desc">Tidsstämpel för skapande</td>
+          <td class="api-fields-table__constraint">ISO 8601-format</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>nb_of_txs</code></td>
-          <td class="api-fields-table__desc">Number of transactions</td>
-          <td class="api-fields-table__constraint">Positive integer</td>
+          <td class="api-fields-table__desc">Antal transaktioner</td>
+          <td class="api-fields-table__constraint">Positivt heltal</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>settlement_method</code></td>
-          <td class="api-fields-table__desc">Settlement method</td>
-          <td class="api-fields-table__constraint">CLRG, INDA, COVE, or INGA</td>
+          <td class="api-fields-table__desc">Avvecklingsmetod</td>
+          <td class="api-fields-table__constraint">CLRG, INDA, COVE eller INGA</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>end_to_end_id</code></td>
-          <td class="api-fields-table__desc">End-to-end identifier</td>
-          <td class="api-fields-table__constraint">Max 35 characters</td>
+          <td class="api-fields-table__desc">Identifierare från början till slut</td>
+          <td class="api-fields-table__constraint">Max 35 tecken</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>interbank_settlement_amount</code></td>
-          <td class="api-fields-table__desc">Interbank settlement amount</td>
-          <td class="api-fields-table__constraint">Decimal, e.g. `25000.00`</td>
+          <td class="api-fields-table__desc">Interbankavvecklingsbelopp</td>
+          <td class="api-fields-table__constraint">Decimal, t.ex. `25000.00`</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>interbank_settlement_currency</code></td>
-          <td class="api-fields-table__desc">Settlement currency</td>
-          <td class="api-fields-table__constraint">ISO 4217 code</td>
+          <td class="api-fields-table__desc">Avvecklingsvaluta</td>
+          <td class="api-fields-table__constraint">ISO 4217-kod</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>charge_bearer</code></td>
-          <td class="api-fields-table__desc">Charge bearer</td>
-          <td class="api-fields-table__constraint">DEBT, CRED, SHAR, or SLEV</td>
+          <td class="api-fields-table__desc">Avgiftsbärare</td>
+          <td class="api-fields-table__constraint">DEBT, CRED, SHAR eller SLEV</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>debtor_name</code></td>
-          <td class="api-fields-table__desc">Debtor name</td>
-          <td class="api-fields-table__constraint">Max 140 characters</td>
+          <td class="api-fields-table__desc">Gäldenärens namn</td>
+          <td class="api-fields-table__constraint">Max 140 tecken</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>debtor_agent_bic</code></td>
-          <td class="api-fields-table__desc">Debtor agent BIC</td>
-          <td class="api-fields-table__constraint">8 or 11 characters</td>
+          <td class="api-fields-table__desc">Gäldenärsagentens BIC</td>
+          <td class="api-fields-table__constraint">8 eller 11 tecken</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>creditor_agent_bic</code></td>
-          <td class="api-fields-table__desc">Creditor agent BIC</td>
-          <td class="api-fields-table__constraint">8 or 11 characters</td>
+          <td class="api-fields-table__desc">Borgenärsagentens BIC</td>
+          <td class="api-fields-table__constraint">8 eller 11 tecken</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>creditor_name</code></td>
-          <td class="api-fields-table__desc">Creditor name</td>
-          <td class="api-fields-table__constraint">Max 140 characters</td>
+          <td class="api-fields-table__desc">Borgenärens namn</td>
+          <td class="api-fields-table__constraint">Max 140 tecken</td>
         </tr>
     </tbody>
   </table>
 </div>
 
-### Version-specific fields
+### Versionsspecifika fält
 
-<div class="api-fields-table api-fields-table--versioned" tabindex="0" aria-label="Version-specific fields">
+<div class="api-fields-table api-fields-table--versioned" tabindex="0" aria-label="Versionsspecifika fält">
   <table>
     <colgroup>
       <col class="api-fields-table__col-field">
@@ -435,26 +435,26 @@ Each payment record must include these fields. Version-specific fields are liste
     </colgroup>
     <thead>
       <tr>
-        <th>Field</th>
-        <th>Description</th>
-        <th>Constraint</th>
+        <th>Fält</th>
+        <th>Beskrivning</th>
+        <th>Begränsning</th>
       </tr>
     </thead>
     <tbody>
         <tr>
           <td class="api-fields-table__field"><code>uetr</code></td>
-          <td class="api-fields-table__desc">Unique end-to-end transaction reference</td>
-          <td class="api-fields-table__constraint">UUID format — available from v08</td>
+          <td class="api-fields-table__desc">Unik transaktionsreferens från början till slut</td>
+          <td class="api-fields-table__constraint">UUID-format — tillgänglig från v08</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>mandate_id</code></td>
-          <td class="api-fields-table__desc">Mandate identifier</td>
-          <td class="api-fields-table__constraint">Available from v10</td>
+          <td class="api-fields-table__desc">Mandatidentifierare</td>
+          <td class="api-fields-table__constraint">Tillgänglig från v10</td>
         </tr>
         <tr>
           <td class="api-fields-table__field"><code>expiry_date_time</code></td>
-          <td class="api-fields-table__desc">Message expiry timestamp</td>
-          <td class="api-fields-table__constraint">Available in v13</td>
+          <td class="api-fields-table__desc">Tidsstämpel för meddelandets utgång</td>
+          <td class="api-fields-table__constraint">Tillgänglig i v13</td>
         </tr>
     </tbody>
   </table>

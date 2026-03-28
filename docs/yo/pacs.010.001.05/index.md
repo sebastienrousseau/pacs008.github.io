@@ -132,8 +132,8 @@ The collecting bank sends pacs.010 under a bilateral agreement. The receiving ba
     </colgroup>
     <thead>
       <tr>
-        <th>Message type</th>
-        <th>Description</th>
+        <th>Irú ìfiránṣẹ́</th>
+        <th>Àlàyé</th>
         <th>Àkópọ̀</th>
       </tr>
     </thead>

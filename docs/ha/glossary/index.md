@@ -1,6 +1,6 @@
 ---
 title: "Ƙamusun ISO 20022 | pacs008"
-description: Definitions of key ISO 20022 and payment messaging terms used in pacs.008 and related messages. Covers SWIFT, CBPR+, IBAN, BIC, settlement methods, and...
+description: "Ma'anonin muhimman kalmomin ISO 20022 da saƙonnin biyan kuɗi da ake amfani da su a cikin pacs.008 da saƙonnin da suka danganta. Ya ƙunshi SWIFT, CBPR+..."
 lang: ha-NG
 lastUpdated: true
 image: /logo.webp
@@ -8,7 +8,7 @@ image: /logo.webp
 
 # Ƙamusun ISO 20022
 
-Key terms, abbreviations, and technical concepts used across ISO 20022 pacs messages and this site.
+Muhimman kalmomi, gajerun kalmomi, da ra'ayoyin fasaha da ake amfani da su a cikin saƙonnin pacs na ISO 20022 da wannan gidan yanar gizon.
 
 ## A
 

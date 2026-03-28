@@ -1,6 +1,6 @@
 ---
 title: "Tarihin canje-canje | pacs008"
-description: Version history and release notes for the pacs008 toolkit. Track new features, improvements, and fixes across releases.
+description: Tarihin sigogi da bayanan fitarwa na kayan aikin pacs008. Bi sabbin fasaloli, ingantattun abubuwa, da gyare-gyare a duk fitarwa.
 lang: ha-NG
 lastUpdated: true
 image: /logo.webp
@@ -8,7 +8,7 @@ image: /logo.webp
 
 # Tarihin canje-canje
 
-Significant changes to the pacs008 toolkit and this documentation site.
+Manyan canje-canje ga kayan aikin pacs008 da wannan gidan yanar gizon takaddun.
 
 ## 2026
 

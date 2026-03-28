@@ -1,6 +1,6 @@
 ---
 title: "pacs.009.001.10 | Kreditöverföring mellan finansinstitut | pacs008"
-description: The pacs.009 message moves funds between banks on their own behalf. It supports funding, cover payments, and liquidity management.
+description: Meddelandet pacs.009 flyttar medel mellan banker för egen räkning. Det stöder finansiering, cover-betalningar och likviditetshantering.
 lang: sv-SE
 lastUpdated: true
 image: /logo.webp
@@ -48,24 +48,24 @@ faq:
 
 ## Översikt
 
-The pacs.009 message moves funds between banks on their own behalf. It supports funding, cover payments, and liquidity management.
+Meddelandet pacs.009 flyttar medel mellan banker för egen räkning. Det stöder finansiering, cover-betalningar och likviditetshantering.
 
 > Last reviewed against primary sources on 23 March 2026. ISO 20022 catalogue reference date: 2025-02-27; source links are listed below.
 
 ## Nyckeldataelement
 
-- **GrpHdr** — Group Header with message identification and settlement information
-- **CdtTrfTxInf** — Credit Transfer Transaction Information with interbank settlement amount
-- **Dbtr / DbtrAgt** — Debtor institution and its agent identification
-- **Cdtr / CdtrAgt** — Creditor institution and its agent identification
-- **IntrBkSttlmAmt** — Interbank Settlement Amount in the settlement currency
+- **GrpHdr** — Grupphuvud med meddelandeidentifiering och avvecklingsinformation
+- **CdtTrfTxInf** — Kreditöverföringstransaktionsinformation med interbankavvecklingsbelopp
+- **Dbtr / DbtrAgt** — Gäldenärsinstitution och dess agentidentifiering
+- **Cdtr / CdtrAgt** — Borgenärsinstitution och dess agentidentifiering
+- **IntrBkSttlmAmt** — Interbankavvecklingsbelopp i avvecklingsvalutan
 
 ## Affärskontext
 
-- Used for bank-to-bank own-account transfers and cover payments
-- Supports liquidity management between correspondent banks
-- Carries the cover leg of customer credit transfers
-- Supports treasury and funding operations
+- Används för egenkontoöverföringar mellan banker och cover-betalningar
+- Stöder likviditetshantering mellan korrespondentbankspartner
+- Bär cover-benet av kundkreditöverföringar
+- Stöder treasury- och finansieringsoperationer
 
 <div class="operational-matrix-table" tabindex="0" aria-label="Nyckeldataelement Affärskontext">
   <table>
@@ -82,24 +82,24 @@ The pacs.009 message moves funds between banks on their own behalf. It supports 
     </thead>
     <tbody>
         <tr>
-          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Group Header with message identification and settlement information</td>
-          <td class="operational-matrix-table__right">Used for bank-to-bank own-account transfers and cover payments</td>
+          <td class="operational-matrix-table__left"><strong>GrpHdr</strong> — Grupphuvud med meddelandeidentifiering och avvecklingsinformation</td>
+          <td class="operational-matrix-table__right">Används för egenkontoöverföringar mellan banker och cover-betalningar</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Credit Transfer Transaction Information with interbank settlement amount</td>
-          <td class="operational-matrix-table__right">Supports liquidity management between correspondent banks</td>
+          <td class="operational-matrix-table__left"><strong>CdtTrfTxInf</strong> — Kreditöverföringstransaktionsinformation med interbankavvecklingsbelopp</td>
+          <td class="operational-matrix-table__right">Stöder likviditetshantering mellan korrespondentbankspartner</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Debtor institution and its agent identification</td>
-          <td class="operational-matrix-table__right">Carries the cover leg of customer credit transfers</td>
+          <td class="operational-matrix-table__left"><strong>Dbtr / DbtrAgt</strong> — Gäldenärsinstitution och dess agentidentifiering</td>
+          <td class="operational-matrix-table__right">Bär cover-benet av kundkreditöverföringar</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Creditor institution and its agent identification</td>
-          <td class="operational-matrix-table__right">Supports treasury and funding operations</td>
+          <td class="operational-matrix-table__left"><strong>Cdtr / CdtrAgt</strong> — Borgenärsinstitution och dess agentidentifiering</td>
+          <td class="operational-matrix-table__right">Stöder treasury- och finansieringsoperationer</td>
         </tr>
         <tr>
-          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Interbank Settlement Amount in the settlement currency</td>
-          <td class="operational-matrix-table__right">The debtor bank sends pacs.009 to the creditor bank to transfer its own funds. In cover flows, pacs.009 carries the funding leg while pacs.008 carries the customer instruction on a separate path.</td>
+          <td class="operational-matrix-table__left"><strong>IntrBkSttlmAmt</strong> — Interbankavvecklingsbelopp i avvecklingsvalutan</td>
+          <td class="operational-matrix-table__right">Gäldenärsbanken skickar pacs.009 till borgenärsbanken för att överföra egna medel. I cover-flöden bär pacs.009 finansieringsbenet medan pacs.008 bär kundinstruktionen på en separat väg.</td>
         </tr>
     </tbody>
   </table>
@@ -107,14 +107,14 @@ The pacs.009 message moves funds between banks on their own behalf. It supports 
 
 ## CBPR+- och schemakontext
 
-- Replaces MT202 and MT202COV for institution-to-institution transfers
-- Cover-method flows pair pacs.009 with the underlying pacs.008 instruction
-- Structured party data and LEI identification matter more often
-- SWIFT gpi also covers pacs.009
+- Ersätter MT202 och MT202COV för institution-till-institution-överföringar
+- Cover-metodflöden kopplar pacs.009 med den underliggande pacs.008-instruktionen
+- Strukturerad partdata och LEI-identifiering är allt viktigare
+- SWIFT gpi täcker även pacs.009
 
 ## Meddelandeflöde
 
-The debtor bank sends pacs.009 to the creditor bank to transfer its own funds. In cover flows, pacs.009 carries the funding leg while pacs.008 carries the customer instruction on a separate path.
+Gäldenärsbanken skickar pacs.009 till borgenärsbanken för att överföra egna medel. I cover-flöden bär pacs.009 finansieringsbenet medan pacs.008 bär kundinstruktionen på en separat väg.
 
 ## Primary references
 
@@ -134,8 +134,8 @@ The debtor bank sends pacs.009 to the creditor bank to transfer its own funds. I
     </colgroup>
     <thead>
       <tr>
-        <th>Message type</th>
-        <th>Description</th>
+        <th>Meddelandetyp</th>
+        <th>Beskrivning</th>
         <th>Översikt</th>
       </tr>
     </thead>
@@ -143,12 +143,12 @@ The debtor bank sends pacs.009 to the creditor bank to transfer its own funds. I
         <tr>
           <td class="related-messages-table__id"><a href="/sv/pacs.008.001.13/"><code>pacs.008.001.13</code></a></td>
           <td class="related-messages-table__name">Kundkreditöverföring mellan finansinstitut</td>
-          <td class="related-messages-table__overview">The pacs.008 message is the main customer credit-transfer instruction between banks. It carries party, amount, and remittance data.</td>
+          <td class="related-messages-table__overview">Meddelandet pacs.008 är den huvudsakliga kundkreditöverföringsinstruktionen mellan banker. Det bär parti-, belopps- och remitteringsdata.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/sv/pacs.002.001.12/"><code>pacs.002.001.12</code></a></td>
           <td class="related-messages-table__name">Statusrapport för betalning mellan finansinstitut</td>
-          <td class="related-messages-table__overview">The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected, pending, or settled.</td>
+          <td class="related-messages-table__overview">Meddelandet pacs.002 rapporterar statusen för en tidigare betalningsinstruktion. Det informerar en annan institution om betalningen accepterades, avvisades, väntar eller avvecklades.</td>
         </tr>
         <tr>
           <td class="related-messages-table__id"><a href="/sv/pacs.010.001.05/"><code>pacs.010.001.05</code></a></td>

@@ -1,6 +1,6 @@
 ---
 title: "Ipinaliwanag ang mga mensaheng pacs | pacs008"
-description: "Detailed technical reference for ISO 20022 pacs messages: lifecycle, XML structure, settlement methods, reason codes, address types, identifiers..."
+description: "Detalyadong teknikal na reperensya para sa mga mensaheng pacs ng ISO 20022: lifecycle, istruktura ng XML, mga paraan ng settlement, mga reason code, mga..."
 lang: tl-PH
 lastUpdated: true
 image: /logo.webp
@@ -8,7 +8,7 @@ image: /logo.webp
 
 # Ipinaliwanag ang mga mensaheng pacs
 
-A detailed technical reference for the ISO 20022 pacs message family. It covers how messages work together in a complete payment lifecycle, the XML structure, settlement methods, reason codes, party identification, remittance information, and end-to-end tracking.
+Isang detalyadong teknikal na reperensya para sa pamilya ng mga mensaheng pacs ng ISO 20022.
 
 ## Payment lifecycle
 
