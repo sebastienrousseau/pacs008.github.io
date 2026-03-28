@@ -484,11 +484,9 @@ ${items.join("\n")}
       /(<span class="DocSearch-Button-Keys")(?![^>]*aria-hidden)/g,
       '$1 aria-hidden="true"'
     );
-    // SSR: wrap flag emojis in aria-hidden so screen readers only announce the language name
-    code = code.replace(
-      /([\u{1F1E0}-\u{1F1FF}]{2})\s/gu,
-      '<span aria-hidden="true">$1</span> '
-    );
+    // Flag emojis are in locale labels and rendered by VitePress directly.
+    // No SSR transform needed — aria-hidden wrapping was removed because
+    // it corrupted the VP_HASH_MAP JSON inside <script> tags.
     // SSR: add visible sr-only text to icon-only links for SEO (no-anchor-text fix)
     code = code.replace(
       /(<a[^>]*class="[^"]*VPSocialLink[^"]*"[^>]*>)(<span[^>]*><\/span>)/g,
