@@ -36,13 +36,16 @@ function unescapeHtmlString(str) {
 }
 
 function repairHtml(content) {
-  // 1. Repair escaped head tags
+  // 1. Split head and body
   let headEnd = content.indexOf("</head>");
   if (headEnd === -1) headEnd = content.indexOf("</HEAD>");
 
+  let head = content;
+  let body = "";
+
   if (headEnd !== -1) {
-    let head = content.slice(0, headEnd);
-    let body = content.slice(headEnd);
+    head = content.slice(0, headEnd);
+    body = content.slice(headEnd);
 
     // Unescape &lt;meta ...&gt; and &lt;link ...&gt; in head
     head = head.replace(/&lt;(meta|link)\b[^&]*?&gt;/gi, (match) => {
@@ -61,21 +64,17 @@ function repairHtml(content) {
       seenMetas.add(lowerName);
       return match;
     });
-
-    content = head + body;
+  } else {
+    body = content;
   }
 
   // Ensure <html lang="..."> has a valid lang attribute
-  content = content.replace(/<html\s+lang=["']\s*["']/gi, '<html lang="en"');
+  head = head.replace(/<html\s+lang=["']\s*["']/gi, '<html lang="en"');
 
-  // 2. Repair body content: unescape entity-escaped HTML elements
-  // Extract content inside <article>...</article> or <body>...</body>
-  content = content.replace(/(<article\b[^>]*>)([\s\S]*?)(<\/article>)/gi, (match, openTag, articleBody, closeTag) => {
-    let repairedArticle = unescapeHtmlString(articleBody);
-    return openTag + repairedArticle + closeTag;
-  });
+  // 2. Unescape entity-escaped HTML elements across <body>
+  body = unescapeHtmlString(body);
 
-  return content;
+  return head + body;
 }
 
 function processHtmlFiles(dir) {
