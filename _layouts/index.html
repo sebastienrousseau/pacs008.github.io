@@ -1633,8 +1633,53 @@ pacs008 -t pacs.008.001.09 -d payments.csv --scheme sepa-sct --dry-run</code></p
             }
           });
         }
+
+        // Interactive XML Playground Generator Binding
+        function updateXmlGen() {
+          var msgType = document.getElementById("xml-msg-type");
+          var iban = document.getElementById("xml-iban");
+          var bic = document.getElementById("xml-bic");
+          var amount = document.getElementById("xml-amount");
+          var ccy = document.getElementById("xml-ccy");
+          var output = document.getElementById("xml-output");
+
+          if (msgType && output && window.pacs008Tools) {
+            var xml = window.pacs008Tools.generateXml({
+              msgType: msgType.value,
+              debtorIban: iban ? iban.value : "",
+              creditorBic: bic ? bic.value : "",
+              amount: amount ? amount.value : "1250.00",
+              currency: ccy ? ccy.value : "EUR"
+            });
+            output.textContent = xml;
+          }
+        }
+
+        ["xml-msg-type", "xml-iban", "xml-bic", "xml-amount", "xml-ccy"].forEach(function (id) {
+          var el = document.getElementById(id);
+          if (el) {
+            el.addEventListener("input", updateXmlGen);
+            el.addEventListener("change", updateXmlGen);
+          }
+        });
+        updateXmlGen();
+
+        var copyBtn = document.getElementById("xml-copy-btn");
+        if (copyBtn) {
+          copyBtn.addEventListener("click", function () {
+            var output = document.getElementById("xml-output");
+            if (output && navigator.clipboard) {
+              navigator.clipboard.writeText(output.textContent).then(function () {
+                copyBtn.textContent = "Copied!";
+                setTimeout(function () { copyBtn.textContent = "Copy XML"; }, 2000);
+              });
+            }
+          });
+        }
       })();
     </script>
-  
-</body>
+    <script src="/js/pacs008-tools.js"></script>
+    <script src="/js/pacs008-copy.js"></script>
+    <script src="/js/pacs008-toc.js"></script>
+  </body>
 </html>

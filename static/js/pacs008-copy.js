@@ -1,14 +1,24 @@
 /**
  * Universal Code Copy Button Component for pacs008
- * Automatically adds a sleek "Copy" button to every <pre><code> block
+ * Automatically adds a sleek "Copy" button to static <pre><code> blocks,
+ * ignoring interactive cards that already have custom header copy buttons.
  */
 
 (function () {
-  document.addEventListener("DOMContentLoaded", function () {
+  function initCopyButtons() {
     const codeBlocks = document.querySelectorAll("pre");
 
     codeBlocks.forEach(function (pre) {
-      if (pre.querySelector(".code-copy-btn")) return;
+      // Skip if already has a copy button, is inside an interactive card, or is an output box with custom button
+      if (
+        pre.querySelector(".code-copy-btn") ||
+        pre.closest(".interactive-card") ||
+        pre.id === "xml-output" ||
+        pre.id === "mt103-output" ||
+        (pre.parentElement && pre.parentElement.querySelector("button[id*='copy']"))
+      ) {
+        return;
+      }
 
       // Position relative for absolute button placement
       pre.style.position = "relative";
@@ -17,6 +27,7 @@
       btn.className = "code-copy-btn";
       btn.type = "button";
       btn.innerText = "Copy";
+      btn.setAttribute("aria-label", "Copy code snippet");
       btn.style.cssText = `
         position: absolute;
         top: 0.5rem;
@@ -31,6 +42,7 @@
         cursor: pointer;
         transition: all 0.2s ease;
         opacity: 0.85;
+        z-index: 2;
       `;
 
       btn.addEventListener("mouseenter", function () { btn.style.opacity = "1"; });
@@ -55,5 +67,11 @@
 
       pre.appendChild(btn);
     });
-  });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCopyButtons);
+  } else {
+    initCopyButtons();
+  }
 })();
