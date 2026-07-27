@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://pacs008.com/sitemap.xml

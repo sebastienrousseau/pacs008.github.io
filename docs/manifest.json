@@ -1,0 +1,21 @@
+{
+  "name": "pacs008 — ISO 20022 pacs.008 toolkit",
+  "short_name": "pacs008",
+  "description": "Open-source ISO 20022 pacs.008 tooling for banks and fintechs: generate, validate and audit FI-to-FI credit transfers with scheme-aware rules for CBPR+, HVPS+, Fedwire, CHAPS, T2 and SCT Inst.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#08525b",
+  "lang": "en-GB",
+  "categories": ["finance", "developer", "productivity"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
