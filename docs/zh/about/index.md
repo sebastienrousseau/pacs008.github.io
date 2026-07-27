@@ -1,0 +1,85 @@
+---
+title: "关于 pacs008 | pacs008"
+description: pacs008 的功能及适用对象。 面向金融机构间客户信贷转账工作流的生成、校验、API 编排与合规支持。
+lang: zh-CN
+lastUpdated: true
+image: /logo.webp
+howtoName: "How to implement ISO 20022 pacs.008 payment messages"
+howtoDescription: "Step-by-step checklist for rolling out ISO 20022 pacs.008 message generation and validation."
+howto:
+  - name: "Step 1"
+    text: "Pick the right message family for the business event before writing templates."
+  - name: "Step 2"
+    text: "Validate business data before XML generation so that schema errors are not the first signal."
+  - name: "Step 3"
+    text: "Treat BIC, IBAN, remittance, and postal-address quality as a release criterion, not a later cleanup."
+  - name: "Step 4"
+    text: "Regression-test each scheme or bank rule change with representative payment data."
+---
+
+# 关于 pacs008
+
+pacs008 是一个 Python 工具包，用于自动化 ISO 20022 金融机构间客户信贷转账工作流。
+
+## 功能
+
+- 为 `pacs.008` 及相关 pacs 报文定义生成 XML
+- 根据模式验证数据和 XML
+- 提供 FastAPI 服务用于自动化工作流
+- 提供 CLI 用于本地执行和 CI 管道
+- 支持结构化数据源，包括 CSV、JSON、JSONL、SQLite 和 Parquet
+- 验证 IBAN（75 个国家，ISO 7064 校验和）和 BIC（ISO 9362）标识符
+- 通过音译和字段长度控制清洗支付数据以符合 SWIFT 规范
+- 以可配置的块大小流式处理大型数据集，实现内存高效处理
+- 提供 Docker 镜像用于容器化 API 部署
+
+## 适用对象
+
+- 支付运营团队
+- 构建内部支付处理基础设施的平台工程师
+- 向 ISO 20022 迁移的项目
+- 验证出站支付报文的合规和 QA 团队
+
+## 验证
+
+在写入任何 XML 之前，多个验证层协同工作：
+
+- 针对 20 个消息类型专用架构的 JSON Schema 验证
+- 覆盖 75 个国家的 IBAN 格式和校验和验证
+- 按照 ISO 9362 的 BIC 结构和国家代码验证
+- 针对 ISO 20022 官方架构的生成 XML XSD 验证
+
+## 安全
+
+pacs008 在处理管道的每一层实施纵深防御：
+
+- 通过 defusedxml 对所有 XML 解析操作进行 XXE 防护
+- 使用严格的目录白名单进行路径遍历防护
+- 在结构化 JSON 日志中进行 PII 脱敏，支持 GDPR 和 PCI DSS 合规
+- 针对 SQLite 源使用严格的表名清洗进行 SQL 注入防护
+
+## 2026 准备
+
+pacs008 围绕 2026 年相关的运营截止日期和数据质量要求而设计：
+
+- 为 CBPR+ 和方案迁移处理结构化和混合邮政地址
+- 加强债务人、债权人和代理数据质量验证
+- 跨旧版和当前 pacs.008 修订版本的版本感知生成
+- 适合 CI、批量操作和内部支付服务的自动化路径
+
+## 运营重点
+
+pacs008 超越报文定义参考，支持运营实施：
+
+- 从真实源数据生成 XML
+- 交付前验证
+- 建模支付链和下游格式
+- 使方案特定的更改在代码中可测试
+
+## 实施检查清单
+
+- 在编写模板之前，先为业务事件选定正确的报文族。
+- 在生成 XML 之前校验业务数据，避免把模式错误当作首个告警信号。
+- 将 BIC、IBAN、汇款信息和地址质量视为发布标准，而不是事后清洗事项。
+- 每次方案规则或银行规则变更后，都要用具有代表性的付款数据执行回归测试。
+

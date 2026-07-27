@@ -1,4 +1,3 @@
 node_modules/
-.DS_Store
-*.log
-.corral-state.json
+docs/.vitepress/dist/
+docs/.vitepress/cache/
