@@ -19,6 +19,8 @@ const newNav = `<nav aria-label="Primary navigation" id="ap-primary-nav">
                 <li><a href="/pacs.003.001.09/">pacs.003 Direct Debit</a></li>
                 <li><a href="/pacs.004.001.11/">pacs.004 Payment Return</a></li>
                 <li><a href="/pacs.009.001.10/">pacs.009 Financial Institution</a></li>
+                <li><a href="/pacs.010.001.05/">pacs.010 Direct Debit</a></li>
+                <li><a href="/pacs.028.001.05/">pacs.028 Investigation</a></li>
               </ul>
             </li>
             <li class="has-sub"><a href="/api/">Technical Guides</a>
@@ -48,12 +50,13 @@ const newFooter = `<footer class="footer">
         <div class="footer-grid">
           <div>
             <p class="footer-brand">pacs008</p>
-            <p class="footer-tagline">Open-source ISO 20022 payment initiation. Validated files, local processing, no lock-in.</p>
+            <p class="footer-tagline">Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.</p>
           </div>
           <div>
             <h2 class="footer-heading">Overview</h2>
             <ul class="footer-links">
               <li><a href="/about/">About pacs008</a></li>
+              <li><a href="/2026-readiness/">2026 Readiness Hub</a></li>
               <li><a href="/message-types/">Message Types</a></li>
               <li><a href="/message-selection/">Selection Guide</a></li>
               <li><a href="/contact/">Contact Us</a></li>
@@ -67,6 +70,8 @@ const newFooter = `<footer class="footer">
               <li><a href="/pacs.003.001.09/">pacs.003 Direct Debit</a></li>
               <li><a href="/pacs.004.001.11/">pacs.004 Payment Return</a></li>
               <li><a href="/pacs.009.001.10/">pacs.009 Financial Institution</a></li>
+              <li><a href="/pacs.010.001.05/">pacs.010 Direct Debit</a></li>
+              <li><a href="/pacs.028.001.05/">pacs.028 Investigation</a></li>
             </ul>
           </div>
           <div>
@@ -75,6 +80,7 @@ const newFooter = `<footer class="footer">
               <li><a href="/api/">API &amp; CLI Reference</a></li>
               <li><a href="/pacs-explained/">pacs Messages Explained</a></li>
               <li><a href="/structured-address/">Structured Address (2026)</a></li>
+              <li><a href="/security/">Security &amp; Compliance</a></li>
               <li><a href="/glossary/">Glossary</a></li>
               <li><a href="/faq/">FAQs</a></li>
               <li><a href="/changelog/">Changelog</a></li>
@@ -103,8 +109,10 @@ function updateFile(filePath) {
   content = content.replace(/<footer class="footer">[\s\S]*?<\/footer>/, newFooter);
 
   fs.writeFileSync(filePath, content, "utf8");
-  console.log(`Updated navigation & footer in ${filePath}`);
 }
 
 updateFile("_layouts/index.html");
 updateFile("_layouts/page.html");
+
+console.log("Updated navigation & footer in _layouts/index.html");
+console.log("Updated navigation & footer in _layouts/page.html");
