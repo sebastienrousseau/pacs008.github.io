@@ -263,6 +263,7 @@
 
       /* ==== Page header ==== */
       .page-header { padding: 4.5rem 0 2.75rem; border-bottom: 1px solid var(--rule); }
+      .page-header-inner { max-width: 840px; margin: 0 auto; }
       .breadcrumb { font-size: 0.85rem; color: var(--ink-mute); margin-bottom: 2rem; }
       .breadcrumb ol { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
       .breadcrumb li + li::before { content: "\203A"; margin-right: 0.5rem; color: var(--ink-mute); }
@@ -280,7 +281,6 @@
         font-weight: 700;
         letter-spacing: -0.015em;
         line-height: 1.12;
-        max-width: 26ch;
         margin-bottom: 1.25rem;
         overflow-wrap: break-word;
         text-wrap: balance;
@@ -298,8 +298,8 @@
       }
 
       /* ==== Article body ==== */
-      .content-shell { padding: 3rem 0 2rem; }
-      .content-body { font-size: 1.06rem; line-height: 1.75; max-width: var(--measure); }
+      .content-shell { padding: 3rem 0 4rem; }
+      .content-body { font-size: 1.06rem; line-height: 1.75; max-width: 840px; margin: 0 auto; }
       .content-body h2 {
         font-family: var(--type-display);
         font-size: 1.7rem; font-weight: 700; letter-spacing: -0.01em;
@@ -844,17 +844,19 @@
     <main id="main-content">
       <header class="page-header">
         <div class="wrap">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <ol>
-              <li><a href="/">Home</a></li>
-              <li aria-current="page">{{title}}</li>
-            </ol>
-          </nav>
-          <p class="eyebrow">{{eyebrow}}</p>
-          <h1 class="page-title">{{title}}</h1>
-          <p class="deck">{{subtitle}}</p>
-          <div class="article-meta">
-            <span>Last reviewed <time datetime="{{last_reviewed}}">26 July 2026</time></span>
+          <div class="page-header-inner">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <ol>
+                <li><a href="/">Home</a></li>
+                <li aria-current="page">{{title}}</li>
+              </ol>
+            </nav>
+            <p class="eyebrow">{{eyebrow}}</p>
+            <h1 class="page-title">{{title}}</h1>
+            <p class="deck">{{subtitle}}</p>
+            <div class="article-meta">
+              <span>Last reviewed <time datetime="{{last_reviewed}}">26 July 2026</time></span>
+            </div>
           </div>
         </div>
       </header>
