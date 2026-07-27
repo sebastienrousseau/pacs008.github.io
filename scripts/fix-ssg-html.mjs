@@ -65,15 +65,13 @@ function repairHtml(content) {
     content = head + body;
   }
 
+  // Ensure <html lang="..."> has a valid lang attribute
+  content = content.replace(/<html\s+lang=["']\s*["']/gi, '<html lang="en"');
+
   // 2. Repair body content: unescape entity-escaped HTML elements
   // Extract content inside <article>...</article> or <body>...</body>
   content = content.replace(/(<article\b[^>]*>)([\s\S]*?)(<\/article>)/gi, (match, openTag, articleBody, closeTag) => {
-    // Unescape entity tags like &lt;h1&gt;About pacs008&lt;/h1&gt; or &lt;p&gt;...&lt;/p&gt;
-    let repairedArticle = articleBody.replace(/(&lt;[a-zA-Z0-9\/][^>]*?&gt;)/g, (tag) => {
-      return unescapeHtmlString(tag);
-    });
-    // Remove wrapper <div lang="..."></div> if empty or redundant
-    repairedArticle = repairedArticle.replace(/<div\b[^>]*lang=["'][^"']*["'][^>]*>\s*<\/div>/gi, "");
+    let repairedArticle = unescapeHtmlString(articleBody);
     return openTag + repairedArticle + closeTag;
   });
 

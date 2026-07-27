@@ -14,11 +14,12 @@ function patchFile(filePath) {
   let frontmatter = parts[1];
   const body = parts.slice(2).join("---");
 
-  const isHome = filePath.endsWith("index.md") && (filePath === path.join(docsDir, "index.md") || filePath.split(path.sep).length <= docsDir.split(path.sep).length + 2);
+  const isHome = filePath === path.join(docsDir, "index.md");
   const layout = isHome ? "index" : "page";
 
   const fields = {
     layout: layout,
+    language: "en",
     date: '"2026-07-27"',
     news_publication_date: '"2026-07-27"',
     item_pub_date: '"2026-07-27"',

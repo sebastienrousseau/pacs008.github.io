@@ -31,8 +31,8 @@ ssg -n=pacs008 -c=docs_build -t=_layouts -o=public -f=config.toml
 node scripts/fix-ssg-html.mjs
 
 # Copy static assets to output directory
-if [ -d docs/public ]; then
-  cp -R docs/public/* public/ 2>/dev/null || true
+if [ -d static ]; then
+  cp -R static/* public/ 2>/dev/null || true
 fi
 
 # Clean up temporary build directory
