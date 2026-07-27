@@ -24,6 +24,9 @@ node scripts/patch-ssg-frontmatter.mjs docs_build
 echo "Compiling site with ssg..."
 ssg -n=pacs008 -c=docs_build -t=_layouts -o=public -f=config.toml
 
+# Repair escaped head metas & body HTML fragments emitted by ssg
+node scripts/fix-ssg-html.mjs
+
 # Copy static assets to output directory
 if [ -d docs/public ]; then
   cp -R docs/public/* public/ 2>/dev/null || true

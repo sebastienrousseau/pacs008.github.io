@@ -21,29 +21,17 @@
       :root {
         --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-        --bg-primary: #ffffff;
-        --bg-secondary: #f8fafc;
-        --bg-surface: #f1f5f9;
-        --text-primary: #0f172a;
-        --text-secondary: #475569;
-        --text-muted: #64748b;
-        --brand-color: #084a53;
-        --brand-hover: #0d7a87;
-        --border-color: #e2e8f0;
+        --bg-primary: #0f172a;
+        --bg-secondary: #1e293b;
+        --bg-surface: #334155;
+        --text-primary: #f8fafc;
+        --text-secondary: #cbd5e1;
+        --text-muted: #94a3b8;
+        --brand-color: #0d7a87;
+        --brand-accent: #00d2c8;
+        --brand-hover: #14b8a6;
+        --border-color: #334155;
         --max-width: 1140px;
-      }
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --bg-primary: #0f172a;
-          --bg-secondary: #1e293b;
-          --bg-surface: #334155;
-          --text-primary: #f8fafc;
-          --text-secondary: #cbd5e1;
-          --text-muted: #94a3b8;
-          --brand-color: #4fd6c9;
-          --brand-hover: #2dd4bf;
-          --border-color: #334155;
-        }
       }
       *, *::before, *::after { box-sizing: border-box; }
       body {
@@ -54,12 +42,15 @@
         color: var(--text-primary);
         background-color: var(--bg-primary);
       }
-      a { color: var(--brand-color); text-decoration: none; font-weight: 500; }
+      a { color: var(--brand-accent); text-decoration: none; font-weight: 500; }
       a:hover { text-decoration: underline; }
       .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
       
+      /* Navigation Header */
       .site-header {
-        background-color: var(--bg-secondary);
+        background-color: rgba(15, 23, 42, 0.9);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
         border-bottom: 1px solid var(--border-color);
         padding: 1rem 0;
         position: sticky;
@@ -69,27 +60,33 @@
       .header-container { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
       .site-logo { display: flex; align-items: center; gap: 0.75rem; font-size: 1.25rem; font-weight: 700; color: var(--text-primary); }
       .nav-list { display: flex; gap: 1.25rem; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
-      .nav-list a { font-size: 0.9375rem; color: var(--text-secondary); }
-      .nav-list a:hover { color: var(--brand-color); text-decoration: none; }
+      .nav-list a { font-size: 0.9375rem; color: var(--text-secondary); transition: color 0.2s ease; }
+      .nav-list a:hover { color: var(--brand-accent); text-decoration: none; }
 
+      /* Layout */
       .site-main { padding: 3rem 0; min-height: calc(100vh - 220px); }
-      article { max-width: 800px; margin: 0 auto; }
-      h1 { font-size: 2.25rem; line-height: 1.2; margin-top: 0; margin-bottom: 1.5rem; }
-      h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
-      h3 { font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.75rem; }
-      code { font-family: var(--font-mono); background: var(--bg-surface); padding: 0.2em 0.4em; border-radius: 4px; font-size: 0.875em; }
-      pre { font-family: var(--font-mono); background: var(--bg-secondary); padding: 1.25rem; border-radius: 8px; overflow-x: auto; border: 1px solid var(--border-color); }
-      pre code { background: none; padding: 0; }
+      article { max-width: 860px; margin: 0 auto; }
+      h1 { font-size: 2.25rem; line-height: 1.2; margin-top: 0; margin-bottom: 1.5rem; color: var(--text-primary); border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem; }
+      h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--text-primary); border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+      h3 { font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--text-primary); }
+      code { font-family: var(--font-mono); background: var(--bg-surface); padding: 0.2em 0.4em; border-radius: 4px; font-size: 0.875em; color: var(--brand-accent); }
+      pre { font-family: var(--font-mono); background: #020617; padding: 1.25rem; border-radius: 8px; overflow-x: auto; border: 1px solid var(--border-color); }
+      pre code { background: none; padding: 0; color: #f8fafc; }
+      blockquote { border-left: 4px solid var(--brand-accent); margin: 1.5rem 0; padding: 0.5rem 0 0.5rem 1.25rem; color: var(--text-secondary); background: var(--bg-secondary); border-radius: 0 8px 8px 0; }
+      table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
+      th, td { border: 1px solid var(--border-color); padding: 0.75rem 1rem; text-align: left; }
+      th { background-color: var(--bg-secondary); font-weight: 600; color: var(--text-primary); }
 
+      /* Footer */
       .site-footer { background-color: var(--bg-secondary); border-top: 1px solid var(--border-color); padding: 3rem 0 2rem; margin-top: 4rem; }
       .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
-      .footer-col h3, .footer-col h4 { margin-top: 0; margin-bottom: 1rem; }
+      .footer-col h3, .footer-col h4 { margin-top: 0; margin-bottom: 1rem; color: var(--text-primary); }
       .footer-col ul { list-style: none; padding: 0; margin: 0; }
       .footer-col li { margin-bottom: 0.5rem; }
       .footer-col a { color: var(--text-secondary); }
       .footer-bottom { border-top: 1px solid var(--border-color); padding-top: 1.5rem; text-align: center; color: var(--text-muted); font-size: 0.875rem; }
 
-      .skip-link { position: absolute; top: -100px; left: 1rem; background: var(--brand-color); color: white; padding: 0.5rem 1rem; border-radius: 4px; z-index: 1000; }
+      .skip-link { position: absolute; top: -100px; left: 1rem; background: var(--brand-accent); color: #0f172a; padding: 0.5rem 1rem; border-radius: 4px; z-index: 1000; font-weight: 600; }
       .skip-link:focus { top: 1rem; }
     </style>
   </head>
@@ -105,7 +102,7 @@
             <defs>
               <linearGradient id="logo-grad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
                 <stop stop-color="#084a53"/>
-                <stop offset="1" stop-color="#0d7a87"/>
+                <stop offset="1" stop-color="#00d2c8"/>
               </linearGradient>
             </defs>
           </svg>

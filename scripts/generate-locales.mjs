@@ -14791,38 +14791,58 @@ function homeFrontmatter(locale) {
   const isCanonicalEnglishHome = locale.key === "en";
   const t = copyFor(locale.key);
   return `---
-title: ${homeTitle(locale)}
-description: ${clampDescription(locale.tagline)}
-lang: ${locale.lang}
-author: Sebastien Rousseau
+title: ${JSON.stringify(homeTitle(locale))}
+description: ${JSON.stringify(clampDescription(locale.tagline))}
+lang: ${JSON.stringify(locale.lang)}
+author: "Sebastien Rousseau"
 lastUpdated: true
-image: /logo.webp
-imageAlt: pacs008
-canonical: ${locale.key === "en" ? "/" : `/${locale.key}/`}
-robots: ${isCanonicalEnglishHome ? "noindex, follow" : "index, follow"}
+image: "/logo.webp"
+imageAlt: "pacs008"
+canonical: ${JSON.stringify(locale.key === "en" ? "/" : `/${locale.key}/`)}
+robots: ${JSON.stringify(isCanonicalEnglishHome ? "noindex, follow" : "index, follow")}
 draft: false
 noindex: ${isCanonicalEnglishHome ? "true" : "false"}
 sitemap: ${isCanonicalEnglishHome ? "false" : "true"}
-breadcrumbTitle: pacs008
-pageType: home
-schemaType: WebSite
-heroText: ${locale.hero}
+breadcrumbTitle: "pacs008"
+pageType: "home"
+schemaType: "WebSite"
+heroText: ${JSON.stringify(locale.hero)}
 home: true
-metaTitle: pacs008
-subtitle: ${locale.tagline}
-tagline: ${locale.tagline}
-actionText: ${locale.cta}
-actionLink: ${localePath(locale.key, "about")}
-features:
-  - title: "${t.whatItDoes}"
-    details: "${t.aboutBullet1}; ${t.aboutBullet2}; ${t.aboutBullet3}"
-  - title: "${t.validationTitle}"
-    details: "${t.validation1}; ${t.validation2}; ${t.validation4}"
-  - title: "${t.securityTitle}"
-    details: "${t.security1}; ${t.security2}; ${t.security3}"
-  - title: "${t.readinessTitle}"
-    details: "${t.readiness1}; ${t.readiness2}; ${t.readiness3}"
+metaTitle: "pacs008"
+subtitle: ${JSON.stringify(locale.tagline)}
+tagline: ${JSON.stringify(locale.tagline)}
+actionText: ${JSON.stringify(locale.cta)}
+actionLink: ${JSON.stringify(localePath(locale.key, "about"))}
+date: "2026-07-27"
+news_publication_date: "2026-07-27"
+item_pub_date: "2026-07-27"
+last_build_date: "2026-07-27"
+name: "pacs008"
+short_name: "pacs008"
+start_url: "/"
+display: "standalone"
+background_color: "#ffffff"
+theme_color: "#084a53"
 ---
+
+# ${locale.hero}
+
+${locale.tagline}
+
+## ${t.whatItDoes}
+
+- **${t.whatItDoes}**: ${t.aboutBullet1}; ${t.aboutBullet2}; ${t.aboutBullet3}.
+- **${t.validationTitle}**: ${t.validation1}; ${t.validation2}; ${t.validation4}.
+- **${t.securityTitle}**: ${t.security1}; ${t.security2}; ${t.security3}.
+- **${t.readinessTitle}**: ${t.readiness1}; ${t.readiness2}; ${t.readiness3}.
+
+## Installation & Quickstart
+
+\`\`\`bash
+pip install pacs008
+\`\`\`
+
+Read the full [API & CLI Reference](${localePath(locale.key, "api")}) and [Selection Guide](${localePath(locale.key, "message-selection")}).
 `;
 }
 
@@ -36903,40 +36923,60 @@ await fs.rm(path.join(docsDir, "en"), { recursive: true, force: true });
 await write(
   path.join(docsDir, "index.md"),
   `---
-title: ${homeTitle(locales[0])}
-description: ${clampDescription(locales[0].tagline)}
+title: ${JSON.stringify(homeTitle(locales[0]))}
+description: ${JSON.stringify(clampDescription(locales[0].tagline))}
 lang: en-GB
-author: Sebastien Rousseau
+author: "Sebastien Rousseau"
 lastUpdated: true
-image: /logo.webp
-imageAlt: pacs008
-canonical: /
-robots: index, follow
+image: "/logo.webp"
+imageAlt: "pacs008"
+canonical: "/"
+robots: "index, follow"
 draft: false
 noindex: false
 sitemap: true
-breadcrumbTitle: pacs008
-pageType: home
-schemaType: WebSite
-heroText: ${locales[0].hero}
+breadcrumbTitle: "pacs008"
+pageType: "home"
+schemaType: "WebSite"
+heroText: ${JSON.stringify(locales[0].hero)}
 home: true
 metaTitle: "pacs008 — ISO 20022 Payment Message Toolkit and API"
-subtitle: ${locales[0].tagline}
-tagline: ${locales[0].tagline}
-actionText: Get Started
-actionLink: /about/
-actionText2: View API
-actionLink2: /api/
-features:
-  - title: "What it does"
-    details: "Generates XML for \`pacs.008\` and related pacs message definitions; Validates data and XML against schemas; Exposes a FastAPI service for automated workflows"
-  - title: "Validation"
-    details: "JSON Schema validation against 20 message-specific schemas; IBAN format and checksum verification covering 75 countries; XSD validation of generated XML against official ISO 20022 schemas"
-  - title: "Security"
-    details: "XXE prevention via defusedxml for all XML parsing operations; Path traversal protection with strict directory allowlist; PII masking in structured JSON logs for GDPR and PCI DSS compliance"
-  - title: "2026 readiness"
-    details: "Structured and hybrid postal address handling for CBPR+ and schema migrations; Stronger debtor, creditor, and agent data-quality validation; Version-aware generation across legacy and current pacs.008 revisions"
+subtitle: ${JSON.stringify(locales[0].tagline)}
+tagline: ${JSON.stringify(locales[0].tagline)}
+actionText: "Get Started"
+actionLink: "/about/"
+actionText2: "View API"
+actionLink2: "/api/"
+date: "2026-07-27"
+news_publication_date: "2026-07-27"
+item_pub_date: "2026-07-27"
+last_build_date: "2026-07-27"
+name: "pacs008"
+short_name: "pacs008"
+start_url: "/"
+display: "standalone"
+background_color: "#ffffff"
+theme_color: "#084a53"
 ---
+
+# ${locales[0].hero}
+
+${locales[0].tagline}
+
+## Key Capabilities
+
+- **What it does**: Generates XML for \`pacs.008\` and related pacs message definitions; Validates data and XML against schemas; Exposes a FastAPI service for automated workflows.
+- **Validation**: JSON Schema validation against 20 message-specific schemas; IBAN format and checksum verification covering 75 countries; XSD validation of generated XML against official ISO 20022 schemas.
+- **Security**: XXE prevention via defusedxml for all XML parsing operations; Path traversal protection with strict directory allowlist; PII masking in structured JSON logs for GDPR and PCI DSS compliance.
+- **2026 readiness**: Structured and hybrid postal address handling for CBPR+ and schema migrations; Stronger debtor, creditor, and agent data-quality validation; Version-aware generation across legacy and current pacs.008 revisions.
+
+## Installation & Quickstart
+
+\`\`\`bash
+pip install pacs008
+\`\`\`
+
+Read the full [API & CLI Reference](/api/) and [Selection Guide](/message-selection/).
 `
 );
 
