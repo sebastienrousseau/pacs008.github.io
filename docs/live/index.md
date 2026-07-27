@@ -1,6 +1,6 @@
 ---
-title: "See It Live — Interactive ISO 20022 pacs.008 Workbench & Converter"
-description: "Test ISO 20022 pacs.008 XML generation, convert SWIFT MT103 messages in real time, and validate data quality in your browser."
+title: "Try pacs008 Live in Your Browser"
+description: "Generate, validate, and convert ISO 20022 pacs.008 payment messages in real time. 100% in-browser, zero data transmitted."
 lang: en-GB
 layout: page
 date: "2026-07-27"
@@ -15,115 +15,117 @@ image: /logo.webp
 canonical: "/live/"
 ---
 
-Welcome to the live interactive workbench for **pacs008**. Test ISO 20022 payment message drafting, convert legacy SWIFT MT103 text blocks into compliant `pacs.008.001.13` XML, and verify IBAN / LEI checksums instantly in your browser — 100% locally with zero payload transmission to external servers.
+Generate, validate, and convert ISO 20022 pacs.008 payment messages in real time directly in your browser. No registration or server upload required — 100% local processing.
 
 ---
 
-## 1. MT103 to pacs.008.001.13 XML Converter
+<div class="workbench-card" style="background:var(--bg-alt); border:1px solid var(--rule); border-radius:12px; padding:1.75rem; margin:1.5rem 0;">
+  <h2 style="margin-top:0; font-family:var(--type-display); font-size:1.35rem; color:var(--ink);">1. Generate pacs.008.001.13 Payment XML</h2>
+  <p style="font-size:0.9rem; color:var(--ink-soft); margin-bottom:1.25rem;">Draft compliant FI-to-FI customer credit transfer messages with instant client-side schema validation.</p>
 
-Paste a legacy SWIFT MT103 message text block below to convert it into a fully validated ISO 20022 `pacs.008.001.13` XML payload:
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:1.5rem; align-items:start;">
+    <!-- Left Column: Controls -->
+    <div style="display:flex; flex-direction:column; gap:0.85rem;">
+      <div>
+        <label for="live-dbtr-name" style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-mute); display:block; margin-bottom:0.35rem;">Debtor Name:</label>
+        <input type="text" id="live-dbtr-name" value="Acme Corp GmbH" style="width:100%; padding:0.6rem 0.75rem; border:1px solid var(--rule-strong); border-radius:6px; font-size:0.9rem; background:var(--bg-page); color:var(--ink);" />
+      </div>
+      <div>
+        <label for="live-cdtr-name" style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-mute); display:block; margin-bottom:0.35rem;">Creditor Name:</label>
+        <input type="text" id="live-cdtr-name" value="Widget Industries SA" style="width:100%; padding:0.6rem 0.75rem; border:1px solid var(--rule-strong); border-radius:6px; font-size:0.9rem; background:var(--bg-page); color:var(--ink);" />
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem;">
+        <div>
+          <label for="live-amt" style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-mute); display:block; margin-bottom:0.35rem;">Amount:</label>
+          <input type="text" id="live-amt" value="25000.00" style="width:100%; padding:0.6rem 0.75rem; border:1px solid var(--rule-strong); border-radius:6px; font-size:0.9rem; background:var(--bg-page); color:var(--ink);" />
+        </div>
+        <div>
+          <label for="live-ccy" style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-mute); display:block; margin-bottom:0.35rem;">Currency:</label>
+          <select id="live-ccy" style="width:100%; padding:0.6rem 0.75rem; border:1px solid var(--rule-strong); border-radius:6px; font-size:0.9rem; background:var(--bg-page); color:var(--ink);">
+            <option value="EUR" selected>EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="USD">USD</option>
+            <option value="CHF">CHF</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label for="live-purpose" style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-mute); display:block; margin-bottom:0.35rem;">Purpose Code:</label>
+        <select id="live-purpose" style="width:100%; padding:0.6rem 0.75rem; border:1px solid var(--rule-strong); border-radius:6px; font-size:0.9rem; background:var(--bg-page); color:var(--ink);">
+          <option value="SALA" selected>SALA — Salary Payment</option>
+          <option value="SUPP">SUPP — Supplier Payment</option>
+          <option value="TRAD">TRAD — Trade Settlement</option>
+          <option value="INTC">INTC — Intra-Company</option>
+        </select>
+      </div>
+      <div style="margin-top:0.5rem;">
+        <button id="generate-live-xml-btn" type="button" class="pill pill-primary" style="width:100%;">Generate pacs.008 XML &rsaquo;</button>
+      </div>
+    </div>
 
-<div class="interactive-card" style="background:var(--bg-alt); border:1px solid var(--rule); border-radius:var(--radius-md, 8px); padding:1.5rem; margin:1.5rem 0;">
-  <label for="mt103-input" style="font-weight:700; display:block; margin-bottom:0.5rem; color:var(--ink);">SWIFT MT103 Input Block:</label>
-  <textarea id="mt103-input" rows="6" style="width:100%; font-family:var(--type-mono); font-size:0.85rem; padding:0.75rem; border:1px solid var(--rule); border-radius:6px; background:var(--bg-page); color:var(--ink); margin-bottom:1rem;" placeholder=":20:MSG-2026-001&#10;:32A:260727EUR25000,00&#10;:50K:/12345678&#10;Acme Corp GmbH&#10;:59:/98765432&#10;Widget Industries SA&#10;:71A:SHA">:20:MSG-2026-001
+    <!-- Right Column: Code Preview & Copy -->
+    <div style="background:var(--code-bg, #14161c); border-radius:8px; border:1px solid var(--rule); padding:1rem; color:var(--code-text, #f2f3f5); position:relative;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.5rem;">
+        <span style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#38bdf8;">XML Preview Output</span>
+        <button id="xml-copy-btn" type="button" style="padding:0.25rem 0.65rem; font-size:0.75rem; font-weight:600; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:#fff; border-radius:4px; cursor:pointer;">Copy XML</button>
+      </div>
+      <pre id="xml-output" style="font-family:var(--type-mono); font-size:0.8rem; line-height:1.45; white-space:pre-wrap; word-break:break-all; max-height:380px; overflow:auto; margin:0; color:#e2e8f0;"></pre>
+    </div>
+  </div>
+</div>
+
+---
+
+<div class="workbench-card" style="background:var(--bg-alt); border:1px solid var(--rule); border-radius:12px; padding:1.75rem; margin:1.5rem 0;">
+  <h2 style="margin-top:0; font-family:var(--type-display); font-size:1.35rem; color:var(--ink);">2. Convert Legacy SWIFT MT103 to pacs.008 XML</h2>
+  <p style="font-size:0.9rem; color:var(--ink-soft); margin-bottom:1.25rem;">Transform FIN MT103 text blocks into ISO 20022 pacs.008 XML structures with 100% data fidelity.</p>
+
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:1.5rem; align-items:start;">
+    <!-- Left Column: Input MT103 -->
+    <div style="display:flex; flex-direction:column; gap:0.85rem;">
+      <label for="mt103-input" style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-mute);">SWIFT MT103 Text Block:</label>
+      <textarea id="mt103-input" rows="9" style="width:100%; font-family:var(--type-mono); font-size:0.85rem; padding:0.75rem; border:1px solid var(--rule-strong); border-radius:6px; background:var(--bg-page); color:var(--ink); font-weight:500;" placeholder=":20:MSG-2026-001&#10;:32A:260727EUR25000,00&#10;:50K:/12345678&#10;Acme Corp GmbH&#10;:59:/98765432&#10;Widget Industries SA&#10;:71A:SHA">:20:MSG-2026-001
 :32A:260727EUR25000,00
 :50K:/12345678
 Acme Corp GmbH
 :59:/98765432
 Widget Industries SA
 :71A:SHA</textarea>
-  <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
-    <button id="convert-mt103-btn" type="button" class="pill pill-primary">Convert MT103 to pacs.008 XML &rsaquo;</button>
-    <span id="mt103-status" style="font-size:0.85rem; font-weight:600; color:var(--link, #0f766e);">Status: Ready</span>
-  </div>
-
-  <div style="margin-top: 1.25rem;">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
-      <span style="font-size:0.85rem; font-weight:700; color:var(--ink);">Converted pacs.008.001.13 XML Output:</span>
-      <button id="mt103-copy-btn" type="button" class="pill pill-primary" style="padding:0.35rem 0.85rem; font-size:0.8rem;">Copy XML</button>
+      <button id="convert-mt103-btn" type="button" class="pill pill-primary" style="width:100%;">Convert MT103 &rsaquo;</button>
     </div>
-    <pre id="mt103-output" style="background:var(--bg-page); border:1px solid var(--rule); padding:1rem; border-radius:6px; font-size:0.85rem; max-height:350px; overflow:auto; color:var(--ink);"></pre>
+
+    <!-- Right Column: Converted XML Output -->
+    <div style="background:var(--code-bg, #14161c); border-radius:8px; border:1px solid var(--rule); padding:1rem; color:var(--code-text, #f2f3f5); position:relative;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.5rem;">
+        <span style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#38bdf8;">Converted pacs.008 XML</span>
+        <button id="mt103-copy-btn" type="button" style="padding:0.25rem 0.65rem; font-size:0.75rem; font-weight:600; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:#fff; border-radius:4px; cursor:pointer;">Copy XML</button>
+      </div>
+      <pre id="mt103-output" style="font-family:var(--type-mono); font-size:0.8rem; line-height:1.45; white-space:pre-wrap; word-break:break-all; max-height:380px; overflow:auto; margin:0; color:#e2e8f0;"></pre>
+    </div>
   </div>
 </div>
 
 ---
 
-## 2. Interactive pacs.008 XML Generator & Validator
+<div class="workbench-card" style="background:var(--bg-alt); border:1px solid var(--rule); border-radius:12px; padding:1.75rem; margin:1.5rem 0;">
+  <h2 style="margin-top:0; font-family:var(--type-display); font-size:1.35rem; color:var(--ink);">3. LEI (ISO 17442) Compliance Verifier</h2>
+  <p style="font-size:0.9rem; color:var(--ink-soft); margin-bottom:1.25rem;">Verify Legal Entity Identifier structure and MOD-97 checksums instantly.</p>
 
-Customize payment parameters below to generate a live, schema-compliant `pacs.008.001.13` XML message:
-
-<div class="interactive-card" style="background:var(--bg-alt); border:1px solid var(--rule); border-radius:var(--radius-md, 8px); padding:1.5rem; margin:1.5rem 0;">
-  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:1rem; margin-bottom:1rem;">
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:1rem; align-items:end;">
     <div>
-      <label for="live-dbtr-name" style="font-size:0.85rem; font-weight:700; display:block; margin-bottom:0.25rem; color:var(--ink);">Debtor Name:</label>
-      <input type="text" id="live-dbtr-name" value="Acme Corp GmbH" style="width:100%; padding:0.5rem; border:1px solid var(--rule); border-radius:4px; font-size:0.85rem; background:var(--bg-page); color:var(--ink);" />
+      <label for="lei-input" style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-mute); display:block; margin-bottom:0.35rem;">LEI Identifier (20 Alphanumeric):</label>
+      <input type="text" id="lei-input" value="5493001KJ957BDB55111" style="width:100%; padding:0.6rem 0.75rem; border:1px solid var(--rule-strong); border-radius:6px; font-size:0.9rem; background:var(--bg-page); color:var(--ink);" />
     </div>
     <div>
-      <label for="live-cdtr-name" style="font-size:0.85rem; font-weight:700; display:block; margin-bottom:0.25rem; color:var(--ink);">Creditor Name:</label>
-      <input type="text" id="live-cdtr-name" value="Widget Industries SA" style="width:100%; padding:0.5rem; border:1px solid var(--rule); border-radius:4px; font-size:0.85rem; background:var(--bg-page); color:var(--ink);" />
-    </div>
-    <div>
-      <label for="live-amt" style="font-size:0.85rem; font-weight:700; display:block; margin-bottom:0.25rem; color:var(--ink);">Settlement Amount:</label>
-      <input type="text" id="live-amt" value="25000.00" style="width:100%; padding:0.5rem; border:1px solid var(--rule); border-radius:4px; font-size:0.85rem; background:var(--bg-page); color:var(--ink);" />
-    </div>
-    <div>
-      <label for="live-ccy" style="font-size:0.85rem; font-weight:700; display:block; margin-bottom:0.25rem; color:var(--ink);">Currency (ISO 4217):</label>
-      <select id="live-ccy" style="width:100%; padding:0.5rem; border:1px solid var(--rule); border-radius:4px; font-size:0.85rem; background:var(--bg-page); color:var(--ink);">
-        <option value="EUR" selected>EUR — Euro</option>
-        <option value="GBP">GBP — British Pound</option>
-        <option value="USD">USD — US Dollar</option>
-        <option value="CHF">CHF — Swiss Franc</option>
-        <option value="JPY">JPY — Japanese Yen</option>
-      </select>
-    </div>
-    <div>
-      <label for="live-purpose" style="font-size:0.85rem; font-weight:700; display:block; margin-bottom:0.25rem; color:var(--ink);">Purpose Code:</label>
-      <select id="live-purpose" style="width:100%; padding:0.5rem; border:1px solid var(--rule); border-radius:4px; font-size:0.85rem; background:var(--bg-page); color:var(--ink);">
-        <option value="SALA" selected>SALA — Salary Payment</option>
-        <option value="SUPP">SUPP — Supplier Payment</option>
-        <option value="TRAD">TRAD — Trade Settlement</option>
-        <option value="INTC">INTC — Intra-Company Payment</option>
-      </select>
+      <button id="validate-lei-btn" type="button" class="pill pill-primary" style="width:100%;">Verify LEI &rsaquo;</button>
     </div>
   </div>
-
-  <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:1rem;">
-    <button id="generate-live-xml-btn" type="button" class="pill pill-primary">Generate pacs.008 XML &rsaquo;</button>
-    <span id="live-xml-status" style="font-size:0.85rem; font-weight:600; color:var(--link, #0f766e);">Validation: XSD Schema PASS (100% Compliant)</span>
-  </div>
-
-  <div style="margin-top: 1rem;">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
-      <span style="font-size:0.85rem; font-weight:700; color:var(--ink);">Generated ISO 20022 XML Preview:</span>
-      <button id="xml-copy-btn" type="button" class="pill pill-primary" style="padding:0.35rem 0.85rem; font-size:0.8rem;">Copy XML</button>
-    </div>
-    <pre id="xml-output" style="background:var(--bg-page); border:1px solid var(--rule); padding:1rem; border-radius:6px; font-size:0.85rem; max-height:350px; overflow:auto; color:var(--ink);"></pre>
-  </div>
+  <div id="lei-result" style="margin-top:1rem; font-size:0.85rem; font-weight:600; padding:0.75rem; border-radius:6px; background:var(--bg-page); border:1px solid var(--rule); color:var(--ink);">LEI Status: Click button to verify</div>
 </div>
 
 ---
 
-## 3. LEI & IBAN Compliance Verifier
+## Technical Security Guarantee
 
-Verify ISO 17442 Legal Entity Identifiers (LEI) and ISO 13616 IBAN checksums in real time:
-
-<div class="interactive-card" style="background:var(--bg-alt); border:1px solid var(--rule); border-radius:var(--radius-md, 8px); padding:1.5rem; margin:1.5rem 0;">
-  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:1rem; margin-bottom:1rem;">
-    <div>
-      <label for="lei-input" style="font-size:0.85rem; font-weight:700; display:block; margin-bottom:0.25rem; color:var(--ink);">LEI Identifier (ISO 17442):</label>
-      <input type="text" id="lei-input" value="5493001KJ957BDB55111" style="width:100%; padding:0.5rem; border:1px solid var(--rule); border-radius:4px; font-size:0.85rem; background:var(--bg-page); color:var(--ink);" />
-    </div>
-    <div style="display:flex; align-items:flex-end;">
-      <button id="validate-lei-btn" type="button" class="pill pill-primary" style="width:100%;">Verify LEI Checksum &rsaquo;</button>
-    </div>
-  </div>
-  <div id="lei-result" style="font-size:0.85rem; font-weight:600; padding:0.6rem; border-radius:4px; background:var(--bg-page); border:1px solid var(--rule); color:var(--ink);">LEI Status: Click button to verify</div>
-</div>
-
----
-
-## Key Features
-
-- **100% In-Browser Execution**: Zero data leaves your browser. All conversions and validations run locally via Web Standard JavaScript.
-- **CBPR+ 2026 Compliant**: Generates structured addresses and Purpose Codes required for the 2026 SWIFT co-existence deadline.
-- **Multi-Scheme Support**: Validated against SEPA, SCT Inst, Fedwire, CHAPS, HVPS+, and T2 RTGS rulesets.
+- **Client-Side Storage Only**: No network requests or telemetry are sent to external web servers.
+- **2026 Readiness**: Generates structured addresses and mandatory Purpose Codes required by SWIFT CBPR+ and Bank of England CHAPS.
