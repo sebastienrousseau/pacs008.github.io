@@ -1150,6 +1150,84 @@
         }
       })();
     </script>
-  
-</body>
+    <script src="/js/pacs008-tools.js"></script>
+    <script>
+      (function () {
+        function updateXmlPreview() {
+          var msgType = document.getElementById("xml-msg-type");
+          var iban = document.getElementById("xml-iban");
+          var bic = document.getElementById("xml-bic");
+          var amount = document.getElementById("xml-amount");
+          var ccy = document.getElementById("xml-ccy");
+          var output = document.getElementById("xml-output");
+
+          if (msgType && output && window.pacs008Tools) {
+            var xml = window.pacs008Tools.generateXml({
+              msgType: msgType.value,
+              debtorIban: iban ? iban.value : "",
+              creditorBic: bic ? bic.value : "",
+              amount: amount ? amount.value : 1250,
+              currency: ccy ? ccy.value : "EUR"
+            });
+            output.textContent = xml;
+          }
+        }
+
+        ["xml-msg-type", "xml-iban", "xml-bic", "xml-amount", "xml-ccy"].forEach(function (id) {
+          var el = document.getElementById(id);
+          if (el) {
+            el.addEventListener("change", updateXmlPreview);
+            el.addEventListener("input", updateXmlPreview);
+          }
+        });
+
+        var copyBtn = document.getElementById("xml-copy-btn");
+        if (copyBtn) {
+          copyBtn.addEventListener("click", function () {
+            var output = document.getElementById("xml-output");
+            if (output) {
+              navigator.clipboard.writeText(output.textContent);
+              copyBtn.textContent = "Copied!";
+              setTimeout(function () { copyBtn.textContent = "Copy XML"; }, 2000);
+            }
+          });
+        }
+
+        updateXmlPreview();
+
+        function updateAddressCompliance() {
+          var street = document.getElementById("addr-street");
+          var town = document.getElementById("addr-town");
+          var country = document.getElementById("addr-country");
+          var line1 = document.getElementById("addr-line1");
+          var badge = document.getElementById("addr-status-badge");
+          var detail = document.getElementById("addr-status-detail");
+
+          if (town && country && badge && detail && window.pacs008Tools) {
+            var res = window.pacs008Tools.validateAddress(
+              street ? street.value : "",
+              "",
+              town ? town.value : "",
+              country ? country.value : "",
+              line1 ? line1.value : "",
+              ""
+            );
+            badge.textContent = res.label;
+            detail.textContent = res.detail;
+            badge.style.background = res.status === "FULLY_STRUCTURED" ? "#0f766e" : (res.status === "HYBRID" ? "#b45309" : "#b91c1c");
+          }
+        }
+
+        ["addr-street", "addr-town", "addr-country", "addr-line1"].forEach(function (id) {
+          var el = document.getElementById(id);
+          if (el) {
+            el.addEventListener("change", updateAddressCompliance);
+            el.addEventListener("input", updateAddressCompliance);
+          }
+        });
+
+        updateAddressCompliance();
+      })();
+    </script>
+  </body>
 </html>

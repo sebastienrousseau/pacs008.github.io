@@ -1,5 +1,5 @@
 ---
-title: "pacs008 | বাংলা | ISO 20022 Toolkit"
+title: "pacs008 | ISO 20022 Payment Message Toolkit and API"
 description: "আর্থিক প্রতিষ্ঠানের মধ্যে গ্রাহক ক্রেডিট ট্রান্সফার ওয়ার্কফ্লোর জন্য ISO 20022 pacs.008 পেমেন্ট বার্তা তৈরি, যাচাই এবং বিতরণ করুন।"
 lang: "bn-BD"
 author: "Sebastien Rousseau"

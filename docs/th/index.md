@@ -1,5 +1,5 @@
 ---
-title: "pacs008 | ไทย | ISO 20022 Toolkit"
+title: "pacs008 | ISO 20022 Payment Message Toolkit and API"
 description: "การสร้าง ตรวจสอบ จัดเรียง API และสนับสนุนการปฏิบัติตามกฎระเบียบสำหรับเวิร์กโฟลว์โอนเครดิตลูกค้าระหว่างสถาบันการเงิน"
 lang: "th-TH"
 author: "Sebastien Rousseau"

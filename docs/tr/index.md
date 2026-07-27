@@ -1,5 +1,5 @@
 ---
-title: "pacs008 | Türkçe | ISO 20022 Toolkit"
+title: "pacs008 | ISO 20022 Payment Message Toolkit and API"
 description: "Finansal kuruluşlar arasındaki müşteri kredi transferi iş akışları için oluşturma, doğrulama, API orkestrasyonu ve uyumluluk desteği."
 lang: "tr-TR"
 author: "Sebastien Rousseau"

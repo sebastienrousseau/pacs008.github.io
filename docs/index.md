@@ -1,5 +1,5 @@
 ---
-title: "pacs008 | ISO 20022 pacs.008 Toolkit and API"
+title: "pacs008 | ISO 20022 Payment Message Toolkit and API"
 description: "Generate, validate, and deliver ISO 20022 pacs.008 payment messages. API orchestration and compliance support for FI-to-FI customer credit transfer workflows."
 lang: en-GB
 author: "Sebastien Rousseau"

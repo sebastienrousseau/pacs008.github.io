@@ -1,5 +1,5 @@
 ---
-title: "pacs008 | Hausa | ISO 20022 Toolkit"
+title: "pacs008 | ISO 20022 Payment Message Toolkit and API"
 description: "Ƙirƙira, tabbatarwa, da isar da saƙonnin biyan kuɗi na ISO 20022 pacs.008 don ayyukan canja wurin kuɗi tsakanin cibiyoyin kuɗi."
 lang: "ha-NG"
 author: "Sebastien Rousseau"

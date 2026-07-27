@@ -1,5 +1,5 @@
 ---
-title: "pacs008 | 日本語 | ISO 20022 Toolkit"
+title: "pacs008 | ISO 20022 Payment Message Toolkit and API"
 description: "金融機関間の顧客クレジット移転ワークフロー向けの生成、検証、API オーケストレーション、コンプライアンス対応。"
 lang: "ja-JP"
 author: "Sebastien Rousseau"

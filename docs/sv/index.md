@@ -1,5 +1,5 @@
 ---
-title: "pacs008 | Svenska | ISO 20022 Toolkit"
+title: "pacs008 | ISO 20022 Payment Message Toolkit and API"
 description: "Generera, validera och leverera ISO 20022 pacs.008-betalningsmeddelanden för arbetsflöden med kundkreditöverföringar mellan finansinstitut."
 lang: "sv-SE"
 author: "Sebastien Rousseau"

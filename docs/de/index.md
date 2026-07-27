@@ -1,5 +1,5 @@
 ---
-title: "pacs008 | Deutsch | ISO 20022 Toolkit"
+title: "pacs008 | ISO 20022 Payment Message Toolkit and API"
 description: "Generierung, Validierung, API-Orchestrierung und Compliance-Unterstützung für Kundenkredittransfer-Workflows zwischen Finanzinstituten."
 lang: "de-DE"
 author: "Sebastien Rousseau"

@@ -1,5 +1,5 @@
 ---
-title: "pacs008 | हिन्दी | ISO 20022 Toolkit"
+title: "pacs008 | ISO 20022 Payment Message Toolkit and API"
 description: "वित्तीय संस्थानों के बीच ग्राहक क्रेडिट ट्रांसफर वर्कफ़्लो के लिए जनरेशन, वैलिडेशन, API ऑर्केस्ट्रेशन और अनुपालन समर्थन।"
 lang: "hi-IN"
 author: "Sebastien Rousseau"

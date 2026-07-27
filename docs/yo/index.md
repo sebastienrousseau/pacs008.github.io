@@ -1,5 +1,5 @@
 ---
-title: "pacs008 | Yorùbá | ISO 20022 Toolkit"
+title: "pacs008 | ISO 20022 Payment Message Toolkit and API"
 description: "Ṣẹ̀dá, ṣàyẹ̀wò, àti fi àwọn ìfiránṣẹ́ ìsanwó ISO 20022 pacs.008 ránṣẹ́ fún àwọn ọ̀nà iṣẹ́ gbígbé owó àṣẹ láàárín àwọn ilé-iṣẹ́ ìṣúná."
 lang: "yo-NG"
 author: "Sebastien Rousseau"

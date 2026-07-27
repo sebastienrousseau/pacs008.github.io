@@ -1,5 +1,5 @@
 ---
-title: "pacs008 | العربية | ISO 20022 Toolkit"
+title: "pacs008 | ISO 20022 Payment Message Toolkit and API"
 description: "التوليد والتحقق وتنسيق واجهات البرمجة ودعم الامتثال لتدفقات تحويل الائتمان بين المؤسسات المالية."
 lang: "ar-SA"
 author: "Sebastien Rousseau"

@@ -1,5 +1,5 @@
 ---
-title: "pacs008 | Tiếng Việt | ISO 20022 Toolkit"
+title: "pacs008 | ISO 20022 Payment Message Toolkit and API"
 description: "Tạo, xác thực, điều phối API và hỗ trợ tuân thủ cho quy trình chuyển khoản tín dụng khách hàng giữa các tổ chức tài chính."
 lang: "vi-VN"
 author: "Sebastien Rousseau"

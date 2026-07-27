@@ -1,5 +1,5 @@
 ---
-title: "pacs008 | 繁體中文 | ISO 20022 Toolkit"
+title: "pacs008 | ISO 20022 Payment Message Toolkit and API"
 description: "面向金融機構間客戶信貸轉帳工作流程的產生、驗證、API 編排與合規支援。"
 lang: "zh-TW"
 author: "Sebastien Rousseau"

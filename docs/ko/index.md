@@ -1,5 +1,5 @@
 ---
-title: "pacs008 | 한국어 | ISO 20022 Toolkit"
+title: "pacs008 | ISO 20022 Payment Message Toolkit and API"
 description: "금융기관 간 고객 신용 이체 워크플로를 위한 생성, 검증, API 오케스트레이션, 규정 준수 지원."
 lang: "ko-KR"
 author: "Sebastien Rousseau"
