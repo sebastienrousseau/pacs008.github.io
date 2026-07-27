@@ -26,14 +26,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build site
-        run: npm run build
+      - name: Install ssg CLI
+        run: cargo install static-site-generator --version 0.0.48 || true
 
-      - name: Run tests
-        run: npm test
+      - name: Build site with ssg
+        run: ssg build -f config.toml
 
-      - name: Validate HTML
-        run: npm run validate
+      - name: Run ssg validators
+        run: ssg check -f config.toml
 
-      - name: Audit site
-        run: npm run audit:site

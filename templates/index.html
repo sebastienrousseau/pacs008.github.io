@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="{{language}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{title}}</title>
+  <meta name="description" content="{{description}}">
+  <meta name="author" content="{{author}}">
+  <link rel="canonical" href="{{base_url}}/">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{title}}">
+  <meta property="og:description" content="{{description}}">
+  <meta property="og:url" content="{{base_url}}/">
+  <meta property="og:site_name" content="{{site_name}}">
+
+  <!-- Basic Styling -->
+  <style>
+    :root {
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --bg-surface: #f1f5f9;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --brand-color: #084a53;
+      --brand-hover: #0d7a87;
+      --border-color: #e2e8f0;
+      --max-width: 1140px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-primary: #0f172a;
+        --bg-secondary: #1e293b;
+        --bg-surface: #334155;
+        --text-primary: #f8fafc;
+        --text-secondary: #cbd5e1;
+        --text-muted: #94a3b8;
+        --brand-color: #4fd6c9;
+        --brand-hover: #2dd4bf;
+        --border-color: #334155;
+      }
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background-color: var(--bg-primary);
+    }
+    a { color: var(--brand-color); text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+    
+    /* Navigation Header */
+    .site-header {
+      background-color: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-container { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .site-logo { display: flex; align-items: center; gap: 0.75rem; font-size: 1.25rem; font-weight: 700; color: var(--text-primary); }
+    .nav-list { display: flex; gap: 1.25rem; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+    .nav-list a { font-size: 0.9375rem; color: var(--text-secondary); }
+    .nav-list a:hover { color: var(--brand-color); text-decoration: none; }
+
+    /* Layout */
+    .site-main { padding: 3rem 0; min-height: calc(100vh - 220px); }
+    article { max-width: 800px; margin: 0 auto; }
+    h1 { font-size: 2.25rem; line-height: 1.2; margin-top: 0; margin-bottom: 1.5rem; }
+    h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+    h3 { font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+    code { font-family: var(--font-mono); background: var(--bg-surface); padding: 0.2em 0.4em; border-radius: 4px; font-size: 0.875em; }
+    pre { font-family: var(--font-mono); background: var(--bg-secondary); padding: 1.25rem; border-radius: 8px; overflow-x: auto; border: 1px solid var(--border-color); }
+    pre code { background: none; padding: 0; }
+
+    /* Footer */
+    .site-footer { background-color: var(--bg-secondary); border-top: 1px solid var(--border-color); padding: 3rem 0 2rem; margin-top: 4rem; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+    .footer-col h3, .footer-col h4 { margin-top: 0; margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; }
+    .footer-col li { margin-bottom: 0.5rem; }
+    .footer-col a { color: var(--text-secondary); }
+    .footer-bottom { border-top: 1px solid var(--border-color); padding-top: 1.5rem; text-align: center; color: var(--text-muted); font-size: 0.875rem; }
+
+    .skip-link { position: absolute; top: -100px; left: 1rem; background: var(--brand-color); color: white; padding: 0.5rem 1rem; border-radius: 4px; z-index: 1000; }
+    .skip-link:focus { top: 1rem; }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  {{header}}
+  <main id="main-content" class="site-main" role="main">
+    <div class="container">
+      <article>
+        <h1>{{title}}</h1>
+        {{content}}
+      </article>
+    </div>
+  </main>
+  {{footer}}
+</body>
+</html>

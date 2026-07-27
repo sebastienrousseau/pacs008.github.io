@@ -1,70 +1,73 @@
 # pacs008.github.io
 
-Marketing and documentation site for `pacs008`, built with [VitePress](https://vitepress.dev/) and deployed via GitHub Pages.
+Marketing and documentation site for `pacs008`, built with **`ssg`** (Static Site Generator v0.0.48) and deployed via GitHub Pages.
 
 ## Overview
 
-This repository hosts the official multi-locale documentation and marketing portal for the [`pacs008`](https://github.com/sebastienrousseau/pacs008) ISO 20022 toolkit. It supports 28 locales with localized navigation, metadata, and automated static site generation via `scripts/generate-locales.mjs`.
+This repository hosts the official multi-locale documentation and marketing portal for the [`pacs008`](https://github.com/sebastienrousseau/pacs008) ISO 20022 toolkit.
 
-## Development
+The site is built exclusively using [`static-site-generator`](https://github.com/sebastienrousseau/static-site-generator) (Rust `ssg` CLI v0.0.48).
+
+## Development & Build Commands
 
 ### Prerequisites
 
-- Node.js >= 20.0.0
-- npm >= 10.0.0
+- Rust & `ssg` CLI (`static-site-generator` v0.0.48)
+- Node.js >= 20.0.0 (optional, for validation utilities)
 
-### Installation
+### Local Dev Server
+
+Start the local `ssg` dev server with file watching and live reloading:
 
 ```bash
-npm install
+ssg dev -f config.toml
 ```
 
-### Local Development Server
-
-Start the local VitePress development server:
+Or via npm:
 
 ```bash
 npm run dev
 ```
 
-### Build & Static Generation
+### Static Site Build
 
-Generate locale files and build static HTML artifacts in `docs/.vitepress/dist`:
+Generate static HTML artifacts into `public/`:
+
+```bash
+ssg build -f config.toml
+```
+
+Or via npm:
 
 ```bash
 npm run build
 ```
 
-Preview the production build locally:
+### Validation & Audit
+
+Run `ssg` build-time validators and security audit gates:
 
 ```bash
-npm run preview
+ssg check -f config.toml
+ssg audit -f config.toml
 ```
 
-### Testing & Validation
-
-Run unit & integration test suites (Vitest):
+Or via npm:
 
 ```bash
 npm test
-```
-
-Validate built HTML pages for compliance (`html-validate`):
-
-```bash
 npm run validate
 ```
 
-Run site audit report for SEO, locale coverage, and readability metrics:
+## Configuration
 
-```bash
-npm run audit:site
-```
+Site configuration is stored in `config.toml`:
 
-## Repository Structure
+- `content_dir`: Source Markdown documentation files.
+- `output_dir`: Built static site destination (`public/`).
+- `template_dir`: HTML layout templates (`templates/`).
+- `site_name`, `site_title`, `site_url`, `author`, `language`: Site metadata.
 
-- `docs/` — Markdown documentation source and VitePress configuration (`docs/.vitepress/`).
-- `scripts/` — Build scripts (`generate-locales.mjs`, `postbuild-seo.mjs`, `audit-site.mjs`).
-- `tests/` — Test suites for navigation, responsive layouts, accessibility, and SEO.
-- `audit/` — SEO and content scorecard documentation.
-- `.github/workflows/` — CI/CD workflows for testing and GitHub Pages deployment.
+## Licence
+
+Content and code are released under the [Apache License 2.0](./LICENSE).
