@@ -15,15 +15,36 @@ image: /logo.webp
 canonical: "/live/"
 ---
 
+<style>
+  .workbench-card {
+    background: var(--bg-alt);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 1.75rem;
+    margin: 1.75rem 0;
+  }
+  .workbench-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+  @media (max-width: 768px) {
+    .workbench-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
 Generate, validate, and convert ISO 20022 pacs.008 payment messages in real time directly in your browser. No registration or server upload required — 100% local processing.
 
 ---
 
-<div class="workbench-card" style="background:var(--bg-alt); border:1px solid var(--rule); border-radius:12px; padding:1.75rem; margin:1.5rem 0;">
+<div class="workbench-card">
   <h2 style="margin-top:0; font-family:var(--type-display); font-size:1.35rem; color:var(--ink);">1. Generate pacs.008.001.13 Payment XML</h2>
   <p style="font-size:0.9rem; color:var(--ink-soft); margin-bottom:1.25rem;">Draft compliant FI-to-FI customer credit transfer messages with instant client-side schema validation.</p>
 
-  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:1.5rem; align-items:start;">
+  <div class="workbench-grid">
     <!-- Left Column: Controls -->
     <div style="display:flex; flex-direction:column; gap:0.85rem;">
       <div>
@@ -76,11 +97,11 @@ Generate, validate, and convert ISO 20022 pacs.008 payment messages in real time
 
 ---
 
-<div class="workbench-card" style="background:var(--bg-alt); border:1px solid var(--rule); border-radius:12px; padding:1.75rem; margin:1.5rem 0;">
+<div class="workbench-card">
   <h2 style="margin-top:0; font-family:var(--type-display); font-size:1.35rem; color:var(--ink);">2. Convert Legacy SWIFT MT103 to pacs.008 XML</h2>
   <p style="font-size:0.9rem; color:var(--ink-soft); margin-bottom:1.25rem;">Transform FIN MT103 text blocks into ISO 20022 pacs.008 XML structures with 100% data fidelity.</p>
 
-  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:1.5rem; align-items:start;">
+  <div class="workbench-grid">
     <!-- Left Column: Input MT103 -->
     <div style="display:flex; flex-direction:column; gap:0.85rem;">
       <label for="mt103-input" style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-mute);">SWIFT MT103 Text Block:</label>
@@ -107,7 +128,7 @@ Widget Industries SA
 
 ---
 
-<div class="workbench-card" style="background:var(--bg-alt); border:1px solid var(--rule); border-radius:12px; padding:1.75rem; margin:1.5rem 0;">
+<div class="workbench-card">
   <h2 style="margin-top:0; font-family:var(--type-display); font-size:1.35rem; color:var(--ink);">3. LEI (ISO 17442) Compliance Verifier</h2>
   <p style="font-size:0.9rem; color:var(--ink-soft); margin-bottom:1.25rem;">Verify Legal Entity Identifier structure and MOD-97 checksums instantly.</p>
 
