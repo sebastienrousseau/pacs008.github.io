@@ -28,7 +28,9 @@ jobs:
 
       - name: Install ssg CLI
         run: |
-          which ssg || cargo install static-site-generator --version 0.0.48
+          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+          export PATH="$HOME/.cargo/bin:$PATH"
+          which ssg || cargo install ssg --version 0.0.48
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -40,7 +42,9 @@ jobs:
         run: npm ci
 
       - name: Build site with ssg
-        run: npm run build
+        run: |
+          export PATH="$HOME/.cargo/bin:$PATH"
+          npm run build
 
       - name: Validate locale content
         run: node scripts/validate-all-locales.mjs
