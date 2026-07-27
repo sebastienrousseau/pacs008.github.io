@@ -27,6 +27,7 @@ const newNav = `<nav aria-label="Primary navigation" id="ap-primary-nav">
               <button type="button" class="ap-sub-toggle" aria-expanded="false" aria-controls="sub-tech" aria-label="Toggle Technical Guides submenu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button>
               <ul id="sub-tech" class="ap-sub">
                 <li><a href="/api/">API &amp; CLI Reference</a></li>
+                <li><a href="/api/#interactive-playground">See It Live (Playground)</a></li>
                 <li><a href="/pacs-explained/">pacs Messages Explained</a></li>
                 <li><a href="/structured-address/">Structured Address (2026)</a></li>
                 <li><a href="/security/">Security &amp; Compliance</a></li>
