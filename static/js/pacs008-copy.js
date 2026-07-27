@@ -1,6 +1,7 @@
 /**
  * Universal Code Copy Button Component for pacs008
- * Automatically cleans up nested <pre> tags and adds a single "Copy" button to static code blocks.
+ * Automatically adds a single "Copy" button to every static <pre><code> block,
+ * ensuring interactive tool cards retain their custom header buttons without duplicates.
  */
 
 (function () {
@@ -22,26 +23,21 @@
     const codeBlocks = document.querySelectorAll("pre");
 
     codeBlocks.forEach(function (pre) {
-      // 2. Ignore nested pre tags or outer pre container if inner pre exists
-      if ((pre.parentElement && pre.parentElement.closest("pre")) || pre.querySelector("pre")) {
-        return;
-      }
+      // 2. Ignore nested pre tags
+      if (pre.querySelector("pre")) return;
+      if (pre.parentElement && pre.parentElement.closest("pre")) return;
 
-      // 3. Skip if already processed, inside interactive cards, or output boxes
+      // 3. Skip interactive tool output boxes that have custom header buttons
       if (
-        pre.dataset.hasCopyBtn === "true" ||
-        pre.querySelector(".code-copy-btn") ||
-        pre.closest(".interactive-card") ||
         pre.id === "xml-output" ||
-        pre.id === "mt103-output"
+        pre.id === "mt103-output" ||
+        pre.closest(".interactive-card")
       ) {
         return;
       }
 
-      // 4. Skip if wrapper container already has any button
-      const wrapper = pre.closest(".code-block, div[class*='language-'], div[class*='highlight']") || pre.parentElement;
-      const contentBody = document.querySelector(".content-body") || document.body;
-      if (wrapper && wrapper !== contentBody && wrapper !== document.body && wrapper.querySelector("button")) {
+      // 4. Skip if already processed or already contains a code copy button
+      if (pre.dataset.hasCopyBtn === "true" || pre.querySelector(".code-copy-btn")) {
         return;
       }
 
