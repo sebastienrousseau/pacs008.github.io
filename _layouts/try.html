@@ -94,7 +94,7 @@
       a { color: var(--link); }
       a:hover { color: var(--link-hover); }
 
-      .wrap { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 1.75rem; }
+      .wrap { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 1.75rem; }
       .skip-link { position: absolute; top: -100px; left: 1rem; background: var(--btn-bg); color: var(--btn-text); padding: 0.5rem 1rem; border-radius: var(--radius-sm); z-index: 2000; }
       .skip-link:focus { top: 1rem; }
       .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -112,14 +112,14 @@
       .theme-toggle, .ap-search-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; min-width: 44px; min-height: 44px; padding: 0 0.5rem; background: transparent; border: 1px solid transparent; border-radius: 999px; color: var(--ink); cursor: pointer; font-family: inherit; }
       .ap-cta-mini { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 0 0.9rem; background: var(--btn-bg); color: var(--btn-text); border-radius: var(--radius-pill); font-size: 0.85rem; font-weight: 600; text-decoration: none; }
 
-      /* ==== Page header & Guide Grid ==== */
-      .page-header { padding: 4rem 0 2.5rem; border-bottom: 1px solid var(--rule); }
+      /* ==== Page header & Multi-Column Workbench Grid ==== */
+      .page-header { padding: 3.5rem 0 2rem; border-bottom: 1px solid var(--rule); }
       .page-header h1 { font-family: var(--type-display); font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 700; margin-bottom: 0.75rem; letter-spacing: -0.015em; }
       .deck { font-size: 1.2rem; color: var(--ink-soft); max-width: 62ch; line-height: 1.55; }
       .eyebrow { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--eyebrow); margin-bottom: 0.8rem; }
 
-      .guide-grid { display: grid; grid-template-columns: 320px 1fr; gap: 2.5rem; padding: 3rem 1.75rem 4rem; margin: 0 auto; max-width: 1180px; align-items: start; }
-      @media (max-width: 900px) { .guide-grid { grid-template-columns: 1fr; } }
+      .guide-grid { display: grid; grid-template-columns: 280px 1fr; gap: 2.5rem; padding: 3rem 1.75rem 4rem; margin: 0 auto; max-width: 1280px; align-items: start; }
+      @media (max-width: 768px) { .guide-grid { grid-template-columns: 1fr; } }
 
       .guide-rail { display: flex; flex-direction: column; gap: 1.75rem; }
       .guide-block { background: var(--bg-alt); border: 1px solid var(--rule); border-radius: var(--radius-md); padding: 1.35rem; font-size: 0.92rem; }
@@ -129,7 +129,21 @@
       .check-list .tick { color: var(--ok); font-weight: 800; }
 
       .tool-col { display: flex; flex-direction: column; gap: 2rem; }
-      .demo-panel { background: var(--bg-card); border: 1px solid var(--rule); border-radius: var(--radius-md); padding: 1.75rem; box-shadow: var(--shadow-sm); }
+
+      /* ==== 2-Column Split Workbench Layout (Input Left | Output Right) ==== */
+      .demo-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 1.5rem;
+        align-items: start;
+      }
+      @media (max-width: 768px) {
+        .demo-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .demo-panel { background: var(--bg-card); border: 1px solid var(--rule); border-radius: var(--radius-md); padding: 1.75rem; box-shadow: var(--shadow-sm); height: 100%; }
       .step-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }
       .step-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: var(--btn-bg); color: var(--btn-text); border-radius: 50%; font-size: 0.85rem; font-weight: 700; }
       .step-head h2 { font-family: var(--type-display); font-size: 1.3rem; font-weight: 700; color: var(--ink); margin: 0; }
@@ -151,7 +165,7 @@
       .editor-label { font-size: 0.85rem; font-weight: 700; color: var(--ink); display: block; margin-bottom: 0.5rem; }
       #csv-input { width: 100%; height: 180px; font-family: var(--type-mono); font-size: 0.85rem; padding: 0.85rem; border: 1px solid var(--rule-strong); border-radius: var(--radius-sm); background: var(--bg-page); color: var(--ink); }
 
-      .xml-out { background: var(--code-bg); color: var(--code-text); padding: 1.25rem; border-radius: var(--radius-sm); font-family: var(--type-mono); font-size: 0.82rem; line-height: 1.5; max-height: 380px; overflow: auto; white-space: pre-wrap; word-break: break-all; margin-top: 1rem; border: 1px solid var(--rule); }
+      .xml-out { background: var(--code-bg); color: var(--code-text); padding: 1.25rem; border-radius: var(--radius-sm); font-family: var(--type-mono); font-size: 0.82rem; line-height: 1.5; height: 260px; overflow: auto; white-space: pre-wrap; word-break: break-all; margin-top: 1rem; border: 1px solid var(--rule); }
       .xml-placeholder { color: var(--ink-mute); font-style: italic; }
       .status { font-weight: 600; font-size: 0.9rem; color: var(--ink-soft); margin-top: 0.5rem; }
 
@@ -217,41 +231,43 @@
         </aside>
 
         <div class="tool-col">
-          <section class="demo-panel">
-            <div class="step-head"><span class="step-num" aria-hidden="true">1</span><h2>Add your payment data</h2></div>
-            <div class="dropzone" id="dropzone" role="button" tabindex="0">
-              <p><strong>Drag a CSV file here</strong> — or click to browse</p>
-              <p class="hint">Maximum 2 MB · read locally by your browser, never uploaded</p>
-            </div>
-            <input type="file" id="file-input" class="visually-hidden" accept=".csv,text/csv,text/plain" />
-            <div class="demo-actions">
-              <select id="sample-select" class="pill-select">
-                <option value="">Load a sample&hellip;</option>
-                <option value="sepa-sct">SEPA credit transfer (2 records, EUR)</option>
-                <option value="cross-border">Cross-border (GBP)</option>
-                <option value="batch-20">Larger batch (20 records)</option>
-              </select>
-              <button type="button" id="paste-btn" class="pill pill-ghost">Paste records</button>
-            </div>
-
-            <div class="editor-block" id="editor-block" hidden>
-              <label class="editor-label" for="csv-input">Review and edit your records</label>
-              <textarea id="csv-input" spellcheck="false"></textarea>
-              <div class="demo-actions">
-                <button type="button" id="run-btn" class="pill pill-primary">Validate &amp; generate&nbsp;&rsaquo;</button>
+          <div class="demo-grid">
+            <section class="demo-panel">
+              <div class="step-head"><span class="step-num" aria-hidden="true">1</span><h2>Add your payment data</h2></div>
+              <div class="dropzone" id="dropzone" role="button" tabindex="0">
+                <p><strong>Drag a CSV file here</strong> — or click to browse</p>
+                <p class="hint">Maximum 2 MB · read locally by your browser, never uploaded</p>
               </div>
-            </div>
-          </section>
+              <input type="file" id="file-input" class="visually-hidden" accept=".csv,text/csv,text/plain" />
+              <div class="demo-actions">
+                <select id="sample-select" class="pill-select">
+                  <option value="">Load a sample&hellip;</option>
+                  <option value="sepa-sct">SEPA credit transfer (2 records, EUR)</option>
+                  <option value="cross-border">Cross-border (GBP)</option>
+                  <option value="batch-20">Larger batch (20 records)</option>
+                </select>
+                <button type="button" id="paste-btn" class="pill pill-ghost">Paste records</button>
+              </div>
 
-          <section class="demo-panel">
-            <div class="step-head"><span class="step-num" aria-hidden="true">2</span><h2>Validation result &amp; generated pacs.008 XML</h2></div>
-            <p class="status" id="status" role="status">Add data in step 1 — validation runs automatically.</p>
-            <div class="xml-out" id="xml-out"><span class="xml-placeholder">The validated pacs.008.001.13 document will appear here — add data in step 1.</span></div>
-            <div class="demo-actions">
-              <button type="button" id="copy-btn" class="pill pill-ghost" disabled>Copy XML</button>
-              <button type="button" id="download-btn" class="pill pill-ghost" disabled>Download .xml</button>
-            </div>
-          </section>
+              <div class="editor-block" id="editor-block" hidden>
+                <label class="editor-label" for="csv-input">Review and edit your records</label>
+                <textarea id="csv-input" spellcheck="false"></textarea>
+                <div class="demo-actions">
+                  <button type="button" id="run-btn" class="pill pill-primary">Validate &amp; generate&nbsp;&rsaquo;</button>
+                </div>
+              </div>
+            </section>
+
+            <section class="demo-panel">
+              <div class="step-head"><span class="step-num" aria-hidden="true">2</span><h2>Validation result &amp; generated pacs.008 XML</h2></div>
+              <p class="status" id="status" role="status">Add data in step 1 — validation runs automatically.</p>
+              <div class="xml-out" id="xml-out"><span class="xml-placeholder">The validated pacs.008.001.13 document will appear here — add data in step 1.</span></div>
+              <div class="demo-actions">
+                <button type="button" id="copy-btn" class="pill pill-ghost" disabled>Copy XML</button>
+                <button type="button" id="download-btn" class="pill pill-ghost" disabled>Download .xml</button>
+              </div>
+            </section>
+          </div>
         </div>
       </div>
     </main>
