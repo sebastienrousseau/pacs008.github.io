@@ -17,9 +17,12 @@ function patchFile(filePath) {
   const isHome = filePath.endsWith("index.md") && (filePath === path.join(docsDir, "index.md") || filePath.split(path.sep).length <= docsDir.split(path.sep).length + 2);
   const layout = isHome ? "index" : "page";
 
-  const fieldsToAdd = {
+  const fields = {
     layout: layout,
     date: '"2026-07-27"',
+    news_publication_date: '"2026-07-27"',
+    item_pub_date: '"2026-07-27"',
+    last_build_date: '"2026-07-27"',
     name: "pacs008",
     short_name: "pacs008",
     start_url: "/",
@@ -28,9 +31,25 @@ function patchFile(filePath) {
     theme_color: '"#084a53"'
   };
 
-  for (const [key, value] of Object.entries(fieldsToAdd)) {
-    if (!new RegExp(`^${key}:`, "m").test(frontmatter)) {
+  // Replace or append fields
+  for (const [key, value] of Object.entries(fields)) {
+    const reg = new RegExp(`^${key}:.*$`, "m");
+    if (reg.test(frontmatter)) {
+      frontmatter = frontmatter.replace(reg, `${key}: ${value}`);
+    } else {
       frontmatter += `\n${key}: ${value}`;
+    }
+  }
+
+  // Ensure title is present and non-empty
+  const titleMatch = frontmatter.match(/^title:\s*(.*)$/m);
+  if (!titleMatch || !titleMatch[1].trim()) {
+    const h1Match = body.match(/^#\s+(.*)$/m);
+    const fallbackTitle = h1Match ? h1Match[1].trim() : "pacs008";
+    if (titleMatch) {
+      frontmatter = frontmatter.replace(/^title:.*$/m, `title: "${fallbackTitle}"`);
+    } else {
+      frontmatter += `\ntitle: "${fallbackTitle}"`;
     }
   }
 
@@ -52,4 +71,4 @@ function processDir(dir) {
 }
 
 processDir(docsDir);
-console.log(`Patched all docs in ${targetArg} with ssg frontmatter fields.`);
+console.log(`Patched all docs in ${targetArg} with complete ssg frontmatter.`);
