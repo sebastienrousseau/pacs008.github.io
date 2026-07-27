@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pacs008 — ISO 20022 pacs.008 toolkit</title>
+    <link>https://pacs008.com/</link>
+    <atom:link href="https://pacs008.com/rss.xml" rel="self" type="application/rss+xml" />
+    <description>Updates from the pacs008 suite: the ISO 20022 pacs.008 core library, the MT103 migration loader, and the MCP server.</description>
+    <language>en-GB</language>
+    <category>Finance</category>
+    <lastBuildDate>Mon, 27 Jul 2026 09:00:00 +0000</lastBuildDate>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <ttl>1440</ttl>
+    <item>
+      <title>The pacs008 suite is live on PyPI</title>
+      <link>https://pacs008.com/the-suite/</link>
+      <guid isPermaLink="true">https://pacs008.com/the-suite/</guid>
+      <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+      <description>pacs008 v0.0.8, pacs008-loader-mt103 v0.0.3 and pacs008-mcp v0.0.6 are published, typed (py.typed) and Apache-2.0 licensed. Generate, validate and audit ISO 20022 pacs.008 across CBPR+, HVPS+, Fedwire, CHAPS, T2 and SCT Inst.</description>
+    </item>
+  </channel>
+</rss>

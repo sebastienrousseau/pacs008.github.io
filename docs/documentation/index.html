@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>pacs008 documentation — API, validation, schemes &amp; security</title>
+  <meta name="description" content="Documentation hub for the pacs008 suite: where to find API references, validation layers, scheme profiles, structured postal addresses, MCP tools and security guidance for ISO 20022 pacs.008 tooling.">
+  <meta name="keywords" content="pacs008 documentation, pacs.008 API, ISO 20022 validation, JSON Schema, IBAN checksum, XSD, CBPR+, HVPS+, Fedwire, CHAPS, T2 RTGS, SCT Inst, PostalAddress27, defusedxml, MCP tools, pacs.008 versions">
+  <meta name="author" content="Sebastien Rousseau">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#08525b" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+  <meta name="generator" content="Handcrafted, self-hosted, zero third-party">
+  <meta name="accessibility" content="ARIA, fullKeyboardControl, structuredNavigation, noFlashingHazard, WCAG-AAA">
+
+  <link rel="canonical" href="https://pacs008.com/documentation/">
+  <link rel="alternate" hreflang="en-gb" href="https://pacs008.com/documentation/">
+  <link rel="alternate" hreflang="x-default" href="https://pacs008.com/documentation/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="alternate" type="application/rss+xml" title="pacs008 updates" href="/rss.xml">
+  <link rel="preload" as="style" href="/assets/styles.css">
+  <link rel="stylesheet" href="/assets/styles.css">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="pacs008">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="pacs008 documentation — API, validation, schemes &amp; security">
+  <meta property="og:description" content="Documentation hub for the pacs008 suite: API references, validation layers, scheme profiles, structured postal addresses, MCP tools and security guidance.">
+  <meta property="og:url" content="https://pacs008.com/documentation/">
+  <meta property="og:image" content="https://pacs008.com/assets/og.svg">
+  <meta property="og:image:alt" content="pacs008 — ISO 20022 pacs.008 toolkit">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="pacs008 documentation — API, validation, schemes &amp; security">
+  <meta name="twitter:description" content="Documentation hub for the pacs008 suite: API references, validation layers, scheme profiles, structured addresses, MCP tools and security.">
+  <meta name="twitter:image" content="https://pacs008.com/assets/og.svg">
+  <meta name="twitter:image:alt" content="pacs008 — ISO 20022 pacs.008 toolkit">
+
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; base-uri 'self'; form-action 'self' https://formspree.io; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests">
+
+  <script src="/assets/theme-init.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://pacs008.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Documentation",
+        "item": "https://pacs008.com/documentation/"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="/">
+          <svg class="brand-mark" width="30" height="30" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+            <rect width="64" height="64" rx="14" fill="currentColor"></rect>
+            <path d="M16 24h24a8 8 0 0 1 0 16H26" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M22 18l-8 6 8 6" fill="none" stroke="#4fd6c9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M42 46l8-6-8-6" fill="none" stroke="#4fd6c9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <span>pacs008</span>
+        </a>
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+          <span aria-hidden="true">☰</span> Menu
+        </button>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="/">Home</a></li>
+          <li><a href="/the-suite/">The suite</a></li>
+          <li><a href="/iso-20022/">ISO 20022</a></li>
+          <li><a href="/installation/">Install</a></li>
+          <li><a href="/documentation/" aria-current="page">Docs</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li>
+            <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">
+              <span aria-hidden="true">◐</span>
+              <span class="theme-toggle-label">Dark</span>
+              <span class="visually-hidden"> mode</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><span aria-current="page">Documentation</span></li>
+        </ol>
+      </nav>
+    </div>
+
+    <section aria-labelledby="doc-title">
+      <div class="container">
+        <h1 id="doc-title">pacs008 documentation</h1>
+        <p class="lead">This is your map to the suite. The canonical, always-current API reference for each package lives in its GitHub README — this page orients you, explains the core concepts, and points you to the exact place to read next.</p>
+        <p class="prose">The pacs008 suite is documentation-first at the source: every public function, validator and scheme profile is described alongside the code it governs. Rather than duplicate and risk drift, this hub summarises the moving parts and links you straight to the authoritative READMEs on GitHub and the package pages on PyPI.</p>
+      </div>
+    </section>
+
+    <section class="section-alt" aria-labelledby="packages-title">
+      <div class="container">
+        <h2 id="packages-title" class="mt-0">The packages</h2>
+        <p class="prose">Three composable, Apache-2.0 packages. Each README is the canonical API documentation for that package.</p>
+        <div class="grid">
+          <article class="card suite-card">
+            <p><span class="pkg">pacs008</span></p>
+            <h3>The core library</h3>
+            <p>Generate, validate, parse and audit pacs.008 across versions 001.01–001.13, with scheme-aware rules and a FastAPI service.</p>
+            <p><a href="https://github.com/sebastienrousseau/pacs008">GitHub</a> · <a href="https://pypi.org/project/pacs008/">PyPI</a></p>
+          </article>
+          <article class="card suite-card">
+            <p><span class="pkg">pacs008-loader-mt103</span></p>
+            <h3>MT103 migration loader</h3>
+            <p>Bridge legacy SWIFT MT103 payloads into clean pacs.008 records without hand-mapping every field.</p>
+            <p><a href="https://github.com/sebastienrousseau/pacs008-loader-mt103">GitHub</a> · <a href="https://pypi.org/project/pacs008-loader-mt103/">PyPI</a></p>
+          </article>
+          <article class="card suite-card">
+            <p><span class="pkg">pacs008-mcp</span></p>
+            <h3>MCP server for agents</h3>
+            <p>Model Context Protocol tools over stdio, backed by the core library, for agent-assisted pacs.008 workflows.</p>
+            <p><a href="https://github.com/sebastienrousseau/pacs008-mcp">GitHub</a> · <a href="https://pypi.org/project/pacs008-mcp/">PyPI</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="concepts-title">
+      <div class="container">
+        <h2 id="concepts-title" class="mt-0">Core concepts</h2>
+        <p class="prose">A short tour of the ideas that recur throughout the API. Each maps to a module in the core library.</p>
+
+        <h3>Generation</h3>
+        <p class="prose">The core library builds valid pacs.008 FI-to-FI Customer Credit Transfer messages across the supported version range (001.01 through 001.13). You supply party, agent and amount data; the generator emits schema-conformant XML pinned to the version and scheme you target.</p>
+
+        <h3>Validation layers</h3>
+        <p class="prose">Validation runs in layers so failures surface early and specifically: first a <code>JSON Schema</code> check on the structured input, then an <code>IBAN</code> checksum verification on account identifiers, and finally an <code>XSD</code> check of the serialised message against the official ISO 20022 schema. A message must pass every layer to be considered clean.</p>
+
+        <h3>Scheme profiles</h3>
+        <p class="prose">A message can be schema-valid yet wrong for its rail. Dedicated profiles encode the rules each market enforces for CBPR+, HVPS+, Fedwire, CHAPS, T2 RTGS and SCT Inst — covering usage guidelines, tracking requirements, cardinality and timing.</p>
+
+        <h3>Structured postal address</h3>
+        <p class="prose">Party addresses are modelled with <code>PostalAddress27</code>, supporting fully structured and hybrid forms. This is the mechanism for meeting the structured-address requirements that take effect in November 2026, when unstructured addresses begin to be rejected in key payment messages.</p>
+
+        <h3>Security</h3>
+        <p class="prose">XML is parsed with <code>defusedxml</code> to defend against XXE (XML external entity) attacks, file access is constrained by path-traversal allow-listing, and PII is masked in structured JSON logs to align with GDPR and PCI DSS expectations.</p>
+      </div>
+    </section>
+
+    <section class="section-alt" aria-labelledby="versions-title">
+      <div class="container">
+        <h2 id="versions-title" class="mt-0">pacs.008 versions</h2>
+        <p class="prose">The core library supports the full pacs.008.001 range. The notes below summarise the general direction of each revision; consult the official ISO 20022 message definition reports for the definitive change list.</p>
+        <div class="table-wrap">
+          <table>
+            <caption>pacs.008.001 versions and the broad focus of each revision.</caption>
+            <thead>
+              <tr><th scope="col">Version</th><th scope="col">Notable additions</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">001.02</th><td>Early schema refinements to the FI-to-FI credit transfer definition.</td></tr>
+              <tr><th scope="row">001.03</th><td>Schema refinements and maintenance updates.</td></tr>
+              <tr><th scope="row">001.04</th><td>Schema refinements and maintenance updates.</td></tr>
+              <tr><th scope="row">001.05</th><td>Schema refinements and maintenance updates.</td></tr>
+              <tr><th scope="row">001.06</th><td>Schema refinements aligned with evolving market-practice guidelines.</td></tr>
+              <tr><th scope="row">001.07</th><td>Schema refinements and maintenance updates.</td></tr>
+              <tr><th scope="row">001.08</th><td>Adds the UETR (unique end-to-end transaction reference) for end-to-end tracking.</td></tr>
+              <tr><th scope="row">001.09</th><td>Refinements consolidating CBPR+ and market-infrastructure usage.</td></tr>
+              <tr><th scope="row">001.10</th><td>Structured remittance and mandate-related refinements.</td></tr>
+              <tr><th scope="row">001.11</th><td>Schema refinements supporting richer structured party data.</td></tr>
+              <tr><th scope="row">001.12</th><td>Schema refinements and maintenance updates.</td></tr>
+              <tr><th scope="row">001.13</th><td>Adds message-expiry handling and further refinements.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="mcp-title">
+      <div class="container">
+        <h2 id="mcp-title" class="mt-0">MCP tools</h2>
+        <p class="prose">The <code>pacs008-mcp</code> package exposes fifteen Model Context Protocol tools over stdio, backed by the core library. They cover get, validate and generate-style operations, so MCP-capable clients such as Claude, Cursor and Zed can read and edit pacs.008 messages safely, span by span.</p>
+        <p class="prose">See the <a href="https://github.com/sebastienrousseau/pacs008-mcp">pacs008-mcp README on GitHub</a> for the full tool list and client configuration.</p>
+      </div>
+    </section>
+
+    <section class="section-alt" aria-labelledby="support-title">
+      <div class="container">
+        <h2 id="support-title" class="mt-0">Support &amp; contributing</h2>
+        <p class="prose">Found a bug, or want to propose a change? Open an issue on <a href="https://github.com/sebastienrousseau/pacs008/issues">GitHub issues</a>. Contributions are welcome across the suite. For anything else, use the <a href="/contact/">contact page</a>.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="next-title">
+      <div class="container">
+        <h2 id="next-title" class="mt-0">Where to next</h2>
+        <p class="prose">Install the suite, or compare the packages in detail.</p>
+        <div class="btn-group">
+          <a class="btn btn-primary" href="/installation/">Read the install guide</a>
+          <a class="btn btn-secondary" href="/the-suite/">Explore the suite</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h2>Suite</h2>
+          <ul>
+            <li><a href="https://pypi.org/project/pacs008/">pacs008 (core)</a></li>
+            <li><a href="https://pypi.org/project/pacs008-loader-mt103/">MT103 loader</a></li>
+            <li><a href="https://pypi.org/project/pacs008-mcp/">MCP server</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Learn</h2>
+          <ul>
+            <li><a href="/iso-20022/">ISO 20022 &amp; pacs.008</a></li>
+            <li><a href="/documentation/">Documentation</a></li>
+            <li><a href="/installation/">Installation</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Project</h2>
+          <ul>
+            <li><a href="https://github.com/sebastienrousseau/pacs008">GitHub</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/the-suite/">The suite</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Legal</h2>
+          <ul>
+            <li><a href="/privacy/">Privacy</a></li>
+            <li><a href="/terms/">Terms</a></li>
+            <li><a href="https://www.apache.org/licenses/LICENSE-2.0">Apache-2.0 licence</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 pacs008. Open source under the Apache&nbsp;2.0 licence.</span>
+        <span>Built accessibility-first · WCAG&nbsp;2.1&nbsp;AAA · no trackers.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/main.js" defer></script>
+</body>
+</html>

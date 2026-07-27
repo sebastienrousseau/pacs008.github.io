@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="pacs008 — ISO 20022 pacs.008 toolkit">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#08525b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g transform="translate(96 150)">
+    <rect width="96" height="96" rx="22" fill="#0d1117" stroke="#4fd6c9" stroke-width="3"/>
+    <path d="M26 40h40a12 12 0 0 1 0 24H42" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M34 30l-12 10 12 10" fill="none" stroke="#4fd6c9" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M66 74l12-10-12-10" fill="none" stroke="#4fd6c9" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="220" y="228" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="64" font-weight="800" fill="#e8eef4">pacs008</text>
+  <text x="98" y="330" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="52" font-weight="800" fill="#ffffff">ISO 20022 pacs.008, done right.</text>
+  <text x="98" y="398" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="30" font-weight="400" fill="#aeb9c5">Generate, validate &amp; audit FI-to-FI credit transfers —</text>
+  <text x="98" y="440" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="30" font-weight="400" fill="#aeb9c5">CBPR+, HVPS+, Fedwire, CHAPS, T2 and SCT Inst.</text>
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="26" font-weight="700">
+    <rect x="98" y="500" width="260" height="56" rx="28" fill="#4fd6c9"/>
+    <text x="228" y="537" fill="#0d1117" text-anchor="middle">pip install pacs008</text>
+    <text x="386" y="537" fill="#aeb9c5" font-weight="400">Open source · Apache-2.0 · typed</text>
+  </g>
+</svg>
