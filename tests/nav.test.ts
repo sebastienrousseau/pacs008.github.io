@@ -83,7 +83,7 @@ describe("Homepage features", () => {
     expect(html).toContain("What it does");
     expect(html).toContain("Validation");
     expect(html).toContain("Security");
-    expect(html).toContain("2026 Readiness");
+    expect(html).toContain("2026 readiness");
   });
 });
 
