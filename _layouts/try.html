@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta itemprop="datePublished" content="{{item_pub_date}}" id="date" />
+    <meta itemprop="dateModified" content="{{last_build_date}}" id="last-modified" />
+    <title>{{title}}</title>
+
+    {{primary}}
+    {{opengraph}}
+    <meta property="og:image" content="https://pacs008.com/og/pacs008-card.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="{{banner_alt}}" />
+    <meta name="accessibility" content="ARIA, fullKeyboardControl, noFlashingHazard" />
+    {{apple}}
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' https://cloudcdn.pro data:; style-src 'self' 'unsafe-inline' 'unsafe-hashes' 'sha256-+naa4DVyLB6dFJG6pe9ePhWQvc+IemcuXsxc1C9yQdg='; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; connect-src 'self'; font-src 'self'; form-action 'self' https://formspree.io" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    {{microsoft}}
+    {{twitter}}
+
+    <link rel="alternate" href="{{url}}" hreflang="{{hreflang}}" />
+    <link rel="canonical" href="{{url}}" />
+    <link rel="icon" type="image/svg+xml" href="/pacs008/v1/logos/pacs008.svg" sizes="any" />
+    <link rel="preload" href="/fonts/source-serif-4-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#0b0e14" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="color-scheme" content="light dark" />
+
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (t === "dark" || t === "light") {
+            document.documentElement.setAttribute("data-theme", t);
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <style>
+      @font-face {
+        font-family: "Source Serif 4";
+        font-style: normal; font-weight: 400; font-display: swap;
+        src: url("/fonts/source-serif-4-latin-400-normal.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Source Serif 4";
+        font-style: normal; font-weight: 600; font-display: swap;
+        src: url("/fonts/source-serif-4-latin-600-normal.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Source Serif 4";
+        font-style: normal; font-weight: 700; font-display: swap;
+        src: url("/fonts/source-serif-4-latin-700-normal.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+
+      :root {
+        --type-display: "Source Serif 4", "Iowan Old Style", Palatino, "New York", ui-serif, Georgia, serif;
+        --type-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        --type-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+        --bg-page: #ffffff; --bg-alt: #f7f5f1; --bg-card: #fdfcfa;
+        --ink: #1d1d1f; --ink-soft: #3a3a3c; --ink-mute: #4d4d55;
+        --rule: #e4e1da; --rule-strong: #c9c5bb;
+        --link: #0a5566; --link-hover: #073f4c; --eyebrow: #684d00;
+        --btn-bg: #1d1d1f; --btn-text: #ffffff; --focus-ring: #0a5566;
+        --ok: #14532d; --bad: #7f1d1d;
+        --code-bg: #14161c; --code-text: #f2f3f5;
+        --shadow-sm: 0 1px 2px rgb(29 29 31 / 0.06);
+        --shadow-md: 0 12px 32px -12px rgb(29 29 31 / 0.18);
+        --radius-sm: 8px; --radius-md: 14px; --radius-pill: 999px;
+      }
+      [data-theme="dark"] {
+        --bg-page: #0b0e14; --bg-alt: #131722; --bg-card: #161b26;
+        --ink: #f5f5f7; --ink-soft: #d2d2d7; --ink-mute: #86868b;
+        --rule: #232936; --rule-strong: #343c4e;
+        --link: #40b5d0; --link-hover: #67c8de; --eyebrow: #e5b800;
+        --btn-bg: #f5f5f7; --btn-text: #0b0e14; --focus-ring: #40b5d0;
+        --ok: #4ade80; --bad: #f87171;
+        --code-bg: #07090e; --code-text: #e6edf3;
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html { font-family: var(--type-body); font-size: 16px; line-height: 1.5; color: var(--ink); background: var(--bg-page); }
+      body { min-height: 100vh; display: flex; flex-direction: column; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
+      a { color: var(--link); }
+      a:hover { color: var(--link-hover); }
+
+      .wrap { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 1.75rem; }
+      .skip-link { position: absolute; top: -100px; left: 1rem; background: var(--btn-bg); color: var(--btn-text); padding: 0.5rem 1rem; border-radius: var(--radius-sm); z-index: 2000; }
+      .skip-link:focus { top: 1rem; }
+      .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+      /* ==== Navigation ==== */
+      .ap-nav { position: sticky; top: 0; z-index: 1000; background: color-mix(in srgb, var(--bg-page) 92%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); }
+      .ap-nav-wrap { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1rem; min-height: 64px; }
+      .ap-brand { justify-self: start; display: inline-flex; align-items: center; gap: 0.55rem; font-family: var(--type-display); font-size: 1.2rem; font-weight: 700; color: var(--ink); text-decoration: none; min-height: 44px; white-space: nowrap; }
+      .ap-brand img { width: 26px; height: 26px; }
+      .ap-menu { justify-self: center; display: flex; align-items: center; list-style: none; margin: 0; padding: 0; gap: 0.35rem; }
+      .ap-menu > li { position: relative; display: inline-flex; align-items: center; }
+      .ap-menu a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 0.55rem; color: var(--ink-soft); text-decoration: none; font-size: 0.9rem; font-weight: 500; white-space: nowrap; border-radius: var(--radius-sm); }
+      .ap-menu a:hover { color: var(--ink); background: var(--bg-alt); }
+      .ap-nav-right { justify-self: end; display: inline-flex; align-items: center; gap: 0.35rem; }
+      .theme-toggle, .ap-search-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; min-width: 44px; min-height: 44px; padding: 0 0.5rem; background: transparent; border: 1px solid transparent; border-radius: 999px; color: var(--ink); cursor: pointer; font-family: inherit; }
+      .ap-cta-mini { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 0 0.9rem; background: var(--btn-bg); color: var(--btn-text); border-radius: var(--radius-pill); font-size: 0.85rem; font-weight: 600; text-decoration: none; }
+
+      /* ==== Page header & Guide Grid ==== */
+      .page-header { padding: 4rem 0 2.5rem; border-bottom: 1px solid var(--rule); }
+      .page-header h1 { font-family: var(--type-display); font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 700; margin-bottom: 0.75rem; letter-spacing: -0.015em; }
+      .deck { font-size: 1.2rem; color: var(--ink-soft); max-width: 62ch; line-height: 1.55; }
+      .eyebrow { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--eyebrow); margin-bottom: 0.8rem; }
+
+      .guide-grid { display: grid; grid-template-columns: 320px 1fr; gap: 2.5rem; padding: 3rem 1.75rem 4rem; margin: 0 auto; max-width: 1180px; align-items: start; }
+      @media (max-width: 900px) { .guide-grid { grid-template-columns: 1fr; } }
+
+      .guide-rail { display: flex; flex-direction: column; gap: 1.75rem; }
+      .guide-block { background: var(--bg-alt); border: 1px solid var(--rule); border-radius: var(--radius-md); padding: 1.35rem; font-size: 0.92rem; }
+      .guide-block h2 { font-family: var(--type-display); font-size: 1.15rem; font-weight: 700; margin-bottom: 0.85rem; color: var(--ink); }
+      .check-list, .info-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; color: var(--ink-soft); }
+      .check-list li { display: flex; gap: 0.6rem; }
+      .check-list .tick { color: var(--ok); font-weight: 800; }
+
+      .tool-col { display: flex; flex-direction: column; gap: 2rem; }
+      .demo-panel { background: var(--bg-card); border: 1px solid var(--rule); border-radius: var(--radius-md); padding: 1.75rem; box-shadow: var(--shadow-sm); }
+      .step-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }
+      .step-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: var(--btn-bg); color: var(--btn-text); border-radius: 50%; font-size: 0.85rem; font-weight: 700; }
+      .step-head h2 { font-family: var(--type-display); font-size: 1.3rem; font-weight: 700; color: var(--ink); margin: 0; }
+
+      .dropzone { border: 2px dashed var(--rule-strong); border-radius: var(--radius-md); padding: 2.25rem 1.5rem; text-align: center; background: var(--bg-page); cursor: pointer; transition: all 0.2s ease; }
+      .dropzone:hover { border-color: var(--link); background: var(--bg-alt); }
+      .dropzone p { margin-bottom: 0.35rem; color: var(--ink); }
+      .dropzone .hint { font-size: 0.85rem; color: var(--ink-mute); margin-bottom: 0; }
+
+      .demo-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.25rem; align-items: center; }
+      .pill-select, .pill { display: inline-flex; align-items: center; min-height: 40px; padding: 0 1rem; border-radius: var(--radius-pill); font-size: 0.88rem; font-weight: 600; cursor: pointer; transition: all 0.18s ease; font-family: inherit; }
+      .pill-select { background: var(--bg-alt); border: 1px solid var(--rule-strong); color: var(--ink); }
+      .pill-primary { background: var(--btn-bg); color: var(--btn-text); border: 1px solid var(--btn-bg); text-decoration: none; }
+      .pill-primary:hover { opacity: 0.9; }
+      .pill-ghost { background: var(--bg-alt); border: 1px solid var(--rule-strong); color: var(--ink); }
+      .pill-ghost:hover { background: var(--bg-page); border-color: var(--ink-soft); }
+
+      .editor-block { margin-top: 1.25rem; }
+      .editor-label { font-size: 0.85rem; font-weight: 700; color: var(--ink); display: block; margin-bottom: 0.5rem; }
+      #csv-input { width: 100%; height: 180px; font-family: var(--type-mono); font-size: 0.85rem; padding: 0.85rem; border: 1px solid var(--rule-strong); border-radius: var(--radius-sm); background: var(--bg-page); color: var(--ink); }
+
+      .xml-out { background: var(--code-bg); color: var(--code-text); padding: 1.25rem; border-radius: var(--radius-sm); font-family: var(--type-mono); font-size: 0.82rem; line-height: 1.5; max-height: 380px; overflow: auto; white-space: pre-wrap; word-break: break-all; margin-top: 1rem; border: 1px solid var(--rule); }
+      .xml-placeholder { color: var(--ink-mute); font-style: italic; }
+      .status { font-weight: 600; font-size: 0.9rem; color: var(--ink-soft); margin-top: 0.5rem; }
+
+      .footer { border-top: 1px solid var(--rule); background: var(--bg-alt); margin-top: 5rem; padding: 3.5rem 0 2rem; font-size: 0.93rem; }
+    </style>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="ap-nav">
+      <div class="wrap ap-nav-wrap">
+        <a class="ap-brand" href="/" aria-label="pacs008 home">
+          <img src="/logo.webp" alt="pacs008" width="26" height="26" />
+          <span>pacs008</span>
+        </a>
+        <nav aria-label="Primary navigation" id="ap-primary-nav">
+          <ul class="ap-menu">
+            <li><a href="/about/">Overview</a></li>
+            <li><a href="/try/" aria-current="page">See it live</a></li>
+            <li><a href="/pacs.008.001.13/">Message Specs</a></li>
+            <li><a href="/api/">API &amp; CLI</a></li>
+            <li><a href="/faq/">Resources</a></li>
+          </ul>
+        </nav>
+        <div class="ap-nav-right">
+          <button type="button" class="theme-toggle" aria-label="Switch to dark theme" title="Switch theme">
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" width="16" height="16"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" width="16" height="16"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+          <a class="ap-cta-mini" href="/try/">See it live&nbsp;&rsaquo;</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <header class="page-header">
+        <div class="wrap">
+          <p class="eyebrow">Interactive Browser Demo</p>
+          <h1>Try pacs008 in Your Browser</h1>
+          <p class="deck">Drop in a CSV, use the sample, or paste your own records — validation runs instantly, entirely in your browser, zero payload storage.</p>
+        </div>
+      </header>
+
+      <div class="wrap guide-grid">
+        <aside class="guide-rail">
+          <div class="guide-block">
+            <h2>How this validator helps you</h2>
+            <ul class="check-list">
+              <li><span class="tick" aria-hidden="true">✓</span><span>Test payment data against the checks banks apply — required fields, IBAN checksums, BIC structure, control totals</span></li>
+              <li><span class="tick" aria-hidden="true">✓</span><span>Generate a working <code>pacs.008.001.13</code> credit-transfer file you can inspect, copy, or download</span></li>
+              <li><span class="tick" aria-hidden="true">✓</span><span>Prove the result against the official ISO 20022 schema — the genuine XSD, validated in your browser</span></li>
+            </ul>
+          </div>
+          <div class="guide-block">
+            <h2>Important information</h2>
+            <ul class="info-list">
+              <li><strong>Nothing is uploaded.</strong> Your file is read by your own browser and never leaves your machine — there is no server, no storage, no telemetry. Safe for real data.</li>
+              <li><strong>Testing tool only.</strong> Files are never submitted for processing and no payments can result from anything you do here.</li>
+              <li><strong>Expected columns:</strong> <code>payment_id</code>, <code>payment_amount</code>, <code>currency</code>, debtor and creditor name / IBAN / BIC. Download a sample below.</li>
+              <li><strong>No charges.</strong> This tool, and the full toolchain behind it, are free and open source.</li>
+            </ul>
+          </div>
+        </aside>
+
+        <div class="tool-col">
+          <section class="demo-panel">
+            <div class="step-head"><span class="step-num" aria-hidden="true">1</span><h2>Add your payment data</h2></div>
+            <div class="dropzone" id="dropzone" role="button" tabindex="0">
+              <p><strong>Drag a CSV file here</strong> — or click to browse</p>
+              <p class="hint">Maximum 2 MB · read locally by your browser, never uploaded</p>
+            </div>
+            <input type="file" id="file-input" class="visually-hidden" accept=".csv,text/csv,text/plain" />
+            <div class="demo-actions">
+              <select id="sample-select" class="pill-select">
+                <option value="">Load a sample&hellip;</option>
+                <option value="sepa-sct">SEPA credit transfer (2 records, EUR)</option>
+                <option value="cross-border">Cross-border (GBP)</option>
+                <option value="batch-20">Larger batch (20 records)</option>
+              </select>
+              <button type="button" id="paste-btn" class="pill pill-ghost">Paste records</button>
+            </div>
+
+            <div class="editor-block" id="editor-block" hidden>
+              <label class="editor-label" for="csv-input">Review and edit your records</label>
+              <textarea id="csv-input" spellcheck="false"></textarea>
+              <div class="demo-actions">
+                <button type="button" id="run-btn" class="pill pill-primary">Validate &amp; generate&nbsp;&rsaquo;</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="demo-panel">
+            <div class="step-head"><span class="step-num" aria-hidden="true">2</span><h2>Validation result &amp; generated pacs.008 XML</h2></div>
+            <p class="status" id="status" role="status">Add data in step 1 — validation runs automatically.</p>
+            <div class="xml-out" id="xml-out"><span class="xml-placeholder">The validated pacs.008.001.13 document will appear here — add data in step 1.</span></div>
+            <div class="demo-actions">
+              <button type="button" id="copy-btn" class="pill pill-ghost" disabled>Copy XML</button>
+              <button type="button" id="download-btn" class="pill pill-ghost" disabled>Download .xml</button>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p>&copy; 2023&ndash;2026 Sebastien Rousseau &middot; <a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a> &middot; <a href="/">pacs008.com</a></p>
+      </div>
+    </footer>
+
+    <script src="/js/pacs008-tools.js"></script>
+    <script type="module" src="/js/try-page.js"></script>
+  </body>
+</html>
