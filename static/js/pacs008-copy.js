@@ -1,7 +1,7 @@
 /**
  * Universal Code Copy Button Component for pacs008
- * Automatically adds a sleek "Copy" button to static <pre><code> blocks,
- * ignoring interactive cards that already have custom header copy buttons.
+ * Automatically adds a single "Copy" button to static <pre><code> blocks,
+ * ensuring no duplicate buttons are ever created.
  */
 
 (function () {
@@ -9,16 +9,19 @@
     const codeBlocks = document.querySelectorAll("pre");
 
     codeBlocks.forEach(function (pre) {
-      // Skip if already has a copy button, is inside an interactive card, or is an output box with custom button
-      if (
-        pre.querySelector(".code-copy-btn") ||
-        pre.closest(".interactive-card") ||
-        pre.id === "xml-output" ||
-        pre.id === "mt103-output" ||
-        (pre.parentElement && pre.parentElement.querySelector("button[id*='copy']"))
-      ) {
+      // 1. Check if pre itself or its immediate code wrapper already has a button
+      const wrapper = pre.closest(".interactive-card, .code-block, div[class*='language-'], div[class*='highlight']") || pre.parentElement;
+      const contentBody = document.querySelector(".content-body") || document.body;
+      
+      const existingBtn = pre.querySelector("button") || 
+        (wrapper && wrapper !== contentBody && wrapper !== document.body ? wrapper.querySelector("button") : null);
+
+      if (existingBtn || pre.id === "xml-output" || pre.id === "mt103-output" || pre.dataset.hasCopyBtn === "true") {
         return;
       }
+
+      // Mark as processed to prevent double execution
+      pre.dataset.hasCopyBtn = "true";
 
       // Position relative for absolute button placement
       pre.style.position = "relative";
