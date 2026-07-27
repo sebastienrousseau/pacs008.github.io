@@ -1227,6 +1227,54 @@
         });
 
         updateAddressCompliance();
+
+        // 3. Schema Diff Binding
+        function updateSchemaDiff() {
+          var select = document.getElementById("diff-select");
+          var body = document.getElementById("diff-body");
+          if (select && body && window.pacs008Tools) {
+            var parts = select.value.split(" vs ");
+            var items = window.pacs008Tools.compareVersions(parts[0], parts[1]);
+            body.innerHTML = items.map(function(item) {
+              return '<tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.65rem; font-weight:700; font-size:0.85rem;">' + item.feature + '</td><td style="padding:0.65rem; font-size:0.85rem; color:var(--ink-soft);">' + item.v1 + '</td><td style="padding:0.65rem; font-size:0.85rem; font-weight:600; color:var(--link);">' + item.v2 + '</td></tr>';
+            }).join('');
+          }
+        }
+        var diffSelect = document.getElementById("diff-select");
+        if (diffSelect) {
+          diffSelect.addEventListener("change", updateSchemaDiff);
+          updateSchemaDiff();
+        }
+
+        // 4. Purpose Code & LEI Lookup Binding
+        function updatePurposeSearch() {
+          var input = document.getElementById("purpose-search");
+          var body = document.getElementById("purpose-body");
+          if (body && window.pacs008Tools) {
+            var q = input ? input.value : "";
+            var matches = window.pacs008Tools.searchPurposeCodes(q);
+            body.innerHTML = matches.map(function(p) {
+              return '<tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.6rem; font-family:monospace; font-weight:700; font-size:0.85rem; color:var(--link);">' + p.code + '</td><td style="padding:0.6rem; font-weight:600; font-size:0.85rem;">' + p.name + '</td><td style="padding:0.6rem; font-size:0.85rem; color:var(--ink-soft);">' + p.desc + '</td></tr>';
+            }).join('');
+          }
+        }
+        var pSearch = document.getElementById("purpose-search");
+        if (pSearch) {
+          pSearch.addEventListener("input", updatePurposeSearch);
+          updatePurposeSearch();
+        }
+
+        var leiInput = document.getElementById("lei-input");
+        var leiResult = document.getElementById("lei-result");
+        if (leiInput && leiResult) {
+          leiInput.addEventListener("input", function() {
+            var res = window.pacs008Tools.validateLei(leiInput.value);
+            leiResult.style.display = "block";
+            leiResult.textContent = res.message;
+            leiResult.style.background = res.valid ? "#0f766e22" : "#b91c1c22";
+            leiResult.style.color = res.valid ? "#0f766e" : "#b91c1c";
+          });
+        }
       })();
     </script>
     <script src="/js/pacs008-copy.js"></script>
