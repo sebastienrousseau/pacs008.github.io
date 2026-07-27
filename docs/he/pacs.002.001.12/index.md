@@ -2,6 +2,14 @@
 title: "pacs.002.001.12 | דוח סטטוס תשלום בין מוסדות פיננסיים | pacs008"
 description: הודעת pacs.002 נשלחת על ידי מוסד פיננסי לדיווח על מצב הוראת תשלום שנשלחה בעבר. היא מספקת מידע על אישור, דחייה או סטטוס ממתין עבור עסקאות בודדות בתוך הודעת...
 lang: he-IL
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

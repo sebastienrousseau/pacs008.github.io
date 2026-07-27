@@ -2,6 +2,14 @@
 title: "pacs.002.001.12 | Отчёт о статусе платежа между финансовыми учреждениями | pacs008"
 description: Сообщение pacs.002 отправляется финансовым учреждением для отчёта о статусе ранее направленного платёжного поручения. Оно предоставляет информацию о...
 lang: ru-RU
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

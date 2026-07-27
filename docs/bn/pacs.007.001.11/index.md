@@ -2,6 +2,14 @@
 title: "pacs.007.001.11 | আর্থিক প্রতিষ্ঠানের মধ্যে পেমেন্ট রিভার্সাল | pacs008"
 description: pacs.007 বার্তা পূর্ববর্তী পেমেন্ট নির্দেশনা রিভার্স করে। pacs.004 এর বিপরীতে, এটি মূল প্রেরকের কাছ থেকে শুরু হয়।
 lang: bn-BD
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

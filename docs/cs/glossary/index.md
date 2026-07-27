@@ -2,6 +2,14 @@
 title: "Glosář ISO 20022 | pacs008"
 description: Definice klíčových pojmů ISO 20022 a platebního zasílání zpráv používaných v pacs.008 a souvisejících zprávách.
 lang: cs-CZ
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

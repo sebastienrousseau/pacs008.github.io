@@ -2,6 +2,14 @@
 title: "Àtòjọ ọ̀rọ̀ ISO 20022 | pacs008"
 description: Àwọn ìtumọ̀ àwọn ọ̀rọ̀ pàtàkì ISO 20022 àti ìfiránṣẹ́ ìsanwó tí a ń lò nínú pacs.008 àti àwọn ìfiránṣẹ́ tí ó jọra.
 lang: yo-NG
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

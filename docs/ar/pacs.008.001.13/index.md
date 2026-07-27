@@ -2,6 +2,14 @@
 title: "pacs.008.001.13 | تحويل ائتماني للعميل من مؤسسة مالية إلى مؤسسة مالية | pacs008"
 description: رسالة pacs.008 هي تعليمات الدفع الأساسية المتبادلة بين المؤسسات المالية لتحويل الأموال نيابة عن العميل. تحمل معلومات المدين والدائن والمبلغ والتحويل...
 lang: ar-SA
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

@@ -2,6 +2,14 @@
 title: "ISO 20022 সচরাচর জিজ্ঞাসিত প্রশ্ন | pacs008"
 description: ISO 20022 pacs বার্তা, CBPR+ মাইগ্রেশন, বার্তা নির্বাচন, বাস্তবায়ন এবং pacs008 টুলকিট সম্পর্কে সাধারণ প্রশ্ন।
 lang: bn-BD
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

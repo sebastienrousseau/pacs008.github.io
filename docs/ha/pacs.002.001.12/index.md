@@ -2,6 +2,14 @@
 title: "pacs.002.001.12 | Rahoton matsayin biyan kuɗi tsakanin cibiyoyin kuɗi | pacs008"
 description: Saƙon pacs.002 yana ba da rahoton matsayin umarnin biyan kuɗi da ya gabata. Yana sanar da wata cibiya ko an karɓi biyan kuɗi, an ƙi, yana jiran, ko an biya.
 lang: ha-NG
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

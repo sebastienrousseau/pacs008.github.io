@@ -2,6 +2,14 @@
 title: "pacs.003.001.09 | Cire kuɗi kai tsaye na abokin ciniki tsakanin cibiyoyin kuɗi | pacs008"
 description: Saƙon pacs.003 yana ɗaukar cire kuɗi kai tsaye na abokin ciniki tsakanin bankuna. Yana ba bankin mai ba da bashi damar tattara kuɗi daga bankin mai bashi.
 lang: ha-NG
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

@@ -2,6 +2,14 @@
 title: "pacs.010.001.05 | Prélèvement entre institutions financières | pacs008"
 description: "Le message pacs.010 est utilisé entre institutions financières pour les transactions de prélèvement sur le compte propre de l'institution. Il permet à une..."
 lang: fr-FR
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

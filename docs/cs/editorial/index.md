@@ -2,6 +2,14 @@
 title: "Redakční zásady | pacs008"
 description: Jak je obsah pacs008.com vytvářen, kontrolován a udržován.
 lang: cs-CZ
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

@@ -2,6 +2,14 @@
 title: "নভেম্বর 2026 কাঠামোগত ঠিকানার সময়সীমা | pacs008"
 description: SWIFT CBPR+ নভেম্বর 2026 কাঠামোগত ডাক ঠিকানার সময়সীমা কীভাবে pacs.008 এবং সম্পর্কিত পেমেন্ট বার্তাগুলিকে প্রভাবিত করে এবং pacs008 কীভাবে দলগুলিকে মেনে...
 lang: bn-BD
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 howtoName: "How to prepare for the November 2026 structured postal address deadline"

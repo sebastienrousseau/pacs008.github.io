@@ -2,6 +2,14 @@
 title: "pacs-meddelanden förklarade | pacs008"
 description: "Detaljerad teknisk referens för ISO 20022 pacs-meddelanden: livscykel, XML-struktur, avvecklingsmetoder, orsakskoder, adresstyper, identifierare..."
 lang: sv-SE
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

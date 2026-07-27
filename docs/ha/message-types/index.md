@@ -2,6 +2,14 @@
 title: "Nau'o'in saƙo | pacs008 ISO 20022"
 description: "Ma'anonin saƙonnin pacs na ISO 20022 da sigoginsu da ake tallafawa."
 lang: ha-NG
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

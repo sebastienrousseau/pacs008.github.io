@@ -1,3 +1,6 @@
 node_modules/
 docs/.vitepress/dist/
 docs/.vitepress/cache/
+docs_build/
+public.build-tmp/
+public/

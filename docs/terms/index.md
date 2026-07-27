@@ -2,6 +2,14 @@
 title: Terms of Use — pacs008 ISO 20022 Toolkit
 description: Read the pacs008.com terms of use, intellectual property notice, third-party link terms, and liability limits.
 lang: en-GB
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

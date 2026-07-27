@@ -2,6 +2,14 @@
 title: "pacs.028.001.05 | FI-से-FI भुगतान स्थिति अनुरोध | pacs008"
 description: pacs.028 संदेश एक वित्तीय संस्थान द्वारा पहले भेजे गए भुगतान निर्देश की स्थिति का अनुरोध करने के लिए भेजा जाता है। यह बिना अनचाही स्थिति रिपोर्ट की...
 lang: hi-IN
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

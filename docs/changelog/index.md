@@ -2,6 +2,14 @@
 title: Changelog — pacs008 Release Notes and Version History
 description: Version history and release notes for the pacs008 toolkit. Track new features, improvements, and fixes across releases.
 lang: en-GB
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

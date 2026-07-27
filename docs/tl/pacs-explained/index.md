@@ -2,6 +2,14 @@
 title: "Ipinaliwanag ang mga mensaheng pacs | pacs008"
 description: "Detalyadong teknikal na reperensya para sa mga mensaheng pacs ng ISO 20022: lifecycle, istruktura ng XML, mga paraan ng settlement, mga reason code, mga..."
 lang: tl-PH
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

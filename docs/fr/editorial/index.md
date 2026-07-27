@@ -2,6 +2,14 @@
 title: "Politique éditoriale | pacs008"
 description: Comment le contenu de pacs008.com est créé, vérifié et maintenu. Sources, processus de révision et calendrier de mise à jour.
 lang: fr-FR
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

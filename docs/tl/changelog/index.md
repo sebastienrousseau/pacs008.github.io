@@ -2,6 +2,14 @@
 title: "Talaan ng pagbabago | pacs008"
 description: Kasaysayan ng bersyon at mga tala ng release para sa toolkit na pacs008. Subaybayan ang mga bagong feature, pagpapabuti, at mga ayos sa bawat release.
 lang: tl-PH
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

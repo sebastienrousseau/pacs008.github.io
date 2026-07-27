@@ -2,6 +2,14 @@
 title: "Контакты | pacs008"
 description: Как связаться с проектом pacs008.
 lang: ru-RU
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

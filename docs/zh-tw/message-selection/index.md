@@ -2,6 +2,14 @@
 title: "訊息選擇指南 | pacs008"
 description: 為產生、狀態回報、退回、撤銷與查詢選擇合適的 ISO 20022 pacs 訊息。
 lang: zh-TW
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

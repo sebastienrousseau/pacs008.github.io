@@ -2,6 +2,14 @@
 title: "pacs.009.001.10 | Кредитовий переказ між фінансовими установами | pacs008"
 description: Повідомлення pacs.009 використовується для кредитових переказів між фінансовими установами, коли переказ здійснюється від власного імені установи, а не...
 lang: uk-UA
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

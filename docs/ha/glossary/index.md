@@ -2,6 +2,14 @@
 title: "Ƙamusun ISO 20022 | pacs008"
 description: "Ma'anonin muhimman kalmomin ISO 20022 da saƙonnin biyan kuɗi da ake amfani da su a cikin pacs.008 da saƙonnin da suka danganta. Ya ƙunshi SWIFT, CBPR+..."
 lang: ha-NG
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

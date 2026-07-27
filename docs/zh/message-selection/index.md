@@ -2,6 +2,14 @@
 title: "报文选择指南 | pacs008"
 description: 为生成、状态报告、退回、撤销和查询选择合适的 ISO 20022 pacs 报文。
 lang: zh-CN
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

@@ -2,6 +2,14 @@
 title: "2026年11月结构化地址截止日期 | pacs008"
 description: How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.
 lang: zh-CN
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 howtoName: "How to prepare for the November 2026 structured postal address deadline"

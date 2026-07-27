@@ -2,6 +2,14 @@
 title: "pacs.008.001.13 | Chuyển khoản tín dụng khách hàng giữa các tổ chức tài chính | pacs008"
 description: Thông điệp pacs.008 là lệnh thanh toán cốt lõi được trao đổi giữa các tổ chức tài chính để chuyển tiền thay mặt khách hàng. Thông điệp này mang thông tin...
 lang: vi-VN
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

@@ -2,6 +2,14 @@
 title: "ISO 20022 শব্দকোষ | pacs008"
 description: pacs.008 এবং সম্পর্কিত বার্তায় ব্যবহৃত মূল ISO 20022 এবং পেমেন্ট মেসেজিং পদের সংজ্ঞা।
 lang: bn-BD
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

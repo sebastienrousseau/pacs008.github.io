@@ -2,6 +2,14 @@
 title: "Om pacs008 | pacs008"
 description: Vad pacs008 gör och vem det är till för.
 lang: sv-SE
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 howtoName: "How to implement ISO 20022 pacs.008 payment messages"

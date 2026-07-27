@@ -2,6 +2,14 @@
 title: "pacs.007.001.11 | การกลับรายการชำระเงินระหว่างสถาบันการเงิน | pacs008"
 description: ข้อความ pacs.007 ใช้เพื่อย้อนกลับคำสั่งชำระเงินที่ส่งไปก่อนหน้านี้ซึ่งยังไม่ได้ชำระบัญชี หรือเพื่อร้องขอการย้อนกลับของการชำระเงินที่ชำระบัญชีแล้ว ต่างจาก...
 lang: th-TH
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

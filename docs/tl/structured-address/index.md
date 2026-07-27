@@ -2,6 +2,14 @@
 title: "Deadline ng structured address noong Nobyembre 2026 | pacs008"
 description: Paano naaapektuhan ng SWIFT CBPR+ November 2026 structured postal address deadline ang pacs.008 at mga kaugnay na mensahe ng pagbabayad, at paano...
 lang: tl-PH
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 howtoName: "How to prepare for the November 2026 structured postal address deadline"

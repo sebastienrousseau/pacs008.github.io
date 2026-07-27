@@ -2,6 +2,14 @@
 title: "Ƙayyadaddun lokacin adireshin da aka tsara na Nuwamba 2026 | pacs008"
 description: Yadda ƙayyadaddun lokacin adireshin da SWIFT CBPR+ ta tsara na Nuwamba 2026 ke shafar pacs.008 da saƙonnin biyan kuɗi masu alaƙa, da yadda pacs008 ke...
 lang: ha-NG
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 howtoName: "How to prepare for the November 2026 structured postal address deadline"

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="{{language}}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{{title}}</title>
+
+    {{primary}}
+    {{opengraph}}
+    <meta name="accessibility" content="ARIA, fullKeyboardControl, noFlashingHazard" />
+    {{apple}}
+    {{microsoft}}
+    {{twitter}}
+
+    <link rel="alternate" href="{{url}}" hreflang="{{hreflang}}" />
+    <link rel="canonical" href="{{url}}" />
+
+    <style>
+      :root {
+        --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        --bg-primary: #ffffff;
+        --bg-secondary: #f8fafc;
+        --bg-surface: #f1f5f9;
+        --text-primary: #0f172a;
+        --text-secondary: #475569;
+        --text-muted: #64748b;
+        --brand-color: #084a53;
+        --brand-hover: #0d7a87;
+        --border-color: #e2e8f0;
+        --max-width: 1140px;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg-primary: #0f172a;
+          --bg-secondary: #1e293b;
+          --bg-surface: #334155;
+          --text-primary: #f8fafc;
+          --text-secondary: #cbd5e1;
+          --text-muted: #94a3b8;
+          --brand-color: #4fd6c9;
+          --brand-hover: #2dd4bf;
+          --border-color: #334155;
+        }
+      }
+      *, *::before, *::after { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: var(--font-sans);
+        font-size: 1rem;
+        line-height: 1.6;
+        color: var(--text-primary);
+        background-color: var(--bg-primary);
+      }
+      a { color: var(--brand-color); text-decoration: none; font-weight: 500; }
+      a:hover { text-decoration: underline; }
+      .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+      
+      .site-header {
+        background-color: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-color);
+        padding: 1rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .header-container { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+      .site-logo { display: flex; align-items: center; gap: 0.75rem; font-size: 1.25rem; font-weight: 700; color: var(--text-primary); }
+      .nav-list { display: flex; gap: 1.25rem; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+      .nav-list a { font-size: 0.9375rem; color: var(--text-secondary); }
+      .nav-list a:hover { color: var(--brand-color); text-decoration: none; }
+
+      .site-main { padding: 3rem 0; min-height: calc(100vh - 220px); }
+      article { max-width: 800px; margin: 0 auto; }
+      h1 { font-size: 2.25rem; line-height: 1.2; margin-top: 0; margin-bottom: 1.5rem; }
+      h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+      h3 { font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+      code { font-family: var(--font-mono); background: var(--bg-surface); padding: 0.2em 0.4em; border-radius: 4px; font-size: 0.875em; }
+      pre { font-family: var(--font-mono); background: var(--bg-secondary); padding: 1.25rem; border-radius: 8px; overflow-x: auto; border: 1px solid var(--border-color); }
+      pre code { background: none; padding: 0; }
+
+      .site-footer { background-color: var(--bg-secondary); border-top: 1px solid var(--border-color); padding: 3rem 0 2rem; margin-top: 4rem; }
+      .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+      .footer-col h3, .footer-col h4 { margin-top: 0; margin-bottom: 1rem; }
+      .footer-col ul { list-style: none; padding: 0; margin: 0; }
+      .footer-col li { margin-bottom: 0.5rem; }
+      .footer-col a { color: var(--text-secondary); }
+      .footer-bottom { border-top: 1px solid var(--border-color); padding-top: 1.5rem; text-align: center; color: var(--text-muted); font-size: 0.875rem; }
+
+      .skip-link { position: absolute; top: -100px; left: 1rem; background: var(--brand-color); color: white; padding: 0.5rem 1rem; border-radius: 4px; z-index: 1000; }
+      .skip-link:focus { top: 1rem; }
+    </style>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="site-header" role="banner">
+      <div class="container header-container">
+        <a href="/" class="site-logo" aria-label="pacs008 home">
+          <svg class="logo-icon" width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="32" height="32" rx="6" fill="url(#logo-grad)"/>
+            <path d="M8 11L16 6L24 11V21L16 26L8 21V11Z" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 6V26" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="logo-grad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#084a53"/>
+                <stop offset="1" stop-color="#0d7a87"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="site-name">pacs008</span>
+        </a>
+        <nav class="site-nav" role="navigation" aria-label="Main Navigation">
+          <ul class="nav-list">
+            <li><a href="/about/">About</a></li>
+            <li><a href="/message-types/">Message Types</a></li>
+            <li><a href="/message-selection/">Selection Guide</a></li>
+            <li><a href="/pacs-explained/">pacs Explained</a></li>
+            <li><a href="/structured-address/">Structured Address</a></li>
+            <li><a href="/api/">API & CLI</a></li>
+            <li><a href="/faq/">FAQ</a></li>
+            <li><a href="/glossary/">Glossary</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="site-main" role="main">
+      <div class="container">
+        <article>
+          {{content}}
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container footer-container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h3>pacs008</h3>
+            <p>ISO 20022 payment message generator, validator, and API service.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="/about/">About</a></li>
+              <li><a href="/api/">API & CLI Reference</a></li>
+              <li><a href="/structured-address/">CBPR+ 2026 Address Deadline</a></li>
+              <li><a href="/faq/">ISO 20022 FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Legal & Policy</h4>
+            <ul>
+              <li><a href="/editorial/">Editorial Policy</a></li>
+              <li><a href="/privacy/">Privacy Policy</a></li>
+              <li><a href="/terms/">Terms of Use</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Project</h4>
+            <ul>
+              <li><a href="https://github.com/sebastienrousseau/pacs008" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
+              <li><a href="https://pypi.org/project/pacs008/" target="_blank" rel="noopener noreferrer">PyPI Package</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; Sebastien Rousseau. Released under the Apache License 2.0.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

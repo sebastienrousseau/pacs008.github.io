@@ -2,6 +2,14 @@
 title: "pacs.028.001.05 | คำขอสถานะการชำระเงินระหว่างสถาบันการเงิน | pacs008"
 description: ข้อความ pacs.028 ถูกส่งโดยสถาบันการเงินเพื่อร้องขอสถานะของคำสั่งชำระเงินที่ส่งไปก่อนหน้านี้...
 lang: th-TH
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

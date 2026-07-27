@@ -2,6 +2,14 @@
 title: "Redaktionelle Richtlinie | pacs008"
 description: Wie Inhalte auf pacs008.com erstellt, geprüft und gepflegt werden. Quellen, Prüfverfahren und Aktualisierungsplan.
 lang: de-DE
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

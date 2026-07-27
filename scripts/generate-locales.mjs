@@ -13866,7 +13866,7 @@ function yamlSafe(value) {
 }
 
 function pageTemplate({ title, description, lang, body, extraFrontmatter }) {
-  let fm = `---\ntitle: ${yamlSafe(title)}\ndescription: ${yamlSafe(description)}\nlang: ${lang}\nlastUpdated: true\nimage: /logo.webp`;
+  let fm = `---\ntitle: ${yamlSafe(title)}\ndescription: ${yamlSafe(description)}\nlang: ${lang}\nlayout: page\ndate: "2026-07-27"\nname: pacs008\nshort_name: pacs008\nstart_url: /\ndisplay: standalone\nbackground_color: "#ffffff"\ntheme_color: "#084a53"\nlastUpdated: true\nimage: /logo.webp`;
   if (extraFrontmatter) fm += `\n${extraFrontmatter}`;
   fm += `\n---\n\n${body}\n`;
   return fm;

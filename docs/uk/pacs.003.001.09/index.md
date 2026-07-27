@@ -2,6 +2,14 @@
 title: "pacs.003.001.09 | Клієнтське пряме дебетування між фінансовими установами | pacs008"
 description: Повідомлення pacs.003 передається між фінансовими установами для виконання доручення клієнта на пряме дебетування. Воно дозволяє банку кредитора стягувати...
 lang: uk-UA
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

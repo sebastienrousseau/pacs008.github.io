@@ -2,6 +2,14 @@
 title: "pacs.007.001.11 | Сторнування платежу між фінансовими установами | pacs008"
 description: Повідомлення pacs.007 використовується для сторнування раніше надісланого платіжного доручення, яке ще не було розраховане, або для запиту сторнування...
 lang: uk-UA
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

@@ -2,6 +2,14 @@
 title: "pacs বার্তা ব্যাখ্যা | pacs008"
 description: "ISO 20022 pacs বার্তার বিস্তারিত প্রযুক্তিগত রেফারেন্স: জীবনচক্র, XML কাঠামো, নিষ্পত্তি পদ্ধতি, কারণ কোড এবং UETR ট্র্যাকিং।"
 lang: bn-BD
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

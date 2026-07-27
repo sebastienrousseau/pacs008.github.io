@@ -2,6 +2,14 @@
 title: "সম্পাদকীয় নীতি | pacs008"
 description: pacs008.com বিষয়বস্তু কীভাবে তৈরি, পর্যালোচনা এবং রক্ষণাবেক্ষণ করা হয়।
 lang: bn-BD
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

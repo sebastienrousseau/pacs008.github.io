@@ -2,6 +2,14 @@
 title: "pacs.008.001.13 | Клієнтський кредитовий переказ між фінансовими установами | pacs008"
 description: Повідомлення pacs.008 є основним платіжним дорученням, що передається між фінансовими установами для переказу коштів від імені клієнта. Воно містить...
 lang: uk-UA
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

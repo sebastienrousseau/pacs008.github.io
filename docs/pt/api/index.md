@@ -2,6 +2,14 @@
 title: "Dokumentacja API pacs008 | pacs008"
 description: Suporte a fluxos REST e CLI no pacs008.
 lang: pt-BR
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

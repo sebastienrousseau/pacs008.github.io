@@ -2,6 +2,14 @@
 title: "pacs.008.001.13 | FI-naar-FI-klantkredietoverboeking | pacs008"
 description: Het pacs.008-bericht is de kernbetalingsinstructie die wordt uitgewisseld tussen financiële instellingen om namens een klant gelden over te maken. Het...
 lang: nl-NL
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

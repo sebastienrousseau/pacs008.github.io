@@ -2,6 +2,14 @@
 title: "pacs.003.001.09 | Direct debit ng kliyente sa pagitan ng mga institusyong pinansyal | pacs008"
 description: Ang mensaheng pacs.003 ay nagdadala ng customer direct debit sa pagitan ng mga bangko. Pinapayagan nito ang bangko ng creditor na mangolekta ng pondo mula...
 lang: tl-PH
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

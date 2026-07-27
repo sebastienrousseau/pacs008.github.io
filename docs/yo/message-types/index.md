@@ -2,6 +2,14 @@
 title: "Àwọn irú ìfiránṣẹ́ | pacs008 ISO 20022"
 description: Àwọn ìtumọ̀ àti àwọn ẹ̀dà ìfiránṣẹ́ pacs ISO 20022 tí a ń ṣe àtìlẹ́yìn fún.
 lang: yo-NG
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

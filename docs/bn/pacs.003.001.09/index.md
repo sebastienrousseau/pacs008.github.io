@@ -2,6 +2,14 @@
 title: "pacs.003.001.09 | আর্থিক প্রতিষ্ঠানের মধ্যে গ্রাহক ডাইরেক্ট ডেবিট | pacs008"
 description: pacs.003 বার্তা ব্যাংকগুলির মধ্যে গ্রাহক ডাইরেক্ট ডেবিট বহন করে। এটি ক্রেডিটর ব্যাংককে ডেবিটর ব্যাংক থেকে তহবিল সংগ্রহ করতে দেয়।
 lang: bn-BD
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

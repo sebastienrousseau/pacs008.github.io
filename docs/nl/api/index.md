@@ -2,6 +2,14 @@
 title: "pacs008 API 레퍼런스 | pacs008"
 description: REST- en CLI-ondersteuning voor operationele processen in pacs008.
 lang: nl-NL
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

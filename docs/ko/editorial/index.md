@@ -2,6 +2,14 @@
 title: "편집 방침 | pacs008"
 description: pacs008.com 콘텐츠의 작성, 검토 및 유지 관리 방법. 출처, 검토 프로세스 및 업데이트 일정. 금융기관 간 고객 신용 이체 워크플로를 위한 생성, 검증, API 오케스트레이션, 규정 준수 지원.
 lang: ko-KR
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

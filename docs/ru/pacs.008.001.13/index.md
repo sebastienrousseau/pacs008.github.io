@@ -2,6 +2,14 @@
 title: "pacs.008.001.13 | Клиентский кредитовый перевод между финансовыми учреждениями | pacs008"
 description: Сообщение pacs.008 является основным платёжным поручением, передаваемым между финансовыми учреждениями для перевода средств от имени клиента. Оно содержит...
 lang: ru-RU
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

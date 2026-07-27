@@ -2,6 +2,14 @@
 title: "Hướng dẫn chọn thông điệp | pacs008"
 description: Chọn đúng thông điệp pacs ISO 20022 cho tạo lập, báo cáo trạng thái, hoàn trả, đảo giao dịch và truy vấn.
 lang: vi-VN
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

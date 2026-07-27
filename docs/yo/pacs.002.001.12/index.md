@@ -2,6 +2,14 @@
 title: "pacs.002.001.12 | Ìròyìn ipò ìsanwó láàárín àwọn ilé-iṣẹ́ ìṣúná | pacs008"
 description: The pacs.002 message reports the status of an earlier payment instruction. It tells another institution whether the payment was accepted, rejected...
 lang: yo-NG
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

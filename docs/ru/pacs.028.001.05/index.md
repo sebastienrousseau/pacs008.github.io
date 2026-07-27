@@ -2,6 +2,14 @@
 title: "pacs.028.001.05 | Запрос статуса платежа между финансовыми учреждениями | pacs008"
 description: Сообщение pacs.028 отправляется финансовым учреждением для запроса статуса ранее направленного платёжного поручения. Оно обеспечивает проактивное...
 lang: ru-RU
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

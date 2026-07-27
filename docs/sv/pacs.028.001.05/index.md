@@ -2,6 +2,14 @@
 title: "pacs.028.001.05 | Statusförfrågan för betalning mellan finansinstitut | pacs008"
 description: The pacs.028 message asks another institution for the status of an earlier payment. It is a targeted status query for delayed, unclear, or missing payment...
 lang: sv-SE
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

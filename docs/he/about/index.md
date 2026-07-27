@@ -2,6 +2,14 @@
 title: "אודות pacs008 | pacs008"
 description: מה pacs008 עושה ולמי הוא מיועד. יצירה, אימות, תיאום API ותמיכת ציות לתהליכי העברת אשראי ללקוחות בין מוסדות פיננסיים.
 lang: he-IL
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 howtoName: "How to implement ISO 20022 pacs.008 payment messages"

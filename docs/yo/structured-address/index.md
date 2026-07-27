@@ -2,6 +2,14 @@
 title: "Ọjọ́ ìparí àdírẹ́sì tí a ti ṣètò ní Oṣù Kọkànlá 2026 | pacs008"
 description: Bí àkókò ìparí àdírẹ́sì ìfìwéránṣẹ́ tí a ṣètò ti SWIFT CBPR+ ní Oṣù Kọkànlá 2026 ṣe kan pacs.008 àti àwọn ìfiránṣẹ́ ìsanwó tí ó jọmọ, àti bí pacs008 ṣe ń...
 lang: yo-NG
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 howtoName: "How to prepare for the November 2026 structured postal address deadline"

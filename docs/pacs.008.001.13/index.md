@@ -2,6 +2,14 @@
 title: "pacs.008.001.13 | FI to FI Customer Credit Transfer | pacs008"
 description: The pacs.008 message is the main customer credit-transfer instruction between banks. It carries party, amount, and remittance data.
 lang: en-GB
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

@@ -2,6 +2,14 @@
 title: "Vysvětlení zpráv pacs | pacs008"
 description: "Podrobná technická reference zpráv ISO 20022 pacs: životní cyklus, struktura XML, metody vypořádání, kódy důvodů a sledování UETR."
 lang: cs-CZ
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

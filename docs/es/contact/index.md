@@ -2,6 +2,14 @@
 title: "Contacto | pacs008"
 description: Cómo contactar con el proyecto pacs008.
 lang: es-ES
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

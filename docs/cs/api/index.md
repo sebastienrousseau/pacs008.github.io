@@ -2,6 +2,14 @@
 title: "Reference API pacs008 | pacs008"
 description: Podpora REST a CLI pracovních postupů v pacs008.
 lang: cs-CZ
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

@@ -2,6 +2,14 @@
 title: "संदेश चयन मार्गदर्शिका | pacs008"
 description: जनरेशन, स्टेटस रिपोर्टिंग, रिटर्न, रिवर्सल और पूछताछ के लिए सही ISO 20022 pacs संदेश चुनें।
 lang: hi-IN
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

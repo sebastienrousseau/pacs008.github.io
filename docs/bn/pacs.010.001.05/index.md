@@ -2,6 +2,14 @@
 title: "pacs.010.001.05 | আর্থিক প্রতিষ্ঠানের মধ্যে ডাইরেক্ট ডেবিট | pacs008"
 description: pacs.010 বার্তা আর্থিক প্রতিষ্ঠানের নিজস্ব অ্যাকাউন্টের ডাইরেক্ট ডেবিট লেনদেনের জন্য ব্যবহৃত হয়। এটি একটি প্রতিষ্ঠানকে অন্য প্রতিষ্ঠানের অ্যাকাউন্ট থেকে...
 lang: bn-BD
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

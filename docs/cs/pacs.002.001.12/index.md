@@ -2,6 +2,14 @@
 title: "pacs.002.001.12 | Zpráva o stavu platby mezi finančními institucemi | pacs008"
 description: Zpráva pacs.002 hlásí stav dřívější platební instrukce. Sděluje druhé instituci, zda byla platba přijata, zamítnuta, čekající nebo vypořádána.
 lang: cs-CZ
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

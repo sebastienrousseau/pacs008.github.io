@@ -2,6 +2,14 @@
 title: "pacs.028.001.05 | আর্থিক প্রতিষ্ঠানের মধ্যে পেমেন্ট স্ট্যাটাস অনুরোধ | pacs008"
 description: pacs.028 বার্তা পূর্ববর্তী পেমেন্ট নির্দেশনার অবস্থা জিজ্ঞাসা করতে ব্যবহৃত হয়। এটি স্ট্যাটাস রিপোর্টের জন্য অপেক্ষা না করে পেমেন্ট প্রসেসিংয়ের সক্রিয়...
 lang: bn-BD
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

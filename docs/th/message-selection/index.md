@@ -2,6 +2,14 @@
 title: "คู่มือการเลือกข้อความ | pacs008"
 description: เลือกข้อความ pacs ของ ISO 20022 ที่เหมาะสมสำหรับการสร้าง การรายงานสถานะ การคืนเงิน การย้อนรายการ และการสอบถาม
 lang: th-TH
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

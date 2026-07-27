@@ -2,6 +2,14 @@
 title: "聯絡 | pacs008"
 description: 如何聯絡 pacs008 專案。 面向金融機構間客戶信貸轉帳工作流程的產生、驗證、API 編排與合規支援。
 lang: zh-TW
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

@@ -2,6 +2,14 @@
 title: "編集方針 | pacs008"
 description: pacs008.com のコンテンツがどのように作成、レビュー、維持されているか。ソース、レビュープロセス、更新スケジュール。 金融機関間の顧客クレジット移転ワークフロー向けの生成、検証、API オーケストレーション、コンプライアンス対応。
 lang: ja-JP
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

@@ -2,6 +2,14 @@
 title: "pacs.009.001.10 | Credit transfer sa pagitan ng mga institusyong pinansyal | pacs008"
 description: Ang mensaheng pacs.009 ay naglilipat ng pondo sa pagitan ng mga bangko para sa kanilang sariling account. Sinusuportahan nito ang financing, cover...
 lang: tl-PH
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

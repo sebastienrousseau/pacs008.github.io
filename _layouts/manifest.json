@@ -1,0 +1,9 @@
+{
+  "name": "pacs008",
+  "short_name": "pacs008",
+  "description": "ISO 20022 pacs.008 Payment Message Toolkit and API",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#084a53"
+}

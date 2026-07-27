@@ -2,6 +2,14 @@
 title: "Termín strukturovaných adres v listopadu 2026 | pacs008"
 description: Jak termín strukturovaných poštovních adres SWIFT CBPR+ v listopadu 2026 ovlivňuje pacs.008 a související platební zprávy.
 lang: cs-CZ
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 howtoName: "How to prepare for the November 2026 structured postal address deadline"

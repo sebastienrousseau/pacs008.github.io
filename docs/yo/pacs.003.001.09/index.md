@@ -2,6 +2,14 @@
 title: "pacs.003.001.09 | Gbígbà owó tààrà fún oníbàárà láàárín àwọn ilé-iṣẹ́ ìṣúná | pacs008"
 description: The pacs.003 message carries a customer direct debit between banks. It lets the creditor bank collect funds from the debtor bank.
 lang: yo-NG
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

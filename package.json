@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "ssg dev -f config.toml",
-    "build": "ssg build -f config.toml",
+    "build": "./build.sh",
     "check": "ssg check -f config.toml",
     "audit": "ssg audit -f config.toml",
     "validate": "html-validate 'public/**/*.html'",

@@ -2,6 +2,14 @@
 title: "pacs.007.001.11 | FI to FI Payment Reversal | pacs008"
 description: The pacs.007 message reverses an earlier payment instruction. Unlike pacs.004, it starts from the original sender.
 lang: en-GB
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

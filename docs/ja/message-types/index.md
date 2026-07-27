@@ -2,6 +2,14 @@
 title: "メッセージ種別 | pacs008 ISO 20022"
 description: サポートされている ISO 20022 pacs メッセージ定義とバージョン。 金融機関間の顧客クレジット移転ワークフロー向けの生成、検証、API オーケストレーション、コンプライアンス対応。
 lang: ja-JP
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

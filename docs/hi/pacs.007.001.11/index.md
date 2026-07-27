@@ -2,6 +2,14 @@
 title: "pacs.007.001.11 | FI-से-FI भुगतान रिवर्सल | pacs008"
 description: pacs.007 संदेश का उपयोग पहले भेजे गए भुगतान निर्देश को उलटने के लिए किया जाता है जो अभी तक निपटाया नहीं गया है या निपटाए गए भुगतान के प्रत्यावर्तन का...
 lang: hi-IN
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

@@ -2,6 +2,14 @@
 title: "বার্তার ধরন | pacs008 ISO 20022"
 description: সমর্থিত ISO 20022 pacs বার্তা সংজ্ঞা এবং সংস্করণ।
 lang: bn-BD
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

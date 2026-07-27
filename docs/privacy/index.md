@@ -2,6 +2,14 @@
 title: Privacy Notice — pacs008 Data Protection Policy
 description: Read how pacs008.com handles website data, uses basic analytics, and explains visitor privacy rights and limits.
 lang: en-GB
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

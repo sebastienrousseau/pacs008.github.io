@@ -2,6 +2,14 @@
 title: "pacs008 API রেফারেন্স | pacs008"
 description: pacs008-এ REST এবং CLI ওয়ার্কফ্লো সহায়তা।
 lang: bn-BD
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

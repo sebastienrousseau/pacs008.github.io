@@ -2,6 +2,14 @@
 title: "pacs.010.001.05 | वित्तीय संस्थानों के बीच प्रत्यक्ष डेबिट | pacs008"
 description: pacs.010 संदेश का उपयोग वित्तीय संस्थानों के बीच संस्थान के अपने खाते पर प्रत्यक्ष डेबिट लेनदेन के लिए किया जाता है। यह एक संस्थान को दूसरे संस्थान के...
 lang: hi-IN
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

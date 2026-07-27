@@ -2,6 +2,14 @@
 title: "מסמך API של pacs008 | pacs008"
 description: pacs008 में REST और CLI वर्कफ़्लो समर्थन।
 lang: hi-IN
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

@@ -2,6 +2,14 @@
 title: "pacs.010.001.05 | Прямое дебетование между финансовыми учреждениями | pacs008"
 description: Сообщение pacs.010 используется между финансовыми учреждениями для транзакций прямого дебетования с собственного счёта учреждения. Оно позволяет одному...
 lang: ru-RU
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

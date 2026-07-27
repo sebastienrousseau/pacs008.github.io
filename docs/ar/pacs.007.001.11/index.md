@@ -2,6 +2,14 @@
 title: "pacs.007.001.11 | عكس الدفعة من مؤسسة مالية إلى مؤسسة مالية | pacs008"
 description: يُستخدم رسالة pacs.007 لعكس تعليمات دفع مرسلة سابقاً لم تتم تسويتها بعد أو لطلب عكس دفعة مسوّاة. على عكس pacs.004 (الإرجاع)، يتم بدؤه من الوكيل المُرسل...
 lang: ar-SA
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 faq:

@@ -2,6 +2,14 @@
 title: "Panduan pemilihan pesan | pacs008"
 description: Pilih pesan pacs ISO 20022 yang tepat untuk pembuatan, pelaporan status, retur, pembalikan, dan permintaan status.
 lang: id-ID
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

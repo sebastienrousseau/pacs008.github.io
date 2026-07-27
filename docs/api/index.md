@@ -2,6 +2,14 @@
 title: pacs008 API — Validate Data and Generate ISO 20022 XML
 description: Use the pacs008 REST API, CLI, and Python library to validate payment data, enforce message rules, and generate ISO 20022 XML files for payment processing.
 lang: en-GB
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---

@@ -2,6 +2,14 @@
 title: "Contact | pacs008"
 description: Hoe u het pacs008-project kunt bereiken.
 lang: nl-NL
+layout: page
+date: "2026-07-27"
+name: pacs008
+short_name: pacs008
+start_url: /
+display: standalone
+background_color: "#ffffff"
+theme_color: "#084a53"
 lastUpdated: true
 image: /logo.webp
 ---
