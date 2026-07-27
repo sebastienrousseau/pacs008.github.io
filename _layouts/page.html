@@ -743,41 +743,40 @@
         </a>
         <nav aria-label="Primary navigation" id="ap-primary-nav">
           <ul class="ap-menu">
-            <li class="has-sub"><a href="/about/">Why pacs008</a>
-              <button type="button" class="ap-sub-toggle" aria-expanded="false" aria-controls="sub-why" aria-label="Toggle Why pacs008 submenu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button>
-              <ul id="sub-why" class="ap-sub">
-                <li><a href="/message-types/">Who it&rsquo;s for</a></li>
-                <li><a href="/editorial/">Executive brief</a></li>
-                <li><a href="/message-selection/">Comparison vs commercial tools</a></li>
+            <li class="has-sub"><a href="/about/">Overview</a>
+              <button type="button" class="ap-sub-toggle" aria-expanded="false" aria-controls="sub-overview" aria-label="Toggle Overview submenu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button>
+              <ul id="sub-overview" class="ap-sub">
+                <li><a href="/about/">About pacs008</a></li>
+                <li><a href="/message-types/">Message Types</a></li>
+                <li><a href="/message-selection/">Message Selection Guide</a></li>
               </ul>
             </li>
-            <li><a href="/api/">See it live</a></li>
-            <li class="has-sub"><a href="/api/">Docs</a>
-              <button type="button" class="ap-sub-toggle" aria-expanded="false" aria-controls="sub-docs" aria-label="Toggle Docs submenu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button>
-              <ul id="sub-docs" class="ap-sub">
-                <li><a href="/api/">Installation &amp; Docker</a></li>
+            <li class="has-sub"><a href="/pacs.008.001.13/">Message Specs</a>
+              <button type="button" class="ap-sub-toggle" aria-expanded="false" aria-controls="sub-specs" aria-label="Toggle Message Specs submenu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button>
+              <ul id="sub-specs" class="ap-sub">
+                <li><a href="/pacs.008.001.13/">pacs.008 Credit Transfer</a></li>
+                <li><a href="/pacs.002.001.12/">pacs.002 Status Report</a></li>
+                <li><a href="/pacs.003.001.09/">pacs.003 Direct Debit</a></li>
+                <li><a href="/pacs.004.001.11/">pacs.004 Payment Return</a></li>
+                <li><a href="/pacs.009.001.10/">pacs.009 Financial Institution</a></li>
+              </ul>
+            </li>
+            <li class="has-sub"><a href="/api/">Technical Guides</a>
+              <button type="button" class="ap-sub-toggle" aria-expanded="false" aria-controls="sub-tech" aria-label="Toggle Technical Guides submenu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button>
+              <ul id="sub-tech" class="ap-sub">
+                <li><a href="/api/">API &amp; CLI Reference</a></li>
+                <li><a href="/pacs-explained/">pacs Messages Explained</a></li>
+                <li><a href="/structured-address/">Structured Address (2026)</a></li>
+              </ul>
+            </li>
+            <li class="has-sub"><a href="/faq/">Resources</a>
+              <button type="button" class="ap-sub-toggle" aria-expanded="false" aria-controls="sub-resources" aria-label="Toggle Resources submenu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button>
+              <ul id="sub-resources" class="ap-sub">
                 <li><a href="/glossary/">Glossary</a></li>
-                <li><a href="/faq/">FAQs</a></li>
-                <li><a href="/pacs-explained/">pacs.002 reason codes</a></li>
-              </ul>
-            </li>
-            <li class="has-sub"><a href="/#suite-heading">Suite</a>
-              <button type="button" class="ap-sub-toggle" aria-expanded="false" aria-controls="sub-suite" aria-label="Toggle Suite submenu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button>
-              <ul id="sub-suite" class="ap-sub">
-                <li><a href="/api/">AI agent tools (MCP)</a></li>
-                <li><a href="/api/">Editor integration (LSP)</a></li>
-                <li><a href="/pacs-explained/">MT101 loader</a></li>
-                <li><a href="/pacs-explained/">Excel loader</a></li>
-                <li><a href="/about/">Architecture &amp; security</a></li>
-              </ul>
-            </li>
-            <li class="has-sub"><a href="/structured-address/">Research</a>
-              <button type="button" class="ap-sub-toggle" aria-expanded="false" aria-controls="sub-research" aria-label="Toggle Research submenu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button>
-              <ul id="sub-research" class="ap-sub">
-                <li><a href="/structured-address/">2026 briefing</a></li>
-                <li><a href="/changelog/">ISO 20022 roadmap</a></li>
-                <li><a href="/structured-address/">Cross-border guide</a></li>
-                <li><a href="/about/">In 34 languages</a></li>
+                <li><a href="/faq/">Frequently Asked Questions</a></li>
+                <li><a href="/changelog/">Changelog</a></li>
+                <li><a href="/editorial/">Editorial Policy</a></li>
+                <li><a href="/contact/">Contact Us</a></li>
               </ul>
             </li>
           </ul>
@@ -877,52 +876,42 @@
             <p class="footer-tagline">Open-source ISO 20022 payment initiation. Validated files, local processing, no lock-in.</p>
           </div>
           <div>
-            <h2 class="footer-heading">Documentation</h2>
+            <h2 class="footer-heading">Overview</h2>
             <ul class="footer-links">
-              <li><a href="/api/">Try it in your browser</a></li>
-              <li><a href="/api/">Technical reference</a></li>
-              <li><a href="/api/">Installation &amp; Docker</a></li>
-              <li><a href="/about/">Payment pipelines</a></li>
+              <li><a href="/about/">About pacs008</a></li>
+              <li><a href="/message-types/">Message Types</a></li>
+              <li><a href="/message-selection/">Selection Guide</a></li>
+              <li><a href="/contact/">Contact Us</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="footer-heading">Message Specs</h2>
+            <ul class="footer-links">
+              <li><a href="/pacs.008.001.13/">pacs.008 Credit Transfer</a></li>
+              <li><a href="/pacs.002.001.12/">pacs.002 Status Report</a></li>
+              <li><a href="/pacs.003.001.09/">pacs.003 Direct Debit</a></li>
+              <li><a href="/pacs.004.001.11/">pacs.004 Payment Return</a></li>
+              <li><a href="/pacs.009.001.10/">pacs.009 Financial Institution</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="footer-heading">Technical &amp; Help</h2>
+            <ul class="footer-links">
+              <li><a href="/api/">API &amp; CLI Reference</a></li>
+              <li><a href="/pacs-explained/">pacs Messages Explained</a></li>
+              <li><a href="/structured-address/">Structured Address (2026)</a></li>
               <li><a href="/glossary/">Glossary</a></li>
               <li><a href="/faq/">FAQs</a></li>
-            </ul>
-          </div>
-          <div>
-            <h2 class="footer-heading">Ecosystem</h2>
-            <ul class="footer-links">
-              <li><a href="/api/">pacs008-mcp · AI agents</a></li>
-              <li><a href="/api/">pacs008-lsp · editors</a></li>
-              <li><a href="/pacs-explained/">MT101 loader</a></li>
-              <li><a href="/pacs-explained/">Excel loader</a></li>
-              <li><a href="https://github.com/sebastienrousseau/pacs008" rel="external">GitHub</a></li>
-            </ul>
-          </div>
-          <div>
-            <h2 class="footer-heading">Research &amp; trust</h2>
-            <ul class="footer-links">
-              <li><a href="/about/">Why pacs008</a></li>
-              <li><a href="/editorial/">Executive brief</a></li>
-              <li><a href="/changelog/">ISO 20022 roadmap</a></li>
-              <li><a href="/structured-address/">2026 briefing</a></li>
-              <li><a href="/structured-address/">Cross-Border Guide</a></li>
-              <li><a href="/message-selection/">Comparison vs commercial tools</a></li>
-              <li><a href="/about/">Architecture &amp; patents</a></li>
-              <li><a href="/editorial/">Trust Centre</a></li>
-              <li><a href="/about/">Compatibility matrix</a></li>
-              <li><a href="/security.txt">security.txt</a></li>
-              <li><a href="/sbom.cdx.json">SBOM</a> · <a href="/llms.txt">llms.txt</a> · <a href="/rss.xml">RSS feed</a></li>
+              <li><a href="/changelog/">Changelog</a></li>
             </ul>
           </div>
         </div>
         <div class="footer-legal">
           <p>&copy; 2023&ndash;2026 Sebastien Rousseau. Core dual-licensed Apache-2.0 / MIT; companion packages Apache-2.0.</p>
-          <ul aria-label="This overview in other languages">
-            <li><a href="/about/">This overview in 34 languages</a></li>
-          </ul>
           <ul>
-            <li><a href="/about/">Accessibility</a></li>
-            <li><a href="/privacy/">Privacy</a></li>
-            <li><a href="/terms/">Terms</a></li>
+            <li><a href="/editorial/">Editorial Policy</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/terms/">Terms of Use</a></li>
             <li><a href="/contact/">Contact</a></li>
           </ul>
         </div>
