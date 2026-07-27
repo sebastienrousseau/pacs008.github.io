@@ -3,7 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "ssg dev -f config.toml",
+    "dev": "./build.sh --serve",
+    "serve": "python3 -m http.server 8000 --directory public --bind 127.0.0.1",
     "build": "./build.sh",
     "check": "ssg check -f config.toml",
     "audit": "ssg audit -f config.toml",

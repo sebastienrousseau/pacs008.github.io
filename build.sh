@@ -2,6 +2,9 @@
 set -euo pipefail
 
 # Build pacs008 with Static Site Generator (SSG v0.0.48)
+SERVE=0
+[[ "${1:-}" == "--serve" ]] && SERVE=1
+
 echo "Preparing build content..."
 
 # Regenerate locale content
@@ -36,3 +39,8 @@ fi
 rm -rf docs_build
 
 echo "Site successfully built with ssg."
+
+if (( SERVE )); then
+  echo "Serving site on http://127.0.0.1:8000 ..."
+  exec python3 -m http.server 8000 --directory public --bind 127.0.0.1
+fi
