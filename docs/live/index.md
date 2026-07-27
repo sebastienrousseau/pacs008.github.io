@@ -15,8 +15,6 @@ image: /logo.webp
 canonical: "/live/"
 ---
 
-# See It Live — Interactive ISO 20022 pacs.008 Workbench
-
 Welcome to the live interactive workbench for **pacs008**. Test ISO 20022 payment message drafting, convert legacy SWIFT MT103 text blocks into compliant `pacs.008.001.13` XML, and verify IBAN / LEI checksums instantly in your browser — 100% locally with zero payload transmission to external servers.
 
 ---
@@ -25,7 +23,7 @@ Welcome to the live interactive workbench for **pacs008**. Test ISO 20022 paymen
 
 Paste a legacy SWIFT MT103 message text block below to convert it into a fully validated ISO 20022 `pacs.008.001.13` XML payload:
 
-<div class="interactive-card" style="background:var(--bg-alt); border:1px solid var(--rule); border-radius:8px; padding:1.5rem; margin:1.5rem 0;">
+<div class="interactive-card" style="background:var(--bg-alt); border:1px solid var(--rule); border-radius:var(--radius-md, 8px); padding:1.5rem; margin:1.5rem 0;">
   <label for="mt103-input" style="font-weight:700; display:block; margin-bottom:0.5rem; color:var(--ink);">SWIFT MT103 Input Block:</label>
   <textarea id="mt103-input" rows="6" style="width:100%; font-family:var(--type-mono); font-size:0.85rem; padding:0.75rem; border:1px solid var(--rule); border-radius:6px; background:var(--bg-page); color:var(--ink); margin-bottom:1rem;" placeholder=":20:MSG-2026-001&#10;:32A:260727EUR25000,00&#10;:50K:/12345678&#10;Acme Corp GmbH&#10;:59:/98765432&#10;Widget Industries SA&#10;:71A:SHA">:20:MSG-2026-001
 :32A:260727EUR25000,00
@@ -36,7 +34,7 @@ Widget Industries SA
 :71A:SHA</textarea>
   <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
     <button id="convert-mt103-btn" type="button" class="pill pill-primary">Convert MT103 to pacs.008 XML &rsaquo;</button>
-    <span id="mt103-status" style="font-size:0.85rem; font-weight:600; color:#0f766e;">Status: Ready</span>
+    <span id="mt103-status" style="font-size:0.85rem; font-weight:600; color:var(--link, #0f766e);">Status: Ready</span>
   </div>
 
   <div style="margin-top: 1.25rem;">
@@ -54,7 +52,7 @@ Widget Industries SA
 
 Customize payment parameters below to generate a live, schema-compliant `pacs.008.001.13` XML message:
 
-<div class="interactive-card" style="background:var(--bg-alt); border:1px solid var(--rule); border-radius:8px; padding:1.5rem; margin:1.5rem 0;">
+<div class="interactive-card" style="background:var(--bg-alt); border:1px solid var(--rule); border-radius:var(--radius-md, 8px); padding:1.5rem; margin:1.5rem 0;">
   <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:1rem; margin-bottom:1rem;">
     <div>
       <label for="live-dbtr-name" style="font-size:0.85rem; font-weight:700; display:block; margin-bottom:0.25rem; color:var(--ink);">Debtor Name:</label>
@@ -91,7 +89,7 @@ Customize payment parameters below to generate a live, schema-compliant `pacs.00
 
   <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:1rem;">
     <button id="generate-live-xml-btn" type="button" class="pill pill-primary">Generate pacs.008 XML &rsaquo;</button>
-    <span id="live-xml-status" style="font-size:0.85rem; font-weight:600; color:#0f766e;">Validation: XSD Schema PASS (100% Compliant)</span>
+    <span id="live-xml-status" style="font-size:0.85rem; font-weight:600; color:var(--link, #0f766e);">Validation: XSD Schema PASS (100% Compliant)</span>
   </div>
 
   <div style="margin-top: 1rem;">
@@ -109,7 +107,7 @@ Customize payment parameters below to generate a live, schema-compliant `pacs.00
 
 Verify ISO 17442 Legal Entity Identifiers (LEI) and ISO 13616 IBAN checksums in real time:
 
-<div class="interactive-card" style="background:var(--bg-alt); border:1px solid var(--rule); border-radius:8px; padding:1.5rem; margin:1.5rem 0;">
+<div class="interactive-card" style="background:var(--bg-alt); border:1px solid var(--rule); border-radius:var(--radius-md, 8px); padding:1.5rem; margin:1.5rem 0;">
   <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:1rem; margin-bottom:1rem;">
     <div>
       <label for="lei-input" style="font-size:0.85rem; font-weight:700; display:block; margin-bottom:0.25rem; color:var(--ink);">LEI Identifier (ISO 17442):</label>

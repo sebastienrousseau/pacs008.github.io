@@ -240,4 +240,100 @@
 </Document>`.trim();
     }
   };
+
+  function initLiveWorkbench() {
+    // 1. MT103 Converter
+    const mt103Btn = document.getElementById("convert-mt103-btn");
+    const mt103Input = document.getElementById("mt103-input");
+    const mt103Output = document.getElementById("mt103-output");
+    const mt103CopyBtn = document.getElementById("mt103-copy-btn");
+    const mt103Status = document.getElementById("mt103-status");
+
+    if (mt103Btn && mt103Input && mt103Output) {
+      function runMt103Convert() {
+        const val = mt103Input.value || "";
+        const xml = window.pacs008Tools.convertMt103ToPacs008(val);
+        mt103Output.textContent = xml;
+        if (mt103Status) mt103Status.textContent = "Status: Converted Successfully";
+      }
+      mt103Btn.addEventListener("click", runMt103Convert);
+      runMt103Convert();
+
+      if (mt103CopyBtn) {
+        mt103CopyBtn.addEventListener("click", function () {
+          navigator.clipboard.writeText(mt103Output.textContent).then(function () {
+            mt103CopyBtn.innerText = "Copied!";
+            setTimeout(() => { mt103CopyBtn.innerText = "Copy XML"; }, 2000);
+          });
+        });
+      }
+    }
+
+    // 2. Interactive pacs.008 Generator
+    const liveXmlBtn = document.getElementById("generate-live-xml-btn");
+    const liveDbtr = document.getElementById("live-dbtr-name");
+    const liveCdtr = document.getElementById("live-cdtr-name");
+    const liveAmt = document.getElementById("live-amt");
+    const liveCcy = document.getElementById("live-ccy");
+    const livePurpose = document.getElementById("live-purpose");
+    const xmlOutput = document.getElementById("xml-output");
+    const xmlCopyBtn = document.getElementById("xml-copy-btn");
+
+    if (liveXmlBtn || xmlOutput) {
+      function runLiveGenerator() {
+        const params = {
+          msgType: "pacs.008.001.13",
+          currency: liveCcy ? liveCcy.value : "EUR",
+          amount: liveAmt ? liveAmt.value : "25000.00",
+          endToEndId: "E2E-2026-LIVE-001"
+        };
+        let xml = window.pacs008Tools.generateXml(params);
+        if (liveDbtr && liveDbtr.value) {
+          xml = xml.replace("<Nm>Treasury Services Ltd</Nm>", `<Nm>${liveDbtr.value}</Nm>`);
+        }
+        if (liveCdtr && liveCdtr.value) {
+          xml = xml.replace("<Nm>Global Liquidity Corp</Nm>", `<Nm>${liveCdtr.value}</Nm>`);
+        }
+        if (xmlOutput) xmlOutput.textContent = xml;
+      }
+
+      if (liveXmlBtn) liveXmlBtn.addEventListener("click", runLiveGenerator);
+      [liveDbtr, liveCdtr, liveAmt, liveCcy, livePurpose].forEach(el => {
+        if (el) el.addEventListener("input", runLiveGenerator);
+      });
+      runLiveGenerator();
+
+      if (xmlCopyBtn && xmlOutput) {
+        xmlCopyBtn.addEventListener("click", function () {
+          navigator.clipboard.writeText(xmlOutput.textContent).then(function () {
+            xmlCopyBtn.innerText = "Copied!";
+            setTimeout(() => { xmlCopyBtn.innerText = "Copy XML"; }, 2000);
+          });
+        });
+      }
+    }
+
+    // 3. LEI Validator
+    const validateLeiBtn = document.getElementById("validate-lei-btn");
+    const leiInput = document.getElementById("lei-input");
+    const leiResult = document.getElementById("lei-result");
+
+    if (validateLeiBtn && leiInput && leiResult) {
+      function runLeiCheck() {
+        const res = window.pacs008Tools.validateLei(leiInput.value);
+        leiResult.textContent = res.message;
+        leiResult.style.color = res.valid ? "#0f766e" : "#b91c1c";
+        leiResult.style.borderColor = res.valid ? "#0f766e" : "#b91c1c";
+      }
+      validateLeiBtn.addEventListener("click", runLeiCheck);
+      leiInput.addEventListener("input", runLeiCheck);
+      runLeiCheck();
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initLiveWorkbench);
+  } else {
+    initLiveWorkbench();
+  }
 })();
