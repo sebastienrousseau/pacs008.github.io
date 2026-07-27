@@ -16,6 +16,8 @@ const expectedPages = [
   "faq/index.md",
   "pacs-explained/index.md",
   "glossary/index.md",
+  "security/index.md",
+  "2026-readiness/index.md",
   "changelog/index.md"
 ];
 

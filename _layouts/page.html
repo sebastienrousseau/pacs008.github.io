@@ -747,6 +747,7 @@
               <button type="button" class="ap-sub-toggle" aria-expanded="false" aria-controls="sub-overview" aria-label="Toggle Overview submenu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button>
               <ul id="sub-overview" class="ap-sub">
                 <li><a href="/about/">About pacs008</a></li>
+                <li><a href="/2026-readiness/">2026 Readiness Hub</a></li>
                 <li><a href="/message-types/">Message Types</a></li>
                 <li><a href="/message-selection/">Message Selection Guide</a></li>
               </ul>
@@ -767,6 +768,7 @@
                 <li><a href="/api/">API &amp; CLI Reference</a></li>
                 <li><a href="/pacs-explained/">pacs Messages Explained</a></li>
                 <li><a href="/structured-address/">Structured Address (2026)</a></li>
+                <li><a href="/security/">Security &amp; Compliance</a></li>
               </ul>
             </li>
             <li class="has-sub"><a href="/faq/">Resources</a>
@@ -1274,6 +1276,20 @@
             leiResult.style.background = res.valid ? "#0f766e22" : "#b91c1c22";
             leiResult.style.color = res.valid ? "#0f766e" : "#b91c1c";
           });
+        }
+
+        // 5. MT103 Converter Binding
+        function updateMt103Convert() {
+          var input = document.getElementById("mt103-input");
+          var output = document.getElementById("mt103-output");
+          if (input && output && window.pacs008Tools) {
+            output.textContent = window.pacs008Tools.convertMt103ToPacs008(input.value);
+          }
+        }
+        var mtInput = document.getElementById("mt103-input");
+        if (mtInput) {
+          mtInput.addEventListener("input", updateMt103Convert);
+          updateMt103Convert();
         }
       })();
     </script>

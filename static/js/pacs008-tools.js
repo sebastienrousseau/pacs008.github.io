@@ -1,6 +1,6 @@
 /**
  * pacs008 Interactive Tooling & 2026 Compliance Inspector
- * Zero-dependency client-side ISO 20022 generator, address validator, schema diff & LEI/Purpose code lookup
+ * Zero-dependency client-side ISO 20022 generator, address validator, schema diff, LEI/Purpose code lookup, and MT103 converter
  */
 
 (function () {
@@ -188,6 +188,56 @@
         return { valid: true, message: `Valid LEI format: ${cleaned} (Complies with ISO 17442 and Bank of England CHAPS rules).` };
       }
       return { valid: false, message: "Invalid LEI: Must be exactly 20 alphanumeric characters (ISO 17442)." };
+    },
+
+    convertMt103ToPacs008: function (mt103Text) {
+      let ref = "TRX-2026-9901";
+      let amount = "1250.00";
+      let ccy = "EUR";
+      let debtor = "Acme Global Ltd";
+      let creditor = "Nexus Liquidity Corp";
+      let charges = "SLEV";
+
+      if (mt103Text) {
+        const lines = mt103Text.split("\n");
+        lines.forEach(l => {
+          if (l.startsWith(":20:")) ref = l.replace(":20:", "").trim();
+          if (l.startsWith(":32A:")) {
+            const val = l.replace(":32A:", "").trim();
+            if (val.length >= 9) {
+              ccy = val.substring(6, 9);
+              amount = val.substring(9).replace(",", ".");
+            }
+          }
+          if (l.startsWith(":50K:")) debtor = l.replace(":50K:", "").trim();
+          if (l.startsWith(":59:")) creditor = l.replace(":59:", "").replace(/^\//, "").trim();
+          if (l.startsWith(":71A:")) {
+            const chg = l.replace(":71A:", "").trim();
+            charges = chg === "OUR" ? "DEBT" : (chg === "BEN" ? "CRED" : "SLEV");
+          }
+        });
+      }
+
+      const now = new Date().toISOString().split(".")[0];
+      return `<?xml version="1.0" encoding="UTF-8"?>
+<!-- Converted from SWIFT MT103 to ISO 20022 pacs.008.001.13 -->
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.13">
+  <FIToFICstmrCdtTrf>
+    <GrpHdr>
+      <MsgId>CONV-${ref}</MsgId>
+      <CreDtTm>${now}</CreDtTm>
+      <NbOfTxs>1</NbOfTxs>
+      <SttlmInf><SttlmMtd>CLRG</SttlmMtd></SttlmInf>
+    </GrpHdr>
+    <CdtTrfTxInf>
+      <PmtId><EndToEndId>${ref}</EndToEndId></PmtId>
+      <IntrBkSttlmAmt Ccy="${ccy}">${amount}</IntrBkSttlmAmt>
+      <ChrgBr>${charges}</ChrgBr>
+      <Dbtr><Nm>${debtor}</Nm><PstlAdr><TwnNm>London</TwnNm><Ctry>GB</Ctry></PstlAdr></Dbtr>
+      <Cdtr><Nm>${creditor}</Nm></Cdtr>
+    </CdtTrfTxInf>
+  </FIToFICstmrCdtTrf>
+</Document>`.trim();
     }
   };
 })();

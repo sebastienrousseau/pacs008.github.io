@@ -37073,6 +37073,18 @@ for (const locale of locales) {
     lang: locale.lang,
     body: glossaryBody(locale.key)
   }));
+  await write(path.join(base, "security", "index.md"), pageTemplate({
+    title: "Security & Compliance — pacs008 Data Protection Architecture",
+    description: "Learn about pacs008 security disclosures, XXE prevention, PII masking for GDPR/PCI-DSS, SQL injection prevention, and vulnerability reporting policies.",
+    lang: locale.lang,
+    body: `# Security & Compliance Architecture\n\npacs008 is built with a security-first posture designed for financial institutions, payment service providers, and regulated fintech platforms processing ISO 20022 message flows.\n\n## Core Security Controls\n\n- **XXE Protection**: Utilises defusedxml for all XML parsing operations.\n- **PII & GDPR Masking**: Automatic PII obfuscation for IBANs and party names in application logs.\n- **Path Traversal Defense**: Strict directory allowlisting preventing path escape vulnerabilities.\n`
+  }));
+  await write(path.join(base, "2026-readiness", "index.md"), pageTemplate({
+    title: "2026 Readiness Hub — SWIFT CBPR+ & Bank of England Migration",
+    description: "Complete compliance hub for the 14 November 2026 SWIFT CBPR+ structured address mandate, MT101 interbank relay retirement, and Bank of England CHAPS LEI/Purpose code mandates.",
+    lang: locale.lang,
+    body: `# 2026 ISO 20022 Migration Readiness Hub\n\nThe global payment industry is approaching a critical compliance milestone on **14 November 2026**. This hub consolidates mandatory requirements from **SWIFT (CBPR+)** and the **Bank of England (CHAPS)**.\n`
+  }));
   await write(path.join(base, "changelog", "index.md"), pageTemplate({
     title: sectionPageTitle(locale.key, "changelog", pageTitle(`${t.changelogTitle} | pacs008`)),
     description: localeSectionDescription(locale, t.changelogDescription),
