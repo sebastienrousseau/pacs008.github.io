@@ -14746,9 +14746,7 @@ function localeSectionDescription(locale, summary) {
 }
 
 function homeTitle(locale) {
-  return locale.key === "en"
-    ? "pacs008 | ISO 20022 pacs.008 Toolkit and API"
-    : `pacs008 | ${locale.label} | ISO 20022 Toolkit`;
+  return "pacs008 | ISO 20022 Payment Message Toolkit and API";
 }
 
 function pageTitle(primary, suffix = "pacs008") {
