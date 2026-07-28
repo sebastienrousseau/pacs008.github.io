@@ -55,35 +55,35 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
     <tbody>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /api/health</code></td>
-          <td class="api-endpoints-table__desc">Àyẹ̀wò ìlera — ó dá ipò iṣẹ́ padà</td>
+          <td class="api-endpoints-table__desc">Health check that returns service status</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>POST /api/validate</code></td>
-          <td class="api-endpoints-table__desc">Ṣàyẹ̀wò dátà ìsanwó lòdì sí ètò láìṣẹ̀dá XML</td>
+          <td class="api-endpoints-table__desc">Validate payment data without generating XML</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>POST /api/generate</code></td>
-          <td class="api-endpoints-table__desc">Ṣẹ̀dá XML ní àkókò kan náà kí o sì dá fáìlì padà</td>
+          <td class="api-endpoints-table__desc">Generate XML now and return the file</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>POST /api/generate/async</code></td>
-          <td class="api-endpoints-table__desc">Fi iṣẹ́ ṣíṣẹ̀dá aládàáṣe sílẹ̀</td>
+          <td class="api-endpoints-table__desc">Submit an async generation job</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /api/status/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">Ṣàyẹ̀wò ipò iṣẹ́ nípasẹ̀ ID</td>
+          <td class="api-endpoints-table__desc">Check job status by ID</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /api/download/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">Gbà XML tí a ṣẹ̀dá sílẹ̀ lẹ́yìn tí iṣẹ́ bá parí</td>
+          <td class="api-endpoints-table__desc">Download XML after the job completes</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>DELETE /api/jobs/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">Fagilee iṣẹ́ tí ó ń dúró de tàbí tí ó ń ṣiṣẹ́</td>
+          <td class="api-endpoints-table__desc">Cancel a pending or running job</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /api/docs</code></td>
-          <td class="api-endpoints-table__desc">Swagger UI aládàáṣe fún ṣíṣàwárí àti dídán gbogbo àwọn ọ̀nà ìparí wò</td>
+          <td class="api-endpoints-table__desc">Swagger UI for testing all endpoints</td>
         </tr>
     </tbody>
   </table>

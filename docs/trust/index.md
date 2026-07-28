@@ -78,6 +78,22 @@ beta for this reason.
 A passing result in the Workbench is not a statement about the layers above.
 For XSD and ISO-semantic checks, use the Python library, CLI or REST service.
 
+### Why the browser does not do XSD
+
+Not a bundle-size or performance limitation. A WebAssembly validator measures
+873 KB, comfortably inside the budget, and the site's Content-Security-Policy
+already permits `'wasm-unsafe-eval'`.
+
+The blocker is that browser-side XSD validation requires serving the ISO 20022
+schema files from pacs008.com, which is redistribution of Registration
+Authority material whose terms have not been confirmed. The project stores
+derived rule logic and citations rather than reproducing source documents, and
+bundling schemas for public download is a stronger act than citing them.
+
+Self-hosted deployments are unaffected: the Python library, CLI and REST
+service perform XSD validation against schemas you already hold locally. The
+full record is in `DECISIONS.md` (D-003).
+
 ## Message coverage
 
 Verified against the templates shipped in the package.

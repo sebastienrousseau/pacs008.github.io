@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>pacs008 scheme changes</title>
+  <subtitle>Dated ISO 20022 scheme rule changes for CBPR+, CHAPS and related profiles</subtitle>
+  <link href="https://pacs008.com/scheme-changes.xml" rel="self"/>
+  <link href="https://pacs008.com/scheme-changes/"/>
+  <id>https://pacs008.com/scheme-changes/</id>
+  <updated>2026-07-28T00:00:00Z</updated>
+  <author><name>pacs008</name></author>
+  <entry>
+    <title>CBPR-ADDR-001 — Fully unstructured postal address is not accepted</title>
+    <link href="https://pacs008.com/catalogue/"/>
+    <id>tag:pacs008.com,2026-11-14:CBPR-ADDR-001</id>
+    <updated>2026-11-14T00:00:00Z</updated>
+    <category term="cbpr-plus"/>
+    <summary>From 14 November 2026 a fully unstructured postal address is rejected in CBPR+ payment messages.</summary>
+  </entry>
+  <entry>
+    <title>CBPR-ADDR-002 — Town Name is mandatory in a structured element</title>
+    <link href="https://pacs008.com/catalogue/"/>
+    <id>tag:pacs008.com,2026-11-14:CBPR-ADDR-002</id>
+    <updated>2026-11-14T00:00:00Z</updated>
+    <category term="cbpr-plus"/>
+    <summary>Town Name must be carried in TwnNm, not in an address line.</summary>
+  </entry>
+  <entry>
+    <title>CBPR-ADDR-003 — Country is mandatory as a two-letter ISO 3166 code</title>
+    <link href="https://pacs008.com/catalogue/"/>
+    <id>tag:pacs008.com,2026-11-14:CBPR-ADDR-003</id>
+    <updated>2026-11-14T00:00:00Z</updated>
+    <category term="cbpr-plus"/>
+    <summary>Country must be carried in Ctry as a two-letter ISO 3166 alpha-2 code.</summary>
+  </entry>
+  <entry>
+    <title>CBPR-ADDR-004 — Hybrid postal address is accepted</title>
+    <link href="https://pacs008.com/catalogue/"/>
+    <id>tag:pacs008.com,2025-11-22:CBPR-ADDR-004</id>
+    <updated>2025-11-22T00:00:00Z</updated>
+    <category term="cbpr-plus"/>
+    <summary>A hybrid address — structured Town Name and Country alongside address lines — is accepted, both before and after the November 2026 change.</summary>
+  </entry>
+  <entry>
+    <title>CBPR-ADDR-005 — Agent identified by BIC only is exempt</title>
+    <link href="https://pacs008.com/catalogue/"/>
+    <id>tag:pacs008.com,2026-11-14:CBPR-ADDR-005</id>
+    <updated>2026-11-14T00:00:00Z</updated>
+    <category term="cbpr-plus"/>
+    <summary>For agent fields, BIC-only identification remains valid; no postal address is required.</summary>
+  </entry>
+  <entry>
+    <title>CBPR-ADDR-006 — Message types excepted from the address requirement</title>
+    <link href="https://pacs008.com/catalogue/"/>
+    <id>tag:pacs008.com,2026-11-14:CBPR-ADDR-006</id>
+    <updated>2026-11-14T00:00:00Z</updated>
+    <category term="cbpr-plus"/>
+    <summary>The structured address requirement does not apply to admi.024, camt.025, camt.052, camt.053, camt.054 and camt.060.</summary>
+  </entry>
+  <entry>
+    <title>CHAPS-ADDR-001 — CHAPS validation library rejects fully unstructured addresses</title>
+    <link href="https://pacs008.com/catalogue/"/>
+    <id>tag:pacs008.com,2026-11-14:CHAPS-ADDR-001</id>
+    <updated>2026-11-14T00:00:00Z</updated>
+    <category term="chaps-uk"/>
+    <summary>From November 2026 the CHAPS validation library rejects payments carrying a fully unstructured address. Hybrid is the minimum acceptable form.</summary>
+  </entry>
+  <entry>
+    <title>CHAPS-PURP-001 — Purpose codes become mandatory on all CHAPS payments</title>
+    <link href="https://pacs008.com/catalogue/"/>
+    <id>tag:pacs008.com,2027-11-01:CHAPS-PURP-001</id>
+    <updated>2027-11-01T00:00:00Z</updated>
+    <category term="chaps-uk"/>
+    <summary>From November 2027 the Bank of England requires a purpose code on all CHAPS payments, extending the earlier property and FI-to-FI requirement.</summary>
+  </entry>
+  <entry>
+    <title>CHAPS-RMT-001 — Structured remittance information becomes mandatory for CHAPS</title>
+    <link href="https://pacs008.com/catalogue/"/>
+    <id>tag:pacs008.com,2027-11-01:CHAPS-RMT-001</id>
+    <updated>2027-11-01T00:00:00Z</updated>
+    <category term="chaps-uk"/>
+    <summary>From November 2027 remittance information carried in CHAPS payments must be structured.</summary>
+  </entry>
+</feed>

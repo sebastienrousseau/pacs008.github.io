@@ -14,6 +14,26 @@ const RULE_REGISTRY = JSON.parse(
 const SOURCE_REGISTRY = JSON.parse(
   readFileSync(new URL("../data/source-registry.json", import.meta.url), "utf8")
 );
+const OPENAPI = JSON.parse(
+  readFileSync(new URL("../data/openapi.json", import.meta.url), "utf8")
+);
+
+/**
+ * Endpoint rows derived from the OpenAPI document.
+ *
+ * The table previously listed bare paths while the curl examples beside it
+ * used /api/..., so neither could be copied and run. Deriving the rows from
+ * the spec means the contract and the reference cannot disagree.
+ */
+function openapiEndpoints() {
+  const rows = [];
+  for (const [path, ops] of Object.entries(OPENAPI.paths)) {
+    for (const [method, op] of Object.entries(ops)) {
+      rows.push([`${method.toUpperCase()} ${path}`, op.summary]);
+    }
+  }
+  return rows;
+}
 
 /**
  * Scheme milestones as a table.
@@ -15376,16 +15396,9 @@ ${htmlTable({
       { className: "api-endpoints-table__col-desc", label: t.apiFieldCol2 }
     ],
     rows: [
-      // Paths carry the /api prefix so the table matches the curl examples
-      // below it and the REST interface recorded in data/product-manifest.json.
-      ["GET /api/health", t.apiEndpointHealth],
-      ["POST /api/validate", t.apiEndpointValidate],
-      ["POST /api/generate", t.apiEndpointGenerate],
-      ["POST /api/generate/async", t.apiEndpointAsync],
-      ["GET /api/status/{job_id}", t.apiEndpointStatus],
-      ["GET /api/download/{job_id}", t.apiEndpointDownload],
-      ["DELETE /api/jobs/{job_id}", t.apiEndpointCancel],
-      ["GET /api/docs", t.apiEndpointDocs]
+      // Derived from data/openapi.json so the reference cannot drift from the
+      // contract. Descriptions come from the spec's operation summaries.
+      ...openapiEndpoints()
     ].map(([endpoint, description]) => [
       { className: "api-endpoints-table__endpoint", html: `<code>${escapeHtml(endpoint)}</code>` },
       { className: "api-endpoints-table__desc", html: escapeHtml(description) }

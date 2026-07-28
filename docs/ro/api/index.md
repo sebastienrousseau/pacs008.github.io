@@ -62,35 +62,35 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
     <tbody>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /api/health</code></td>
-          <td class="api-endpoints-table__desc">Health check — returnează starea serviciului</td>
+          <td class="api-endpoints-table__desc">Health check that returns service status</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>POST /api/validate</code></td>
-          <td class="api-endpoints-table__desc">Validează datele de plată față de schemă fără a genera XML</td>
+          <td class="api-endpoints-table__desc">Validate payment data without generating XML</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>POST /api/generate</code></td>
-          <td class="api-endpoints-table__desc">Generează XML sincron și returnează fișierul</td>
+          <td class="api-endpoints-table__desc">Generate XML now and return the file</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>POST /api/generate/async</code></td>
-          <td class="api-endpoints-table__desc">Trimite un job de generare asincron</td>
+          <td class="api-endpoints-table__desc">Submit an async generation job</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /api/status/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">Interoghează starea jobului după ID</td>
+          <td class="api-endpoints-table__desc">Check job status by ID</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /api/download/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">Descarcă XML-ul generat după finalizarea jobului</td>
+          <td class="api-endpoints-table__desc">Download XML after the job completes</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>DELETE /api/jobs/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">Anularea unei sarcini în așteptare sau în curs de execuție</td>
+          <td class="api-endpoints-table__desc">Cancel a pending or running job</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /api/docs</code></td>
-          <td class="api-endpoints-table__desc">Swagger UI interactiv pentru explorarea și testarea tuturor endpoint-urilor</td>
+          <td class="api-endpoints-table__desc">Swagger UI for testing all endpoints</td>
         </tr>
     </tbody>
   </table>

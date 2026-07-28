@@ -27,36 +27,45 @@ technology. The known gaps are listed below rather than omitted.
 
 | Area | Method | Status |
 |---|---|---|
+| WCAG 2.2 A/AA rule scan (axe-core) | Automated, every test run | Passing |
 | Landmarks, headings, skip link | Automated, every build | Passing |
 | Document language and direction | Automated, all 28 locales | Passing |
-| Colour contrast tokens | Design review | Passing |
+| Form control labels and accessible names | Automated (axe) | Passing |
 | Touch target size (44px minimum) | Automated | Passing |
 | Reduced-motion preference | Automated | Passing |
 | Image alternative text | Automated, every page | Passing |
+| Colour contrast | **Not covered by the automated scan** | Design review only |
 | Keyboard-only navigation | Not yet formally tested | **Unknown** |
 | Screen readers (NVDA, VoiceOver, TalkBack) | Not yet tested | **Unknown** |
 | 400% zoom and 320px reflow | Not yet formally tested | **Unknown** |
 | Windows high-contrast mode | Not yet tested | **Unknown** |
 
-The ssg build runs an accessibility check over every page on each build and
-currently reports no failures. That check is not a substitute for manual
-testing, and we do not present it as one.
+The axe-core scan runs against the built HTML for one page per template and
+per script direction, including right-to-left and CJK locales. It found two
+critical defects when first introduced — an unlabelled file input and a select
+element with no accessible name, both in the workbench — which have been
+fixed.
+
+Automated scanning is a floor, not a ceiling. It cannot tell you whether a
+page is usable.
 
 ## Known problems
 
-1. **No automated accessibility scanning in CI.** The project previously
-   declared `@axe-core/cli` but never ran it, and it was removed because it
-   pulled vulnerable transitive dependencies. Automated scanning needs to be
-   reinstated with a runner that does not require chromedriver.
+1. **Colour contrast is not automatically verified.** The scan runs without a
+   real layout engine, so contrast cannot be computed. Rather than run the rule
+   against unstyled markup and report a meaningless pass, it is disabled and
+   listed here. Contrast is currently checked by design review only.
 2. **No assistive-technology testing has been performed.** Screen reader,
    keyboard-only and voice-input paths are untested. We therefore cannot claim
    they work.
 3. **Right-to-left rendering is newly enabled.** Arabic and Hebrew pages only
-   began rendering right-to-left recently. The markup is correct, but the
-   visual result has not been reviewed by a reader of either language.
+   began rendering right-to-left recently. The markup is correct and passes the
+   automated scan, but the visual result has not been reviewed by a reader of
+   either language.
 4. **Workbench results are not fully specified for screen readers.** The
-   validation results region announces status, but the findings tables and the
-   batch readiness report have not been tested with a screen reader.
+   validation results region announces status, but the findings tables, the
+   batch readiness report and the XML inspection output have not been tested
+   with a screen reader.
 5. **Interior pages are not minified**, which does not affect conformance but
    does affect load time on slow connections.
 
@@ -64,7 +73,8 @@ testing, and we do not present it as one.
 
 | Problem | Owner | Target |
 |---|---|---|
-| Reinstate automated scanning | Maintainer | Next release |
+| Automated WCAG scanning | Maintainer | **Done** — axe-core, every test run |
+| Colour contrast in an automated run | Maintainer | Needs a real browser runner |
 | Keyboard and screen-reader pass on critical paths | Maintainer | Before 14 November 2026 |
 | RTL visual review by a native reader | Needs a contributor | Unscheduled |
 | Workbench findings screen-reader review | Maintainer | With the next workbench change |

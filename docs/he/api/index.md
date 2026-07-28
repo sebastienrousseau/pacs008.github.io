@@ -62,35 +62,35 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
     <tbody>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /api/health</code></td>
-          <td class="api-endpoints-table__desc">בדיקת תקינות — מחזיר את סטטוס השירות</td>
+          <td class="api-endpoints-table__desc">Health check that returns service status</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>POST /api/validate</code></td>
-          <td class="api-endpoints-table__desc">אימות נתוני תשלום מול הסכמה ללא יצירת XML</td>
+          <td class="api-endpoints-table__desc">Validate payment data without generating XML</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>POST /api/generate</code></td>
-          <td class="api-endpoints-table__desc">יצירת XML באופן סינכרוני והחזרת הקובץ</td>
+          <td class="api-endpoints-table__desc">Generate XML now and return the file</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>POST /api/generate/async</code></td>
-          <td class="api-endpoints-table__desc">שליחת משימת יצירה א-סינכרונית</td>
+          <td class="api-endpoints-table__desc">Submit an async generation job</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /api/status/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">סקר סטטוס המשימה לפי מזהה</td>
+          <td class="api-endpoints-table__desc">Check job status by ID</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /api/download/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">הורדת ה-XML שנוצר לאחר השלמת המשימה</td>
+          <td class="api-endpoints-table__desc">Download XML after the job completes</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>DELETE /api/jobs/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">ביטול משימה ממתינה או פעילה</td>
+          <td class="api-endpoints-table__desc">Cancel a pending or running job</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /api/docs</code></td>
-          <td class="api-endpoints-table__desc">ממשק Swagger UI אינטראקטיבי לחקירה ובדיקת כל נקודות הקצה</td>
+          <td class="api-endpoints-table__desc">Swagger UI for testing all endpoints</td>
         </tr>
     </tbody>
   </table>

@@ -241,8 +241,10 @@
                 <p><strong>Drag a CSV file here</strong> — or click to browse</p>
                 <p class="hint">Maximum 2 MB · read locally by your browser, never uploaded</p>
               </div>
+              <label for="file-input" class="visually-hidden">Choose a CSV file of payment records</label>
               <input type="file" id="file-input" class="visually-hidden" accept=".csv,text/csv,text/plain" />
               <div class="demo-actions">
+                <label for="sample-select" class="visually-hidden">Load a sample dataset</label>
                 <select id="sample-select" class="pill-select">
                   <option value="">Load a sample&hellip;</option>
                   <option value="sepa-sct">SEPA credit transfer (2 records, EUR)</option>

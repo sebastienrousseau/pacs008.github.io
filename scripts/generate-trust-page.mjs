@@ -117,6 +117,22 @@ ${limitationRows}
 A passing result in the Workbench is not a statement about the layers above.
 For XSD and ISO-semantic checks, use the Python library, CLI or REST service.
 
+### Why the browser does not do XSD
+
+Not a bundle-size or performance limitation. A WebAssembly validator measures
+873 KB, comfortably inside the budget, and the site's Content-Security-Policy
+already permits \`'wasm-unsafe-eval'\`.
+
+The blocker is that browser-side XSD validation requires serving the ISO 20022
+schema files from pacs008.com, which is redistribution of Registration
+Authority material whose terms have not been confirmed. The project stores
+derived rule logic and citations rather than reproducing source documents, and
+bundling schemas for public download is a stronger act than citing them.
+
+Self-hosted deployments are unaffected: the Python library, CLI and REST
+service perform XSD validation against schemas you already hold locally. The
+full record is in \`DECISIONS.md\` (D-003).
+
 ## Message coverage
 
 Verified against the templates shipped in the package.
@@ -215,36 +231,45 @@ technology. The known gaps are listed below rather than omitted.
 
 | Area | Method | Status |
 |---|---|---|
+| WCAG 2.2 A/AA rule scan (axe-core) | Automated, every test run | Passing |
 | Landmarks, headings, skip link | Automated, every build | Passing |
 | Document language and direction | Automated, all 28 locales | Passing |
-| Colour contrast tokens | Design review | Passing |
+| Form control labels and accessible names | Automated (axe) | Passing |
 | Touch target size (44px minimum) | Automated | Passing |
 | Reduced-motion preference | Automated | Passing |
 | Image alternative text | Automated, every page | Passing |
+| Colour contrast | **Not covered by the automated scan** | Design review only |
 | Keyboard-only navigation | Not yet formally tested | **Unknown** |
 | Screen readers (NVDA, VoiceOver, TalkBack) | Not yet tested | **Unknown** |
 | 400% zoom and 320px reflow | Not yet formally tested | **Unknown** |
 | Windows high-contrast mode | Not yet tested | **Unknown** |
 
-The ssg build runs an accessibility check over every page on each build and
-currently reports no failures. That check is not a substitute for manual
-testing, and we do not present it as one.
+The axe-core scan runs against the built HTML for one page per template and
+per script direction, including right-to-left and CJK locales. It found two
+critical defects when first introduced — an unlabelled file input and a select
+element with no accessible name, both in the workbench — which have been
+fixed.
+
+Automated scanning is a floor, not a ceiling. It cannot tell you whether a
+page is usable.
 
 ## Known problems
 
-1. **No automated accessibility scanning in CI.** The project previously
-   declared \`@axe-core/cli\` but never ran it, and it was removed because it
-   pulled vulnerable transitive dependencies. Automated scanning needs to be
-   reinstated with a runner that does not require chromedriver.
+1. **Colour contrast is not automatically verified.** The scan runs without a
+   real layout engine, so contrast cannot be computed. Rather than run the rule
+   against unstyled markup and report a meaningless pass, it is disabled and
+   listed here. Contrast is currently checked by design review only.
 2. **No assistive-technology testing has been performed.** Screen reader,
    keyboard-only and voice-input paths are untested. We therefore cannot claim
    they work.
 3. **Right-to-left rendering is newly enabled.** Arabic and Hebrew pages only
-   began rendering right-to-left recently. The markup is correct, but the
-   visual result has not been reviewed by a reader of either language.
+   began rendering right-to-left recently. The markup is correct and passes the
+   automated scan, but the visual result has not been reviewed by a reader of
+   either language.
 4. **Workbench results are not fully specified for screen readers.** The
-   validation results region announces status, but the findings tables and the
-   batch readiness report have not been tested with a screen reader.
+   validation results region announces status, but the findings tables, the
+   batch readiness report and the XML inspection output have not been tested
+   with a screen reader.
 5. **Interior pages are not minified**, which does not affect conformance but
    does affect load time on slow connections.
 
@@ -252,7 +277,8 @@ testing, and we do not present it as one.
 
 | Problem | Owner | Target |
 |---|---|---|
-| Reinstate automated scanning | Maintainer | Next release |
+| Automated WCAG scanning | Maintainer | **Done** — axe-core, every test run |
+| Colour contrast in an automated run | Maintainer | Needs a real browser runner |
 | Keyboard and screen-reader pass on critical paths | Maintainer | Before 14 November 2026 |
 | RTL visual review by a native reader | Needs a contributor | Unscheduled |
 | Workbench findings screen-reader review | Maintainer | With the next workbench change |
@@ -381,6 +407,112 @@ writeFileSync(join(catDir, "index.md"), catalogue);
 console.log(
   `Catalogue generated: ${capability.messages.supported.length} families, ` +
     `${rules.rules.length} rules, ${sources.sources.length} sources.`
+);
+
+/**
+ * Scheme change log and Atom feed.
+ *
+ * Swift moves to an annual Standards Release cycle from November 2026, so
+ * scheme rules will change every year. A dated, citable log is the difference
+ * between a one-off compliance page and a resource people subscribe to.
+ *
+ * Entries are derived from rule effective dates, so publishing a rule
+ * publishes its change. Nothing is hand-maintained.
+ */
+const byDate = {};
+for (const rule of rules.rules) {
+  (byDate[rule.effective_from] ||= []).push(rule);
+}
+const dates = Object.keys(byDate).sort().reverse();
+
+const logSections = dates
+  .map((date) => {
+    const items = byDate[date]
+      .map((r) => {
+        const announced = r.status === "announced" ? " *(announced, not yet enforced)*" : "";
+        return `- \`${r.id}\` — ${r.title} (${r.profile}, ${r.severity})${announced}`;
+      })
+      .join("\n");
+    return `### ${date}\n\n${items}\n`;
+  })
+  .join("\n");
+
+const changelog = `---
+title: "Scheme change log | pacs008"
+description: "Dated log of scheme rule changes affecting ISO 20022 pacs messages, generated from the pacs008 rule registry. Subscribe to track CBPR+ and CHAPS obligations."
+lang: en-GB
+layout: page
+date: "${governance.verification_date}"
+lastUpdated: true
+image: /logo.webp
+canonical: /scheme-changes/
+robots: "index, follow"
+draft: false
+noindex: false
+---
+
+# Scheme change log
+
+Every rule change that affects whether a message is accepted, grouped by the
+date it takes effect. Generated from the rule registry at ruleset
+\`${rules.ruleset_version}\` (hash \`${product.ruleset_hash}\`).
+
+Swift moves to an annual Standards Release cycle from November 2026, so this
+list is expected to grow every year rather than end at the deadline.
+
+Subscribe: [Atom feed](/scheme-changes.xml).
+
+## Ruleset versioning
+
+Rule identifiers are stable across minor releases. A change to whether a rule
+passes or fails requires a new ruleset version, so a report produced against
+\`${rules.ruleset_version}\` can be reproduced later.
+
+${logSections}
+
+## How to pin a ruleset
+
+Validation reports record the ruleset version and hash. Quote both when
+raising a discrepancy, so the exact rule set that produced a finding can be
+reconstructed.
+`;
+
+const clDir = join(process.cwd(), "docs", "scheme-changes");
+if (!existsSync(clDir)) mkdirSync(clDir, { recursive: true });
+writeFileSync(join(clDir, "index.md"), changelog);
+
+const esc = (s) =>
+  String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+const feed = `<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>pacs008 scheme changes</title>
+  <subtitle>Dated ISO 20022 scheme rule changes for CBPR+, CHAPS and related profiles</subtitle>
+  <link href="https://pacs008.com/scheme-changes.xml" rel="self"/>
+  <link href="https://pacs008.com/scheme-changes/"/>
+  <id>https://pacs008.com/scheme-changes/</id>
+  <updated>${governance.verification_date}T00:00:00Z</updated>
+  <author><name>pacs008</name></author>
+${rules.rules
+  .map(
+    (r) => `  <entry>
+    <title>${esc(r.id)} — ${esc(r.title)}</title>
+    <link href="https://pacs008.com/catalogue/"/>
+    <id>tag:pacs008.com,${r.effective_from}:${esc(r.id)}</id>
+    <updated>${r.effective_from}T00:00:00Z</updated>
+    <category term="${esc(r.profile)}"/>
+    <summary>${esc(r.summary)}</summary>
+  </entry>`
+  )
+  .join("\n")}
+</feed>
+`;
+
+const staticDir = join(process.cwd(), "static");
+writeFileSync(join(staticDir, "scheme-changes.xml"), feed);
+
+console.log(
+  `Change log generated: ${dates.length} dated group(s), ${rules.rules.length} feed entries.`
 );
 
 console.log(

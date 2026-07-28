@@ -62,35 +62,35 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
     <tbody>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /api/health</code></td>
-          <td class="api-endpoints-table__desc">Comprobación de estado — devuelve el estado del servicio</td>
+          <td class="api-endpoints-table__desc">Health check that returns service status</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>POST /api/validate</code></td>
-          <td class="api-endpoints-table__desc">Validar datos de pago contra el esquema sin generar XML</td>
+          <td class="api-endpoints-table__desc">Validate payment data without generating XML</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>POST /api/generate</code></td>
-          <td class="api-endpoints-table__desc">Generar XML de forma sincrónica y devolver el archivo</td>
+          <td class="api-endpoints-table__desc">Generate XML now and return the file</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>POST /api/generate/async</code></td>
-          <td class="api-endpoints-table__desc">Enviar un trabajo de generación asíncrona</td>
+          <td class="api-endpoints-table__desc">Submit an async generation job</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /api/status/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">Consultar el estado del trabajo por ID</td>
+          <td class="api-endpoints-table__desc">Check job status by ID</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /api/download/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">Descargar el XML generado una vez completado el trabajo</td>
+          <td class="api-endpoints-table__desc">Download XML after the job completes</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>DELETE /api/jobs/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">Cancelar un trabajo pendiente o en ejecución</td>
+          <td class="api-endpoints-table__desc">Cancel a pending or running job</td>
         </tr>
         <tr>
           <td class="api-endpoints-table__endpoint"><code>GET /api/docs</code></td>
-          <td class="api-endpoints-table__desc">Interfaz Swagger UI interactiva para explorar y probar todos los puntos de conexión</td>
+          <td class="api-endpoints-table__desc">Swagger UI for testing all endpoints</td>
         </tr>
     </tbody>
   </table>

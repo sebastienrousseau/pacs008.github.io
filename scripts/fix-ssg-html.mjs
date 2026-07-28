@@ -191,6 +191,45 @@ function flattenNestedIndexes(dir) {
   return count;
 }
 
+/**
+ * Conservative HTML whitespace reduction.
+ *
+ * ssg minifies the homepage but leaves the other 677 pages as authored, and
+ * exposes no flag to change that. This closes the gap without a dependency.
+ *
+ * Deliberately conservative:
+ *   - <pre>, <textarea>, <script> and <style> are lifted out first, because
+ *     whitespace is significant inside them.
+ *   - Runs of whitespace collapse to a single space rather than being removed.
+ *     Removing them would join words across a line break and delete the
+ *     meaningful gap between inline elements such as </span> <span>.
+ *   - Attribute quoting is untouched. Unquoting is where minifiers break
+ *     markup, for a saving that is not worth the risk.
+ */
+const STASH_MARK = "\u0001";
+
+function minifyHtml(html) {
+  const stash = [];
+  const guarded = html.replace(
+    /<(pre|textarea|script|style)\b[\s\S]*?<\/\1>/gi,
+    (match) => {
+      stash.push(match);
+      return `${STASH_MARK}${stash.length - 1}${STASH_MARK}`;
+    }
+  );
+
+  const compact = guarded
+    // Drop comments, but leave conditional comments alone.
+    .replace(/<!--(?!\[if)[\s\S]*?-->/g, "")
+    .replace(/[ \t\r\n]+/g, " ")
+    .trim();
+
+  return compact.replace(
+    new RegExp(`${STASH_MARK}(\\d+)${STASH_MARK}`, "g"),
+    (_, i) => stash[Number(i)]
+  );
+}
+
 function unescapeHtmlString(str) {
   return str
     .replace(/&lt;/g, "<")
@@ -245,7 +284,8 @@ function repairHtml(content, filePath) {
   // 3. Point navigation at translated pages on locale routes
   body = localiseLinks(body, filePath);
 
-  return head + body;
+  // 4. Reduce whitespace on the pages ssg leaves unminified
+  return minifyHtml(head + body);
 }
 
 function processHtmlFiles(dir) {
