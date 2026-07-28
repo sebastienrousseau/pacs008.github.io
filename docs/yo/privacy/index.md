@@ -24,7 +24,7 @@ pacs008.com kò kójọ dátà tí ó ní í ṣe pẹ̀lú ẹni kọ̀ọ̀kan
 
 ## Ìtúpalẹ̀
 
-Àwọn iṣẹ́ ìtúpalẹ̀ ẹlẹ́ẹ̀kẹta lè kójọ àwọn dátà aláìlórúkọ bíi àwọn ìwò ojú-ìwé àti àwọn URL ìtọ́ka. Dátà yìí kò lè ṣeé lò láti dá àwọn àlejò kọ̀ọ̀kan mọ̀.
+pacs008.com kò lo iṣẹ́ ìtúpalẹ̀ kankan. Kò sí iṣẹ́ ìtúpalẹ̀ tí a ń gbé wọlé ní ojú-ìwé kankan, kò sì sí ìwò ojú-ìwé, URL ìtọ́ka, tàbí ìṣẹ̀lẹ̀ ìlò tí a ń kọ sílẹ̀. Gbogbo àwọn àfọwọ́kọ ni pacs008.com fúnra rẹ̀ ń pèsè, Content-Security-Policy sì dín script-src àti connect-src kù sí 'self', nítorí náà iṣẹ́ ìtúpalẹ̀ ẹlẹ́ẹ̀kẹta kò lè wọlé.
 
 ## Àwọn ẹ̀tọ́ rẹ
 

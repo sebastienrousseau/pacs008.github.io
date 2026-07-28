@@ -27,7 +27,7 @@ image: /logo.webp
 
 ## การติดตั้ง
 
-ติดตั้งแพ็คเกจจาก PyPI ต้องใช้ Python 3.9.2 หรือสูงกว่า
+ติดตั้งแพ็คเกจจาก PyPI ต้องใช้ Python 3.10 หรือสูงกว่า
 
 ```bash
 python -m pip install pacs008
@@ -61,36 +61,36 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
     </thead>
     <tbody>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /health</code></td>
-          <td class="api-endpoints-table__desc">ตรวจสอบสถานะ — คืนค่าสถานะบริการ</td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/health</code></td>
+          <td class="api-endpoints-table__desc">Health check that returns service status</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>POST /validate</code></td>
-          <td class="api-endpoints-table__desc">ตรวจสอบข้อมูลการชำระเงินกับสคีมาโดยไม่สร้าง XML</td>
+          <td class="api-endpoints-table__endpoint"><code>POST /api/validate</code></td>
+          <td class="api-endpoints-table__desc">Validate payment data without generating XML</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>POST /generate</code></td>
-          <td class="api-endpoints-table__desc">สร้าง XML แบบซิงโครนัสและส่งคืนไฟล์</td>
+          <td class="api-endpoints-table__endpoint"><code>POST /api/generate</code></td>
+          <td class="api-endpoints-table__desc">Generate XML now and return the file</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>POST /generate/async</code></td>
-          <td class="api-endpoints-table__desc">ส่งงานสร้างแบบอะซิงโครนัส</td>
+          <td class="api-endpoints-table__endpoint"><code>POST /api/generate/async</code></td>
+          <td class="api-endpoints-table__desc">Submit an async generation job</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /status/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">ตรวจสอบสถานะงานตาม ID</td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/status/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Check job status by ID</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /download/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">ดาวน์โหลด XML ที่สร้างแล้วเมื่องานเสร็จสิ้น</td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/download/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Download XML after the job completes</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>DELETE /jobs/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">ยกเลิกงานที่รอดำเนินการหรือกำลังดำเนินการ</td>
+          <td class="api-endpoints-table__endpoint"><code>DELETE /api/jobs/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Cancel a pending or running job</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /docs</code></td>
-          <td class="api-endpoints-table__desc">Swagger UI แบบโต้ตอบสำหรับสำรวจและทดสอบ endpoints ทั้งหมด</td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/docs</code></td>
+          <td class="api-endpoints-table__desc">Swagger UI for testing all endpoints</td>
         </tr>
     </tbody>
   </table>

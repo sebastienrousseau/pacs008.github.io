@@ -27,11 +27,11 @@ howto:
 
 # November 2026 structured-address deadline
 
-SWIFT requires structured postal addresses in cross-border payment messages from November 2026. What changes, which messages are affected, and how pacs008 helps teams prepare.
+From 14 November 2026, fully unstructured postal addresses are rejected in SWIFT CBPR+ payment messages and by the Bank of England's CHAPS validation library. Town Name and Country must be carried in their own structured elements. A compliant hybrid address remains acceptable — this is not a structured-only mandate.
 
 ## What is changing
 
-SWIFT CBPR+ is moving from unstructured postal addresses to structured address fields in cross-border payment messages. After the November 2026 deadline, key party address fields must use the structured format with separate elements for street name, building number, post code, town, and country.
+The requirement is a minimum, not a maximum. From 14 November 2026 an in-scope party must carry Town Name in <TwnNm> and Country in <Ctry> as a two-letter ISO 3166 code. Everything else — street, building number, post code — may remain in address lines. That combination is a hybrid address and it is explicitly accepted. What is removed is the fully unstructured address, where the entire address sits in free-text lines with no structured town or country. Agents identified by BIC alone are unaffected and need no postal address.
 
 ## Why it matters
 
@@ -54,11 +54,68 @@ SWIFT CBPR+ is moving from unstructured postal addresses to structured address f
 - Supports both pre-deadline hybrid formats and post-deadline structured-only formats.
 - Integrates address quality checks into CI pipelines and batch validation workflows.
 
+## Normative rules
+
+Generated from the pacs008 rule registry (ruleset `2026.11.0`).
+Each rule has a stable identifier, an effective date, an authoritative source and
+both a passing and a failing test fixture.
+
+| Rule | Profile | Effective | Severity | Requirement | Source |
+|---|---|---|---|---|---|
+| `CBPR-ADDR-001` | cbpr-plus | 2026-11-14 | Error | Fully unstructured postal address is not accepted | [SWIFT-ADDR-2026](https://www.swift.com/standards/iso-20022/removal-unstructured-address) |
+| `CBPR-ADDR-002` | cbpr-plus | 2026-11-14 | Error | Town Name is mandatory in a structured element | [SWIFT-ADDR-2026](https://www.swift.com/standards/iso-20022/removal-unstructured-address) |
+| `CBPR-ADDR-003` | cbpr-plus | 2026-11-14 | Error | Country is mandatory as a two-letter ISO 3166 code | [SWIFT-ADDR-2026](https://www.swift.com/standards/iso-20022/removal-unstructured-address) |
+| `CBPR-ADDR-004` | cbpr-plus | 2025-11-22 | Info | Hybrid postal address is accepted | [SWIFT-ADDR-2026](https://www.swift.com/standards/iso-20022/removal-unstructured-address) |
+| `CBPR-ADDR-005` | cbpr-plus | 2026-11-14 | Info | Agent identified by BIC only is exempt | [SWIFT-ADDR-2026](https://www.swift.com/standards/iso-20022/removal-unstructured-address) |
+| `CBPR-ADDR-006` | cbpr-plus | 2026-11-14 | Info | Message types excepted from the address requirement | [SWIFT-ADDR-2026](https://www.swift.com/standards/iso-20022/removal-unstructured-address) |
+| `CHAPS-ADDR-001` | chaps-uk | 2026-11-14 | Error | CHAPS validation library rejects fully unstructured addresses | [BOE-CHAPS-2026](https://www.bankofengland.co.uk/paper/2024/policy-statement/mandating-iso-20022-enhanced-data-in-chaps) |
+
+### Address formats compared
+
+| Format | `TwnNm` | `Ctry` | `AdrLine` | Before 14 Nov 2026 | On or after |
+|---|---|---|---|---|---|
+| Fully structured | Present | Present | Absent | Accepted | Accepted |
+| Hybrid | Present | Present | Present | Accepted | Accepted |
+| Fully unstructured | Absent | Absent | Present | Accepted | **Rejected** |
+
+### Exceptions
+
+The requirement does not apply to these message types: `admi.024`, `camt.025`, `camt.052`, `camt.053`, `camt.054`, `camt.060`.
+
+Agents identified by BIC alone remain valid without a postal address
+(`CBPR-ADDR-005`). Do not add a partial address solely to satisfy the rule.
+
+### Test fixtures
+
+Download and run these through the [workbench](/live/), the CLI or the API.
+Each maps to the rule it exercises.
+
+- [`structured-valid.csv`](/fixtures/cbpr/address/structured-valid.csv) — passes `CBPR-ADDR-001`
+- [`hybrid-valid.csv`](/fixtures/cbpr/address/hybrid-valid.csv) — passes `CBPR-ADDR-001`
+- [`unstructured-invalid.csv`](/fixtures/cbpr/address/unstructured-invalid.csv) — fails `CBPR-ADDR-001`
+- [`hybrid-valid.csv`](/fixtures/cbpr/address/hybrid-valid.csv) — passes `CBPR-ADDR-002`
+- [`missing-town-invalid.csv`](/fixtures/cbpr/address/missing-town-invalid.csv) — fails `CBPR-ADDR-002`
+- [`hybrid-valid.csv`](/fixtures/cbpr/address/hybrid-valid.csv) — passes `CBPR-ADDR-003`
+- [`missing-country-invalid.csv`](/fixtures/cbpr/address/missing-country-invalid.csv) — fails `CBPR-ADDR-003`
+- [`hybrid-valid.csv`](/fixtures/cbpr/address/hybrid-valid.csv) — passes `CBPR-ADDR-004`
+- [`agent-bic-only-valid.csv`](/fixtures/cbpr/address/agent-bic-only-valid.csv) — passes `CBPR-ADDR-005`
+- [`hybrid-valid.csv`](/fixtures/chaps/address/hybrid-valid.csv) — passes `CHAPS-ADDR-001`
+- [`unstructured-invalid.csv`](/fixtures/chaps/address/unstructured-invalid.csv) — fails `CHAPS-ADDR-001`
+
 ## Timeline
 
-- **March 2023** — SWIFT CBPR+ goes live with ISO 20022 for cross-border payments.
-- **November 2025** — coexistence period for MT and MX payment instructions ends.
-- **November 2026** — structured postal address requirement takes effect for CBPR+ messages.
+| Date | Scheme | Change | Rule |
+|---|---|---|---|
+| `2025-11-22` | CBPR+ | Hybrid postal address option available | `CBPR-ADDR-004` |
+| `2025-11-22` | CBPR+ | MT/MX coexistence for payment instructions ends | — |
+| `2026-11-14` | CBPR+ | Fully unstructured postal address rejected | `CBPR-ADDR-001` |
+| `2026-11-14` | CHAPS | CHAPS validation library rejects unstructured addresses | `CHAPS-ADDR-001` |
+| `2026-11-14` | CBPR+ | MT101 interbank coexistence ends; contingency relays to `pain.001` | — |
+| `2026-11-14` | Swift | `camt.110` investigation requests must be receivable | — |
+| `2026-11-14` | Swift | Annual Standards Release cycle begins | — |
+| `2027-11` | CHAPS | Purpose codes mandatory on all payments (announced) | `CHAPS-PURP-001` |
+| `2027-11` | CHAPS | Structured remittance information mandatory (announced) | `CHAPS-RMT-001` |
+| `2027-11` | Swift | `camt.110` and `camt.111` both mandatory (announced) | — |
 
 ## What to do now
 

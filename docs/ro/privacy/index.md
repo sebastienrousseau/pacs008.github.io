@@ -24,7 +24,7 @@ pacs008.com nu colectează date personale. Site-ul nu folosește cookie-uri sau 
 
 ## Analiză
 
-Serviciile de analiză terțe pot colecta date anonimizate și agregate, cum ar fi vizualizările de pagini și URL-urile de referință. Aceste date nu pot fi utilizate pentru a identifica vizitatorii individuali.
+pacs008.com nu utilizează servicii de analiză. Niciun serviciu de analiză nu este încărcat pe vreo pagină și nu sunt înregistrate vizualizări de pagini, URL-uri de referință sau evenimente de utilizare. Toate scripturile sunt servite de pacs008.com, iar Content-Security-Policy limitează script-src și connect-src la 'self', astfel încât un serviciu de analiză terț nu poate fi încărcat.
 
 ## Drepturile dumneavoastră
 

@@ -46,6 +46,9 @@ jobs:
           export PATH="$HOME/.cargo/bin:$PATH"
           npm run build
 
+      - name: Run test suite against built output
+        run: npm test
+
       - name: Validate locale content
         run: node scripts/validate-all-locales.mjs
 

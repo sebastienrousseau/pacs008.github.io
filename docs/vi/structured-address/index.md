@@ -31,7 +31,7 @@ SWIFT yêu cầu địa chỉ bưu chính có cấu trúc trong các thông đi�
 
 ## Điều gì thay đổi
 
-SWIFT CBPR+ đang chuyển từ địa chỉ bưu chính phi cấu trúc sang các trường địa chỉ có cấu trúc trong thông điệp thanh toán xuyên biên giới. Sau thời hạn tháng 11 năm 2026, các trường địa chỉ của bên chính phải sử dụng định dạng có cấu trúc với các phần tử riêng biệt cho tên đường, số tòa nhà, mã bưu chính, thành phố và quốc gia.
+Đây là yêu cầu tối thiểu, không phải tối đa. Từ ngày 14 tháng 11 năm 2026, bên thuộc phạm vi áp dụng phải ghi thành phố trong TwnNm và quốc gia trong Ctry dưới dạng mã ISO 3166 hai chữ cái. Đường phố, số nhà và mã bưu chính có thể vẫn nằm trong các dòng địa chỉ: đó là địa chỉ lai và được chấp nhận. Chỉ địa chỉ hoàn toàn phi cấu trúc bị loại bỏ — tức toàn bộ địa chỉ ở dạng văn bản tự do, không có thành phố và quốc gia có cấu trúc. Các tổ chức chỉ được nhận diện bằng BIC không bị ảnh hưởng.
 
 ## Tại sao điều này quan trọng
 
@@ -54,11 +54,68 @@ SWIFT CBPR+ đang chuyển từ địa chỉ bưu chính phi cấu trúc sang c�
 - Hỗ trợ cả định dạng kết hợp trước thời hạn và định dạng chỉ có cấu trúc sau thời hạn.
 - Tích hợp kiểm tra chất lượng địa chỉ vào các pipeline CI và quy trình xác thực theo lô.
 
+## Normative rules
+
+Generated from the pacs008 rule registry (ruleset `2026.11.0`).
+Each rule has a stable identifier, an effective date, an authoritative source and
+both a passing and a failing test fixture.
+
+| Rule | Profile | Effective | Severity | Requirement | Source |
+|---|---|---|---|---|---|
+| `CBPR-ADDR-001` | cbpr-plus | 2026-11-14 | Error | Fully unstructured postal address is not accepted | [SWIFT-ADDR-2026](https://www.swift.com/standards/iso-20022/removal-unstructured-address) |
+| `CBPR-ADDR-002` | cbpr-plus | 2026-11-14 | Error | Town Name is mandatory in a structured element | [SWIFT-ADDR-2026](https://www.swift.com/standards/iso-20022/removal-unstructured-address) |
+| `CBPR-ADDR-003` | cbpr-plus | 2026-11-14 | Error | Country is mandatory as a two-letter ISO 3166 code | [SWIFT-ADDR-2026](https://www.swift.com/standards/iso-20022/removal-unstructured-address) |
+| `CBPR-ADDR-004` | cbpr-plus | 2025-11-22 | Info | Hybrid postal address is accepted | [SWIFT-ADDR-2026](https://www.swift.com/standards/iso-20022/removal-unstructured-address) |
+| `CBPR-ADDR-005` | cbpr-plus | 2026-11-14 | Info | Agent identified by BIC only is exempt | [SWIFT-ADDR-2026](https://www.swift.com/standards/iso-20022/removal-unstructured-address) |
+| `CBPR-ADDR-006` | cbpr-plus | 2026-11-14 | Info | Message types excepted from the address requirement | [SWIFT-ADDR-2026](https://www.swift.com/standards/iso-20022/removal-unstructured-address) |
+| `CHAPS-ADDR-001` | chaps-uk | 2026-11-14 | Error | CHAPS validation library rejects fully unstructured addresses | [BOE-CHAPS-2026](https://www.bankofengland.co.uk/paper/2024/policy-statement/mandating-iso-20022-enhanced-data-in-chaps) |
+
+### Address formats compared
+
+| Format | `TwnNm` | `Ctry` | `AdrLine` | Before 14 Nov 2026 | On or after |
+|---|---|---|---|---|---|
+| Fully structured | Present | Present | Absent | Accepted | Accepted |
+| Hybrid | Present | Present | Present | Accepted | Accepted |
+| Fully unstructured | Absent | Absent | Present | Accepted | **Rejected** |
+
+### Exceptions
+
+The requirement does not apply to these message types: `admi.024`, `camt.025`, `camt.052`, `camt.053`, `camt.054`, `camt.060`.
+
+Agents identified by BIC alone remain valid without a postal address
+(`CBPR-ADDR-005`). Do not add a partial address solely to satisfy the rule.
+
+### Test fixtures
+
+Download and run these through the [workbench](/live/), the CLI or the API.
+Each maps to the rule it exercises.
+
+- [`structured-valid.csv`](/fixtures/cbpr/address/structured-valid.csv) — passes `CBPR-ADDR-001`
+- [`hybrid-valid.csv`](/fixtures/cbpr/address/hybrid-valid.csv) — passes `CBPR-ADDR-001`
+- [`unstructured-invalid.csv`](/fixtures/cbpr/address/unstructured-invalid.csv) — fails `CBPR-ADDR-001`
+- [`hybrid-valid.csv`](/fixtures/cbpr/address/hybrid-valid.csv) — passes `CBPR-ADDR-002`
+- [`missing-town-invalid.csv`](/fixtures/cbpr/address/missing-town-invalid.csv) — fails `CBPR-ADDR-002`
+- [`hybrid-valid.csv`](/fixtures/cbpr/address/hybrid-valid.csv) — passes `CBPR-ADDR-003`
+- [`missing-country-invalid.csv`](/fixtures/cbpr/address/missing-country-invalid.csv) — fails `CBPR-ADDR-003`
+- [`hybrid-valid.csv`](/fixtures/cbpr/address/hybrid-valid.csv) — passes `CBPR-ADDR-004`
+- [`agent-bic-only-valid.csv`](/fixtures/cbpr/address/agent-bic-only-valid.csv) — passes `CBPR-ADDR-005`
+- [`hybrid-valid.csv`](/fixtures/chaps/address/hybrid-valid.csv) — passes `CHAPS-ADDR-001`
+- [`unstructured-invalid.csv`](/fixtures/chaps/address/unstructured-invalid.csv) — fails `CHAPS-ADDR-001`
+
 ## Dòng thời gian
 
-- **Tháng 3 năm 2023** — SWIFT CBPR+ đi vào hoạt động với ISO 20022 cho thanh toán xuyên biên giới.
-- **Tháng 11 năm 2025** — giai đoạn cùng tồn tại cho hướng dẫn thanh toán MT và MX kết thúc.
-- **Tháng 11 năm 2026** — yêu cầu địa chỉ bưu chính có cấu trúc có hiệu lực cho thông điệp CBPR+.
+| Date | Scheme | Change | Rule |
+|---|---|---|---|
+| `2025-11-22` | CBPR+ | Hybrid postal address option available | `CBPR-ADDR-004` |
+| `2025-11-22` | CBPR+ | MT/MX coexistence for payment instructions ends | — |
+| `2026-11-14` | CBPR+ | Fully unstructured postal address rejected | `CBPR-ADDR-001` |
+| `2026-11-14` | CHAPS | CHAPS validation library rejects unstructured addresses | `CHAPS-ADDR-001` |
+| `2026-11-14` | CBPR+ | MT101 interbank coexistence ends; contingency relays to `pain.001` | — |
+| `2026-11-14` | Swift | `camt.110` investigation requests must be receivable | — |
+| `2026-11-14` | Swift | Annual Standards Release cycle begins | — |
+| `2027-11` | CHAPS | Purpose codes mandatory on all payments (announced) | `CHAPS-PURP-001` |
+| `2027-11` | CHAPS | Structured remittance information mandatory (announced) | `CHAPS-RMT-001` |
+| `2027-11` | Swift | `camt.110` and `camt.111` both mandatory (announced) | — |
 
 ## Cần làm gì bây giờ
 

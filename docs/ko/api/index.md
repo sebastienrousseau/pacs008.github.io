@@ -27,7 +27,7 @@ image: /logo.webp
 
 ## 설치
 
-PyPI에서 패키지를 설치합니다. Python 3.9.2 이상이 필요합니다.
+PyPI에서 패키지를 설치합니다. Python 3.10 이상이 필요합니다.
 
 ```bash
 python -m pip install pacs008
@@ -61,36 +61,36 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
     </thead>
     <tbody>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /health</code></td>
-          <td class="api-endpoints-table__desc">헬스 체크 — 서비스 상태를 반환합니다</td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/health</code></td>
+          <td class="api-endpoints-table__desc">Health check that returns service status</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>POST /validate</code></td>
-          <td class="api-endpoints-table__desc">XML을 생성하지 않고 스키마에 대해 결제 데이터를 유효성 검사합니다</td>
+          <td class="api-endpoints-table__endpoint"><code>POST /api/validate</code></td>
+          <td class="api-endpoints-table__desc">Validate payment data without generating XML</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>POST /generate</code></td>
-          <td class="api-endpoints-table__desc">XML을 동기적으로 생성하고 파일을 반환합니다</td>
+          <td class="api-endpoints-table__endpoint"><code>POST /api/generate</code></td>
+          <td class="api-endpoints-table__desc">Generate XML now and return the file</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>POST /generate/async</code></td>
-          <td class="api-endpoints-table__desc">비동기 생성 작업을 제출합니다</td>
+          <td class="api-endpoints-table__endpoint"><code>POST /api/generate/async</code></td>
+          <td class="api-endpoints-table__desc">Submit an async generation job</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /status/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">ID로 작업 상태를 폴링합니다</td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/status/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Check job status by ID</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /download/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">작업이 완료되면 생성된 XML을 다운로드합니다</td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/download/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Download XML after the job completes</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>DELETE /jobs/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">대기 중이거나 실행 중인 작업 취소</td>
+          <td class="api-endpoints-table__endpoint"><code>DELETE /api/jobs/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Cancel a pending or running job</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /docs</code></td>
-          <td class="api-endpoints-table__desc">모든 엔드포인트를 탐색하고 테스트하기 위한 인터랙티브 Swagger UI</td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/docs</code></td>
+          <td class="api-endpoints-table__desc">Swagger UI for testing all endpoints</td>
         </tr>
     </tbody>
   </table>

@@ -27,7 +27,7 @@ Il progetto fornisce sia una REST API sia una CLI per i flussi operativi di elab
 
 ## Installazione
 
-Installa il pacchetto da PyPI. È richiesto Python 3.9.2 o versione successiva.
+Installa il pacchetto da PyPI. È richiesto Python 3.10 o versione successiva.
 
 ```bash
 python -m pip install pacs008
@@ -61,36 +61,36 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
     </thead>
     <tbody>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /health</code></td>
-          <td class="api-endpoints-table__desc">Health check — restituisce lo stato del servizio</td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/health</code></td>
+          <td class="api-endpoints-table__desc">Health check that returns service status</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>POST /validate</code></td>
-          <td class="api-endpoints-table__desc">Valida i dati di pagamento rispetto allo schema senza generare XML</td>
+          <td class="api-endpoints-table__endpoint"><code>POST /api/validate</code></td>
+          <td class="api-endpoints-table__desc">Validate payment data without generating XML</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>POST /generate</code></td>
-          <td class="api-endpoints-table__desc">Genera XML in modo sincrono e restituisce il file</td>
+          <td class="api-endpoints-table__endpoint"><code>POST /api/generate</code></td>
+          <td class="api-endpoints-table__desc">Generate XML now and return the file</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>POST /generate/async</code></td>
-          <td class="api-endpoints-table__desc">Invia un job di generazione asincrono</td>
+          <td class="api-endpoints-table__endpoint"><code>POST /api/generate/async</code></td>
+          <td class="api-endpoints-table__desc">Submit an async generation job</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /status/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">Interroga lo stato del job tramite ID</td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/status/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Check job status by ID</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /download/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">Scarica l&#39;XML generato al completamento del job</td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/download/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Download XML after the job completes</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>DELETE /jobs/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">Annullare un job in attesa o in esecuzione</td>
+          <td class="api-endpoints-table__endpoint"><code>DELETE /api/jobs/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Cancel a pending or running job</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /docs</code></td>
-          <td class="api-endpoints-table__desc">Swagger UI interattiva per esplorare e testare tutti gli endpoint</td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/docs</code></td>
+          <td class="api-endpoints-table__desc">Swagger UI for testing all endpoints</td>
         </tr>
     </tbody>
   </table>

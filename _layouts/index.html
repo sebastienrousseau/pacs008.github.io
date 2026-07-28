@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{lang}}">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -23,7 +23,7 @@
     {{microsoft}}
     {{twitter}}
 
-    <link rel="alternate" href="{{url}}" hreflang="{{hreflang}}" />
+    <!-- hreflang alternates are injected per page by scripts/fix-ssg-html.mjs -->
     <link rel="canonical" href="{{url}}" />
     <link rel="icon" type="image/svg+xml" href="/pacs008/v1/logos/pacs008.svg" sizes="any" />
     <link rel="preload" href="/fonts/source-serif-4-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />

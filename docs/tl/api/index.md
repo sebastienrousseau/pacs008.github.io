@@ -20,7 +20,7 @@ Ang proyekto ay nagbibigay ng parehong REST API at CLI para sa mga operational n
 
 ## Pag-install
 
-I-install ang package mula sa PyPI. Nangangailangan ng Python 3.9.2 o mas bago.
+I-install ang package mula sa PyPI. Nangangailangan ng Python 3.10 o mas bago.
 
 ```bash
 python -m pip install pacs008
@@ -54,36 +54,36 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
     </thead>
     <tbody>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /health</code></td>
-          <td class="api-endpoints-table__desc">Health check — nagbabalik ng katayuan ng serbisyo</td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/health</code></td>
+          <td class="api-endpoints-table__desc">Health check that returns service status</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>POST /validate</code></td>
-          <td class="api-endpoints-table__desc">I-validate ang datos ng pagbabayad laban sa schema nang hindi gumagawa ng XML</td>
+          <td class="api-endpoints-table__endpoint"><code>POST /api/validate</code></td>
+          <td class="api-endpoints-table__desc">Validate payment data without generating XML</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>POST /generate</code></td>
-          <td class="api-endpoints-table__desc">Gumawa ng XML nang sabay-sabay at ibalik ang file</td>
+          <td class="api-endpoints-table__endpoint"><code>POST /api/generate</code></td>
+          <td class="api-endpoints-table__desc">Generate XML now and return the file</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>POST /generate/async</code></td>
-          <td class="api-endpoints-table__desc">Magsumite ng asynchronous na trabaho ng generation</td>
+          <td class="api-endpoints-table__endpoint"><code>POST /api/generate/async</code></td>
+          <td class="api-endpoints-table__desc">Submit an async generation job</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /status/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">Suriin ang katayuan ng trabaho ayon sa ID</td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/status/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Check job status by ID</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /download/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">I-download ang nabuong XML pagkatapos makumpleto ang trabaho</td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/download/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Download XML after the job completes</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>DELETE /jobs/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">Kanselahin ang nakabinbin o tumatakbong trabaho</td>
+          <td class="api-endpoints-table__endpoint"><code>DELETE /api/jobs/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Cancel a pending or running job</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /docs</code></td>
-          <td class="api-endpoints-table__desc">Interactive na Swagger UI para sa paggalugad at pagsubok ng lahat ng endpoint</td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/docs</code></td>
+          <td class="api-endpoints-table__desc">Swagger UI for testing all endpoints</td>
         </tr>
     </tbody>
   </table>

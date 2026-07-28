@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{lang}}">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -23,7 +23,7 @@
     {{microsoft}}
     {{twitter}}
 
-    <link rel="alternate" href="{{url}}" hreflang="{{hreflang}}" />
+    <!-- hreflang alternates are injected per page by scripts/fix-ssg-html.mjs -->
     <link rel="canonical" href="{{url}}" />
     <link rel="icon" type="image/svg+xml" href="/pacs008/v1/logos/pacs008.svg" sizes="any" />
     <link rel="preload" href="/fonts/source-serif-4-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
@@ -217,7 +217,7 @@
           <div class="guide-block">
             <h2>How this validator helps you</h2>
             <ul class="check-list">
-              <li><span class="tick" aria-hidden="true">✓</span><span>Test payment data against the checks banks apply — required fields, IBAN checksums, BIC structure, control totals</span></li>
+              <li><span class="tick" aria-hidden="true">✓</span><span>Check required fields, ISO 13616 IBAN checksums, ISO 9362 BIC structure, ISO 4217 currency codes and CBPR+ address structure. XSD and ISO semantic validation are <strong>not</strong> run in the browser — see the <a href="/trust/">Trust Centre</a></span></li>
               <li><span class="tick" aria-hidden="true">✓</span><span>Generate a working <code>pacs.008.001.13</code> credit-transfer file with mandatory <code>ChrgBr</code> elements</span></li>
               <li><span class="tick" aria-hidden="true">✓</span><span>Validate ISO 13616 IBAN mod-97 and ISO 9362 BIC structures directly in your browser</span></li>
             </ul>
@@ -228,7 +228,7 @@
               <li><strong>Local processing only.</strong> Payment payloads are processed locally by this page and are not transmitted to pacs008.com. Zero payment-payload storage.</li>
               <li><strong>Testing tool only.</strong> Files are never submitted for processing and no payments can result from anything you do here.</li>
               <li><strong>Expected columns:</strong> <code>id</code>, <code>payment_id</code>, <code>payment_amount</code>, <code>currency</code>, <code>requested_execution_date</code>, debtor &amp; creditor name / IBAN / BIC.</li>
-              <li><strong>Dual-licensed.</strong> Core toolkit is dual-licensed under Apache-2.0 and MIT.</li>
+              <li><strong>Open source.</strong> Core toolkit is released under the Apache License 2.0.</li>
             </ul>
           </div>
         </aside>
@@ -241,8 +241,10 @@
                 <p><strong>Drag a CSV file here</strong> — or click to browse</p>
                 <p class="hint">Maximum 2 MB · read locally by your browser, never uploaded</p>
               </div>
+              <label for="file-input" class="visually-hidden">Choose a CSV file of payment records</label>
               <input type="file" id="file-input" class="visually-hidden" accept=".csv,text/csv,text/plain" />
               <div class="demo-actions">
+                <label for="sample-select" class="visually-hidden">Load a sample dataset</label>
                 <select id="sample-select" class="pill-select">
                   <option value="">Load a sample&hellip;</option>
                   <option value="sepa-sct">SEPA credit transfer (2 records, EUR)</option>
@@ -282,16 +284,80 @@
             </section>
           </div>
         </div>
+
+        <section class="xml-ingest" aria-labelledby="xml-heading">
+          <h2 id="xml-heading">Inspect an existing XML file</h2>
+          <p>
+            Check a pacs.008 file you already have, rather than generating a new one.
+            Parsing happens in this page; nothing is uploaded.
+          </p>
+          <p>
+            <label for="xml-file"><strong>XML file</strong> (maximum 2 MB, enforced)</label><br>
+            <input type="file" id="xml-file" accept=".xml,text/xml,application/xml">
+          </p>
+          <p>
+            <label for="xml-paste">or paste XML</label><br>
+            <textarea id="xml-paste" rows="6" spellcheck="false" style="width:100%;font-family:var(--type-mono,monospace);font-size:0.85rem;"></textarea>
+          </p>
+          <div class="actions">
+            <button type="button" id="xml-run" class="pill pill-ghost">Inspect XML</button>
+            <button type="button" id="xml-clear" class="pill pill-ghost">Clear all data</button>
+          </div>
+          <p id="xml-status" role="status" aria-live="polite"></p>
+          <div id="xml-results"></div>
+          <p class="readiness-hint">
+            This runs XML well-formedness, namespace and scheme address checks only.
+            XSD structure and ISO semantic consistency are <strong>not evaluated</strong>
+            in the browser — see the <a href="/trust/">Trust Centre</a>.
+          </p>
+        </section>
+
+        <section class="readiness-scanner" aria-labelledby="readiness-heading">
+          <h2 id="readiness-heading">Batch address readiness scan</h2>
+          <p>
+            Upload a CSV of party addresses to see how many records would still be
+            accepted after <strong>14 November 2026</strong>, when fully unstructured
+            postal addresses are removed from the applicable CBPR+ and CHAPS flows.
+          </p>
+          <p>
+            The file is read in this page and classified in memory. It is not
+            uploaded, not stored, and not logged. Use masked or synthetic data if
+            your policy requires it.
+          </p>
+          <p>
+            <label for="readiness-file"><strong>CSV file</strong> (maximum 2 MB, enforced)</label><br>
+            <input type="file" id="readiness-file" accept=".csv,text/csv">
+          </p>
+          <p class="readiness-hint">
+            Recognised columns: <code>street</code>, <code>building_no</code>,
+            <code>town</code>, <code>country</code>, <code>address_line1</code>,
+            <code>address_line2</code>, <code>party</code>, <code>name</code>.
+            Names are matched loosely, so <code>TwnNm</code> and
+            <code>town_name</code> both work.
+          </p>
+          <div class="actions">
+            <button type="button" id="readiness-download" class="pill pill-ghost" hidden>Download remediation list (.csv)</button>
+            <button type="button" id="readiness-clear" class="pill pill-ghost">Clear all data</button>
+          </div>
+          <p id="readiness-status" role="status" aria-live="polite"></p>
+          <div id="readiness-results"></div>
+          <p class="readiness-hint">
+            Classification uses the same rules as the address checker above, so a
+            batch result and a single record cannot disagree.
+          </p>
+        </section>
       </div>
     </main>
 
     <footer class="footer">
       <div class="wrap">
-        <p>&copy; 2023&ndash;2026 Sebastien Rousseau &middot; Dual-licensed Apache-2.0 / MIT &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/terms/">Terms of Use</a> &middot; <a href="/">pacs008.com</a></p>
+        <p>&copy; 2023&ndash;2026 Sebastien Rousseau &middot; Apache-2.0 &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/terms/">Terms of Use</a> &middot; <a href="/">pacs008.com</a></p>
       </div>
     </footer>
 
     <script src="/js/pacs008-tools.js"></script>
     <script type="module" src="/js/try-page.js"></script>
+    <script src="/js/address-readiness.js"></script>
+    <script src="/js/xml-ingest.js"></script>
   </body>
 </html>

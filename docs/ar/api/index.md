@@ -27,7 +27,7 @@ image: /logo.webp
 
 ## التثبيت
 
-ثبِّت الحزمة من PyPI. يُشترط Python 3.9.2 أو أعلى.
+ثبِّت الحزمة من PyPI. يُشترط Python 3.10 أو أعلى.
 
 ```bash
 python -m pip install pacs008
@@ -61,36 +61,36 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
     </thead>
     <tbody>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /health</code></td>
-          <td class="api-endpoints-table__desc">فحص الحالة — يُعيد حالة الخدمة</td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/health</code></td>
+          <td class="api-endpoints-table__desc">Health check that returns service status</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>POST /validate</code></td>
-          <td class="api-endpoints-table__desc">التحقق من بيانات الدفع مقابل المخطط دون توليد XML</td>
+          <td class="api-endpoints-table__endpoint"><code>POST /api/validate</code></td>
+          <td class="api-endpoints-table__desc">Validate payment data without generating XML</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>POST /generate</code></td>
-          <td class="api-endpoints-table__desc">توليد XML بشكل متزامن وإعادة الملف</td>
+          <td class="api-endpoints-table__endpoint"><code>POST /api/generate</code></td>
+          <td class="api-endpoints-table__desc">Generate XML now and return the file</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>POST /generate/async</code></td>
-          <td class="api-endpoints-table__desc">إرسال مهمة توليد غير متزامنة</td>
+          <td class="api-endpoints-table__endpoint"><code>POST /api/generate/async</code></td>
+          <td class="api-endpoints-table__desc">Submit an async generation job</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /status/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">استطلاع حالة المهمة بالمعرّف</td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/status/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Check job status by ID</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /download/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">تنزيل XML المُولَّد بعد اكتمال المهمة</td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/download/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Download XML after the job completes</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>DELETE /jobs/{job_id}</code></td>
-          <td class="api-endpoints-table__desc">إلغاء مهمة معلقة أو قيد التنفيذ</td>
+          <td class="api-endpoints-table__endpoint"><code>DELETE /api/jobs/{job_id}</code></td>
+          <td class="api-endpoints-table__desc">Cancel a pending or running job</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /docs</code></td>
-          <td class="api-endpoints-table__desc">واجهة Swagger UI التفاعلية لاستكشاف جميع نقاط الخدمة واختبارها</td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/docs</code></td>
+          <td class="api-endpoints-table__desc">Swagger UI for testing all endpoints</td>
         </tr>
     </tbody>
   </table>

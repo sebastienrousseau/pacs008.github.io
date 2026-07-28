@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{lang}}">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -24,7 +24,7 @@
     {{microsoft}}
     {{twitter}}
 
-    <link rel="alternate" href="{{url}}" hreflang="{{hreflang}}" />
+    <!-- hreflang alternates are injected per page by scripts/fix-ssg-html.mjs -->
     <link rel="canonical" href="{{url}}" />
     <link rel="icon" type="image/svg+xml" href="/pacs008/v1/logos/pacs008.svg" sizes="any" />
     <link rel="apple-touch-icon" href="/pacs008/v1/logos/pacs008.svg" />
@@ -770,6 +770,8 @@
               <ul id="sub-tech" class="ap-sub">
                 <li><a href="/live/">See It Live (Workbench)</a></li>
                 <li><a href="/api/">API &amp; CLI Reference</a></li>
+                <li><a href="/catalogue/">Message &amp; Rule Catalogue</a></li>
+                <li><a href="/scheme-changes/">Scheme Change Log</a></li>
                 <li><a href="/pacs-explained/">pacs Messages Explained</a></li>
                 <li><a href="/structured-address/">Structured Address (2026)</a></li>
                 <li><a href="/security/">Security &amp; Compliance</a></li>
@@ -780,6 +782,9 @@
               <ul id="sub-resources" class="ap-sub">
                 <li><a href="/glossary/">Glossary</a></li>
                 <li><a href="/faq/">Frequently Asked Questions</a></li>
+                <li><a href="/trust/">Trust Centre</a></li>
+                <li><a href="/accessibility/">Accessibility</a></li>
+                <li><a href="/design-partners/">Design Partners</a></li>
                 <li><a href="/changelog/">Changelog</a></li>
                 <li><a href="/editorial/">Editorial Policy</a></li>
                 <li><a href="/contact/">Contact Us</a></li>
@@ -814,23 +819,16 @@
                 <a class="ap-lang-item" href="/sv/" data-lang="sv" hreflang="sv" lang="sv" role="menuitem"><span aria-hidden="true">🇸🇪</span> Svenska</a>
                 <a class="ap-lang-item" href="/cs/" data-lang="cs" hreflang="cs" lang="cs" role="menuitem"><span aria-hidden="true">🇨🇿</span> Čeština</a>
                 <a class="ap-lang-item" href="/ro/" data-lang="ro" hreflang="ro" lang="ro" role="menuitem"><span aria-hidden="true">🇷🇴</span> Română</a>
-                <a class="ap-lang-item" href="/hu/" data-lang="hu" hreflang="hu" lang="hu" role="menuitem"><span aria-hidden="true">🇭🇺</span> Magyar</a>
-                <a class="ap-lang-item" href="/el/" data-lang="el" hreflang="el" lang="el" role="menuitem"><span aria-hidden="true">🇬🇷</span> Ελληνικά</a>
                 <a class="ap-lang-item" href="/tr/" data-lang="tr" hreflang="tr" lang="tr" role="menuitem"><span aria-hidden="true">🇹🇷</span> Türkçe</a>
                 <a class="ap-lang-item" href="/ru/" data-lang="ru" hreflang="ru" lang="ru" role="menuitem"><span aria-hidden="true">🇷🇺</span> Русский</a>
                 <a class="ap-lang-item" href="/uk/" data-lang="uk" hreflang="uk" lang="uk" role="menuitem"><span aria-hidden="true">🇺🇦</span> Українська</a>
                 <a class="ap-lang-item" href="/ar/" data-lang="ar" hreflang="ar" lang="ar" role="menuitem"><span aria-hidden="true">🇸🇦</span> العربية</a>
                 <a class="ap-lang-item" href="/he/" data-lang="he" hreflang="he" lang="he" role="menuitem"><span aria-hidden="true">🇮🇱</span> עברית</a>
-                <a class="ap-lang-item" href="/fa/" data-lang="fa" hreflang="fa" lang="fa" role="menuitem"><span aria-hidden="true">🇮🇷</span> فارسی</a>
                 <a class="ap-lang-item" href="/hi/" data-lang="hi" hreflang="hi" lang="hi" role="menuitem"><span aria-hidden="true">🇮🇳</span> हिन्दी</a>
                 <a class="ap-lang-item" href="/bn/" data-lang="bn" hreflang="bn" lang="bn" role="menuitem"><span aria-hidden="true">🇧🇩</span> বাংলা</a>
-                <a class="ap-lang-item" href="/ta/" data-lang="ta" hreflang="ta" lang="ta" role="menuitem"><span aria-hidden="true">🇮🇳</span> தமிழ்</a>
-                <a class="ap-lang-item" href="/te/" data-lang="te" hreflang="te" lang="te" role="menuitem"><span aria-hidden="true">🇮🇳</span> తెలుగు</a>
-                <a class="ap-lang-item" href="/mr/" data-lang="mr" hreflang="mr" lang="mr" role="menuitem"><span aria-hidden="true">🇮🇳</span> मराठी</a>
                 <a class="ap-lang-item" href="/th/" data-lang="th" hreflang="th" lang="th" role="menuitem"><span aria-hidden="true">🇹🇭</span> ไทย</a>
                 <a class="ap-lang-item" href="/vi/" data-lang="vi" hreflang="vi" lang="vi" role="menuitem"><span aria-hidden="true">🇻🇳</span> Tiếng Việt</a>
                 <a class="ap-lang-item" href="/id/" data-lang="id" hreflang="id" lang="id" role="menuitem"><span aria-hidden="true">🇮🇩</span> Indonesia</a>
-                <a class="ap-lang-item" href="/ms/" data-lang="ms" hreflang="ms" lang="ms" role="menuitem"><span aria-hidden="true">🇲🇾</span> Melayu</a>
                 <a class="ap-lang-item" href="/tl/" data-lang="tl" hreflang="tl" lang="tl" role="menuitem"><span aria-hidden="true">🇵🇭</span> Filipino</a>
                 <a class="ap-lang-item" href="/ja/" data-lang="ja" hreflang="ja" lang="ja" role="menuitem"><span aria-hidden="true">🇯🇵</span> 日本語</a>
                 <a class="ap-lang-item" href="/ko/" data-lang="ko" hreflang="ko" lang="ko" role="menuitem"><span aria-hidden="true">🇰🇷</span> 한국어</a>
@@ -858,10 +856,17 @@
               </ol>
             </nav>
             <p class="eyebrow">{{eyebrow}}</p>
-            <h1 class="page-title">{{title}}</h1>
+            <!-- Not an <h1>: the page content supplies the document's single
+                 h1. Two h1 elements made heading navigation ambiguous for
+                 screen reader users and failed html-validate's heading-level
+                 rule. Styling is unchanged. -->
+            <p class="page-title">{{title}}</p>
             <p class="deck">{{subtitle}}</p>
             <div class="article-meta">
-              <span>Last reviewed <time datetime="{{last_reviewed}}">26 July 2026</time></span>
+              <!-- last_build_date is populated by ssg; last_reviewed is not
+                   and renders empty, which is why this was previously a
+                   hardcoded date that could never update. -->
+              <span>Last reviewed <time datetime="{{last_build_date}}">{{last_build_date}}</time></span>
             </div>
           </div>
         </div>
@@ -921,7 +926,7 @@
           </div>
         </div>
         <div class="footer-legal">
-          <p>&copy; 2023&ndash;2026 Sebastien Rousseau. Core dual-licensed Apache-2.0 / MIT; companion packages Apache-2.0.</p>
+          <p>&copy; 2023&ndash;2026 Sebastien Rousseau. Released under the Apache License 2.0.</p>
           <ul>
             <li><a href="/editorial/">Editorial Policy</a></li>
             <li><a href="/privacy/">Privacy Policy</a></li>

@@ -24,7 +24,7 @@ pacs008.com không thu thập dữ liệu cá nhân. Trang web không sử dụn
 
 ## Phân tích
 
-Các dịch vụ phân tích của bên thứ ba có thể thu thập dữ liệu ẩn danh, tổng hợp như lượt xem trang và URL giới thiệu. Dữ liệu này không thể được sử dụng để nhận dạng từng người truy cập.
+pacs008.com không sử dụng dịch vụ phân tích. Không có dịch vụ phân tích nào được tải trên bất kỳ trang nào và không có lượt xem trang, URL giới thiệu hay sự kiện sử dụng nào được ghi lại. Mọi tập lệnh đều do chính pacs008.com phục vụ và Content-Security-Policy giới hạn script-src và connect-src ở 'self', nên dịch vụ phân tích của bên thứ ba không thể được tải.
 
 ## Quyền của bạn
 

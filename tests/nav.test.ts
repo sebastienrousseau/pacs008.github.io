@@ -1,112 +1,68 @@
 import { describe, it, expect } from "vitest";
-import { readFileSync, existsSync } from "fs";
-import { resolve } from "path";
+import { readPage, attr, textOf } from "./helpers";
 
-const DIST = resolve(__dirname, "../docs/.vitepress/dist");
+describe("Navigation structure", () => {
+  const html = readPage(".");
 
-describe("Navigation consolidation", () => {
-  it("should have exactly 2 dropdown menu groups on the homepage", () => {
-    const html = readFileSync(resolve(DIST, "index.html"), "utf-8");
-    const menuGroups = html.match(/VPNavBarMenuGroup/g) || [];
-    // Each dropdown creates 2 mentions: one for desktop nav, one for mobile extra menu
-    // VPNavBarMenuGroup appears in desktop nav only
-    expect(menuGroups.length).toBe(2);
+  it("should render the primary nav header", () => {
+    expect(html).toMatch(/<header class=ap-nav/);
   });
 
-  it("should have no standalone VPNavBarMenuLink items", () => {
-    const html = readFileSync(resolve(DIST, "index.html"), "utf-8");
-    // Standalone nav links (not inside dropdowns) use VPNavBarMenuLink
-    const standaloneLinks = html.match(/class="[^"]*VPNavBarMenuLink[^"]*"/g) || [];
-    expect(standaloneLinks.length).toBe(0);
+  it("primary nav should have an accessible name", () => {
+    expect(html).toMatch(/<nav[^>]*aria-label="Primary navigation"/);
   });
 
-  it("should include About in Docs dropdown", () => {
-    const html = readFileSync(resolve(DIST, "index.html"), "utf-8");
-    // The nav should contain links to /about/ inside a dropdown
-    expect(html).toContain('href="/about/"');
+  it("should expose a skip link to the main landmark", () => {
+    expect(html).toMatch(/class=skip-link[^>]*href=#main-content/);
   });
 
-  it("should include Contact in Resources dropdown", () => {
-    const html = readFileSync(resolve(DIST, "index.html"), "utf-8");
-    expect(html).toContain('href="/contact/"');
+  it("should link to the core sections", () => {
+    for (const route of ["/about/", "/api/", "/contact/", "/structured-address/"]) {
+      expect(html, `homepage is missing a link to ${route}`).toMatch(
+        attr("href", route)
+      );
+    }
   });
 
-  it("should include Structured Address in Resources dropdown", () => {
-    const html = readFileSync(resolve(DIST, "index.html"), "utf-8");
-    expect(html).toContain('href="/structured-address/"');
-  });
-
-  it("should use localized nav for French pages", () => {
-    const html = readFileSync(resolve(DIST, "fr/index.html"), "utf-8");
-    expect(html).toContain('href="/fr/about/"');
-    expect(html).toContain('href="/fr/contact/"');
+  it("should link to the live workbench", () => {
+    expect(html).toMatch(attr("href", "/live/"));
   });
 });
 
-describe("Homepage hero", () => {
-  it("should have 'Get Started' as primary CTA", () => {
-    const html = readFileSync(resolve(DIST, "index.html"), "utf-8");
-    expect(html).toContain("Get Started");
+describe("Navigation: localisation", () => {
+  it("French pages should link to French routes", () => {
+    const html = readPage("fr");
+    expect(html).toMatch(attr("href", "/fr/about/"));
+    expect(html).toMatch(attr("href", "/fr/contact/"));
   });
 
-  it("should have 'View API' as secondary CTA", () => {
-    const html = readFileSync(resolve(DIST, "index.html"), "utf-8");
-    expect(html).toContain("View API");
-  });
-
-  it("should link Get Started to /about/", () => {
-    const html = readFileSync(resolve(DIST, "index.html"), "utf-8");
-    expect(html).toContain('href="/about/"');
-  });
-
-  it("should link View API to /api/", () => {
-    const html = readFileSync(resolve(DIST, "index.html"), "utf-8");
-    expect(html).toContain('href="/api/"');
-  });
-
-  it("should have alt button styling class", () => {
-    const html = readFileSync(resolve(DIST, "index.html"), "utf-8");
-    // VitePress renders secondary action with .alt class
-    expect(html).toMatch(/VPButton[^"]*alt/);
+  it("German pages should link to German routes", () => {
+    const html = readPage("de");
+    expect(html).toMatch(attr("href", "/de/about/"));
   });
 });
 
-describe("Homepage features", () => {
-  it("should render 4 feature cards", () => {
-    const html = readFileSync(resolve(DIST, "index.html"), "utf-8");
-    const featureItems = html.match(/class="[^"]*VPFeature\b/g) || [];
-    expect(featureItems.length).toBe(4);
+describe("Homepage content sections", () => {
+  const html = readPage(".");
+
+  it("should present the workbench call to action", () => {
+    expect(html).toContain("See it live");
   });
 
-  it("should include all 4 feature titles", () => {
-    const html = readFileSync(resolve(DIST, "index.html"), "utf-8");
-    expect(html).toContain("What it does");
-    expect(html).toContain("Validation");
-    expect(html).toContain("Security");
-    expect(html).toContain("2026 readiness");
+  it("should reference the November 2026 structured address milestone", () => {
+    expect(html).toContain("2026");
+    expect(html).toMatch(attr("href", "/structured-address/"));
+  });
+
+  it("should show the install command", () => {
+    // Syntax highlighting splits the command across spans, so match the text.
+    expect(textOf(html)).toContain("pip install pacs008");
   });
 });
 
-describe("Homepage custom content sections", () => {
-  it("should include code snippet section", () => {
-    const html = readFileSync(resolve(DIST, "index.html"), "utf-8");
-    expect(html).toContain("See it in action");
-    expect(html).toContain("pip install pacs008");
-    expect(html).toContain("Pacs008Generator");
-  });
-
-  it("should include CBPR+ deadline banner", () => {
-    const html = readFileSync(resolve(DIST, "index.html"), "utf-8");
-    expect(html).toContain("CBPR+ Structured Address Deadline");
-    expect(html).toContain("November 2026");
-    expect(html).toContain("/structured-address/");
-  });
-
-  it("should include trust signals section", () => {
-    const html = readFileSync(resolve(DIST, "index.html"), "utf-8");
-    expect(html).toContain("Open-source and standards-driven");
-    expect(html).toContain("ISO 20022 compliant");
-    expect(html).toContain("Open source");
-    expect(html).toContain("Available on PyPI");
+describe("Breadcrumbs", () => {
+  it("interior pages should have a labelled breadcrumb nav", () => {
+    const html = readPage("about");
+    expect(html).toMatch(/<nav[^>]*aria-label="?Breadcrumb"?/);
   });
 });

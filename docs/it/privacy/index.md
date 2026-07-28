@@ -24,7 +24,7 @@ pacs008.com non raccoglie dati personali. Il sito web non utilizza cookie o tecn
 
 ## Analisi
 
-Servizi di analisi di terze parti possono raccogliere dati anonimi e aggregati come visualizzazioni di pagina e URL di riferimento. Questi dati non possono essere utilizzati per identificare i singoli visitatori.
+pacs008.com non utilizza servizi di analisi. Nessun servizio di analisi viene caricato in alcuna pagina e non vengono registrate visualizzazioni di pagina, URL di riferimento o eventi di utilizzo. Tutti gli script sono serviti da pacs008.com e la Content-Security-Policy limita script-src e connect-src a 'self', per cui un servizio di analisi di terze parti non può essere caricato.
 
 ## I vostri diritti
 

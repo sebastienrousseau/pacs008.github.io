@@ -24,7 +24,7 @@ pacs008.com tidak mengumpulkan data pribadi. Situs web tidak menggunakan cookie 
 
 ## Analitik
 
-Layanan analitik pihak ketiga mungkin mengumpulkan data anonim dan agregat seperti tampilan halaman dan URL perujuk. Data ini tidak dapat digunakan untuk mengidentifikasi pengunjung.
+pacs008.com tidak menggunakan layanan analitik. Tidak ada layanan analitik yang dimuat di halaman mana pun, dan tidak ada tampilan halaman, URL perujuk, atau peristiwa penggunaan yang dicatat. Semua skrip disajikan dari pacs008.com sendiri, dan Content-Security-Policy membatasi script-src dan connect-src ke 'self', sehingga layanan analitik pihak ketiga tidak dapat dimuat.
 
 ## Hak Anda
 

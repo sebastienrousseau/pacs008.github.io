@@ -24,7 +24,7 @@ Alle inhoud op pacs008.com, inclusief teksten, afbeeldingen, logo's en software,
 
 ## Opensourcelicentie
 
-De pacs008 Python-toolkit wordt vrijgegeven onder de MIT-licentie. De volledige licentietekst is beschikbaar in de [projectrepository](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). De MIT-licentie staat gebruik, aanpassing en verspreiding toe met minimale beperkingen. Naamsvermelding van de oorspronkelijke auteur is vereist. De documentatie op pacs008.com wordt onder dezelfde licentie aangeboden, tenzij anders vermeld.
+De pacs008 Python-toolkit wordt vrijgegeven onder de Apache-2.0-licentie. De volledige licentietekst is beschikbaar in de [projectrepository](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). De Apache-licentie 2.0 wordt uitsluitend in het Engels gepubliceerd; alleen de Engelse tekst is juridisch bindend. De documentatie op pacs008.com wordt onder dezelfde licentie aangeboden, tenzij anders vermeld.
 
 ## Aanvaardbaar gebruik
 

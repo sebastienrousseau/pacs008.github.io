@@ -1,0 +1,173 @@
+{
+  "_comment": "Versioned scheme rules. Every rule carries a stable ID, the layer it belongs to, an effective date, the source it derives from, and both a passing and a failing fixture. A rule without all six must not be published — scripts/generate-manifest-facts.mjs enforces this.",
+  "ruleset_version": "2026.11.0",
+  "id_policy": "Rule IDs are stable across minor releases. A change in pass/fail behaviour requires a new ruleset version and a change-log entry, never a silent edit.",
+  "rules": [
+    {
+      "id": "CBPR-ADDR-001",
+      "title": "Fully unstructured postal address is not accepted",
+      "layer": "scheme",
+      "profile": "cbpr-plus",
+      "messages": ["pacs.008", "pacs.009", "pacs.004", "pacs.003"],
+      "effective_from": "2026-11-14",
+      "effective_to": null,
+      "severity": "error",
+      "applies_when": "address_format == fully_unstructured",
+      "summary": "From 14 November 2026 a fully unstructured postal address is rejected in CBPR+ payment messages.",
+      "remediation": "Supply Town Name and Country in their structured elements. A compliant hybrid address is sufficient; a fully structured address is preferred.",
+      "path_template": "{party}/PstlAdr",
+      "source": "SWIFT-ADDR-2026",
+      "fixtures": {
+        "valid": ["fixtures/cbpr/address/structured-valid.csv", "fixtures/cbpr/address/hybrid-valid.csv"],
+        "invalid": ["fixtures/cbpr/address/unstructured-invalid.csv"]
+      }
+    },
+    {
+      "id": "CBPR-ADDR-002",
+      "title": "Town Name is mandatory in a structured element",
+      "layer": "scheme",
+      "profile": "cbpr-plus",
+      "messages": ["pacs.008", "pacs.009", "pacs.004", "pacs.003"],
+      "effective_from": "2026-11-14",
+      "effective_to": null,
+      "severity": "error",
+      "applies_when": "TwnNm is absent or empty",
+      "summary": "Town Name must be carried in TwnNm, not in an address line.",
+      "remediation": "Move the town into <TwnNm>. Leaving it inside <AdrLine> does not satisfy the requirement.",
+      "path_template": "{party}/PstlAdr/TwnNm",
+      "source": "SWIFT-ADDR-2026",
+      "fixtures": {
+        "valid": ["fixtures/cbpr/address/hybrid-valid.csv"],
+        "invalid": ["fixtures/cbpr/address/missing-town-invalid.csv"]
+      }
+    },
+    {
+      "id": "CBPR-ADDR-003",
+      "title": "Country is mandatory as a two-letter ISO 3166 code",
+      "layer": "scheme",
+      "profile": "cbpr-plus",
+      "messages": ["pacs.008", "pacs.009", "pacs.004", "pacs.003"],
+      "effective_from": "2026-11-14",
+      "effective_to": null,
+      "severity": "error",
+      "applies_when": "Ctry is absent, empty, or not a 2-character code",
+      "summary": "Country must be carried in Ctry as a two-letter ISO 3166 alpha-2 code.",
+      "remediation": "Use the alpha-2 code, for example GB rather than United Kingdom or GBR.",
+      "path_template": "{party}/PstlAdr/Ctry",
+      "source": "SWIFT-ADDR-2026",
+      "fixtures": {
+        "valid": ["fixtures/cbpr/address/hybrid-valid.csv"],
+        "invalid": ["fixtures/cbpr/address/missing-country-invalid.csv"]
+      }
+    },
+    {
+      "id": "CBPR-ADDR-004",
+      "title": "Hybrid postal address is accepted",
+      "layer": "scheme",
+      "profile": "cbpr-plus",
+      "messages": ["pacs.008", "pacs.009", "pacs.004", "pacs.003"],
+      "effective_from": "2025-11-22",
+      "effective_to": null,
+      "severity": "info",
+      "applies_when": "TwnNm and Ctry are structured and AdrLine is also present",
+      "summary": "A hybrid address — structured Town Name and Country alongside address lines — is accepted, both before and after the November 2026 change.",
+      "remediation": "No action required. Note that a fully structured address remains preferable for downstream data quality.",
+      "path_template": "{party}/PstlAdr",
+      "source": "SWIFT-ADDR-2026",
+      "fixtures": {
+        "valid": ["fixtures/cbpr/address/hybrid-valid.csv"],
+        "invalid": []
+      }
+    },
+    {
+      "id": "CBPR-ADDR-005",
+      "title": "Agent identified by BIC only is exempt",
+      "layer": "scheme",
+      "profile": "cbpr-plus",
+      "messages": ["pacs.008", "pacs.009"],
+      "effective_from": "2026-11-14",
+      "effective_to": null,
+      "severity": "info",
+      "applies_when": "party is an agent identified solely by BIC with no postal address",
+      "summary": "For agent fields, BIC-only identification remains valid; no postal address is required.",
+      "remediation": "No action required. Do not add a partial address purely to satisfy the address rule.",
+      "path_template": "{agent}/FinInstnId/BICFI",
+      "source": "SWIFT-ADDR-2026",
+      "fixtures": {
+        "valid": ["fixtures/cbpr/address/agent-bic-only-valid.csv"],
+        "invalid": []
+      }
+    },
+    {
+      "id": "CBPR-ADDR-006",
+      "title": "Message types excepted from the address requirement",
+      "layer": "scheme",
+      "profile": "cbpr-plus",
+      "messages": ["admi.024", "camt.025", "camt.052", "camt.053", "camt.054", "camt.060"],
+      "effective_from": "2026-11-14",
+      "effective_to": null,
+      "severity": "info",
+      "applies_when": "message type is one of the excepted identifiers",
+      "summary": "The structured address requirement does not apply to admi.024, camt.025, camt.052, camt.053, camt.054 and camt.060.",
+      "remediation": "No action required for these message types.",
+      "path_template": null,
+      "source": "SWIFT-ADDR-2026",
+      "fixtures": { "valid": [], "invalid": [] }
+    },
+    {
+      "id": "CHAPS-ADDR-001",
+      "title": "CHAPS validation library rejects fully unstructured addresses",
+      "layer": "scheme",
+      "profile": "chaps-uk",
+      "messages": ["pacs.008", "pacs.009"],
+      "effective_from": "2026-11-14",
+      "effective_to": null,
+      "severity": "error",
+      "applies_when": "address_format == fully_unstructured",
+      "summary": "From November 2026 the CHAPS validation library rejects payments carrying a fully unstructured address. Hybrid is the minimum acceptable form.",
+      "remediation": "Structure the address to at least hybrid form before submission to CHAPS.",
+      "path_template": "{party}/PstlAdr",
+      "source": "BOE-CHAPS-2026",
+      "fixtures": {
+        "valid": ["fixtures/chaps/address/hybrid-valid.csv"],
+        "invalid": ["fixtures/chaps/address/unstructured-invalid.csv"]
+      }
+    },
+    {
+      "id": "CHAPS-PURP-001",
+      "title": "Purpose codes become mandatory on all CHAPS payments",
+      "layer": "scheme",
+      "profile": "chaps-uk",
+      "messages": ["pacs.008", "pacs.009"],
+      "effective_from": "2027-11-01",
+      "effective_to": null,
+      "severity": "error",
+      "applies_when": "Purp is absent",
+      "summary": "From November 2027 the Bank of England requires a purpose code on all CHAPS payments, extending the earlier property and FI-to-FI requirement.",
+      "remediation": "Populate <Purp><Cd> with an appropriate ISO 20022 external purpose code.",
+      "path_template": "CdtTrfTxInf/Purp/Cd",
+      "source": "BOE-CHAPS-2026",
+      "fixtures": { "valid": [], "invalid": [] },
+      "status": "announced",
+      "note": "Effective date is the announced month; the exact day should be re-verified against the Bank of England policy statement before this rule is enforced."
+    },
+    {
+      "id": "CHAPS-RMT-001",
+      "title": "Structured remittance information becomes mandatory for CHAPS",
+      "layer": "scheme",
+      "profile": "chaps-uk",
+      "messages": ["pacs.008"],
+      "effective_from": "2027-11-01",
+      "effective_to": null,
+      "severity": "error",
+      "applies_when": "RmtInf/Strd is absent where remittance information is supplied",
+      "summary": "From November 2027 remittance information carried in CHAPS payments must be structured.",
+      "remediation": "Carry remittance data in <RmtInf><Strd> rather than <RmtInf><Ustrd>.",
+      "path_template": "CdtTrfTxInf/RmtInf/Strd",
+      "source": "BOE-CHAPS-2026",
+      "fixtures": { "valid": [], "invalid": [] },
+      "status": "announced",
+      "note": "Announced in the Bank of England consultation; re-verify scope and exact date before enforcement."
+    }
+  ]
+}

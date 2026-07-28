@@ -31,7 +31,7 @@ SWIFT na buƙatar adireshi na gidan waya masu tsari a cikin saƙonnin biyan kuɗ
 
 ## Menene ke canzawa
 
-SWIFT CBPR+ na matsawa daga adireshi na gidan waya marasa tsari zuwa filayen adireshin da ke da tsari a cikin saƙonnin biyan kuɗi na ƙetare iyaka. Bayan ƙarshen wa'adin Nuwamba 2026, filayen adireshin manyan ɓangarori dole ne su yi amfani da tsarin da ke da sassa daban-daban na sunan titi, lambar gini, lambar gidan waya, gari, da ƙasa.
+Wannan buƙata ce mafi ƙaranci, ba mafi girma ba. Daga 14 ga Nuwamba 2026, ɓangaren da abin ya shafa dole ne ya sanya birni a TwnNm da ƙasa a Ctry a matsayin lambar ISO 3166 mai haruffa biyu. Titi, lambar gini da lambar gidan waya na iya kasancewa a layukan adireshi: wannan adireshin gauraye ne kuma ana karɓarsa. Abin da aka cire shi ne kawai adireshin da ba shi da tsari gaba ɗaya — wato dukkan adireshin a matsayin rubutu mai 'yanci ba tare da birni da ƙasa masu tsari ba. Cibiyoyin da aka gano ta BIC kaɗai ba abin ya shafa ba.
 
 ## Me ya sa wannan yana da muhimmanci
 
@@ -54,11 +54,68 @@ SWIFT CBPR+ na matsawa daga adireshi na gidan waya marasa tsari zuwa filayen adi
 - Yana tallafawa duka tsarin haɗin gwiwa kafin wa'adi da tsarin masu tsari kaɗai bayan wa'adi.
 - Yana haɗa binciken ingancin adireshi cikin bututun CI da tsarin tabbatar da ayyukan tari.
 
+## Normative rules
+
+Generated from the pacs008 rule registry (ruleset `2026.11.0`).
+Each rule has a stable identifier, an effective date, an authoritative source and
+both a passing and a failing test fixture.
+
+| Rule | Profile | Effective | Severity | Requirement | Source |
+|---|---|---|---|---|---|
+| `CBPR-ADDR-001` | cbpr-plus | 2026-11-14 | Error | Fully unstructured postal address is not accepted | [SWIFT-ADDR-2026](https://www.swift.com/standards/iso-20022/removal-unstructured-address) |
+| `CBPR-ADDR-002` | cbpr-plus | 2026-11-14 | Error | Town Name is mandatory in a structured element | [SWIFT-ADDR-2026](https://www.swift.com/standards/iso-20022/removal-unstructured-address) |
+| `CBPR-ADDR-003` | cbpr-plus | 2026-11-14 | Error | Country is mandatory as a two-letter ISO 3166 code | [SWIFT-ADDR-2026](https://www.swift.com/standards/iso-20022/removal-unstructured-address) |
+| `CBPR-ADDR-004` | cbpr-plus | 2025-11-22 | Info | Hybrid postal address is accepted | [SWIFT-ADDR-2026](https://www.swift.com/standards/iso-20022/removal-unstructured-address) |
+| `CBPR-ADDR-005` | cbpr-plus | 2026-11-14 | Info | Agent identified by BIC only is exempt | [SWIFT-ADDR-2026](https://www.swift.com/standards/iso-20022/removal-unstructured-address) |
+| `CBPR-ADDR-006` | cbpr-plus | 2026-11-14 | Info | Message types excepted from the address requirement | [SWIFT-ADDR-2026](https://www.swift.com/standards/iso-20022/removal-unstructured-address) |
+| `CHAPS-ADDR-001` | chaps-uk | 2026-11-14 | Error | CHAPS validation library rejects fully unstructured addresses | [BOE-CHAPS-2026](https://www.bankofengland.co.uk/paper/2024/policy-statement/mandating-iso-20022-enhanced-data-in-chaps) |
+
+### Address formats compared
+
+| Format | `TwnNm` | `Ctry` | `AdrLine` | Before 14 Nov 2026 | On or after |
+|---|---|---|---|---|---|
+| Fully structured | Present | Present | Absent | Accepted | Accepted |
+| Hybrid | Present | Present | Present | Accepted | Accepted |
+| Fully unstructured | Absent | Absent | Present | Accepted | **Rejected** |
+
+### Exceptions
+
+The requirement does not apply to these message types: `admi.024`, `camt.025`, `camt.052`, `camt.053`, `camt.054`, `camt.060`.
+
+Agents identified by BIC alone remain valid without a postal address
+(`CBPR-ADDR-005`). Do not add a partial address solely to satisfy the rule.
+
+### Test fixtures
+
+Download and run these through the [workbench](/live/), the CLI or the API.
+Each maps to the rule it exercises.
+
+- [`structured-valid.csv`](/fixtures/cbpr/address/structured-valid.csv) — passes `CBPR-ADDR-001`
+- [`hybrid-valid.csv`](/fixtures/cbpr/address/hybrid-valid.csv) — passes `CBPR-ADDR-001`
+- [`unstructured-invalid.csv`](/fixtures/cbpr/address/unstructured-invalid.csv) — fails `CBPR-ADDR-001`
+- [`hybrid-valid.csv`](/fixtures/cbpr/address/hybrid-valid.csv) — passes `CBPR-ADDR-002`
+- [`missing-town-invalid.csv`](/fixtures/cbpr/address/missing-town-invalid.csv) — fails `CBPR-ADDR-002`
+- [`hybrid-valid.csv`](/fixtures/cbpr/address/hybrid-valid.csv) — passes `CBPR-ADDR-003`
+- [`missing-country-invalid.csv`](/fixtures/cbpr/address/missing-country-invalid.csv) — fails `CBPR-ADDR-003`
+- [`hybrid-valid.csv`](/fixtures/cbpr/address/hybrid-valid.csv) — passes `CBPR-ADDR-004`
+- [`agent-bic-only-valid.csv`](/fixtures/cbpr/address/agent-bic-only-valid.csv) — passes `CBPR-ADDR-005`
+- [`hybrid-valid.csv`](/fixtures/chaps/address/hybrid-valid.csv) — passes `CHAPS-ADDR-001`
+- [`unstructured-invalid.csv`](/fixtures/chaps/address/unstructured-invalid.csv) — fails `CHAPS-ADDR-001`
+
 ## Jadawalin lokaci
 
-- **Maris 2023** — SWIFT CBPR+ ya fara aiki tare da ISO 20022 don biyan kuɗi na ƙetare iyaka.
-- **Nuwamba 2025** — lokacin zaman tare na umarnin biyan kuɗi MT da MX ya ƙare.
-- **Nuwamba 2026** — buƙatar adireshin gidan waya mai tsari ta fara aiki ga saƙonnin CBPR+.
+| Date | Scheme | Change | Rule |
+|---|---|---|---|
+| `2025-11-22` | CBPR+ | Hybrid postal address option available | `CBPR-ADDR-004` |
+| `2025-11-22` | CBPR+ | MT/MX coexistence for payment instructions ends | — |
+| `2026-11-14` | CBPR+ | Fully unstructured postal address rejected | `CBPR-ADDR-001` |
+| `2026-11-14` | CHAPS | CHAPS validation library rejects unstructured addresses | `CHAPS-ADDR-001` |
+| `2026-11-14` | CBPR+ | MT101 interbank coexistence ends; contingency relays to `pain.001` | — |
+| `2026-11-14` | Swift | `camt.110` investigation requests must be receivable | — |
+| `2026-11-14` | Swift | Annual Standards Release cycle begins | — |
+| `2027-11` | CHAPS | Purpose codes mandatory on all payments (announced) | `CHAPS-PURP-001` |
+| `2027-11` | CHAPS | Structured remittance information mandatory (announced) | `CHAPS-RMT-001` |
+| `2027-11` | Swift | `camt.110` and `camt.111` both mandatory (announced) | — |
 
 ## Abin da za a yi yanzu
 

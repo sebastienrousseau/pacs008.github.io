@@ -24,7 +24,7 @@ Metin, grafik, logolar ve yazılım dahil olmak üzere pacs008.com'daki tüm iç
 
 ## Açık kaynak lisansı
 
-pacs008 Python araç takımı MIT lisansı altında yayımlanmıştır. Lisansın tam metni [proje deposunda](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE) mevcuttur. MIT lisansı minimum kısıtlamalarla kullanım, değişiklik ve dağıtıma izin verir. Orijinal yazarın atfedilmesi zorunludur. pacs008.com üzerindeki belgeler, aksi belirtilmedikçe aynı lisans kapsamında sunulmaktadır.
+pacs008 Python araç takımı Apache-2.0 lisansı altında yayımlanmıştır. Lisansın tam metni [proje deposunda](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE) mevcuttur. Apache Lisansı 2.0 yalnızca İngilizce olarak yayımlanır; hukuken bağlayıcı olan tek metin İngilizce metindir. pacs008.com üzerindeki belgeler, aksi belirtilmedikçe aynı lisans kapsamında sunulmaktadır.
 
 ## Kabul edilebilir kullanım
 

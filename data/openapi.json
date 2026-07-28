@@ -1,0 +1,282 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "pacs008 REST API",
+    "version": "0.0.8",
+    "summary": "Validate payment data and generate ISO 20022 pacs messages.",
+    "description": "Self-hosted FastAPI service shipped with the pacs008 package. There is no hosted instance: you run this yourself, and payment data never leaves your infrastructure.\n\nValidation results are returned as a domain response with HTTP 200, not as a transport error. A 4xx status means the request was malformed; it does not mean the payment data was invalid.",
+    "license": { "name": "Apache-2.0", "identifier": "Apache-2.0" },
+    "contact": { "url": "https://github.com/sebastienrousseau/pacs008" }
+  },
+  "servers": [
+    { "url": "http://localhost:8000", "description": "Local development server started with uvicorn" }
+  ],
+  "tags": [
+    { "name": "service", "description": "Service health and metadata" },
+    { "name": "validation", "description": "Check payment data without generating XML" },
+    { "name": "generation", "description": "Produce ISO 20022 XML" },
+    { "name": "jobs", "description": "Asynchronous generation for large inputs" }
+  ],
+  "paths": {
+    "/api/health": {
+      "get": {
+        "tags": ["service"],
+        "operationId": "getHealth",
+        "summary": "Health check that returns service status",
+        "responses": {
+          "200": {
+            "description": "Service is running",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Health" },
+                "example": { "status": "ok", "version": "0.0.8" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/validate": {
+      "post": {
+        "tags": ["validation"],
+        "operationId": "validatePayments",
+        "summary": "Validate payment data without generating XML",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ValidateRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Validation completed. Check `valid` — a 200 does not mean the data passed.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ValidationResult" },
+                "example": {
+                  "valid": true,
+                  "message_type": "pacs.008.001.13",
+                  "errors": [],
+                  "warnings": []
+                }
+              }
+            }
+          },
+          "422": { "$ref": "#/components/responses/BadRequest" }
+        }
+      }
+    },
+    "/api/generate": {
+      "post": {
+        "tags": ["generation"],
+        "operationId": "generateXml",
+        "summary": "Generate XML now and return the file",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/GenerateRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Generated ISO 20022 XML",
+            "content": { "application/xml": { "schema": { "type": "string" } } }
+          },
+          "422": { "$ref": "#/components/responses/BadRequest" }
+        }
+      }
+    },
+    "/api/generate/async": {
+      "post": {
+        "tags": ["jobs"],
+        "operationId": "submitGenerationJob",
+        "summary": "Submit an async generation job",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/GenerateRequest" }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Job accepted",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Job" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/status/{job_id}": {
+      "get": {
+        "tags": ["jobs"],
+        "operationId": "getJobStatus",
+        "summary": "Check job status by ID",
+        "parameters": [{ "$ref": "#/components/parameters/JobId" }],
+        "responses": {
+          "200": {
+            "description": "Current job state",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/Job" } }
+            }
+          },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/api/download/{job_id}": {
+      "get": {
+        "tags": ["jobs"],
+        "operationId": "downloadJobResult",
+        "summary": "Download XML after the job completes",
+        "parameters": [{ "$ref": "#/components/parameters/JobId" }],
+        "responses": {
+          "200": {
+            "description": "Generated XML",
+            "content": { "application/xml": { "schema": { "type": "string" } } }
+          },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/api/jobs/{job_id}": {
+      "delete": {
+        "tags": ["jobs"],
+        "operationId": "cancelJob",
+        "summary": "Cancel a pending or running job",
+        "parameters": [{ "$ref": "#/components/parameters/JobId" }],
+        "responses": {
+          "204": { "description": "Job cancelled" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/api/docs": {
+      "get": {
+        "tags": ["service"],
+        "operationId": "getSwaggerUi",
+        "summary": "Swagger UI for testing all endpoints",
+        "responses": {
+          "200": {
+            "description": "Interactive API documentation",
+            "content": { "text/html": { "schema": { "type": "string" } } }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "parameters": {
+      "JobId": {
+        "name": "job_id",
+        "in": "path",
+        "required": true,
+        "description": "Identifier returned when the job was submitted",
+        "schema": { "type": "string", "format": "uuid" }
+      }
+    },
+    "responses": {
+      "BadRequest": {
+        "description": "The request itself was malformed. This is not a validation failure.",
+        "content": {
+          "application/json": { "schema": { "$ref": "#/components/schemas/Problem" } }
+        }
+      },
+      "NotFound": {
+        "description": "No job with that identifier",
+        "content": {
+          "application/json": { "schema": { "$ref": "#/components/schemas/Problem" } }
+        }
+      }
+    },
+    "schemas": {
+      "Health": {
+        "type": "object",
+        "required": ["status"],
+        "properties": {
+          "status": { "type": "string", "enum": ["ok"] },
+          "version": { "type": "string" }
+        }
+      },
+      "ValidateRequest": {
+        "type": "object",
+        "required": ["message_type", "data"],
+        "properties": {
+          "message_type": {
+            "type": "string",
+            "description": "Message identifier including version",
+            "examples": ["pacs.008.001.13"]
+          },
+          "data": {
+            "type": "array",
+            "description": "Payment records to check",
+            "items": { "type": "object", "additionalProperties": true }
+          }
+        }
+      },
+      "GenerateRequest": {
+        "allOf": [
+          { "$ref": "#/components/schemas/ValidateRequest" },
+          {
+            "type": "object",
+            "properties": {
+              "template": { "type": "string", "description": "Path to the XML template" },
+              "schema": { "type": "string", "description": "Path to the XSD used for validation" }
+            }
+          }
+        ]
+      },
+      "ValidationResult": {
+        "type": "object",
+        "required": ["valid", "message_type", "errors", "warnings"],
+        "properties": {
+          "valid": { "type": "boolean" },
+          "message_type": { "type": "string" },
+          "errors": { "type": "array", "items": { "$ref": "#/components/schemas/Finding" } },
+          "warnings": { "type": "array", "items": { "$ref": "#/components/schemas/Finding" } }
+        }
+      },
+      "Finding": {
+        "type": "object",
+        "description": "A single validation finding. Where a scheme rule produced it, `rule_id` matches an entry in the published rule registry.",
+        "properties": {
+          "rule_id": { "type": "string", "examples": ["CBPR-ADDR-001"] },
+          "record": { "type": "integer" },
+          "field": { "type": "string" },
+          "message": { "type": "string" }
+        }
+      },
+      "Job": {
+        "type": "object",
+        "required": ["job_id", "status"],
+        "properties": {
+          "job_id": { "type": "string", "format": "uuid" },
+          "status": {
+            "type": "string",
+            "enum": ["pending", "running", "completed", "failed", "cancelled"]
+          },
+          "message_type": { "type": "string" },
+          "download_url": { "type": "string" }
+        }
+      },
+      "Problem": {
+        "type": "object",
+        "description": "RFC 9457 problem details",
+        "properties": {
+          "type": { "type": "string" },
+          "title": { "type": "string" },
+          "status": { "type": "integer" },
+          "detail": { "type": "string" }
+        }
+      }
+    }
+  }
+}

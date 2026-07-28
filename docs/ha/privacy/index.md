@@ -24,7 +24,7 @@ pacs008.com ba ta tattara bayanan sirri ba. Gidan yanar gizon ba ya amfani da ku
 
 ## Nazari
 
-Ayyukan nazari na wasu ɓangarori na iya tattara bayanai marasa suna kamar kallon shafuka da URLs na turawa. Ba za a iya amfani da wannan bayanan don gano daidaikun masu ziyara ba.
+pacs008.com ba ya amfani da ayyukan nazari. Ba a loda wani aikin nazari a kowane shafi ba, kuma ba a yin rikodin kallon shafuka, URL na turawa, ko ayyukan amfani. Duk rubutun ana bayar da su daga pacs008.com kansa, kuma Content-Security-Policy tana iyakance script-src da connect-src zuwa 'self', don haka ba za a iya loda aikin nazari na waje ba.
 
 ## Haƙƙoƙinku
 

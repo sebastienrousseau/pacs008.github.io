@@ -1,77 +1,58 @@
 import { describe, it, expect } from "vitest";
-import { readFileSync } from "fs";
-import { resolve } from "path";
+import { allCss, readPage } from "./helpers";
 
-const CSS_PATH = resolve(
-  __dirname,
-  "../docs/.vitepress/theme/components/HomeContent.vue"
-);
-const CUSTOM_CSS = resolve(__dirname, "../docs/.vitepress/theme/custom.css");
-
-describe("Responsive: HomeContent breakpoints", () => {
-  const css = readFileSync(CSS_PATH, "utf-8");
-
-  it("should have a tablet breakpoint at 768px", () => {
-    expect(css).toContain("@media (max-width: 768px)");
-  });
-
-  it("should have a mobile breakpoint at 480px", () => {
-    expect(css).toContain("@media (max-width: 480px)");
-  });
-
-  it("should have a desktop constraint at 1068px", () => {
-    expect(css).toContain("@media (max-width: 1068px)");
-  });
-
-  it("trust grid should be 3 columns by default", () => {
-    expect(css).toContain("grid-template-columns: repeat(3, 1fr)");
-  });
-
-  it("trust grid should be 2 columns on tablet", () => {
-    expect(css).toContain("grid-template-columns: repeat(2, 1fr)");
-  });
-
-  it("trust grid should be 1 column on mobile", () => {
-    expect(css).toMatch(/480px[\s\S]*grid-template-columns:\s*1fr/);
-  });
-
-  it("code block should have overflow-x for horizontal scroll", () => {
-    expect(css).toContain("overflow-x: auto");
+describe("Responsive: viewport", () => {
+  it("pages should set a responsive viewport", () => {
+    const html = readPage(".");
+    expect(html).toMatch(/width=device-width/);
+    expect(html).toMatch(/initial-scale=1/);
   });
 });
 
-describe("Responsive: Hero", () => {
-  const css = readFileSync(CUSTOM_CSS, "utf-8");
+describe("Responsive: breakpoints", () => {
+  const css = allCss();
 
-  it("hero should have min-height for viewport fill", () => {
-    expect(css).toContain(
-      "min-height: calc(100vh - var(--vp-nav-height, 64px))"
-    );
+  it("should ship media queries", () => {
+    expect(css).toMatch(/@media/);
   });
 
-  it("should have hero gradient background", () => {
-    expect(css).toContain("linear-gradient");
-    expect(css).toContain(".VPHomeHero");
+  it("should have a mobile breakpoint at or below 480px", () => {
+    expect(css).toMatch(/max-width:\s*480px/);
   });
 
-  it("hero alt button should have white text for contrast on dark bg", () => {
-    expect(css).toContain(".VPHomeHero .VPButton.alt");
-    expect(css).toMatch(/VPHomeHero .VPButton\.alt[\s\S]*?color:\s*#ffffff/);
+  it("should have a tablet breakpoint at 768px or 720px", () => {
+    expect(css).toMatch(/max-width:\s*(768|720)px/);
   });
-});
 
-describe("Responsive: nav touch targets", () => {
-  const css = readFileSync(CUSTOM_CSS, "utf-8");
+  it("should have a desktop container breakpoint", () => {
+    expect(css).toMatch(/max-width:\s*(1180|1280)px/);
+  });
 
-  it("nav dropdown links should have min-height 44px", () => {
-    expect(css).toContain("min-height: 44px");
+  it("should support reflow down to narrow viewports", () => {
+    expect(css).toMatch(/max-width:\s*(380|400)px/);
   });
 });
 
-describe("Responsive: reduced motion", () => {
-  const homeCss = readFileSync(CSS_PATH, "utf-8");
+describe("Responsive: overflow handling", () => {
+  const css = allCss();
 
-  it("HomeContent should respect prefers-reduced-motion", () => {
-    expect(homeCss).toContain("prefers-reduced-motion: reduce");
+  it("wide content should scroll horizontally rather than break layout", () => {
+    expect(css).toMatch(/overflow-x:\s*auto/);
+  });
+});
+
+describe("Accessibility: touch targets", () => {
+  const css = allCss();
+
+  it("should define 44px minimum touch targets", () => {
+    expect(css).toMatch(/min-height:\s*44px/);
+  });
+});
+
+describe("Accessibility: reduced motion", () => {
+  const css = allCss();
+
+  it("should respect prefers-reduced-motion", () => {
+    expect(css).toMatch(/prefers-reduced-motion:\s*reduce/);
   });
 });

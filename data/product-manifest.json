@@ -5,24 +5,48 @@
     "tagline": "Build ISO 20022 messages that the selected payment scheme will accept",
     "version": "0.0.8",
     "ruleset_version": "2026.11.0",
-    "ruleset_hash": "sha256:e412aaa0928f14b22c7104b2c129e2f42a2026",
-    "license": "Apache-2.0 / MIT Dual License",
+    "_ruleset_hash_note": "Computed by scripts/generate-manifest-facts.mjs as the SHA-256 of the canonical registries. Never edit by hand.",
+    "ruleset_hash": "sha256:c08ddb1b477f77f55f40a3bb060a53a36ebffc70a52add337f49a5af310a23d0",
+    "license": "Apache-2.0",
     "python": {
       "minimum": "3.10",
-      "tested": ["3.10", "3.11", "3.12"]
+      "tested": [
+        "3.10",
+        "3.11",
+        "3.12"
+      ]
     },
-    "repository": "https://github.com/sebastienrousseau/pacs008.github.io",
+    "repository": "https://github.com/sebastienrousseau/pacs008",
+    "website_repository": "https://github.com/sebastienrousseau/pacs008.github.io",
     "pypi": "https://pypi.org/project/pacs008/"
   },
   "interfaces": {
-    "python": { "status": "stable", "label": "Python Library (PyPI)" },
-    "cli": { "status": "stable", "label": "Command Line Interface (CLI)" },
-    "rest": { "status": "stable", "label": "FastAPI REST Service (/api/v1/)" },
-    "browser": { "status": "stable", "label": "Local Browser Workbench" }
+    "python": {
+      "status": "stable",
+      "label": "Python Library (PyPI)"
+    },
+    "cli": {
+      "status": "stable",
+      "label": "Command Line Interface (CLI)"
+    },
+    "rest": {
+      "status": "stable",
+      "label": "FastAPI REST Service (/api/)"
+    },
+    "browser": {
+      "status": "beta",
+      "label": "Local Browser Workbench",
+      "note": "Beta until the XSD and browser/core parity gates pass. Layers 3, 4, 5 and 8 are not implemented in the browser — see capability-registry.json."
+    }
   },
   "governance": {
     "verification_date": "2026-07-28",
     "next_review_due": "2026-08-28",
-    "standards_council": ["ISO 20022 SME", "Product Lead", "Core Engineer", "Security Reviewer"]
+    "standards_council": [
+      "ISO 20022 SME",
+      "Product Lead",
+      "Core Engineer",
+      "Security Reviewer"
+    ]
   }
 }

@@ -1,6 +1,135 @@
 import fs from "node:fs/promises";
+import { readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+
+/**
+ * Canonical registries. Scheme facts are rendered from these rather than
+ * written into prose, so a rule change updates every locale at once and the
+ * page cannot drift from what the validator enforces.
+ */
+const RULE_REGISTRY = JSON.parse(
+  readFileSync(new URL("../data/rule-registry.json", import.meta.url), "utf8")
+);
+const SOURCE_REGISTRY = JSON.parse(
+  readFileSync(new URL("../data/source-registry.json", import.meta.url), "utf8")
+);
+const OPENAPI = JSON.parse(
+  readFileSync(new URL("../data/openapi.json", import.meta.url), "utf8")
+);
+
+/**
+ * Endpoint rows derived from the OpenAPI document.
+ *
+ * The table previously listed bare paths while the curl examples beside it
+ * used /api/..., so neither could be copied and run. Deriving the rows from
+ * the spec means the contract and the reference cannot disagree.
+ */
+function openapiEndpoints() {
+  const rows = [];
+  for (const [path, ops] of Object.entries(OPENAPI.paths)) {
+    for (const [method, op] of Object.entries(ops)) {
+      rows.push([`${method.toUpperCase()} ${path}`, op.summary]);
+    }
+  }
+  return rows;
+}
+
+/**
+ * Scheme milestones as a table.
+ *
+ * Replaces a prose timeline that said "November 2026" without a day and was
+ * translated 28 ways. Dates are ISO, and every other cell is a scheme name,
+ * message identifier or rule ID — so the table carries the same meaning in
+ * every locale without depending on a translation being current.
+ */
+function milestoneTable() {
+  const rows = [
+    ["2025-11-22", "CBPR+", "Hybrid postal address option available", "`CBPR-ADDR-004`"],
+    ["2025-11-22", "CBPR+", "MT/MX coexistence for payment instructions ends", "—"],
+    ["2026-11-14", "CBPR+", "Fully unstructured postal address rejected", "`CBPR-ADDR-001`"],
+    ["2026-11-14", "CHAPS", "CHAPS validation library rejects unstructured addresses", "`CHAPS-ADDR-001`"],
+    ["2026-11-14", "CBPR+", "MT101 interbank coexistence ends; contingency relays to `pain.001`", "—"],
+    ["2026-11-14", "Swift", "`camt.110` investigation requests must be receivable", "—"],
+    ["2026-11-14", "Swift", "Annual Standards Release cycle begins", "—"],
+    ["2027-11", "CHAPS", "Purpose codes mandatory on all payments (announced)", "`CHAPS-PURP-001`"],
+    ["2027-11", "CHAPS", "Structured remittance information mandatory (announced)", "`CHAPS-RMT-001`"],
+    ["2027-11", "Swift", "`camt.110` and `camt.111` both mandatory (announced)", "—"],
+  ];
+  return `| Date | Scheme | Change | Rule |
+|---|---|---|---|
+${rows.map((r) => `| \`${r[0]}\` | ${r[1]} | ${r[2]} | ${r[3]} |`).join("\n")}`;
+}
+
+/**
+ * Normative address rules as a table.
+ *
+ * Deliberately built from identifiers, dates and XML element names, which read
+ * the same in every locale. The surrounding prose stays translated; the
+ * authoritative detail does not depend on a translation being current.
+ */
+function addressRuleTable() {
+  const sourceById = Object.fromEntries(
+    SOURCE_REGISTRY.sources.map((s) => [s.id, s])
+  );
+  const rules = RULE_REGISTRY.rules.filter((r) =>
+    /ADDR/.test(r.id)
+  );
+
+  const rows = rules
+    .map((r) => {
+      const src = sourceById[r.source];
+      const sev =
+        r.severity === "error" ? "Error" : r.severity === "warning" ? "Warning" : "Info";
+      return `| \`${r.id}\` | ${r.profile} | ${r.effective_from} | ${sev} | ${r.title} | [${r.source}](${src ? src.url : "#"}) |`;
+    })
+    .join("\n");
+
+  const exceptions = RULE_REGISTRY.rules.find((r) => r.id === "CBPR-ADDR-006");
+  const exceptionList = exceptions
+    ? exceptions.messages.map((m) => `\`${m}\``).join(", ")
+    : "";
+
+  return `
+## Normative rules
+
+Generated from the pacs008 rule registry (ruleset \`${RULE_REGISTRY.ruleset_version}\`).
+Each rule has a stable identifier, an effective date, an authoritative source and
+both a passing and a failing test fixture.
+
+| Rule | Profile | Effective | Severity | Requirement | Source |
+|---|---|---|---|---|---|
+${rows}
+
+### Address formats compared
+
+| Format | \`TwnNm\` | \`Ctry\` | \`AdrLine\` | Before 14 Nov 2026 | On or after |
+|---|---|---|---|---|---|
+| Fully structured | Present | Present | Absent | Accepted | Accepted |
+| Hybrid | Present | Present | Present | Accepted | Accepted |
+| Fully unstructured | Absent | Absent | Present | Accepted | **Rejected** |
+
+### Exceptions
+
+The requirement does not apply to these message types: ${exceptionList}.
+
+Agents identified by BIC alone remain valid without a postal address
+(\`CBPR-ADDR-005\`). Do not add a partial address solely to satisfy the rule.
+
+### Test fixtures
+
+Download and run these through the [workbench](/live/), the CLI or the API.
+Each maps to the rule it exercises.
+
+${rules
+  .flatMap((r) => [
+    ...(r.fixtures?.valid || []).map((f) => `- [\`${f.split("/").pop()}\`](/${f}) — passes \`${r.id}\``),
+    ...(r.fixtures?.invalid || []).map((f) => `- [\`${f.split("/").pop()}\`](/${f}) — fails \`${r.id}\``),
+  ])
+  .filter((v, i, a) => a.indexOf(v) === i)
+  .join("\n")}
+`;
+}
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -8,7 +137,7 @@ const root = path.resolve(__dirname, "..");
 const docsDir = path.join(root, "docs");
 
 const locales = [
-  { key: "en", lang: "en-GB", label: "English", hero: "Automate ISO 20022 pacs.008 message processing.", tagline: "Generate, validate, and deliver ISO 20022 pacs.008 payment messages. API orchestration and compliance support for FI-to-FI customer credit transfer workflows.", cta: "Get Started" },
+  { key: "en", lang: "en-GB", label: "English", hero: "Know what CBPR+ and CHAPS will reject \u2014 before you send it.", tagline: "The open-source ISO 20022 validator with scheme-aware rules for CBPR+, CHAPS, Fedwire, HVPS+, T2 RTGS and SCT Inst. Versioned rules, dated sources, reproducible reports. Run it in your browser, or from Python, the CLI or a REST service.", cta: "Validate a sample" },
   { key: "ar", lang: "ar-SA", label: "العربية", hero: "أتمتة معالجة رسائل pacs.008 وفق ISO 20022.", tagline: "التوليد والتحقق وتنسيق واجهات البرمجة ودعم الامتثال لتدفقات تحويل الائتمان بين المؤسسات المالية.", cta: "تعرّف على pacs008" },
   { key: "de", lang: "de-DE", label: "Deutsch", hero: "ISO 20022 pacs.008 Nachrichtenverarbeitung automatisieren.", tagline: "Generierung, Validierung, API-Orchestrierung und Compliance-Unterstützung für Kundenkredittransfer-Workflows zwischen Finanzinstituten.", cta: "Mehr über pacs008 erfahren" },
   { key: "es", lang: "es-ES", label: "Español", hero: "Automatice el procesamiento de mensajes pacs.008 ISO 20022.", tagline: "Generación, validación, orquestación de API y soporte de cumplimiento para flujos de transferencia de crédito de clientes entre instituciones financieras.", cta: "Conozca pacs008" },
@@ -508,7 +637,7 @@ const pageCopy = {
     privacyCollectionTitle: "Information collected",
     privacyCollectionText: "pacs008.com does not collect personal data. The site does not use cookies or tracking tools to identify visitors.",
     privacyAnalyticsTitle: "Analytics",
-    privacyAnalyticsText: "Third-party analytics services may collect anonymised page views and referring URLs. This data does not identify individual visitors.",
+    privacyAnalyticsText: "pacs008.com does not use analytics. No analytics service is loaded on any page, and no page view, referrer, or usage event is recorded by this project. This is enforced structurally: every script is served from pacs008.com itself, and the Content-Security-Policy sent with each page restricts script-src and connect-src to 'self', so a third-party analytics or session-recording script cannot load or transmit data. If analytics are ever introduced, this page will name the provider, the data collected, the retention period, and the opt-out route before that change goes live.",
     privacyRightsTitle: "Data rights",
     privacyRightsText: "Depending on the applicable jurisdiction, data rights over personal data, such as access, correction, or deletion, may apply. Because pacs008.com does not collect personal data, those rights are unlikely to apply here.",
     privacyChangesTitle: "Changes to this statement",
@@ -548,7 +677,7 @@ const pageCopy = {
     adds3: "strengthen outbound payment message data before release",
     adds4: "support product, operations, and migration teams from one codebase",
     apiInstallTitle: "Installation",
-    apiInstallText: "Install the package from PyPI. Requires Python 3.9.2 or later.",
+    apiInstallText: "Install the package from PyPI. Requires Python 3.10 or later.",
     apiRestTitle: "REST API",
     apiRestIntro: "Start the FastAPI server to validate payment data and generate XML.",
     apiRestStart: "Start the server",
@@ -653,9 +782,9 @@ const pageCopy = {
     faqPageIntro: "Common questions about ISO 20022 pacs messages, how they work together, and how pacs008 helps teams implement them.",
     structuredAddressTitle: "November 2026 structured-address deadline",
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
-    structuredAddressIntro: "SWIFT requires structured postal addresses in cross-border payment messages from November 2026. What changes, which messages are affected, and how pacs008 helps teams prepare.",
+    structuredAddressIntro: "From 14 November 2026, fully unstructured postal addresses are rejected in SWIFT CBPR+ payment messages and by the Bank of England's CHAPS validation library. Town Name and Country must be carried in their own structured elements. A compliant hybrid address remains acceptable — this is not a structured-only mandate.",
     structuredAddressWhatTitle: "What is changing",
-    structuredAddressWhatText: "SWIFT CBPR+ is moving from unstructured postal addresses to structured address fields in cross-border payment messages. After the November 2026 deadline, key party address fields must use the structured format with separate elements for street name, building number, post code, town, and country.",
+    structuredAddressWhatText: "The requirement is a minimum, not a maximum. From 14 November 2026 an in-scope party must carry Town Name in <TwnNm> and Country in <Ctry> as a two-letter ISO 3166 code. Everything else — street, building number, post code — may remain in address lines. That combination is a hybrid address and it is explicitly accepted. What is removed is the fully unstructured address, where the entire address sits in free-text lines with no structured town or country. Agents identified by BIC alone are unaffected and need no postal address.",
     structuredAddressWhyTitle: "Why it matters",
     structuredAddressWhy1: "Unstructured addresses increase manual repair rates and delay straight-through processing.",
     structuredAddressWhy2: "Structured addresses improve sanctions screening accuracy by separating party name from location data.",
@@ -673,8 +802,9 @@ const pageCopy = {
     structuredAddressHow4: "Integrates address quality checks into CI pipelines and batch validation workflows.",
     structuredAddressTimelineTitle: "Timeline",
     structuredAddressTimeline1: "**March 2023** — SWIFT CBPR+ goes live with ISO 20022 for cross-border payments.",
-    structuredAddressTimeline2: "**November 2025** — coexistence period for MT and MX payment instructions ends.",
-    structuredAddressTimeline3: "**November 2026** — structured postal address requirement takes effect for CBPR+ messages.",
+    structuredAddressTimeline2: "**22 November 2025** — the hybrid postal address option becomes available, and the MT/MX coexistence period for payment instructions ends.",
+    structuredAddressTimeline3: "**14 November 2026** — fully unstructured postal addresses are rejected in CBPR+ and by the CHAPS validation library. MT101 interbank coexistence over CBPR+ also ends, and camt.110 investigation requests must be receivable.",
+    structuredAddressTimeline4: "**November 2027** — the Bank of England has announced that purpose codes and structured remittance information become mandatory for all CHAPS payments, and camt.110/camt.111 become mandatory across Swift.",
     structuredAddressActionTitle: "What to do now",
     structuredAddressAction1: "Audit current address data quality across debtor, creditor, and agent records.",
     structuredAddressAction2: "Map existing unstructured address fields to the structured format (street, building, post code, town, country).",
@@ -881,7 +1011,7 @@ const pageCopy = {
     privacyCollectionTitle: "Informations que nous collectons",
     privacyCollectionText: "pacs008.com ne collecte aucune donnée personnelle. Le site n'utilise ni cookies ni technologies de suivi pour identifier les visiteurs.",
     privacyAnalyticsTitle: "Analytique",
-    privacyAnalyticsText: "Des services d'analyse tiers peuvent collecter des données anonymisées et agrégées, telles que les pages vues et les URL de provenance. Ces données ne permettent pas d'identifier les visiteurs.",
+    privacyAnalyticsText: "pacs008.com n'utilise pas d'outils d'analyse d'audience. Aucun service d'analyse n'est chargé sur les pages et aucune page vue, URL de provenance ou action de navigation n'est enregistrée. Tous les scripts sont servis par pacs008.com et la Content-Security-Policy limite script-src et connect-src à 'self', ce qui empêche le chargement d'un service d'analyse tiers.",
     privacyRightsTitle: "Vos droits",
     privacyRightsText: "Selon votre juridiction, vous pouvez disposer de droits relatifs à vos données personnelles, notamment le droit d'accès, de rectification ou de suppression. Étant donné que pacs008.com ne collecte pas de données personnelles, ces droits ne sont probablement pas applicables.",
     privacyChangesTitle: "Modifications de cette déclaration",
@@ -1096,7 +1226,7 @@ const pageCopy = {
     msgTypeColId: "Type de message",
     msgTypeColDesc: "Description",
     apiInstallTitle: "Installation",
-    apiInstallText: "Installez le paquet depuis PyPI. Python 3.9.2 ou version supérieure est requis.",
+    apiInstallText: "Installez le paquet depuis PyPI. Python 3.10 ou version supérieure est requis.",
     apiRestTitle: "REST API",
     apiRestIntro: "Démarrez le serveur FastAPI intégré pour exposer des points de terminaison HTTP pour la validation et la génération.",
     apiRestStart: "Démarrer le serveur",
@@ -1182,7 +1312,7 @@ const pageCopy = {
     structuredAddressDescription: "Impact de l'échéance SWIFT CBPR+ de novembre 2026 sur les adresses postales structurées pour pacs.008 et les messages de paiement associés, et comment pacs008 aide les équipes à se conformer.",
     structuredAddressIntro: "SWIFT exige des adresses postales structurées dans les messages de paiement transfrontaliers à partir de novembre 2026. Cette page explique ce qui change, quels messages sont concernés et comment pacs008 aide les équipes à se préparer.",
     structuredAddressWhatTitle: "Ce qui change",
-    structuredAddressWhatText: "SWIFT CBPR+ passe des adresses postales non structurées à des champs d'adresse structurés dans les messages de paiement transfrontaliers. Après l'échéance de novembre 2026, les champs d'adresse des parties clés doivent utiliser le format structuré avec des éléments séparés pour le nom de rue, le numéro de bâtiment, le code postal, la ville et le pays.",
+    structuredAddressWhatText: "Il s'agit d'une exigence minimale, et non maximale. À compter du 14 novembre 2026, une partie concernée doit renseigner la ville dans TwnNm et le pays dans Ctry sous forme de code ISO 3166 à deux lettres. La rue, le numéro de bâtiment et le code postal peuvent rester dans les lignes d'adresse : il s'agit alors d'une adresse hybride, qui est acceptée. Seule l'adresse entièrement non structurée — l'adresse complète en texte libre, sans ville ni pays structurés — est supprimée. Les agents identifiés uniquement par un BIC ne sont pas concernés.",
     structuredAddressWhyTitle: "Pourquoi c'est important",
     structuredAddressWhy1: "Les adresses non structurées augmentent les taux de réparation manuelle et retardent le traitement automatique.",
     structuredAddressWhy2: "Les adresses structurées améliorent la précision du filtrage des sanctions en séparant le nom de la partie des données de localisation.",
@@ -1242,7 +1372,7 @@ const pageCopy = {
     privacyCollectionTitle: "المعلومات التي نجمعها",
     privacyCollectionText: "لا يجمع pacs008.com بيانات شخصية. لا يستخدم الموقع ملفات تعريف الارتباط أو تقنيات التتبع لتحديد هوية الزوار.",
     privacyAnalyticsTitle: "التحليلات",
-    privacyAnalyticsText: "قد تجمع خدمات التحليلات من جهات خارجية بيانات مجهولة الهوية ومجمعة مثل مشاهدات الصفحات وعناوين URL المُحيلة. لا يمكن استخدام هذه البيانات لتحديد هوية الزوار.",
+    privacyAnalyticsText: "لا يستخدم pacs008.com أي أدوات تحليلات. لا يتم تحميل أي خدمة تحليلات في أي صفحة، ولا يتم تسجيل أي مشاهدات للصفحات أو عناوين URL مُحيلة أو أحداث استخدام. تُقدَّم جميع النصوص البرمجية من pacs008.com نفسه، وتقصر سياسة أمان المحتوى قيمتَي script-src وconnect-src على 'self'، مما يمنع تحميل أي خدمة تحليلات خارجية.",
     privacyRightsTitle: "حقوقك",
     privacyRightsText: "حسب ولايتك القضائية، قد تكون لديك حقوق تتعلق ببياناتك الشخصية، بما في ذلك حق الوصول أو التصحيح أو الحذف. نظرًا لأن pacs008.com لا يجمع بيانات شخصية، فمن غير المرجح أن تكون هذه الحقوق قابلة للتطبيق.",
     privacyChangesTitle: "التغييرات على هذا البيان",
@@ -1457,7 +1587,7 @@ const pageCopy = {
     msgTypeColId: "نوع الرسالة",
     msgTypeColDesc: "الوصف",
     apiInstallTitle: "التثبيت",
-    apiInstallText: "ثبِّت الحزمة من PyPI. يُشترط Python 3.9.2 أو أعلى.",
+    apiInstallText: "ثبِّت الحزمة من PyPI. يُشترط Python 3.10 أو أعلى.",
     apiRestTitle: "REST API",
     apiRestIntro: "شغِّل خادم FastAPI المدمج لكشف نقاط HTTP للتحقق والتوليد.",
     apiRestStart: "تشغيل الخادم",
@@ -1540,7 +1670,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "يتطلب SWIFT عناوين بريدية مهيكلة في رسائل الدفع عبر الحدود اعتبارًا من نوفمبر 2026. ما الذي يتغير، وما الرسائل المتأثرة، وكيف يساعد pacs008 الفرق في الاستعداد.",
     structuredAddressWhatTitle: "ما الذي يتغير",
-    structuredAddressWhatText: "ينتقل SWIFT CBPR+ من العناوين البريدية غير المهيكلة إلى حقول عنوان مهيكلة في رسائل الدفع عبر الحدود. بعد الموعد النهائي في نوفمبر 2026، يجب أن تستخدم حقول عناوين الأطراف الرئيسية التنسيق المهيكل مع عناصر منفصلة لاسم الشارع ورقم المبنى والرمز البريدي والمدينة والبلد.",
+    structuredAddressWhatText: "هذا حد أدنى وليس حدًا أقصى. اعتبارًا من 14 نوفمبر 2026، يجب على الطرف المعني إدراج المدينة في TwnNm والدولة في Ctry بصيغة رمز ISO 3166 المكوَّن من حرفين. أما الشارع ورقم المبنى والرمز البريدي فيمكن أن تبقى في أسطر العنوان: هذا عنوان هجين وهو مقبول. ولا يُلغى سوى العنوان غير المهيكل بالكامل، أي العنوان بأكمله في نص حر دون مدينة ودولة مهيكلتين. والمؤسسات المُعرَّفة برمز BIC فقط غير معنية بذلك.",
     structuredAddressWhyTitle: "لماذا هذا مهم",
     structuredAddressWhy1: "تزيد العناوين غير المهيكلة من معدلات الإصلاح اليدوي وتؤخر المعالجة المباشرة.",
     structuredAddressWhy2: "تُحسّن العناوين المهيكلة دقة فحص العقوبات من خلال فصل اسم الطرف عن بيانات الموقع.",
@@ -1599,7 +1729,7 @@ const pageCopy = {
     privacyCollectionTitle: "Informationen, die wir erheben",
     privacyCollectionText: "pacs008.com erhebt keine personenbezogenen Daten. Die Website verwendet weder Cookies noch Tracking-Technologien zur Identifizierung einzelner Besucher.",
     privacyAnalyticsTitle: "Analysedienste",
-    privacyAnalyticsText: "Analysedienste Dritter können anonymisierte, aggregierte Daten wie Seitenaufrufe und verweisende URLs erheben. Diese Daten können nicht zur Identifizierung einzelner Besucher verwendet werden.",
+    privacyAnalyticsText: "pacs008.com verwendet keine Analysedienste. Auf keiner Seite wird ein Analysedienst geladen, und es werden keine Seitenaufrufe, verweisenden URLs oder Nutzungsereignisse erfasst. Alle Skripte werden von pacs008.com selbst ausgeliefert, und die Content-Security-Policy beschränkt script-src und connect-src auf 'self', sodass ein Analysedienst Dritter nicht geladen werden kann.",
     privacyRightsTitle: "Ihre Rechte",
     privacyRightsText: "Abhängig von Ihrer Rechtsordnung stehen Ihnen möglicherweise Rechte in Bezug auf Ihre personenbezogenen Daten zu, einschließlich des Rechts auf Auskunft, Berichtigung oder Löschung. Da pacs008.com keine personenbezogenen Daten erhebt, sind diese Rechte voraussichtlich nicht anwendbar.",
     privacyChangesTitle: "Änderungen dieser Erklärung",
@@ -1814,7 +1944,7 @@ const pageCopy = {
     msgTypeColId: "Nachrichtentyp",
     msgTypeColDesc: "Beschreibung",
     apiInstallTitle: "Installation",
-    apiInstallText: "Installieren Sie das Paket von PyPI. Python 3.9.2 oder höher ist erforderlich.",
+    apiInstallText: "Installieren Sie das Paket von PyPI. Python 3.10 oder höher ist erforderlich.",
     apiRestTitle: "REST API",
     apiRestIntro: "Starten Sie den integrierten FastAPI-Server, um HTTP-Endpunkte für Validierung und Generierung bereitzustellen.",
     apiRestStart: "Server starten",
@@ -1900,7 +2030,7 @@ const pageCopy = {
     structuredAddressDescription: "Auswirkungen der SWIFT CBPR+ Frist im November 2026 für strukturierte Postanschriften auf pacs.008 und verwandte Zahlungsnachrichten, und wie pacs008 Teams bei der Einhaltung unterstützt.",
     structuredAddressIntro: "SWIFT verlangt ab November 2026 strukturierte Postanschriften in grenzüberschreitenden Zahlungsnachrichten. Diese Seite erklärt, was sich ändert, welche Nachrichten betroffen sind und wie pacs008 Teams bei der Vorbereitung hilft.",
     structuredAddressWhatTitle: "Was sich ändert",
-    structuredAddressWhatText: "SWIFT CBPR+ wechselt von unstrukturierten Postanschriften zu strukturierten Adressfeldern in grenzüberschreitenden Zahlungsnachrichten. Nach der Frist im November 2026 müssen die Adressfelder der Parteien das strukturierte Format mit separaten Elementen für Straßenname, Hausnummer, Postleitzahl, Ort und Land verwenden.",
+    structuredAddressWhatText: "Dies ist eine Mindest-, keine Höchstanforderung. Ab dem 14. November 2026 muss eine betroffene Partei den Ort in TwnNm und das Land in Ctry als zweistelligen ISO-3166-Code führen. Straße, Hausnummer und Postleitzahl dürfen in den Adresszeilen verbleiben: Das ist eine hybride Adresse und sie wird akzeptiert. Entfernt wird ausschließlich die vollständig unstrukturierte Adresse — die gesamte Adresse als Freitext ohne strukturierten Ort und ohne Land. Ausschließlich per BIC identifizierte Institute sind nicht betroffen.",
     structuredAddressWhyTitle: "Warum es wichtig ist",
     structuredAddressWhy1: "Unstrukturierte Adressen erhöhen die manuellen Reparaturraten und verzögern die automatische Verarbeitung.",
     structuredAddressWhy2: "Strukturierte Adressen verbessern die Genauigkeit der Sanktionsprüfung durch Trennung von Parteiname und Standortdaten.",
@@ -1960,7 +2090,7 @@ const pageCopy = {
     privacyCollectionTitle: "Información que recopilamos",
     privacyCollectionText: "pacs008.com no recopila datos personales. El sitio web no utiliza cookies ni tecnologías de seguimiento para identificar a los visitantes.",
     privacyAnalyticsTitle: "Analítica",
-    privacyAnalyticsText: "Servicios de análisis de terceros pueden recopilar datos anonimizados y agregados, como páginas visitadas y URL de referencia. Estos datos no pueden utilizarse para identificar a los visitantes.",
+    privacyAnalyticsText: "pacs008.com no utiliza servicios de análisis. No se carga ningún servicio de análisis en ninguna página y no se registran páginas vistas, URL de referencia ni eventos de uso. Todos los scripts se sirven desde pacs008.com y la Content-Security-Policy limita script-src y connect-src a 'self', por lo que no puede cargarse ningún servicio de análisis de terceros.",
     privacyRightsTitle: "Sus derechos",
     privacyRightsText: "Según su jurisdicción, puede tener derechos con respecto a sus datos personales, incluido el derecho de acceso, rectificación o supresión. Dado que pacs008.com no recopila datos personales, es poco probable que estos derechos sean aplicables.",
     privacyChangesTitle: "Cambios en esta declaración",
@@ -2175,7 +2305,7 @@ const pageCopy = {
     msgTypeColId: "Tipo de mensaje",
     msgTypeColDesc: "Descripción",
     apiInstallTitle: "Instalación",
-    apiInstallText: "Instale el paquete desde PyPI. Se requiere Python 3.9.2 o superior.",
+    apiInstallText: "Instale el paquete desde PyPI. Se requiere Python 3.10 o superior.",
     apiRestTitle: "REST API",
     apiRestIntro: "Inicie el servidor FastAPI integrado para exponer puntos de conexión HTTP para validación y generación.",
     apiRestStart: "Iniciar el servidor",
@@ -2261,7 +2391,7 @@ const pageCopy = {
     structuredAddressDescription: "Cómo afecta el plazo SWIFT CBPR+ de noviembre 2026 para direcciones postales estructuradas a pacs.008 y mensajes de pago relacionados, y cómo pacs008 ayuda a los equipos a cumplir.",
     structuredAddressIntro: "SWIFT requiere direcciones postales estructuradas en mensajes de pago transfronterizos a partir de noviembre de 2026. Esta página explica qué cambia, qué mensajes se ven afectados y cómo pacs008 ayuda a los equipos a prepararse.",
     structuredAddressWhatTitle: "Qué cambia",
-    structuredAddressWhatText: "SWIFT CBPR+ está pasando de direcciones postales no estructuradas a campos de dirección estructurados en mensajes de pago transfronterizos. Después del plazo de noviembre de 2026, los campos de dirección de las partes clave deben usar el formato estructurado con elementos separados para nombre de calle, número de edificio, código postal, ciudad y país.",
+    structuredAddressWhatText: "Se trata de un requisito mínimo, no máximo. A partir del 14 de noviembre de 2026, una parte afectada debe indicar la localidad en TwnNm y el país en Ctry como código ISO 3166 de dos letras. La calle, el número de edificio y el código postal pueden permanecer en las líneas de dirección: eso es una dirección híbrida y se acepta. Solo se elimina la dirección totalmente no estructurada, es decir, la dirección completa en texto libre sin localidad ni país estructurados. Los agentes identificados únicamente mediante BIC no se ven afectados.",
     structuredAddressWhyTitle: "Por qué es importante",
     structuredAddressWhy1: "Las direcciones no estructuradas aumentan las tasas de reparación manual y retrasan el procesamiento automático.",
     structuredAddressWhy2: "Las direcciones estructuradas mejoran la precisión del filtrado de sanciones al separar el nombre de la parte de los datos de ubicación.",
@@ -2321,7 +2451,7 @@ const pageCopy = {
     privacyCollectionTitle: "מידע שאנו אוספים",
     privacyCollectionText: "pacs008.com אינו אוסף נתונים אישיים. האתר אינו משתמש בעוגיות או בטכנולוגיות מעקב לזיהוי מבקרים.",
     privacyAnalyticsTitle: "ניתוח נתונים",
-    privacyAnalyticsText: "שירותי ניתוח נתונים של צד שלישי עשויים לאסוף נתונים אנונימיים ומצטברים כגון צפיות בדפים וכתובות URL מפנות. לא ניתן להשתמש בנתונים אלו לזיהוי מבקרים.",
+    privacyAnalyticsText: "pacs008.com אינו משתמש בשירותי ניתוח נתונים. בשום עמוד לא נטען שירות ניתוח, ולא נרשמות צפיות בדפים, כתובות URL מפנות או פעולות שימוש. כל הסקריפטים מוגשים מ-pacs008.com עצמו, ומדיניות אבטחת התוכן מגבילה את script-src ואת connect-src ל-'self', כך ששירות ניתוח חיצוני אינו יכול להיטען.",
     privacyRightsTitle: "הזכויות שלכם",
     privacyRightsText: "בהתאם לתחום השיפוט שלכם, ייתכן שיש לכם זכויות הנוגעות לנתוניכם האישיים, כולל הזכות לגשת, לתקן או למחוק מידע. מכיוון ש-pacs008.com אינו אוסף נתונים אישיים, סביר שזכויות אלו אינן ישימות.",
     privacyChangesTitle: "שינויים בהצהרה זו",
@@ -2536,7 +2666,7 @@ const pageCopy = {
     msgTypeColId: "סוג הודעה",
     msgTypeColDesc: "תיאור",
     apiInstallTitle: "התקנה",
-    apiInstallText: "התקן את החבילה מ-PyPI. נדרש Python 3.9.2 ומעלה.",
+    apiInstallText: "התקן את החבילה מ-PyPI. נדרש Python 3.10 ומעלה.",
     apiRestTitle: "REST API",
     apiRestIntro: "הפעל את שרת FastAPI המובנה כדי לחשוף נקודות קצה HTTP לאימות ולייצור.",
     apiRestStart: "הפעלת השרת",
@@ -2619,7 +2749,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT דורש כתובות דואר מובנות בהודעות תשלום חוצות גבולות החל מנובמבר 2026. מה משתנה, אילו הודעות מושפעות וכיצד pacs008 עוזר לצוותים להתכונן.",
     structuredAddressWhatTitle: "מה משתנה",
-    structuredAddressWhatText: "SWIFT CBPR+ עובר מכתובות דואר לא מובנות לשדות כתובת מובנים בהודעות תשלום חוצות גבולות. לאחר המועד האחרון בנובמבר 2026, שדות הכתובת של הצדדים המרכזיים חייבים להשתמש בפורמט המובנה עם אלמנטים נפרדים לשם רחוב, מספר בניין, מיקוד, עיר ומדינה.",
+    structuredAddressWhatText: "זו דרישת מינימום, לא מקסימום. החל מ-14 בנובמבר 2026 על צד רלוונטי לציין את העיר בשדה TwnNm ואת המדינה בשדה Ctry כקוד ISO 3166 בן שתי אותיות. רחוב, מספר בניין ומיקוד יכולים להישאר בשורות הכתובת: זו כתובת היברידית והיא מתקבלת. מבוטלת רק הכתובת הבלתי מובנית לחלוטין — כלומר כל הכתובת כטקסט חופשי ללא עיר ומדינה מובנות. מוסדות המזוהים באמצעות BIC בלבד אינם מושפעים.",
     structuredAddressWhyTitle: "למה זה חשוב",
     structuredAddressWhy1: "כתובות לא מובנות מגדילות את שיעורי התיקון הידני ומעכבות עיבוד ישיר.",
     structuredAddressWhy2: "כתובות מובנות משפרות את דיוק סינון הסנקציות על ידי הפרדת שם הצד מנתוני המיקום.",
@@ -2678,7 +2808,7 @@ const pageCopy = {
     privacyCollectionTitle: "हम कौन सी जानकारी एकत्र करते हैं",
     privacyCollectionText: "pacs008.com कोई व्यक्तिगत डेटा एकत्र नहीं करता है। वेबसाइट व्यक्तिगत आगंतुकों की पहचान करने के लिए कुकीज़ या ट्रैकिंग तकनीकों का उपयोग नहीं करती है।",
     privacyAnalyticsTitle: "विश्लेषिकी",
-    privacyAnalyticsText: "तृतीय-पक्ष विश्लेषिकी सेवाएँ पेज व्यू और रेफ़रिंग URL जैसे अनामित, समेकित डेटा एकत्र कर सकती हैं। इस डेटा का उपयोग व्यक्तिगत आगंतुकों की पहचान करने के लिए नहीं किया जा सकता।",
+    privacyAnalyticsText: "pacs008.com किसी भी एनालिटिक्स सेवा का उपयोग नहीं करता। किसी भी पृष्ठ पर कोई एनालिटिक्स सेवा लोड नहीं होती, और कोई पेज व्यू, रेफ़रिंग URL या उपयोग घटना दर्ज नहीं की जाती। सभी स्क्रिप्ट pacs008.com से ही परोसी जाती हैं और Content-Security-Policy script-src तथा connect-src को 'self' तक सीमित करती है, इसलिए कोई तृतीय-पक्ष एनालिटिक्स सेवा लोड नहीं हो सकती।",
     privacyRightsTitle: "आपके अधिकार",
     privacyRightsText: "आपके क्षेत्राधिकार के आधार पर, आपके पास अपने व्यक्तिगत डेटा से संबंधित अधिकार हो सकते हैं, जिसमें जानकारी तक पहुँचने, सही करने या हटाने का अधिकार शामिल है। चूँकि pacs008.com व्यक्तिगत डेटा एकत्र नहीं करता है, इसलिए ये अधिकार लागू होने की संभावना नहीं है।",
     privacyChangesTitle: "इस कथन में परिवर्तन",
@@ -2893,7 +3023,7 @@ const pageCopy = {
     msgTypeColId: "संदेश प्रकार",
     msgTypeColDesc: "विवरण",
     apiInstallTitle: "इंस्टॉलेशन",
-    apiInstallText: "PyPI से पैकेज इंस्टॉल करें। Python 3.9.2 या उच्चतर संस्करण आवश्यक है।",
+    apiInstallText: "PyPI से पैकेज इंस्टॉल करें। Python 3.10 या उच्चतर संस्करण आवश्यक है।",
     apiRestTitle: "REST API",
     apiRestIntro: "वैलिडेशन और जनरेशन के लिए HTTP एंडपॉइंट उजागर करने हेतु अंतर्निहित FastAPI सर्वर शुरू करें।",
     apiRestStart: "सर्वर शुरू करें",
@@ -2976,7 +3106,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT को नवंबर 2026 से सीमा-पार भुगतान संदेशों में संरचित डाक पते की आवश्यकता है। क्या बदल रहा है, कौन से संदेश प्रभावित हैं, और pacs008 टीमों को तैयार होने में कैसे मदद करता है।",
     structuredAddressWhatTitle: "क्या बदल रहा है",
-    structuredAddressWhatText: "SWIFT CBPR+ सीमा-पार भुगतान संदेशों में असंरचित डाक पतों से संरचित पता फ़ील्ड की ओर बढ़ रहा है। नवंबर 2026 की समय सीमा के बाद, प्रमुख पक्ष पता फ़ील्ड को सड़क का नाम, भवन संख्या, पिन कोड, शहर और देश के लिए अलग-अलग तत्वों के साथ संरचित प्रारूप का उपयोग करना होगा।",
+    structuredAddressWhatText: "यह न्यूनतम आवश्यकता है, अधिकतम नहीं। 14 नवंबर 2026 से संबंधित पक्ष को शहर TwnNm में और देश Ctry में दो-अक्षरीय ISO 3166 कोड के रूप में देना होगा। सड़क, भवन संख्या और पिन कोड पता पंक्तियों में रह सकते हैं: यह एक हाइब्रिड पता है और यह स्वीकार्य है। केवल पूर्णतः असंरचित पता हटाया जा रहा है — अर्थात पूरा पता मुक्त पाठ में, बिना संरचित शहर और देश के। केवल BIC से पहचाने जाने वाले संस्थान इससे प्रभावित नहीं होते।",
     structuredAddressWhyTitle: "यह क्यों महत्वपूर्ण है",
     structuredAddressWhy1: "असंरचित पते मैनुअल मरम्मत दरों को बढ़ाते हैं और सीधे प्रसंस्करण में देरी करते हैं।",
     structuredAddressWhy2: "संरचित पते पक्ष के नाम को स्थान डेटा से अलग करके प्रतिबंध जांच सटीकता में सुधार करते हैं।",
@@ -3035,7 +3165,7 @@ const pageCopy = {
     privacyCollectionTitle: "Informasi yang kami kumpulkan",
     privacyCollectionText: "pacs008.com tidak mengumpulkan data pribadi. Situs web tidak menggunakan cookie atau teknologi pelacakan untuk mengidentifikasi pengunjung.",
     privacyAnalyticsTitle: "Analitik",
-    privacyAnalyticsText: "Layanan analitik pihak ketiga mungkin mengumpulkan data anonim dan agregat seperti tampilan halaman dan URL perujuk. Data ini tidak dapat digunakan untuk mengidentifikasi pengunjung.",
+    privacyAnalyticsText: "pacs008.com tidak menggunakan layanan analitik. Tidak ada layanan analitik yang dimuat di halaman mana pun, dan tidak ada tampilan halaman, URL perujuk, atau peristiwa penggunaan yang dicatat. Semua skrip disajikan dari pacs008.com sendiri, dan Content-Security-Policy membatasi script-src dan connect-src ke 'self', sehingga layanan analitik pihak ketiga tidak dapat dimuat.",
     privacyRightsTitle: "Hak Anda",
     privacyRightsText: "Bergantung pada yurisdiksi Anda, Anda mungkin memiliki hak terkait data pribadi Anda, termasuk hak untuk mengakses, memperbaiki, atau menghapus informasi. Karena pacs008.com tidak mengumpulkan data pribadi, hak-hak ini kemungkinan tidak berlaku.",
     privacyChangesTitle: "Perubahan pada pernyataan ini",
@@ -3250,7 +3380,7 @@ const pageCopy = {
     msgTypeColId: "Jenis pesan",
     msgTypeColDesc: "Deskripsi",
     apiInstallTitle: "Instalasi",
-    apiInstallText: "Instal paket dari PyPI. Python 3.9.2 atau lebih tinggi diperlukan.",
+    apiInstallText: "Instal paket dari PyPI. Python 3.10 atau lebih tinggi diperlukan.",
     apiRestTitle: "REST API",
     apiRestIntro: "Jalankan server FastAPI bawaan untuk mengekspos endpoint HTTP untuk validasi dan pembuatan.",
     apiRestStart: "Mulai server",
@@ -3333,7 +3463,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT mewajibkan alamat pos terstruktur dalam pesan pembayaran lintas batas mulai November 2026. Apa yang berubah, pesan mana yang terpengaruh, dan bagaimana pacs008 membantu tim mempersiapkan diri.",
     structuredAddressWhatTitle: "Apa yang berubah",
-    structuredAddressWhatText: "SWIFT CBPR+ beralih dari alamat pos tidak terstruktur ke bidang alamat terstruktur dalam pesan pembayaran lintas batas. Setelah tenggat waktu November 2026, bidang alamat pihak utama harus menggunakan format terstruktur dengan elemen terpisah untuk nama jalan, nomor gedung, kode pos, kota, dan negara.",
+    structuredAddressWhatText: "Ini persyaratan minimum, bukan maksimum. Mulai 14 November 2026, pihak yang tercakup harus mencantumkan kota pada TwnNm dan negara pada Ctry sebagai kode ISO 3166 dua huruf. Jalan, nomor bangunan, dan kode pos boleh tetap berada di baris alamat: itu adalah alamat hibrida dan diterima. Yang dihapus hanyalah alamat yang sepenuhnya tidak terstruktur — seluruh alamat dalam teks bebas tanpa kota dan negara terstruktur. Lembaga yang diidentifikasi hanya dengan BIC tidak terpengaruh.",
     structuredAddressWhyTitle: "Mengapa ini penting",
     structuredAddressWhy1: "Alamat tidak terstruktur meningkatkan tingkat perbaikan manual dan menunda pemrosesan langsung.",
     structuredAddressWhy2: "Alamat terstruktur meningkatkan akurasi penyaringan sanksi dengan memisahkan nama pihak dari data lokasi.",
@@ -3392,7 +3522,7 @@ const pageCopy = {
     privacyCollectionTitle: "Informazioni che raccogliamo",
     privacyCollectionText: "pacs008.com non raccoglie dati personali. Il sito web non utilizza cookie o tecnologie di tracciamento per identificare i singoli visitatori.",
     privacyAnalyticsTitle: "Analisi",
-    privacyAnalyticsText: "Servizi di analisi di terze parti possono raccogliere dati anonimi e aggregati come visualizzazioni di pagina e URL di riferimento. Questi dati non possono essere utilizzati per identificare i singoli visitatori.",
+    privacyAnalyticsText: "pacs008.com non utilizza servizi di analisi. Nessun servizio di analisi viene caricato in alcuna pagina e non vengono registrate visualizzazioni di pagina, URL di riferimento o eventi di utilizzo. Tutti gli script sono serviti da pacs008.com e la Content-Security-Policy limita script-src e connect-src a 'self', per cui un servizio di analisi di terze parti non può essere caricato.",
     privacyRightsTitle: "I vostri diritti",
     privacyRightsText: "A seconda della vostra giurisdizione, potreste avere diritti riguardanti i vostri dati personali, incluso il diritto di accesso, rettifica o cancellazione. Poiché pacs008.com non raccoglie dati personali, è improbabile che tali diritti siano applicabili.",
     privacyChangesTitle: "Modifiche a questa informativa",
@@ -3607,7 +3737,7 @@ const pageCopy = {
     msgTypeColId: "Tipo di messaggio",
     msgTypeColDesc: "Descrizione",
     apiInstallTitle: "Installazione",
-    apiInstallText: "Installa il pacchetto da PyPI. È richiesto Python 3.9.2 o versione successiva.",
+    apiInstallText: "Installa il pacchetto da PyPI. È richiesto Python 3.10 o versione successiva.",
     apiRestTitle: "REST API",
     apiRestIntro: "Avvia il server FastAPI integrato per esporre endpoint HTTP per la validazione e la generazione.",
     apiRestStart: "Avvia il server",
@@ -3690,7 +3820,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT richiede indirizzi postali strutturati nei messaggi di pagamento transfrontalieri da novembre 2026. Cosa cambia, quali messaggi sono interessati e come pacs008 aiuta i team a prepararsi.",
     structuredAddressWhatTitle: "Cosa cambia",
-    structuredAddressWhatText: "SWIFT CBPR+ sta passando da indirizzi postali non strutturati a campi indirizzo strutturati nei messaggi di pagamento transfrontalieri. Dopo la scadenza di novembre 2026, i campi indirizzo delle parti principali devono utilizzare il formato strutturato con elementi separati per nome via, numero civico, codice postale, città e paese.",
+    structuredAddressWhatText: "È un requisito minimo, non massimo. Dal 14 novembre 2026 una parte interessata deve indicare la città in TwnNm e il paese in Ctry come codice ISO 3166 a due lettere. Via, numero civico e CAP possono restare nelle righe di indirizzo: questo è un indirizzo ibrido ed è accettato. Viene rimosso solo l'indirizzo completamente non strutturato, ossia l'intero indirizzo in testo libero senza città e paese strutturati. Gli agenti identificati unicamente tramite BIC non sono interessati.",
     structuredAddressWhyTitle: "Perché è importante",
     structuredAddressWhy1: "Gli indirizzi non strutturati aumentano i tassi di riparazione manuale e ritardano l'elaborazione diretta.",
     structuredAddressWhy2: "Gli indirizzi strutturati migliorano la precisione dello screening delle sanzioni separando il nome della parte dai dati di localizzazione.",
@@ -3749,7 +3879,7 @@ const pageCopy = {
     privacyCollectionTitle: "収集する情報",
     privacyCollectionText: "pacs008.comは個人データを収集しません。ウェブサイトでは、個々の訪問者を識別するためのCookieやトラッキング技術を使用していません。",
     privacyAnalyticsTitle: "アナリティクス",
-    privacyAnalyticsText: "サードパーティのアナリティクスサービスが、ページビューや参照URLなどの匿名化された集計データを収集する場合があります。このデータは個々の訪問者の識別には使用できません。",
+    privacyAnalyticsText: "pacs008.com はアナリティクスを使用していません。いずれのページでもアナリティクスサービスは読み込まれず、ページビュー、参照 URL、利用イベントは一切記録されません。すべてのスクリプトは pacs008.com 自身から配信され、Content-Security-Policy が script-src と connect-src を 'self' に制限しているため、サードパーティのアナリティクスは読み込めません。",
     privacyRightsTitle: "あなたの権利",
     privacyRightsText: "お住まいの地域によっては、個人データに関する権利（アクセス、訂正、削除の権利を含む）を有する場合があります。pacs008.comは個人データを収集していないため、これらの権利が適用される可能性は低いです。",
     privacyChangesTitle: "本ステートメントの変更",
@@ -3964,7 +4094,7 @@ const pageCopy = {
     msgTypeColId: "メッセージ種別",
     msgTypeColDesc: "説明",
     apiInstallTitle: "インストール",
-    apiInstallText: "PyPI からパッケージをインストールします。Python 3.9.2 以上が必要です。",
+    apiInstallText: "PyPI からパッケージをインストールします。Python 3.10 以上が必要です。",
     apiRestTitle: "REST API",
     apiRestIntro: "組み込みの FastAPI サーバーを起動して、検証と生成用の HTTP エンドポイントを公開します。",
     apiRestStart: "サーバーを起動する",
@@ -4047,7 +4177,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFTは2026年11月よりクロスボーダー決済メッセージに構造化郵便住所を義務付けます。何が変わるのか、どのメッセージが影響を受けるのか、pacs008がチームの準備をどのように支援するのかを説明します。",
     structuredAddressWhatTitle: "何が変わるのか",
-    structuredAddressWhatText: "SWIFT CBPR+はクロスボーダー決済メッセージにおいて、非構造化郵便住所から構造化住所フィールドへ移行しています。2026年11月の期限以降、主要当事者の住所フィールドは、通り名、建物番号、郵便番号、都市名、国名の個別要素を持つ構造化フォーマットを使用する必要があります。",
+    structuredAddressWhatText: "これは上限ではなく下限の要件です。2026年11月14日以降、対象となる当事者は都市名を TwnNm に、国を 2 文字の ISO 3166 コードとして Ctry に格納する必要があります。番地、建物番号、郵便番号はアドレス行に残して構いません。これがハイブリッド住所であり、受け入れられます。廃止されるのは完全非構造化住所、すなわち構造化された都市名と国を持たず住所全体が自由記述となっているものだけです。BIC のみで識別される金融機関は対象外です。",
     structuredAddressWhyTitle: "なぜ重要なのか",
     structuredAddressWhy1: "非構造化住所は手動修正率を高め、ストレートスルー処理を遅延させます。",
     structuredAddressWhy2: "構造化住所は当事者名と所在地データを分離することで制裁審査の精度を向上させます。",
@@ -4106,7 +4236,7 @@ const pageCopy = {
     privacyCollectionTitle: "수집하는 정보",
     privacyCollectionText: "pacs008.com은 개인 데이터를 수집하지 않습니다. 웹사이트는 개별 방문자를 식별하기 위해 쿠키나 추적 기술을 사용하지 않습니다.",
     privacyAnalyticsTitle: "분석",
-    privacyAnalyticsText: "제3자 분석 서비스가 페이지 조회수 및 참조 URL과 같은 익명화된 집계 데이터를 수집할 수 있습니다. 이 데이터는 개별 방문자를 식별하는 데 사용할 수 없습니다.",
+    privacyAnalyticsText: "pacs008.com은 분석 도구를 사용하지 않습니다. 어떤 페이지에서도 분석 서비스가 로드되지 않으며, 페이지 조회수, 참조 URL, 사용 이벤트가 기록되지 않습니다. 모든 스크립트는 pacs008.com 자체에서 제공되며, Content-Security-Policy가 script-src와 connect-src를 'self'로 제한하므로 제3자 분석 서비스는 로드될 수 없습니다.",
     privacyRightsTitle: "귀하의 권리",
     privacyRightsText: "관할 지역에 따라 개인 데이터에 관한 권리(접근, 수정, 삭제 권리 포함)를 가질 수 있습니다. pacs008.com은 개인 데이터를 수집하지 않으므로 이러한 권리가 적용될 가능성은 낮습니다.",
     privacyChangesTitle: "본 방침의 변경",
@@ -4321,7 +4451,7 @@ const pageCopy = {
     msgTypeColId: "메시지 유형",
     msgTypeColDesc: "설명",
     apiInstallTitle: "설치",
-    apiInstallText: "PyPI에서 패키지를 설치합니다. Python 3.9.2 이상이 필요합니다.",
+    apiInstallText: "PyPI에서 패키지를 설치합니다. Python 3.10 이상이 필요합니다.",
     apiRestTitle: "REST API",
     apiRestIntro: "내장된 FastAPI 서버를 시작하여 유효성 검사 및 생성을 위한 HTTP 엔드포인트를 노출합니다.",
     apiRestStart: "서버 시작",
@@ -4404,7 +4534,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT는 2026년 11월부터 국경 간 결제 메시지에 구조화된 우편 주소를 요구합니다. 무엇이 변경되는지, 어떤 메시지가 영향을 받는지, pacs008이 팀의 준비를 어떻게 지원하는지 설명합니다.",
     structuredAddressWhatTitle: "무엇이 변경되는가",
-    structuredAddressWhatText: "SWIFT CBPR+는 국경 간 결제 메시지에서 비구조화 우편 주소를 구조화된 주소 필드로 전환하고 있습니다. 2026년 11월 마감일 이후, 주요 당사자 주소 필드는 도로명, 건물 번호, 우편번호, 도시, 국가에 대한 개별 요소를 포함한 구조화된 형식을 사용해야 합니다.",
+    structuredAddressWhatText: "이는 최대 요건이 아니라 최소 요건입니다. 2026년 11월 14일부터 적용 대상 당사자는 도시명을 TwnNm에, 국가를 두 자리 ISO 3166 코드로 Ctry에 기재해야 합니다. 도로명, 건물번호, 우편번호는 주소 행에 남아 있어도 됩니다. 이것이 하이브리드 주소이며 허용됩니다. 폐지되는 것은 완전 비구조화 주소, 즉 구조화된 도시와 국가 없이 전체 주소가 자유 텍스트로만 기재된 경우뿐입니다. BIC로만 식별되는 기관은 해당되지 않습니다.",
     structuredAddressWhyTitle: "왜 중요한가",
     structuredAddressWhy1: "비구조화 주소는 수동 수정 비율을 높이고 직통 처리를 지연시킵니다.",
     structuredAddressWhy2: "구조화된 주소는 당사자 이름을 위치 데이터에서 분리하여 제재 심사 정확도를 향상시킵니다.",
@@ -4463,7 +4593,7 @@ const pageCopy = {
     privacyCollectionTitle: "Informatie die wij verzamelen",
     privacyCollectionText: "pacs008.com verzamelt geen persoonlijke gegevens. De website maakt geen gebruik van cookies of trackingtechnologieën om individuele bezoekers te identificeren.",
     privacyAnalyticsTitle: "Analyse",
-    privacyAnalyticsText: "Analyseservices van derden kunnen geanonimiseerde, geaggregeerde gegevens verzamelen, zoals paginaweergaven en verwijzende URL's. Deze gegevens kunnen niet worden gebruikt om individuele bezoekers te identificeren.",
+    privacyAnalyticsText: "pacs008.com gebruikt geen analysediensten. Op geen enkele pagina wordt een analysedienst geladen en er worden geen paginaweergaven, verwijzende URL's of gebruiksgebeurtenissen vastgelegd. Alle scripts worden door pacs008.com zelf geserveerd en de Content-Security-Policy beperkt script-src en connect-src tot 'self', waardoor een analysedienst van derden niet kan worden geladen.",
     privacyRightsTitle: "Uw rechten",
     privacyRightsText: "Afhankelijk van uw rechtsgebied heeft u mogelijk rechten met betrekking tot uw persoonsgegevens, waaronder het recht op inzage, rectificatie of verwijdering. Aangezien pacs008.com geen persoonsgegevens verzamelt, zijn deze rechten waarschijnlijk niet van toepassing.",
     privacyChangesTitle: "Wijzigingen in deze verklaring",
@@ -4678,7 +4808,7 @@ const pageCopy = {
     msgTypeColId: "Berichttype",
     msgTypeColDesc: "Beschrijving",
     apiInstallTitle: "Installatie",
-    apiInstallText: "Installeer het pakket via PyPI. Python 3.9.2 of hoger is vereist.",
+    apiInstallText: "Installeer het pakket via PyPI. Python 3.10 of hoger is vereist.",
     apiRestTitle: "REST API",
     apiRestIntro: "Start de ingebouwde FastAPI-server om HTTP-eindpunten voor validatie en generatie beschikbaar te stellen.",
     apiRestStart: "Start de server",
@@ -4761,7 +4891,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT vereist gestructureerde postadressen in grensoverschrijdende betalingsberichten vanaf november 2026. Wat er verandert, welke berichten betrokken zijn en hoe pacs008 teams helpt zich voor te bereiden.",
     structuredAddressWhatTitle: "Wat er verandert",
-    structuredAddressWhatText: "SWIFT CBPR+ stapt over van ongestructureerde postadressen naar gestructureerde adresvelden in grensoverschrijdende betalingsberichten. Na de deadline van november 2026 moeten de adresvelden van de belangrijkste partijen het gestructureerde formaat gebruiken met afzonderlijke elementen voor straatnaam, huisnummer, postcode, plaats en land.",
+    structuredAddressWhatText: "Dit is een minimumvereiste, geen maximum. Vanaf 14 november 2026 moet een betrokken partij de plaats in TwnNm en het land in Ctry opnemen als tweeletterige ISO 3166-code. Straat, huisnummer en postcode mogen in de adresregels blijven staan: dat is een hybride adres en dat wordt geaccepteerd. Alleen het volledig ongestructureerde adres — het hele adres als vrije tekst zonder gestructureerde plaats en land — verdwijnt. Instellingen die uitsluitend met een BIC worden geïdentificeerd, vallen hierbuiten.",
     structuredAddressWhyTitle: "Waarom het belangrijk is",
     structuredAddressWhy1: "Ongestructureerde adressen verhogen het percentage handmatige reparaties en vertragen directe verwerking.",
     structuredAddressWhy2: "Gestructureerde adressen verbeteren de nauwkeurigheid van sanctiescreening door partijnaam te scheiden van locatiegegevens.",
@@ -4820,7 +4950,7 @@ const pageCopy = {
     privacyCollectionTitle: "Informacje, które zbieramy",
     privacyCollectionText: "pacs008.com nie zbiera danych osobowych. Witryna nie wykorzystuje plików cookie ani technologii śledzenia do identyfikacji poszczególnych odwiedzających.",
     privacyAnalyticsTitle: "Analityka",
-    privacyAnalyticsText: "Usługi analityczne firm trzecich mogą zbierać zanonimizowane, zagregowane dane, takie jak wyświetlenia stron i adresy URL odsyłające. Dane te nie mogą być wykorzystane do identyfikacji poszczególnych odwiedzających.",
+    privacyAnalyticsText: "pacs008.com nie korzysta z usług analitycznych. Na żadnej stronie nie jest ładowana usługa analityczna i nie są rejestrowane wyświetlenia stron, adresy URL odsyłające ani zdarzenia użycia. Wszystkie skrypty są serwowane z pacs008.com, a Content-Security-Policy ogranicza script-src i connect-src do 'self', więc zewnętrzna usługa analityczna nie może zostać załadowana.",
     privacyRightsTitle: "Twoje prawa",
     privacyRightsText: "W zależności od jurysdykcji możesz mieć prawa dotyczące swoich danych osobowych, w tym prawo dostępu, poprawiania lub usuwania informacji. Ponieważ pacs008.com nie zbiera danych osobowych, prawa te prawdopodobnie nie mają zastosowania.",
     privacyChangesTitle: "Zmiany w niniejszym oświadczeniu",
@@ -5035,7 +5165,7 @@ const pageCopy = {
     msgTypeColId: "Typ wiadomości",
     msgTypeColDesc: "Opis",
     apiInstallTitle: "Instalacja",
-    apiInstallText: "Zainstaluj pakiet z PyPI. Wymagany jest Python 3.9.2 lub nowszy.",
+    apiInstallText: "Zainstaluj pakiet z PyPI. Wymagany jest Python 3.10 lub nowszy.",
     apiRestTitle: "REST API",
     apiRestIntro: "Uruchom wbudowany serwer FastAPI, aby udostępnić endpointy HTTP do walidacji i generowania.",
     apiRestStart: "Uruchom serwer",
@@ -5118,7 +5248,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT wymaga ustrukturyzowanych adresów pocztowych w transgranicznych komunikatach płatniczych od listopada 2026. Co się zmienia, które komunikaty są dotknięte i jak pacs008 pomaga zespołom w przygotowaniach.",
     structuredAddressWhatTitle: "Co się zmienia",
-    structuredAddressWhatText: "SWIFT CBPR+ przechodzi z nieustrukturyzowanych adresów pocztowych na ustrukturyzowane pola adresowe w transgranicznych komunikatach płatniczych. Po terminie w listopadzie 2026 pola adresowe kluczowych stron muszą używać formatu ustrukturyzowanego z oddzielnymi elementami dla nazwy ulicy, numeru budynku, kodu pocztowego, miasta i kraju.",
+    structuredAddressWhatText: "To wymóg minimalny, a nie maksymalny. Od 14 listopada 2026 r. strona objęta wymogiem musi podać miejscowość w TwnNm oraz kraj w Ctry jako dwuliterowy kod ISO 3166. Ulica, numer budynku i kod pocztowy mogą pozostać w liniach adresu: jest to adres hybrydowy i jest akceptowany. Usuwany jest wyłącznie adres całkowicie niestrukturalny — cały adres w polach tekstowych, bez ustrukturyzowanej miejscowości i kraju. Instytucje identyfikowane wyłącznie kodem BIC nie są objęte wymogiem.",
     structuredAddressWhyTitle: "Dlaczego to ważne",
     structuredAddressWhy1: "Nieustrukturyzowane adresy zwiększają wskaźniki ręcznych napraw i opóźniają przetwarzanie bezpośrednie.",
     structuredAddressWhy2: "Ustrukturyzowane adresy poprawiają dokładność weryfikacji sankcji poprzez oddzielenie nazwy strony od danych lokalizacyjnych.",
@@ -5177,7 +5307,7 @@ const pageCopy = {
     privacyCollectionTitle: "Informações que coletamos",
     privacyCollectionText: "O pacs008.com não coleta dados pessoais. O site não utiliza cookies ou tecnologias de rastreamento para identificar visitantes individuais.",
     privacyAnalyticsTitle: "Análise",
-    privacyAnalyticsText: "Serviços de análise de terceiros podem coletar dados anonimizados e agregados, como visualizações de página e URLs de referência. Esses dados não podem ser usados para identificar visitantes individuais.",
+    privacyAnalyticsText: "O pacs008.com não utiliza serviços de análise. Nenhum serviço de análise é carregado em qualquer página e não são registados visualizações de página, URLs de referência ou eventos de utilização. Todos os scripts são servidos pelo próprio pacs008.com e a Content-Security-Policy limita script-src e connect-src a 'self', pelo que um serviço de análise de terceiros não pode ser carregado.",
     privacyRightsTitle: "Seus direitos",
     privacyRightsText: "Dependendo da sua jurisdição, você pode ter direitos em relação aos seus dados pessoais, incluindo o direito de acessar, corrigir ou excluir informações. Como o pacs008.com não coleta dados pessoais, esses direitos provavelmente não são aplicáveis.",
     privacyChangesTitle: "Alterações nesta declaração",
@@ -5392,7 +5522,7 @@ const pageCopy = {
     msgTypeColId: "Tipo de mensagem",
     msgTypeColDesc: "Descrição",
     apiInstallTitle: "Instalação",
-    apiInstallText: "Instale o pacote a partir do PyPI. É necessário Python 3.9.2 ou superior.",
+    apiInstallText: "Instale o pacote a partir do PyPI. É necessário Python 3.10 ou superior.",
     apiRestTitle: "REST API",
     apiRestIntro: "Inicie o servidor FastAPI integrado para expor endpoints HTTP de validação e geração.",
     apiRestStart: "Iniciar o servidor",
@@ -5475,7 +5605,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "O SWIFT exige endereços postais estruturados em mensagens de pagamento transfronteiriças a partir de novembro de 2026. O que muda, quais mensagens são afetadas e como o pacs008 ajuda as equipes a se prepararem.",
     structuredAddressWhatTitle: "O que está mudando",
-    structuredAddressWhatText: "O SWIFT CBPR+ está migrando de endereços postais não estruturados para campos de endereço estruturados em mensagens de pagamento transfronteiriças. Após o prazo de novembro de 2026, os campos de endereço das partes principais devem usar o formato estruturado com elementos separados para nome da rua, número do edifício, código postal, cidade e país.",
+    structuredAddressWhatText: "Trata-se de um requisito mínimo, não máximo. A partir de 14 de novembro de 2026, uma parte abrangida deve indicar a localidade em TwnNm e o país em Ctry como código ISO 3166 de duas letras. Rua, número do edifício e código postal podem permanecer nas linhas de endereço: isso é um endereço híbrido e é aceite. Apenas o endereço totalmente não estruturado — o endereço completo em texto livre, sem localidade nem país estruturados — é removido. Os agentes identificados apenas por BIC não são afetados.",
     structuredAddressWhyTitle: "Por que é importante",
     structuredAddressWhy1: "Endereços não estruturados aumentam as taxas de reparo manual e atrasam o processamento direto.",
     structuredAddressWhy2: "Endereços estruturados melhoram a precisão da triagem de sanções ao separar o nome da parte dos dados de localização.",
@@ -5534,7 +5664,7 @@ const pageCopy = {
     privacyCollectionTitle: "Informațiile pe care le colectăm",
     privacyCollectionText: "pacs008.com nu colectează date personale. Site-ul nu folosește cookie-uri sau tehnologii de urmărire pentru a identifica vizitatorii individuali.",
     privacyAnalyticsTitle: "Analiză",
-    privacyAnalyticsText: "Serviciile de analiză terțe pot colecta date anonimizate și agregate, cum ar fi vizualizările de pagini și URL-urile de referință. Aceste date nu pot fi utilizate pentru a identifica vizitatorii individuali.",
+    privacyAnalyticsText: "pacs008.com nu utilizează servicii de analiză. Niciun serviciu de analiză nu este încărcat pe vreo pagină și nu sunt înregistrate vizualizări de pagini, URL-uri de referință sau evenimente de utilizare. Toate scripturile sunt servite de pacs008.com, iar Content-Security-Policy limitează script-src și connect-src la 'self', astfel încât un serviciu de analiză terț nu poate fi încărcat.",
     privacyRightsTitle: "Drepturile dumneavoastră",
     privacyRightsText: "În funcție de jurisdicția dumneavoastră, este posibil să aveți drepturi privind datele personale, inclusiv dreptul de acces, rectificare sau ștergere. Deoarece pacs008.com nu colectează date personale, aceste drepturi probabil nu sunt aplicabile.",
     privacyChangesTitle: "Modificări ale acestei declarații",
@@ -5749,7 +5879,7 @@ const pageCopy = {
     msgTypeColId: "Tip de mesaj",
     msgTypeColDesc: "Descriere",
     apiInstallTitle: "Instalare",
-    apiInstallText: "Instalați pachetul din PyPI. Este necesar Python 3.9.2 sau o versiune superioară.",
+    apiInstallText: "Instalați pachetul din PyPI. Este necesar Python 3.10 sau o versiune superioară.",
     apiRestTitle: "REST API",
     apiRestIntro: "Porniți serverul FastAPI integrat pentru a expune endpoint-uri HTTP pentru validare și generare.",
     apiRestStart: "Pornire server",
@@ -5832,7 +5962,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT impune adrese poștale structurate în mesajele de plată transfrontaliere începând din noiembrie 2026. Ce se schimbă, ce mesaje sunt afectate și cum ajută pacs008 echipele să se pregătească.",
     structuredAddressWhatTitle: "Ce se schimbă",
-    structuredAddressWhatText: "SWIFT CBPR+ trece de la adrese poștale nestructurate la câmpuri de adresă structurate în mesajele de plată transfrontaliere. După termenul limită din noiembrie 2026, câmpurile de adresă ale părților cheie trebuie să utilizeze formatul structurat cu elemente separate pentru numele străzii, numărul clădirii, codul poștal, orașul și țara.",
+    structuredAddressWhatText: "Este o cerință minimă, nu maximă. De la 14 noiembrie 2026, o parte vizată trebuie să indice localitatea în TwnNm și țara în Ctry, sub forma unui cod ISO 3166 din două litere. Strada, numărul clădirii și codul poștal pot rămâne în liniile de adresă: aceasta este o adresă hibridă și este acceptată. Este eliminată doar adresa complet nestructurată — întreaga adresă în text liber, fără localitate și țară structurate. Agenții identificați doar prin BIC nu sunt vizați.",
     structuredAddressWhyTitle: "De ce este important",
     structuredAddressWhy1: "Adresele nestructurate cresc ratele de reparare manuală și întârzie procesarea directă.",
     structuredAddressWhy2: "Adresele structurate îmbunătățesc precizia verificării sancțiunilor prin separarea numelui părții de datele de localizare.",
@@ -5891,7 +6021,7 @@ const pageCopy = {
     privacyCollectionTitle: "Информация, которую мы собираем",
     privacyCollectionText: "pacs008.com не собирает персональные данные. Веб-сайт не использует файлы cookie или технологии отслеживания для идентификации отдельных посетителей.",
     privacyAnalyticsTitle: "Аналитика",
-    privacyAnalyticsText: "Сторонние аналитические сервисы могут собирать анонимизированные агрегированные данные, такие как просмотры страниц и ссылающиеся URL. Эти данные не могут быть использованы для идентификации отдельных посетителей.",
+    privacyAnalyticsText: "pacs008.com не использует аналитику. Ни на одной странице не загружается аналитический сервис, и не записываются просмотры страниц, ссылающиеся URL или события использования. Все скрипты обслуживаются самим pacs008.com, а Content-Security-Policy ограничивает script-src и connect-src значением 'self', поэтому сторонний аналитический сервис не может быть загружен.",
     privacyRightsTitle: "Ваши права",
     privacyRightsText: "В зависимости от вашей юрисдикции вы можете иметь права в отношении своих персональных данных, включая право на доступ, исправление или удаление информации. Поскольку pacs008.com не собирает персональные данные, эти права, скорее всего, не применимы.",
     privacyChangesTitle: "Изменения в данном заявлении",
@@ -6106,7 +6236,7 @@ const pageCopy = {
     msgTypeColId: "Тип сообщения",
     msgTypeColDesc: "Описание",
     apiInstallTitle: "Установка",
-    apiInstallText: "Установите пакет из PyPI. Требуется Python 3.9.2 или выше.",
+    apiInstallText: "Установите пакет из PyPI. Требуется Python 3.10 или выше.",
     apiRestTitle: "REST API",
     apiRestIntro: "Запустите встроенный сервер FastAPI для предоставления HTTP-эндпоинтов валидации и генерации.",
     apiRestStart: "Запустить сервер",
@@ -6189,7 +6319,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT требует структурированные почтовые адреса в трансграничных платёжных сообщениях с ноября 2026 года. Что меняется, какие сообщения затронуты и как pacs008 помогает командам подготовиться.",
     structuredAddressWhatTitle: "Что меняется",
-    structuredAddressWhatText: "SWIFT CBPR+ переходит от неструктурированных почтовых адресов к структурированным полям адресов в трансграничных платёжных сообщениях. После крайнего срока в ноябре 2026 года поля адресов ключевых сторон должны использовать структурированный формат с отдельными элементами для названия улицы, номера здания, почтового индекса, города и страны.",
+    structuredAddressWhatText: "Это минимальное, а не максимальное требование. С 14 ноября 2026 года соответствующая сторона обязана указывать город в TwnNm и страну в Ctry в виде двухбуквенного кода ISO 3166. Улица, номер здания и почтовый индекс могут оставаться в адресных строках: это гибридный адрес, и он принимается. Исключается только полностью неструктурированный адрес — весь адрес в свободном тексте без структурированных города и страны. Учреждения, идентифицируемые только по BIC, требование не затрагивает.",
     structuredAddressWhyTitle: "Почему это важно",
     structuredAddressWhy1: "Неструктурированные адреса увеличивают долю ручных исправлений и задерживают сквозную обработку.",
     structuredAddressWhy2: "Структурированные адреса повышают точность санкционного скрининга за счёт отделения имени стороны от данных о местоположении.",
@@ -6248,7 +6378,7 @@ const pageCopy = {
     privacyCollectionTitle: "ข้อมูลที่เราเก็บรวบรวม",
     privacyCollectionText: "pacs008.com ไม่เก็บรวบรวมข้อมูลส่วนบุคคล เว็บไซต์ไม่ใช้คุกกี้หรือเทคโนโลยีการติดตามเพื่อระบุตัวผู้เยี่ยมชมแต่ละราย",
     privacyAnalyticsTitle: "การวิเคราะห์",
-    privacyAnalyticsText: "บริการวิเคราะห์ของบุคคลที่สามอาจเก็บรวบรวมข้อมูลที่ไม่ระบุตัวตนและรวมกัน เช่น การดูหน้าเว็บและ URL ที่อ้างอิง ข้อมูลเหล่านี้ไม่สามารถใช้เพื่อระบุตัวผู้เยี่ยมชมแต่ละรายได้",
+    privacyAnalyticsText: "pacs008.com ไม่ใช้บริการวิเคราะห์ข้อมูล ไม่มีการโหลดบริการวิเคราะห์ในหน้าใด ๆ และไม่มีการบันทึกการดูหน้าเว็บ URL ที่อ้างอิง หรือเหตุการณ์การใช้งาน สคริปต์ทั้งหมดให้บริการจาก pacs008.com เอง และ Content-Security-Policy จำกัด script-src และ connect-src ไว้ที่ 'self' ดังนั้นบริการวิเคราะห์ของบุคคลที่สามจึงไม่สามารถโหลดได้",
     privacyRightsTitle: "สิทธิ์ของคุณ",
     privacyRightsText: "ขึ้นอยู่กับเขตอำนาจศาลของคุณ คุณอาจมีสิทธิ์เกี่ยวกับข้อมูลส่วนบุคคลของคุณ รวมถึงสิทธิ์ในการเข้าถึง แก้ไข หรือลบข้อมูล เนื่องจาก pacs008.com ไม่เก็บรวบรวมข้อมูลส่วนบุคคล สิทธิ์เหล่านี้จึงไม่น่าจะใช้ได้",
     privacyChangesTitle: "การเปลี่ยนแปลงคำชี้แจงนี้",
@@ -6463,7 +6593,7 @@ const pageCopy = {
     msgTypeColId: "ประเภทข้อความ",
     msgTypeColDesc: "คำอธิบาย",
     apiInstallTitle: "การติดตั้ง",
-    apiInstallText: "ติดตั้งแพ็คเกจจาก PyPI ต้องใช้ Python 3.9.2 หรือสูงกว่า",
+    apiInstallText: "ติดตั้งแพ็คเกจจาก PyPI ต้องใช้ Python 3.10 หรือสูงกว่า",
     apiRestTitle: "REST API",
     apiRestIntro: "เริ่มเซิร์ฟเวอร์ FastAPI ในตัวเพื่อเปิดใช้งาน HTTP endpoints สำหรับการตรวจสอบความถูกต้องและการสร้าง",
     apiRestStart: "เริ่มเซิร์ฟเวอร์",
@@ -6546,7 +6676,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT กำหนดให้ใช้ที่อยู่ไปรษณีย์แบบมีโครงสร้างในข้อความการชำระเงินข้ามพรมแดนตั้งแต่เดือนพฤศจิกายน 2026 มีอะไรเปลี่ยนแปลง ข้อความใดได้รับผลกระทบ และ pacs008 ช่วยทีมเตรียมความพร้อมอย่างไร",
     structuredAddressWhatTitle: "สิ่งที่เปลี่ยนแปลง",
-    structuredAddressWhatText: "SWIFT CBPR+ กำลังเปลี่ยนจากที่อยู่ไปรษณีย์แบบไม่มีโครงสร้างเป็นฟิลด์ที่อยู่แบบมีโครงสร้างในข้อความการชำระเงินข้ามพรมแดน หลังจากกำหนดเส้นตายเดือนพฤศจิกายน 2026 ฟิลด์ที่อยู่ของฝ่ายหลักต้องใช้รูปแบบมีโครงสร้างที่มีองค์ประกอบแยกสำหรับชื่อถนน หมายเลขอาคาร รหัสไปรษณีย์ เมือง และประเทศ",
+    structuredAddressWhatText: "นี่คือข้อกำหนดขั้นต่ำ ไม่ใช่ขั้นสูงสุด ตั้งแต่วันที่ 14 พฤศจิกายน 2026 คู่สัญญาที่อยู่ในขอบเขตต้องระบุเมืองในฟิลด์ TwnNm และประเทศในฟิลด์ Ctry เป็นรหัส ISO 3166 สองตัวอักษร ส่วนถนน เลขที่อาคาร และรหัสไปรษณีย์ยังคงอยู่ในบรรทัดที่อยู่ได้ นั่นคือที่อยู่แบบไฮบริดและเป็นที่ยอมรับ สิ่งที่ถูกยกเลิกคือที่อยู่ที่ไม่มีโครงสร้างโดยสมบูรณ์เท่านั้น กล่าวคือที่อยู่ทั้งหมดอยู่ในข้อความอิสระโดยไม่มีเมืองและประเทศแบบมีโครงสร้าง สถาบันที่ระบุด้วย BIC เพียงอย่างเดียวไม่ได้รับผลกระทบ",
     structuredAddressWhyTitle: "ทำไมจึงสำคัญ",
     structuredAddressWhy1: "ที่อยู่แบบไม่มีโครงสร้างเพิ่มอัตราการแก้ไขด้วยตนเองและทำให้การประมวลผลโดยตรงล่าช้า",
     structuredAddressWhy2: "ที่อยู่แบบมีโครงสร้างช่วยเพิ่มความแม่นยำในการคัดกรองการลงโทษโดยแยกชื่อฝ่ายออกจากข้อมูลตำแหน่ง",
@@ -6605,7 +6735,7 @@ const pageCopy = {
     privacyCollectionTitle: "Topladığımız bilgiler",
     privacyCollectionText: "pacs008.com kişisel veri toplamaz. Web sitesi, bireysel ziyaretçileri tanımlamak için çerez veya izleme teknolojileri kullanmaz.",
     privacyAnalyticsTitle: "Analitik",
-    privacyAnalyticsText: "Üçüncü taraf analitik hizmetleri, sayfa görüntülemeleri ve yönlendiren URL'ler gibi anonimleştirilmiş, toplu veriler toplayabilir. Bu veriler bireysel ziyaretçileri tanımlamak için kullanılamaz.",
+    privacyAnalyticsText: "pacs008.com analitik hizmet kullanmaz. Hiçbir sayfada analitik hizmeti yüklenmez; sayfa görüntülemeleri, yönlendiren URL'ler veya kullanım olayları kaydedilmez. Tüm betikler pacs008.com tarafından sunulur ve Content-Security-Policy, script-src ve connect-src değerlerini 'self' ile sınırlar; bu nedenle üçüncü taraf bir analitik hizmeti yüklenemez.",
     privacyRightsTitle: "Haklarınız",
     privacyRightsText: "Yargı bölgenize bağlı olarak, kişisel verilerinizle ilgili erişim, düzeltme veya silme hakkı dahil haklara sahip olabilirsiniz. pacs008.com kişisel veri toplamadığı için bu hakların uygulanması olası değildir.",
     privacyChangesTitle: "Bu bildirimdeki değişiklikler",
@@ -6820,7 +6950,7 @@ const pageCopy = {
     msgTypeColId: "Mesaj türü",
     msgTypeColDesc: "Açıklama",
     apiInstallTitle: "Kurulum",
-    apiInstallText: "Paketi PyPI'dan yükleyin. Python 3.9.2 veya üzeri gereklidir.",
+    apiInstallText: "Paketi PyPI'dan yükleyin. Python 3.10 veya üzeri gereklidir.",
     apiRestTitle: "REST API",
     apiRestIntro: "Doğrulama ve oluşturma için HTTP uç noktaları sunmak amacıyla yerleşik FastAPI sunucusunu başlatın.",
     apiRestStart: "Sunucuyu başlat",
@@ -6903,7 +7033,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT, Kasım 2026'dan itibaren sınır ötesi ödeme mesajlarında yapılandırılmış posta adresleri gerektirmektedir. Ne değişiyor, hangi mesajlar etkileniyor ve pacs008 ekiplerin hazırlanmasına nasıl yardımcı oluyor.",
     structuredAddressWhatTitle: "Ne değişiyor",
-    structuredAddressWhatText: "SWIFT CBPR+ sınır ötesi ödeme mesajlarında yapılandırılmamış posta adreslerinden yapılandırılmış adres alanlarına geçiş yapmaktadır. Kasım 2026 son tarihinden sonra, kilit taraf adres alanları sokak adı, bina numarası, posta kodu, şehir ve ülke için ayrı öğelerle yapılandırılmış formatı kullanmalıdır.",
+    structuredAddressWhatText: "Bu azami değil, asgari bir gerekliliktir. 14 Kasım 2026'dan itibaren kapsamdaki bir taraf, şehri TwnNm, ülkeyi ise iki harfli ISO 3166 kodu olarak Ctry alanında taşımalıdır. Sokak, bina numarası ve posta kodu adres satırlarında kalabilir: bu hibrit bir adrestir ve kabul edilir. Yalnızca tamamen yapılandırılmamış adres — yapılandırılmış şehir ve ülke olmadan tamamı serbest metinde yer alan adres — kaldırılmaktadır. Yalnızca BIC ile tanımlanan kurumlar bu kapsamda değildir.",
     structuredAddressWhyTitle: "Neden önemli",
     structuredAddressWhy1: "Yapılandırılmamış adresler manuel onarım oranlarını artırır ve doğrudan işlemeyi geciktirir.",
     structuredAddressWhy2: "Yapılandırılmış adresler, taraf adını konum verilerinden ayırarak yaptırım tarama doğruluğunu artırır.",
@@ -6962,7 +7092,7 @@ const pageCopy = {
     privacyCollectionTitle: "Інформація, яку ми збираємо",
     privacyCollectionText: "pacs008.com не збирає персональних даних. Веб-сайт не використовує файли cookie або технології відстеження для ідентифікації окремих відвідувачів.",
     privacyAnalyticsTitle: "Аналітика",
-    privacyAnalyticsText: "Сторонні аналітичні сервіси можуть збирати анонімізовані агреговані дані, такі як перегляди сторінок та URL-адреси переходів. Ці дані не можуть бути використані для ідентифікації окремих відвідувачів.",
+    privacyAnalyticsText: "pacs008.com не використовує аналітику. На жодній сторінці не завантажується аналітичний сервіс, і не записуються перегляди сторінок, URL-адреси переходів чи події використання. Усі скрипти обслуговуються самим pacs008.com, а Content-Security-Policy обмежує script-src і connect-src значенням 'self', тож сторонній аналітичний сервіс не може завантажитися.",
     privacyRightsTitle: "Ваші права",
     privacyRightsText: "Залежно від вашої юрисдикції, ви можете мати права щодо своїх персональних даних, включаючи право на доступ, виправлення або видалення інформації. Оскільки pacs008.com не збирає персональних даних, ці права навряд чи будуть застосовними.",
     privacyChangesTitle: "Зміни до цієї заяви",
@@ -7177,7 +7307,7 @@ const pageCopy = {
     msgTypeColId: "Тип повідомлення",
     msgTypeColDesc: "Опис",
     apiInstallTitle: "Встановлення",
-    apiInstallText: "Встановіть пакет із PyPI. Потрібен Python 3.9.2 або вище.",
+    apiInstallText: "Встановіть пакет із PyPI. Потрібен Python 3.10 або вище.",
     apiRestTitle: "REST API",
     apiRestIntro: "Запустіть вбудований сервер FastAPI для надання HTTP-ендпоінтів валідації та генерації.",
     apiRestStart: "Запустити сервер",
@@ -7260,7 +7390,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT вимагає структуровані поштові адреси в транскордонних платіжних повідомленнях з листопада 2026 року. Що змінюється, які повідомлення зачеплені та як pacs008 допомагає командам підготуватися.",
     structuredAddressWhatTitle: "Що змінюється",
-    structuredAddressWhatText: "SWIFT CBPR+ переходить від неструктурованих поштових адрес до структурованих полів адрес у транскордонних платіжних повідомленнях. Після граничного терміну в листопаді 2026 року поля адрес ключових сторін повинні використовувати структурований формат з окремими елементами для назви вулиці, номера будівлі, поштового індексу, міста та країни.",
+    structuredAddressWhatText: "Це мінімальна, а не максимальна вимога. З 14 листопада 2026 року відповідна сторона повинна зазначати місто в TwnNm і країну в Ctry у вигляді дволітерного коду ISO 3166. Вулиця, номер будівлі та поштовий індекс можуть залишатися в адресних рядках: це гібридна адреса, і вона приймається. Вилучається лише повністю неструктурована адреса — уся адреса у вільному тексті без структурованих міста та країни. Установ, що ідентифікуються лише за BIC, вимога не стосується.",
     structuredAddressWhyTitle: "Чому це важливо",
     structuredAddressWhy1: "Неструктуровані адреси збільшують частку ручних виправлень та затримують наскрізну обробку.",
     structuredAddressWhy2: "Структуровані адреси підвищують точність санкційного скринінгу шляхом відокремлення імені сторони від даних про місцезнаходження.",
@@ -7319,7 +7449,7 @@ const pageCopy = {
     privacyCollectionTitle: "Thông tin chúng tôi thu thập",
     privacyCollectionText: "pacs008.com không thu thập dữ liệu cá nhân. Trang web không sử dụng cookie hoặc công nghệ theo dõi để nhận dạng từng người truy cập.",
     privacyAnalyticsTitle: "Phân tích",
-    privacyAnalyticsText: "Các dịch vụ phân tích của bên thứ ba có thể thu thập dữ liệu ẩn danh, tổng hợp như lượt xem trang và URL giới thiệu. Dữ liệu này không thể được sử dụng để nhận dạng từng người truy cập.",
+    privacyAnalyticsText: "pacs008.com không sử dụng dịch vụ phân tích. Không có dịch vụ phân tích nào được tải trên bất kỳ trang nào và không có lượt xem trang, URL giới thiệu hay sự kiện sử dụng nào được ghi lại. Mọi tập lệnh đều do chính pacs008.com phục vụ và Content-Security-Policy giới hạn script-src và connect-src ở 'self', nên dịch vụ phân tích của bên thứ ba không thể được tải.",
     privacyRightsTitle: "Quyền của bạn",
     privacyRightsText: "Tùy thuộc vào quyền tài phán của bạn, bạn có thể có các quyền liên quan đến dữ liệu cá nhân, bao gồm quyền truy cập, chỉnh sửa hoặc xóa thông tin. Vì pacs008.com không thu thập dữ liệu cá nhân, các quyền này có thể không áp dụng.",
     privacyChangesTitle: "Thay đổi tuyên bố này",
@@ -7534,7 +7664,7 @@ const pageCopy = {
     msgTypeColId: "Loại thông điệp",
     msgTypeColDesc: "Mô tả",
     apiInstallTitle: "Cài đặt",
-    apiInstallText: "Cài đặt gói từ PyPI. Yêu cầu Python 3.9.2 trở lên.",
+    apiInstallText: "Cài đặt gói từ PyPI. Yêu cầu Python 3.10 trở lên.",
     apiRestTitle: "REST API",
     apiRestIntro: "Khởi động máy chủ FastAPI tích hợp để cung cấp các HTTP endpoint cho việc xác thực và tạo tệp.",
     apiRestStart: "Khởi động máy chủ",
@@ -7617,7 +7747,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT yêu cầu địa chỉ bưu chính có cấu trúc trong các thông điệp thanh toán xuyên biên giới từ tháng 11 năm 2026. Điều gì thay đổi, thông điệp nào bị ảnh hưởng và pacs008 hỗ trợ các đội nhóm chuẩn bị như thế nào.",
     structuredAddressWhatTitle: "Điều gì thay đổi",
-    structuredAddressWhatText: "SWIFT CBPR+ đang chuyển từ địa chỉ bưu chính phi cấu trúc sang các trường địa chỉ có cấu trúc trong thông điệp thanh toán xuyên biên giới. Sau thời hạn tháng 11 năm 2026, các trường địa chỉ của bên chính phải sử dụng định dạng có cấu trúc với các phần tử riêng biệt cho tên đường, số tòa nhà, mã bưu chính, thành phố và quốc gia.",
+    structuredAddressWhatText: "Đây là yêu cầu tối thiểu, không phải tối đa. Từ ngày 14 tháng 11 năm 2026, bên thuộc phạm vi áp dụng phải ghi thành phố trong TwnNm và quốc gia trong Ctry dưới dạng mã ISO 3166 hai chữ cái. Đường phố, số nhà và mã bưu chính có thể vẫn nằm trong các dòng địa chỉ: đó là địa chỉ lai và được chấp nhận. Chỉ địa chỉ hoàn toàn phi cấu trúc bị loại bỏ — tức toàn bộ địa chỉ ở dạng văn bản tự do, không có thành phố và quốc gia có cấu trúc. Các tổ chức chỉ được nhận diện bằng BIC không bị ảnh hưởng.",
     structuredAddressWhyTitle: "Tại sao điều này quan trọng",
     structuredAddressWhy1: "Địa chỉ phi cấu trúc làm tăng tỷ lệ sửa chữa thủ công và làm chậm quá trình xử lý trực tiếp.",
     structuredAddressWhy2: "Địa chỉ có cấu trúc cải thiện độ chính xác của việc sàng lọc trừng phạt bằng cách tách tên bên khỏi dữ liệu vị trí.",
@@ -7676,7 +7806,7 @@ const pageCopy = {
     privacyCollectionTitle: "我们收集的信息",
     privacyCollectionText: "pacs008.com 不收集个人数据。网站不使用 Cookie 或跟踪技术来识别单个访问者。",
     privacyAnalyticsTitle: "分析",
-    privacyAnalyticsText: "第三方分析服务可能会收集匿名汇总数据，例如页面浏览量和引荐 URL。这些数据无法用于识别单个访问者。",
+    privacyAnalyticsText: "pacs008.com 不使用任何分析服务。任何页面都不会加载分析服务，也不会记录页面浏览量、引荐 URL 或使用事件。所有脚本均由 pacs008.com 自身提供，且 Content-Security-Policy 将 script-src 与 connect-src 限制为 'self'，因此第三方分析服务无法加载。",
     privacyRightsTitle: "您的权利",
     privacyRightsText: "根据您所在的司法管辖区，您可能拥有与个人数据相关的权利，包括访问、更正或删除信息的权利。由于 pacs008.com 不收集个人数据，这些权利可能不适用。",
     privacyChangesTitle: "本声明的变更",
@@ -7891,7 +8021,7 @@ const pageCopy = {
     msgTypeColId: "报文类型",
     msgTypeColDesc: "描述",
     apiInstallTitle: "安装",
-    apiInstallText: "从 PyPI 安装软件包。需要 Python 3.9.2 或更高版本。",
+    apiInstallText: "从 PyPI 安装软件包。需要 Python 3.10 或更高版本。",
     apiRestTitle: "REST API",
     apiRestIntro: "启动内置 FastAPI 服务器以提供用于验证和生成的 HTTP 端点。",
     apiRestStart: "启动服务器",
@@ -7974,7 +8104,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT 要求从2026年11月起在跨境支付报文中使用结构化邮政地址。了解哪些内容将发生变化、哪些报文受到影响，以及 pacs008 如何帮助团队做好准备。",
     structuredAddressWhatTitle: "正在发生什么变化",
-    structuredAddressWhatText: "SWIFT CBPR+ 正在将跨境支付报文中的非结构化邮政地址转换为结构化地址字段。在2026年11月截止日期之后，关键方的地址字段必须使用结构化格式，包含街道名称、建筑编号、邮政编码、城市和国家的独立元素。",
+    structuredAddressWhatText: "这是最低要求，而非最高要求。自 2026 年 11 月 14 日起，适用方必须将城市填入 TwnNm，并将国家以两位 ISO 3166 代码填入 Ctry。街道、门牌号和邮政编码可以保留在地址行中：这属于混合地址，是被接受的。被取消的只是完全非结构化地址，即整个地址以自由文本形式填写、没有结构化的城市和国家。仅以 BIC 标识的机构不受影响。",
     structuredAddressWhyTitle: "为什么重要",
     structuredAddressWhy1: "非结构化地址增加了人工修复率并延迟了直通处理。",
     structuredAddressWhy2: "结构化地址通过将当事方名称与位置数据分离来提高制裁筛查准确性。",
@@ -8033,7 +8163,7 @@ const pageCopy = {
     privacyCollectionTitle: "我們收集的資訊",
     privacyCollectionText: "pacs008.com 不收集個人資料。網站不使用 Cookie 或追蹤技術來識別個別訪客。",
     privacyAnalyticsTitle: "分析",
-    privacyAnalyticsText: "第三方分析服務可能會收集匿名彙總資料，例如頁面瀏覽量和引薦 URL。這些資料無法用於識別個別訪客。",
+    privacyAnalyticsText: "pacs008.com 不使用任何分析服務。任何頁面都不會載入分析服務，也不會記錄頁面瀏覽量、引薦 URL 或使用事件。所有指令碼均由 pacs008.com 自身提供，且 Content-Security-Policy 將 script-src 與 connect-src 限制為 'self'，因此第三方分析服務無法載入。",
     privacyRightsTitle: "您的權利",
     privacyRightsText: "根據您所在的司法管轄區，您可能擁有與個人資料相關的權利，包括存取、更正或刪除資訊的權利。由於 pacs008.com 不收集個人資料，這些權利可能不適用。",
     privacyChangesTitle: "本聲明的變更",
@@ -8248,7 +8378,7 @@ const pageCopy = {
     msgTypeColId: "訊息類型",
     msgTypeColDesc: "說明",
     apiInstallTitle: "安裝",
-    apiInstallText: "從 PyPI 安裝套件。需要 Python 3.9.2 或更高版本。",
+    apiInstallText: "從 PyPI 安裝套件。需要 Python 3.10 或更高版本。",
     apiRestTitle: "REST API",
     apiRestIntro: "啟動內建 FastAPI 伺服器以提供用於驗證和產生的 HTTP 端點。",
     apiRestStart: "啟動伺服器",
@@ -8331,7 +8461,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT 要求從2026年11月起在跨境支付訊息中使用結構化郵政地址。了解哪些內容將發生變化、哪些訊息受到影響，以及 pacs008 如何幫助團隊做好準備。",
     structuredAddressWhatTitle: "正在發生什麼變化",
-    structuredAddressWhatText: "SWIFT CBPR+ 正在將跨境支付訊息中的非結構化郵政地址轉換為結構化地址欄位。在2026年11月截止日期之後，關鍵方的地址欄位必須使用結構化格式，包含街道名稱、建築編號、郵遞區號、城市和國家的獨立元素。",
+    structuredAddressWhatText: "這是最低要求，而非最高要求。自 2026 年 11 月 14 日起，適用方必須將城市填入 TwnNm，並將國家以兩位 ISO 3166 代碼填入 Ctry。街道、門牌號碼與郵遞區號可保留在地址行中：這屬於混合位址，是被接受的。被取消的僅是完全非結構化位址，亦即整個位址以自由文字填寫、沒有結構化的城市與國家。僅以 BIC 識別的機構不受影響。",
     structuredAddressWhyTitle: "為什麼重要",
     structuredAddressWhy1: "非結構化地址增加了人工修復率並延遲了直通處理。",
     structuredAddressWhy2: "結構化地址透過將當事方名稱與位置資料分離來提高制裁篩查準確性。",
@@ -8390,7 +8520,7 @@ const pageCopy = {
     privacyCollectionTitle: "আমরা যা সংগ্রহ করি",
     privacyCollectionText: "pacs008.com কোনো ব্যক্তিগত তথ্য সংগ্রহ করে না। সাইটটি পৃথক দর্শকদের শনাক্ত করতে কুকি বা ট্র্যাকিং প্রযুক্তি ব্যবহার করে না।",
     privacyAnalyticsTitle: "বিশ্লেষণ",
-    privacyAnalyticsText: "তৃতীয় পক্ষের বিশ্লেষণ পরিষেবাগুলি বেনামী, সমষ্টিগত ডেটা যেমন পৃষ্ঠা দর্শন এবং রেফারেল URL সংগ্রহ করতে পারে। এই ডেটা পৃথক দর্শকদের শনাক্ত করতে ব্যবহার করা যায় না।",
+    privacyAnalyticsText: "pacs008.com কোনো বিশ্লেষণ পরিষেবা ব্যবহার করে না। কোনো পৃষ্ঠায় কোনো বিশ্লেষণ পরিষেবা লোড হয় না এবং কোনো পৃষ্ঠা দর্শন, রেফারিং URL বা ব্যবহারের ঘটনা রেকর্ড করা হয় না। সমস্ত স্ক্রিপ্ট pacs008.com থেকেই পরিবেশন করা হয় এবং Content-Security-Policy script-src ও connect-src কে 'self'-এ সীমাবদ্ধ করে, তাই তৃতীয় পক্ষের বিশ্লেষণ পরিষেবা লোড হতে পারে না।",
     privacyRightsTitle: "আপনার অধিকার",
     privacyRightsText: "আপনার এখতিয়ারের উপর নির্ভর করে, আপনার ব্যক্তিগত তথ্য সম্পর্কিত অধিকার থাকতে পারে, যার মধ্যে অ্যাক্সেস, সংশোধন বা মুছে ফেলার অধিকার রয়েছে। যেহেতু pacs008.com ব্যক্তিগত তথ্য সংগ্রহ করে না, এই অধিকারগুলি প্রযোজ্য নাও হতে পারে।",
     privacyChangesTitle: "এই বিবৃতির পরিবর্তন",
@@ -8605,7 +8735,7 @@ const pageCopy = {
     msgTypeColId: "বার্তার ধরন",
     msgTypeColDesc: "বিবরণ",
     apiInstallTitle: "ইনস্টলেশন",
-    apiInstallText: "PyPI থেকে প্যাকেজ ইনস্টল করুন। Python 3.9.2 বা পরবর্তী সংস্করণ প্রয়োজন।",
+    apiInstallText: "PyPI থেকে প্যাকেজ ইনস্টল করুন। Python 3.10 বা পরবর্তী সংস্করণ প্রয়োজন।",
     apiRestTitle: "REST API",
     apiRestIntro: "যাচাইকরণ এবং জেনারেশনের জন্য HTTP এন্ডপয়েন্ট পরিবেশন করতে বিল্ট-ইন FastAPI সার্ভার শুরু করুন।",
     apiRestStart: "সার্ভার শুরু করুন",
@@ -8678,7 +8808,7 @@ const pageCopy = {
     structuredAddressDescription: "SWIFT CBPR+ নভেম্বর 2026 কাঠামোগত ডাক ঠিকানার সময়সীমা কীভাবে pacs.008 এবং সম্পর্কিত পেমেন্ট বার্তাগুলিকে প্রভাবিত করে এবং pacs008 কীভাবে দলগুলিকে মেনে চলতে সাহায্য করে।",
     structuredAddressIntro: "SWIFT ২০২৬ সালের নভেম্বর থেকে সীমান্ত-পার পেমেন্ট বার্তায় কাঠামোগত ডাক ঠিকানা বাধ্যতামূলক করছে। কী পরিবর্তন হচ্ছে, কোন বার্তাগুলি প্রভাবিত এবং pacs008 কীভাবে দলগুলিকে প্রস্তুত হতে সাহায্য করে।",
     structuredAddressWhatTitle: "কী পরিবর্তন হচ্ছে",
-    structuredAddressWhatText: "SWIFT CBPR+ সীমান্ত-পার পেমেন্ট বার্তায় অকাঠামোগত ডাক ঠিকানা থেকে কাঠামোগত ঠিকানা ক্ষেত্রে রূপান্তরিত হচ্ছে। ২০২৬ সালের নভেম্বরের সময়সীমার পরে, প্রধান পক্ষের ঠিকানা ক্ষেত্রগুলিতে রাস্তার নাম, ভবন নম্বর, পোস্ট কোড, শহর এবং দেশের জন্য পৃথক উপাদান সহ কাঠামোগত বিন্যাস ব্যবহার করতে হবে।",
+    structuredAddressWhatText: "এটি সর্বনিম্ন প্রয়োজনীয়তা, সর্বোচ্চ নয়। ১৪ নভেম্বর ২০২৬ থেকে সংশ্লিষ্ট পক্ষকে শহর TwnNm-এ এবং দেশ Ctry-তে দুই-অক্ষরের ISO 3166 কোড হিসেবে দিতে হবে। রাস্তা, ভবন নম্বর ও পোস্ট কোড ঠিকানার লাইনে থাকতে পারে: এটি একটি হাইব্রিড ঠিকানা এবং এটি গ্রহণযোগ্য। কেবল সম্পূর্ণ অসংগঠিত ঠিকানা বাদ দেওয়া হচ্ছে — অর্থাৎ সম্পূর্ণ ঠিকানা মুক্ত পাঠ্যে, সংগঠিত শহর ও দেশ ছাড়া। কেবল BIC দ্বারা চিহ্নিত প্রতিষ্ঠান এতে প্রভাবিত হয় না।",
     structuredAddressWhyTitle: "কেন এটি গুরুত্বপূর্ণ",
     structuredAddressWhy1: "অকাঠামোগত ঠিকানা ম্যানুয়াল মেরামতের হার বাড়ায় এবং সরাসরি প্রক্রিয়াকরণে বিলম্ব ঘটায়।",
     structuredAddressWhy2: "কাঠামোগত ঠিকানা পক্ষের নাম থেকে অবস্থান ডেটা আলাদা করে নিষেধাজ্ঞা স্ক্রিনিং নির্ভুলতা উন্নত করে।",
@@ -8753,7 +8883,7 @@ const pageCopy = {
     privacyCollectionTitle: "Shromažďované informace",
     privacyCollectionText: "pacs008.com neshromažďuje osobní údaje. Web nepoužívá cookies ani sledovací technologie k identifikaci jednotlivých návštěvníků.",
     privacyAnalyticsTitle: "Analytika",
-    privacyAnalyticsText: "Analytické služby třetích stran mohou shromažďovat anonymní souhrnná data, jako jsou zobrazení stránek a odkazující URL. Tato data nelze použít k identifikaci jednotlivých návštěvníků.",
+    privacyAnalyticsText: "pacs008.com nepoužívá analytické služby. Na žádné stránce se nenačítá analytická služba a nezaznamenávají se zobrazení stránek, odkazující URL ani události používání. Všechny skripty jsou poskytovány přímo z pacs008.com a Content-Security-Policy omezuje script-src a connect-src na 'self', takže analytickou službu třetí strany nelze načíst.",
     privacyRightsTitle: "Vaše práva",
     privacyRightsText: "V závislosti na vaší jurisdikci můžete mít práva týkající se osobních údajů, včetně práva na přístup, opravu nebo výmaz. Protože pacs008.com neshromažďuje osobní údaje, tato práva se pravděpodobně neuplatní.",
     privacyChangesTitle: "Změny tohoto prohlášení",
@@ -8968,7 +9098,7 @@ const pageCopy = {
     msgTypeColId: "Typ zprávy",
     msgTypeColDesc: "Popis",
     apiInstallTitle: "Instalace",
-    apiInstallText: "Nainstalujte balíček z PyPI. Vyžaduje Python 3.9.2 nebo novější.",
+    apiInstallText: "Nainstalujte balíček z PyPI. Vyžaduje Python 3.10 nebo novější.",
     apiRestTitle: "REST API",
     apiRestIntro: "Spusťte vestavěný FastAPI server pro obsluhu HTTP endpointů pro validaci a generování.",
     apiRestStart: "Spustit server",
@@ -9041,7 +9171,7 @@ const pageCopy = {
     structuredAddressDescription: "Jak termín strukturovaných poštovních adres SWIFT CBPR+ v listopadu 2026 ovlivňuje pacs.008 a související platební zprávy.",
     structuredAddressIntro: "SWIFT vyžaduje strukturované poštovní adresy v přeshraničních platebních zprávách od listopadu 2026. Co se mění, které zprávy jsou dotčeny a jak pacs008 pomáhá týmům s přípravou.",
     structuredAddressWhatTitle: "Co se mění",
-    structuredAddressWhatText: "SWIFT CBPR+ přechází z nestrukturovaných poštovních adres na strukturovaná adresní pole v přeshraničních platebních zprávách. Po uplynutí lhůty v listopadu 2026 musí adresní pole klíčových stran používat strukturovaný formát s oddělenými prvky pro název ulice, číslo budovy, poštovní směrovací číslo, město a zemi.",
+    structuredAddressWhatText: "Jde o minimální, nikoli maximální požadavek. Od 14. listopadu 2026 musí dotčená strana uvádět město v TwnNm a zemi v Ctry jako dvoupísmenný kód ISO 3166. Ulice, číslo budovy a PSČ mohou zůstat v adresních řádcích: jde o hybridní adresu a je akceptována. Odstraňuje se pouze zcela nestrukturovaná adresa — celá adresa ve volném textu bez strukturovaného města a země. Institucí identifikovaných pouze pomocí BIC se to netýká.",
     structuredAddressWhyTitle: "Proč je to důležité",
     structuredAddressWhy1: "Nestrukturované adresy zvyšují míru manuálních oprav a zpožďují přímé zpracování.",
     structuredAddressWhy2: "Strukturované adresy zlepšují přesnost prověřování sankcí oddělením jména strany od lokalizačních údajů.",
@@ -9116,7 +9246,7 @@ const pageCopy = {
     privacyCollectionTitle: "Bayanan da muke tattarawa",
     privacyCollectionText: "pacs008.com ba ta tattara bayanan sirri ba. Gidan yanar gizon ba ya amfani da kukis ko fasahar bin diddigin don gano daidaikun masu ziyara.",
     privacyAnalyticsTitle: "Nazari",
-    privacyAnalyticsText: "Ayyukan nazari na wasu ɓangarori na iya tattara bayanai marasa suna kamar kallon shafuka da URLs na turawa. Ba za a iya amfani da wannan bayanan don gano daidaikun masu ziyara ba.",
+    privacyAnalyticsText: "pacs008.com ba ya amfani da ayyukan nazari. Ba a loda wani aikin nazari a kowane shafi ba, kuma ba a yin rikodin kallon shafuka, URL na turawa, ko ayyukan amfani. Duk rubutun ana bayar da su daga pacs008.com kansa, kuma Content-Security-Policy tana iyakance script-src da connect-src zuwa 'self', don haka ba za a iya loda aikin nazari na waje ba.",
     privacyRightsTitle: "Haƙƙoƙinku",
     privacyRightsText: "Dangane da hukuncinku, kuna iya samun haƙƙoƙi game da bayanan sirri, gami da haƙƙin shiga, gyara, ko gogewa. Tunda pacs008.com ba ta tattara bayanan sirri ba, waɗannan haƙƙoƙi na iya ba su shafi ba.",
     privacyChangesTitle: "Canje-canje ga wannan bayani",
@@ -9190,7 +9320,7 @@ const pageCopy = {
     structuredAddressDescription: "Yadda ƙayyadaddun lokacin adireshin da SWIFT CBPR+ ta tsara na Nuwamba 2026 ke shafar pacs.008 da saƙonnin biyan kuɗi masu alaƙa, da yadda pacs008 ke taimaka wa ƙungiyoyi su bi doka.",
     structuredAddressIntro: "SWIFT na buƙatar adireshi na gidan waya masu tsari a cikin saƙonnin biyan kuɗi na ƙetare iyaka daga Nuwamba 2026. Menene ke canzawa, waɗanne saƙonni ne abin ya shafa, da yadda pacs008 ke taimaka wa ƙungiyoyi su shirya.",
     structuredAddressWhatTitle: "Menene ke canzawa",
-    structuredAddressWhatText: "SWIFT CBPR+ na matsawa daga adireshi na gidan waya marasa tsari zuwa filayen adireshin da ke da tsari a cikin saƙonnin biyan kuɗi na ƙetare iyaka. Bayan ƙarshen wa'adin Nuwamba 2026, filayen adireshin manyan ɓangarori dole ne su yi amfani da tsarin da ke da sassa daban-daban na sunan titi, lambar gini, lambar gidan waya, gari, da ƙasa.",
+    structuredAddressWhatText: "Wannan buƙata ce mafi ƙaranci, ba mafi girma ba. Daga 14 ga Nuwamba 2026, ɓangaren da abin ya shafa dole ne ya sanya birni a TwnNm da ƙasa a Ctry a matsayin lambar ISO 3166 mai haruffa biyu. Titi, lambar gini da lambar gidan waya na iya kasancewa a layukan adireshi: wannan adireshin gauraye ne kuma ana karɓarsa. Abin da aka cire shi ne kawai adireshin da ba shi da tsari gaba ɗaya — wato dukkan adireshin a matsayin rubutu mai 'yanci ba tare da birni da ƙasa masu tsari ba. Cibiyoyin da aka gano ta BIC kaɗai ba abin ya shafa ba.",
     structuredAddressWhyTitle: "Me ya sa wannan yana da muhimmanci",
     structuredAddressWhy1: "Adireshi marasa tsari suna ƙara yawan gyare-gyare na hannu kuma suna jinkirta sarrafa kai tsaye.",
     structuredAddressWhy2: "Adireshi masu tsari suna inganta daidaiton tantance takunkumi ta hanyar raba sunan ɓangare daga bayanan wurin.",
@@ -9328,7 +9458,7 @@ const pageCopy = {
     apiServiceTitle: "Sabis na tabbatarwa",
     apiServiceIntro: "Gudanar da cikakken bututun tabbatarwa kafin ƙirƙira ta hanyar shirye-shirye.",
     apiInstallTitle: "Shigarwa",
-    apiInstallText: "Shigar da fakitin daga PyPI. Ana buƙatar Python 3.9.2 ko na baya.",
+    apiInstallText: "Shigar da fakitin daga PyPI. Ana buƙatar Python 3.10 ko na baya.",
     apiRestTitle: "REST API",
     apiRestIntro: "Fara sabar FastAPI ɗin da aka gina a ciki don samar da ƙarshen HTTP don tabbatarwa da ƙirƙira.",
     apiRestStart: "Fara sabar",
@@ -9431,7 +9561,7 @@ const pageCopy = {
     privacyCollectionTitle: "Information vi samlar in",
     privacyCollectionText: "pacs008.com samlar inte in personuppgifter. Webbplatsen använder inte cookies eller spårningstekniker för att identifiera enskilda besökare.",
     privacyAnalyticsTitle: "Analys",
-    privacyAnalyticsText: "Tredjepartsanalystjänster kan samla in anonymiserade aggregerade data som sidvisningar och hänvisande URL:er. Dessa data kan inte användas för att identifiera enskilda besökare.",
+    privacyAnalyticsText: "pacs008.com använder inga analystjänster. Ingen analystjänst laddas på någon sida och inga sidvisningar, hänvisande URL:er eller användningshändelser registreras. Alla skript levereras av pacs008.com självt och Content-Security-Policy begränsar script-src och connect-src till 'self', vilket gör att en analystjänst från tredje part inte kan laddas.",
     privacyRightsTitle: "Dina rättigheter",
     privacyRightsText: "Beroende på din jurisdiktion kan du ha rättigheter avseende personuppgifter, inklusive rätt till åtkomst, rättelse eller radering. Eftersom pacs008.com inte samlar in personuppgifter är dessa rättigheter sannolikt inte tillämpliga.",
     privacyChangesTitle: "Ändringar av detta meddelande",
@@ -9505,7 +9635,7 @@ const pageCopy = {
     structuredAddressDescription: "Hur SWIFT CBPR+ tidsfrist för strukturerade postadresser i november 2026 påverkar pacs.008 och relaterade betalningsmeddelanden, och hur pacs008 hjälper team att följa kraven.",
     structuredAddressIntro: "SWIFT kräver strukturerade postadresser i gränsöverskridande betalningsmeddelanden från november 2026. Vad som ändras, vilka meddelanden som påverkas och hur pacs008 hjälper team att förbereda sig.",
     structuredAddressWhatTitle: "Vad som ändras",
-    structuredAddressWhatText: "SWIFT CBPR+ övergår från ostrukturerade postadresser till strukturerade adressfält i gränsöverskridande betalningsmeddelanden. Efter tidsfristen i november 2026 måste adressfälten för viktiga parter använda det strukturerade formatet med separata element för gatunamn, byggnadsnummer, postnummer, stad och land.",
+    structuredAddressWhatText: "Detta är ett minimikrav, inte ett maximikrav. Från och med den 14 november 2026 måste en berörd part ange ort i TwnNm och land i Ctry som tvåställig ISO 3166-kod. Gata, husnummer och postnummer får ligga kvar i adressraderna: det är en hybridadress och den accepteras. Endast den helt ostrukturerade adressen — hela adressen som fritext utan strukturerad ort och land — tas bort. Institut som identifieras enbart med BIC berörs inte.",
     structuredAddressWhyTitle: "Varför det är viktigt",
     structuredAddressWhy1: "Ostrukturerade adresser ökar andelen manuella reparationer och försenar direkt genomströmning.",
     structuredAddressWhy2: "Strukturerade adresser förbättrar noggrannheten i sanktionsgranskning genom att separera partnamn från platsdata.",
@@ -9643,7 +9773,7 @@ const pageCopy = {
     apiServiceTitle: "Valideringstjänst",
     apiServiceIntro: "Kör hela förgenereringens valideringspipeline programmatiskt.",
     apiInstallTitle: "Installation",
-    apiInstallText: "Installera paketet från PyPI. Kräver Python 3.9.2 eller senare.",
+    apiInstallText: "Installera paketet från PyPI. Kräver Python 3.10 eller senare.",
     apiRestTitle: "REST API",
     apiRestIntro: "Starta den inbyggda FastAPI-servern för att tillhandahålla HTTP-ändpunkter för validering och generering.",
     apiRestStart: "Starta servern",
@@ -9746,7 +9876,7 @@ const pageCopy = {
     privacyCollectionTitle: "Impormasyong kinokolekta namin",
     privacyCollectionText: "Hindi nangongolekta ng personal na datos ang pacs008.com. Hindi gumagamit ng cookies o tracking technology ang site para tukuyin ang mga indibidwal na bisita.",
     privacyAnalyticsTitle: "Analytics",
-    privacyAnalyticsText: "Maaaring mangolekta ng anonymous na pinagsama-samang datos ang mga third-party na serbisyo ng analytics tulad ng mga page view at referring URL. Hindi magagamit ang datos na ito para tukuyin ang mga indibidwal na bisita.",
+    privacyAnalyticsText: "Hindi gumagamit ng analytics ang pacs008.com. Walang serbisyo ng analytics na nilo-load sa anumang pahina, at walang naitatalang page view, referring URL, o usage event. Lahat ng script ay inihahain mismo ng pacs008.com, at nililimitahan ng Content-Security-Policy ang script-src at connect-src sa 'self', kaya hindi maaaring mag-load ang third-party na analytics.",
     privacyRightsTitle: "Ang iyong mga karapatan",
     privacyRightsText: "Depende sa iyong hurisdiksyon, maaaring mayroon kang mga karapatan kaugnay ng personal na datos, kabilang ang karapatang ma-access, maitama, o maalis ang impormasyon. Dahil hindi nangongolekta ng personal na datos ang pacs008.com, maaaring hindi naaangkop ang mga karapatang ito.",
     privacyChangesTitle: "Mga pagbabago sa pahayag na ito",
@@ -9820,7 +9950,7 @@ const pageCopy = {
     structuredAddressDescription: "Paano naaapektuhan ng SWIFT CBPR+ November 2026 structured postal address deadline ang pacs.008 at mga kaugnay na mensahe ng pagbabayad, at paano tumutulong ang pacs008 sa mga team na sumunod.",
     structuredAddressIntro: "Kinakailangan ng SWIFT ang mga structured na postal address sa mga cross-border na mensahe ng pagbabayad mula Nobyembre 2026. Ano ang nagbabago, aling mga mensahe ang apektado, at paano tumutulong ang pacs008 sa mga team na maghanda.",
     structuredAddressWhatTitle: "Ano ang nagbabago",
-    structuredAddressWhatText: "Ang SWIFT CBPR+ ay lumilipat mula sa mga unstructured na postal address patungo sa mga structured na address field sa mga cross-border na mensahe ng pagbabayad. Pagkatapos ng deadline sa Nobyembre 2026, ang mga address field ng mga pangunahing partido ay kailangang gumamit ng structured na format na may hiwalay na mga elemento para sa pangalan ng kalye, numero ng gusali, postal code, lungsod, at bansa.",
+    structuredAddressWhatText: "Ito ay pinakamababang kinakailangan, hindi pinakamataas. Mula 14 Nobyembre 2026, dapat ilagay ng saklaw na partido ang lungsod sa TwnNm at ang bansa sa Ctry bilang dalawang-titik na ISO 3166 code. Ang kalye, numero ng gusali at postal code ay maaaring manatili sa mga linya ng address: iyon ay hybrid na address at tinatanggap ito. Ang inaalis lamang ay ang ganap na hindi nakabalangkas na address — ang buong address sa malayang teksto nang walang nakabalangkas na lungsod at bansa. Hindi apektado ang mga institusyong tinutukoy sa pamamagitan ng BIC lamang.",
     structuredAddressWhyTitle: "Bakit ito mahalaga",
     structuredAddressWhy1: "Ang mga unstructured na address ay nagpapataas ng rate ng manu-manong pag-aayos at nagpapabagal ng direktang pagproseso.",
     structuredAddressWhy2: "Ang mga structured na address ay nagpapabuti ng katumpakan ng sanctions screening sa pamamagitan ng paghihiwalay ng pangalan ng partido mula sa data ng lokasyon.",
@@ -9958,7 +10088,7 @@ const pageCopy = {
     apiServiceTitle: "Serbisyo ng validation",
     apiServiceIntro: "Patakbuhin ang buong pre-generation validation pipeline nang programmatically.",
     apiInstallTitle: "Pag-install",
-    apiInstallText: "I-install ang package mula sa PyPI. Nangangailangan ng Python 3.9.2 o mas bago.",
+    apiInstallText: "I-install ang package mula sa PyPI. Nangangailangan ng Python 3.10 o mas bago.",
     apiRestTitle: "REST API",
     apiRestIntro: "Simulan ang built-in na FastAPI server upang magbigay ng HTTP endpoint para sa validation at generation.",
     apiRestStart: "Simulan ang server",
@@ -10061,7 +10191,7 @@ const pageCopy = {
     privacyCollectionTitle: "Àlàyé tí a ń kójọ",
     privacyCollectionText: "pacs008.com kò kójọ dátà tí ó ní í ṣe pẹ̀lú ẹni kọ̀ọ̀kan. Ojú àyélujára náà kò lo àwọn kúkì tàbí ìmọ̀-ẹ̀rọ ìlépa láti dá àwọn àlejò kọ̀ọ̀kan mọ̀.",
     privacyAnalyticsTitle: "Ìtúpalẹ̀",
-    privacyAnalyticsText: "Àwọn iṣẹ́ ìtúpalẹ̀ ẹlẹ́ẹ̀kẹta lè kójọ àwọn dátà aláìlórúkọ bíi àwọn ìwò ojú-ìwé àti àwọn URL ìtọ́ka. Dátà yìí kò lè ṣeé lò láti dá àwọn àlejò kọ̀ọ̀kan mọ̀.",
+    privacyAnalyticsText: "pacs008.com kò lo iṣẹ́ ìtúpalẹ̀ kankan. Kò sí iṣẹ́ ìtúpalẹ̀ tí a ń gbé wọlé ní ojú-ìwé kankan, kò sì sí ìwò ojú-ìwé, URL ìtọ́ka, tàbí ìṣẹ̀lẹ̀ ìlò tí a ń kọ sílẹ̀. Gbogbo àwọn àfọwọ́kọ ni pacs008.com fúnra rẹ̀ ń pèsè, Content-Security-Policy sì dín script-src àti connect-src kù sí 'self', nítorí náà iṣẹ́ ìtúpalẹ̀ ẹlẹ́ẹ̀kẹta kò lè wọlé.",
     privacyRightsTitle: "Àwọn ẹ̀tọ́ rẹ",
     privacyRightsText: "Dá lórí àgbègbè ìṣàkóso rẹ, o lè ní àwọn ẹ̀tọ́ nípa dátà ara ẹni, pẹ̀lú ẹ̀tọ́ láti wọlé, ṣàtúnṣe, tàbí pa á rẹ́. Nítorí pacs008.com kò kójọ dátà ara ẹni, àwọn ẹ̀tọ́ wọ̀nyí lè má kan.",
     privacyChangesTitle: "Àwọn àyípadà sí àlàyé yìí",
@@ -10135,7 +10265,7 @@ const pageCopy = {
     structuredAddressDescription: "Bí àkókò ìparí àdírẹ́sì ìfìwéránṣẹ́ tí a ṣètò ti SWIFT CBPR+ ní Oṣù Kọkànlá 2026 ṣe kan pacs.008 àti àwọn ìfiránṣẹ́ ìsanwó tí ó jọmọ, àti bí pacs008 ṣe ń ràn àwọn ẹgbẹ́ lọ́wọ́ láti tẹ̀lé ìlànà.",
     structuredAddressIntro: "SWIFT nílò àwọn àdírẹ́sì ìfìwéránṣẹ́ tí a ṣètò nínú àwọn ìfiránṣẹ́ ìsanwó àgbáyé láti Oṣù Kọkànlá 2026. Kí ni ó ń yí padà, àwọn ìfiránṣẹ́ wo ni ó kan, àti bí pacs008 ṣe ń ràn àwọn ẹgbẹ́ lọ́wọ́ láti múra sílẹ̀.",
     structuredAddressWhatTitle: "Kí ni ó ń yí padà",
-    structuredAddressWhatText: "SWIFT CBPR+ ń yí padà láti àwọn àdírẹ́sì ìfìwéránṣẹ́ tí kò ní ètò sí àwọn pápá àdírẹ́sì tí a ṣètò nínú àwọn ìfiránṣẹ́ ìsanwó àgbáyé. Lẹ́yìn àkókò ìparí ní Oṣù Kọkànlá 2026, àwọn pápá àdírẹ́sì àwọn ẹgbẹ́ pàtàkì gbọdọ̀ lo ètò tí a ṣètò pẹ̀lú àwọn ẹ̀ka ọ̀tọ̀ọ̀tọ̀ fún orúkọ òpópónà, nọ́mbà ilé, kóòdù ìfìwéránṣẹ́, ìlú, àti orílẹ̀-èdè.",
+    structuredAddressWhatText: "Ìbéèrè tí ó kéré jùlọ ni èyí, kì í ṣe èyí tí ó pọ̀ jùlọ. Láti ọjọ́ 14 November 2026, ẹgbẹ́ tí ó kàn gbọ́dọ̀ fi orúkọ ìlú sí TwnNm àti orílẹ̀-èdè sí Ctry gẹ́gẹ́ bí kóòdù ISO 3166 oníléta méjì. Ojú-ọ̀nà, nọ́mbà ilé àti kóòdù ìfìwéránṣẹ́ lè wà nínú àwọn ìlà àdírẹ́sì: àdírẹ́sì àkópọ̀ ni èyí, a sì gbà á. Ohun tí a yọ kúrò ni àdírẹ́sì tí kò ní ètò rárá — ìyẹn gbogbo àdírẹ́sì nínú ọ̀rọ̀ òmìnira láìsí ìlú àti orílẹ̀-èdè tí ó ní ètò. Àwọn ilé-ìfowópamọ́ tí a mọ̀ nípasẹ̀ BIC nìkan kò kàn.",
     structuredAddressWhyTitle: "Ìdí tí ó fi ṣe pàtàkì",
     structuredAddressWhy1: "Àwọn àdírẹ́sì tí kò ní ètò mú kí ìwọ̀n àtúnṣe pẹ̀lú ọwọ́ pọ̀ sí i tí ó sì dá ìṣiṣẹ́ tààrà dúró.",
     structuredAddressWhy2: "Àwọn àdírẹ́sì tí a ṣètò mú kí ìṣàyẹ̀wò ìfòfindè dára sí i nípa yíyà orúkọ ẹgbẹ́ kúrò nínú dátà ibi.",
@@ -10183,7 +10313,7 @@ const pageCopy = {
     apiServiceTitle: "Iṣẹ́ ìṣàyẹ̀wò",
     apiServiceIntro: "Mú ọ̀nà ìṣàyẹ̀wò kíkún ṣáájú-ṣíṣẹ̀dá ṣiṣẹ́ nípasẹ̀ ètò.",
     apiInstallTitle: "Ìgbékalẹ̀",
-    apiInstallText: "Fi àpò náà sórí ẹ̀rọ láti PyPI. Ó nílò Python 3.9.2 tàbí tí ó tẹ̀lé e.",
+    apiInstallText: "Fi àpò náà sórí ẹ̀rọ láti PyPI. Ó nílò Python 3.10 tàbí tí ó tẹ̀lé e.",
     apiRestTitle: "REST API",
     apiRestIntro: "Bẹ̀rẹ̀ olùpèsè FastAPI tí a kọ́ sínú fún pípèsè àwọn ọ̀nà HTTP fún ìṣàyẹ̀wò àti ṣíṣẹ̀dá.",
     apiRestStart: "Bẹ̀rẹ̀ olùpèsè",
@@ -12152,7 +12282,7 @@ const PAGE_COPY_PATCH = {
     apiDescription: "Поддержка REST и CLI в pacs008 для генерации, валидации, оркестрации API и контроля соответствия в потоках кредитовых переводов FI-to-FI.",
     apiIntro: "Проект предоставляет REST API и CLI для операционных сценариев обработки платёжных сообщений.",
     apiInstallTitle: "Установка",
-    apiInstallText: "Установите пакет из PyPI. Требуется Python 3.9.2 или выше.",
+    apiInstallText: "Установите пакет из PyPI. Требуется Python 3.10 или выше.",
     apiEndpointGenerate: "Синхронно сгенерировать XML и вернуть файл",
     apiValidateExample: "Пример валидации",
     apiGenerateDesc: "Сгенерировать XML-файл pacs.008.001.13 из данных JSON.",
@@ -14745,8 +14875,19 @@ function localeSectionDescription(locale, summary) {
   return clampDescription(cleanSummary);
 }
 
+/**
+ * Homepage document title.
+ *
+ * This took a locale and ignored it, so every locale homepage carried the
+ * English title — in the <title> tag, the breadcrumb and the page header.
+ * English keeps its keyword-bearing title; other locales use their own hero
+ * line, which is already translated.
+ */
 function homeTitle(locale) {
-  return "pacs008 | ISO 20022 Payment Message Toolkit and API";
+  if (locale.key === "en") {
+    return "pacs008 | ISO 20022 Payment Message Toolkit and API";
+  }
+  return pageTitle(locale.hero.replace(/[.。！!]$/, ""));
 }
 
 function pageTitle(primary, suffix = "pacs008") {
@@ -15266,14 +15407,9 @@ ${htmlTable({
       { className: "api-endpoints-table__col-desc", label: t.apiFieldCol2 }
     ],
     rows: [
-      ["GET /health", t.apiEndpointHealth],
-      ["POST /validate", t.apiEndpointValidate],
-      ["POST /generate", t.apiEndpointGenerate],
-      ["POST /generate/async", t.apiEndpointAsync],
-      ["GET /status/{job_id}", t.apiEndpointStatus],
-      ["GET /download/{job_id}", t.apiEndpointDownload],
-      ["DELETE /jobs/{job_id}", t.apiEndpointCancel],
-      ["GET /docs", t.apiEndpointDocs]
+      // Derived from data/openapi.json so the reference cannot drift from the
+      // contract. Descriptions come from the spec's operation summaries.
+      ...openapiEndpoints()
     ].map(([endpoint, description]) => [
       { className: "api-endpoints-table__endpoint", html: `<code>${escapeHtml(endpoint)}</code>` },
       { className: "api-endpoints-table__desc", html: escapeHtml(description) }
@@ -15627,7 +15763,7 @@ All pages are served over HTTPS. No user data is stored on any server controlled
 
 ## Cookie policy
 
-pacs008.com does not set cookies. No first-party cookies, session cookies, or tracking cookies are used. If a third-party analytics service sets a cookie, it operates under that service's own cookie policy and is not controlled by pacs008.com.
+pacs008.com does not set cookies. No first-party cookies, session cookies, or tracking cookies are used. No third-party service that could set a cookie is loaded on any page.
 
 ## Data retention
 
@@ -15873,7 +16009,7 @@ ${t.termsIpText}
 
 ## Open-source licence
 
-The pacs008 Python toolkit is released under the MIT licence. The full licence text is available in the [project repository](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). The MIT licence permits use, modification, and distribution with minimal restrictions. Attribution to the original author is required. The documentation on pacs008.com is provided under the same licence unless otherwise noted.
+The pacs008 Python toolkit is released under the Apache License 2.0. The full licence text is available in the [project repository](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). The Apache License 2.0 permits use, modification, and distribution, including commercial use. It requires that the licence and existing copyright notices are retained, that modified files are marked as changed, and it includes an express grant of patent rights from contributors. The Apache Software Foundation publishes the Apache License 2.0 in English only and does not recognise translations, so the English text is the only legally binding version. The documentation on pacs008.com is provided under the same licence unless otherwise noted.
 
 ## Acceptable use
 
@@ -15923,7 +16059,7 @@ ${t.termsIpText}
 
 ## オープンソースライセンス
 
-pacs008 Python ツールキットは MIT ライセンスの下で公開されています。ライセンス全文は[プロジェクトリポジトリ](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE)でご確認いただけます。MIT ライセンスは最小限の制約の下で使用、変更、再配布を許可します。原作者への帰属表示が必要です。pacs008.com 上のドキュメントも、特に断りがない限り同一ライセンスで提供されます。
+pacs008 Python ツールキットは Apache-2.0 ライセンスの下で公開されています。ライセンス全文は[プロジェクトリポジトリ](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE)でご確認いただけます。Apache License 2.0 は英語でのみ公開されており、法的に拘束力を持つのは英語版のみです。pacs008.com 上のドキュメントも、特に断りがない限り同一ライセンスで提供されます。
 
 ## 許容される利用
 
@@ -15973,7 +16109,7 @@ ${t.termsIpText}
 
 ## 开源许可
 
-pacs008 Python 工具包在 MIT 许可下发布。完整的许可文本可在[项目仓库](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE)中查阅。MIT 许可允许在最低限制下使用、修改和分发。要求注明原作者。pacs008.com 上的文档在相同许可下提供，除非另有说明。
+pacs008 Python 工具包在 Apache-2.0 许可下发布。完整的许可文本可在[项目仓库](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE)中查阅。Apache License 2.0 仅以英文发布；只有英文文本具有法律约束力。pacs008.com 上的文档在相同许可下提供，除非另有说明。
 
 ## 可接受使用
 
@@ -16023,7 +16159,7 @@ ${t.termsIpText}
 
 ## 開源授權
 
-pacs008 Python 工具組在 MIT 授權下發布。完整的授權文字可在[專案儲存庫](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE)中查閱。MIT 授權允許在最低限制下使用、修改和散布。需註明原始作者。pacs008.com 上的文件在相同授權下提供，除非另有說明。
+pacs008 Python 工具組在 Apache-2.0 授權下發布。完整的授權文字可在[專案儲存庫](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE)中查閱。Apache License 2.0 僅以英文發布；僅英文文本具有法律拘束力。pacs008.com 上的文件在相同授權下提供，除非另有說明。
 
 ## 可接受使用
 
@@ -16073,7 +16209,7 @@ ${t.termsIpText}
 
 ## 오픈소스 라이선스
 
-pacs008 Python 툴킷은 MIT 라이선스로 배포됩니다. 전체 라이선스 텍스트는 [프로젝트 저장소](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE)에서 확인할 수 있습니다. MIT 라이선스는 최소한의 제한으로 사용, 수정 및 배포를 허용합니다. 원저작자에 대한 귀속 표시가 필요합니다. pacs008.com의 문서는 별도로 명시되지 않는 한 동일한 라이선스에 따라 제공됩니다.
+pacs008 Python 툴킷은 Apache-2.0 라이선스로 배포됩니다. 전체 라이선스 텍스트는 [프로젝트 저장소](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE)에서 확인할 수 있습니다. Apache License 2.0은 영어로만 공개되며, 법적 구속력을 갖는 것은 영문본뿐입니다. pacs008.com의 문서는 별도로 명시되지 않는 한 동일한 라이선스에 따라 제공됩니다.
 
 ## 허용되는 사용
 
@@ -16123,7 +16259,7 @@ ${t.termsIpText}
 
 ## Open-Source-Lizenz
 
-Das pacs008-Python-Toolkit steht unter der MIT-Lizenz. Der vollständige Lizenztext ist im [Projekt-Repository](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE) verfügbar. Die MIT-Lizenz erlaubt Nutzung, Modifikation und Weiterverteilung mit minimalen Einschränkungen. Die Namensnennung des Originalautors ist erforderlich. Die Dokumentation auf pacs008.com unterliegt derselben Lizenz, sofern nicht anders angegeben.
+Das pacs008-Python-Toolkit steht unter der Apache-2.0-Lizenz. Der vollständige Lizenztext ist im [Projekt-Repository](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE) verfügbar. Die Apache-Lizenz 2.0 wird ausschließlich auf Englisch veröffentlicht; allein der englische Text ist rechtlich verbindlich. Die Dokumentation auf pacs008.com unterliegt derselben Lizenz, sofern nicht anders angegeben.
 
 ## Zulässige Nutzung
 
@@ -16173,7 +16309,7 @@ ${t.termsIpText}
 
 ## Licencia de código abierto
 
-El toolkit pacs008 para Python se publica bajo la licencia MIT. El texto completo de la licencia está disponible en el [repositorio del proyecto](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). La licencia MIT permite el uso, la modificación y la distribución con restricciones mínimas. Se requiere la atribución al autor original. La documentación en pacs008.com se ofrece bajo la misma licencia salvo que se indique lo contrario.
+El toolkit pacs008 para Python se publica bajo la licencia Apache-2.0. El texto completo de la licencia está disponible en el [repositorio del proyecto](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). La Licencia Apache 2.0 se publica únicamente en inglés; el texto en inglés es la única versión legalmente vinculante. La documentación en pacs008.com se ofrece bajo la misma licencia salvo que se indique lo contrario.
 
 ## Uso aceptable
 
@@ -16223,7 +16359,7 @@ ${t.termsIpText}
 
 ## Licence open source
 
-Le toolkit Python pacs008 est publié sous licence MIT. Le texte intégral de la licence est disponible dans le [dépôt du projet](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). La licence MIT autorise l'utilisation, la modification et la redistribution avec un minimum de restrictions. L'attribution à l'auteur original est requise. La documentation sur pacs008.com est fournie sous la même licence, sauf mention contraire.
+Le toolkit Python pacs008 est publié sous licence Apache-2.0. Le texte intégral de la licence est disponible dans le [dépôt du projet](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). La licence Apache 2.0 n'est publiée qu'en anglais ; seul le texte anglais fait foi juridiquement. La documentation sur pacs008.com est fournie sous la même licence, sauf mention contraire.
 
 ## Utilisation acceptable
 
@@ -16273,7 +16409,7 @@ ${t.termsIpText}
 
 ## Licenza open source
 
-Il toolkit Python pacs008 è rilasciato con licenza MIT. Il testo integrale della licenza è disponibile nel [repository del progetto](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). La licenza MIT consente l'uso, la modifica e la distribuzione con restrizioni minime. È richiesta l'attribuzione all'autore originale. La documentazione su pacs008.com è fornita con la medesima licenza, salvo diversa indicazione.
+Il toolkit Python pacs008 è rilasciato con licenza Apache-2.0. Il testo integrale della licenza è disponibile nel [repository del progetto](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). La Licenza Apache 2.0 è pubblicata solo in inglese; il testo inglese è l'unica versione giuridicamente vincolante. La documentazione su pacs008.com è fornita con la medesima licenza, salvo diversa indicazione.
 
 ## Uso accettabile
 
@@ -16323,7 +16459,7 @@ ${t.termsIpText}
 
 ## Opensourcelicentie
 
-De pacs008 Python-toolkit wordt vrijgegeven onder de MIT-licentie. De volledige licentietekst is beschikbaar in de [projectrepository](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). De MIT-licentie staat gebruik, aanpassing en verspreiding toe met minimale beperkingen. Naamsvermelding van de oorspronkelijke auteur is vereist. De documentatie op pacs008.com wordt onder dezelfde licentie aangeboden, tenzij anders vermeld.
+De pacs008 Python-toolkit wordt vrijgegeven onder de Apache-2.0-licentie. De volledige licentietekst is beschikbaar in de [projectrepository](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). De Apache-licentie 2.0 wordt uitsluitend in het Engels gepubliceerd; alleen de Engelse tekst is juridisch bindend. De documentatie op pacs008.com wordt onder dezelfde licentie aangeboden, tenzij anders vermeld.
 
 ## Aanvaardbaar gebruik
 
@@ -16373,7 +16509,7 @@ ${t.termsIpText}
 
 ## Licencja open source
 
-Toolkit pacs008 dla Pythona jest udostępniany na licencji MIT. Pełny tekst licencji jest dostępny w [repozytorium projektu](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Licencja MIT zezwala na użytkowanie, modyfikację i dystrybucję przy minimalnych ograniczeniach. Wymagane jest przypisanie autorstwa oryginalnemu autorowi. Dokumentacja na pacs008.com jest udostępniana na tej samej licencji, chyba że zaznaczono inaczej.
+Toolkit pacs008 dla Pythona jest udostępniany na licencji Apache-2.0. Pełny tekst licencji jest dostępny w [repozytorium projektu](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Licencja Apache 2.0 jest publikowana wyłącznie w języku angielskim; jedynie tekst angielski jest prawnie wiążący. Dokumentacja na pacs008.com jest udostępniana na tej samej licencji, chyba że zaznaczono inaczej.
 
 ## Dopuszczalne użytkowanie
 
@@ -16423,7 +16559,7 @@ ${t.termsIpText}
 
 ## Licença de código aberto
 
-O toolkit pacs008 para Python é disponibilizado sob a licença MIT. O texto completo da licença está disponível no [repositório do projeto](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). A licença MIT permite utilização, modificação e distribuição com restrições mínimas. A atribuição ao autor original é obrigatória. A documentação em pacs008.com é fornecida sob a mesma licença, salvo indicação em contrário.
+O toolkit pacs008 para Python é disponibilizado sob a licença Apache-2.0. O texto completo da licença está disponível no [repositório do projeto](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). A Licença Apache 2.0 é publicada apenas em inglês; o texto em inglês é a única versão juridicamente vinculativa. A documentação em pacs008.com é fornecida sob a mesma licença, salvo indicação em contrário.
 
 ## Utilização aceitável
 
@@ -16473,7 +16609,7 @@ ${t.termsIpText}
 
 ## Licență open source
 
-Toolkitul pacs008 pentru Python este distribuit sub licența MIT. Textul integral al licenței este disponibil în [depozitul proiectului](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Licența MIT permite utilizarea, modificarea și distribuirea cu restricții minime. Este necesară atribuirea către autorul original. Documentația de pe pacs008.com este furnizată sub aceeași licență, cu excepția cazurilor în care se specifică altfel.
+Toolkitul pacs008 pentru Python este distribuit sub licența Apache-2.0. Textul integral al licenței este disponibil în [depozitul proiectului](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Licența Apache 2.0 este publicată exclusiv în limba engleză; numai textul în engleză este obligatoriu din punct de vedere juridic. Documentația de pe pacs008.com este furnizată sub aceeași licență, cu excepția cazurilor în care se specifică altfel.
 
 ## Utilizare acceptabilă
 
@@ -16523,7 +16659,7 @@ ${t.termsIpText}
 
 ## Лицензия с открытым исходным кодом
 
-Инструментарий pacs008 Python распространяется по лицензии MIT. Полный текст лицензии доступен в [репозитории проекта](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Лицензия MIT допускает использование, модификацию и распространение с минимальными ограничениями. Обязательна атрибуция оригинального автора. Документация на pacs008.com предоставляется на тех же условиях, если не указано иное.
+Инструментарий pacs008 Python распространяется по лицензии Apache-2.0. Полный текст лицензии доступен в [репозитории проекта](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Лицензия Apache 2.0 публикуется только на английском языке; юридически обязательной является только английская версия. Документация на pacs008.com предоставляется на тех же условиях, если не указано иное.
 
 ## Допустимое использование
 
@@ -16573,7 +16709,7 @@ ${t.termsIpText}
 
 ## Ліцензія з відкритим вихідним кодом
 
-Інструментарій pacs008 Python розповсюджується за ліцензією MIT. Повний текст ліцензії доступний у [репозиторії проекту](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Ліцензія MIT дозволяє використання, модифікацію та розповсюдження з мінімальними обмеженнями. Обов'язкова атрибуція оригінального автора. Документація на pacs008.com надається на тих самих умовах, якщо не зазначено інше.
+Інструментарій pacs008 Python розповсюджується за ліцензією Apache-2.0. Повний текст ліцензії доступний у [репозиторії проекту](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Ліцензія Apache 2.0 публікується лише англійською мовою; юридично обов'язковою є лише англійська версія. Документація на pacs008.com надається на тих самих умовах, якщо не зазначено інше.
 
 ## Допустиме використання
 
@@ -16623,7 +16759,7 @@ ${t.termsIpText}
 
 ## ترخيص مفتوح المصدر
 
-أداة pacs008 لـ Python صادرة بموجب ترخيص MIT. النص الكامل للترخيص متاح في [مستودع المشروع](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). يسمح ترخيص MIT بالاستخدام والتعديل والتوزيع بأقل قدر من القيود. يُشترط نسب العمل إلى المؤلف الأصلي. الوثائق المنشورة على pacs008.com مقدمة بموجب الترخيص ذاته ما لم يُذكر خلاف ذلك.
+أداة pacs008 لـ Python صادرة بموجب ترخيص Apache-2.0. النص الكامل للترخيص متاح في [مستودع المشروع](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). يُنشر ترخيص Apache 2.0 باللغة الإنجليزية فقط؛ والنص الإنجليزي هو النسخة الوحيدة الملزمة قانونًا. الوثائق المنشورة على pacs008.com مقدمة بموجب الترخيص ذاته ما لم يُذكر خلاف ذلك.
 
 ## الاستخدام المقبول
 
@@ -16673,7 +16809,7 @@ ${t.termsIpText}
 
 ## רישיון קוד פתוח
 
-ערכת הכלים pacs008 ל-Python מופצת תחת רישיון MIT. נוסח הרישיון המלא זמין ב[מאגר הפרויקט](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). רישיון MIT מתיר שימוש, שינוי והפצה עם מגבלות מינימליות. נדרש ייחוס למחבר המקורי. התיעוד ב-pacs008.com מסופק תחת אותו רישיון, אלא אם צוין אחרת.
+ערכת הכלים pacs008 ל-Python מופצת תחת רישיון Apache-2.0. נוסח הרישיון המלא זמין ב[מאגר הפרויקט](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). רישיון Apache 2.0 מתפרסם באנגלית בלבד; הנוסח האנגלי הוא הגרסה המחייבת משפטית היחידה. התיעוד ב-pacs008.com מסופק תחת אותו רישיון, אלא אם צוין אחרת.
 
 ## שימוש מותר
 
@@ -16723,7 +16859,7 @@ ${t.termsIpText}
 
 ## ओपन-सोर्स लाइसेंस
 
-pacs008 Python टूलकिट MIT लाइसेंस के तहत जारी की गई है। लाइसेंस का पूरा पाठ [प्रोजेक्ट रिपॉज़िटरी](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE) में उपलब्ध है। MIT लाइसेंस न्यूनतम प्रतिबंधों के साथ उपयोग, संशोधन और वितरण की अनुमति देता है। मूल लेखक को श्रेय देना अनिवार्य है। pacs008.com पर प्रलेखन उसी लाइसेंस के तहत प्रदान किया जाता है, जब तक कि अन्यथा न कहा गया हो।
+pacs008 Python टूलकिट Apache-2.0 लाइसेंस के तहत जारी की गई है। लाइसेंस का पूरा पाठ [प्रोजेक्ट रिपॉज़िटरी](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE) में उपलब्ध है। Apache लाइसेंस 2.0 केवल अंग्रेज़ी में प्रकाशित होता है; केवल अंग्रेज़ी पाठ ही कानूनी रूप से बाध्यकारी है। pacs008.com पर प्रलेखन उसी लाइसेंस के तहत प्रदान किया जाता है, जब तक कि अन्यथा न कहा गया हो।
 
 ## स्वीकार्य उपयोग
 
@@ -16773,7 +16909,7 @@ ${t.termsIpText}
 
 ## Lisensi sumber terbuka
 
-Toolkit Python pacs008 dirilis di bawah lisensi MIT. Teks lisensi lengkap tersedia di [repositori proyek](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Lisensi MIT mengizinkan penggunaan, modifikasi, dan distribusi dengan pembatasan minimal. Atribusi kepada penulis asli diwajibkan. Dokumentasi di pacs008.com disediakan di bawah lisensi yang sama kecuali dinyatakan lain.
+Toolkit Python pacs008 dirilis di bawah lisensi Apache-2.0. Teks lisensi lengkap tersedia di [repositori proyek](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Lisensi Apache 2.0 hanya diterbitkan dalam bahasa Inggris; hanya teks bahasa Inggris yang mengikat secara hukum. Dokumentasi di pacs008.com disediakan di bawah lisensi yang sama kecuali dinyatakan lain.
 
 ## Penggunaan yang dapat diterima
 
@@ -16823,7 +16959,7 @@ ${t.termsIpText}
 
 ## สัญญาอนุญาตโอเพนซอร์ส
 
-ชุดเครื่องมือ pacs008 สำหรับ Python เผยแพร่ภายใต้สัญญาอนุญาต MIT ข้อความสัญญาอนุญาตฉบับเต็มอยู่ใน[ที่เก็บซอร์สของโปรเจกต์](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE) สัญญาอนุญาต MIT อนุญาตให้ใช้งาน แก้ไข และแจกจ่ายโดยมีข้อจำกัดน้อยที่สุด ต้องระบุแหล่งที่มาของผู้เขียนต้นฉบับ เอกสารบน pacs008.com จัดทำภายใต้สัญญาอนุญาตเดียวกัน เว้นแต่จะระบุไว้เป็นอย่างอื่น
+ชุดเครื่องมือ pacs008 สำหรับ Python เผยแพร่ภายใต้สัญญาอนุญาต Apache-2.0 ข้อความสัญญาอนุญาตฉบับเต็มอยู่ใน[ที่เก็บซอร์สของโปรเจกต์](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE) สัญญาอนุญาต Apache 2.0 เผยแพร่เป็นภาษาอังกฤษเท่านั้น เฉพาะข้อความภาษาอังกฤษเท่านั้นที่มีผลผูกพันทางกฎหมาย เอกสารบน pacs008.com จัดทำภายใต้สัญญาอนุญาตเดียวกัน เว้นแต่จะระบุไว้เป็นอย่างอื่น
 
 ## การใช้งานที่ยอมรับได้
 
@@ -16873,7 +17009,7 @@ ${t.termsIpText}
 
 ## Açık kaynak lisansı
 
-pacs008 Python araç takımı MIT lisansı altında yayımlanmıştır. Lisansın tam metni [proje deposunda](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE) mevcuttur. MIT lisansı minimum kısıtlamalarla kullanım, değişiklik ve dağıtıma izin verir. Orijinal yazarın atfedilmesi zorunludur. pacs008.com üzerindeki belgeler, aksi belirtilmedikçe aynı lisans kapsamında sunulmaktadır.
+pacs008 Python araç takımı Apache-2.0 lisansı altında yayımlanmıştır. Lisansın tam metni [proje deposunda](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE) mevcuttur. Apache Lisansı 2.0 yalnızca İngilizce olarak yayımlanır; hukuken bağlayıcı olan tek metin İngilizce metindir. pacs008.com üzerindeki belgeler, aksi belirtilmedikçe aynı lisans kapsamında sunulmaktadır.
 
 ## Kabul edilebilir kullanım
 
@@ -16923,7 +17059,7 @@ ${t.termsIpText}
 
 ## Ліцензія з відкритим кодом
 
-Інструментарій pacs008 для Python випущено за ліцензією MIT. Повний текст ліцензії доступний у [репозиторії проєкту](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Ліцензія MIT дозволяє використання, модифікацію та розповсюдження з мінімальними обмеженнями. Зазначення авторства оригінального автора є обов'язковим. Документація на pacs008.com надається за тією самою ліцензією, якщо не зазначено інше.
+Інструментарій pacs008 для Python випущено за ліцензією Apache-2.0. Повний текст ліцензії доступний у [репозиторії проєкту](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Ліцензія Apache 2.0 публікується лише англійською мовою; юридично обов'язковою є лише англійська версія. Документація на pacs008.com надається за тією самою ліцензією, якщо не зазначено інше.
 
 ## Допустиме використання
 
@@ -16973,7 +17109,7 @@ ${t.termsIpText}
 
 ## Giấy phép mã nguồn mở
 
-Bộ công cụ pacs008 cho Python được phát hành theo giấy phép MIT. Toàn văn giấy phép có sẵn trong [kho mã của dự án](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Giấy phép MIT cho phép sử dụng, sửa đổi và phân phối với các hạn chế tối thiểu. Bắt buộc ghi nhận tác giả gốc. Tài liệu trên pacs008.com được cung cấp theo cùng giấy phép trừ khi có ghi chú khác.
+Bộ công cụ pacs008 cho Python được phát hành theo giấy phép Apache-2.0. Toàn văn giấy phép có sẵn trong [kho mã của dự án](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Giấy phép Apache 2.0 chỉ được công bố bằng tiếng Anh; chỉ bản tiếng Anh mới có giá trị pháp lý ràng buộc. Tài liệu trên pacs008.com được cung cấp theo cùng giấy phép trừ khi có ghi chú khác.
 
 ## Sử dụng được chấp nhận
 
@@ -17923,11 +18059,11 @@ ${t.structuredAddressWhatText}
 - ${t.structuredAddressHow3}
 - ${t.structuredAddressHow4}
 
+${addressRuleTable()}
+
 ## ${t.structuredAddressTimelineTitle}
 
-- ${t.structuredAddressTimeline1}
-- ${t.structuredAddressTimeline2}
-- ${t.structuredAddressTimeline3}
+${milestoneTable()}
 
 ## ${t.structuredAddressActionTitle}
 

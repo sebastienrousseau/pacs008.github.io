@@ -24,7 +24,7 @@ Tất cả nội dung trên pacs008.com, bao gồm văn bản, đồ họa, logo
 
 ## Giấy phép mã nguồn mở
 
-Bộ công cụ pacs008 cho Python được phát hành theo giấy phép MIT. Toàn văn giấy phép có sẵn trong [kho mã của dự án](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Giấy phép MIT cho phép sử dụng, sửa đổi và phân phối với các hạn chế tối thiểu. Bắt buộc ghi nhận tác giả gốc. Tài liệu trên pacs008.com được cung cấp theo cùng giấy phép trừ khi có ghi chú khác.
+Bộ công cụ pacs008 cho Python được phát hành theo giấy phép Apache-2.0. Toàn văn giấy phép có sẵn trong [kho mã của dự án](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Giấy phép Apache 2.0 chỉ được công bố bằng tiếng Anh; chỉ bản tiếng Anh mới có giá trị pháp lý ràng buộc. Tài liệu trên pacs008.com được cung cấp theo cùng giấy phép trừ khi có ghi chú khác.
 
 ## Sử dụng được chấp nhận
 

@@ -1,5 +1,5 @@
 ---
-title: "pacs008 | ISO 20022 Payment Message Toolkit and API"
+title: "Otomatisasi pemrosesan pesan pacs.008 ISO 20022 | pacs008"
 description: "Pembuatan, validasi, orkestrasi API, dan dukungan kepatuhan untuk alur transfer kredit pelanggan antar lembaga keuangan."
 lang: "id-ID"
 author: "Sebastien Rousseau"
