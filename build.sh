@@ -7,6 +7,9 @@ SERVE=0
 
 echo "Preparing build content..."
 
+# Synchronize canonical manifest facts
+node scripts/generate-manifest-facts.mjs
+
 # Regenerate locale content
 node scripts/generate-locales.mjs
 

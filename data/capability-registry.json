@@ -1,0 +1,44 @@
+{
+  "capabilities": {
+    "layer_0_input_safety": {
+      "name": "Input Safety & Parsing (Layer 0)",
+      "python": "stable", "cli": "stable", "rest": "stable", "browser": "stable"
+    },
+    "layer_1_input_schema": {
+      "name": "Input Schema Validation (Layer 1)",
+      "python": "stable", "cli": "stable", "rest": "stable", "browser": "stable"
+    },
+    "layer_2_identifiers_formats": {
+      "name": "IBAN & BIC Format Verification (Layer 2)",
+      "python": "stable", "cli": "stable", "rest": "stable", "browser": "stable"
+    },
+    "layer_3_xml_syntax_ns": {
+      "name": "XML Syntax & Namespace Validation (Layer 3)",
+      "python": "stable", "cli": "stable", "rest": "stable", "browser": "stable"
+    },
+    "layer_4_xsd_structural": {
+      "name": "XSD Sequence & Cardinality Checks (Layer 4)",
+      "python": "stable", "cli": "stable", "rest": "stable", "browser": "stable"
+    },
+    "layer_5_scheme_cbpr_plus": {
+      "name": "SWIFT CBPR+ 2026 Profile Rules (Layer 5)",
+      "python": "stable", "cli": "stable", "rest": "stable", "browser": "stable"
+    },
+    "layer_5_scheme_chaps": {
+      "name": "Bank of England CHAPS Mandates (Layer 5)",
+      "python": "stable", "cli": "stable", "rest": "stable", "browser": "stable"
+    },
+    "layer_6_effective_dates": {
+      "name": "14 Nov 2026 Effective Date Rules (Layer 6)",
+      "python": "stable", "cli": "stable", "rest": "stable", "browser": "stable"
+    }
+  },
+  "schemes": [
+    { "id": "cbpr-plus", "name": "SWIFT CBPR+", "status": "stable", "effective_date": "2026-11-14" },
+    { "id": "chaps-uk", "name": "Bank of England CHAPS", "status": "stable", "effective_date": "2026-11-14" },
+    { "id": "t2-rtgs", "name": "Eurosystem T2 RTGS", "status": "stable", "effective_date": "2026-11-14" },
+    { "id": "fedwire", "name": "US Federal Reserve Fedwire", "status": "stable", "effective_date": "2025-03-10" },
+    { "id": "hvps-plus", "name": "HVPS+ High-Value Payments", "status": "stable", "effective_date": "2026-11-14" },
+    { "id": "sct-inst", "name": "SEPA Instant Credit Transfer", "status": "stable", "effective_date": "2025-01-01" }
+  ]
+}

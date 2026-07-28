@@ -1,0 +1,31 @@
+{
+  "sources": [
+    {
+      "id": "SWIFT-ADDR-2026",
+      "publisher": "S.W.I.F.T. SC",
+      "title": "SWIFT CBPR+ Removal of Unstructured Address Guidelines",
+      "url": "https://www.swift.com/standards/iso-20022/removal-unstructured-address",
+      "effective_date": "2026-11-14",
+      "verified_at": "2026-07-28",
+      "scope": "CBPR+ Cross-Border Credit Transfers (pacs.008, pacs.009)"
+    },
+    {
+      "id": "BOE-CHAPS-2026",
+      "publisher": "Bank of England",
+      "title": "Policy Statement — Mandating ISO 20022 Enhanced Data in CHAPS",
+      "url": "https://www.bankofengland.co.uk/paper/2024/policy-statement/mandating-iso-20022-enhanced-data-in-chaps",
+      "effective_date": "2026-11-14",
+      "verified_at": "2026-07-28",
+      "scope": "CHAPS High-Value Payment System (pacs.008, pacs.009)"
+    },
+    {
+      "id": "ISO-20022-PACS008-13",
+      "publisher": "ISO 20022 Registration Authority",
+      "title": "Financial Innovation & Transfer — pacs.008.001.13 Message Definition",
+      "url": "https://www.iso20022.org/iso-20022-message-definitions",
+      "effective_date": "2025-01-01",
+      "verified_at": "2026-07-28",
+      "scope": "Base pacs.008.001.13 Credit Transfer Transaction 70"
+    }
+  ]
+}

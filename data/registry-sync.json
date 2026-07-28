@@ -1,0 +1,9 @@
+{
+  "version": "0.0.8",
+  "ruleset": "2026.11.0",
+  "license": "Apache-2.0 / MIT Dual License",
+  "python_min": "3.10",
+  "verification_date": "2026-07-28",
+  "schemes_count": 6,
+  "sources_count": 3
+}
