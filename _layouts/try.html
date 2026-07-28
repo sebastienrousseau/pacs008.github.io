@@ -130,7 +130,6 @@
 
       .tool-col { display: flex; flex-direction: column; gap: 2rem; }
 
-      /* ==== 2-Column Split Workbench Layout (Input Left | Output Right) ==== */
       .demo-grid {
         display: grid;
         grid-template-columns: 1fr 1.1fr;
@@ -165,7 +164,11 @@
       .editor-label { font-size: 0.85rem; font-weight: 700; color: var(--ink); display: block; margin-bottom: 0.5rem; }
       #csv-input { width: 100%; height: 180px; font-family: var(--type-mono); font-size: 0.85rem; padding: 0.85rem; border: 1px solid var(--rule-strong); border-radius: var(--radius-sm); background: var(--bg-page); color: var(--ink); }
 
-      .xml-out { background: var(--code-bg); color: var(--code-text); padding: 1.25rem; border-radius: var(--radius-sm); font-family: var(--type-mono); font-size: 0.82rem; line-height: 1.5; height: 260px; overflow: auto; white-space: pre-wrap; word-break: break-all; margin-top: 1rem; border: 1px solid var(--rule); }
+      .error-table-wrap { margin-top: 1rem; overflow-x: auto; border: 1px solid var(--rule); border-radius: var(--radius-sm); }
+      .error-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; font-family: var(--type-mono); text-align: left; }
+      .error-table th { background: var(--bg-alt); padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--rule-strong); color: var(--ink-mute); font-weight: 700; text-transform: uppercase; font-size: 0.72rem; }
+
+      .xml-out { background: var(--code-bg); color: var(--code-text); padding: 1.25rem; border-radius: var(--radius-sm); font-family: var(--type-mono); font-size: 0.82rem; line-height: 1.5; height: 240px; overflow: auto; white-space: pre-wrap; word-break: break-all; margin-top: 1rem; border: 1px solid var(--rule); }
       .xml-placeholder { color: var(--ink-mute); font-style: italic; }
       .status { font-weight: 600; font-size: 0.9rem; color: var(--ink-soft); margin-top: 0.5rem; }
 
@@ -205,7 +208,7 @@
         <div class="wrap">
           <p class="eyebrow">Interactive Browser Demo</p>
           <h1>Try pacs008 in Your Browser</h1>
-          <p class="deck">Drop in a CSV, use the sample, or paste your own records — validation runs instantly, entirely in your browser, zero payload storage.</p>
+          <p class="deck">Drop in a CSV, use the sample, or paste your own records — payment payloads are processed locally by your browser and are not transmitted to pacs008.com. Follow your organization's data-handling policy and use synthetic or masked test data where required.</p>
         </div>
       </header>
 
@@ -215,17 +218,17 @@
             <h2>How this validator helps you</h2>
             <ul class="check-list">
               <li><span class="tick" aria-hidden="true">✓</span><span>Test payment data against the checks banks apply — required fields, IBAN checksums, BIC structure, control totals</span></li>
-              <li><span class="tick" aria-hidden="true">✓</span><span>Generate a working <code>pacs.008.001.13</code> credit-transfer file you can inspect, copy, or download</span></li>
-              <li><span class="tick" aria-hidden="true">✓</span><span>Prove the result against the official ISO 20022 schema — the genuine XSD, validated in your browser</span></li>
+              <li><span class="tick" aria-hidden="true">✓</span><span>Generate a working <code>pacs.008.001.13</code> credit-transfer file with mandatory <code>ChrgBr</code> elements</span></li>
+              <li><span class="tick" aria-hidden="true">✓</span><span>Validate ISO 13616 IBAN mod-97 and ISO 9362 BIC structures directly in your browser</span></li>
             </ul>
           </div>
           <div class="guide-block">
             <h2>Important information</h2>
             <ul class="info-list">
-              <li><strong>Nothing is uploaded.</strong> Your file is read by your own browser and never leaves your machine — there is no server, no storage, no telemetry. Safe for real data.</li>
+              <li><strong>Local processing only.</strong> Payment payloads are processed locally by this page and are not transmitted to pacs008.com. Zero payment-payload storage.</li>
               <li><strong>Testing tool only.</strong> Files are never submitted for processing and no payments can result from anything you do here.</li>
-              <li><strong>Expected columns:</strong> <code>payment_id</code>, <code>payment_amount</code>, <code>currency</code>, debtor and creditor name / IBAN / BIC. Download a sample below.</li>
-              <li><strong>No charges.</strong> This tool, and the full toolchain behind it, are free and open source.</li>
+              <li><strong>Expected columns:</strong> <code>id</code>, <code>payment_id</code>, <code>payment_amount</code>, <code>currency</code>, <code>requested_execution_date</code>, debtor &amp; creditor name / IBAN / BIC.</li>
+              <li><strong>Dual-licensed.</strong> Core toolkit is dual-licensed under Apache-2.0 and MIT.</li>
             </ul>
           </div>
         </aside>
@@ -261,10 +264,20 @@
             <section class="demo-panel">
               <div class="step-head"><span class="step-num" aria-hidden="true">2</span><h2>Validation result &amp; generated pacs.008 XML</h2></div>
               <p class="status" id="status" role="status">Add data in step 1 — validation runs automatically.</p>
+              <div class="error-table-wrap" id="error-table-wrap" hidden>
+                <table class="error-table">
+                  <thead>
+                    <tr><th>Row</th><th>Column</th><th>Rule</th><th>Value</th><th>Message</th></tr>
+                  </thead>
+                  <tbody id="error-tbody"></tbody>
+                </table>
+                <p style="font-size:0.8rem; color:var(--ink-mute); padding:0.4rem;" id="error-overflow" hidden></p>
+              </div>
               <div class="xml-out" id="xml-out"><span class="xml-placeholder">The validated pacs.008.001.13 document will appear here — add data in step 1.</span></div>
               <div class="demo-actions">
                 <button type="button" id="copy-btn" class="pill pill-ghost" disabled>Copy XML</button>
                 <button type="button" id="download-btn" class="pill pill-ghost" disabled>Download .xml</button>
+                <button type="button" id="report-btn" class="pill pill-ghost" hidden>Download error report (.csv)</button>
               </div>
             </section>
           </div>
@@ -274,7 +287,7 @@
 
     <footer class="footer">
       <div class="wrap">
-        <p>&copy; 2023&ndash;2026 Sebastien Rousseau &middot; <a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a> &middot; <a href="/">pacs008.com</a></p>
+        <p>&copy; 2023&ndash;2026 Sebastien Rousseau &middot; Dual-licensed Apache-2.0 / MIT &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/terms/">Terms of Use</a> &middot; <a href="/">pacs008.com</a></p>
       </div>
     </footer>
 

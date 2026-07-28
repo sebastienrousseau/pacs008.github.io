@@ -1,8 +1,8 @@
 /* pacs008 browser demo — page wiring.
- * Adapted 1-to-1 from pain001 try-page.js benchmark.
+ * Connects validation engine, error findings table, and XML generator.
  */
 
-import { parseCsv, toXml, SAMPLES } from "./try-demo.js";
+import { parseCsv, validateRecords, toXml, errorReportCsv, SAMPLES } from "./try-demo.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const dropzone = document.getElementById("dropzone");
@@ -13,29 +13,87 @@ document.addEventListener("DOMContentLoaded", () => {
   const csvInput = document.getElementById("csv-input");
   const runBtn = document.getElementById("run-btn");
   const statusEl = document.getElementById("status");
+  const tableWrap = document.getElementById("error-table-wrap");
+  const tbody = document.getElementById("error-tbody");
+  const overflow = document.getElementById("error-overflow");
   const xmlOut = document.getElementById("xml-out");
   const copyBtn = document.getElementById("copy-btn");
   const downloadBtn = document.getElementById("download-btn");
+  const reportBtn = document.getElementById("report-btn");
 
   let currentXml = "";
+  let currentFindings = [];
+
+  function showFindings(findings) {
+    if (!tbody || !tableWrap) return;
+    tbody.innerHTML = "";
+    if (findings.length === 0) {
+      tableWrap.hidden = true;
+      if (overflow) overflow.hidden = true;
+      return;
+    }
+    findings.slice(0, 50).forEach((f) => {
+      const tr = document.createElement("tr");
+      const cells = [f.row, f.column, f.rule, f.value, f.message];
+      cells.forEach((val) => {
+        const td = document.createElement("td");
+        td.textContent = val === undefined || val === "" ? "—" : String(val);
+        td.style.padding = "0.4rem 0.6rem";
+        td.style.borderBottom = "1px solid var(--rule)";
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+    tableWrap.hidden = false;
+    if (overflow) {
+      const rest = findings.length - 50;
+      overflow.hidden = rest <= 0;
+      if (rest > 0) overflow.textContent = `…and ${rest} more — download the full error report below.`;
+    }
+  }
 
   function processCsvText(text) {
-    csvInput.value = text;
-    editorBlock.hidden = false;
-    const { rows } = parseCsv(text);
-    if (rows.length > 0) {
-      currentXml = toXml(rows);
-      xmlOut.textContent = currentXml;
-      statusEl.textContent = `✅ Successfully validated ${rows.length} transaction(s) and generated pacs.008.001.13 XML.`;
-      statusEl.style.color = "var(--ok)";
-      copyBtn.disabled = false;
-      downloadBtn.disabled = false;
+    if (csvInput) csvInput.value = text;
+    if (editorBlock) editorBlock.hidden = false;
+
+    const { headers, rows } = parseCsv(text);
+    if (rows.length === 0) {
+      if (xmlOut) xmlOut.textContent = "No valid records found in CSV input.";
+      if (statusEl) {
+        statusEl.textContent = "❌ Error: CSV contains no records.";
+        statusEl.style.color = "var(--bad)";
+      }
+      if (copyBtn) copyBtn.disabled = true;
+      if (downloadBtn) downloadBtn.disabled = true;
+      if (reportBtn) reportBtn.hidden = true;
+      showFindings([{ row: 0, column: "file", rule: "empty-file", value: "", message: "File is empty or contains no records" }]);
+      return;
+    }
+
+    const findings = validateRecords(headers, rows);
+    currentFindings = findings;
+    showFindings(findings);
+
+    if (findings.length > 0) {
+      currentXml = "";
+      if (xmlOut) xmlOut.textContent = "Validation failed. Please resolve the findings above to generate pacs.008.001.13 XML.";
+      if (statusEl) {
+        statusEl.textContent = `❌ Validation Failed: ${findings.length} issue(s) detected across ${rows.length} record(s).`;
+        statusEl.style.color = "var(--bad)";
+      }
+      if (copyBtn) copyBtn.disabled = true;
+      if (downloadBtn) downloadBtn.disabled = true;
+      if (reportBtn) reportBtn.hidden = false;
     } else {
-      xmlOut.textContent = "No valid records found in CSV input.";
-      statusEl.textContent = "⚠️ Please provide valid CSV data.";
-      statusEl.style.color = "var(--bad)";
-      copyBtn.disabled = true;
-      downloadBtn.disabled = true;
+      currentXml = toXml(rows);
+      if (xmlOut) xmlOut.textContent = currentXml;
+      if (statusEl) {
+        statusEl.textContent = `✅ Successfully validated ${rows.length} transaction(s) against IBAN, BIC, date, amount, and structural rules.`;
+        statusEl.style.color = "var(--ok)";
+      }
+      if (copyBtn) copyBtn.disabled = false;
+      if (downloadBtn) downloadBtn.disabled = false;
+      if (reportBtn) reportBtn.hidden = true;
     }
   }
 
@@ -77,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (pasteBtn) {
     pasteBtn.addEventListener("click", () => {
-      editorBlock.hidden = false;
+      if (editorBlock) editorBlock.hidden = false;
       if (csvInput) csvInput.focus();
     });
   }
@@ -108,6 +166,21 @@ document.addEventListener("DOMContentLoaded", () => {
         const a = document.createElement("a");
         a.href = url;
         a.download = "pacs.008.001.13-payment.xml";
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+    });
+  }
+
+  if (reportBtn) {
+    reportBtn.addEventListener("click", () => {
+      if (currentFindings.length > 0) {
+        const csv = errorReportCsv(currentFindings);
+        const blob = new Blob([csv], { type: "text/csv" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "pacs008-validation-report.csv";
         a.click();
         URL.revokeObjectURL(url);
       }
