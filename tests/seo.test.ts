@@ -40,6 +40,30 @@ describe("SEO: sitemap", () => {
     expect(sitemap).toContain("<loc>https://pacs008.com/</loc>");
   });
 
+  // Regression: ssg derives its sitemap from cache written by a previous
+  // build, so on a cold build — CI, and every production deploy — it emitted
+  // an empty <urlset> and the live sitemap listed none of the site's pages.
+  // It is now generated from the built tree in build.sh.
+  it("sitemap should list substantially all built pages", () => {
+    const sitemap = readFileSync(sitemapPath, "utf-8");
+    const urls = (sitemap.match(/<url>/g) || []).length;
+    expect(urls, "sitemap is empty or truncated").toBeGreaterThan(500);
+  });
+
+  it("sitemap should carry hreflang alternates for translated pages", () => {
+    const sitemap = readFileSync(sitemapPath, "utf-8");
+    expect(sitemap).toContain("xmlns:xhtml");
+    expect(sitemap).toContain('hreflang="x-default"');
+    expect(sitemap).toMatch(/<xhtml:link rel="alternate" hreflang="fr"/);
+  });
+
+  it("every sitemap URL should be absolute and end with a slash", () => {
+    const sitemap = readFileSync(sitemapPath, "utf-8");
+    const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+    const bad = locs.filter((u) => !u.startsWith("https://pacs008.com/") || !u.endsWith("/"));
+    expect(bad.slice(0, 5)).toEqual([]);
+  });
+
   it("sitemap should be well-formed enough to have matching urlset tags", () => {
     const sitemap = readFileSync(sitemapPath, "utf-8");
     expect(sitemap).toContain("<urlset");

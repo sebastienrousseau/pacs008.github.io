@@ -35,6 +35,11 @@ ssg -n=pacs008 -c=docs_build -t=_layouts -o=public -f=config.toml
 # Repair escaped head metas & body HTML fragments emitted by ssg
 node scripts/fix-ssg-html.mjs
 
+# Rebuild sitemap.xml from the pages that actually shipped.
+# ssg's own sitemap depends on cache state from a previous build and comes out
+# empty on a cold build, which is what CI and every deploy do.
+node scripts/generate-sitemap.mjs
+
 # Copy static assets to output directory
 if [ -d static ]; then
   cp -R static/* public/ 2>/dev/null || true
