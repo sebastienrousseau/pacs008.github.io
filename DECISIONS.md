@@ -109,3 +109,49 @@ Both record "declare out of scope" as a legitimate outcome, and both are
 blocked on the same schema-redistribution question as D-003. Until one of them
 is decided, the website continues to state `camt.*` and `pain.*` as not
 implemented, which is the accurate position either way.
+
+---
+
+## D-004 — Builds always start from an empty output directory
+
+**Date:** 2026-07-29
+**Status:** Accepted
+
+### What went wrong
+
+`sitemap.xml` shipped empty to production. ssg derives it from metadata cached
+in `public/.meta` and `public/.ssg-cache` by a previous build. Locally that
+cache persisted across builds, so the sitemap held 680 URLs and looked correct.
+CI and every deploy build from a fresh checkout, where the cache does not
+exist, and ssg emitted `<urlset></urlset>`.
+
+The defect was invisible locally because local builds exercised a code path
+production never takes.
+
+### Decision
+
+`build.sh` removes `public/` before every build. Local and CI now run the same
+path by construction rather than by remembering to check.
+
+This is also faster, not slower: about 12 seconds against 57. Reconciling the
+cache across 680 pages costs more than regenerating them, so nothing is being
+traded away.
+
+### Supporting checks
+
+- `scripts/check-build-artifacts.mjs` runs at the end of every build and fails
+  on degenerate output — floors for page count, sitemap URLs, hreflang
+  alternates, feed entries, search index size and hashed CSS assets. Existence
+  checks would not have caught the empty sitemap, because the file existed and
+  parsed. Only a threshold does.
+- `npm run verify` runs the full CI gate in one command: clean build, tests,
+  locale validation, compliance audit.
+- Three sitemap regression tests, each verified to fail against the empty
+  sitemap ssg produced.
+
+### Why the floors are low
+
+They are set well below current values — 600 pages against 680, 100 alternates
+against 19,488. They exist to catch collapse, not drift. A floor tight enough
+to catch a content change would be tripped by ordinary work and would get
+raised until it meant nothing.

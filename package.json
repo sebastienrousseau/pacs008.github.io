@@ -10,7 +10,8 @@
     "audit": "ssg audit -f config.toml",
     "validate": "html-validate 'public/**/*.html'",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "verify": "./build.sh && npm test && node scripts/validate-all-locales.mjs && node scripts/audit-full-compliance.mjs"
   },
   "devDependencies": {
     "axe-core": "4.12.1",

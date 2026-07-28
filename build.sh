@@ -5,6 +5,19 @@ set -euo pipefail
 SERVE=0
 [[ "${1:-}" == "--serve" ]] && SERVE=1
 
+# Always build from an empty output directory.
+#
+# CI and every production deploy build from a fresh checkout, so public/ never
+# exists there. Building locally on top of a previous public/ meant local runs
+# exercised a code path production never takes — which is how an empty
+# sitemap.xml shipped: ssg derives it from cache in public/.meta and
+# public/.ssg-cache, so it looked correct locally and came out empty in CI.
+#
+# Removing the cache is also 5x faster (about 12s versus 57s): reconciling the
+# cache across 680 pages costs more than regenerating them.
+echo "Removing previous output for a clean build..."
+rm -rf public
+
 echo "Preparing build content..."
 
 # Synchronize canonical manifest facts
@@ -47,6 +60,9 @@ fi
 
 # Clean up temporary build directory
 rm -rf docs_build
+
+# Fail if any generated artefact came out degenerate
+node scripts/check-build-artifacts.mjs
 
 echo "Site successfully built with ssg."
 
