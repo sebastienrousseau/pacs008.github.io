@@ -20,7 +20,7 @@ Iṣẹ́ náà pèsè REST API àti CLI fún àwọn ọ̀nà iṣẹ́ ìṣà
 
 ## Ìgbékalẹ̀
 
-Fi àpò náà sórí ẹ̀rọ láti PyPI. Ó nílò Python 3.9.2 tàbí tí ó tẹ̀lé e.
+Fi àpò náà sórí ẹ̀rọ láti PyPI. Ó nílò Python 3.10 tàbí tí ó tẹ̀lé e.
 
 ```bash
 python -m pip install pacs008
@@ -54,35 +54,35 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
     </thead>
     <tbody>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /health</code></td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/health</code></td>
           <td class="api-endpoints-table__desc">Àyẹ̀wò ìlera — ó dá ipò iṣẹ́ padà</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>POST /validate</code></td>
+          <td class="api-endpoints-table__endpoint"><code>POST /api/validate</code></td>
           <td class="api-endpoints-table__desc">Ṣàyẹ̀wò dátà ìsanwó lòdì sí ètò láìṣẹ̀dá XML</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>POST /generate</code></td>
+          <td class="api-endpoints-table__endpoint"><code>POST /api/generate</code></td>
           <td class="api-endpoints-table__desc">Ṣẹ̀dá XML ní àkókò kan náà kí o sì dá fáìlì padà</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>POST /generate/async</code></td>
+          <td class="api-endpoints-table__endpoint"><code>POST /api/generate/async</code></td>
           <td class="api-endpoints-table__desc">Fi iṣẹ́ ṣíṣẹ̀dá aládàáṣe sílẹ̀</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /status/{job_id}</code></td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/status/{job_id}</code></td>
           <td class="api-endpoints-table__desc">Ṣàyẹ̀wò ipò iṣẹ́ nípasẹ̀ ID</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /download/{job_id}</code></td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/download/{job_id}</code></td>
           <td class="api-endpoints-table__desc">Gbà XML tí a ṣẹ̀dá sílẹ̀ lẹ́yìn tí iṣẹ́ bá parí</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>DELETE /jobs/{job_id}</code></td>
+          <td class="api-endpoints-table__endpoint"><code>DELETE /api/jobs/{job_id}</code></td>
           <td class="api-endpoints-table__desc">Fagilee iṣẹ́ tí ó ń dúró de tàbí tí ó ń ṣiṣẹ́</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /docs</code></td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/docs</code></td>
           <td class="api-endpoints-table__desc">Swagger UI aládàáṣe fún ṣíṣàwárí àti dídán gbogbo àwọn ọ̀nà ìparí wò</td>
         </tr>
     </tbody>

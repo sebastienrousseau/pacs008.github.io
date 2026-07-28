@@ -24,7 +24,7 @@ pacs008.com neshromažďuje osobní údaje. Web nepoužívá cookies ani sledova
 
 ## Analytika
 
-Analytické služby třetích stran mohou shromažďovat anonymní souhrnná data, jako jsou zobrazení stránek a odkazující URL. Tato data nelze použít k identifikaci jednotlivých návštěvníků.
+pacs008.com nepoužívá analytické služby. Na žádné stránce se nenačítá analytická služba a nezaznamenávají se zobrazení stránek, odkazující URL ani události používání. Všechny skripty jsou poskytovány přímo z pacs008.com a Content-Security-Policy omezuje script-src a connect-src na 'self', takže analytickou službu třetí strany nelze načíst.
 
 ## Vaše práva
 

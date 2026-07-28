@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{lang}}">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -23,7 +23,7 @@
     {{microsoft}}
     {{twitter}}
 
-    <link rel="alternate" href="{{url}}" hreflang="{{hreflang}}" />
+    <!-- hreflang alternates are injected per page by scripts/fix-ssg-html.mjs -->
     <link rel="canonical" href="{{url}}" />
     <link rel="icon" type="image/svg+xml" href="/pacs008/v1/logos/pacs008.svg" sizes="any" />
     <link rel="preload" href="/fonts/source-serif-4-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
@@ -228,7 +228,7 @@
               <li><strong>Local processing only.</strong> Payment payloads are processed locally by this page and are not transmitted to pacs008.com. Zero payment-payload storage.</li>
               <li><strong>Testing tool only.</strong> Files are never submitted for processing and no payments can result from anything you do here.</li>
               <li><strong>Expected columns:</strong> <code>id</code>, <code>payment_id</code>, <code>payment_amount</code>, <code>currency</code>, <code>requested_execution_date</code>, debtor &amp; creditor name / IBAN / BIC.</li>
-              <li><strong>Dual-licensed.</strong> Core toolkit is dual-licensed under Apache-2.0 and MIT.</li>
+              <li><strong>Open source.</strong> Core toolkit is released under the Apache License 2.0.</li>
             </ul>
           </div>
         </aside>
@@ -287,7 +287,7 @@
 
     <footer class="footer">
       <div class="wrap">
-        <p>&copy; 2023&ndash;2026 Sebastien Rousseau &middot; Dual-licensed Apache-2.0 / MIT &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/terms/">Terms of Use</a> &middot; <a href="/">pacs008.com</a></p>
+        <p>&copy; 2023&ndash;2026 Sebastien Rousseau &middot; Apache-2.0 &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/terms/">Terms of Use</a> &middot; <a href="/">pacs008.com</a></p>
       </div>
     </footer>
 

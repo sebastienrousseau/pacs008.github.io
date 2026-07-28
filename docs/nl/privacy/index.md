@@ -24,7 +24,7 @@ pacs008.com verzamelt geen persoonlijke gegevens. De website maakt geen gebruik 
 
 ## Analyse
 
-Analyseservices van derden kunnen geanonimiseerde, geaggregeerde gegevens verzamelen, zoals paginaweergaven en verwijzende URL's. Deze gegevens kunnen niet worden gebruikt om individuele bezoekers te identificeren.
+pacs008.com gebruikt geen analysediensten. Op geen enkele pagina wordt een analysedienst geladen en er worden geen paginaweergaven, verwijzende URL's of gebruiksgebeurtenissen vastgelegd. Alle scripts worden door pacs008.com zelf geserveerd en de Content-Security-Policy beperkt script-src en connect-src tot 'self', waardoor een analysedienst van derden niet kan worden geladen.
 
 ## Uw rechten
 

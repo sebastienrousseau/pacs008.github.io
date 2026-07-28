@@ -24,7 +24,7 @@ pacs008.com 上的所有內容，包括文字、圖形、標誌和軟體，均�
 
 ## 開源授權
 
-pacs008 Python 工具組在 MIT 授權下發布。完整的授權文字可在[專案儲存庫](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE)中查閱。MIT 授權允許在最低限制下使用、修改和散布。需註明原始作者。pacs008.com 上的文件在相同授權下提供，除非另有說明。
+pacs008 Python 工具組在 Apache-2.0 授權下發布。完整的授權文字可在[專案儲存庫](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE)中查閱。Apache License 2.0 僅以英文發布；僅英文文本具有法律拘束力。pacs008.com 上的文件在相同授權下提供，除非另有說明。
 
 ## 可接受使用
 

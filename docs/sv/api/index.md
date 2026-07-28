@@ -20,7 +20,7 @@ Projektet tillhandahåller både ett REST-API och CLI för operativa arbetsflöd
 
 ## Installation
 
-Installera paketet från PyPI. Kräver Python 3.9.2 eller senare.
+Installera paketet från PyPI. Kräver Python 3.10 eller senare.
 
 ```bash
 python -m pip install pacs008
@@ -54,35 +54,35 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
     </thead>
     <tbody>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /health</code></td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/health</code></td>
           <td class="api-endpoints-table__desc">Hälsokontroll — returnerar tjänstens status</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>POST /validate</code></td>
+          <td class="api-endpoints-table__endpoint"><code>POST /api/validate</code></td>
           <td class="api-endpoints-table__desc">Validera betalningsdata mot schema utan att generera XML</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>POST /generate</code></td>
+          <td class="api-endpoints-table__endpoint"><code>POST /api/generate</code></td>
           <td class="api-endpoints-table__desc">Generera XML synkront och returnera filen</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>POST /generate/async</code></td>
+          <td class="api-endpoints-table__endpoint"><code>POST /api/generate/async</code></td>
           <td class="api-endpoints-table__desc">Skicka in ett asynkront genereringsjobb</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /status/{job_id}</code></td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/status/{job_id}</code></td>
           <td class="api-endpoints-table__desc">Kontrollera jobbstatus med ID</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /download/{job_id}</code></td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/download/{job_id}</code></td>
           <td class="api-endpoints-table__desc">Ladda ner genererad XML efter att jobbet är klart</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>DELETE /jobs/{job_id}</code></td>
+          <td class="api-endpoints-table__endpoint"><code>DELETE /api/jobs/{job_id}</code></td>
           <td class="api-endpoints-table__desc">Avbryt ett väntande eller pågående jobb</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /docs</code></td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/docs</code></td>
           <td class="api-endpoints-table__desc">Interaktivt Swagger UI för att utforska och testa alla ändpunkter</td>
         </tr>
     </tbody>

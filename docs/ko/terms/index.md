@@ -24,7 +24,7 @@ pacs008.com에 접속함으로써 귀하는 본 이용 약관에 동의하게 �
 
 ## 오픈소스 라이선스
 
-pacs008 Python 툴킷은 MIT 라이선스로 배포됩니다. 전체 라이선스 텍스트는 [프로젝트 저장소](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE)에서 확인할 수 있습니다. MIT 라이선스는 최소한의 제한으로 사용, 수정 및 배포를 허용합니다. 원저작자에 대한 귀속 표시가 필요합니다. pacs008.com의 문서는 별도로 명시되지 않는 한 동일한 라이선스에 따라 제공됩니다.
+pacs008 Python 툴킷은 Apache-2.0 라이선스로 배포됩니다. 전체 라이선스 텍스트는 [프로젝트 저장소](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE)에서 확인할 수 있습니다. Apache License 2.0은 영어로만 공개되며, 법적 구속력을 갖는 것은 영문본뿐입니다. pacs008.com의 문서는 별도로 명시되지 않는 한 동일한 라이선스에 따라 제공됩니다.
 
 ## 허용되는 사용
 

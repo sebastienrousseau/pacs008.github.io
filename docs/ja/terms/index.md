@@ -24,7 +24,7 @@ pacs008.comにアクセスすることにより、本利用規約に拘束され
 
 ## オープンソースライセンス
 
-pacs008 Python ツールキットは MIT ライセンスの下で公開されています。ライセンス全文は[プロジェクトリポジトリ](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE)でご確認いただけます。MIT ライセンスは最小限の制約の下で使用、変更、再配布を許可します。原作者への帰属表示が必要です。pacs008.com 上のドキュメントも、特に断りがない限り同一ライセンスで提供されます。
+pacs008 Python ツールキットは Apache-2.0 ライセンスの下で公開されています。ライセンス全文は[プロジェクトリポジトリ](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE)でご確認いただけます。Apache License 2.0 は英語でのみ公開されており、法的に拘束力を持つのは英語版のみです。pacs008.com 上のドキュメントも、特に断りがない限り同一ライセンスで提供されます。
 
 ## 許容される利用
 

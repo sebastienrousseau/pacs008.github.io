@@ -27,7 +27,7 @@ Proyek ini menyediakan REST API dan CLI untuk alur kerja pemrosesan pesan pembay
 
 ## Instalasi
 
-Instal paket dari PyPI. Python 3.9.2 atau lebih tinggi diperlukan.
+Instal paket dari PyPI. Python 3.10 atau lebih tinggi diperlukan.
 
 ```bash
 python -m pip install pacs008
@@ -61,35 +61,35 @@ uvicorn pacs008.api.app:app --reload --host 0.0.0.0 --port 8000
     </thead>
     <tbody>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /health</code></td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/health</code></td>
           <td class="api-endpoints-table__desc">Pemeriksaan kesehatan — mengembalikan status layanan</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>POST /validate</code></td>
+          <td class="api-endpoints-table__endpoint"><code>POST /api/validate</code></td>
           <td class="api-endpoints-table__desc">Validasi data pembayaran terhadap skema tanpa membuat XML</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>POST /generate</code></td>
+          <td class="api-endpoints-table__endpoint"><code>POST /api/generate</code></td>
           <td class="api-endpoints-table__desc">Buat XML secara sinkron dan kembalikan file</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>POST /generate/async</code></td>
+          <td class="api-endpoints-table__endpoint"><code>POST /api/generate/async</code></td>
           <td class="api-endpoints-table__desc">Kirim pekerjaan pembuatan asinkron</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /status/{job_id}</code></td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/status/{job_id}</code></td>
           <td class="api-endpoints-table__desc">Poll status pekerjaan berdasarkan ID</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /download/{job_id}</code></td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/download/{job_id}</code></td>
           <td class="api-endpoints-table__desc">Unduh XML yang dihasilkan setelah pekerjaan selesai</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>DELETE /jobs/{job_id}</code></td>
+          <td class="api-endpoints-table__endpoint"><code>DELETE /api/jobs/{job_id}</code></td>
           <td class="api-endpoints-table__desc">Membatalkan tugas yang tertunda atau sedang berjalan</td>
         </tr>
         <tr>
-          <td class="api-endpoints-table__endpoint"><code>GET /docs</code></td>
+          <td class="api-endpoints-table__endpoint"><code>GET /api/docs</code></td>
           <td class="api-endpoints-table__desc">Antarmuka Swagger UI interaktif untuk menjelajahi dan menguji semua endpoint</td>
         </tr>
     </tbody>

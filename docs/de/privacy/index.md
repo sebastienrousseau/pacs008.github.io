@@ -24,7 +24,7 @@ pacs008.com erhebt keine personenbezogenen Daten. Die Website verwendet weder Co
 
 ## Analysedienste
 
-Analysedienste Dritter können anonymisierte, aggregierte Daten wie Seitenaufrufe und verweisende URLs erheben. Diese Daten können nicht zur Identifizierung einzelner Besucher verwendet werden.
+pacs008.com verwendet keine Analysedienste. Auf keiner Seite wird ein Analysedienst geladen, und es werden keine Seitenaufrufe, verweisenden URLs oder Nutzungsereignisse erfasst. Alle Skripte werden von pacs008.com selbst ausgeliefert, und die Content-Security-Policy beschränkt script-src und connect-src auf 'self', sodass ein Analysedienst Dritter nicht geladen werden kann.
 
 ## Ihre Rechte
 

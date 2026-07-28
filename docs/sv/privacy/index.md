@@ -24,7 +24,7 @@ pacs008.com samlar inte in personuppgifter. Webbplatsen använder inte cookies e
 
 ## Analys
 
-Tredjepartsanalystjänster kan samla in anonymiserade aggregerade data som sidvisningar och hänvisande URL:er. Dessa data kan inte användas för att identifiera enskilda besökare.
+pacs008.com använder inga analystjänster. Ingen analystjänst laddas på någon sida och inga sidvisningar, hänvisande URL:er eller användningshändelser registreras. Alla skript levereras av pacs008.com självt och Content-Security-Policy begränsar script-src och connect-src till 'self', vilket gör att en analystjänst från tredje part inte kan laddas.
 
 ## Dina rättigheter
 

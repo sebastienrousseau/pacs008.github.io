@@ -1,36 +1,61 @@
 {
+  "_comment": "Canonical capability matrix. Browser statuses are derived from the implementation in static/js/ and each carries an `evidence` field naming what was verified. Python, CLI and REST describe the pacs008 package, which lives in a separate repository and cannot be verified from this build; see interface_provenance.",
+  "status_values": {
+    "stable": "Implemented, covered by fixtures, safe to rely on",
+    "beta": "Implemented but incomplete or not yet fixture-certified",
+    "planned": "Not implemented; must be reported as 'Not evaluated' in any result"
+  },
+  "interface_provenance": {
+    "browser": "verified from static/js source in this repository",
+    "python": "unverified_here",
+    "cli": "unverified_here",
+    "rest": "unverified_here"
+  },
   "capabilities": {
     "layer_0_input_safety": {
       "name": "Input Safety & Parsing (Layer 0)",
-      "python": "stable", "cli": "stable", "rest": "stable", "browser": "stable"
+      "python": "stable", "cli": "stable", "rest": "stable", "browser": "beta",
+      "evidence": "CSV/JSON parsing present; no file-size or MIME enforcement implemented (no MAX_FILE_SIZE in static/js)"
     },
     "layer_1_input_schema": {
       "name": "Input Schema Validation (Layer 1)",
-      "python": "stable", "cli": "stable", "rest": "stable", "browser": "stable"
+      "python": "stable", "cli": "stable", "rest": "stable", "browser": "stable",
+      "evidence": "validateRecords() checks required columns and empty values in try-demo.js"
     },
     "layer_2_identifiers_formats": {
-      "name": "IBAN & BIC Format Verification (Layer 2)",
-      "python": "stable", "cli": "stable", "rest": "stable", "browser": "stable"
+      "name": "Identifier & Format Verification (Layer 2)",
+      "python": "stable", "cli": "stable", "rest": "stable", "browser": "stable",
+      "evidence": "IBAN mod-97 checksum and per-country length, BIC structure, ISO 4217 currency, YYYY-MM-DD date in try-demo.js"
     },
     "layer_3_xml_syntax_ns": {
       "name": "XML Syntax & Namespace Validation (Layer 3)",
-      "python": "stable", "cli": "stable", "rest": "stable", "browser": "stable"
+      "python": "stable", "cli": "stable", "rest": "stable", "browser": "planned",
+      "evidence": "Browser generates XML but never parses it; no DOMParser usage in static/js"
     },
     "layer_4_xsd_structural": {
       "name": "XSD Sequence & Cardinality Checks (Layer 4)",
-      "python": "stable", "cli": "stable", "rest": "stable", "browser": "stable"
+      "python": "stable", "cli": "stable", "rest": "stable", "browser": "planned",
+      "evidence": "No XSD validation in static/js; the pacs.008 XSD URN appears only as a namespace string in generated output"
     },
-    "layer_5_scheme_cbpr_plus": {
-      "name": "SWIFT CBPR+ 2026 Profile Rules (Layer 5)",
-      "python": "stable", "cli": "stable", "rest": "stable", "browser": "stable"
+    "layer_5_iso_semantic": {
+      "name": "ISO Semantic Consistency (Layer 5)",
+      "python": "stable", "cli": "stable", "rest": "stable", "browser": "planned",
+      "evidence": "No control-sum, transaction-count or cross-field consistency checks in static/js"
     },
-    "layer_5_scheme_chaps": {
-      "name": "Bank of England CHAPS Mandates (Layer 5)",
-      "python": "stable", "cli": "stable", "rest": "stable", "browser": "stable"
+    "layer_6_scheme_profile": {
+      "name": "Scheme Profile Rules — CBPR+, CHAPS (Layer 6)",
+      "python": "stable", "cli": "stable", "rest": "stable", "browser": "beta",
+      "evidence": "Postal address classified as fully structured / hybrid / unstructured, plus LEI format (ISO 17442); no wider profile rule set"
     },
-    "layer_6_effective_dates": {
-      "name": "14 Nov 2026 Effective Date Rules (Layer 6)",
-      "python": "stable", "cli": "stable", "rest": "stable", "browser": "stable"
+    "layer_7_effective_dates": {
+      "name": "Effective-Date Rules — 14 Nov 2026 (Layer 7)",
+      "python": "stable", "cli": "stable", "rest": "stable", "browser": "beta",
+      "evidence": "The 2026 deadline is hardcoded in the address classifier; there is no selectable effective date"
+    },
+    "layer_8_organisation_policy": {
+      "name": "Organisation Policy Packs (Layer 8)",
+      "python": "planned", "cli": "planned", "rest": "planned", "browser": "planned",
+      "evidence": "Not implemented in any interface"
     }
   },
   "schemes": [

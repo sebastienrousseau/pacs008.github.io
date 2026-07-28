@@ -19,7 +19,6 @@ mkdir -p docs_build
 cp -R docs/* docs_build/
 
 # Strip non-content files or subdirectories from content directory
-rm -rf docs_build/.vitepress
 rm -rf docs_build/public
 find docs_build -name 'README.md' -delete
 

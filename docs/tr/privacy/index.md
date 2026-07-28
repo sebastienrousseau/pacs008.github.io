@@ -24,7 +24,7 @@ pacs008.com kişisel veri toplamaz. Web sitesi, bireysel ziyaretçileri tanımla
 
 ## Analitik
 
-Üçüncü taraf analitik hizmetleri, sayfa görüntülemeleri ve yönlendiren URL'ler gibi anonimleştirilmiş, toplu veriler toplayabilir. Bu veriler bireysel ziyaretçileri tanımlamak için kullanılamaz.
+pacs008.com analitik hizmet kullanmaz. Hiçbir sayfada analitik hizmeti yüklenmez; sayfa görüntülemeleri, yönlendiren URL'ler veya kullanım olayları kaydedilmez. Tüm betikler pacs008.com tarafından sunulur ve Content-Security-Policy, script-src ve connect-src değerlerini 'self' ile sınırlar; bu nedenle üçüncü taraf bir analitik hizmeti yüklenemez.
 
 ## Haklarınız
 

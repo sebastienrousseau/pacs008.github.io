@@ -24,7 +24,7 @@ Hindi nangongolekta ng personal na datos ang pacs008.com. Hindi gumagamit ng coo
 
 ## Analytics
 
-Maaaring mangolekta ng anonymous na pinagsama-samang datos ang mga third-party na serbisyo ng analytics tulad ng mga page view at referring URL. Hindi magagamit ang datos na ito para tukuyin ang mga indibidwal na bisita.
+Hindi gumagamit ng analytics ang pacs008.com. Walang serbisyo ng analytics na nilo-load sa anumang pahina, at walang naitatalang page view, referring URL, o usage event. Lahat ng script ay inihahain mismo ng pacs008.com, at nililimitahan ng Content-Security-Policy ang script-src at connect-src sa 'self', kaya hindi maaaring mag-load ang third-party na analytics.
 
 ## Ang iyong mga karapatan
 

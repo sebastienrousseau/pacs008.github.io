@@ -24,7 +24,7 @@ All content on pacs008.com, including text, graphics, logos, and software, is th
 
 ## Open-source licence
 
-The pacs008 Python toolkit is released under the MIT licence. The full licence text is available in the [project repository](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). The MIT licence permits use, modification, and distribution with minimal restrictions. Attribution to the original author is required. The documentation on pacs008.com is provided under the same licence unless otherwise noted.
+The pacs008 Python toolkit is released under the Apache License 2.0. The full licence text is available in the [project repository](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). The Apache License 2.0 permits use, modification, and distribution, including commercial use. It requires that the licence and existing copyright notices are retained, that modified files are marked as changed, and it includes an express grant of patent rights from contributors. The Apache Software Foundation publishes the Apache License 2.0 in English only and does not recognise translations, so the English text is the only legally binding version. The documentation on pacs008.com is provided under the same licence unless otherwise noted.
 
 ## Acceptable use
 

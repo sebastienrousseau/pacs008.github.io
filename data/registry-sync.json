@@ -1,9 +1,11 @@
 {
   "version": "0.0.8",
   "ruleset": "2026.11.0",
-  "license": "Apache-2.0 / MIT Dual License",
+  "ruleset_hash": "sha256:9aedc2d01eba9a8810e24c5e13e97893f6b2a77d521ac2dccdd0e5e4ab98d581",
+  "license": "Apache-2.0",
   "python_min": "3.10",
   "verification_date": "2026-07-28",
   "schemes_count": 6,
-  "sources_count": 3
+  "sources_count": 3,
+  "browser_status": "beta"
 }

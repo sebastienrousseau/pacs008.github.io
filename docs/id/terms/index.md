@@ -24,7 +24,7 @@ Semua konten di pacs008.com, termasuk teks, grafik, logo, dan perangkat lunak, a
 
 ## Lisensi sumber terbuka
 
-Toolkit Python pacs008 dirilis di bawah lisensi MIT. Teks lisensi lengkap tersedia di [repositori proyek](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Lisensi MIT mengizinkan penggunaan, modifikasi, dan distribusi dengan pembatasan minimal. Atribusi kepada penulis asli diwajibkan. Dokumentasi di pacs008.com disediakan di bawah lisensi yang sama kecuali dinyatakan lain.
+Toolkit Python pacs008 dirilis di bawah lisensi Apache-2.0. Teks lisensi lengkap tersedia di [repositori proyek](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Lisensi Apache 2.0 hanya diterbitkan dalam bahasa Inggris; hanya teks bahasa Inggris yang mengikat secara hukum. Dokumentasi di pacs008.com disediakan di bawah lisensi yang sama kecuali dinyatakan lain.
 
 ## Penggunaan yang dapat diterima
 

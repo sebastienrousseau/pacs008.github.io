@@ -24,7 +24,7 @@ pacs008.com does not collect personal data. The site does not use cookies or tra
 
 ## Analytics
 
-Third-party analytics services may collect anonymised page views and referring URLs. This data does not identify individual visitors.
+pacs008.com does not use analytics. No analytics service is loaded on any page, and no page view, referrer, or usage event is recorded by this project. This is enforced structurally: every script is served from pacs008.com itself, and the Content-Security-Policy sent with each page restricts script-src and connect-src to 'self', so a third-party analytics or session-recording script cannot load or transmit data. If analytics are ever introduced, this page will name the provider, the data collected, the retention period, and the opt-out route before that change goes live.
 
 ## Hosting and infrastructure
 
@@ -36,7 +36,7 @@ All pages are served over HTTPS. No user data is stored on any server controlled
 
 ## Cookie policy
 
-pacs008.com does not set cookies. No first-party cookies, session cookies, or tracking cookies are used. If a third-party analytics service sets a cookie, it operates under that service's own cookie policy and is not controlled by pacs008.com.
+pacs008.com does not set cookies. No first-party cookies, session cookies, or tracking cookies are used. No third-party service that could set a cookie is loaded on any page.
 
 ## Data retention
 

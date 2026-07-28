@@ -508,7 +508,7 @@ const pageCopy = {
     privacyCollectionTitle: "Information collected",
     privacyCollectionText: "pacs008.com does not collect personal data. The site does not use cookies or tracking tools to identify visitors.",
     privacyAnalyticsTitle: "Analytics",
-    privacyAnalyticsText: "Third-party analytics services may collect anonymised page views and referring URLs. This data does not identify individual visitors.",
+    privacyAnalyticsText: "pacs008.com does not use analytics. No analytics service is loaded on any page, and no page view, referrer, or usage event is recorded by this project. This is enforced structurally: every script is served from pacs008.com itself, and the Content-Security-Policy sent with each page restricts script-src and connect-src to 'self', so a third-party analytics or session-recording script cannot load or transmit data. If analytics are ever introduced, this page will name the provider, the data collected, the retention period, and the opt-out route before that change goes live.",
     privacyRightsTitle: "Data rights",
     privacyRightsText: "Depending on the applicable jurisdiction, data rights over personal data, such as access, correction, or deletion, may apply. Because pacs008.com does not collect personal data, those rights are unlikely to apply here.",
     privacyChangesTitle: "Changes to this statement",
@@ -548,7 +548,7 @@ const pageCopy = {
     adds3: "strengthen outbound payment message data before release",
     adds4: "support product, operations, and migration teams from one codebase",
     apiInstallTitle: "Installation",
-    apiInstallText: "Install the package from PyPI. Requires Python 3.9.2 or later.",
+    apiInstallText: "Install the package from PyPI. Requires Python 3.10 or later.",
     apiRestTitle: "REST API",
     apiRestIntro: "Start the FastAPI server to validate payment data and generate XML.",
     apiRestStart: "Start the server",
@@ -881,7 +881,7 @@ const pageCopy = {
     privacyCollectionTitle: "Informations que nous collectons",
     privacyCollectionText: "pacs008.com ne collecte aucune donnée personnelle. Le site n'utilise ni cookies ni technologies de suivi pour identifier les visiteurs.",
     privacyAnalyticsTitle: "Analytique",
-    privacyAnalyticsText: "Des services d'analyse tiers peuvent collecter des données anonymisées et agrégées, telles que les pages vues et les URL de provenance. Ces données ne permettent pas d'identifier les visiteurs.",
+    privacyAnalyticsText: "pacs008.com n'utilise pas d'outils d'analyse d'audience. Aucun service d'analyse n'est chargé sur les pages et aucune page vue, URL de provenance ou action de navigation n'est enregistrée. Tous les scripts sont servis par pacs008.com et la Content-Security-Policy limite script-src et connect-src à 'self', ce qui empêche le chargement d'un service d'analyse tiers.",
     privacyRightsTitle: "Vos droits",
     privacyRightsText: "Selon votre juridiction, vous pouvez disposer de droits relatifs à vos données personnelles, notamment le droit d'accès, de rectification ou de suppression. Étant donné que pacs008.com ne collecte pas de données personnelles, ces droits ne sont probablement pas applicables.",
     privacyChangesTitle: "Modifications de cette déclaration",
@@ -1096,7 +1096,7 @@ const pageCopy = {
     msgTypeColId: "Type de message",
     msgTypeColDesc: "Description",
     apiInstallTitle: "Installation",
-    apiInstallText: "Installez le paquet depuis PyPI. Python 3.9.2 ou version supérieure est requis.",
+    apiInstallText: "Installez le paquet depuis PyPI. Python 3.10 ou version supérieure est requis.",
     apiRestTitle: "REST API",
     apiRestIntro: "Démarrez le serveur FastAPI intégré pour exposer des points de terminaison HTTP pour la validation et la génération.",
     apiRestStart: "Démarrer le serveur",
@@ -1242,7 +1242,7 @@ const pageCopy = {
     privacyCollectionTitle: "المعلومات التي نجمعها",
     privacyCollectionText: "لا يجمع pacs008.com بيانات شخصية. لا يستخدم الموقع ملفات تعريف الارتباط أو تقنيات التتبع لتحديد هوية الزوار.",
     privacyAnalyticsTitle: "التحليلات",
-    privacyAnalyticsText: "قد تجمع خدمات التحليلات من جهات خارجية بيانات مجهولة الهوية ومجمعة مثل مشاهدات الصفحات وعناوين URL المُحيلة. لا يمكن استخدام هذه البيانات لتحديد هوية الزوار.",
+    privacyAnalyticsText: "لا يستخدم pacs008.com أي أدوات تحليلات. لا يتم تحميل أي خدمة تحليلات في أي صفحة، ولا يتم تسجيل أي مشاهدات للصفحات أو عناوين URL مُحيلة أو أحداث استخدام. تُقدَّم جميع النصوص البرمجية من pacs008.com نفسه، وتقصر سياسة أمان المحتوى قيمتَي script-src وconnect-src على 'self'، مما يمنع تحميل أي خدمة تحليلات خارجية.",
     privacyRightsTitle: "حقوقك",
     privacyRightsText: "حسب ولايتك القضائية، قد تكون لديك حقوق تتعلق ببياناتك الشخصية، بما في ذلك حق الوصول أو التصحيح أو الحذف. نظرًا لأن pacs008.com لا يجمع بيانات شخصية، فمن غير المرجح أن تكون هذه الحقوق قابلة للتطبيق.",
     privacyChangesTitle: "التغييرات على هذا البيان",
@@ -1457,7 +1457,7 @@ const pageCopy = {
     msgTypeColId: "نوع الرسالة",
     msgTypeColDesc: "الوصف",
     apiInstallTitle: "التثبيت",
-    apiInstallText: "ثبِّت الحزمة من PyPI. يُشترط Python 3.9.2 أو أعلى.",
+    apiInstallText: "ثبِّت الحزمة من PyPI. يُشترط Python 3.10 أو أعلى.",
     apiRestTitle: "REST API",
     apiRestIntro: "شغِّل خادم FastAPI المدمج لكشف نقاط HTTP للتحقق والتوليد.",
     apiRestStart: "تشغيل الخادم",
@@ -1599,7 +1599,7 @@ const pageCopy = {
     privacyCollectionTitle: "Informationen, die wir erheben",
     privacyCollectionText: "pacs008.com erhebt keine personenbezogenen Daten. Die Website verwendet weder Cookies noch Tracking-Technologien zur Identifizierung einzelner Besucher.",
     privacyAnalyticsTitle: "Analysedienste",
-    privacyAnalyticsText: "Analysedienste Dritter können anonymisierte, aggregierte Daten wie Seitenaufrufe und verweisende URLs erheben. Diese Daten können nicht zur Identifizierung einzelner Besucher verwendet werden.",
+    privacyAnalyticsText: "pacs008.com verwendet keine Analysedienste. Auf keiner Seite wird ein Analysedienst geladen, und es werden keine Seitenaufrufe, verweisenden URLs oder Nutzungsereignisse erfasst. Alle Skripte werden von pacs008.com selbst ausgeliefert, und die Content-Security-Policy beschränkt script-src und connect-src auf 'self', sodass ein Analysedienst Dritter nicht geladen werden kann.",
     privacyRightsTitle: "Ihre Rechte",
     privacyRightsText: "Abhängig von Ihrer Rechtsordnung stehen Ihnen möglicherweise Rechte in Bezug auf Ihre personenbezogenen Daten zu, einschließlich des Rechts auf Auskunft, Berichtigung oder Löschung. Da pacs008.com keine personenbezogenen Daten erhebt, sind diese Rechte voraussichtlich nicht anwendbar.",
     privacyChangesTitle: "Änderungen dieser Erklärung",
@@ -1814,7 +1814,7 @@ const pageCopy = {
     msgTypeColId: "Nachrichtentyp",
     msgTypeColDesc: "Beschreibung",
     apiInstallTitle: "Installation",
-    apiInstallText: "Installieren Sie das Paket von PyPI. Python 3.9.2 oder höher ist erforderlich.",
+    apiInstallText: "Installieren Sie das Paket von PyPI. Python 3.10 oder höher ist erforderlich.",
     apiRestTitle: "REST API",
     apiRestIntro: "Starten Sie den integrierten FastAPI-Server, um HTTP-Endpunkte für Validierung und Generierung bereitzustellen.",
     apiRestStart: "Server starten",
@@ -1960,7 +1960,7 @@ const pageCopy = {
     privacyCollectionTitle: "Información que recopilamos",
     privacyCollectionText: "pacs008.com no recopila datos personales. El sitio web no utiliza cookies ni tecnologías de seguimiento para identificar a los visitantes.",
     privacyAnalyticsTitle: "Analítica",
-    privacyAnalyticsText: "Servicios de análisis de terceros pueden recopilar datos anonimizados y agregados, como páginas visitadas y URL de referencia. Estos datos no pueden utilizarse para identificar a los visitantes.",
+    privacyAnalyticsText: "pacs008.com no utiliza servicios de análisis. No se carga ningún servicio de análisis en ninguna página y no se registran páginas vistas, URL de referencia ni eventos de uso. Todos los scripts se sirven desde pacs008.com y la Content-Security-Policy limita script-src y connect-src a 'self', por lo que no puede cargarse ningún servicio de análisis de terceros.",
     privacyRightsTitle: "Sus derechos",
     privacyRightsText: "Según su jurisdicción, puede tener derechos con respecto a sus datos personales, incluido el derecho de acceso, rectificación o supresión. Dado que pacs008.com no recopila datos personales, es poco probable que estos derechos sean aplicables.",
     privacyChangesTitle: "Cambios en esta declaración",
@@ -2175,7 +2175,7 @@ const pageCopy = {
     msgTypeColId: "Tipo de mensaje",
     msgTypeColDesc: "Descripción",
     apiInstallTitle: "Instalación",
-    apiInstallText: "Instale el paquete desde PyPI. Se requiere Python 3.9.2 o superior.",
+    apiInstallText: "Instale el paquete desde PyPI. Se requiere Python 3.10 o superior.",
     apiRestTitle: "REST API",
     apiRestIntro: "Inicie el servidor FastAPI integrado para exponer puntos de conexión HTTP para validación y generación.",
     apiRestStart: "Iniciar el servidor",
@@ -2321,7 +2321,7 @@ const pageCopy = {
     privacyCollectionTitle: "מידע שאנו אוספים",
     privacyCollectionText: "pacs008.com אינו אוסף נתונים אישיים. האתר אינו משתמש בעוגיות או בטכנולוגיות מעקב לזיהוי מבקרים.",
     privacyAnalyticsTitle: "ניתוח נתונים",
-    privacyAnalyticsText: "שירותי ניתוח נתונים של צד שלישי עשויים לאסוף נתונים אנונימיים ומצטברים כגון צפיות בדפים וכתובות URL מפנות. לא ניתן להשתמש בנתונים אלו לזיהוי מבקרים.",
+    privacyAnalyticsText: "pacs008.com אינו משתמש בשירותי ניתוח נתונים. בשום עמוד לא נטען שירות ניתוח, ולא נרשמות צפיות בדפים, כתובות URL מפנות או פעולות שימוש. כל הסקריפטים מוגשים מ-pacs008.com עצמו, ומדיניות אבטחת התוכן מגבילה את script-src ואת connect-src ל-'self', כך ששירות ניתוח חיצוני אינו יכול להיטען.",
     privacyRightsTitle: "הזכויות שלכם",
     privacyRightsText: "בהתאם לתחום השיפוט שלכם, ייתכן שיש לכם זכויות הנוגעות לנתוניכם האישיים, כולל הזכות לגשת, לתקן או למחוק מידע. מכיוון ש-pacs008.com אינו אוסף נתונים אישיים, סביר שזכויות אלו אינן ישימות.",
     privacyChangesTitle: "שינויים בהצהרה זו",
@@ -2536,7 +2536,7 @@ const pageCopy = {
     msgTypeColId: "סוג הודעה",
     msgTypeColDesc: "תיאור",
     apiInstallTitle: "התקנה",
-    apiInstallText: "התקן את החבילה מ-PyPI. נדרש Python 3.9.2 ומעלה.",
+    apiInstallText: "התקן את החבילה מ-PyPI. נדרש Python 3.10 ומעלה.",
     apiRestTitle: "REST API",
     apiRestIntro: "הפעל את שרת FastAPI המובנה כדי לחשוף נקודות קצה HTTP לאימות ולייצור.",
     apiRestStart: "הפעלת השרת",
@@ -2678,7 +2678,7 @@ const pageCopy = {
     privacyCollectionTitle: "हम कौन सी जानकारी एकत्र करते हैं",
     privacyCollectionText: "pacs008.com कोई व्यक्तिगत डेटा एकत्र नहीं करता है। वेबसाइट व्यक्तिगत आगंतुकों की पहचान करने के लिए कुकीज़ या ट्रैकिंग तकनीकों का उपयोग नहीं करती है।",
     privacyAnalyticsTitle: "विश्लेषिकी",
-    privacyAnalyticsText: "तृतीय-पक्ष विश्लेषिकी सेवाएँ पेज व्यू और रेफ़रिंग URL जैसे अनामित, समेकित डेटा एकत्र कर सकती हैं। इस डेटा का उपयोग व्यक्तिगत आगंतुकों की पहचान करने के लिए नहीं किया जा सकता।",
+    privacyAnalyticsText: "pacs008.com किसी भी एनालिटिक्स सेवा का उपयोग नहीं करता। किसी भी पृष्ठ पर कोई एनालिटिक्स सेवा लोड नहीं होती, और कोई पेज व्यू, रेफ़रिंग URL या उपयोग घटना दर्ज नहीं की जाती। सभी स्क्रिप्ट pacs008.com से ही परोसी जाती हैं और Content-Security-Policy script-src तथा connect-src को 'self' तक सीमित करती है, इसलिए कोई तृतीय-पक्ष एनालिटिक्स सेवा लोड नहीं हो सकती।",
     privacyRightsTitle: "आपके अधिकार",
     privacyRightsText: "आपके क्षेत्राधिकार के आधार पर, आपके पास अपने व्यक्तिगत डेटा से संबंधित अधिकार हो सकते हैं, जिसमें जानकारी तक पहुँचने, सही करने या हटाने का अधिकार शामिल है। चूँकि pacs008.com व्यक्तिगत डेटा एकत्र नहीं करता है, इसलिए ये अधिकार लागू होने की संभावना नहीं है।",
     privacyChangesTitle: "इस कथन में परिवर्तन",
@@ -2893,7 +2893,7 @@ const pageCopy = {
     msgTypeColId: "संदेश प्रकार",
     msgTypeColDesc: "विवरण",
     apiInstallTitle: "इंस्टॉलेशन",
-    apiInstallText: "PyPI से पैकेज इंस्टॉल करें। Python 3.9.2 या उच्चतर संस्करण आवश्यक है।",
+    apiInstallText: "PyPI से पैकेज इंस्टॉल करें। Python 3.10 या उच्चतर संस्करण आवश्यक है।",
     apiRestTitle: "REST API",
     apiRestIntro: "वैलिडेशन और जनरेशन के लिए HTTP एंडपॉइंट उजागर करने हेतु अंतर्निहित FastAPI सर्वर शुरू करें।",
     apiRestStart: "सर्वर शुरू करें",
@@ -3035,7 +3035,7 @@ const pageCopy = {
     privacyCollectionTitle: "Informasi yang kami kumpulkan",
     privacyCollectionText: "pacs008.com tidak mengumpulkan data pribadi. Situs web tidak menggunakan cookie atau teknologi pelacakan untuk mengidentifikasi pengunjung.",
     privacyAnalyticsTitle: "Analitik",
-    privacyAnalyticsText: "Layanan analitik pihak ketiga mungkin mengumpulkan data anonim dan agregat seperti tampilan halaman dan URL perujuk. Data ini tidak dapat digunakan untuk mengidentifikasi pengunjung.",
+    privacyAnalyticsText: "pacs008.com tidak menggunakan layanan analitik. Tidak ada layanan analitik yang dimuat di halaman mana pun, dan tidak ada tampilan halaman, URL perujuk, atau peristiwa penggunaan yang dicatat. Semua skrip disajikan dari pacs008.com sendiri, dan Content-Security-Policy membatasi script-src dan connect-src ke 'self', sehingga layanan analitik pihak ketiga tidak dapat dimuat.",
     privacyRightsTitle: "Hak Anda",
     privacyRightsText: "Bergantung pada yurisdiksi Anda, Anda mungkin memiliki hak terkait data pribadi Anda, termasuk hak untuk mengakses, memperbaiki, atau menghapus informasi. Karena pacs008.com tidak mengumpulkan data pribadi, hak-hak ini kemungkinan tidak berlaku.",
     privacyChangesTitle: "Perubahan pada pernyataan ini",
@@ -3250,7 +3250,7 @@ const pageCopy = {
     msgTypeColId: "Jenis pesan",
     msgTypeColDesc: "Deskripsi",
     apiInstallTitle: "Instalasi",
-    apiInstallText: "Instal paket dari PyPI. Python 3.9.2 atau lebih tinggi diperlukan.",
+    apiInstallText: "Instal paket dari PyPI. Python 3.10 atau lebih tinggi diperlukan.",
     apiRestTitle: "REST API",
     apiRestIntro: "Jalankan server FastAPI bawaan untuk mengekspos endpoint HTTP untuk validasi dan pembuatan.",
     apiRestStart: "Mulai server",
@@ -3392,7 +3392,7 @@ const pageCopy = {
     privacyCollectionTitle: "Informazioni che raccogliamo",
     privacyCollectionText: "pacs008.com non raccoglie dati personali. Il sito web non utilizza cookie o tecnologie di tracciamento per identificare i singoli visitatori.",
     privacyAnalyticsTitle: "Analisi",
-    privacyAnalyticsText: "Servizi di analisi di terze parti possono raccogliere dati anonimi e aggregati come visualizzazioni di pagina e URL di riferimento. Questi dati non possono essere utilizzati per identificare i singoli visitatori.",
+    privacyAnalyticsText: "pacs008.com non utilizza servizi di analisi. Nessun servizio di analisi viene caricato in alcuna pagina e non vengono registrate visualizzazioni di pagina, URL di riferimento o eventi di utilizzo. Tutti gli script sono serviti da pacs008.com e la Content-Security-Policy limita script-src e connect-src a 'self', per cui un servizio di analisi di terze parti non può essere caricato.",
     privacyRightsTitle: "I vostri diritti",
     privacyRightsText: "A seconda della vostra giurisdizione, potreste avere diritti riguardanti i vostri dati personali, incluso il diritto di accesso, rettifica o cancellazione. Poiché pacs008.com non raccoglie dati personali, è improbabile che tali diritti siano applicabili.",
     privacyChangesTitle: "Modifiche a questa informativa",
@@ -3607,7 +3607,7 @@ const pageCopy = {
     msgTypeColId: "Tipo di messaggio",
     msgTypeColDesc: "Descrizione",
     apiInstallTitle: "Installazione",
-    apiInstallText: "Installa il pacchetto da PyPI. È richiesto Python 3.9.2 o versione successiva.",
+    apiInstallText: "Installa il pacchetto da PyPI. È richiesto Python 3.10 o versione successiva.",
     apiRestTitle: "REST API",
     apiRestIntro: "Avvia il server FastAPI integrato per esporre endpoint HTTP per la validazione e la generazione.",
     apiRestStart: "Avvia il server",
@@ -3749,7 +3749,7 @@ const pageCopy = {
     privacyCollectionTitle: "収集する情報",
     privacyCollectionText: "pacs008.comは個人データを収集しません。ウェブサイトでは、個々の訪問者を識別するためのCookieやトラッキング技術を使用していません。",
     privacyAnalyticsTitle: "アナリティクス",
-    privacyAnalyticsText: "サードパーティのアナリティクスサービスが、ページビューや参照URLなどの匿名化された集計データを収集する場合があります。このデータは個々の訪問者の識別には使用できません。",
+    privacyAnalyticsText: "pacs008.com はアナリティクスを使用していません。いずれのページでもアナリティクスサービスは読み込まれず、ページビュー、参照 URL、利用イベントは一切記録されません。すべてのスクリプトは pacs008.com 自身から配信され、Content-Security-Policy が script-src と connect-src を 'self' に制限しているため、サードパーティのアナリティクスは読み込めません。",
     privacyRightsTitle: "あなたの権利",
     privacyRightsText: "お住まいの地域によっては、個人データに関する権利（アクセス、訂正、削除の権利を含む）を有する場合があります。pacs008.comは個人データを収集していないため、これらの権利が適用される可能性は低いです。",
     privacyChangesTitle: "本ステートメントの変更",
@@ -3964,7 +3964,7 @@ const pageCopy = {
     msgTypeColId: "メッセージ種別",
     msgTypeColDesc: "説明",
     apiInstallTitle: "インストール",
-    apiInstallText: "PyPI からパッケージをインストールします。Python 3.9.2 以上が必要です。",
+    apiInstallText: "PyPI からパッケージをインストールします。Python 3.10 以上が必要です。",
     apiRestTitle: "REST API",
     apiRestIntro: "組み込みの FastAPI サーバーを起動して、検証と生成用の HTTP エンドポイントを公開します。",
     apiRestStart: "サーバーを起動する",
@@ -4106,7 +4106,7 @@ const pageCopy = {
     privacyCollectionTitle: "수집하는 정보",
     privacyCollectionText: "pacs008.com은 개인 데이터를 수집하지 않습니다. 웹사이트는 개별 방문자를 식별하기 위해 쿠키나 추적 기술을 사용하지 않습니다.",
     privacyAnalyticsTitle: "분석",
-    privacyAnalyticsText: "제3자 분석 서비스가 페이지 조회수 및 참조 URL과 같은 익명화된 집계 데이터를 수집할 수 있습니다. 이 데이터는 개별 방문자를 식별하는 데 사용할 수 없습니다.",
+    privacyAnalyticsText: "pacs008.com은 분석 도구를 사용하지 않습니다. 어떤 페이지에서도 분석 서비스가 로드되지 않으며, 페이지 조회수, 참조 URL, 사용 이벤트가 기록되지 않습니다. 모든 스크립트는 pacs008.com 자체에서 제공되며, Content-Security-Policy가 script-src와 connect-src를 'self'로 제한하므로 제3자 분석 서비스는 로드될 수 없습니다.",
     privacyRightsTitle: "귀하의 권리",
     privacyRightsText: "관할 지역에 따라 개인 데이터에 관한 권리(접근, 수정, 삭제 권리 포함)를 가질 수 있습니다. pacs008.com은 개인 데이터를 수집하지 않으므로 이러한 권리가 적용될 가능성은 낮습니다.",
     privacyChangesTitle: "본 방침의 변경",
@@ -4321,7 +4321,7 @@ const pageCopy = {
     msgTypeColId: "메시지 유형",
     msgTypeColDesc: "설명",
     apiInstallTitle: "설치",
-    apiInstallText: "PyPI에서 패키지를 설치합니다. Python 3.9.2 이상이 필요합니다.",
+    apiInstallText: "PyPI에서 패키지를 설치합니다. Python 3.10 이상이 필요합니다.",
     apiRestTitle: "REST API",
     apiRestIntro: "내장된 FastAPI 서버를 시작하여 유효성 검사 및 생성을 위한 HTTP 엔드포인트를 노출합니다.",
     apiRestStart: "서버 시작",
@@ -4463,7 +4463,7 @@ const pageCopy = {
     privacyCollectionTitle: "Informatie die wij verzamelen",
     privacyCollectionText: "pacs008.com verzamelt geen persoonlijke gegevens. De website maakt geen gebruik van cookies of trackingtechnologieën om individuele bezoekers te identificeren.",
     privacyAnalyticsTitle: "Analyse",
-    privacyAnalyticsText: "Analyseservices van derden kunnen geanonimiseerde, geaggregeerde gegevens verzamelen, zoals paginaweergaven en verwijzende URL's. Deze gegevens kunnen niet worden gebruikt om individuele bezoekers te identificeren.",
+    privacyAnalyticsText: "pacs008.com gebruikt geen analysediensten. Op geen enkele pagina wordt een analysedienst geladen en er worden geen paginaweergaven, verwijzende URL's of gebruiksgebeurtenissen vastgelegd. Alle scripts worden door pacs008.com zelf geserveerd en de Content-Security-Policy beperkt script-src en connect-src tot 'self', waardoor een analysedienst van derden niet kan worden geladen.",
     privacyRightsTitle: "Uw rechten",
     privacyRightsText: "Afhankelijk van uw rechtsgebied heeft u mogelijk rechten met betrekking tot uw persoonsgegevens, waaronder het recht op inzage, rectificatie of verwijdering. Aangezien pacs008.com geen persoonsgegevens verzamelt, zijn deze rechten waarschijnlijk niet van toepassing.",
     privacyChangesTitle: "Wijzigingen in deze verklaring",
@@ -4678,7 +4678,7 @@ const pageCopy = {
     msgTypeColId: "Berichttype",
     msgTypeColDesc: "Beschrijving",
     apiInstallTitle: "Installatie",
-    apiInstallText: "Installeer het pakket via PyPI. Python 3.9.2 of hoger is vereist.",
+    apiInstallText: "Installeer het pakket via PyPI. Python 3.10 of hoger is vereist.",
     apiRestTitle: "REST API",
     apiRestIntro: "Start de ingebouwde FastAPI-server om HTTP-eindpunten voor validatie en generatie beschikbaar te stellen.",
     apiRestStart: "Start de server",
@@ -4820,7 +4820,7 @@ const pageCopy = {
     privacyCollectionTitle: "Informacje, które zbieramy",
     privacyCollectionText: "pacs008.com nie zbiera danych osobowych. Witryna nie wykorzystuje plików cookie ani technologii śledzenia do identyfikacji poszczególnych odwiedzających.",
     privacyAnalyticsTitle: "Analityka",
-    privacyAnalyticsText: "Usługi analityczne firm trzecich mogą zbierać zanonimizowane, zagregowane dane, takie jak wyświetlenia stron i adresy URL odsyłające. Dane te nie mogą być wykorzystane do identyfikacji poszczególnych odwiedzających.",
+    privacyAnalyticsText: "pacs008.com nie korzysta z usług analitycznych. Na żadnej stronie nie jest ładowana usługa analityczna i nie są rejestrowane wyświetlenia stron, adresy URL odsyłające ani zdarzenia użycia. Wszystkie skrypty są serwowane z pacs008.com, a Content-Security-Policy ogranicza script-src i connect-src do 'self', więc zewnętrzna usługa analityczna nie może zostać załadowana.",
     privacyRightsTitle: "Twoje prawa",
     privacyRightsText: "W zależności od jurysdykcji możesz mieć prawa dotyczące swoich danych osobowych, w tym prawo dostępu, poprawiania lub usuwania informacji. Ponieważ pacs008.com nie zbiera danych osobowych, prawa te prawdopodobnie nie mają zastosowania.",
     privacyChangesTitle: "Zmiany w niniejszym oświadczeniu",
@@ -5035,7 +5035,7 @@ const pageCopy = {
     msgTypeColId: "Typ wiadomości",
     msgTypeColDesc: "Opis",
     apiInstallTitle: "Instalacja",
-    apiInstallText: "Zainstaluj pakiet z PyPI. Wymagany jest Python 3.9.2 lub nowszy.",
+    apiInstallText: "Zainstaluj pakiet z PyPI. Wymagany jest Python 3.10 lub nowszy.",
     apiRestTitle: "REST API",
     apiRestIntro: "Uruchom wbudowany serwer FastAPI, aby udostępnić endpointy HTTP do walidacji i generowania.",
     apiRestStart: "Uruchom serwer",
@@ -5177,7 +5177,7 @@ const pageCopy = {
     privacyCollectionTitle: "Informações que coletamos",
     privacyCollectionText: "O pacs008.com não coleta dados pessoais. O site não utiliza cookies ou tecnologias de rastreamento para identificar visitantes individuais.",
     privacyAnalyticsTitle: "Análise",
-    privacyAnalyticsText: "Serviços de análise de terceiros podem coletar dados anonimizados e agregados, como visualizações de página e URLs de referência. Esses dados não podem ser usados para identificar visitantes individuais.",
+    privacyAnalyticsText: "O pacs008.com não utiliza serviços de análise. Nenhum serviço de análise é carregado em qualquer página e não são registados visualizações de página, URLs de referência ou eventos de utilização. Todos os scripts são servidos pelo próprio pacs008.com e a Content-Security-Policy limita script-src e connect-src a 'self', pelo que um serviço de análise de terceiros não pode ser carregado.",
     privacyRightsTitle: "Seus direitos",
     privacyRightsText: "Dependendo da sua jurisdição, você pode ter direitos em relação aos seus dados pessoais, incluindo o direito de acessar, corrigir ou excluir informações. Como o pacs008.com não coleta dados pessoais, esses direitos provavelmente não são aplicáveis.",
     privacyChangesTitle: "Alterações nesta declaração",
@@ -5392,7 +5392,7 @@ const pageCopy = {
     msgTypeColId: "Tipo de mensagem",
     msgTypeColDesc: "Descrição",
     apiInstallTitle: "Instalação",
-    apiInstallText: "Instale o pacote a partir do PyPI. É necessário Python 3.9.2 ou superior.",
+    apiInstallText: "Instale o pacote a partir do PyPI. É necessário Python 3.10 ou superior.",
     apiRestTitle: "REST API",
     apiRestIntro: "Inicie o servidor FastAPI integrado para expor endpoints HTTP de validação e geração.",
     apiRestStart: "Iniciar o servidor",
@@ -5534,7 +5534,7 @@ const pageCopy = {
     privacyCollectionTitle: "Informațiile pe care le colectăm",
     privacyCollectionText: "pacs008.com nu colectează date personale. Site-ul nu folosește cookie-uri sau tehnologii de urmărire pentru a identifica vizitatorii individuali.",
     privacyAnalyticsTitle: "Analiză",
-    privacyAnalyticsText: "Serviciile de analiză terțe pot colecta date anonimizate și agregate, cum ar fi vizualizările de pagini și URL-urile de referință. Aceste date nu pot fi utilizate pentru a identifica vizitatorii individuali.",
+    privacyAnalyticsText: "pacs008.com nu utilizează servicii de analiză. Niciun serviciu de analiză nu este încărcat pe vreo pagină și nu sunt înregistrate vizualizări de pagini, URL-uri de referință sau evenimente de utilizare. Toate scripturile sunt servite de pacs008.com, iar Content-Security-Policy limitează script-src și connect-src la 'self', astfel încât un serviciu de analiză terț nu poate fi încărcat.",
     privacyRightsTitle: "Drepturile dumneavoastră",
     privacyRightsText: "În funcție de jurisdicția dumneavoastră, este posibil să aveți drepturi privind datele personale, inclusiv dreptul de acces, rectificare sau ștergere. Deoarece pacs008.com nu colectează date personale, aceste drepturi probabil nu sunt aplicabile.",
     privacyChangesTitle: "Modificări ale acestei declarații",
@@ -5749,7 +5749,7 @@ const pageCopy = {
     msgTypeColId: "Tip de mesaj",
     msgTypeColDesc: "Descriere",
     apiInstallTitle: "Instalare",
-    apiInstallText: "Instalați pachetul din PyPI. Este necesar Python 3.9.2 sau o versiune superioară.",
+    apiInstallText: "Instalați pachetul din PyPI. Este necesar Python 3.10 sau o versiune superioară.",
     apiRestTitle: "REST API",
     apiRestIntro: "Porniți serverul FastAPI integrat pentru a expune endpoint-uri HTTP pentru validare și generare.",
     apiRestStart: "Pornire server",
@@ -5891,7 +5891,7 @@ const pageCopy = {
     privacyCollectionTitle: "Информация, которую мы собираем",
     privacyCollectionText: "pacs008.com не собирает персональные данные. Веб-сайт не использует файлы cookie или технологии отслеживания для идентификации отдельных посетителей.",
     privacyAnalyticsTitle: "Аналитика",
-    privacyAnalyticsText: "Сторонние аналитические сервисы могут собирать анонимизированные агрегированные данные, такие как просмотры страниц и ссылающиеся URL. Эти данные не могут быть использованы для идентификации отдельных посетителей.",
+    privacyAnalyticsText: "pacs008.com не использует аналитику. Ни на одной странице не загружается аналитический сервис, и не записываются просмотры страниц, ссылающиеся URL или события использования. Все скрипты обслуживаются самим pacs008.com, а Content-Security-Policy ограничивает script-src и connect-src значением 'self', поэтому сторонний аналитический сервис не может быть загружен.",
     privacyRightsTitle: "Ваши права",
     privacyRightsText: "В зависимости от вашей юрисдикции вы можете иметь права в отношении своих персональных данных, включая право на доступ, исправление или удаление информации. Поскольку pacs008.com не собирает персональные данные, эти права, скорее всего, не применимы.",
     privacyChangesTitle: "Изменения в данном заявлении",
@@ -6106,7 +6106,7 @@ const pageCopy = {
     msgTypeColId: "Тип сообщения",
     msgTypeColDesc: "Описание",
     apiInstallTitle: "Установка",
-    apiInstallText: "Установите пакет из PyPI. Требуется Python 3.9.2 или выше.",
+    apiInstallText: "Установите пакет из PyPI. Требуется Python 3.10 или выше.",
     apiRestTitle: "REST API",
     apiRestIntro: "Запустите встроенный сервер FastAPI для предоставления HTTP-эндпоинтов валидации и генерации.",
     apiRestStart: "Запустить сервер",
@@ -6248,7 +6248,7 @@ const pageCopy = {
     privacyCollectionTitle: "ข้อมูลที่เราเก็บรวบรวม",
     privacyCollectionText: "pacs008.com ไม่เก็บรวบรวมข้อมูลส่วนบุคคล เว็บไซต์ไม่ใช้คุกกี้หรือเทคโนโลยีการติดตามเพื่อระบุตัวผู้เยี่ยมชมแต่ละราย",
     privacyAnalyticsTitle: "การวิเคราะห์",
-    privacyAnalyticsText: "บริการวิเคราะห์ของบุคคลที่สามอาจเก็บรวบรวมข้อมูลที่ไม่ระบุตัวตนและรวมกัน เช่น การดูหน้าเว็บและ URL ที่อ้างอิง ข้อมูลเหล่านี้ไม่สามารถใช้เพื่อระบุตัวผู้เยี่ยมชมแต่ละรายได้",
+    privacyAnalyticsText: "pacs008.com ไม่ใช้บริการวิเคราะห์ข้อมูล ไม่มีการโหลดบริการวิเคราะห์ในหน้าใด ๆ และไม่มีการบันทึกการดูหน้าเว็บ URL ที่อ้างอิง หรือเหตุการณ์การใช้งาน สคริปต์ทั้งหมดให้บริการจาก pacs008.com เอง และ Content-Security-Policy จำกัด script-src และ connect-src ไว้ที่ 'self' ดังนั้นบริการวิเคราะห์ของบุคคลที่สามจึงไม่สามารถโหลดได้",
     privacyRightsTitle: "สิทธิ์ของคุณ",
     privacyRightsText: "ขึ้นอยู่กับเขตอำนาจศาลของคุณ คุณอาจมีสิทธิ์เกี่ยวกับข้อมูลส่วนบุคคลของคุณ รวมถึงสิทธิ์ในการเข้าถึง แก้ไข หรือลบข้อมูล เนื่องจาก pacs008.com ไม่เก็บรวบรวมข้อมูลส่วนบุคคล สิทธิ์เหล่านี้จึงไม่น่าจะใช้ได้",
     privacyChangesTitle: "การเปลี่ยนแปลงคำชี้แจงนี้",
@@ -6463,7 +6463,7 @@ const pageCopy = {
     msgTypeColId: "ประเภทข้อความ",
     msgTypeColDesc: "คำอธิบาย",
     apiInstallTitle: "การติดตั้ง",
-    apiInstallText: "ติดตั้งแพ็คเกจจาก PyPI ต้องใช้ Python 3.9.2 หรือสูงกว่า",
+    apiInstallText: "ติดตั้งแพ็คเกจจาก PyPI ต้องใช้ Python 3.10 หรือสูงกว่า",
     apiRestTitle: "REST API",
     apiRestIntro: "เริ่มเซิร์ฟเวอร์ FastAPI ในตัวเพื่อเปิดใช้งาน HTTP endpoints สำหรับการตรวจสอบความถูกต้องและการสร้าง",
     apiRestStart: "เริ่มเซิร์ฟเวอร์",
@@ -6605,7 +6605,7 @@ const pageCopy = {
     privacyCollectionTitle: "Topladığımız bilgiler",
     privacyCollectionText: "pacs008.com kişisel veri toplamaz. Web sitesi, bireysel ziyaretçileri tanımlamak için çerez veya izleme teknolojileri kullanmaz.",
     privacyAnalyticsTitle: "Analitik",
-    privacyAnalyticsText: "Üçüncü taraf analitik hizmetleri, sayfa görüntülemeleri ve yönlendiren URL'ler gibi anonimleştirilmiş, toplu veriler toplayabilir. Bu veriler bireysel ziyaretçileri tanımlamak için kullanılamaz.",
+    privacyAnalyticsText: "pacs008.com analitik hizmet kullanmaz. Hiçbir sayfada analitik hizmeti yüklenmez; sayfa görüntülemeleri, yönlendiren URL'ler veya kullanım olayları kaydedilmez. Tüm betikler pacs008.com tarafından sunulur ve Content-Security-Policy, script-src ve connect-src değerlerini 'self' ile sınırlar; bu nedenle üçüncü taraf bir analitik hizmeti yüklenemez.",
     privacyRightsTitle: "Haklarınız",
     privacyRightsText: "Yargı bölgenize bağlı olarak, kişisel verilerinizle ilgili erişim, düzeltme veya silme hakkı dahil haklara sahip olabilirsiniz. pacs008.com kişisel veri toplamadığı için bu hakların uygulanması olası değildir.",
     privacyChangesTitle: "Bu bildirimdeki değişiklikler",
@@ -6820,7 +6820,7 @@ const pageCopy = {
     msgTypeColId: "Mesaj türü",
     msgTypeColDesc: "Açıklama",
     apiInstallTitle: "Kurulum",
-    apiInstallText: "Paketi PyPI'dan yükleyin. Python 3.9.2 veya üzeri gereklidir.",
+    apiInstallText: "Paketi PyPI'dan yükleyin. Python 3.10 veya üzeri gereklidir.",
     apiRestTitle: "REST API",
     apiRestIntro: "Doğrulama ve oluşturma için HTTP uç noktaları sunmak amacıyla yerleşik FastAPI sunucusunu başlatın.",
     apiRestStart: "Sunucuyu başlat",
@@ -6962,7 +6962,7 @@ const pageCopy = {
     privacyCollectionTitle: "Інформація, яку ми збираємо",
     privacyCollectionText: "pacs008.com не збирає персональних даних. Веб-сайт не використовує файли cookie або технології відстеження для ідентифікації окремих відвідувачів.",
     privacyAnalyticsTitle: "Аналітика",
-    privacyAnalyticsText: "Сторонні аналітичні сервіси можуть збирати анонімізовані агреговані дані, такі як перегляди сторінок та URL-адреси переходів. Ці дані не можуть бути використані для ідентифікації окремих відвідувачів.",
+    privacyAnalyticsText: "pacs008.com не використовує аналітику. На жодній сторінці не завантажується аналітичний сервіс, і не записуються перегляди сторінок, URL-адреси переходів чи події використання. Усі скрипти обслуговуються самим pacs008.com, а Content-Security-Policy обмежує script-src і connect-src значенням 'self', тож сторонній аналітичний сервіс не може завантажитися.",
     privacyRightsTitle: "Ваші права",
     privacyRightsText: "Залежно від вашої юрисдикції, ви можете мати права щодо своїх персональних даних, включаючи право на доступ, виправлення або видалення інформації. Оскільки pacs008.com не збирає персональних даних, ці права навряд чи будуть застосовними.",
     privacyChangesTitle: "Зміни до цієї заяви",
@@ -7177,7 +7177,7 @@ const pageCopy = {
     msgTypeColId: "Тип повідомлення",
     msgTypeColDesc: "Опис",
     apiInstallTitle: "Встановлення",
-    apiInstallText: "Встановіть пакет із PyPI. Потрібен Python 3.9.2 або вище.",
+    apiInstallText: "Встановіть пакет із PyPI. Потрібен Python 3.10 або вище.",
     apiRestTitle: "REST API",
     apiRestIntro: "Запустіть вбудований сервер FastAPI для надання HTTP-ендпоінтів валідації та генерації.",
     apiRestStart: "Запустити сервер",
@@ -7319,7 +7319,7 @@ const pageCopy = {
     privacyCollectionTitle: "Thông tin chúng tôi thu thập",
     privacyCollectionText: "pacs008.com không thu thập dữ liệu cá nhân. Trang web không sử dụng cookie hoặc công nghệ theo dõi để nhận dạng từng người truy cập.",
     privacyAnalyticsTitle: "Phân tích",
-    privacyAnalyticsText: "Các dịch vụ phân tích của bên thứ ba có thể thu thập dữ liệu ẩn danh, tổng hợp như lượt xem trang và URL giới thiệu. Dữ liệu này không thể được sử dụng để nhận dạng từng người truy cập.",
+    privacyAnalyticsText: "pacs008.com không sử dụng dịch vụ phân tích. Không có dịch vụ phân tích nào được tải trên bất kỳ trang nào và không có lượt xem trang, URL giới thiệu hay sự kiện sử dụng nào được ghi lại. Mọi tập lệnh đều do chính pacs008.com phục vụ và Content-Security-Policy giới hạn script-src và connect-src ở 'self', nên dịch vụ phân tích của bên thứ ba không thể được tải.",
     privacyRightsTitle: "Quyền của bạn",
     privacyRightsText: "Tùy thuộc vào quyền tài phán của bạn, bạn có thể có các quyền liên quan đến dữ liệu cá nhân, bao gồm quyền truy cập, chỉnh sửa hoặc xóa thông tin. Vì pacs008.com không thu thập dữ liệu cá nhân, các quyền này có thể không áp dụng.",
     privacyChangesTitle: "Thay đổi tuyên bố này",
@@ -7534,7 +7534,7 @@ const pageCopy = {
     msgTypeColId: "Loại thông điệp",
     msgTypeColDesc: "Mô tả",
     apiInstallTitle: "Cài đặt",
-    apiInstallText: "Cài đặt gói từ PyPI. Yêu cầu Python 3.9.2 trở lên.",
+    apiInstallText: "Cài đặt gói từ PyPI. Yêu cầu Python 3.10 trở lên.",
     apiRestTitle: "REST API",
     apiRestIntro: "Khởi động máy chủ FastAPI tích hợp để cung cấp các HTTP endpoint cho việc xác thực và tạo tệp.",
     apiRestStart: "Khởi động máy chủ",
@@ -7676,7 +7676,7 @@ const pageCopy = {
     privacyCollectionTitle: "我们收集的信息",
     privacyCollectionText: "pacs008.com 不收集个人数据。网站不使用 Cookie 或跟踪技术来识别单个访问者。",
     privacyAnalyticsTitle: "分析",
-    privacyAnalyticsText: "第三方分析服务可能会收集匿名汇总数据，例如页面浏览量和引荐 URL。这些数据无法用于识别单个访问者。",
+    privacyAnalyticsText: "pacs008.com 不使用任何分析服务。任何页面都不会加载分析服务，也不会记录页面浏览量、引荐 URL 或使用事件。所有脚本均由 pacs008.com 自身提供，且 Content-Security-Policy 将 script-src 与 connect-src 限制为 'self'，因此第三方分析服务无法加载。",
     privacyRightsTitle: "您的权利",
     privacyRightsText: "根据您所在的司法管辖区，您可能拥有与个人数据相关的权利，包括访问、更正或删除信息的权利。由于 pacs008.com 不收集个人数据，这些权利可能不适用。",
     privacyChangesTitle: "本声明的变更",
@@ -7891,7 +7891,7 @@ const pageCopy = {
     msgTypeColId: "报文类型",
     msgTypeColDesc: "描述",
     apiInstallTitle: "安装",
-    apiInstallText: "从 PyPI 安装软件包。需要 Python 3.9.2 或更高版本。",
+    apiInstallText: "从 PyPI 安装软件包。需要 Python 3.10 或更高版本。",
     apiRestTitle: "REST API",
     apiRestIntro: "启动内置 FastAPI 服务器以提供用于验证和生成的 HTTP 端点。",
     apiRestStart: "启动服务器",
@@ -8033,7 +8033,7 @@ const pageCopy = {
     privacyCollectionTitle: "我們收集的資訊",
     privacyCollectionText: "pacs008.com 不收集個人資料。網站不使用 Cookie 或追蹤技術來識別個別訪客。",
     privacyAnalyticsTitle: "分析",
-    privacyAnalyticsText: "第三方分析服務可能會收集匿名彙總資料，例如頁面瀏覽量和引薦 URL。這些資料無法用於識別個別訪客。",
+    privacyAnalyticsText: "pacs008.com 不使用任何分析服務。任何頁面都不會載入分析服務，也不會記錄頁面瀏覽量、引薦 URL 或使用事件。所有指令碼均由 pacs008.com 自身提供，且 Content-Security-Policy 將 script-src 與 connect-src 限制為 'self'，因此第三方分析服務無法載入。",
     privacyRightsTitle: "您的權利",
     privacyRightsText: "根據您所在的司法管轄區，您可能擁有與個人資料相關的權利，包括存取、更正或刪除資訊的權利。由於 pacs008.com 不收集個人資料，這些權利可能不適用。",
     privacyChangesTitle: "本聲明的變更",
@@ -8248,7 +8248,7 @@ const pageCopy = {
     msgTypeColId: "訊息類型",
     msgTypeColDesc: "說明",
     apiInstallTitle: "安裝",
-    apiInstallText: "從 PyPI 安裝套件。需要 Python 3.9.2 或更高版本。",
+    apiInstallText: "從 PyPI 安裝套件。需要 Python 3.10 或更高版本。",
     apiRestTitle: "REST API",
     apiRestIntro: "啟動內建 FastAPI 伺服器以提供用於驗證和產生的 HTTP 端點。",
     apiRestStart: "啟動伺服器",
@@ -8390,7 +8390,7 @@ const pageCopy = {
     privacyCollectionTitle: "আমরা যা সংগ্রহ করি",
     privacyCollectionText: "pacs008.com কোনো ব্যক্তিগত তথ্য সংগ্রহ করে না। সাইটটি পৃথক দর্শকদের শনাক্ত করতে কুকি বা ট্র্যাকিং প্রযুক্তি ব্যবহার করে না।",
     privacyAnalyticsTitle: "বিশ্লেষণ",
-    privacyAnalyticsText: "তৃতীয় পক্ষের বিশ্লেষণ পরিষেবাগুলি বেনামী, সমষ্টিগত ডেটা যেমন পৃষ্ঠা দর্শন এবং রেফারেল URL সংগ্রহ করতে পারে। এই ডেটা পৃথক দর্শকদের শনাক্ত করতে ব্যবহার করা যায় না।",
+    privacyAnalyticsText: "pacs008.com কোনো বিশ্লেষণ পরিষেবা ব্যবহার করে না। কোনো পৃষ্ঠায় কোনো বিশ্লেষণ পরিষেবা লোড হয় না এবং কোনো পৃষ্ঠা দর্শন, রেফারিং URL বা ব্যবহারের ঘটনা রেকর্ড করা হয় না। সমস্ত স্ক্রিপ্ট pacs008.com থেকেই পরিবেশন করা হয় এবং Content-Security-Policy script-src ও connect-src কে 'self'-এ সীমাবদ্ধ করে, তাই তৃতীয় পক্ষের বিশ্লেষণ পরিষেবা লোড হতে পারে না।",
     privacyRightsTitle: "আপনার অধিকার",
     privacyRightsText: "আপনার এখতিয়ারের উপর নির্ভর করে, আপনার ব্যক্তিগত তথ্য সম্পর্কিত অধিকার থাকতে পারে, যার মধ্যে অ্যাক্সেস, সংশোধন বা মুছে ফেলার অধিকার রয়েছে। যেহেতু pacs008.com ব্যক্তিগত তথ্য সংগ্রহ করে না, এই অধিকারগুলি প্রযোজ্য নাও হতে পারে।",
     privacyChangesTitle: "এই বিবৃতির পরিবর্তন",
@@ -8605,7 +8605,7 @@ const pageCopy = {
     msgTypeColId: "বার্তার ধরন",
     msgTypeColDesc: "বিবরণ",
     apiInstallTitle: "ইনস্টলেশন",
-    apiInstallText: "PyPI থেকে প্যাকেজ ইনস্টল করুন। Python 3.9.2 বা পরবর্তী সংস্করণ প্রয়োজন।",
+    apiInstallText: "PyPI থেকে প্যাকেজ ইনস্টল করুন। Python 3.10 বা পরবর্তী সংস্করণ প্রয়োজন।",
     apiRestTitle: "REST API",
     apiRestIntro: "যাচাইকরণ এবং জেনারেশনের জন্য HTTP এন্ডপয়েন্ট পরিবেশন করতে বিল্ট-ইন FastAPI সার্ভার শুরু করুন।",
     apiRestStart: "সার্ভার শুরু করুন",
@@ -8753,7 +8753,7 @@ const pageCopy = {
     privacyCollectionTitle: "Shromažďované informace",
     privacyCollectionText: "pacs008.com neshromažďuje osobní údaje. Web nepoužívá cookies ani sledovací technologie k identifikaci jednotlivých návštěvníků.",
     privacyAnalyticsTitle: "Analytika",
-    privacyAnalyticsText: "Analytické služby třetích stran mohou shromažďovat anonymní souhrnná data, jako jsou zobrazení stránek a odkazující URL. Tato data nelze použít k identifikaci jednotlivých návštěvníků.",
+    privacyAnalyticsText: "pacs008.com nepoužívá analytické služby. Na žádné stránce se nenačítá analytická služba a nezaznamenávají se zobrazení stránek, odkazující URL ani události používání. Všechny skripty jsou poskytovány přímo z pacs008.com a Content-Security-Policy omezuje script-src a connect-src na 'self', takže analytickou službu třetí strany nelze načíst.",
     privacyRightsTitle: "Vaše práva",
     privacyRightsText: "V závislosti na vaší jurisdikci můžete mít práva týkající se osobních údajů, včetně práva na přístup, opravu nebo výmaz. Protože pacs008.com neshromažďuje osobní údaje, tato práva se pravděpodobně neuplatní.",
     privacyChangesTitle: "Změny tohoto prohlášení",
@@ -8968,7 +8968,7 @@ const pageCopy = {
     msgTypeColId: "Typ zprávy",
     msgTypeColDesc: "Popis",
     apiInstallTitle: "Instalace",
-    apiInstallText: "Nainstalujte balíček z PyPI. Vyžaduje Python 3.9.2 nebo novější.",
+    apiInstallText: "Nainstalujte balíček z PyPI. Vyžaduje Python 3.10 nebo novější.",
     apiRestTitle: "REST API",
     apiRestIntro: "Spusťte vestavěný FastAPI server pro obsluhu HTTP endpointů pro validaci a generování.",
     apiRestStart: "Spustit server",
@@ -9116,7 +9116,7 @@ const pageCopy = {
     privacyCollectionTitle: "Bayanan da muke tattarawa",
     privacyCollectionText: "pacs008.com ba ta tattara bayanan sirri ba. Gidan yanar gizon ba ya amfani da kukis ko fasahar bin diddigin don gano daidaikun masu ziyara.",
     privacyAnalyticsTitle: "Nazari",
-    privacyAnalyticsText: "Ayyukan nazari na wasu ɓangarori na iya tattara bayanai marasa suna kamar kallon shafuka da URLs na turawa. Ba za a iya amfani da wannan bayanan don gano daidaikun masu ziyara ba.",
+    privacyAnalyticsText: "pacs008.com ba ya amfani da ayyukan nazari. Ba a loda wani aikin nazari a kowane shafi ba, kuma ba a yin rikodin kallon shafuka, URL na turawa, ko ayyukan amfani. Duk rubutun ana bayar da su daga pacs008.com kansa, kuma Content-Security-Policy tana iyakance script-src da connect-src zuwa 'self', don haka ba za a iya loda aikin nazari na waje ba.",
     privacyRightsTitle: "Haƙƙoƙinku",
     privacyRightsText: "Dangane da hukuncinku, kuna iya samun haƙƙoƙi game da bayanan sirri, gami da haƙƙin shiga, gyara, ko gogewa. Tunda pacs008.com ba ta tattara bayanan sirri ba, waɗannan haƙƙoƙi na iya ba su shafi ba.",
     privacyChangesTitle: "Canje-canje ga wannan bayani",
@@ -9328,7 +9328,7 @@ const pageCopy = {
     apiServiceTitle: "Sabis na tabbatarwa",
     apiServiceIntro: "Gudanar da cikakken bututun tabbatarwa kafin ƙirƙira ta hanyar shirye-shirye.",
     apiInstallTitle: "Shigarwa",
-    apiInstallText: "Shigar da fakitin daga PyPI. Ana buƙatar Python 3.9.2 ko na baya.",
+    apiInstallText: "Shigar da fakitin daga PyPI. Ana buƙatar Python 3.10 ko na baya.",
     apiRestTitle: "REST API",
     apiRestIntro: "Fara sabar FastAPI ɗin da aka gina a ciki don samar da ƙarshen HTTP don tabbatarwa da ƙirƙira.",
     apiRestStart: "Fara sabar",
@@ -9431,7 +9431,7 @@ const pageCopy = {
     privacyCollectionTitle: "Information vi samlar in",
     privacyCollectionText: "pacs008.com samlar inte in personuppgifter. Webbplatsen använder inte cookies eller spårningstekniker för att identifiera enskilda besökare.",
     privacyAnalyticsTitle: "Analys",
-    privacyAnalyticsText: "Tredjepartsanalystjänster kan samla in anonymiserade aggregerade data som sidvisningar och hänvisande URL:er. Dessa data kan inte användas för att identifiera enskilda besökare.",
+    privacyAnalyticsText: "pacs008.com använder inga analystjänster. Ingen analystjänst laddas på någon sida och inga sidvisningar, hänvisande URL:er eller användningshändelser registreras. Alla skript levereras av pacs008.com självt och Content-Security-Policy begränsar script-src och connect-src till 'self', vilket gör att en analystjänst från tredje part inte kan laddas.",
     privacyRightsTitle: "Dina rättigheter",
     privacyRightsText: "Beroende på din jurisdiktion kan du ha rättigheter avseende personuppgifter, inklusive rätt till åtkomst, rättelse eller radering. Eftersom pacs008.com inte samlar in personuppgifter är dessa rättigheter sannolikt inte tillämpliga.",
     privacyChangesTitle: "Ändringar av detta meddelande",
@@ -9643,7 +9643,7 @@ const pageCopy = {
     apiServiceTitle: "Valideringstjänst",
     apiServiceIntro: "Kör hela förgenereringens valideringspipeline programmatiskt.",
     apiInstallTitle: "Installation",
-    apiInstallText: "Installera paketet från PyPI. Kräver Python 3.9.2 eller senare.",
+    apiInstallText: "Installera paketet från PyPI. Kräver Python 3.10 eller senare.",
     apiRestTitle: "REST API",
     apiRestIntro: "Starta den inbyggda FastAPI-servern för att tillhandahålla HTTP-ändpunkter för validering och generering.",
     apiRestStart: "Starta servern",
@@ -9746,7 +9746,7 @@ const pageCopy = {
     privacyCollectionTitle: "Impormasyong kinokolekta namin",
     privacyCollectionText: "Hindi nangongolekta ng personal na datos ang pacs008.com. Hindi gumagamit ng cookies o tracking technology ang site para tukuyin ang mga indibidwal na bisita.",
     privacyAnalyticsTitle: "Analytics",
-    privacyAnalyticsText: "Maaaring mangolekta ng anonymous na pinagsama-samang datos ang mga third-party na serbisyo ng analytics tulad ng mga page view at referring URL. Hindi magagamit ang datos na ito para tukuyin ang mga indibidwal na bisita.",
+    privacyAnalyticsText: "Hindi gumagamit ng analytics ang pacs008.com. Walang serbisyo ng analytics na nilo-load sa anumang pahina, at walang naitatalang page view, referring URL, o usage event. Lahat ng script ay inihahain mismo ng pacs008.com, at nililimitahan ng Content-Security-Policy ang script-src at connect-src sa 'self', kaya hindi maaaring mag-load ang third-party na analytics.",
     privacyRightsTitle: "Ang iyong mga karapatan",
     privacyRightsText: "Depende sa iyong hurisdiksyon, maaaring mayroon kang mga karapatan kaugnay ng personal na datos, kabilang ang karapatang ma-access, maitama, o maalis ang impormasyon. Dahil hindi nangongolekta ng personal na datos ang pacs008.com, maaaring hindi naaangkop ang mga karapatang ito.",
     privacyChangesTitle: "Mga pagbabago sa pahayag na ito",
@@ -9958,7 +9958,7 @@ const pageCopy = {
     apiServiceTitle: "Serbisyo ng validation",
     apiServiceIntro: "Patakbuhin ang buong pre-generation validation pipeline nang programmatically.",
     apiInstallTitle: "Pag-install",
-    apiInstallText: "I-install ang package mula sa PyPI. Nangangailangan ng Python 3.9.2 o mas bago.",
+    apiInstallText: "I-install ang package mula sa PyPI. Nangangailangan ng Python 3.10 o mas bago.",
     apiRestTitle: "REST API",
     apiRestIntro: "Simulan ang built-in na FastAPI server upang magbigay ng HTTP endpoint para sa validation at generation.",
     apiRestStart: "Simulan ang server",
@@ -10061,7 +10061,7 @@ const pageCopy = {
     privacyCollectionTitle: "Àlàyé tí a ń kójọ",
     privacyCollectionText: "pacs008.com kò kójọ dátà tí ó ní í ṣe pẹ̀lú ẹni kọ̀ọ̀kan. Ojú àyélujára náà kò lo àwọn kúkì tàbí ìmọ̀-ẹ̀rọ ìlépa láti dá àwọn àlejò kọ̀ọ̀kan mọ̀.",
     privacyAnalyticsTitle: "Ìtúpalẹ̀",
-    privacyAnalyticsText: "Àwọn iṣẹ́ ìtúpalẹ̀ ẹlẹ́ẹ̀kẹta lè kójọ àwọn dátà aláìlórúkọ bíi àwọn ìwò ojú-ìwé àti àwọn URL ìtọ́ka. Dátà yìí kò lè ṣeé lò láti dá àwọn àlejò kọ̀ọ̀kan mọ̀.",
+    privacyAnalyticsText: "pacs008.com kò lo iṣẹ́ ìtúpalẹ̀ kankan. Kò sí iṣẹ́ ìtúpalẹ̀ tí a ń gbé wọlé ní ojú-ìwé kankan, kò sì sí ìwò ojú-ìwé, URL ìtọ́ka, tàbí ìṣẹ̀lẹ̀ ìlò tí a ń kọ sílẹ̀. Gbogbo àwọn àfọwọ́kọ ni pacs008.com fúnra rẹ̀ ń pèsè, Content-Security-Policy sì dín script-src àti connect-src kù sí 'self', nítorí náà iṣẹ́ ìtúpalẹ̀ ẹlẹ́ẹ̀kẹta kò lè wọlé.",
     privacyRightsTitle: "Àwọn ẹ̀tọ́ rẹ",
     privacyRightsText: "Dá lórí àgbègbè ìṣàkóso rẹ, o lè ní àwọn ẹ̀tọ́ nípa dátà ara ẹni, pẹ̀lú ẹ̀tọ́ láti wọlé, ṣàtúnṣe, tàbí pa á rẹ́. Nítorí pacs008.com kò kójọ dátà ara ẹni, àwọn ẹ̀tọ́ wọ̀nyí lè má kan.",
     privacyChangesTitle: "Àwọn àyípadà sí àlàyé yìí",
@@ -10183,7 +10183,7 @@ const pageCopy = {
     apiServiceTitle: "Iṣẹ́ ìṣàyẹ̀wò",
     apiServiceIntro: "Mú ọ̀nà ìṣàyẹ̀wò kíkún ṣáájú-ṣíṣẹ̀dá ṣiṣẹ́ nípasẹ̀ ètò.",
     apiInstallTitle: "Ìgbékalẹ̀",
-    apiInstallText: "Fi àpò náà sórí ẹ̀rọ láti PyPI. Ó nílò Python 3.9.2 tàbí tí ó tẹ̀lé e.",
+    apiInstallText: "Fi àpò náà sórí ẹ̀rọ láti PyPI. Ó nílò Python 3.10 tàbí tí ó tẹ̀lé e.",
     apiRestTitle: "REST API",
     apiRestIntro: "Bẹ̀rẹ̀ olùpèsè FastAPI tí a kọ́ sínú fún pípèsè àwọn ọ̀nà HTTP fún ìṣàyẹ̀wò àti ṣíṣẹ̀dá.",
     apiRestStart: "Bẹ̀rẹ̀ olùpèsè",
@@ -12152,7 +12152,7 @@ const PAGE_COPY_PATCH = {
     apiDescription: "Поддержка REST и CLI в pacs008 для генерации, валидации, оркестрации API и контроля соответствия в потоках кредитовых переводов FI-to-FI.",
     apiIntro: "Проект предоставляет REST API и CLI для операционных сценариев обработки платёжных сообщений.",
     apiInstallTitle: "Установка",
-    apiInstallText: "Установите пакет из PyPI. Требуется Python 3.9.2 или выше.",
+    apiInstallText: "Установите пакет из PyPI. Требуется Python 3.10 или выше.",
     apiEndpointGenerate: "Синхронно сгенерировать XML и вернуть файл",
     apiValidateExample: "Пример валидации",
     apiGenerateDesc: "Сгенерировать XML-файл pacs.008.001.13 из данных JSON.",
@@ -15266,14 +15266,16 @@ ${htmlTable({
       { className: "api-endpoints-table__col-desc", label: t.apiFieldCol2 }
     ],
     rows: [
-      ["GET /health", t.apiEndpointHealth],
-      ["POST /validate", t.apiEndpointValidate],
-      ["POST /generate", t.apiEndpointGenerate],
-      ["POST /generate/async", t.apiEndpointAsync],
-      ["GET /status/{job_id}", t.apiEndpointStatus],
-      ["GET /download/{job_id}", t.apiEndpointDownload],
-      ["DELETE /jobs/{job_id}", t.apiEndpointCancel],
-      ["GET /docs", t.apiEndpointDocs]
+      // Paths carry the /api prefix so the table matches the curl examples
+      // below it and the REST interface recorded in data/product-manifest.json.
+      ["GET /api/health", t.apiEndpointHealth],
+      ["POST /api/validate", t.apiEndpointValidate],
+      ["POST /api/generate", t.apiEndpointGenerate],
+      ["POST /api/generate/async", t.apiEndpointAsync],
+      ["GET /api/status/{job_id}", t.apiEndpointStatus],
+      ["GET /api/download/{job_id}", t.apiEndpointDownload],
+      ["DELETE /api/jobs/{job_id}", t.apiEndpointCancel],
+      ["GET /api/docs", t.apiEndpointDocs]
     ].map(([endpoint, description]) => [
       { className: "api-endpoints-table__endpoint", html: `<code>${escapeHtml(endpoint)}</code>` },
       { className: "api-endpoints-table__desc", html: escapeHtml(description) }
@@ -15627,7 +15629,7 @@ All pages are served over HTTPS. No user data is stored on any server controlled
 
 ## Cookie policy
 
-pacs008.com does not set cookies. No first-party cookies, session cookies, or tracking cookies are used. If a third-party analytics service sets a cookie, it operates under that service's own cookie policy and is not controlled by pacs008.com.
+pacs008.com does not set cookies. No first-party cookies, session cookies, or tracking cookies are used. No third-party service that could set a cookie is loaded on any page.
 
 ## Data retention
 
@@ -15873,7 +15875,7 @@ ${t.termsIpText}
 
 ## Open-source licence
 
-The pacs008 Python toolkit is released under the MIT licence. The full licence text is available in the [project repository](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). The MIT licence permits use, modification, and distribution with minimal restrictions. Attribution to the original author is required. The documentation on pacs008.com is provided under the same licence unless otherwise noted.
+The pacs008 Python toolkit is released under the Apache License 2.0. The full licence text is available in the [project repository](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). The Apache License 2.0 permits use, modification, and distribution, including commercial use. It requires that the licence and existing copyright notices are retained, that modified files are marked as changed, and it includes an express grant of patent rights from contributors. The Apache Software Foundation publishes the Apache License 2.0 in English only and does not recognise translations, so the English text is the only legally binding version. The documentation on pacs008.com is provided under the same licence unless otherwise noted.
 
 ## Acceptable use
 
@@ -15923,7 +15925,7 @@ ${t.termsIpText}
 
 ## オープンソースライセンス
 
-pacs008 Python ツールキットは MIT ライセンスの下で公開されています。ライセンス全文は[プロジェクトリポジトリ](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE)でご確認いただけます。MIT ライセンスは最小限の制約の下で使用、変更、再配布を許可します。原作者への帰属表示が必要です。pacs008.com 上のドキュメントも、特に断りがない限り同一ライセンスで提供されます。
+pacs008 Python ツールキットは Apache-2.0 ライセンスの下で公開されています。ライセンス全文は[プロジェクトリポジトリ](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE)でご確認いただけます。Apache License 2.0 は英語でのみ公開されており、法的に拘束力を持つのは英語版のみです。pacs008.com 上のドキュメントも、特に断りがない限り同一ライセンスで提供されます。
 
 ## 許容される利用
 
@@ -15973,7 +15975,7 @@ ${t.termsIpText}
 
 ## 开源许可
 
-pacs008 Python 工具包在 MIT 许可下发布。完整的许可文本可在[项目仓库](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE)中查阅。MIT 许可允许在最低限制下使用、修改和分发。要求注明原作者。pacs008.com 上的文档在相同许可下提供，除非另有说明。
+pacs008 Python 工具包在 Apache-2.0 许可下发布。完整的许可文本可在[项目仓库](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE)中查阅。Apache License 2.0 仅以英文发布；只有英文文本具有法律约束力。pacs008.com 上的文档在相同许可下提供，除非另有说明。
 
 ## 可接受使用
 
@@ -16023,7 +16025,7 @@ ${t.termsIpText}
 
 ## 開源授權
 
-pacs008 Python 工具組在 MIT 授權下發布。完整的授權文字可在[專案儲存庫](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE)中查閱。MIT 授權允許在最低限制下使用、修改和散布。需註明原始作者。pacs008.com 上的文件在相同授權下提供，除非另有說明。
+pacs008 Python 工具組在 Apache-2.0 授權下發布。完整的授權文字可在[專案儲存庫](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE)中查閱。Apache License 2.0 僅以英文發布；僅英文文本具有法律拘束力。pacs008.com 上的文件在相同授權下提供，除非另有說明。
 
 ## 可接受使用
 
@@ -16073,7 +16075,7 @@ ${t.termsIpText}
 
 ## 오픈소스 라이선스
 
-pacs008 Python 툴킷은 MIT 라이선스로 배포됩니다. 전체 라이선스 텍스트는 [프로젝트 저장소](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE)에서 확인할 수 있습니다. MIT 라이선스는 최소한의 제한으로 사용, 수정 및 배포를 허용합니다. 원저작자에 대한 귀속 표시가 필요합니다. pacs008.com의 문서는 별도로 명시되지 않는 한 동일한 라이선스에 따라 제공됩니다.
+pacs008 Python 툴킷은 Apache-2.0 라이선스로 배포됩니다. 전체 라이선스 텍스트는 [프로젝트 저장소](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE)에서 확인할 수 있습니다. Apache License 2.0은 영어로만 공개되며, 법적 구속력을 갖는 것은 영문본뿐입니다. pacs008.com의 문서는 별도로 명시되지 않는 한 동일한 라이선스에 따라 제공됩니다.
 
 ## 허용되는 사용
 
@@ -16123,7 +16125,7 @@ ${t.termsIpText}
 
 ## Open-Source-Lizenz
 
-Das pacs008-Python-Toolkit steht unter der MIT-Lizenz. Der vollständige Lizenztext ist im [Projekt-Repository](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE) verfügbar. Die MIT-Lizenz erlaubt Nutzung, Modifikation und Weiterverteilung mit minimalen Einschränkungen. Die Namensnennung des Originalautors ist erforderlich. Die Dokumentation auf pacs008.com unterliegt derselben Lizenz, sofern nicht anders angegeben.
+Das pacs008-Python-Toolkit steht unter der Apache-2.0-Lizenz. Der vollständige Lizenztext ist im [Projekt-Repository](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE) verfügbar. Die Apache-Lizenz 2.0 wird ausschließlich auf Englisch veröffentlicht; allein der englische Text ist rechtlich verbindlich. Die Dokumentation auf pacs008.com unterliegt derselben Lizenz, sofern nicht anders angegeben.
 
 ## Zulässige Nutzung
 
@@ -16173,7 +16175,7 @@ ${t.termsIpText}
 
 ## Licencia de código abierto
 
-El toolkit pacs008 para Python se publica bajo la licencia MIT. El texto completo de la licencia está disponible en el [repositorio del proyecto](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). La licencia MIT permite el uso, la modificación y la distribución con restricciones mínimas. Se requiere la atribución al autor original. La documentación en pacs008.com se ofrece bajo la misma licencia salvo que se indique lo contrario.
+El toolkit pacs008 para Python se publica bajo la licencia Apache-2.0. El texto completo de la licencia está disponible en el [repositorio del proyecto](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). La Licencia Apache 2.0 se publica únicamente en inglés; el texto en inglés es la única versión legalmente vinculante. La documentación en pacs008.com se ofrece bajo la misma licencia salvo que se indique lo contrario.
 
 ## Uso aceptable
 
@@ -16223,7 +16225,7 @@ ${t.termsIpText}
 
 ## Licence open source
 
-Le toolkit Python pacs008 est publié sous licence MIT. Le texte intégral de la licence est disponible dans le [dépôt du projet](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). La licence MIT autorise l'utilisation, la modification et la redistribution avec un minimum de restrictions. L'attribution à l'auteur original est requise. La documentation sur pacs008.com est fournie sous la même licence, sauf mention contraire.
+Le toolkit Python pacs008 est publié sous licence Apache-2.0. Le texte intégral de la licence est disponible dans le [dépôt du projet](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). La licence Apache 2.0 n'est publiée qu'en anglais ; seul le texte anglais fait foi juridiquement. La documentation sur pacs008.com est fournie sous la même licence, sauf mention contraire.
 
 ## Utilisation acceptable
 
@@ -16273,7 +16275,7 @@ ${t.termsIpText}
 
 ## Licenza open source
 
-Il toolkit Python pacs008 è rilasciato con licenza MIT. Il testo integrale della licenza è disponibile nel [repository del progetto](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). La licenza MIT consente l'uso, la modifica e la distribuzione con restrizioni minime. È richiesta l'attribuzione all'autore originale. La documentazione su pacs008.com è fornita con la medesima licenza, salvo diversa indicazione.
+Il toolkit Python pacs008 è rilasciato con licenza Apache-2.0. Il testo integrale della licenza è disponibile nel [repository del progetto](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). La Licenza Apache 2.0 è pubblicata solo in inglese; il testo inglese è l'unica versione giuridicamente vincolante. La documentazione su pacs008.com è fornita con la medesima licenza, salvo diversa indicazione.
 
 ## Uso accettabile
 
@@ -16323,7 +16325,7 @@ ${t.termsIpText}
 
 ## Opensourcelicentie
 
-De pacs008 Python-toolkit wordt vrijgegeven onder de MIT-licentie. De volledige licentietekst is beschikbaar in de [projectrepository](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). De MIT-licentie staat gebruik, aanpassing en verspreiding toe met minimale beperkingen. Naamsvermelding van de oorspronkelijke auteur is vereist. De documentatie op pacs008.com wordt onder dezelfde licentie aangeboden, tenzij anders vermeld.
+De pacs008 Python-toolkit wordt vrijgegeven onder de Apache-2.0-licentie. De volledige licentietekst is beschikbaar in de [projectrepository](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). De Apache-licentie 2.0 wordt uitsluitend in het Engels gepubliceerd; alleen de Engelse tekst is juridisch bindend. De documentatie op pacs008.com wordt onder dezelfde licentie aangeboden, tenzij anders vermeld.
 
 ## Aanvaardbaar gebruik
 
@@ -16373,7 +16375,7 @@ ${t.termsIpText}
 
 ## Licencja open source
 
-Toolkit pacs008 dla Pythona jest udostępniany na licencji MIT. Pełny tekst licencji jest dostępny w [repozytorium projektu](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Licencja MIT zezwala na użytkowanie, modyfikację i dystrybucję przy minimalnych ograniczeniach. Wymagane jest przypisanie autorstwa oryginalnemu autorowi. Dokumentacja na pacs008.com jest udostępniana na tej samej licencji, chyba że zaznaczono inaczej.
+Toolkit pacs008 dla Pythona jest udostępniany na licencji Apache-2.0. Pełny tekst licencji jest dostępny w [repozytorium projektu](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Licencja Apache 2.0 jest publikowana wyłącznie w języku angielskim; jedynie tekst angielski jest prawnie wiążący. Dokumentacja na pacs008.com jest udostępniana na tej samej licencji, chyba że zaznaczono inaczej.
 
 ## Dopuszczalne użytkowanie
 
@@ -16423,7 +16425,7 @@ ${t.termsIpText}
 
 ## Licença de código aberto
 
-O toolkit pacs008 para Python é disponibilizado sob a licença MIT. O texto completo da licença está disponível no [repositório do projeto](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). A licença MIT permite utilização, modificação e distribuição com restrições mínimas. A atribuição ao autor original é obrigatória. A documentação em pacs008.com é fornecida sob a mesma licença, salvo indicação em contrário.
+O toolkit pacs008 para Python é disponibilizado sob a licença Apache-2.0. O texto completo da licença está disponível no [repositório do projeto](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). A Licença Apache 2.0 é publicada apenas em inglês; o texto em inglês é a única versão juridicamente vinculativa. A documentação em pacs008.com é fornecida sob a mesma licença, salvo indicação em contrário.
 
 ## Utilização aceitável
 
@@ -16473,7 +16475,7 @@ ${t.termsIpText}
 
 ## Licență open source
 
-Toolkitul pacs008 pentru Python este distribuit sub licența MIT. Textul integral al licenței este disponibil în [depozitul proiectului](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Licența MIT permite utilizarea, modificarea și distribuirea cu restricții minime. Este necesară atribuirea către autorul original. Documentația de pe pacs008.com este furnizată sub aceeași licență, cu excepția cazurilor în care se specifică altfel.
+Toolkitul pacs008 pentru Python este distribuit sub licența Apache-2.0. Textul integral al licenței este disponibil în [depozitul proiectului](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Licența Apache 2.0 este publicată exclusiv în limba engleză; numai textul în engleză este obligatoriu din punct de vedere juridic. Documentația de pe pacs008.com este furnizată sub aceeași licență, cu excepția cazurilor în care se specifică altfel.
 
 ## Utilizare acceptabilă
 
@@ -16523,7 +16525,7 @@ ${t.termsIpText}
 
 ## Лицензия с открытым исходным кодом
 
-Инструментарий pacs008 Python распространяется по лицензии MIT. Полный текст лицензии доступен в [репозитории проекта](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Лицензия MIT допускает использование, модификацию и распространение с минимальными ограничениями. Обязательна атрибуция оригинального автора. Документация на pacs008.com предоставляется на тех же условиях, если не указано иное.
+Инструментарий pacs008 Python распространяется по лицензии Apache-2.0. Полный текст лицензии доступен в [репозитории проекта](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Лицензия Apache 2.0 публикуется только на английском языке; юридически обязательной является только английская версия. Документация на pacs008.com предоставляется на тех же условиях, если не указано иное.
 
 ## Допустимое использование
 
@@ -16573,7 +16575,7 @@ ${t.termsIpText}
 
 ## Ліцензія з відкритим вихідним кодом
 
-Інструментарій pacs008 Python розповсюджується за ліцензією MIT. Повний текст ліцензії доступний у [репозиторії проекту](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Ліцензія MIT дозволяє використання, модифікацію та розповсюдження з мінімальними обмеженнями. Обов'язкова атрибуція оригінального автора. Документація на pacs008.com надається на тих самих умовах, якщо не зазначено інше.
+Інструментарій pacs008 Python розповсюджується за ліцензією Apache-2.0. Повний текст ліцензії доступний у [репозиторії проекту](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Ліцензія Apache 2.0 публікується лише англійською мовою; юридично обов'язковою є лише англійська версія. Документація на pacs008.com надається на тих самих умовах, якщо не зазначено інше.
 
 ## Допустиме використання
 
@@ -16623,7 +16625,7 @@ ${t.termsIpText}
 
 ## ترخيص مفتوح المصدر
 
-أداة pacs008 لـ Python صادرة بموجب ترخيص MIT. النص الكامل للترخيص متاح في [مستودع المشروع](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). يسمح ترخيص MIT بالاستخدام والتعديل والتوزيع بأقل قدر من القيود. يُشترط نسب العمل إلى المؤلف الأصلي. الوثائق المنشورة على pacs008.com مقدمة بموجب الترخيص ذاته ما لم يُذكر خلاف ذلك.
+أداة pacs008 لـ Python صادرة بموجب ترخيص Apache-2.0. النص الكامل للترخيص متاح في [مستودع المشروع](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). يُنشر ترخيص Apache 2.0 باللغة الإنجليزية فقط؛ والنص الإنجليزي هو النسخة الوحيدة الملزمة قانونًا. الوثائق المنشورة على pacs008.com مقدمة بموجب الترخيص ذاته ما لم يُذكر خلاف ذلك.
 
 ## الاستخدام المقبول
 
@@ -16673,7 +16675,7 @@ ${t.termsIpText}
 
 ## רישיון קוד פתוח
 
-ערכת הכלים pacs008 ל-Python מופצת תחת רישיון MIT. נוסח הרישיון המלא זמין ב[מאגר הפרויקט](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). רישיון MIT מתיר שימוש, שינוי והפצה עם מגבלות מינימליות. נדרש ייחוס למחבר המקורי. התיעוד ב-pacs008.com מסופק תחת אותו רישיון, אלא אם צוין אחרת.
+ערכת הכלים pacs008 ל-Python מופצת תחת רישיון Apache-2.0. נוסח הרישיון המלא זמין ב[מאגר הפרויקט](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). רישיון Apache 2.0 מתפרסם באנגלית בלבד; הנוסח האנגלי הוא הגרסה המחייבת משפטית היחידה. התיעוד ב-pacs008.com מסופק תחת אותו רישיון, אלא אם צוין אחרת.
 
 ## שימוש מותר
 
@@ -16723,7 +16725,7 @@ ${t.termsIpText}
 
 ## ओपन-सोर्स लाइसेंस
 
-pacs008 Python टूलकिट MIT लाइसेंस के तहत जारी की गई है। लाइसेंस का पूरा पाठ [प्रोजेक्ट रिपॉज़िटरी](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE) में उपलब्ध है। MIT लाइसेंस न्यूनतम प्रतिबंधों के साथ उपयोग, संशोधन और वितरण की अनुमति देता है। मूल लेखक को श्रेय देना अनिवार्य है। pacs008.com पर प्रलेखन उसी लाइसेंस के तहत प्रदान किया जाता है, जब तक कि अन्यथा न कहा गया हो।
+pacs008 Python टूलकिट Apache-2.0 लाइसेंस के तहत जारी की गई है। लाइसेंस का पूरा पाठ [प्रोजेक्ट रिपॉज़िटरी](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE) में उपलब्ध है। Apache लाइसेंस 2.0 केवल अंग्रेज़ी में प्रकाशित होता है; केवल अंग्रेज़ी पाठ ही कानूनी रूप से बाध्यकारी है। pacs008.com पर प्रलेखन उसी लाइसेंस के तहत प्रदान किया जाता है, जब तक कि अन्यथा न कहा गया हो।
 
 ## स्वीकार्य उपयोग
 
@@ -16773,7 +16775,7 @@ ${t.termsIpText}
 
 ## Lisensi sumber terbuka
 
-Toolkit Python pacs008 dirilis di bawah lisensi MIT. Teks lisensi lengkap tersedia di [repositori proyek](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Lisensi MIT mengizinkan penggunaan, modifikasi, dan distribusi dengan pembatasan minimal. Atribusi kepada penulis asli diwajibkan. Dokumentasi di pacs008.com disediakan di bawah lisensi yang sama kecuali dinyatakan lain.
+Toolkit Python pacs008 dirilis di bawah lisensi Apache-2.0. Teks lisensi lengkap tersedia di [repositori proyek](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Lisensi Apache 2.0 hanya diterbitkan dalam bahasa Inggris; hanya teks bahasa Inggris yang mengikat secara hukum. Dokumentasi di pacs008.com disediakan di bawah lisensi yang sama kecuali dinyatakan lain.
 
 ## Penggunaan yang dapat diterima
 
@@ -16823,7 +16825,7 @@ ${t.termsIpText}
 
 ## สัญญาอนุญาตโอเพนซอร์ส
 
-ชุดเครื่องมือ pacs008 สำหรับ Python เผยแพร่ภายใต้สัญญาอนุญาต MIT ข้อความสัญญาอนุญาตฉบับเต็มอยู่ใน[ที่เก็บซอร์สของโปรเจกต์](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE) สัญญาอนุญาต MIT อนุญาตให้ใช้งาน แก้ไข และแจกจ่ายโดยมีข้อจำกัดน้อยที่สุด ต้องระบุแหล่งที่มาของผู้เขียนต้นฉบับ เอกสารบน pacs008.com จัดทำภายใต้สัญญาอนุญาตเดียวกัน เว้นแต่จะระบุไว้เป็นอย่างอื่น
+ชุดเครื่องมือ pacs008 สำหรับ Python เผยแพร่ภายใต้สัญญาอนุญาต Apache-2.0 ข้อความสัญญาอนุญาตฉบับเต็มอยู่ใน[ที่เก็บซอร์สของโปรเจกต์](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE) สัญญาอนุญาต Apache 2.0 เผยแพร่เป็นภาษาอังกฤษเท่านั้น เฉพาะข้อความภาษาอังกฤษเท่านั้นที่มีผลผูกพันทางกฎหมาย เอกสารบน pacs008.com จัดทำภายใต้สัญญาอนุญาตเดียวกัน เว้นแต่จะระบุไว้เป็นอย่างอื่น
 
 ## การใช้งานที่ยอมรับได้
 
@@ -16873,7 +16875,7 @@ ${t.termsIpText}
 
 ## Açık kaynak lisansı
 
-pacs008 Python araç takımı MIT lisansı altında yayımlanmıştır. Lisansın tam metni [proje deposunda](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE) mevcuttur. MIT lisansı minimum kısıtlamalarla kullanım, değişiklik ve dağıtıma izin verir. Orijinal yazarın atfedilmesi zorunludur. pacs008.com üzerindeki belgeler, aksi belirtilmedikçe aynı lisans kapsamında sunulmaktadır.
+pacs008 Python araç takımı Apache-2.0 lisansı altında yayımlanmıştır. Lisansın tam metni [proje deposunda](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE) mevcuttur. Apache Lisansı 2.0 yalnızca İngilizce olarak yayımlanır; hukuken bağlayıcı olan tek metin İngilizce metindir. pacs008.com üzerindeki belgeler, aksi belirtilmedikçe aynı lisans kapsamında sunulmaktadır.
 
 ## Kabul edilebilir kullanım
 
@@ -16923,7 +16925,7 @@ ${t.termsIpText}
 
 ## Ліцензія з відкритим кодом
 
-Інструментарій pacs008 для Python випущено за ліцензією MIT. Повний текст ліцензії доступний у [репозиторії проєкту](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Ліцензія MIT дозволяє використання, модифікацію та розповсюдження з мінімальними обмеженнями. Зазначення авторства оригінального автора є обов'язковим. Документація на pacs008.com надається за тією самою ліцензією, якщо не зазначено інше.
+Інструментарій pacs008 для Python випущено за ліцензією Apache-2.0. Повний текст ліцензії доступний у [репозиторії проєкту](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Ліцензія Apache 2.0 публікується лише англійською мовою; юридично обов'язковою є лише англійська версія. Документація на pacs008.com надається за тією самою ліцензією, якщо не зазначено інше.
 
 ## Допустиме використання
 
@@ -16973,7 +16975,7 @@ ${t.termsIpText}
 
 ## Giấy phép mã nguồn mở
 
-Bộ công cụ pacs008 cho Python được phát hành theo giấy phép MIT. Toàn văn giấy phép có sẵn trong [kho mã của dự án](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Giấy phép MIT cho phép sử dụng, sửa đổi và phân phối với các hạn chế tối thiểu. Bắt buộc ghi nhận tác giả gốc. Tài liệu trên pacs008.com được cung cấp theo cùng giấy phép trừ khi có ghi chú khác.
+Bộ công cụ pacs008 cho Python được phát hành theo giấy phép Apache-2.0. Toàn văn giấy phép có sẵn trong [kho mã của dự án](https://github.com/sebastienrousseau/pacs008/blob/main/LICENSE). Giấy phép Apache 2.0 chỉ được công bố bằng tiếng Anh; chỉ bản tiếng Anh mới có giá trị pháp lý ràng buộc. Tài liệu trên pacs008.com được cung cấp theo cùng giấy phép trừ khi có ghi chú khác.
 
 ## Sử dụng được chấp nhận
 
