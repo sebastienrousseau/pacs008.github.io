@@ -1,6 +1,89 @@
 import fs from "node:fs/promises";
+import { readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+
+/**
+ * Canonical registries. Scheme facts are rendered from these rather than
+ * written into prose, so a rule change updates every locale at once and the
+ * page cannot drift from what the validator enforces.
+ */
+const RULE_REGISTRY = JSON.parse(
+  readFileSync(new URL("../data/rule-registry.json", import.meta.url), "utf8")
+);
+const SOURCE_REGISTRY = JSON.parse(
+  readFileSync(new URL("../data/source-registry.json", import.meta.url), "utf8")
+);
+
+/**
+ * Normative address rules as a table.
+ *
+ * Deliberately built from identifiers, dates and XML element names, which read
+ * the same in every locale. The surrounding prose stays translated; the
+ * authoritative detail does not depend on a translation being current.
+ */
+function addressRuleTable() {
+  const sourceById = Object.fromEntries(
+    SOURCE_REGISTRY.sources.map((s) => [s.id, s])
+  );
+  const rules = RULE_REGISTRY.rules.filter((r) =>
+    /ADDR/.test(r.id)
+  );
+
+  const rows = rules
+    .map((r) => {
+      const src = sourceById[r.source];
+      const sev =
+        r.severity === "error" ? "Error" : r.severity === "warning" ? "Warning" : "Info";
+      return `| \`${r.id}\` | ${r.profile} | ${r.effective_from} | ${sev} | ${r.title} | [${r.source}](${src ? src.url : "#"}) |`;
+    })
+    .join("\n");
+
+  const exceptions = RULE_REGISTRY.rules.find((r) => r.id === "CBPR-ADDR-006");
+  const exceptionList = exceptions
+    ? exceptions.messages.map((m) => `\`${m}\``).join(", ")
+    : "";
+
+  return `
+## Normative rules
+
+Generated from the pacs008 rule registry (ruleset \`${RULE_REGISTRY.ruleset_version}\`).
+Each rule has a stable identifier, an effective date, an authoritative source and
+both a passing and a failing test fixture.
+
+| Rule | Profile | Effective | Severity | Requirement | Source |
+|---|---|---|---|---|---|
+${rows}
+
+### Address formats compared
+
+| Format | \`TwnNm\` | \`Ctry\` | \`AdrLine\` | Before 14 Nov 2026 | On or after |
+|---|---|---|---|---|---|
+| Fully structured | Present | Present | Absent | Accepted | Accepted |
+| Hybrid | Present | Present | Present | Accepted | Accepted |
+| Fully unstructured | Absent | Absent | Present | Accepted | **Rejected** |
+
+### Exceptions
+
+The requirement does not apply to these message types: ${exceptionList}.
+
+Agents identified by BIC alone remain valid without a postal address
+(\`CBPR-ADDR-005\`). Do not add a partial address solely to satisfy the rule.
+
+### Test fixtures
+
+Download and run these through the [workbench](/live/), the CLI or the API.
+Each maps to the rule it exercises.
+
+${rules
+  .flatMap((r) => [
+    ...(r.fixtures?.valid || []).map((f) => `- [\`${f.split("/").pop()}\`](/${f}) — passes \`${r.id}\``),
+    ...(r.fixtures?.invalid || []).map((f) => `- [\`${f.split("/").pop()}\`](/${f}) — fails \`${r.id}\``),
+  ])
+  .filter((v, i, a) => a.indexOf(v) === i)
+  .join("\n")}
+`;
+}
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -8,7 +91,7 @@ const root = path.resolve(__dirname, "..");
 const docsDir = path.join(root, "docs");
 
 const locales = [
-  { key: "en", lang: "en-GB", label: "English", hero: "Automate ISO 20022 pacs.008 message processing.", tagline: "Generate, validate, and deliver ISO 20022 pacs.008 payment messages. API orchestration and compliance support for FI-to-FI customer credit transfer workflows.", cta: "Get Started" },
+  { key: "en", lang: "en-GB", label: "English", hero: "Know what CBPR+ and CHAPS will reject \u2014 before you send it.", tagline: "The open-source ISO 20022 validator with scheme-aware rules for CBPR+, CHAPS, Fedwire, HVPS+, T2 RTGS and SCT Inst. Versioned rules, dated sources, reproducible reports. Run it in your browser, or from Python, the CLI or a REST service.", cta: "Validate a sample" },
   { key: "ar", lang: "ar-SA", label: "العربية", hero: "أتمتة معالجة رسائل pacs.008 وفق ISO 20022.", tagline: "التوليد والتحقق وتنسيق واجهات البرمجة ودعم الامتثال لتدفقات تحويل الائتمان بين المؤسسات المالية.", cta: "تعرّف على pacs008" },
   { key: "de", lang: "de-DE", label: "Deutsch", hero: "ISO 20022 pacs.008 Nachrichtenverarbeitung automatisieren.", tagline: "Generierung, Validierung, API-Orchestrierung und Compliance-Unterstützung für Kundenkredittransfer-Workflows zwischen Finanzinstituten.", cta: "Mehr über pacs008 erfahren" },
   { key: "es", lang: "es-ES", label: "Español", hero: "Automatice el procesamiento de mensajes pacs.008 ISO 20022.", tagline: "Generación, validación, orquestación de API y soporte de cumplimiento para flujos de transferencia de crédito de clientes entre instituciones financieras.", cta: "Conozca pacs008" },
@@ -653,9 +736,9 @@ const pageCopy = {
     faqPageIntro: "Common questions about ISO 20022 pacs messages, how they work together, and how pacs008 helps teams implement them.",
     structuredAddressTitle: "November 2026 structured-address deadline",
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
-    structuredAddressIntro: "SWIFT requires structured postal addresses in cross-border payment messages from November 2026. What changes, which messages are affected, and how pacs008 helps teams prepare.",
+    structuredAddressIntro: "From 14 November 2026, fully unstructured postal addresses are rejected in SWIFT CBPR+ payment messages and by the Bank of England's CHAPS validation library. Town Name and Country must be carried in their own structured elements. A compliant hybrid address remains acceptable — this is not a structured-only mandate.",
     structuredAddressWhatTitle: "What is changing",
-    structuredAddressWhatText: "SWIFT CBPR+ is moving from unstructured postal addresses to structured address fields in cross-border payment messages. After the November 2026 deadline, key party address fields must use the structured format with separate elements for street name, building number, post code, town, and country.",
+    structuredAddressWhatText: "The requirement is a minimum, not a maximum. From 14 November 2026 an in-scope party must carry Town Name in <TwnNm> and Country in <Ctry> as a two-letter ISO 3166 code. Everything else — street, building number, post code — may remain in address lines. That combination is a hybrid address and it is explicitly accepted. What is removed is the fully unstructured address, where the entire address sits in free-text lines with no structured town or country. Agents identified by BIC alone are unaffected and need no postal address.",
     structuredAddressWhyTitle: "Why it matters",
     structuredAddressWhy1: "Unstructured addresses increase manual repair rates and delay straight-through processing.",
     structuredAddressWhy2: "Structured addresses improve sanctions screening accuracy by separating party name from location data.",
@@ -673,8 +756,9 @@ const pageCopy = {
     structuredAddressHow4: "Integrates address quality checks into CI pipelines and batch validation workflows.",
     structuredAddressTimelineTitle: "Timeline",
     structuredAddressTimeline1: "**March 2023** — SWIFT CBPR+ goes live with ISO 20022 for cross-border payments.",
-    structuredAddressTimeline2: "**November 2025** — coexistence period for MT and MX payment instructions ends.",
-    structuredAddressTimeline3: "**November 2026** — structured postal address requirement takes effect for CBPR+ messages.",
+    structuredAddressTimeline2: "**22 November 2025** — the hybrid postal address option becomes available, and the MT/MX coexistence period for payment instructions ends.",
+    structuredAddressTimeline3: "**14 November 2026** — fully unstructured postal addresses are rejected in CBPR+ and by the CHAPS validation library. MT101 interbank coexistence over CBPR+ also ends, and camt.110 investigation requests must be receivable.",
+    structuredAddressTimeline4: "**November 2027** — the Bank of England has announced that purpose codes and structured remittance information become mandatory for all CHAPS payments, and camt.110/camt.111 become mandatory across Swift.",
     structuredAddressActionTitle: "What to do now",
     structuredAddressAction1: "Audit current address data quality across debtor, creditor, and agent records.",
     structuredAddressAction2: "Map existing unstructured address fields to the structured format (street, building, post code, town, country).",
@@ -17925,11 +18009,14 @@ ${t.structuredAddressWhatText}
 - ${t.structuredAddressHow3}
 - ${t.structuredAddressHow4}
 
+${addressRuleTable()}
+
 ## ${t.structuredAddressTimelineTitle}
 
 - ${t.structuredAddressTimeline1}
 - ${t.structuredAddressTimeline2}
 - ${t.structuredAddressTimeline3}
+- ${t.structuredAddressTimeline4 || ""}
 
 ## ${t.structuredAddressActionTitle}
 

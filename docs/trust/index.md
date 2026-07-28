@@ -25,7 +25,7 @@ verified as of 2026-07-28.
 | Licence | Apache-2.0 |
 | Current version | 0.0.8 |
 | Ruleset version | 2026.11.0 |
-| Ruleset hash | `sha256:396cb1e755a89aa7b73e54a9d5eb52de9bdd849931f98b2336731842856a2f02` |
+| Ruleset hash | `sha256:c08ddb1b477f77f55f40a3bb060a53a36ebffc70a52add337f49a5af310a23d0` |
 | Minimum Python | 3.10 (tested on 3.10, 3.11, 3.12) |
 | Source | [https://github.com/sebastienrousseau/pacs008](https://github.com/sebastienrousseau/pacs008) |
 | Package | [PyPI](https://pypi.org/project/pacs008/) |

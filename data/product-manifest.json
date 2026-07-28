@@ -6,7 +6,7 @@
     "version": "0.0.8",
     "ruleset_version": "2026.11.0",
     "_ruleset_hash_note": "Computed by scripts/generate-manifest-facts.mjs as the SHA-256 of the canonical registries. Never edit by hand.",
-    "ruleset_hash": "sha256:396cb1e755a89aa7b73e54a9d5eb52de9bdd849931f98b2336731842856a2f02",
+    "ruleset_hash": "sha256:c08ddb1b477f77f55f40a3bb060a53a36ebffc70a52add337f49a5af310a23d0",
     "license": "Apache-2.0",
     "python": {
       "minimum": "3.10",

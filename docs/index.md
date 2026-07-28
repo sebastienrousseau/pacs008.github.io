@@ -1,6 +1,6 @@
 ---
 title: "pacs008 | ISO 20022 Payment Message Toolkit and API"
-description: "Generate, validate, and deliver ISO 20022 pacs.008 payment messages. API orchestration and compliance support for FI-to-FI customer credit transfer workflows."
+description: "The open-source ISO 20022 validator with scheme-aware rules for CBPR+, CHAPS, Fedwire, HVPS+, T2 RTGS and SCT Inst. Versioned rules, dated sources..."
 lang: en-GB
 author: "Sebastien Rousseau"
 lastUpdated: true
@@ -14,11 +14,11 @@ sitemap: true
 breadcrumbTitle: "pacs008"
 pageType: "home"
 schemaType: "WebSite"
-heroText: "Automate ISO 20022 pacs.008 message processing."
+heroText: "Know what CBPR+ and CHAPS will reject — before you send it."
 home: true
 metaTitle: "pacs008 — ISO 20022 Payment Message Toolkit and API"
-subtitle: "Generate, validate, and deliver ISO 20022 pacs.008 payment messages. API orchestration and compliance support for FI-to-FI customer credit transfer workflows."
-tagline: "Generate, validate, and deliver ISO 20022 pacs.008 payment messages. API orchestration and compliance support for FI-to-FI customer credit transfer workflows."
+subtitle: "The open-source ISO 20022 validator with scheme-aware rules for CBPR+, CHAPS, Fedwire, HVPS+, T2 RTGS and SCT Inst. Versioned rules, dated sources, reproducible reports. Run it in your browser, or from Python, the CLI or a REST service."
+tagline: "The open-source ISO 20022 validator with scheme-aware rules for CBPR+, CHAPS, Fedwire, HVPS+, T2 RTGS and SCT Inst. Versioned rules, dated sources, reproducible reports. Run it in your browser, or from Python, the CLI or a REST service."
 actionText: "Get Started"
 actionLink: "/about/"
 actionText2: "View API"
@@ -35,9 +35,9 @@ background_color: "#ffffff"
 theme_color: "#084a53"
 ---
 
-# Automate ISO 20022 pacs.008 message processing.
+# Know what CBPR+ and CHAPS will reject — before you send it.
 
-Generate, validate, and deliver ISO 20022 pacs.008 payment messages. API orchestration and compliance support for FI-to-FI customer credit transfer workflows.
+The open-source ISO 20022 validator with scheme-aware rules for CBPR+, CHAPS, Fedwire, HVPS+, T2 RTGS and SCT Inst. Versioned rules, dated sources, reproducible reports. Run it in your browser, or from Python, the CLI or a REST service.
 
 ## Key Capabilities
 

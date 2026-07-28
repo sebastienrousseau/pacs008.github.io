@@ -5,7 +5,7 @@
  * registry contents (so it can never be hand-written or invented) and fails
  * the build when the registries contradict themselves.
  */
-import { readFileSync, writeFileSync } from "fs";
+import { readFileSync, writeFileSync, existsSync } from "fs";
 import { createHash } from "crypto";
 import { join } from "path";
 
@@ -14,10 +14,12 @@ const dataDir = join(rootDir, "data");
 const manifestPath = join(dataDir, "product-manifest.json");
 const capabilityPath = join(dataDir, "capability-registry.json");
 const sourcePath = join(dataDir, "source-registry.json");
+const rulePath = join(dataDir, "rule-registry.json");
 
 const manifest = JSON.parse(readFileSync(manifestPath, "utf8"));
 const capability = JSON.parse(readFileSync(capabilityPath, "utf8"));
 const source = JSON.parse(readFileSync(sourcePath, "utf8"));
+const ruleset = JSON.parse(readFileSync(rulePath, "utf8"));
 
 const VALID_STATUSES = new Set(["stable", "beta", "planned"]);
 const INTERFACES = ["python", "cli", "rest", "browser"];
@@ -31,7 +33,7 @@ const errors = [];
  */
 function computeRulesetHash() {
   const hash = createHash("sha256");
-  for (const file of [capabilityPath, sourcePath]) {
+  for (const file of [capabilityPath, sourcePath, rulePath]) {
     hash.update(readFileSync(file));
   }
   hash.update(manifest.product.ruleset_version);
@@ -71,6 +73,61 @@ for (const src of source.sources) {
 
 if (!/^\d+\.\d+\.\d+$/.test(manifest.product.version)) {
   errors.push(`product.version "${manifest.product.version}" is not semver`);
+}
+
+// --- Rule quality gate ----------------------------------------------------
+// A rule may not be published without an owner-verifiable source, an effective
+// date, and fixtures that actually exist on disk. An enforcing rule (error or
+// warning severity) must additionally carry a failing fixture, so nobody can
+// ship a rule that has never been seen to fire.
+
+const sourceIds = new Set(source.sources.map((s) => s.id));
+const seenRuleIds = new Set();
+const profileIds = new Set(capability.schemes.map((s) => s.id));
+
+for (const rule of ruleset.rules) {
+  const where = `rule ${rule.id ?? "(unnamed)"}`;
+
+  if (!rule.id) errors.push(`${where} has no id`);
+  if (seenRuleIds.has(rule.id)) errors.push(`${where} has a duplicate id`);
+  seenRuleIds.add(rule.id);
+
+  for (const field of ["title", "layer", "profile", "severity", "summary", "remediation"]) {
+    if (!rule[field]) errors.push(`${where} is missing ${field}`);
+  }
+
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(rule.effective_from || "")) {
+    errors.push(`${where} has no valid effective_from date`);
+  }
+
+  if (!sourceIds.has(rule.source)) {
+    errors.push(`${where} cites unknown source "${rule.source}"`);
+  }
+
+  if (rule.profile && !profileIds.has(rule.profile)) {
+    errors.push(`${where} names unknown profile "${rule.profile}"`);
+  }
+
+  const fixtures = rule.fixtures || {};
+  const all = [...(fixtures.valid || []), ...(fixtures.invalid || [])];
+  for (const fixture of all) {
+    if (!existsSync(join(rootDir, "static", fixture))) {
+      errors.push(`${where} references missing fixture ${fixture}`);
+    }
+  }
+
+  // Announced-but-unscheduled rules are exempt until they are enforced.
+  const enforcing = rule.severity === "error" || rule.severity === "warning";
+  if (enforcing && rule.status !== "announced") {
+    if (!(fixtures.valid || []).length) errors.push(`${where} has no passing fixture`);
+    if (!(fixtures.invalid || []).length) errors.push(`${where} has no failing fixture`);
+  }
+}
+
+if (ruleset.ruleset_version !== manifest.product.ruleset_version) {
+  errors.push(
+    `rule-registry ruleset_version "${ruleset.ruleset_version}" does not match manifest "${manifest.product.ruleset_version}"`
+  );
 }
 
 if (errors.length > 0) {
