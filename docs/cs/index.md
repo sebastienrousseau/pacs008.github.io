@@ -1,5 +1,5 @@
 ---
-title: "pacs008 | ISO 20022 Payment Message Toolkit and API"
+title: "Automatizace zpracování zpráv ISO 20022 pacs.008 | pacs008"
 description: "Generování, validace a doručování platebních zpráv ISO 20022 pacs.008 pro pracovní postupy mezibankovních převodů."
 lang: "cs-CZ"
 author: "Sebastien Rousseau"

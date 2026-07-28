@@ -238,11 +238,14 @@ technology. The known gaps are listed below rather than omitted.
 | Touch target size (44px minimum) | Automated | Passing |
 | Reduced-motion preference | Automated | Passing |
 | Image alternative text | Automated, every page | Passing |
+| Skip link behaviour | Manual, in a real browser | Passing |
+| Visible focus indicator | Manual, in a real browser | Passing |
+| Right-to-left layout (Arabic) | Manual, in a real browser | Passing — no horizontal overflow |
 | Colour contrast | **Not covered by the automated scan** | Design review only |
-| Keyboard-only navigation | Not yet formally tested | **Unknown** |
-| Screen readers (NVDA, VoiceOver, TalkBack) | Not yet tested | **Unknown** |
-| 400% zoom and 320px reflow | Not yet formally tested | **Unknown** |
-| Windows high-contrast mode | Not yet tested | **Unknown** |
+| Full keyboard traversal | Attempted; could not be driven reliably | **Unknown** |
+| Screen readers (NVDA, VoiceOver, TalkBack) | Not tested | **Unknown** |
+| 400% zoom and 320px reflow | Attempted; viewport could not be resized | **Unknown** |
+| Windows high-contrast mode | Not tested | **Unknown** |
 
 The axe-core scan runs against the built HTML for one page per template and
 per script direction, including right-to-left and CJK locales. It found two
@@ -262,10 +265,12 @@ page is usable.
 2. **No assistive-technology testing has been performed.** Screen reader,
    keyboard-only and voice-input paths are untested. We therefore cannot claim
    they work.
-3. **Right-to-left rendering is newly enabled.** Arabic and Hebrew pages only
-   began rendering right-to-left recently. The markup is correct and passes the
-   automated scan, but the visual result has not been reviewed by a reader of
-   either language.
+3. **Right-to-left rendering has not been reviewed by a native reader.** A
+   browser check of the Arabic homepage confirms \`dir="rtl"\` applies, the
+   navigation mirrors correctly and there is no horizontal overflow. That
+   establishes the layout is not broken. It does not establish that the
+   typography, line breaking or terminology read well to an Arabic or Hebrew
+   speaker, and we do not claim it does.
 4. **Workbench results are not fully specified for screen readers.** The
    validation results region announces status, but the findings tables, the
    batch readiness report and the XML inspection output have not been tested
@@ -480,6 +485,98 @@ reconstructed.
 const clDir = join(process.cwd(), "docs", "scheme-changes");
 if (!existsSync(clDir)) mkdirSync(clDir, { recursive: true });
 writeFileSync(join(clDir, "index.md"), changelog);
+
+/**
+ * Design partner programme.
+ *
+ * Deliberately a route for collecting real stories, not a page of invented
+ * ones. There are currently no case studies, and the page says so. A
+ * fabricated testimonial would undo the provenance work the rest of the site
+ * exists to support.
+ */
+const partners = `---
+title: "Design partners | pacs008"
+description: "How to work with pacs008 as a design partner, what we ask, what you get, and why there are no case studies on this page yet."
+lang: en-GB
+layout: page
+date: "${governance.verification_date}"
+lastUpdated: true
+image: /logo.webp
+canonical: /design-partners/
+robots: "index, follow"
+draft: false
+noindex: false
+---
+
+# Design partners
+
+## There are no case studies here yet
+
+That is deliberate. This project has spent considerable effort removing claims
+it could not evidence, and inventing a customer story would undo that. When a
+case study appears on this page it will name the organisation, with their
+permission, and describe something that actually happened.
+
+If you are evaluating pacs008 and want references, say so — we will tell you
+honestly whether any exist yet.
+
+## What a design partner is
+
+An organisation implementing ISO 20022 payment messaging that is willing to
+test against real requirements and tell us where the tool falls short. Usually
+a bank, payment service provider, corporate treasury team or payments software
+vendor.
+
+## What we ask
+
+- Run pacs008 against your own message profiles, not just the samples.
+- Tell us which scheme rules you need that are missing, and when your deadline
+  is.
+- Report defects specifically enough to reproduce: message type, profile,
+  effective date, and what you expected.
+- Let us know if a published rule is wrong. Rule corrections take priority over
+  features.
+
+We do not ask for payment data. Everything can be reproduced with synthetic
+records, and we would rather you never send us production payloads.
+
+## What you get
+
+- Direct influence on which scheme rules are implemented next, and in what
+  order.
+- Advance notice of ruleset changes before they are published, so a change in
+  pass/fail behaviour does not surprise your pipeline.
+- Your rules and fixtures added to the certified fixture set, so future
+  releases cannot silently break them.
+- Attribution if you want it, and none if you do not.
+
+## What we cannot offer
+
+- A support contract or an availability guarantee. This is an open-source
+  project with a small maintainer base — see the [Trust Centre](/trust/).
+- Certification. A passing validation result is not a guarantee that any
+  counterparty or scheme operator will accept a message.
+- Confidential handling of anything you send us by email. Use the security
+  route in [security.txt](/security.txt) for anything sensitive.
+
+## Implementation review
+
+If you want a second pair of eyes on an ISO 20022 implementation rather than an
+ongoing relationship, that is a separate, bounded piece of work. Get in touch
+through the [contact page](/contact/) with the message types, schemes and
+deadline you are working to.
+
+## Getting in touch
+
+Open an issue or discussion at
+[${product.repository}](${product.repository}), or use the
+[contact page](/contact/). Mention which schemes and message types you are
+implementing and what your deadline is — that tells us more than anything else.
+`;
+
+const dpDir = join(process.cwd(), "docs", "design-partners");
+if (!existsSync(dpDir)) mkdirSync(dpDir, { recursive: true });
+writeFileSync(join(dpDir, "index.md"), partners);
 
 const esc = (s) =>
   String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");

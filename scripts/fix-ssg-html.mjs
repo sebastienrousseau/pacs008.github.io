@@ -192,6 +192,38 @@ function flattenNestedIndexes(dir) {
 }
 
 /**
+ * Fill the "Last reviewed" date from the page's own metadata.
+ *
+ * ssg resolves template placeholders in <head> but not in <body>, so both
+ * {{last_reviewed}} and {{last_build_date}} render empty there. The layout
+ * previously worked around this with a hardcoded date that could never
+ * update. Read the value ssg did emit into the head and use it.
+ */
+const REVIEW_DATE = JSON.parse(
+  fs.readFileSync(path.resolve("data", "product-manifest.json"), "utf8")
+).governance.verification_date;
+
+const REVIEW_DATE_PRETTY = new Date(`${REVIEW_DATE}T00:00:00Z`).toLocaleDateString(
+  "en-GB",
+  { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }
+);
+
+function fillReviewDate(html) {
+  // Deliberately the governance review date, not the build date. Stamping
+  // "last reviewed" with the time of the last rebuild would assert a review
+  // that never happened.
+  return html
+    .replace(
+      /<time datetime=["']["']><\/time>/gi,
+      `<time datetime="${REVIEW_DATE}">${REVIEW_DATE_PRETTY}</time>`
+    )
+    .replace(
+      /(<meta[^>]*itemprop=["']?date(?:Modified|Published)["']?[^>]*content=)["']["']/gi,
+      `$1"${REVIEW_DATE}"`
+    );
+}
+
+/**
  * Conservative HTML whitespace reduction.
  *
  * ssg minifies the homepage but leaves the other 677 pages as authored, and
@@ -284,8 +316,8 @@ function repairHtml(content, filePath) {
   // 3. Point navigation at translated pages on locale routes
   body = localiseLinks(body, filePath);
 
-  // 4. Reduce whitespace on the pages ssg leaves unminified
-  return minifyHtml(head + body);
+  // 4. Fill body placeholders ssg leaves unresolved, then reduce whitespace
+  return minifyHtml(fillReviewDate(head + body));
 }
 
 function processHtmlFiles(dir) {

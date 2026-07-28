@@ -784,6 +784,7 @@
                 <li><a href="/faq/">Frequently Asked Questions</a></li>
                 <li><a href="/trust/">Trust Centre</a></li>
                 <li><a href="/accessibility/">Accessibility</a></li>
+                <li><a href="/design-partners/">Design Partners</a></li>
                 <li><a href="/changelog/">Changelog</a></li>
                 <li><a href="/editorial/">Editorial Policy</a></li>
                 <li><a href="/contact/">Contact Us</a></li>
@@ -855,10 +856,17 @@
               </ol>
             </nav>
             <p class="eyebrow">{{eyebrow}}</p>
-            <h1 class="page-title">{{title}}</h1>
+            <!-- Not an <h1>: the page content supplies the document's single
+                 h1. Two h1 elements made heading navigation ambiguous for
+                 screen reader users and failed html-validate's heading-level
+                 rule. Styling is unchanged. -->
+            <p class="page-title">{{title}}</p>
             <p class="deck">{{subtitle}}</p>
             <div class="article-meta">
-              <span>Last reviewed <time datetime="{{last_reviewed}}">26 July 2026</time></span>
+              <!-- last_build_date is populated by ssg; last_reviewed is not
+                   and renders empty, which is why this was previously a
+                   hardcoded date that could never update. -->
+              <span>Last reviewed <time datetime="{{last_build_date}}">{{last_build_date}}</time></span>
             </div>
           </div>
         </div>

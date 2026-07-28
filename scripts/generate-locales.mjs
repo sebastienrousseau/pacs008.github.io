@@ -14875,8 +14875,19 @@ function localeSectionDescription(locale, summary) {
   return clampDescription(cleanSummary);
 }
 
+/**
+ * Homepage document title.
+ *
+ * This took a locale and ignored it, so every locale homepage carried the
+ * English title — in the <title> tag, the breadcrumb and the page header.
+ * English keeps its keyword-bearing title; other locales use their own hero
+ * line, which is already translated.
+ */
 function homeTitle(locale) {
-  return "pacs008 | ISO 20022 Payment Message Toolkit and API";
+  if (locale.key === "en") {
+    return "pacs008 | ISO 20022 Payment Message Toolkit and API";
+  }
+  return pageTitle(locale.hero.replace(/[.。！!]$/, ""));
 }
 
 function pageTitle(primary, suffix = "pacs008") {

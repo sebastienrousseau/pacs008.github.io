@@ -34,11 +34,14 @@ technology. The known gaps are listed below rather than omitted.
 | Touch target size (44px minimum) | Automated | Passing |
 | Reduced-motion preference | Automated | Passing |
 | Image alternative text | Automated, every page | Passing |
+| Skip link behaviour | Manual, in a real browser | Passing |
+| Visible focus indicator | Manual, in a real browser | Passing |
+| Right-to-left layout (Arabic) | Manual, in a real browser | Passing — no horizontal overflow |
 | Colour contrast | **Not covered by the automated scan** | Design review only |
-| Keyboard-only navigation | Not yet formally tested | **Unknown** |
-| Screen readers (NVDA, VoiceOver, TalkBack) | Not yet tested | **Unknown** |
-| 400% zoom and 320px reflow | Not yet formally tested | **Unknown** |
-| Windows high-contrast mode | Not yet tested | **Unknown** |
+| Full keyboard traversal | Attempted; could not be driven reliably | **Unknown** |
+| Screen readers (NVDA, VoiceOver, TalkBack) | Not tested | **Unknown** |
+| 400% zoom and 320px reflow | Attempted; viewport could not be resized | **Unknown** |
+| Windows high-contrast mode | Not tested | **Unknown** |
 
 The axe-core scan runs against the built HTML for one page per template and
 per script direction, including right-to-left and CJK locales. It found two
@@ -58,10 +61,12 @@ page is usable.
 2. **No assistive-technology testing has been performed.** Screen reader,
    keyboard-only and voice-input paths are untested. We therefore cannot claim
    they work.
-3. **Right-to-left rendering is newly enabled.** Arabic and Hebrew pages only
-   began rendering right-to-left recently. The markup is correct and passes the
-   automated scan, but the visual result has not been reviewed by a reader of
-   either language.
+3. **Right-to-left rendering has not been reviewed by a native reader.** A
+   browser check of the Arabic homepage confirms `dir="rtl"` applies, the
+   navigation mirrors correctly and there is no horizontal overflow. That
+   establishes the layout is not broken. It does not establish that the
+   typography, line breaking or terminology read well to an Arabic or Hebrew
+   speaker, and we do not claim it does.
 4. **Workbench results are not fully specified for screen readers.** The
    validation results region announces status, but the findings tables, the
    batch readiness report and the XML inspection output have not been tested
