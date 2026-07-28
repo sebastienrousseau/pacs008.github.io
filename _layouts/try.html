@@ -282,6 +282,41 @@
             </section>
           </div>
         </div>
+
+        <section class="readiness-scanner" aria-labelledby="readiness-heading">
+          <h2 id="readiness-heading">Batch address readiness scan</h2>
+          <p>
+            Upload a CSV of party addresses to see how many records would still be
+            accepted after <strong>14 November 2026</strong>, when fully unstructured
+            postal addresses are removed from the applicable CBPR+ and CHAPS flows.
+          </p>
+          <p>
+            The file is read in this page and classified in memory. It is not
+            uploaded, not stored, and not logged. Use masked or synthetic data if
+            your policy requires it.
+          </p>
+          <p>
+            <label for="readiness-file"><strong>CSV file</strong> (maximum 2 MB, enforced)</label><br>
+            <input type="file" id="readiness-file" accept=".csv,text/csv">
+          </p>
+          <p class="readiness-hint">
+            Recognised columns: <code>street</code>, <code>building_no</code>,
+            <code>town</code>, <code>country</code>, <code>address_line1</code>,
+            <code>address_line2</code>, <code>party</code>, <code>name</code>.
+            Names are matched loosely, so <code>TwnNm</code> and
+            <code>town_name</code> both work.
+          </p>
+          <div class="actions">
+            <button type="button" id="readiness-download" class="pill pill-ghost" hidden>Download remediation list (.csv)</button>
+            <button type="button" id="readiness-clear" class="pill pill-ghost">Clear all data</button>
+          </div>
+          <p id="readiness-status" role="status" aria-live="polite"></p>
+          <div id="readiness-results"></div>
+          <p class="readiness-hint">
+            Classification uses the same rules as the address checker above, so a
+            batch result and a single record cannot disagree.
+          </p>
+        </section>
       </div>
     </main>
 
@@ -293,5 +328,6 @@
 
     <script src="/js/pacs008-tools.js"></script>
     <script type="module" src="/js/try-page.js"></script>
+    <script src="/js/address-readiness.js"></script>
   </body>
 </html>

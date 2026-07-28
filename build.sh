@@ -10,6 +10,9 @@ echo "Preparing build content..."
 # Synchronize canonical manifest facts
 node scripts/generate-manifest-facts.mjs
 
+# Generate the Trust Centre from the canonical registries
+node scripts/generate-trust-page.mjs
+
 # Regenerate locale content
 node scripts/generate-locales.mjs
 

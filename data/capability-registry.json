@@ -58,6 +58,24 @@
       "evidence": "Not implemented in any interface"
     }
   },
+  "messages": {
+    "_comment": "Verified 2026-07-28 against pacs008/templates in sebastienrousseau/pacs008 at v0.0.8. Only families with templates in the package are listed as supported. Do not publish a message page for anything marked unsupported.",
+    "supported": [
+      { "family": "pacs.008", "name": "FI to FI Customer Credit Transfer", "versions": 13, "latest": "pacs.008.001.13", "range": "pacs.008.001.01 - .13" },
+      { "family": "pacs.002", "name": "FI to FI Payment Status Report", "versions": 1, "latest": "pacs.002.001.12" },
+      { "family": "pacs.003", "name": "FI to FI Customer Direct Debit", "versions": 1, "latest": "pacs.003.001.09" },
+      { "family": "pacs.004", "name": "Payment Return", "versions": 1, "latest": "pacs.004.001.11" },
+      { "family": "pacs.007", "name": "FI to FI Payment Reversal", "versions": 1, "latest": "pacs.007.001.11" },
+      { "family": "pacs.009", "name": "Financial Institution Credit Transfer", "versions": 1, "latest": "pacs.009.001.10" },
+      { "family": "pacs.010", "name": "Financial Institution Direct Debit", "versions": 1, "latest": "pacs.010.001.05" },
+      { "family": "pacs.028", "name": "FI to FI Payment Status Request", "versions": 1, "latest": "pacs.028.001.05" }
+    ],
+    "unsupported": [
+      { "family": "pain.*", "status": "not_implemented", "note": "No templates in the package. Customer-to-bank initiation is out of scope; do not imply support." },
+      { "family": "camt.*", "status": "not_implemented", "note": "No templates in the package. Includes camt.110/111 Exceptions & Investigations, mandatory from 2027 — a known future gap, not a current capability." },
+      { "family": "head.001", "status": "not_implemented", "note": "Business Application Header not shipped as a standalone template." }
+    ]
+  },
   "schemes": [
     { "id": "cbpr-plus", "name": "SWIFT CBPR+", "status": "stable", "effective_date": "2026-11-14" },
     { "id": "chaps-uk", "name": "Bank of England CHAPS", "status": "stable", "effective_date": "2026-11-14" },
