@@ -1,7 +1,7 @@
 {
   "version": "0.0.8",
   "ruleset": "2026.11.0",
-  "ruleset_hash": "sha256:c08ddb1b477f77f55f40a3bb060a53a36ebffc70a52add337f49a5af310a23d0",
+  "ruleset_hash": "sha256:97e373c7d4df2de7998df610dab1c0be2b93119a189f82246928b2698991f33a",
   "license": "Apache-2.0",
   "python_min": "3.10",
   "verification_date": "2026-07-28",

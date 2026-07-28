@@ -25,7 +25,7 @@ verified as of 2026-07-28.
 | Licence | Apache-2.0 |
 | Current version | 0.0.8 |
 | Ruleset version | 2026.11.0 |
-| Ruleset hash | `sha256:c08ddb1b477f77f55f40a3bb060a53a36ebffc70a52add337f49a5af310a23d0` |
+| Ruleset hash | `sha256:97e373c7d4df2de7998df610dab1c0be2b93119a189f82246928b2698991f33a` |
 | Minimum Python | 3.10 (tested on 3.10, 3.11, 3.12) |
 | Source | [https://github.com/sebastienrousseau/pacs008](https://github.com/sebastienrousseau/pacs008) |
 | Package | [PyPI](https://pypi.org/project/pacs008/) |
@@ -115,8 +115,8 @@ We list these because their absence is easy to assume away.
 
 | Family | Status | Note |
 |---|---|---|
-| `pain.*` | Not implemented | No templates in the package. Customer-to-bank initiation is out of scope; do not imply support. |
-| `camt.*` | Not implemented | No templates in the package. Includes camt.110/111 Exceptions & Investigations, mandatory from 2027 — a known future gap, not a current capability. |
+| `pain.*` | Not implemented | No templates in the package. Relevant to the November 2026 MT101 CBPR+ retirement, which relays to pain.001. Scoped in sebastienrousseau/pacs008#13; out of scope is a legitimate outcome. [Tracked](https://github.com/sebastienrousseau/pacs008/issues/13) |
+| `camt.*` | Not implemented | No templates in the package. camt.110 becomes receive-and-consume mandatory in November 2026 and camt.110/111 both mandatory in November 2027. A known dated gap, not a current capability. Scoped in sebastienrousseau/pacs008#12. [Tracked](https://github.com/sebastienrousseau/pacs008/issues/12) |
 | `head.001` | Not implemented | Business Application Header not shipped as a standalone template. |
 
 ## Scheme profiles

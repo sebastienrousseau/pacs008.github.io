@@ -71,8 +71,8 @@
       { "family": "pacs.028", "name": "FI to FI Payment Status Request", "versions": 1, "latest": "pacs.028.001.05" }
     ],
     "unsupported": [
-      { "family": "pain.*", "status": "not_implemented", "note": "No templates in the package. Customer-to-bank initiation is out of scope; do not imply support." },
-      { "family": "camt.*", "status": "not_implemented", "note": "No templates in the package. Includes camt.110/111 Exceptions & Investigations, mandatory from 2027 — a known future gap, not a current capability." },
+      { "family": "pain.*", "status": "not_implemented", "note": "No templates in the package. Relevant to the November 2026 MT101 CBPR+ retirement, which relays to pain.001. Scoped in sebastienrousseau/pacs008#13; out of scope is a legitimate outcome.", "tracking": "https://github.com/sebastienrousseau/pacs008/issues/13" },
+      { "family": "camt.*", "status": "not_implemented", "note": "No templates in the package. camt.110 becomes receive-and-consume mandatory in November 2026 and camt.110/111 both mandatory in November 2027. A known dated gap, not a current capability. Scoped in sebastienrousseau/pacs008#12.", "tracking": "https://github.com/sebastienrousseau/pacs008/issues/12" },
       { "family": "head.001", "status": "not_implemented", "note": "Business Application Header not shipped as a standalone template." }
     ]
   },

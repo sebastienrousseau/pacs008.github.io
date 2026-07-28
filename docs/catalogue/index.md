@@ -15,7 +15,7 @@ noindex: false
 # Message and rule catalogue
 
 Generated from the pacs008 registries at ruleset `2026.11.0`
-(hash `sha256:c08ddb1b477f77f55f40a3bb060a53a36ebffc70a52add337f49a5af310a23d0`). Coverage reflects the templates shipped in
+(hash `sha256:97e373c7d4df2de7998df610dab1c0be2b93119a189f82246928b2698991f33a`). Coverage reflects the templates shipped in
 the package, so it cannot claim more than the software does.
 
 ## Message families
@@ -33,8 +33,8 @@ the package, so it cannot claim more than the software does.
 
 ### Not implemented
 
-- `pain.*` — No templates in the package. Customer-to-bank initiation is out of scope; do not imply support.
-- `camt.*` — No templates in the package. Includes camt.110/111 Exceptions & Investigations, mandatory from 2027 — a known future gap, not a current capability.
+- `pain.*` — No templates in the package. Relevant to the November 2026 MT101 CBPR+ retirement, which relays to pain.001. Scoped in sebastienrousseau/pacs008#13; out of scope is a legitimate outcome.
+- `camt.*` — No templates in the package. camt.110 becomes receive-and-consume mandatory in November 2026 and camt.110/111 both mandatory in November 2027. A known dated gap, not a current capability. Scoped in sebastienrousseau/pacs008#12.
 - `head.001` — Business Application Header not shipped as a standalone template.
 
 ## Scheme profiles

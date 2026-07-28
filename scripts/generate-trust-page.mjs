@@ -41,7 +41,10 @@ const messageRows = capability.messages.supported
   .join("\n");
 
 const unsupportedRows = capability.messages.unsupported
-  .map((m) => `| \`${m.family}\` | Not implemented | ${m.note} |`)
+  .map((m) => {
+    const tracked = m.tracking ? ` [Tracked](${m.tracking})` : "";
+    return `| \`${m.family}\` | Not implemented | ${m.note}${tracked} |`;
+  })
   .join("\n");
 
 const sourceRows = sources.sources

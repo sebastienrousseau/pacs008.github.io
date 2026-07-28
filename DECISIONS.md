@@ -95,3 +95,17 @@ effort removing: a site that claims more than the software delivers.
 `camt.110`/`camt.111` both become mandatory in November 2027. Those are real
 gaps. They are recorded as gaps, not implied as capabilities, and closing them
 is a decision about the **package**, not the website.
+
+**Scoped in the package repository**, which is where the decision belongs:
+
+- [`sebastienrousseau/pacs008#12`](https://github.com/sebastienrousseau/pacs008/issues/12)
+  — `camt.110` / `camt.111`, phased receive-side first against the November
+  2026 obligation, then send-side before November 2027.
+- [`sebastienrousseau/pacs008#13`](https://github.com/sebastienrousseau/pacs008/issues/13)
+  — `pain.001`, driven indirectly by the MT101 CBPR+ retirement, recommended as
+  lower priority than #12.
+
+Both record "declare out of scope" as a legitimate outcome, and both are
+blocked on the same schema-redistribution question as D-003. Until one of them
+is decided, the website continues to state `camt.*` and `pain.*` as not
+implemented, which is the accurate position either way.
