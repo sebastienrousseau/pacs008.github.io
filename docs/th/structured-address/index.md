@@ -31,7 +31,7 @@ SWIFT กำหนดให้ใช้ที่อยู่ไปรษณี�
 
 ## สิ่งที่เปลี่ยนแปลง
 
-SWIFT CBPR+ กำลังเปลี่ยนจากที่อยู่ไปรษณีย์แบบไม่มีโครงสร้างเป็นฟิลด์ที่อยู่แบบมีโครงสร้างในข้อความการชำระเงินข้ามพรมแดน หลังจากกำหนดเส้นตายเดือนพฤศจิกายน 2026 ฟิลด์ที่อยู่ของฝ่ายหลักต้องใช้รูปแบบมีโครงสร้างที่มีองค์ประกอบแยกสำหรับชื่อถนน หมายเลขอาคาร รหัสไปรษณีย์ เมือง และประเทศ
+นี่คือข้อกำหนดขั้นต่ำ ไม่ใช่ขั้นสูงสุด ตั้งแต่วันที่ 14 พฤศจิกายน 2026 คู่สัญญาที่อยู่ในขอบเขตต้องระบุเมืองในฟิลด์ TwnNm และประเทศในฟิลด์ Ctry เป็นรหัส ISO 3166 สองตัวอักษร ส่วนถนน เลขที่อาคาร และรหัสไปรษณีย์ยังคงอยู่ในบรรทัดที่อยู่ได้ นั่นคือที่อยู่แบบไฮบริดและเป็นที่ยอมรับ สิ่งที่ถูกยกเลิกคือที่อยู่ที่ไม่มีโครงสร้างโดยสมบูรณ์เท่านั้น กล่าวคือที่อยู่ทั้งหมดอยู่ในข้อความอิสระโดยไม่มีเมืองและประเทศแบบมีโครงสร้าง สถาบันที่ระบุด้วย BIC เพียงอย่างเดียวไม่ได้รับผลกระทบ
 
 ## ทำไมจึงสำคัญ
 
@@ -104,10 +104,18 @@ Each maps to the rule it exercises.
 
 ## ไทม์ไลน์
 
-- **มีนาคม 2023** — SWIFT CBPR+ เริ่มใช้งานจริงกับ ISO 20022 สำหรับการชำระเงินข้ามพรมแดน
-- **พฤศจิกายน 2025** — ระยะเวลาอยู่ร่วมกันของคำสั่งการชำระเงิน MT และ MX สิ้นสุด
-- **พฤศจิกายน 2026** — ข้อกำหนดที่อยู่ไปรษณีย์แบบมีโครงสร้างมีผลบังคับใช้สำหรับข้อความ CBPR+
-- **November 2027** — the Bank of England has announced that purpose codes and structured remittance information become mandatory for all CHAPS payments, and camt.110/camt.111 become mandatory across Swift.
+| Date | Scheme | Change | Rule |
+|---|---|---|---|
+| `2025-11-22` | CBPR+ | Hybrid postal address option available | `CBPR-ADDR-004` |
+| `2025-11-22` | CBPR+ | MT/MX coexistence for payment instructions ends | — |
+| `2026-11-14` | CBPR+ | Fully unstructured postal address rejected | `CBPR-ADDR-001` |
+| `2026-11-14` | CHAPS | CHAPS validation library rejects unstructured addresses | `CHAPS-ADDR-001` |
+| `2026-11-14` | CBPR+ | MT101 interbank coexistence ends; contingency relays to `pain.001` | — |
+| `2026-11-14` | Swift | `camt.110` investigation requests must be receivable | — |
+| `2026-11-14` | Swift | Annual Standards Release cycle begins | — |
+| `2027-11` | CHAPS | Purpose codes mandatory on all payments (announced) | `CHAPS-PURP-001` |
+| `2027-11` | CHAPS | Structured remittance information mandatory (announced) | `CHAPS-RMT-001` |
+| `2027-11` | Swift | `camt.110` and `camt.111` both mandatory (announced) | — |
 
 ## สิ่งที่ต้องทำตอนนี้
 

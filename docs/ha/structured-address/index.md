@@ -31,7 +31,7 @@ SWIFT na buƙatar adireshi na gidan waya masu tsari a cikin saƙonnin biyan kuɗ
 
 ## Menene ke canzawa
 
-SWIFT CBPR+ na matsawa daga adireshi na gidan waya marasa tsari zuwa filayen adireshin da ke da tsari a cikin saƙonnin biyan kuɗi na ƙetare iyaka. Bayan ƙarshen wa'adin Nuwamba 2026, filayen adireshin manyan ɓangarori dole ne su yi amfani da tsarin da ke da sassa daban-daban na sunan titi, lambar gini, lambar gidan waya, gari, da ƙasa.
+Wannan buƙata ce mafi ƙaranci, ba mafi girma ba. Daga 14 ga Nuwamba 2026, ɓangaren da abin ya shafa dole ne ya sanya birni a TwnNm da ƙasa a Ctry a matsayin lambar ISO 3166 mai haruffa biyu. Titi, lambar gini da lambar gidan waya na iya kasancewa a layukan adireshi: wannan adireshin gauraye ne kuma ana karɓarsa. Abin da aka cire shi ne kawai adireshin da ba shi da tsari gaba ɗaya — wato dukkan adireshin a matsayin rubutu mai 'yanci ba tare da birni da ƙasa masu tsari ba. Cibiyoyin da aka gano ta BIC kaɗai ba abin ya shafa ba.
 
 ## Me ya sa wannan yana da muhimmanci
 
@@ -104,10 +104,18 @@ Each maps to the rule it exercises.
 
 ## Jadawalin lokaci
 
-- **Maris 2023** — SWIFT CBPR+ ya fara aiki tare da ISO 20022 don biyan kuɗi na ƙetare iyaka.
-- **Nuwamba 2025** — lokacin zaman tare na umarnin biyan kuɗi MT da MX ya ƙare.
-- **Nuwamba 2026** — buƙatar adireshin gidan waya mai tsari ta fara aiki ga saƙonnin CBPR+.
-- **November 2027** — the Bank of England has announced that purpose codes and structured remittance information become mandatory for all CHAPS payments, and camt.110/camt.111 become mandatory across Swift.
+| Date | Scheme | Change | Rule |
+|---|---|---|---|
+| `2025-11-22` | CBPR+ | Hybrid postal address option available | `CBPR-ADDR-004` |
+| `2025-11-22` | CBPR+ | MT/MX coexistence for payment instructions ends | — |
+| `2026-11-14` | CBPR+ | Fully unstructured postal address rejected | `CBPR-ADDR-001` |
+| `2026-11-14` | CHAPS | CHAPS validation library rejects unstructured addresses | `CHAPS-ADDR-001` |
+| `2026-11-14` | CBPR+ | MT101 interbank coexistence ends; contingency relays to `pain.001` | — |
+| `2026-11-14` | Swift | `camt.110` investigation requests must be receivable | — |
+| `2026-11-14` | Swift | Annual Standards Release cycle begins | — |
+| `2027-11` | CHAPS | Purpose codes mandatory on all payments (announced) | `CHAPS-PURP-001` |
+| `2027-11` | CHAPS | Structured remittance information mandatory (announced) | `CHAPS-RMT-001` |
+| `2027-11` | Swift | `camt.110` and `camt.111` both mandatory (announced) | — |
 
 ## Abin da za a yi yanzu
 

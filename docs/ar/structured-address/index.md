@@ -31,7 +31,7 @@ howto:
 
 ## ما الذي يتغير
 
-ينتقل SWIFT CBPR+ من العناوين البريدية غير المهيكلة إلى حقول عنوان مهيكلة في رسائل الدفع عبر الحدود. بعد الموعد النهائي في نوفمبر 2026، يجب أن تستخدم حقول عناوين الأطراف الرئيسية التنسيق المهيكل مع عناصر منفصلة لاسم الشارع ورقم المبنى والرمز البريدي والمدينة والبلد.
+هذا حد أدنى وليس حدًا أقصى. اعتبارًا من 14 نوفمبر 2026، يجب على الطرف المعني إدراج المدينة في TwnNm والدولة في Ctry بصيغة رمز ISO 3166 المكوَّن من حرفين. أما الشارع ورقم المبنى والرمز البريدي فيمكن أن تبقى في أسطر العنوان: هذا عنوان هجين وهو مقبول. ولا يُلغى سوى العنوان غير المهيكل بالكامل، أي العنوان بأكمله في نص حر دون مدينة ودولة مهيكلتين. والمؤسسات المُعرَّفة برمز BIC فقط غير معنية بذلك.
 
 ## لماذا هذا مهم
 
@@ -104,10 +104,18 @@ Each maps to the rule it exercises.
 
 ## الجدول الزمني
 
-- **مارس 2023** — إطلاق SWIFT CBPR+ مع ISO 20022 للمدفوعات عبر الحدود.
-- **نوفمبر 2025** — انتهاء فترة التعايش بين تعليمات الدفع MT و MX.
-- **نوفمبر 2026** — دخول متطلبات العنوان البريدي المهيكل حيز التنفيذ لرسائل CBPR+.
-- **November 2027** — the Bank of England has announced that purpose codes and structured remittance information become mandatory for all CHAPS payments, and camt.110/camt.111 become mandatory across Swift.
+| Date | Scheme | Change | Rule |
+|---|---|---|---|
+| `2025-11-22` | CBPR+ | Hybrid postal address option available | `CBPR-ADDR-004` |
+| `2025-11-22` | CBPR+ | MT/MX coexistence for payment instructions ends | — |
+| `2026-11-14` | CBPR+ | Fully unstructured postal address rejected | `CBPR-ADDR-001` |
+| `2026-11-14` | CHAPS | CHAPS validation library rejects unstructured addresses | `CHAPS-ADDR-001` |
+| `2026-11-14` | CBPR+ | MT101 interbank coexistence ends; contingency relays to `pain.001` | — |
+| `2026-11-14` | Swift | `camt.110` investigation requests must be receivable | — |
+| `2026-11-14` | Swift | Annual Standards Release cycle begins | — |
+| `2027-11` | CHAPS | Purpose codes mandatory on all payments (announced) | `CHAPS-PURP-001` |
+| `2027-11` | CHAPS | Structured remittance information mandatory (announced) | `CHAPS-RMT-001` |
+| `2027-11` | Swift | `camt.110` and `camt.111` both mandatory (announced) | — |
 
 ## ما يجب فعله الآن
 

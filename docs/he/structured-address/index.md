@@ -31,7 +31,7 @@ SWIFT דורש כתובות דואר מובנות בהודעות תשלום חו
 
 ## מה משתנה
 
-SWIFT CBPR+ עובר מכתובות דואר לא מובנות לשדות כתובת מובנים בהודעות תשלום חוצות גבולות. לאחר המועד האחרון בנובמבר 2026, שדות הכתובת של הצדדים המרכזיים חייבים להשתמש בפורמט המובנה עם אלמנטים נפרדים לשם רחוב, מספר בניין, מיקוד, עיר ומדינה.
+זו דרישת מינימום, לא מקסימום. החל מ-14 בנובמבר 2026 על צד רלוונטי לציין את העיר בשדה TwnNm ואת המדינה בשדה Ctry כקוד ISO 3166 בן שתי אותיות. רחוב, מספר בניין ומיקוד יכולים להישאר בשורות הכתובת: זו כתובת היברידית והיא מתקבלת. מבוטלת רק הכתובת הבלתי מובנית לחלוטין — כלומר כל הכתובת כטקסט חופשי ללא עיר ומדינה מובנות. מוסדות המזוהים באמצעות BIC בלבד אינם מושפעים.
 
 ## למה זה חשוב
 
@@ -104,10 +104,18 @@ Each maps to the rule it exercises.
 
 ## ציר זמן
 
-- **מרץ 2023** — SWIFT CBPR+ עולה לאוויר עם ISO 20022 לתשלומים חוצי גבולות.
-- **נובמבר 2025** — תקופת הדו-קיום להוראות תשלום MT ו-MX מסתיימת.
-- **נובמבר 2026** — דרישת כתובת דואר מובנית נכנסת לתוקף עבור הודעות CBPR+.
-- **November 2027** — the Bank of England has announced that purpose codes and structured remittance information become mandatory for all CHAPS payments, and camt.110/camt.111 become mandatory across Swift.
+| Date | Scheme | Change | Rule |
+|---|---|---|---|
+| `2025-11-22` | CBPR+ | Hybrid postal address option available | `CBPR-ADDR-004` |
+| `2025-11-22` | CBPR+ | MT/MX coexistence for payment instructions ends | — |
+| `2026-11-14` | CBPR+ | Fully unstructured postal address rejected | `CBPR-ADDR-001` |
+| `2026-11-14` | CHAPS | CHAPS validation library rejects unstructured addresses | `CHAPS-ADDR-001` |
+| `2026-11-14` | CBPR+ | MT101 interbank coexistence ends; contingency relays to `pain.001` | — |
+| `2026-11-14` | Swift | `camt.110` investigation requests must be receivable | — |
+| `2026-11-14` | Swift | Annual Standards Release cycle begins | — |
+| `2027-11` | CHAPS | Purpose codes mandatory on all payments (announced) | `CHAPS-PURP-001` |
+| `2027-11` | CHAPS | Structured remittance information mandatory (announced) | `CHAPS-RMT-001` |
+| `2027-11` | Swift | `camt.110` and `camt.111` both mandatory (announced) | — |
 
 ## מה לעשות עכשיו
 

@@ -16,6 +16,32 @@ const SOURCE_REGISTRY = JSON.parse(
 );
 
 /**
+ * Scheme milestones as a table.
+ *
+ * Replaces a prose timeline that said "November 2026" without a day and was
+ * translated 28 ways. Dates are ISO, and every other cell is a scheme name,
+ * message identifier or rule ID — so the table carries the same meaning in
+ * every locale without depending on a translation being current.
+ */
+function milestoneTable() {
+  const rows = [
+    ["2025-11-22", "CBPR+", "Hybrid postal address option available", "`CBPR-ADDR-004`"],
+    ["2025-11-22", "CBPR+", "MT/MX coexistence for payment instructions ends", "—"],
+    ["2026-11-14", "CBPR+", "Fully unstructured postal address rejected", "`CBPR-ADDR-001`"],
+    ["2026-11-14", "CHAPS", "CHAPS validation library rejects unstructured addresses", "`CHAPS-ADDR-001`"],
+    ["2026-11-14", "CBPR+", "MT101 interbank coexistence ends; contingency relays to `pain.001`", "—"],
+    ["2026-11-14", "Swift", "`camt.110` investigation requests must be receivable", "—"],
+    ["2026-11-14", "Swift", "Annual Standards Release cycle begins", "—"],
+    ["2027-11", "CHAPS", "Purpose codes mandatory on all payments (announced)", "`CHAPS-PURP-001`"],
+    ["2027-11", "CHAPS", "Structured remittance information mandatory (announced)", "`CHAPS-RMT-001`"],
+    ["2027-11", "Swift", "`camt.110` and `camt.111` both mandatory (announced)", "—"],
+  ];
+  return `| Date | Scheme | Change | Rule |
+|---|---|---|---|
+${rows.map((r) => `| \`${r[0]}\` | ${r[1]} | ${r[2]} | ${r[3]} |`).join("\n")}`;
+}
+
+/**
  * Normative address rules as a table.
  *
  * Deliberately built from identifiers, dates and XML element names, which read
@@ -1266,7 +1292,7 @@ const pageCopy = {
     structuredAddressDescription: "Impact de l'échéance SWIFT CBPR+ de novembre 2026 sur les adresses postales structurées pour pacs.008 et les messages de paiement associés, et comment pacs008 aide les équipes à se conformer.",
     structuredAddressIntro: "SWIFT exige des adresses postales structurées dans les messages de paiement transfrontaliers à partir de novembre 2026. Cette page explique ce qui change, quels messages sont concernés et comment pacs008 aide les équipes à se préparer.",
     structuredAddressWhatTitle: "Ce qui change",
-    structuredAddressWhatText: "SWIFT CBPR+ passe des adresses postales non structurées à des champs d'adresse structurés dans les messages de paiement transfrontaliers. Après l'échéance de novembre 2026, les champs d'adresse des parties clés doivent utiliser le format structuré avec des éléments séparés pour le nom de rue, le numéro de bâtiment, le code postal, la ville et le pays.",
+    structuredAddressWhatText: "Il s'agit d'une exigence minimale, et non maximale. À compter du 14 novembre 2026, une partie concernée doit renseigner la ville dans TwnNm et le pays dans Ctry sous forme de code ISO 3166 à deux lettres. La rue, le numéro de bâtiment et le code postal peuvent rester dans les lignes d'adresse : il s'agit alors d'une adresse hybride, qui est acceptée. Seule l'adresse entièrement non structurée — l'adresse complète en texte libre, sans ville ni pays structurés — est supprimée. Les agents identifiés uniquement par un BIC ne sont pas concernés.",
     structuredAddressWhyTitle: "Pourquoi c'est important",
     structuredAddressWhy1: "Les adresses non structurées augmentent les taux de réparation manuelle et retardent le traitement automatique.",
     structuredAddressWhy2: "Les adresses structurées améliorent la précision du filtrage des sanctions en séparant le nom de la partie des données de localisation.",
@@ -1624,7 +1650,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "يتطلب SWIFT عناوين بريدية مهيكلة في رسائل الدفع عبر الحدود اعتبارًا من نوفمبر 2026. ما الذي يتغير، وما الرسائل المتأثرة، وكيف يساعد pacs008 الفرق في الاستعداد.",
     structuredAddressWhatTitle: "ما الذي يتغير",
-    structuredAddressWhatText: "ينتقل SWIFT CBPR+ من العناوين البريدية غير المهيكلة إلى حقول عنوان مهيكلة في رسائل الدفع عبر الحدود. بعد الموعد النهائي في نوفمبر 2026، يجب أن تستخدم حقول عناوين الأطراف الرئيسية التنسيق المهيكل مع عناصر منفصلة لاسم الشارع ورقم المبنى والرمز البريدي والمدينة والبلد.",
+    structuredAddressWhatText: "هذا حد أدنى وليس حدًا أقصى. اعتبارًا من 14 نوفمبر 2026، يجب على الطرف المعني إدراج المدينة في TwnNm والدولة في Ctry بصيغة رمز ISO 3166 المكوَّن من حرفين. أما الشارع ورقم المبنى والرمز البريدي فيمكن أن تبقى في أسطر العنوان: هذا عنوان هجين وهو مقبول. ولا يُلغى سوى العنوان غير المهيكل بالكامل، أي العنوان بأكمله في نص حر دون مدينة ودولة مهيكلتين. والمؤسسات المُعرَّفة برمز BIC فقط غير معنية بذلك.",
     structuredAddressWhyTitle: "لماذا هذا مهم",
     structuredAddressWhy1: "تزيد العناوين غير المهيكلة من معدلات الإصلاح اليدوي وتؤخر المعالجة المباشرة.",
     structuredAddressWhy2: "تُحسّن العناوين المهيكلة دقة فحص العقوبات من خلال فصل اسم الطرف عن بيانات الموقع.",
@@ -1984,7 +2010,7 @@ const pageCopy = {
     structuredAddressDescription: "Auswirkungen der SWIFT CBPR+ Frist im November 2026 für strukturierte Postanschriften auf pacs.008 und verwandte Zahlungsnachrichten, und wie pacs008 Teams bei der Einhaltung unterstützt.",
     structuredAddressIntro: "SWIFT verlangt ab November 2026 strukturierte Postanschriften in grenzüberschreitenden Zahlungsnachrichten. Diese Seite erklärt, was sich ändert, welche Nachrichten betroffen sind und wie pacs008 Teams bei der Vorbereitung hilft.",
     structuredAddressWhatTitle: "Was sich ändert",
-    structuredAddressWhatText: "SWIFT CBPR+ wechselt von unstrukturierten Postanschriften zu strukturierten Adressfeldern in grenzüberschreitenden Zahlungsnachrichten. Nach der Frist im November 2026 müssen die Adressfelder der Parteien das strukturierte Format mit separaten Elementen für Straßenname, Hausnummer, Postleitzahl, Ort und Land verwenden.",
+    structuredAddressWhatText: "Dies ist eine Mindest-, keine Höchstanforderung. Ab dem 14. November 2026 muss eine betroffene Partei den Ort in TwnNm und das Land in Ctry als zweistelligen ISO-3166-Code führen. Straße, Hausnummer und Postleitzahl dürfen in den Adresszeilen verbleiben: Das ist eine hybride Adresse und sie wird akzeptiert. Entfernt wird ausschließlich die vollständig unstrukturierte Adresse — die gesamte Adresse als Freitext ohne strukturierten Ort und ohne Land. Ausschließlich per BIC identifizierte Institute sind nicht betroffen.",
     structuredAddressWhyTitle: "Warum es wichtig ist",
     structuredAddressWhy1: "Unstrukturierte Adressen erhöhen die manuellen Reparaturraten und verzögern die automatische Verarbeitung.",
     structuredAddressWhy2: "Strukturierte Adressen verbessern die Genauigkeit der Sanktionsprüfung durch Trennung von Parteiname und Standortdaten.",
@@ -2345,7 +2371,7 @@ const pageCopy = {
     structuredAddressDescription: "Cómo afecta el plazo SWIFT CBPR+ de noviembre 2026 para direcciones postales estructuradas a pacs.008 y mensajes de pago relacionados, y cómo pacs008 ayuda a los equipos a cumplir.",
     structuredAddressIntro: "SWIFT requiere direcciones postales estructuradas en mensajes de pago transfronterizos a partir de noviembre de 2026. Esta página explica qué cambia, qué mensajes se ven afectados y cómo pacs008 ayuda a los equipos a prepararse.",
     structuredAddressWhatTitle: "Qué cambia",
-    structuredAddressWhatText: "SWIFT CBPR+ está pasando de direcciones postales no estructuradas a campos de dirección estructurados en mensajes de pago transfronterizos. Después del plazo de noviembre de 2026, los campos de dirección de las partes clave deben usar el formato estructurado con elementos separados para nombre de calle, número de edificio, código postal, ciudad y país.",
+    structuredAddressWhatText: "Se trata de un requisito mínimo, no máximo. A partir del 14 de noviembre de 2026, una parte afectada debe indicar la localidad en TwnNm y el país en Ctry como código ISO 3166 de dos letras. La calle, el número de edificio y el código postal pueden permanecer en las líneas de dirección: eso es una dirección híbrida y se acepta. Solo se elimina la dirección totalmente no estructurada, es decir, la dirección completa en texto libre sin localidad ni país estructurados. Los agentes identificados únicamente mediante BIC no se ven afectados.",
     structuredAddressWhyTitle: "Por qué es importante",
     structuredAddressWhy1: "Las direcciones no estructuradas aumentan las tasas de reparación manual y retrasan el procesamiento automático.",
     structuredAddressWhy2: "Las direcciones estructuradas mejoran la precisión del filtrado de sanciones al separar el nombre de la parte de los datos de ubicación.",
@@ -2703,7 +2729,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT דורש כתובות דואר מובנות בהודעות תשלום חוצות גבולות החל מנובמבר 2026. מה משתנה, אילו הודעות מושפעות וכיצד pacs008 עוזר לצוותים להתכונן.",
     structuredAddressWhatTitle: "מה משתנה",
-    structuredAddressWhatText: "SWIFT CBPR+ עובר מכתובות דואר לא מובנות לשדות כתובת מובנים בהודעות תשלום חוצות גבולות. לאחר המועד האחרון בנובמבר 2026, שדות הכתובת של הצדדים המרכזיים חייבים להשתמש בפורמט המובנה עם אלמנטים נפרדים לשם רחוב, מספר בניין, מיקוד, עיר ומדינה.",
+    structuredAddressWhatText: "זו דרישת מינימום, לא מקסימום. החל מ-14 בנובמבר 2026 על צד רלוונטי לציין את העיר בשדה TwnNm ואת המדינה בשדה Ctry כקוד ISO 3166 בן שתי אותיות. רחוב, מספר בניין ומיקוד יכולים להישאר בשורות הכתובת: זו כתובת היברידית והיא מתקבלת. מבוטלת רק הכתובת הבלתי מובנית לחלוטין — כלומר כל הכתובת כטקסט חופשי ללא עיר ומדינה מובנות. מוסדות המזוהים באמצעות BIC בלבד אינם מושפעים.",
     structuredAddressWhyTitle: "למה זה חשוב",
     structuredAddressWhy1: "כתובות לא מובנות מגדילות את שיעורי התיקון הידני ומעכבות עיבוד ישיר.",
     structuredAddressWhy2: "כתובות מובנות משפרות את דיוק סינון הסנקציות על ידי הפרדת שם הצד מנתוני המיקום.",
@@ -3060,7 +3086,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT को नवंबर 2026 से सीमा-पार भुगतान संदेशों में संरचित डाक पते की आवश्यकता है। क्या बदल रहा है, कौन से संदेश प्रभावित हैं, और pacs008 टीमों को तैयार होने में कैसे मदद करता है।",
     structuredAddressWhatTitle: "क्या बदल रहा है",
-    structuredAddressWhatText: "SWIFT CBPR+ सीमा-पार भुगतान संदेशों में असंरचित डाक पतों से संरचित पता फ़ील्ड की ओर बढ़ रहा है। नवंबर 2026 की समय सीमा के बाद, प्रमुख पक्ष पता फ़ील्ड को सड़क का नाम, भवन संख्या, पिन कोड, शहर और देश के लिए अलग-अलग तत्वों के साथ संरचित प्रारूप का उपयोग करना होगा।",
+    structuredAddressWhatText: "यह न्यूनतम आवश्यकता है, अधिकतम नहीं। 14 नवंबर 2026 से संबंधित पक्ष को शहर TwnNm में और देश Ctry में दो-अक्षरीय ISO 3166 कोड के रूप में देना होगा। सड़क, भवन संख्या और पिन कोड पता पंक्तियों में रह सकते हैं: यह एक हाइब्रिड पता है और यह स्वीकार्य है। केवल पूर्णतः असंरचित पता हटाया जा रहा है — अर्थात पूरा पता मुक्त पाठ में, बिना संरचित शहर और देश के। केवल BIC से पहचाने जाने वाले संस्थान इससे प्रभावित नहीं होते।",
     structuredAddressWhyTitle: "यह क्यों महत्वपूर्ण है",
     structuredAddressWhy1: "असंरचित पते मैनुअल मरम्मत दरों को बढ़ाते हैं और सीधे प्रसंस्करण में देरी करते हैं।",
     structuredAddressWhy2: "संरचित पते पक्ष के नाम को स्थान डेटा से अलग करके प्रतिबंध जांच सटीकता में सुधार करते हैं।",
@@ -3417,7 +3443,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT mewajibkan alamat pos terstruktur dalam pesan pembayaran lintas batas mulai November 2026. Apa yang berubah, pesan mana yang terpengaruh, dan bagaimana pacs008 membantu tim mempersiapkan diri.",
     structuredAddressWhatTitle: "Apa yang berubah",
-    structuredAddressWhatText: "SWIFT CBPR+ beralih dari alamat pos tidak terstruktur ke bidang alamat terstruktur dalam pesan pembayaran lintas batas. Setelah tenggat waktu November 2026, bidang alamat pihak utama harus menggunakan format terstruktur dengan elemen terpisah untuk nama jalan, nomor gedung, kode pos, kota, dan negara.",
+    structuredAddressWhatText: "Ini persyaratan minimum, bukan maksimum. Mulai 14 November 2026, pihak yang tercakup harus mencantumkan kota pada TwnNm dan negara pada Ctry sebagai kode ISO 3166 dua huruf. Jalan, nomor bangunan, dan kode pos boleh tetap berada di baris alamat: itu adalah alamat hibrida dan diterima. Yang dihapus hanyalah alamat yang sepenuhnya tidak terstruktur — seluruh alamat dalam teks bebas tanpa kota dan negara terstruktur. Lembaga yang diidentifikasi hanya dengan BIC tidak terpengaruh.",
     structuredAddressWhyTitle: "Mengapa ini penting",
     structuredAddressWhy1: "Alamat tidak terstruktur meningkatkan tingkat perbaikan manual dan menunda pemrosesan langsung.",
     structuredAddressWhy2: "Alamat terstruktur meningkatkan akurasi penyaringan sanksi dengan memisahkan nama pihak dari data lokasi.",
@@ -3774,7 +3800,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT richiede indirizzi postali strutturati nei messaggi di pagamento transfrontalieri da novembre 2026. Cosa cambia, quali messaggi sono interessati e come pacs008 aiuta i team a prepararsi.",
     structuredAddressWhatTitle: "Cosa cambia",
-    structuredAddressWhatText: "SWIFT CBPR+ sta passando da indirizzi postali non strutturati a campi indirizzo strutturati nei messaggi di pagamento transfrontalieri. Dopo la scadenza di novembre 2026, i campi indirizzo delle parti principali devono utilizzare il formato strutturato con elementi separati per nome via, numero civico, codice postale, città e paese.",
+    structuredAddressWhatText: "È un requisito minimo, non massimo. Dal 14 novembre 2026 una parte interessata deve indicare la città in TwnNm e il paese in Ctry come codice ISO 3166 a due lettere. Via, numero civico e CAP possono restare nelle righe di indirizzo: questo è un indirizzo ibrido ed è accettato. Viene rimosso solo l'indirizzo completamente non strutturato, ossia l'intero indirizzo in testo libero senza città e paese strutturati. Gli agenti identificati unicamente tramite BIC non sono interessati.",
     structuredAddressWhyTitle: "Perché è importante",
     structuredAddressWhy1: "Gli indirizzi non strutturati aumentano i tassi di riparazione manuale e ritardano l'elaborazione diretta.",
     structuredAddressWhy2: "Gli indirizzi strutturati migliorano la precisione dello screening delle sanzioni separando il nome della parte dai dati di localizzazione.",
@@ -4131,7 +4157,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFTは2026年11月よりクロスボーダー決済メッセージに構造化郵便住所を義務付けます。何が変わるのか、どのメッセージが影響を受けるのか、pacs008がチームの準備をどのように支援するのかを説明します。",
     structuredAddressWhatTitle: "何が変わるのか",
-    structuredAddressWhatText: "SWIFT CBPR+はクロスボーダー決済メッセージにおいて、非構造化郵便住所から構造化住所フィールドへ移行しています。2026年11月の期限以降、主要当事者の住所フィールドは、通り名、建物番号、郵便番号、都市名、国名の個別要素を持つ構造化フォーマットを使用する必要があります。",
+    structuredAddressWhatText: "これは上限ではなく下限の要件です。2026年11月14日以降、対象となる当事者は都市名を TwnNm に、国を 2 文字の ISO 3166 コードとして Ctry に格納する必要があります。番地、建物番号、郵便番号はアドレス行に残して構いません。これがハイブリッド住所であり、受け入れられます。廃止されるのは完全非構造化住所、すなわち構造化された都市名と国を持たず住所全体が自由記述となっているものだけです。BIC のみで識別される金融機関は対象外です。",
     structuredAddressWhyTitle: "なぜ重要なのか",
     structuredAddressWhy1: "非構造化住所は手動修正率を高め、ストレートスルー処理を遅延させます。",
     structuredAddressWhy2: "構造化住所は当事者名と所在地データを分離することで制裁審査の精度を向上させます。",
@@ -4488,7 +4514,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT는 2026년 11월부터 국경 간 결제 메시지에 구조화된 우편 주소를 요구합니다. 무엇이 변경되는지, 어떤 메시지가 영향을 받는지, pacs008이 팀의 준비를 어떻게 지원하는지 설명합니다.",
     structuredAddressWhatTitle: "무엇이 변경되는가",
-    structuredAddressWhatText: "SWIFT CBPR+는 국경 간 결제 메시지에서 비구조화 우편 주소를 구조화된 주소 필드로 전환하고 있습니다. 2026년 11월 마감일 이후, 주요 당사자 주소 필드는 도로명, 건물 번호, 우편번호, 도시, 국가에 대한 개별 요소를 포함한 구조화된 형식을 사용해야 합니다.",
+    structuredAddressWhatText: "이는 최대 요건이 아니라 최소 요건입니다. 2026년 11월 14일부터 적용 대상 당사자는 도시명을 TwnNm에, 국가를 두 자리 ISO 3166 코드로 Ctry에 기재해야 합니다. 도로명, 건물번호, 우편번호는 주소 행에 남아 있어도 됩니다. 이것이 하이브리드 주소이며 허용됩니다. 폐지되는 것은 완전 비구조화 주소, 즉 구조화된 도시와 국가 없이 전체 주소가 자유 텍스트로만 기재된 경우뿐입니다. BIC로만 식별되는 기관은 해당되지 않습니다.",
     structuredAddressWhyTitle: "왜 중요한가",
     structuredAddressWhy1: "비구조화 주소는 수동 수정 비율을 높이고 직통 처리를 지연시킵니다.",
     structuredAddressWhy2: "구조화된 주소는 당사자 이름을 위치 데이터에서 분리하여 제재 심사 정확도를 향상시킵니다.",
@@ -4845,7 +4871,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT vereist gestructureerde postadressen in grensoverschrijdende betalingsberichten vanaf november 2026. Wat er verandert, welke berichten betrokken zijn en hoe pacs008 teams helpt zich voor te bereiden.",
     structuredAddressWhatTitle: "Wat er verandert",
-    structuredAddressWhatText: "SWIFT CBPR+ stapt over van ongestructureerde postadressen naar gestructureerde adresvelden in grensoverschrijdende betalingsberichten. Na de deadline van november 2026 moeten de adresvelden van de belangrijkste partijen het gestructureerde formaat gebruiken met afzonderlijke elementen voor straatnaam, huisnummer, postcode, plaats en land.",
+    structuredAddressWhatText: "Dit is een minimumvereiste, geen maximum. Vanaf 14 november 2026 moet een betrokken partij de plaats in TwnNm en het land in Ctry opnemen als tweeletterige ISO 3166-code. Straat, huisnummer en postcode mogen in de adresregels blijven staan: dat is een hybride adres en dat wordt geaccepteerd. Alleen het volledig ongestructureerde adres — het hele adres als vrije tekst zonder gestructureerde plaats en land — verdwijnt. Instellingen die uitsluitend met een BIC worden geïdentificeerd, vallen hierbuiten.",
     structuredAddressWhyTitle: "Waarom het belangrijk is",
     structuredAddressWhy1: "Ongestructureerde adressen verhogen het percentage handmatige reparaties en vertragen directe verwerking.",
     structuredAddressWhy2: "Gestructureerde adressen verbeteren de nauwkeurigheid van sanctiescreening door partijnaam te scheiden van locatiegegevens.",
@@ -5202,7 +5228,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT wymaga ustrukturyzowanych adresów pocztowych w transgranicznych komunikatach płatniczych od listopada 2026. Co się zmienia, które komunikaty są dotknięte i jak pacs008 pomaga zespołom w przygotowaniach.",
     structuredAddressWhatTitle: "Co się zmienia",
-    structuredAddressWhatText: "SWIFT CBPR+ przechodzi z nieustrukturyzowanych adresów pocztowych na ustrukturyzowane pola adresowe w transgranicznych komunikatach płatniczych. Po terminie w listopadzie 2026 pola adresowe kluczowych stron muszą używać formatu ustrukturyzowanego z oddzielnymi elementami dla nazwy ulicy, numeru budynku, kodu pocztowego, miasta i kraju.",
+    structuredAddressWhatText: "To wymóg minimalny, a nie maksymalny. Od 14 listopada 2026 r. strona objęta wymogiem musi podać miejscowość w TwnNm oraz kraj w Ctry jako dwuliterowy kod ISO 3166. Ulica, numer budynku i kod pocztowy mogą pozostać w liniach adresu: jest to adres hybrydowy i jest akceptowany. Usuwany jest wyłącznie adres całkowicie niestrukturalny — cały adres w polach tekstowych, bez ustrukturyzowanej miejscowości i kraju. Instytucje identyfikowane wyłącznie kodem BIC nie są objęte wymogiem.",
     structuredAddressWhyTitle: "Dlaczego to ważne",
     structuredAddressWhy1: "Nieustrukturyzowane adresy zwiększają wskaźniki ręcznych napraw i opóźniają przetwarzanie bezpośrednie.",
     structuredAddressWhy2: "Ustrukturyzowane adresy poprawiają dokładność weryfikacji sankcji poprzez oddzielenie nazwy strony od danych lokalizacyjnych.",
@@ -5559,7 +5585,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "O SWIFT exige endereços postais estruturados em mensagens de pagamento transfronteiriças a partir de novembro de 2026. O que muda, quais mensagens são afetadas e como o pacs008 ajuda as equipes a se prepararem.",
     structuredAddressWhatTitle: "O que está mudando",
-    structuredAddressWhatText: "O SWIFT CBPR+ está migrando de endereços postais não estruturados para campos de endereço estruturados em mensagens de pagamento transfronteiriças. Após o prazo de novembro de 2026, os campos de endereço das partes principais devem usar o formato estruturado com elementos separados para nome da rua, número do edifício, código postal, cidade e país.",
+    structuredAddressWhatText: "Trata-se de um requisito mínimo, não máximo. A partir de 14 de novembro de 2026, uma parte abrangida deve indicar a localidade em TwnNm e o país em Ctry como código ISO 3166 de duas letras. Rua, número do edifício e código postal podem permanecer nas linhas de endereço: isso é um endereço híbrido e é aceite. Apenas o endereço totalmente não estruturado — o endereço completo em texto livre, sem localidade nem país estruturados — é removido. Os agentes identificados apenas por BIC não são afetados.",
     structuredAddressWhyTitle: "Por que é importante",
     structuredAddressWhy1: "Endereços não estruturados aumentam as taxas de reparo manual e atrasam o processamento direto.",
     structuredAddressWhy2: "Endereços estruturados melhoram a precisão da triagem de sanções ao separar o nome da parte dos dados de localização.",
@@ -5916,7 +5942,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT impune adrese poștale structurate în mesajele de plată transfrontaliere începând din noiembrie 2026. Ce se schimbă, ce mesaje sunt afectate și cum ajută pacs008 echipele să se pregătească.",
     structuredAddressWhatTitle: "Ce se schimbă",
-    structuredAddressWhatText: "SWIFT CBPR+ trece de la adrese poștale nestructurate la câmpuri de adresă structurate în mesajele de plată transfrontaliere. După termenul limită din noiembrie 2026, câmpurile de adresă ale părților cheie trebuie să utilizeze formatul structurat cu elemente separate pentru numele străzii, numărul clădirii, codul poștal, orașul și țara.",
+    structuredAddressWhatText: "Este o cerință minimă, nu maximă. De la 14 noiembrie 2026, o parte vizată trebuie să indice localitatea în TwnNm și țara în Ctry, sub forma unui cod ISO 3166 din două litere. Strada, numărul clădirii și codul poștal pot rămâne în liniile de adresă: aceasta este o adresă hibridă și este acceptată. Este eliminată doar adresa complet nestructurată — întreaga adresă în text liber, fără localitate și țară structurate. Agenții identificați doar prin BIC nu sunt vizați.",
     structuredAddressWhyTitle: "De ce este important",
     structuredAddressWhy1: "Adresele nestructurate cresc ratele de reparare manuală și întârzie procesarea directă.",
     structuredAddressWhy2: "Adresele structurate îmbunătățesc precizia verificării sancțiunilor prin separarea numelui părții de datele de localizare.",
@@ -6273,7 +6299,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT требует структурированные почтовые адреса в трансграничных платёжных сообщениях с ноября 2026 года. Что меняется, какие сообщения затронуты и как pacs008 помогает командам подготовиться.",
     structuredAddressWhatTitle: "Что меняется",
-    structuredAddressWhatText: "SWIFT CBPR+ переходит от неструктурированных почтовых адресов к структурированным полям адресов в трансграничных платёжных сообщениях. После крайнего срока в ноябре 2026 года поля адресов ключевых сторон должны использовать структурированный формат с отдельными элементами для названия улицы, номера здания, почтового индекса, города и страны.",
+    structuredAddressWhatText: "Это минимальное, а не максимальное требование. С 14 ноября 2026 года соответствующая сторона обязана указывать город в TwnNm и страну в Ctry в виде двухбуквенного кода ISO 3166. Улица, номер здания и почтовый индекс могут оставаться в адресных строках: это гибридный адрес, и он принимается. Исключается только полностью неструктурированный адрес — весь адрес в свободном тексте без структурированных города и страны. Учреждения, идентифицируемые только по BIC, требование не затрагивает.",
     structuredAddressWhyTitle: "Почему это важно",
     structuredAddressWhy1: "Неструктурированные адреса увеличивают долю ручных исправлений и задерживают сквозную обработку.",
     structuredAddressWhy2: "Структурированные адреса повышают точность санкционного скрининга за счёт отделения имени стороны от данных о местоположении.",
@@ -6630,7 +6656,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT กำหนดให้ใช้ที่อยู่ไปรษณีย์แบบมีโครงสร้างในข้อความการชำระเงินข้ามพรมแดนตั้งแต่เดือนพฤศจิกายน 2026 มีอะไรเปลี่ยนแปลง ข้อความใดได้รับผลกระทบ และ pacs008 ช่วยทีมเตรียมความพร้อมอย่างไร",
     structuredAddressWhatTitle: "สิ่งที่เปลี่ยนแปลง",
-    structuredAddressWhatText: "SWIFT CBPR+ กำลังเปลี่ยนจากที่อยู่ไปรษณีย์แบบไม่มีโครงสร้างเป็นฟิลด์ที่อยู่แบบมีโครงสร้างในข้อความการชำระเงินข้ามพรมแดน หลังจากกำหนดเส้นตายเดือนพฤศจิกายน 2026 ฟิลด์ที่อยู่ของฝ่ายหลักต้องใช้รูปแบบมีโครงสร้างที่มีองค์ประกอบแยกสำหรับชื่อถนน หมายเลขอาคาร รหัสไปรษณีย์ เมือง และประเทศ",
+    structuredAddressWhatText: "นี่คือข้อกำหนดขั้นต่ำ ไม่ใช่ขั้นสูงสุด ตั้งแต่วันที่ 14 พฤศจิกายน 2026 คู่สัญญาที่อยู่ในขอบเขตต้องระบุเมืองในฟิลด์ TwnNm และประเทศในฟิลด์ Ctry เป็นรหัส ISO 3166 สองตัวอักษร ส่วนถนน เลขที่อาคาร และรหัสไปรษณีย์ยังคงอยู่ในบรรทัดที่อยู่ได้ นั่นคือที่อยู่แบบไฮบริดและเป็นที่ยอมรับ สิ่งที่ถูกยกเลิกคือที่อยู่ที่ไม่มีโครงสร้างโดยสมบูรณ์เท่านั้น กล่าวคือที่อยู่ทั้งหมดอยู่ในข้อความอิสระโดยไม่มีเมืองและประเทศแบบมีโครงสร้าง สถาบันที่ระบุด้วย BIC เพียงอย่างเดียวไม่ได้รับผลกระทบ",
     structuredAddressWhyTitle: "ทำไมจึงสำคัญ",
     structuredAddressWhy1: "ที่อยู่แบบไม่มีโครงสร้างเพิ่มอัตราการแก้ไขด้วยตนเองและทำให้การประมวลผลโดยตรงล่าช้า",
     structuredAddressWhy2: "ที่อยู่แบบมีโครงสร้างช่วยเพิ่มความแม่นยำในการคัดกรองการลงโทษโดยแยกชื่อฝ่ายออกจากข้อมูลตำแหน่ง",
@@ -6987,7 +7013,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT, Kasım 2026'dan itibaren sınır ötesi ödeme mesajlarında yapılandırılmış posta adresleri gerektirmektedir. Ne değişiyor, hangi mesajlar etkileniyor ve pacs008 ekiplerin hazırlanmasına nasıl yardımcı oluyor.",
     structuredAddressWhatTitle: "Ne değişiyor",
-    structuredAddressWhatText: "SWIFT CBPR+ sınır ötesi ödeme mesajlarında yapılandırılmamış posta adreslerinden yapılandırılmış adres alanlarına geçiş yapmaktadır. Kasım 2026 son tarihinden sonra, kilit taraf adres alanları sokak adı, bina numarası, posta kodu, şehir ve ülke için ayrı öğelerle yapılandırılmış formatı kullanmalıdır.",
+    structuredAddressWhatText: "Bu azami değil, asgari bir gerekliliktir. 14 Kasım 2026'dan itibaren kapsamdaki bir taraf, şehri TwnNm, ülkeyi ise iki harfli ISO 3166 kodu olarak Ctry alanında taşımalıdır. Sokak, bina numarası ve posta kodu adres satırlarında kalabilir: bu hibrit bir adrestir ve kabul edilir. Yalnızca tamamen yapılandırılmamış adres — yapılandırılmış şehir ve ülke olmadan tamamı serbest metinde yer alan adres — kaldırılmaktadır. Yalnızca BIC ile tanımlanan kurumlar bu kapsamda değildir.",
     structuredAddressWhyTitle: "Neden önemli",
     structuredAddressWhy1: "Yapılandırılmamış adresler manuel onarım oranlarını artırır ve doğrudan işlemeyi geciktirir.",
     structuredAddressWhy2: "Yapılandırılmış adresler, taraf adını konum verilerinden ayırarak yaptırım tarama doğruluğunu artırır.",
@@ -7344,7 +7370,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT вимагає структуровані поштові адреси в транскордонних платіжних повідомленнях з листопада 2026 року. Що змінюється, які повідомлення зачеплені та як pacs008 допомагає командам підготуватися.",
     structuredAddressWhatTitle: "Що змінюється",
-    structuredAddressWhatText: "SWIFT CBPR+ переходить від неструктурованих поштових адрес до структурованих полів адрес у транскордонних платіжних повідомленнях. Після граничного терміну в листопаді 2026 року поля адрес ключових сторін повинні використовувати структурований формат з окремими елементами для назви вулиці, номера будівлі, поштового індексу, міста та країни.",
+    structuredAddressWhatText: "Це мінімальна, а не максимальна вимога. З 14 листопада 2026 року відповідна сторона повинна зазначати місто в TwnNm і країну в Ctry у вигляді дволітерного коду ISO 3166. Вулиця, номер будівлі та поштовий індекс можуть залишатися в адресних рядках: це гібридна адреса, і вона приймається. Вилучається лише повністю неструктурована адреса — уся адреса у вільному тексті без структурованих міста та країни. Установ, що ідентифікуються лише за BIC, вимога не стосується.",
     structuredAddressWhyTitle: "Чому це важливо",
     structuredAddressWhy1: "Неструктуровані адреси збільшують частку ручних виправлень та затримують наскрізну обробку.",
     structuredAddressWhy2: "Структуровані адреси підвищують точність санкційного скринінгу шляхом відокремлення імені сторони від даних про місцезнаходження.",
@@ -7701,7 +7727,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT yêu cầu địa chỉ bưu chính có cấu trúc trong các thông điệp thanh toán xuyên biên giới từ tháng 11 năm 2026. Điều gì thay đổi, thông điệp nào bị ảnh hưởng và pacs008 hỗ trợ các đội nhóm chuẩn bị như thế nào.",
     structuredAddressWhatTitle: "Điều gì thay đổi",
-    structuredAddressWhatText: "SWIFT CBPR+ đang chuyển từ địa chỉ bưu chính phi cấu trúc sang các trường địa chỉ có cấu trúc trong thông điệp thanh toán xuyên biên giới. Sau thời hạn tháng 11 năm 2026, các trường địa chỉ của bên chính phải sử dụng định dạng có cấu trúc với các phần tử riêng biệt cho tên đường, số tòa nhà, mã bưu chính, thành phố và quốc gia.",
+    structuredAddressWhatText: "Đây là yêu cầu tối thiểu, không phải tối đa. Từ ngày 14 tháng 11 năm 2026, bên thuộc phạm vi áp dụng phải ghi thành phố trong TwnNm và quốc gia trong Ctry dưới dạng mã ISO 3166 hai chữ cái. Đường phố, số nhà và mã bưu chính có thể vẫn nằm trong các dòng địa chỉ: đó là địa chỉ lai và được chấp nhận. Chỉ địa chỉ hoàn toàn phi cấu trúc bị loại bỏ — tức toàn bộ địa chỉ ở dạng văn bản tự do, không có thành phố và quốc gia có cấu trúc. Các tổ chức chỉ được nhận diện bằng BIC không bị ảnh hưởng.",
     structuredAddressWhyTitle: "Tại sao điều này quan trọng",
     structuredAddressWhy1: "Địa chỉ phi cấu trúc làm tăng tỷ lệ sửa chữa thủ công và làm chậm quá trình xử lý trực tiếp.",
     structuredAddressWhy2: "Địa chỉ có cấu trúc cải thiện độ chính xác của việc sàng lọc trừng phạt bằng cách tách tên bên khỏi dữ liệu vị trí.",
@@ -8058,7 +8084,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT 要求从2026年11月起在跨境支付报文中使用结构化邮政地址。了解哪些内容将发生变化、哪些报文受到影响，以及 pacs008 如何帮助团队做好准备。",
     structuredAddressWhatTitle: "正在发生什么变化",
-    structuredAddressWhatText: "SWIFT CBPR+ 正在将跨境支付报文中的非结构化邮政地址转换为结构化地址字段。在2026年11月截止日期之后，关键方的地址字段必须使用结构化格式，包含街道名称、建筑编号、邮政编码、城市和国家的独立元素。",
+    structuredAddressWhatText: "这是最低要求，而非最高要求。自 2026 年 11 月 14 日起，适用方必须将城市填入 TwnNm，并将国家以两位 ISO 3166 代码填入 Ctry。街道、门牌号和邮政编码可以保留在地址行中：这属于混合地址，是被接受的。被取消的只是完全非结构化地址，即整个地址以自由文本形式填写、没有结构化的城市和国家。仅以 BIC 标识的机构不受影响。",
     structuredAddressWhyTitle: "为什么重要",
     structuredAddressWhy1: "非结构化地址增加了人工修复率并延迟了直通处理。",
     structuredAddressWhy2: "结构化地址通过将当事方名称与位置数据分离来提高制裁筛查准确性。",
@@ -8415,7 +8441,7 @@ const pageCopy = {
     structuredAddressDescription: "How the SWIFT CBPR+ November 2026 structured postal address deadline affects pacs.008 and related payment messages, and how pacs008 helps teams comply.",
     structuredAddressIntro: "SWIFT 要求從2026年11月起在跨境支付訊息中使用結構化郵政地址。了解哪些內容將發生變化、哪些訊息受到影響，以及 pacs008 如何幫助團隊做好準備。",
     structuredAddressWhatTitle: "正在發生什麼變化",
-    structuredAddressWhatText: "SWIFT CBPR+ 正在將跨境支付訊息中的非結構化郵政地址轉換為結構化地址欄位。在2026年11月截止日期之後，關鍵方的地址欄位必須使用結構化格式，包含街道名稱、建築編號、郵遞區號、城市和國家的獨立元素。",
+    structuredAddressWhatText: "這是最低要求，而非最高要求。自 2026 年 11 月 14 日起，適用方必須將城市填入 TwnNm，並將國家以兩位 ISO 3166 代碼填入 Ctry。街道、門牌號碼與郵遞區號可保留在地址行中：這屬於混合位址，是被接受的。被取消的僅是完全非結構化位址，亦即整個位址以自由文字填寫、沒有結構化的城市與國家。僅以 BIC 識別的機構不受影響。",
     structuredAddressWhyTitle: "為什麼重要",
     structuredAddressWhy1: "非結構化地址增加了人工修復率並延遲了直通處理。",
     structuredAddressWhy2: "結構化地址透過將當事方名稱與位置資料分離來提高制裁篩查準確性。",
@@ -8762,7 +8788,7 @@ const pageCopy = {
     structuredAddressDescription: "SWIFT CBPR+ নভেম্বর 2026 কাঠামোগত ডাক ঠিকানার সময়সীমা কীভাবে pacs.008 এবং সম্পর্কিত পেমেন্ট বার্তাগুলিকে প্রভাবিত করে এবং pacs008 কীভাবে দলগুলিকে মেনে চলতে সাহায্য করে।",
     structuredAddressIntro: "SWIFT ২০২৬ সালের নভেম্বর থেকে সীমান্ত-পার পেমেন্ট বার্তায় কাঠামোগত ডাক ঠিকানা বাধ্যতামূলক করছে। কী পরিবর্তন হচ্ছে, কোন বার্তাগুলি প্রভাবিত এবং pacs008 কীভাবে দলগুলিকে প্রস্তুত হতে সাহায্য করে।",
     structuredAddressWhatTitle: "কী পরিবর্তন হচ্ছে",
-    structuredAddressWhatText: "SWIFT CBPR+ সীমান্ত-পার পেমেন্ট বার্তায় অকাঠামোগত ডাক ঠিকানা থেকে কাঠামোগত ঠিকানা ক্ষেত্রে রূপান্তরিত হচ্ছে। ২০২৬ সালের নভেম্বরের সময়সীমার পরে, প্রধান পক্ষের ঠিকানা ক্ষেত্রগুলিতে রাস্তার নাম, ভবন নম্বর, পোস্ট কোড, শহর এবং দেশের জন্য পৃথক উপাদান সহ কাঠামোগত বিন্যাস ব্যবহার করতে হবে।",
+    structuredAddressWhatText: "এটি সর্বনিম্ন প্রয়োজনীয়তা, সর্বোচ্চ নয়। ১৪ নভেম্বর ২০২৬ থেকে সংশ্লিষ্ট পক্ষকে শহর TwnNm-এ এবং দেশ Ctry-তে দুই-অক্ষরের ISO 3166 কোড হিসেবে দিতে হবে। রাস্তা, ভবন নম্বর ও পোস্ট কোড ঠিকানার লাইনে থাকতে পারে: এটি একটি হাইব্রিড ঠিকানা এবং এটি গ্রহণযোগ্য। কেবল সম্পূর্ণ অসংগঠিত ঠিকানা বাদ দেওয়া হচ্ছে — অর্থাৎ সম্পূর্ণ ঠিকানা মুক্ত পাঠ্যে, সংগঠিত শহর ও দেশ ছাড়া। কেবল BIC দ্বারা চিহ্নিত প্রতিষ্ঠান এতে প্রভাবিত হয় না।",
     structuredAddressWhyTitle: "কেন এটি গুরুত্বপূর্ণ",
     structuredAddressWhy1: "অকাঠামোগত ঠিকানা ম্যানুয়াল মেরামতের হার বাড়ায় এবং সরাসরি প্রক্রিয়াকরণে বিলম্ব ঘটায়।",
     structuredAddressWhy2: "কাঠামোগত ঠিকানা পক্ষের নাম থেকে অবস্থান ডেটা আলাদা করে নিষেধাজ্ঞা স্ক্রিনিং নির্ভুলতা উন্নত করে।",
@@ -9125,7 +9151,7 @@ const pageCopy = {
     structuredAddressDescription: "Jak termín strukturovaných poštovních adres SWIFT CBPR+ v listopadu 2026 ovlivňuje pacs.008 a související platební zprávy.",
     structuredAddressIntro: "SWIFT vyžaduje strukturované poštovní adresy v přeshraničních platebních zprávách od listopadu 2026. Co se mění, které zprávy jsou dotčeny a jak pacs008 pomáhá týmům s přípravou.",
     structuredAddressWhatTitle: "Co se mění",
-    structuredAddressWhatText: "SWIFT CBPR+ přechází z nestrukturovaných poštovních adres na strukturovaná adresní pole v přeshraničních platebních zprávách. Po uplynutí lhůty v listopadu 2026 musí adresní pole klíčových stran používat strukturovaný formát s oddělenými prvky pro název ulice, číslo budovy, poštovní směrovací číslo, město a zemi.",
+    structuredAddressWhatText: "Jde o minimální, nikoli maximální požadavek. Od 14. listopadu 2026 musí dotčená strana uvádět město v TwnNm a zemi v Ctry jako dvoupísmenný kód ISO 3166. Ulice, číslo budovy a PSČ mohou zůstat v adresních řádcích: jde o hybridní adresu a je akceptována. Odstraňuje se pouze zcela nestrukturovaná adresa — celá adresa ve volném textu bez strukturovaného města a země. Institucí identifikovaných pouze pomocí BIC se to netýká.",
     structuredAddressWhyTitle: "Proč je to důležité",
     structuredAddressWhy1: "Nestrukturované adresy zvyšují míru manuálních oprav a zpožďují přímé zpracování.",
     structuredAddressWhy2: "Strukturované adresy zlepšují přesnost prověřování sankcí oddělením jména strany od lokalizačních údajů.",
@@ -9274,7 +9300,7 @@ const pageCopy = {
     structuredAddressDescription: "Yadda ƙayyadaddun lokacin adireshin da SWIFT CBPR+ ta tsara na Nuwamba 2026 ke shafar pacs.008 da saƙonnin biyan kuɗi masu alaƙa, da yadda pacs008 ke taimaka wa ƙungiyoyi su bi doka.",
     structuredAddressIntro: "SWIFT na buƙatar adireshi na gidan waya masu tsari a cikin saƙonnin biyan kuɗi na ƙetare iyaka daga Nuwamba 2026. Menene ke canzawa, waɗanne saƙonni ne abin ya shafa, da yadda pacs008 ke taimaka wa ƙungiyoyi su shirya.",
     structuredAddressWhatTitle: "Menene ke canzawa",
-    structuredAddressWhatText: "SWIFT CBPR+ na matsawa daga adireshi na gidan waya marasa tsari zuwa filayen adireshin da ke da tsari a cikin saƙonnin biyan kuɗi na ƙetare iyaka. Bayan ƙarshen wa'adin Nuwamba 2026, filayen adireshin manyan ɓangarori dole ne su yi amfani da tsarin da ke da sassa daban-daban na sunan titi, lambar gini, lambar gidan waya, gari, da ƙasa.",
+    structuredAddressWhatText: "Wannan buƙata ce mafi ƙaranci, ba mafi girma ba. Daga 14 ga Nuwamba 2026, ɓangaren da abin ya shafa dole ne ya sanya birni a TwnNm da ƙasa a Ctry a matsayin lambar ISO 3166 mai haruffa biyu. Titi, lambar gini da lambar gidan waya na iya kasancewa a layukan adireshi: wannan adireshin gauraye ne kuma ana karɓarsa. Abin da aka cire shi ne kawai adireshin da ba shi da tsari gaba ɗaya — wato dukkan adireshin a matsayin rubutu mai 'yanci ba tare da birni da ƙasa masu tsari ba. Cibiyoyin da aka gano ta BIC kaɗai ba abin ya shafa ba.",
     structuredAddressWhyTitle: "Me ya sa wannan yana da muhimmanci",
     structuredAddressWhy1: "Adireshi marasa tsari suna ƙara yawan gyare-gyare na hannu kuma suna jinkirta sarrafa kai tsaye.",
     structuredAddressWhy2: "Adireshi masu tsari suna inganta daidaiton tantance takunkumi ta hanyar raba sunan ɓangare daga bayanan wurin.",
@@ -9589,7 +9615,7 @@ const pageCopy = {
     structuredAddressDescription: "Hur SWIFT CBPR+ tidsfrist för strukturerade postadresser i november 2026 påverkar pacs.008 och relaterade betalningsmeddelanden, och hur pacs008 hjälper team att följa kraven.",
     structuredAddressIntro: "SWIFT kräver strukturerade postadresser i gränsöverskridande betalningsmeddelanden från november 2026. Vad som ändras, vilka meddelanden som påverkas och hur pacs008 hjälper team att förbereda sig.",
     structuredAddressWhatTitle: "Vad som ändras",
-    structuredAddressWhatText: "SWIFT CBPR+ övergår från ostrukturerade postadresser till strukturerade adressfält i gränsöverskridande betalningsmeddelanden. Efter tidsfristen i november 2026 måste adressfälten för viktiga parter använda det strukturerade formatet med separata element för gatunamn, byggnadsnummer, postnummer, stad och land.",
+    structuredAddressWhatText: "Detta är ett minimikrav, inte ett maximikrav. Från och med den 14 november 2026 måste en berörd part ange ort i TwnNm och land i Ctry som tvåställig ISO 3166-kod. Gata, husnummer och postnummer får ligga kvar i adressraderna: det är en hybridadress och den accepteras. Endast den helt ostrukturerade adressen — hela adressen som fritext utan strukturerad ort och land — tas bort. Institut som identifieras enbart med BIC berörs inte.",
     structuredAddressWhyTitle: "Varför det är viktigt",
     structuredAddressWhy1: "Ostrukturerade adresser ökar andelen manuella reparationer och försenar direkt genomströmning.",
     structuredAddressWhy2: "Strukturerade adresser förbättrar noggrannheten i sanktionsgranskning genom att separera partnamn från platsdata.",
@@ -9904,7 +9930,7 @@ const pageCopy = {
     structuredAddressDescription: "Paano naaapektuhan ng SWIFT CBPR+ November 2026 structured postal address deadline ang pacs.008 at mga kaugnay na mensahe ng pagbabayad, at paano tumutulong ang pacs008 sa mga team na sumunod.",
     structuredAddressIntro: "Kinakailangan ng SWIFT ang mga structured na postal address sa mga cross-border na mensahe ng pagbabayad mula Nobyembre 2026. Ano ang nagbabago, aling mga mensahe ang apektado, at paano tumutulong ang pacs008 sa mga team na maghanda.",
     structuredAddressWhatTitle: "Ano ang nagbabago",
-    structuredAddressWhatText: "Ang SWIFT CBPR+ ay lumilipat mula sa mga unstructured na postal address patungo sa mga structured na address field sa mga cross-border na mensahe ng pagbabayad. Pagkatapos ng deadline sa Nobyembre 2026, ang mga address field ng mga pangunahing partido ay kailangang gumamit ng structured na format na may hiwalay na mga elemento para sa pangalan ng kalye, numero ng gusali, postal code, lungsod, at bansa.",
+    structuredAddressWhatText: "Ito ay pinakamababang kinakailangan, hindi pinakamataas. Mula 14 Nobyembre 2026, dapat ilagay ng saklaw na partido ang lungsod sa TwnNm at ang bansa sa Ctry bilang dalawang-titik na ISO 3166 code. Ang kalye, numero ng gusali at postal code ay maaaring manatili sa mga linya ng address: iyon ay hybrid na address at tinatanggap ito. Ang inaalis lamang ay ang ganap na hindi nakabalangkas na address — ang buong address sa malayang teksto nang walang nakabalangkas na lungsod at bansa. Hindi apektado ang mga institusyong tinutukoy sa pamamagitan ng BIC lamang.",
     structuredAddressWhyTitle: "Bakit ito mahalaga",
     structuredAddressWhy1: "Ang mga unstructured na address ay nagpapataas ng rate ng manu-manong pag-aayos at nagpapabagal ng direktang pagproseso.",
     structuredAddressWhy2: "Ang mga structured na address ay nagpapabuti ng katumpakan ng sanctions screening sa pamamagitan ng paghihiwalay ng pangalan ng partido mula sa data ng lokasyon.",
@@ -10219,7 +10245,7 @@ const pageCopy = {
     structuredAddressDescription: "Bí àkókò ìparí àdírẹ́sì ìfìwéránṣẹ́ tí a ṣètò ti SWIFT CBPR+ ní Oṣù Kọkànlá 2026 ṣe kan pacs.008 àti àwọn ìfiránṣẹ́ ìsanwó tí ó jọmọ, àti bí pacs008 ṣe ń ràn àwọn ẹgbẹ́ lọ́wọ́ láti tẹ̀lé ìlànà.",
     structuredAddressIntro: "SWIFT nílò àwọn àdírẹ́sì ìfìwéránṣẹ́ tí a ṣètò nínú àwọn ìfiránṣẹ́ ìsanwó àgbáyé láti Oṣù Kọkànlá 2026. Kí ni ó ń yí padà, àwọn ìfiránṣẹ́ wo ni ó kan, àti bí pacs008 ṣe ń ràn àwọn ẹgbẹ́ lọ́wọ́ láti múra sílẹ̀.",
     structuredAddressWhatTitle: "Kí ni ó ń yí padà",
-    structuredAddressWhatText: "SWIFT CBPR+ ń yí padà láti àwọn àdírẹ́sì ìfìwéránṣẹ́ tí kò ní ètò sí àwọn pápá àdírẹ́sì tí a ṣètò nínú àwọn ìfiránṣẹ́ ìsanwó àgbáyé. Lẹ́yìn àkókò ìparí ní Oṣù Kọkànlá 2026, àwọn pápá àdírẹ́sì àwọn ẹgbẹ́ pàtàkì gbọdọ̀ lo ètò tí a ṣètò pẹ̀lú àwọn ẹ̀ka ọ̀tọ̀ọ̀tọ̀ fún orúkọ òpópónà, nọ́mbà ilé, kóòdù ìfìwéránṣẹ́, ìlú, àti orílẹ̀-èdè.",
+    structuredAddressWhatText: "Ìbéèrè tí ó kéré jùlọ ni èyí, kì í ṣe èyí tí ó pọ̀ jùlọ. Láti ọjọ́ 14 November 2026, ẹgbẹ́ tí ó kàn gbọ́dọ̀ fi orúkọ ìlú sí TwnNm àti orílẹ̀-èdè sí Ctry gẹ́gẹ́ bí kóòdù ISO 3166 oníléta méjì. Ojú-ọ̀nà, nọ́mbà ilé àti kóòdù ìfìwéránṣẹ́ lè wà nínú àwọn ìlà àdírẹ́sì: àdírẹ́sì àkópọ̀ ni èyí, a sì gbà á. Ohun tí a yọ kúrò ni àdírẹ́sì tí kò ní ètò rárá — ìyẹn gbogbo àdírẹ́sì nínú ọ̀rọ̀ òmìnira láìsí ìlú àti orílẹ̀-èdè tí ó ní ètò. Àwọn ilé-ìfowópamọ́ tí a mọ̀ nípasẹ̀ BIC nìkan kò kàn.",
     structuredAddressWhyTitle: "Ìdí tí ó fi ṣe pàtàkì",
     structuredAddressWhy1: "Àwọn àdírẹ́sì tí kò ní ètò mú kí ìwọ̀n àtúnṣe pẹ̀lú ọwọ́ pọ̀ sí i tí ó sì dá ìṣiṣẹ́ tààrà dúró.",
     structuredAddressWhy2: "Àwọn àdírẹ́sì tí a ṣètò mú kí ìṣàyẹ̀wò ìfòfindè dára sí i nípa yíyà orúkọ ẹgbẹ́ kúrò nínú dátà ibi.",
@@ -18013,10 +18039,7 @@ ${addressRuleTable()}
 
 ## ${t.structuredAddressTimelineTitle}
 
-- ${t.structuredAddressTimeline1}
-- ${t.structuredAddressTimeline2}
-- ${t.structuredAddressTimeline3}
-- ${t.structuredAddressTimeline4 || ""}
+${milestoneTable()}
 
 ## ${t.structuredAddressActionTitle}
 

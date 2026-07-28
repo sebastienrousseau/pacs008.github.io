@@ -31,7 +31,7 @@ SWIFT को नवंबर 2026 से सीमा-पार भुगता�
 
 ## क्या बदल रहा है
 
-SWIFT CBPR+ सीमा-पार भुगतान संदेशों में असंरचित डाक पतों से संरचित पता फ़ील्ड की ओर बढ़ रहा है। नवंबर 2026 की समय सीमा के बाद, प्रमुख पक्ष पता फ़ील्ड को सड़क का नाम, भवन संख्या, पिन कोड, शहर और देश के लिए अलग-अलग तत्वों के साथ संरचित प्रारूप का उपयोग करना होगा।
+यह न्यूनतम आवश्यकता है, अधिकतम नहीं। 14 नवंबर 2026 से संबंधित पक्ष को शहर TwnNm में और देश Ctry में दो-अक्षरीय ISO 3166 कोड के रूप में देना होगा। सड़क, भवन संख्या और पिन कोड पता पंक्तियों में रह सकते हैं: यह एक हाइब्रिड पता है और यह स्वीकार्य है। केवल पूर्णतः असंरचित पता हटाया जा रहा है — अर्थात पूरा पता मुक्त पाठ में, बिना संरचित शहर और देश के। केवल BIC से पहचाने जाने वाले संस्थान इससे प्रभावित नहीं होते।
 
 ## यह क्यों महत्वपूर्ण है
 
@@ -104,10 +104,18 @@ Each maps to the rule it exercises.
 
 ## समयरेखा
 
-- **मार्च 2023** — SWIFT CBPR+ सीमा-पार भुगतानों के लिए ISO 20022 के साथ लाइव हुआ।
-- **नवंबर 2025** — MT और MX भुगतान निर्देशों के लिए सह-अस्तित्व अवधि समाप्त।
-- **नवंबर 2026** — CBPR+ संदेशों के लिए संरचित डाक पता आवश्यकता प्रभावी।
-- **November 2027** — the Bank of England has announced that purpose codes and structured remittance information become mandatory for all CHAPS payments, and camt.110/camt.111 become mandatory across Swift.
+| Date | Scheme | Change | Rule |
+|---|---|---|---|
+| `2025-11-22` | CBPR+ | Hybrid postal address option available | `CBPR-ADDR-004` |
+| `2025-11-22` | CBPR+ | MT/MX coexistence for payment instructions ends | — |
+| `2026-11-14` | CBPR+ | Fully unstructured postal address rejected | `CBPR-ADDR-001` |
+| `2026-11-14` | CHAPS | CHAPS validation library rejects unstructured addresses | `CHAPS-ADDR-001` |
+| `2026-11-14` | CBPR+ | MT101 interbank coexistence ends; contingency relays to `pain.001` | — |
+| `2026-11-14` | Swift | `camt.110` investigation requests must be receivable | — |
+| `2026-11-14` | Swift | Annual Standards Release cycle begins | — |
+| `2027-11` | CHAPS | Purpose codes mandatory on all payments (announced) | `CHAPS-PURP-001` |
+| `2027-11` | CHAPS | Structured remittance information mandatory (announced) | `CHAPS-RMT-001` |
+| `2027-11` | Swift | `camt.110` and `camt.111` both mandatory (announced) | — |
 
 ## अब क्या करें
 

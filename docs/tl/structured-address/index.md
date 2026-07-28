@@ -31,7 +31,7 @@ Kinakailangan ng SWIFT ang mga structured na postal address sa mga cross-border 
 
 ## Ano ang nagbabago
 
-Ang SWIFT CBPR+ ay lumilipat mula sa mga unstructured na postal address patungo sa mga structured na address field sa mga cross-border na mensahe ng pagbabayad. Pagkatapos ng deadline sa Nobyembre 2026, ang mga address field ng mga pangunahing partido ay kailangang gumamit ng structured na format na may hiwalay na mga elemento para sa pangalan ng kalye, numero ng gusali, postal code, lungsod, at bansa.
+Ito ay pinakamababang kinakailangan, hindi pinakamataas. Mula 14 Nobyembre 2026, dapat ilagay ng saklaw na partido ang lungsod sa TwnNm at ang bansa sa Ctry bilang dalawang-titik na ISO 3166 code. Ang kalye, numero ng gusali at postal code ay maaaring manatili sa mga linya ng address: iyon ay hybrid na address at tinatanggap ito. Ang inaalis lamang ay ang ganap na hindi nakabalangkas na address — ang buong address sa malayang teksto nang walang nakabalangkas na lungsod at bansa. Hindi apektado ang mga institusyong tinutukoy sa pamamagitan ng BIC lamang.
 
 ## Bakit ito mahalaga
 
@@ -104,10 +104,18 @@ Each maps to the rule it exercises.
 
 ## Timeline
 
-- **Marso 2023** — naging live ang SWIFT CBPR+ na may ISO 20022 para sa mga cross-border na pagbabayad.
-- **Nobyembre 2025** — natapos ang panahon ng coexistence para sa mga MT at MX na instruksiyon ng pagbabayad.
-- **Nobyembre 2026** — ang kinakailangan ng structured na postal address ay nagkakabisa para sa mga mensahe ng CBPR+.
-- **November 2027** — the Bank of England has announced that purpose codes and structured remittance information become mandatory for all CHAPS payments, and camt.110/camt.111 become mandatory across Swift.
+| Date | Scheme | Change | Rule |
+|---|---|---|---|
+| `2025-11-22` | CBPR+ | Hybrid postal address option available | `CBPR-ADDR-004` |
+| `2025-11-22` | CBPR+ | MT/MX coexistence for payment instructions ends | — |
+| `2026-11-14` | CBPR+ | Fully unstructured postal address rejected | `CBPR-ADDR-001` |
+| `2026-11-14` | CHAPS | CHAPS validation library rejects unstructured addresses | `CHAPS-ADDR-001` |
+| `2026-11-14` | CBPR+ | MT101 interbank coexistence ends; contingency relays to `pain.001` | — |
+| `2026-11-14` | Swift | `camt.110` investigation requests must be receivable | — |
+| `2026-11-14` | Swift | Annual Standards Release cycle begins | — |
+| `2027-11` | CHAPS | Purpose codes mandatory on all payments (announced) | `CHAPS-PURP-001` |
+| `2027-11` | CHAPS | Structured remittance information mandatory (announced) | `CHAPS-RMT-001` |
+| `2027-11` | Swift | `camt.110` and `camt.111` both mandatory (announced) | — |
 
 ## Ano ang dapat gawin ngayon
 

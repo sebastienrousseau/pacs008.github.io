@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { readFileSync, readdirSync, statSync } from "fs";
 import { resolve, join } from "path";
-import { DIST, readPage, textOf } from "./helpers";
+import { DIST, LOCALES, readPage, textOf } from "./helpers";
 
 const manifest = JSON.parse(
   readFileSync(resolve(__dirname, "../data/product-manifest.json"), "utf-8")
@@ -96,5 +96,59 @@ describe("Content truth: privacy", () => {
       .map((file) => file.replace(`${DIST}/`, ""));
     expect(offenders, `pages with third-party scripts: ${offenders.slice(0, 5).join(", ")}`)
       .toEqual([]);
+  });
+});
+
+describe("Content truth: structured address", () => {
+  const LOCALES_WITH_PAGE = ["", ...LOCALES.map((l) => `${l}/`)];
+
+  it("every locale states the exact deadline date", () => {
+    const missing = LOCALES_WITH_PAGE.filter((prefix) => {
+      const text = textOf(readPage(`${prefix}structured-address`));
+      // Either the prose date or the ISO date from the generated tables.
+      return !/14 (November|novembre|noviembre|Kasım|listopada|November)|2026-11-14|14\.? ?11\.? ?2026|2026 年 11 月 14 日|2026年11月14日|14 نوفمبر 2026|14 בנובמבר 2026/.test(text);
+    });
+    expect(missing, `locales without an exact date: ${missing.join(", ")}`).toEqual([]);
+  });
+
+  it("every locale carries the normative rule IDs", () => {
+    const missing = LOCALES_WITH_PAGE.filter((prefix) => {
+      const text = textOf(readPage(`${prefix}structured-address`));
+      return !text.includes("CBPR-ADDR-001") || !text.includes("CHAPS-ADDR-001");
+    });
+    expect(missing, `locales missing rule IDs: ${missing.join(", ")}`).toEqual([]);
+  });
+
+  it("every locale lists the excepted message types", () => {
+    const missing = LOCALES_WITH_PAGE.filter((prefix) => {
+      const text = textOf(readPage(`${prefix}structured-address`));
+      return !text.includes("admi.024") || !text.includes("camt.060");
+    });
+    expect(missing, `locales missing exceptions: ${missing.join(", ")}`).toEqual([]);
+  });
+
+  // Regression: the page previously claimed street, building number and post
+  // code all had to be structured. The rule is Town + Country as a minimum.
+  it("no locale claims post code or street must be structured", () => {
+    const overstating = LOCALES_WITH_PAGE.filter((prefix) => {
+      const text = textOf(readPage(`${prefix}structured-address`));
+      return /post code, town, and country|code postal, ville et pays|Postleitzahl, Ort und Land|código postal, localidad y país|CAP, città e paese|postcode, plaats en land/.test(text);
+    });
+    expect(overstating, `locales overstating the requirement: ${overstating.join(", ")}`).toEqual([]);
+  });
+
+  // Asserts the generated format-comparison table, not prose. The table is
+  // what guarantees every locale says hybrid stays acceptable and only the
+  // fully unstructured form is removed.
+  it("every locale carries the format comparison showing hybrid accepted", () => {
+    const missing = LOCALES_WITH_PAGE.filter((prefix) => {
+      const text = textOf(readPage(`${prefix}structured-address`));
+      return !(
+        text.includes("Hybrid") &&
+        text.includes("Fully unstructured") &&
+        text.includes("Rejected")
+      );
+    });
+    expect(missing, `locales without the format comparison: ${missing.join(", ")}`).toEqual([]);
   });
 });

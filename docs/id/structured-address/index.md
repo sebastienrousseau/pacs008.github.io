@@ -31,7 +31,7 @@ SWIFT mewajibkan alamat pos terstruktur dalam pesan pembayaran lintas batas mula
 
 ## Apa yang berubah
 
-SWIFT CBPR+ beralih dari alamat pos tidak terstruktur ke bidang alamat terstruktur dalam pesan pembayaran lintas batas. Setelah tenggat waktu November 2026, bidang alamat pihak utama harus menggunakan format terstruktur dengan elemen terpisah untuk nama jalan, nomor gedung, kode pos, kota, dan negara.
+Ini persyaratan minimum, bukan maksimum. Mulai 14 November 2026, pihak yang tercakup harus mencantumkan kota pada TwnNm dan negara pada Ctry sebagai kode ISO 3166 dua huruf. Jalan, nomor bangunan, dan kode pos boleh tetap berada di baris alamat: itu adalah alamat hibrida dan diterima. Yang dihapus hanyalah alamat yang sepenuhnya tidak terstruktur — seluruh alamat dalam teks bebas tanpa kota dan negara terstruktur. Lembaga yang diidentifikasi hanya dengan BIC tidak terpengaruh.
 
 ## Mengapa ini penting
 
@@ -104,10 +104,18 @@ Each maps to the rule it exercises.
 
 ## Lini Masa
 
-- **Maret 2023** — SWIFT CBPR+ diluncurkan dengan ISO 20022 untuk pembayaran lintas batas.
-- **November 2025** — periode koeksistensi untuk instruksi pembayaran MT dan MX berakhir.
-- **November 2026** — persyaratan alamat pos terstruktur berlaku untuk pesan CBPR+.
-- **November 2027** — the Bank of England has announced that purpose codes and structured remittance information become mandatory for all CHAPS payments, and camt.110/camt.111 become mandatory across Swift.
+| Date | Scheme | Change | Rule |
+|---|---|---|---|
+| `2025-11-22` | CBPR+ | Hybrid postal address option available | `CBPR-ADDR-004` |
+| `2025-11-22` | CBPR+ | MT/MX coexistence for payment instructions ends | — |
+| `2026-11-14` | CBPR+ | Fully unstructured postal address rejected | `CBPR-ADDR-001` |
+| `2026-11-14` | CHAPS | CHAPS validation library rejects unstructured addresses | `CHAPS-ADDR-001` |
+| `2026-11-14` | CBPR+ | MT101 interbank coexistence ends; contingency relays to `pain.001` | — |
+| `2026-11-14` | Swift | `camt.110` investigation requests must be receivable | — |
+| `2026-11-14` | Swift | Annual Standards Release cycle begins | — |
+| `2027-11` | CHAPS | Purpose codes mandatory on all payments (announced) | `CHAPS-PURP-001` |
+| `2027-11` | CHAPS | Structured remittance information mandatory (announced) | `CHAPS-RMT-001` |
+| `2027-11` | Swift | `camt.110` and `camt.111` both mandatory (announced) | — |
 
 ## Apa yang harus dilakukan sekarang
 

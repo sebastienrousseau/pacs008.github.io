@@ -31,7 +31,7 @@ SWIFT 要求從2026年11月起在跨境支付訊息中使用結構化郵政地�
 
 ## 正在發生什麼變化
 
-SWIFT CBPR+ 正在將跨境支付訊息中的非結構化郵政地址轉換為結構化地址欄位。在2026年11月截止日期之後，關鍵方的地址欄位必須使用結構化格式，包含街道名稱、建築編號、郵遞區號、城市和國家的獨立元素。
+這是最低要求，而非最高要求。自 2026 年 11 月 14 日起，適用方必須將城市填入 TwnNm，並將國家以兩位 ISO 3166 代碼填入 Ctry。街道、門牌號碼與郵遞區號可保留在地址行中：這屬於混合位址，是被接受的。被取消的僅是完全非結構化位址，亦即整個位址以自由文字填寫、沒有結構化的城市與國家。僅以 BIC 識別的機構不受影響。
 
 ## 為什麼重要
 
@@ -104,10 +104,18 @@ Each maps to the rule it exercises.
 
 ## 時間線
 
-- **2023年3月** — SWIFT CBPR+ 以 ISO 20022 標準上線運行跨境支付。
-- **2025年11月** — MT 和 MX 支付指令的共存期結束。
-- **2026年11月** — 結構化郵政地址要求對 CBPR+ 訊息生效。
-- **November 2027** — the Bank of England has announced that purpose codes and structured remittance information become mandatory for all CHAPS payments, and camt.110/camt.111 become mandatory across Swift.
+| Date | Scheme | Change | Rule |
+|---|---|---|---|
+| `2025-11-22` | CBPR+ | Hybrid postal address option available | `CBPR-ADDR-004` |
+| `2025-11-22` | CBPR+ | MT/MX coexistence for payment instructions ends | — |
+| `2026-11-14` | CBPR+ | Fully unstructured postal address rejected | `CBPR-ADDR-001` |
+| `2026-11-14` | CHAPS | CHAPS validation library rejects unstructured addresses | `CHAPS-ADDR-001` |
+| `2026-11-14` | CBPR+ | MT101 interbank coexistence ends; contingency relays to `pain.001` | — |
+| `2026-11-14` | Swift | `camt.110` investigation requests must be receivable | — |
+| `2026-11-14` | Swift | Annual Standards Release cycle begins | — |
+| `2027-11` | CHAPS | Purpose codes mandatory on all payments (announced) | `CHAPS-PURP-001` |
+| `2027-11` | CHAPS | Structured remittance information mandatory (announced) | `CHAPS-RMT-001` |
+| `2027-11` | Swift | `camt.110` and `camt.111` both mandatory (announced) | — |
 
 ## 現在應該做什麼
 
