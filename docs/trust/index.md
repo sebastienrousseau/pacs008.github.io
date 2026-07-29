@@ -84,15 +84,20 @@ Not a bundle-size or performance limitation. A WebAssembly validator measures
 873 KB, comfortably inside the budget, and the site's Content-Security-Policy
 already permits `'wasm-unsafe-eval'`.
 
-The blocker is that browser-side XSD validation requires serving the ISO 20022
-schema files from pacs008.com, which is redistribution of Registration
-Authority material whose terms have not been confirmed. The project stores
-derived rule logic and citations rather than reproducing source documents, and
-bundling schemas for public download is a stronger act than citing them.
+It is simply unbuilt. Doing it properly means running the validator in a Web
+Worker, loading the schema only after a message and version are selected,
+surfacing the schema version and hash in every result, and reporting
+**XSD not evaluated** whenever a schema fails to load rather than falling back
+to a silent pass. That is real work and it has not been done.
 
-Self-hosted deployments are unaffected: the Python library, CLI and REST
-service perform XSD validation against schemas you already hold locally. The
-full record is in `DECISIONS.md` (D-003).
+We previously described this as blocked on whether ISO 20022 schemas may be
+redistributed. That was wrong, and is corrected here: the pacs008 package
+already ships those schemas, so serving them from this site would not be a new
+act. The licensing question is real but pre-existing, and it is tracked against
+the package rather than used as a reason the browser cannot validate.
+
+Python, CLI and REST are unaffected and do perform XSD validation. The full
+record, including the correction, is in `DECISIONS.md` (D-003).
 
 ## Message coverage
 
