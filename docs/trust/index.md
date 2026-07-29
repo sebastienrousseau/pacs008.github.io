@@ -25,7 +25,7 @@ verified as of 2026-07-28.
 | Licence | Apache-2.0 |
 | Current version | 0.0.8 |
 | Ruleset version | 2026.11.0 |
-| Ruleset hash | `sha256:0ca5d26f5c28ddfec34a3f8091fcb7422b01b88177fab21ba0e6e78ee610e607` |
+| Ruleset hash | `sha256:a9d005c53d723997c3e6b7cdb61966d02dd377d97d2695d37b5e5eec3be19115` |
 | Minimum Python | 3.10 (tested on 3.10, 3.11, 3.12) |
 | Source | [https://github.com/sebastienrousseau/pacs008](https://github.com/sebastienrousseau/pacs008) |
 | Package | [PyPI](https://pypi.org/project/pacs008/) |
@@ -53,8 +53,8 @@ and no interface reports a layer it did not run.
 | Input Safety & Parsing (Layer 0) | Stable | Stable | Stable | Beta |
 | Input Schema Validation (Layer 1) | Stable | Stable | Stable | Stable |
 | Identifier & Format Verification (Layer 2) | Stable | Stable | Stable | Stable |
-| XML Syntax & Namespace Validation (Layer 3) | Stable | Stable | Stable | Not implemented |
-| XSD Sequence & Cardinality Checks (Layer 4) | Stable | Stable | Stable | Not implemented |
+| XML Syntax & Namespace Validation (Layer 3) | Stable | Stable | Stable | Stable |
+| XSD Sequence & Cardinality Checks (Layer 4) | Stable | Stable | Stable | Beta |
 | ISO Semantic Consistency (Layer 5) | Stable | Stable | Stable | Not implemented |
 | Scheme Profile Rules — CBPR+, CHAPS (Layer 6) | Stable | Stable | Stable | Beta |
 | Effective-Date Rules — 14 Nov 2026 (Layer 7) | Stable | Stable | Stable | Beta |
@@ -68,8 +68,7 @@ beta for this reason.
 | Layer | Browser status | Why |
 |---|---|---|
 | Input Safety & Parsing (Layer 0) | Beta | CSV/JSON parsing present; no file-size or MIME enforcement implemented (no MAX_FILE_SIZE in static/js) |
-| XML Syntax & Namespace Validation (Layer 3) | Not implemented | Browser generates XML but never parses it; no DOMParser usage in static/js |
-| XSD Sequence & Cardinality Checks (Layer 4) | Not implemented | No XSD validation in static/js; the pacs.008 XSD URN appears only as a namespace string in generated output |
+| XSD Sequence & Cardinality Checks (Layer 4) | Beta | libxml2 compiled to WebAssembly, run in a Web Worker against schemas served from this origin. Beta because only pacs.008.001.13 is published: any other message type reports 'not evaluated' rather than a pass |
 | ISO Semantic Consistency (Layer 5) | Not implemented | No control-sum, transaction-count or cross-field consistency checks in static/js |
 | Scheme Profile Rules — CBPR+, CHAPS (Layer 6) | Beta | Postal address classified as fully structured / hybrid / unstructured, plus LEI format (ISO 17442); no wider profile rule set |
 | Effective-Date Rules — 14 Nov 2026 (Layer 7) | Beta | The 2026 deadline is hardcoded in the address classifier; there is no selectable effective date |
@@ -78,27 +77,31 @@ beta for this reason.
 A passing result in the Workbench is not a statement about the layers above.
 For XSD and ISO-semantic checks, use the Python library, CLI or REST service.
 
-### Why the browser does not do XSD
+### Browser XSD validation
 
-Not a bundle-size or performance limitation. A WebAssembly validator measures
-873 KB, comfortably inside the budget, and the site's Content-Security-Policy
-already permits `'wasm-unsafe-eval'`.
+The browser now performs real XSD validation, using libxml2 compiled to
+WebAssembly and run in a Web Worker. It checks element order, cardinality and
+datatypes — constraints that well-formedness parsing cannot see.
 
-It is simply unbuilt. Doing it properly means running the validator in a Web
-Worker, loading the schema only after a message and version are selected,
-surfacing the schema version and hash in every result, and reporting
-**XSD not evaluated** whenever a schema fails to load rather than falling back
-to a silent pass. That is real work and it has not been done.
+It is marked **beta** for one specific reason: only `pacs.008.001.13` is
+published here. Any other message type reports **not evaluated**, never a pass.
+Every result names the schema and its SHA-256 hash, so a report says exactly
+what it was checked against.
 
-We previously described this as blocked on whether ISO 20022 schemas may be
-redistributed. That was wrong twice over, and is corrected here. The pacs008
-package already ships those schemas, so serving them here would not be a new
-act — and the ISO 20022 terms of use state the material "is intended to be used
-and reproduced freely by all interested users", subject to the attribution
-below. Nothing external prevents this feature. It is simply not built yet.
+If the engine or the schema fails to load, the result is **not evaluated** with
+the reason shown. That is deliberate — a validator that quietly reports success
+when it did not run is worse than one that does not run at all.
 
-Python, CLI and REST are unaffected and do perform XSD validation. The full
-record, including the correction, is in `DECISIONS.md` (D-003).
+The engine and schema are about 850 KB and download only when you ask for
+validation, not on page load.
+
+Schemas are served from this origin under the ISO 20022 terms of use, which
+state the material is intended to be used and reproduced freely. See the
+attribution below.
+
+Still not evaluated in the browser: ISO semantic consistency, such as whether
+a control sum matches the sum of its transactions. Use the Python library, CLI
+or REST service for that. The full record is in `DECISIONS.md` (D-003).
 
 ## Message coverage
 

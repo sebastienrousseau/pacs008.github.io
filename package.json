@@ -17,7 +17,8 @@
     "axe-core": "4.12.1",
     "happy-dom": "20.11.1",
     "html-validate": "10.11.2",
-    "vitest": "4.1.1"
+    "vitest": "4.1.1",
+    "xmllint-wasm": "5.2.0"
   },
   "overrides": {
     "esbuild": ">=0.25.0"

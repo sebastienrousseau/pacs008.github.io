@@ -120,27 +120,31 @@ ${limitationRows}
 A passing result in the Workbench is not a statement about the layers above.
 For XSD and ISO-semantic checks, use the Python library, CLI or REST service.
 
-### Why the browser does not do XSD
+### Browser XSD validation
 
-Not a bundle-size or performance limitation. A WebAssembly validator measures
-873 KB, comfortably inside the budget, and the site's Content-Security-Policy
-already permits \`'wasm-unsafe-eval'\`.
+The browser now performs real XSD validation, using libxml2 compiled to
+WebAssembly and run in a Web Worker. It checks element order, cardinality and
+datatypes — constraints that well-formedness parsing cannot see.
 
-It is simply unbuilt. Doing it properly means running the validator in a Web
-Worker, loading the schema only after a message and version are selected,
-surfacing the schema version and hash in every result, and reporting
-**XSD not evaluated** whenever a schema fails to load rather than falling back
-to a silent pass. That is real work and it has not been done.
+It is marked **beta** for one specific reason: only \`pacs.008.001.13\` is
+published here. Any other message type reports **not evaluated**, never a pass.
+Every result names the schema and its SHA-256 hash, so a report says exactly
+what it was checked against.
 
-We previously described this as blocked on whether ISO 20022 schemas may be
-redistributed. That was wrong twice over, and is corrected here. The pacs008
-package already ships those schemas, so serving them here would not be a new
-act — and the ISO 20022 terms of use state the material "is intended to be used
-and reproduced freely by all interested users", subject to the attribution
-below. Nothing external prevents this feature. It is simply not built yet.
+If the engine or the schema fails to load, the result is **not evaluated** with
+the reason shown. That is deliberate — a validator that quietly reports success
+when it did not run is worse than one that does not run at all.
 
-Python, CLI and REST are unaffected and do perform XSD validation. The full
-record, including the correction, is in \`DECISIONS.md\` (D-003).
+The engine and schema are about 850 KB and download only when you ask for
+validation, not on page load.
+
+Schemas are served from this origin under the ISO 20022 terms of use, which
+state the material is intended to be used and reproduced freely. See the
+attribution below.
+
+Still not evaluated in the browser: ISO semantic consistency, such as whether
+a control sum matches the sum of its transactions. Use the Python library, CLI
+or REST service for that. The full record is in \`DECISIONS.md\` (D-003).
 
 ## Message coverage
 

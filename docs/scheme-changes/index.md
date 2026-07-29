@@ -16,7 +16,7 @@ noindex: false
 
 Every rule change that affects whether a message is accepted, grouped by the
 date it takes effect. Generated from the rule registry at ruleset
-`2026.11.0` (hash `sha256:0ca5d26f5c28ddfec34a3f8091fcb7422b01b88177fab21ba0e6e78ee610e607`).
+`2026.11.0` (hash `sha256:a9d005c53d723997c3e6b7cdb61966d02dd377d97d2695d37b5e5eec3be19115`).
 
 Swift moves to an annual Standards Release cycle from November 2026, so this
 list is expected to grow every year rather than end at the deadline.

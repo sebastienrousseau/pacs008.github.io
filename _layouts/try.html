@@ -16,7 +16,7 @@
     <meta name="accessibility" content="ARIA, fullKeyboardControl, noFlashingHazard" />
     {{apple}}
 
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' https://cloudcdn.pro data:; style-src 'self' 'unsafe-inline' 'unsafe-hashes' 'sha256-+naa4DVyLB6dFJG6pe9ePhWQvc+IemcuXsxc1C9yQdg='; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; connect-src 'self'; font-src 'self'; form-action 'self' https://formspree.io" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' https://cloudcdn.pro data:; style-src 'self' 'unsafe-inline' 'unsafe-hashes' 'sha256-+naa4DVyLB6dFJG6pe9ePhWQvc+IemcuXsxc1C9yQdg='; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; worker-src 'self' blob:; connect-src 'self'; font-src 'self'; form-action 'self' https://formspree.io" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
 
@@ -305,10 +305,26 @@
           </div>
           <p id="xml-status" role="status" aria-live="polite"></p>
           <div id="xml-results"></div>
+
+          <h3>Validate against the XSD</h3>
+          <p>
+            Checks element order, cardinality and datatypes against the official
+            <code>pacs.008.001.13</code> schema, using libxml2 compiled to
+            WebAssembly. The engine and schema are about 850 KB and are downloaded
+            only when you press the button, then cached.
+          </p>
+          <div class="actions">
+            <button type="button" id="xsd-run" class="pill pill-ghost">Run XSD validation</button>
+          </div>
+          <p id="xsd-status" role="status" aria-live="polite"></p>
+          <div id="xsd-results"></div>
           <p class="readiness-hint">
-            This runs XML well-formedness, namespace and scheme address checks only.
-            XSD structure and ISO semantic consistency are <strong>not evaluated</strong>
-            in the browser — see the <a href="/trust/">Trust Centre</a>.
+            XSD covers structure only. Scheme rules such as CBPR+ address
+            requirements are checked separately above, and ISO semantic
+            consistency is still <strong>not evaluated</strong> in the browser —
+            see the <a href="/trust/">Trust Centre</a>. If the engine or schema
+            cannot be loaded, the result says <em>not evaluated</em> rather than
+            reporting a pass.
           </p>
         </section>
 
@@ -359,5 +375,6 @@
     <script type="module" src="/js/try-page.js"></script>
     <script src="/js/address-readiness.js"></script>
     <script src="/js/xml-ingest.js"></script>
+    <script src="/js/xsd-client.js"></script>
   </body>
 </html>

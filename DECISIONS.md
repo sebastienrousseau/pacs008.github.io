@@ -7,8 +7,8 @@ misremember. Newest first.
 
 ## D-003 — Browser XSD validation: viable, blocked on schema redistribution
 
-**Date:** 2026-07-28, corrected twice on 2026-07-29
-**Status:** Not implemented — unbuilt work. Redistribution is permitted.
+**Date:** 2026-07-28, corrected twice on 2026-07-29, **implemented 2026-07-29**
+**Status:** Implemented, beta — `pacs.008.001.13` only
 **Supersedes:** nothing
 
 ### Question
@@ -91,24 +91,42 @@ Two limits on this finding, stated so nobody over-reads it:
 Neither changes the practical answer, but the IPR Policy is worth reading
 before relying on this for anything beyond bundling schemas with attribution.
 
-### Decision
+### Outcome — implemented 2026-07-29
 
-Browser XSD stays unimplemented, and there is now no external reason for it.
-Not a size problem, not a CSP problem, not a licensing problem. It is unbuilt
-work with a real cost, and saying so plainly is the point of this record.
+Built and shipped. `xmllint-wasm` 5.2.0 runs libxml2 in a Web Worker; the
+schema is served from this origin with the required ISO 20022 attribution.
 
-Nothing blocks starting it. What remains is:
+Measured in a real browser against the live build:
 
-1. Serve the schemas from pacs008.com carrying the required attribution
-   statement, which is already implemented for the pages that reproduce ISO
-   20022 material.
-2. Implement `xmllint-wasm` in a Web Worker, loading the schema only after the
-   user selects a message and version, surfacing the schema version and hash in
-   every result, and reporting **XSD not evaluated** when a schema fails to
-   load rather than falling back to a silent pass.
+| Case | Result |
+|---|---|
+| Well-formed `pacs.008.001.13` | `evaluated: true`, `valid: true`, schema hash reported |
+| Wrong element order (`ChrgBr` before `IntrBkSttlmAmt`) | `evaluated: true`, `valid: false`, `"ChrgBr: This element is not expected"` |
+| `camt.110.001.01` (no schema published) | `evaluated: false` — **not** a pass |
+| First run, including WASM download | 205 ms |
 
-Until that is done, the workbench continues to label XSD as not evaluated,
-which remains accurate.
+The element-order case is the point of the exercise: it is an XSD sequence
+constraint, invisible to the well-formedness parsing the workbench already had.
+
+`capability-registry.json` moves `layer_4_xsd_structural.browser` from
+`planned` to **`beta`** — beta because only one schema is published, so any
+other message type reports not evaluated.
+
+While updating it, `layer_3_xml_syntax_ns.browser` was found to be stale: still
+`planned`, with evidence reading "no DOMParser usage in static/js", when
+`xml-ingest.js` had been parsing XML since it shipped. Corrected to `stable`.
+The registry is only worth having if it is updated when the code changes, and
+that one was missed.
+
+### Deliberate limits
+
+- **One schema.** `pacs.008.001.13` only. Adding more is copying a file and
+  extending a map, but each addition is a claim, so they land when verified.
+- **Failure reports "not evaluated".** Engine missing, schema 404, worker
+  error, timeout — all resolve to not-evaluated with a reason. A validator that
+  reports success when it did not run is worse than one that does not run.
+- **ISO semantic checks remain unimplemented** in the browser. Control sums and
+  transaction-count consistency still require the Python library, CLI or REST.
 
 ### Why this record was wrong twice
 

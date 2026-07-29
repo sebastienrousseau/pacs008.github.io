@@ -15,7 +15,7 @@ noindex: false
 # Message and rule catalogue
 
 Generated from the pacs008 registries at ruleset `2026.11.0`
-(hash `sha256:0ca5d26f5c28ddfec34a3f8091fcb7422b01b88177fab21ba0e6e78ee610e607`). Coverage reflects the templates shipped in
+(hash `sha256:a9d005c53d723997c3e6b7cdb61966d02dd377d97d2695d37b5e5eec3be19115`). Coverage reflects the templates shipped in
 the package, so it cannot claim more than the software does.
 
 ## Message families

@@ -29,13 +29,13 @@
     },
     "layer_3_xml_syntax_ns": {
       "name": "XML Syntax & Namespace Validation (Layer 3)",
-      "python": "stable", "cli": "stable", "rest": "stable", "browser": "planned",
-      "evidence": "Browser generates XML but never parses it; no DOMParser usage in static/js"
+      "python": "stable", "cli": "stable", "rest": "stable", "browser": "stable",
+      "evidence": "xml-ingest.js parses with DOMParser, rejects malformed XML, checks the root element is Document and that the namespace is an ISO 20022 message namespace"
     },
     "layer_4_xsd_structural": {
       "name": "XSD Sequence & Cardinality Checks (Layer 4)",
-      "python": "stable", "cli": "stable", "rest": "stable", "browser": "planned",
-      "evidence": "No XSD validation in static/js; the pacs.008 XSD URN appears only as a namespace string in generated output"
+      "python": "stable", "cli": "stable", "rest": "stable", "browser": "beta",
+      "evidence": "libxml2 compiled to WebAssembly, run in a Web Worker against schemas served from this origin. Beta because only pacs.008.001.13 is published: any other message type reports 'not evaluated' rather than a pass"
     },
     "layer_5_iso_semantic": {
       "name": "ISO Semantic Consistency (Layer 5)",
