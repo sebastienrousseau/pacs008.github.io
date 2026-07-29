@@ -66,6 +66,17 @@ export function textOf(html: string): string {
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
     .replace(/<style[\s\S]*?<\/style>/gi, " ")
     .replace(/<[^>]+>/g, "")
+    // Decode entities. ssg escapes apostrophes as &#x27;, so a French string
+    // like "L'exigence" will not match its source text unless decoded — an
+    // assertion comparing against translation data would fail on punctuation
+    // rather than on content.
+    .replace(/&#x27;|&apos;/gi, "'")
+    .replace(/&quot;/gi, '"')
+    .replace(/&#x2F;/gi, "/")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&lt;/gi, "<")
+    .replace(/&gt;/gi, ">")
+    .replace(/&amp;/gi, "&")
     .replace(/\s+/g, " ");
 }
 

@@ -14,34 +14,28 @@ lastUpdated: true
 image: /logo.webp
 ---
 
-# 2026 ISO 20022 readiness
+# Připravenost na ISO 20022 v roce 2026
 
-**108 days** to **14 November 2026**, as at 2026-07-29.
+**108 dní** do **14. listopadu 2026**, k datu 2026-07-29.
 
-On that date, fully unstructured postal addresses stop being accepted in SWIFT
-CBPR+ payment messages and by the Bank of England's CHAPS validation library.
-Two other changes land the same day, and a larger set follows in November 2027.
+Od tohoto dne přestanou být zcela nestrukturované poštovní adresy přijímány v platebních zprávách SWIFT CBPR+ i validační knihovnou CHAPS Bank of England. Téhož dne nabývají účinnosti další dvě změny a v listopadu 2027 následuje rozsáhlejší soubor.
 
-This page states what changes, who it affects, and what to check. Every rule
-below carries an identifier, an effective date, an authoritative source and a
-test fixture, so nothing here has to be taken on trust.
+Every rule below carries an identifier, an effective date, an authoritative source and a test fixture, so nothing here has to be taken on trust.
 
-## Are you affected?
+## Týká se to vás?
 
-You are in scope if you send CBPR+ or CHAPS payments containing a postal
-address for any party.
+Týká se to vás, pokud odesíláte platby CBPR+ nebo CHAPS obsahující poštovní adresu kterékoli strany.
 
 | | |
 |---|---|
-| **Messages** | `pacs.008`, `pacs.009`, `pacs.004`, `pacs.003` |
-| **Parties** | Debtor, creditor, ultimate debtor, ultimate creditor, and agents that carry an address |
-| **Not in scope** | `admi.024`, `camt.025`, `camt.052`, `camt.053`, `camt.054`, `camt.060` |
-| **Exempt** | Agents identified by BIC alone need no postal address (`CBPR-ADDR-005`) |
+| **Zprávy** | `pacs.008`, `pacs.009`, `pacs.004`, `pacs.003` |
+| **Strany** | Debtor, creditor, ultimate debtor, ultimate creditor, and agents that carry an address |
+| **Mimo rozsah** | `admi.024`, `camt.025`, `camt.052`, `camt.053`, `camt.054`, `camt.060` |
+| **Vyňato** | Agents identified by BIC alone need no postal address (`CBPR-ADDR-005`) |
 
-## What actually changes
+## Co se skutečně mění
 
-The requirement is a **minimum, not a maximum**. This is the most commonly
-misread part of the mandate.
+Požadavek je **minimum, nikoli maximum**. Právě toto bývá nejčastěji chápáno špatně.
 
 | Format | `TwnNm` | `Ctry` | `AdrLine` | Before 14 Nov 2026 | On or after |
 |---|---|---|---|---|---|
@@ -49,16 +43,13 @@ misread part of the mandate.
 | Hybrid | Present | Present | Present | Accepted | **Accepted** |
 | Fully unstructured | Absent | Absent | Present | Accepted | **Rejected** |
 
-You do **not** have to move street, building number and post code into
-structured elements. Town Name in `<TwnNm>` and Country in `<Ctry>` as a
-two-letter ISO 3166 code is sufficient. Everything else may stay in address
-lines. That combination is a hybrid address and it remains valid.
+Ulici, číslo budovy ani PSČ **nemusíte** převádět do strukturovaných prvků. Postačí město v `<TwnNm>` a země v `<Ctry>` jako dvoupísmenný kód ISO 3166. Zbytek může zůstat v adresních řádcích: jde o hybridní adresu a ta zůstává platná.
 
 [Full detail, with worked examples →](/structured-address/)
 
-## Check your data now
+## Zkontrolujte svá data nyní
 
-Two tools, both running entirely in your browser. No payment data is uploaded.
+Dva nástroje, které běží zcela ve vašem prohlížeči. Žádná platební data se neodesílají.
 
 - **[Batch address scan](/live/)** — upload a CSV of party addresses and get a
   readiness score, a breakdown by party, and a downloadable remediation list of
@@ -66,7 +57,7 @@ Two tools, both running entirely in your browser. No payment data is uploaded.
 - **[XSD validation](/live/)** — check an existing message against the official
   schema for element order, cardinality and datatypes.
 
-## Test fixtures
+## Testovací data
 
 Run these through the workbench, the CLI or the API. Each maps to the rule it
 exercises, so you can confirm your pipeline reacts the way you expect.
@@ -80,11 +71,9 @@ exercises, so you can confirm your pipeline reacts the way you expect.
 - [`hybrid-valid.csv`](/fixtures/chaps/address/hybrid-valid.csv) — passes `CHAPS-ADDR-001`
 - [`unstructured-invalid.csv`](/fixtures/chaps/address/unstructured-invalid.csv) — fails `CHAPS-ADDR-001`
 
-## Every milestone, not just this one
+## Všechny termíny, nejen tento
 
-November 2026 is not the end of ISO 20022 change. Swift moves to an annual
-Standards Release cycle from that date, so usage guidelines will change every
-year.
+Listopad 2026 není koncem změn ISO 20022. Swift od tohoto data přechází na roční cyklus Standards Release, takže se pravidla použití budou měnit každý rok.
 
 | Date | Scheme | Change | Rule |
 |---|---|---|---|
@@ -101,9 +90,9 @@ year.
 
 [Dated change log and feed →](/scheme-changes/)
 
-## What to check, by role
+## Co zkontrolovat, podle rolí
 
-### Engineering
+### Vývoj
 
 - Find every place an address is concatenated into a single line before it
   reaches the message. That is usually where the problem is.
@@ -125,7 +114,7 @@ year.
 - Country must be a two-letter ISO 3166 code. `GB`, not `United Kingdom` or
   `GBR` — `CBPR-ADDR-003` fails on the latter two.
 
-### Testing
+### Testování
 
 - Test the day before, the day of, and the day after the effective date.
   Effective-date logic is where date-boundary bugs live.
@@ -134,21 +123,21 @@ year.
 - Include a hybrid address in the passing set. A test suite that only accepts
   fully structured addresses will reject valid traffic.
 
-### Operations
+### Provoz
 
 - Know what a rejection for this reason will look like in your monitoring, and
   who triages it.
 - Confirm your counterparties' readiness, not only your own. A compliant message
   can still fail if the receiving side is not ready.
 
-### Management
+### Vedení
 
 - The exposure is the count of records that would fail today, not the count of
   systems. Ask for the number.
 - Note the 2027 obligations below. Teams that treat November 2026 as the finish
   line will repeat this work in twelve months.
 
-## Scheme differences
+## Rozdíly mezi schématy
 
 | | SWIFT CBPR+ | Bank of England CHAPS |
 |---|---|---|
@@ -159,7 +148,7 @@ year.
 | Structured remittance | Not mandated by this change | Mandatory from November 2027 |
 | Rules here | `CBPR-ADDR-001` – `006` | `CHAPS-ADDR-001`, `CHAPS-PURP-001`, `CHAPS-RMT-001` |
 
-## Sources
+## Zdroje
 
 Every rule on this page derives from one of these. Rules marked *announced* are
 published intentions whose exact date should be re-verified before you rely on

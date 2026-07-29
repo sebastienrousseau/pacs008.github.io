@@ -227,3 +227,49 @@ describe("Content truth: 2026 readiness hub", () => {
     expect(text).toContain("not the official ISO 20022 website");
   });
 });
+
+describe("Content truth: readiness hub translation", () => {
+  const hubCopy = JSON.parse(
+    readFileSync(resolve(__dirname, "../data/hub-copy.json"), "utf-8")
+  );
+
+  it("has hub copy for every generated locale", () => {
+    const missing = ["en", ...LOCALES].filter((l) => !hubCopy[l]);
+    expect(missing, `locales without hub copy: ${missing.join(", ")}`).toEqual([]);
+  });
+
+  it("every locale hub renders its own title, not the English one", () => {
+    const wrong: string[] = [];
+    for (const locale of LOCALES) {
+      const text = textOf(readPage(`${locale}/2026-readiness`));
+      const expected = hubCopy[locale]?.title;
+      if (expected && !text.includes(expected)) wrong.push(locale);
+    }
+    expect(wrong, `locales not showing their translated title: ${wrong.join(", ")}`).toEqual([]);
+  });
+
+  // The single most consequential sentence on the page: reading the mandate as
+  // "structured only" turns a Town+Country change into an address re-modelling
+  // programme. It must survive translation in every locale.
+  it("every locale carries the minimum-not-maximum correction", () => {
+    const wrong: string[] = [];
+    for (const locale of LOCALES) {
+      const text = textOf(readPage(`${locale}/2026-readiness`));
+      const expected = hubCopy[locale]?.minimum;
+      if (!expected) { wrong.push(`${locale} (no string)`); continue; }
+      // Probe the emphasised phrase, which is the distinctive part. A leading
+      // slice is not enough: for German the first 24 characters are
+      // "Die Anforderung ist ein " — present even if the correction itself
+      // were replaced by English, which a mutation test caught.
+      const emphasised = expected.match(/\*\*(.+?)\*\*/)?.[1];
+      if (!emphasised) { wrong.push(`${locale} (no emphasis)`); continue; }
+      if (!text.includes(emphasised)) wrong.push(locale);
+    }
+    expect(wrong, `locales missing the correction: ${wrong.join(", ")}`).toEqual([]);
+  });
+
+  it("untranslated keys fall back to English rather than disappearing", () => {
+    const fr = textOf(readPage("fr/2026-readiness"));
+    expect(fr).toContain("Run these through the workbench");
+  });
+});

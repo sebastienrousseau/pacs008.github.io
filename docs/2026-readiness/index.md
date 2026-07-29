@@ -18,18 +18,13 @@ image: /logo.webp
 
 **108 days** to **14 November 2026**, as at 2026-07-29.
 
-On that date, fully unstructured postal addresses stop being accepted in SWIFT
-CBPR+ payment messages and by the Bank of England's CHAPS validation library.
-Two other changes land the same day, and a larger set follows in November 2027.
+On that date, fully unstructured postal addresses stop being accepted in SWIFT CBPR+ payment messages and by the Bank of England's CHAPS validation library. Two other changes land the same day, and a larger set follows in November 2027.
 
-This page states what changes, who it affects, and what to check. Every rule
-below carries an identifier, an effective date, an authoritative source and a
-test fixture, so nothing here has to be taken on trust.
+Every rule below carries an identifier, an effective date, an authoritative source and a test fixture, so nothing here has to be taken on trust.
 
 ## Are you affected?
 
-You are in scope if you send CBPR+ or CHAPS payments containing a postal
-address for any party.
+You are in scope if you send CBPR+ or CHAPS payments containing a postal address for any party.
 
 | | |
 |---|---|
@@ -40,8 +35,7 @@ address for any party.
 
 ## What actually changes
 
-The requirement is a **minimum, not a maximum**. This is the most commonly
-misread part of the mandate.
+The requirement is a **minimum, not a maximum**. This is the most commonly misread part of the mandate.
 
 | Format | `TwnNm` | `Ctry` | `AdrLine` | Before 14 Nov 2026 | On or after |
 |---|---|---|---|---|---|
@@ -49,10 +43,7 @@ misread part of the mandate.
 | Hybrid | Present | Present | Present | Accepted | **Accepted** |
 | Fully unstructured | Absent | Absent | Present | Accepted | **Rejected** |
 
-You do **not** have to move street, building number and post code into
-structured elements. Town Name in `<TwnNm>` and Country in `<Ctry>` as a
-two-letter ISO 3166 code is sufficient. Everything else may stay in address
-lines. That combination is a hybrid address and it remains valid.
+You do **not** have to move street, building number and post code into structured elements. Town Name in `<TwnNm>` and Country in `<Ctry>` as a two-letter ISO 3166 code is sufficient. Everything else may stay in address lines. That combination is a hybrid address and it remains valid.
 
 [Full detail, with worked examples →](/structured-address/)
 
@@ -82,9 +73,7 @@ exercises, so you can confirm your pipeline reacts the way you expect.
 
 ## Every milestone, not just this one
 
-November 2026 is not the end of ISO 20022 change. Swift moves to an annual
-Standards Release cycle from that date, so usage guidelines will change every
-year.
+November 2026 is not the end of ISO 20022 change. Swift moves to an annual Standards Release cycle from that date, so usage guidelines will change every year.
 
 | Date | Scheme | Change | Rule |
 |---|---|---|---|
