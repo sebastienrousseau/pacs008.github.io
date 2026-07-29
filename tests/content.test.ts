@@ -331,10 +331,10 @@ describe("Content truth: localised reference pages", () => {
     readFileSync(resolve(__dirname, "../data/pages-copy.json"), "utf-8")
   );
 
-  it("scheme-changes and catalogue exist for every locale", () => {
+  it("scheme-changes, catalogue and design-partners exist for every locale", () => {
     const missing: string[] = [];
     for (const locale of LOCALES) {
-      for (const route of ["scheme-changes", "catalogue"]) {
+      for (const route of ["scheme-changes", "catalogue", "design-partners"]) {
         if (!existsSync(resolve(DIST, locale, route, "index.html"))) {
           missing.push(`${locale}/${route}`);
         }
@@ -351,6 +351,35 @@ describe("Content truth: localised reference pages", () => {
       if (expected && !text.includes(expected)) wrong.push(locale);
     }
     expect(wrong, `locales without a translated catalogue title: ${wrong.join(", ")}`).toEqual([]);
+  });
+
+  // design-partners is the one page that makes a claim about the project's
+  // own honesty ("there are no case studies here yet"). A locale that shipped
+  // it in English would be the page contradicting itself.
+  it("translates the design-partners body in every locale", () => {
+    const wrong: string[] = [];
+    for (const locale of LOCALES) {
+      const text = textOf(readPage(`${locale}/design-partners`));
+      const expected = pages[locale]?.dp_h_none;
+      if (!expected) {
+        wrong.push(`${locale} (no translation data)`);
+      } else if (!text.includes(expected)) {
+        wrong.push(locale);
+      }
+    }
+    expect(wrong, `locales without a translated design-partners page: ${wrong.join(", ")}`).toEqual([]);
+  });
+
+  it("keeps the no-case-studies statement on every design-partners page", () => {
+    const missing: string[] = [];
+    for (const locale of ["en", ...LOCALES]) {
+      const route = locale === "en" ? "design-partners" : `${locale}/design-partners`;
+      const text = textOf(readPage(route));
+      // The page must never be reduced to a heading: the substantive
+      // explanation of why there are no case studies has to ship with it.
+      if (!text.includes(pages[locale].dp_none)) missing.push(locale);
+    }
+    expect(missing, `design-partners missing its explanation: ${missing.join(", ")}`).toEqual([]);
   });
 
   // Rule summaries and remediation stay English: they are the normative rule

@@ -616,89 +616,68 @@ ${c.cl_pin}
  * fabricated testimonial would undo the provenance work the rest of the site
  * exists to support.
  */
-const partners = `---
-title: "Design partners | pacs008"
-description: "How to work with pacs008 as a design partner, what we ask, what you get, and why there are no case studies on this page yet."
-lang: en-GB
+writeLocalised("design-partners", (locale, c) => `---
+title: "${c.dp_title} | pacs008"
+description: "${c.dp_what}"
+lang: ${LOCALE_LANG[locale]}
 layout: page
 date: "${governance.verification_date}"
 lastUpdated: true
 image: /logo.webp
-canonical: /design-partners/
+canonical: ${locale === "en" ? "/design-partners/" : `/${locale}/design-partners/`}
 robots: "index, follow"
 draft: false
 noindex: false
 ---
 
-# Design partners
+# ${c.dp_title}
 
-## There are no case studies here yet
+## ${c.dp_h_none}
 
-That is deliberate. This project has spent considerable effort removing claims
-it could not evidence, and inventing a customer story would undo that. When a
-case study appears on this page it will name the organisation, with their
-permission, and describe something that actually happened.
+${c.dp_none}
 
-If you are evaluating pacs008 and want references, say so — we will tell you
-honestly whether any exist yet.
+${c.dp_none2}
 
-## What a design partner is
+## ${c.dp_h_what}
 
-An organisation implementing ISO 20022 payment messaging that is willing to
-test against real requirements and tell us where the tool falls short. Usually
-a bank, payment service provider, corporate treasury team or payments software
-vendor.
+${c.dp_what}
 
-## What we ask
+## ${c.dp_h_ask}
 
-- Run pacs008 against your own message profiles, not just the samples.
-- Tell us which scheme rules you need that are missing, and when your deadline
-  is.
-- Report defects specifically enough to reproduce: message type, profile,
-  effective date, and what you expected.
-- Let us know if a published rule is wrong. Rule corrections take priority over
-  features.
+- ${c.dp_ask1}
+- ${c.dp_ask2}
+- ${c.dp_ask3}
+- ${c.dp_ask4}
 
-We do not ask for payment data. Everything can be reproduced with synthetic
-records, and we would rather you never send us production payloads.
+${c.dp_nodata}
 
-## What you get
+## ${c.dp_h_get}
 
-- Direct influence on which scheme rules are implemented next, and in what
-  order.
-- Advance notice of ruleset changes before they are published, so a change in
-  pass/fail behaviour does not surprise your pipeline.
-- Your rules and fixtures added to the certified fixture set, so future
-  releases cannot silently break them.
-- Attribution if you want it, and none if you do not.
+- ${c.dp_get1}
+- ${c.dp_get2}
+- ${c.dp_get3}
+- ${c.dp_get4}
 
-## What we cannot offer
+## ${c.dp_h_cannot}
 
-- A support contract or an availability guarantee. This is an open-source
-  project with a small maintainer base — see the [Trust Centre](/trust/).
-- Certification. A passing validation result is not a guarantee that any
-  counterparty or scheme operator will accept a message.
-- Confidential handling of anything you send us by email. Use the security
-  route in [security.txt](/security.txt) for anything sensitive.
+- ${c.dp_cannot1}
+- ${c.dp_cannot2}
+- ${c.dp_cannot3}
 
-## Implementation review
+[Trust Centre](/trust/) · [security.txt](/security.txt)
 
-If you want a second pair of eyes on an ISO 20022 implementation rather than an
-ongoing relationship, that is a separate, bounded piece of work. Get in touch
-through the [contact page](/contact/) with the message types, schemes and
-deadline you are working to.
+## ${c.dp_h_review}
 
-## Getting in touch
+${c.dp_review}
 
-Open an issue or discussion at
-[${product.repository}](${product.repository}), or use the
-[contact page](/contact/). Mention which schemes and message types you are
-implementing and what your deadline is — that tells us more than anything else.
-`;
+[${c.dp_h_touch}](${locale === "en" ? "/contact/" : `/${locale}/contact/`})
 
-const dpDir = join(process.cwd(), "docs", "design-partners");
-if (!existsSync(dpDir)) mkdirSync(dpDir, { recursive: true });
-writeFileSync(join(dpDir, "index.md"), partners);
+## ${c.dp_h_touch}
+
+${c.dp_touch}
+
+[${product.repository}](${product.repository}) · [${c.dp_h_touch}](${locale === "en" ? "/contact/" : `/${locale}/contact/`})
+`);
 
 const esc = (s) =>
   String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
