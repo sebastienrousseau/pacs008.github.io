@@ -133,10 +133,11 @@ surfacing the schema version and hash in every result, and reporting
 to a silent pass. That is real work and it has not been done.
 
 We previously described this as blocked on whether ISO 20022 schemas may be
-redistributed. That was wrong, and is corrected here: the pacs008 package
-already ships those schemas, so serving them from this site would not be a new
-act. The licensing question is real but pre-existing, and it is tracked against
-the package rather than used as a reason the browser cannot validate.
+redistributed. That was wrong twice over, and is corrected here. The pacs008
+package already ships those schemas, so serving them here would not be a new
+act — and the ISO 20022 terms of use state the material "is intended to be used
+and reproduced freely by all interested users", subject to the attribution
+below. Nothing external prevents this feature. It is simply not built yet.
 
 Python, CLI and REST are unaffected and do perform XSD validation. The full
 record, including the correction, is in \`DECISIONS.md\` (D-003).
@@ -165,12 +166,20 @@ ${capability.schemes
 
 ## Rule sources
 
-Scheme rules are derived from published sources rather than reproduced from
-restricted material.
-
 | ID | Publisher | Document | Effective | Verified |
 |---|---|---|---|---|
 ${sourceRows}
+
+### ISO 20022 attribution
+
+${sources.attribution.iso20022.statement}
+
+ISO 20022 material is used under the [${sources.attribution.iso20022.policy}](${sources.attribution.iso20022.terms_url}),
+which states that the material is intended to be used and reproduced freely by
+all interested users. That policy also requires the statement above, because
+the Repository changes frequently and only the official site is current.
+
+Verified against the published terms on ${sources.attribution.iso20022.verified_at}.
 
 ## Security and release integrity
 
@@ -411,6 +420,13 @@ ${ruleDetail}
 | ID | Publisher | Document | Effective | Verified |
 |---|---|---|---|---|
 ${sources.sources.map((s) => `| \`${s.id}\` | ${s.publisher} | [${s.title}](${s.url}) | ${s.effective_date} | ${s.verified_at} |`).join("\n")}
+
+## ISO 20022 attribution
+
+${sources.attribution.iso20022.statement}
+
+Message definitions and identifiers on this page derive from ISO 20022 material,
+used under the [${sources.attribution.iso20022.policy}](${sources.attribution.iso20022.terms_url}).
 `;
 
 const catDir = join(process.cwd(), "docs", "catalogue");

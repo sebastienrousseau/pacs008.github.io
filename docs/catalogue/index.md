@@ -15,7 +15,7 @@ noindex: false
 # Message and rule catalogue
 
 Generated from the pacs008 registries at ruleset `2026.11.0`
-(hash `sha256:97e373c7d4df2de7998df610dab1c0be2b93119a189f82246928b2698991f33a`). Coverage reflects the templates shipped in
+(hash `sha256:0ca5d26f5c28ddfec34a3f8091fcb7422b01b88177fab21ba0e6e78ee610e607`). Coverage reflects the templates shipped in
 the package, so it cannot claim more than the software does.
 
 ## Message families
@@ -218,3 +218,10 @@ From November 2027 remittance information carried in CHAPS payments must be stru
 | `SWIFT-ADDR-2026` | S.W.I.F.T. SC | [SWIFT CBPR+ Removal of Unstructured Address Guidelines](https://www.swift.com/standards/iso-20022/removal-unstructured-address) | 2026-11-14 | 2026-07-28 |
 | `BOE-CHAPS-2026` | Bank of England | [Policy Statement — Mandating ISO 20022 Enhanced Data in CHAPS](https://www.bankofengland.co.uk/paper/2024/policy-statement/mandating-iso-20022-enhanced-data-in-chaps) | 2026-11-14 | 2026-07-28 |
 | `ISO-20022-PACS008-13` | ISO 20022 Registration Authority | [Financial Innovation & Transfer — pacs.008.001.13 Message Definition](https://www.iso20022.org/iso-20022-message-definitions) | 2025-01-01 | 2026-07-28 |
+
+## ISO 20022 attribution
+
+pacs008.com is not the official ISO 20022 website. The sole source of up-to-date materials and information on ISO 20022 message standards and the Repository is https://www.iso20022.org/.
+
+Message definitions and identifiers on this page derive from ISO 20022 material,
+used under the [ISO 20022 Intellectual Property Right Policy](https://www.iso20022.org/terms-use).

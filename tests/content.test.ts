@@ -152,3 +152,34 @@ describe("Content truth: structured address", () => {
     expect(missing, `locales without the format comparison: ${missing.join(", ")}`).toEqual([]);
   });
 });
+
+describe("Content truth: ISO 20022 attribution", () => {
+  const sources = JSON.parse(
+    readFileSync(resolve(__dirname, "../data/source-registry.json"), "utf-8")
+  );
+
+  // The ISO 20022 terms of use permit free reproduction of the material on
+  // condition that any replication states it is not the official site and
+  // names iso20022.org as the sole current source. Pages that reproduce that
+  // material must carry it.
+  it("pages reproducing ISO 20022 material carry the required statement", () => {
+    for (const route of ["trust", "catalogue"]) {
+      const text = textOf(readPage(route));
+      expect(text, `${route} is missing the ISO 20022 attribution`).toContain(
+        "not the official ISO 20022 website"
+      );
+      expect(text, `${route} does not name the authoritative source`).toContain(
+        "iso20022.org"
+      );
+    }
+  });
+
+  it("the statement is held in the source registry, not hardcoded per page", () => {
+    expect(sources.attribution.iso20022.statement).toContain(
+      "not the official ISO 20022 website"
+    );
+    expect(sources.attribution.iso20022.terms_url).toBe(
+      "https://www.iso20022.org/terms-use"
+    );
+  });
+});

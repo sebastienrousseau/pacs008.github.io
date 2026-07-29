@@ -1,4 +1,13 @@
 {
+  "attribution": {
+    "iso20022": {
+      "_comment": "Required wording. The ISO 20022 terms of use state the material is intended to be used and reproduced freely under the ISO 20022 Intellectual Property Right Policy, on condition that any replication states it is not the official site and names iso20022.org as the sole source of up-to-date material. Any page or artefact that reproduces ISO 20022 material must carry this.",
+      "statement": "pacs008.com is not the official ISO 20022 website. The sole source of up-to-date materials and information on ISO 20022 message standards and the Repository is https://www.iso20022.org/.",
+      "policy": "ISO 20022 Intellectual Property Right Policy",
+      "terms_url": "https://www.iso20022.org/terms-use",
+      "verified_at": "2026-07-29"
+    }
+  },
   "sources": [
     {
       "id": "SWIFT-ADDR-2026",

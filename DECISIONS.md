@@ -7,8 +7,8 @@ misremember. Newest first.
 
 ## D-003 — Browser XSD validation: viable, blocked on schema redistribution
 
-**Date:** 2026-07-28, corrected 2026-07-29
-**Status:** Not implemented — unbuilt work, not a licensing blocker
+**Date:** 2026-07-28, corrected twice on 2026-07-29
+**Status:** Not implemented — unbuilt work. Redistribution is permitted.
 **Supersedes:** nothing
 
 ### Question
@@ -53,37 +53,71 @@ Two further findings:
 
 Tracked in [`sebastienrousseau/pacs008#14`](https://github.com/sebastienrousseau/pacs008/issues/14).
 
-### What is actually known
+### Second correction, 2026-07-29 — the terms answer it
 
-I could not retrieve the Registration Authority's terms of use — iso20022.org
-timed out on repeated attempts — so the licensing position is **unknown**, not
-permissive and not restrictive. Circumstantially, ISO 20022 is described as a
-free and open standard and several open-source projects bundle the schemas.
-That is context, not permission, and this record does not treat it as such.
+The record above said the licensing position was unknown because iso20022.org
+could not be reached. It is not unknown. The published terms of use state:
 
-This is a question for the Registration Authority or for counsel. It is not one
-this record can close.
+> "Although the material on this site is intended to be used and reproduced
+> **freely** by all interested users under the ISO 20022 Intellectual Property
+> Right Policy, all visitors of the site are hereby notified that the material
+> contained on the site changes, is maintained and kept up to date frequently
+> and should be the sole source for such information. Any replication of this
+> site should make the statement that theirs is not the official site and that
+> the sole source of up-to-date materials and information on ISO 20022 message
+> standards and Repository is https://www.iso20022.org/."
+
+— <https://www.iso20022.org/terms-use>
+
+**Redistribution is permitted**, with a condition: anything reproducing the
+material must state that it is not the official site and name iso20022.org as
+the sole current source. The rationale is freshness, not exclusivity — the
+Repository changes, and a stale copy should not be mistaken for authoritative.
+
+Implemented: the required statement is held in `data/source-registry.json`
+under `attribution.iso20022` and rendered on the Trust Centre and the
+catalogue, so it cannot drift from the pages that carry ISO 20022 material.
+The package needs the same statement in a `NOTICE`
+([`sebastienrousseau/pacs008#14`](https://github.com/sebastienrousseau/pacs008/issues/14)).
+
+Two limits on this finding, stated so nobody over-reads it:
+
+- The terms defer to the **ISO 20022 Intellectual Property Right Policy**,
+  which is the governing document and which I have not read — iso20022.org is
+  unreachable from this network (TCP 443 connects, HTTP never responds), and
+  the terms text above came from a screenshot rather than a fetch.
+- The material is provided "as is", with all warranties disclaimed.
+
+Neither changes the practical answer, but the IPR Policy is worth reading
+before relying on this for anything beyond bundling schemas with attribution.
 
 ### Decision
 
-Browser XSD stays unimplemented, but the reason has changed. It is no longer
-"blocked on a licensing question" — that question applies equally to code
-already shipping. It is unimplemented because it is unbuilt work with a real
-cost, and the honest labelling in the meantime is correct.
+Browser XSD stays unimplemented, and there is now no external reason for it.
+Not a size problem, not a CSP problem, not a licensing problem. It is unbuilt
+work with a real cost, and saying so plainly is the point of this record.
 
-If redistribution turns out not to be permitted, the remedy is the same
-everywhere: fetch schemas on first use instead of bundling them. That is a
-packaging change and does not, by itself, prevent browser XSD.
+Nothing blocks starting it. What remains is:
 
-### What would unblock it
-
-1. Add attribution for the bundled schemas — correct regardless of the answer,
-   and not dependent on it (#14).
-2. Confirm the terms with the Registration Authority.
-3. Implement `xmllint-wasm` in a Web Worker, loading the schema only after the
+1. Serve the schemas from pacs008.com carrying the required attribution
+   statement, which is already implemented for the pages that reproduce ISO
+   20022 material.
+2. Implement `xmllint-wasm` in a Web Worker, loading the schema only after the
    user selects a message and version, surfacing the schema version and hash in
    every result, and reporting **XSD not evaluated** when a schema fails to
-   load.
+   load rather than falling back to a silent pass.
+
+Until that is done, the workbench continues to label XSD as not evaluated,
+which remains accurate.
+
+### Why this record was wrong twice
+
+Worth recording, because the failure mode repeated. Both errors were the same
+shape: I asserted a constraint without checking it. First that serving schemas
+would be a *new* act of redistribution — the package already did it. Then that
+the terms were *unknown* — they are published, and say the opposite of what I
+had assumed. In both cases "blocked" was doing work that "I have not checked"
+should have been doing.
 
 ---
 

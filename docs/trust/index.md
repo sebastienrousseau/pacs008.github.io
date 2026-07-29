@@ -25,7 +25,7 @@ verified as of 2026-07-28.
 | Licence | Apache-2.0 |
 | Current version | 0.0.8 |
 | Ruleset version | 2026.11.0 |
-| Ruleset hash | `sha256:97e373c7d4df2de7998df610dab1c0be2b93119a189f82246928b2698991f33a` |
+| Ruleset hash | `sha256:0ca5d26f5c28ddfec34a3f8091fcb7422b01b88177fab21ba0e6e78ee610e607` |
 | Minimum Python | 3.10 (tested on 3.10, 3.11, 3.12) |
 | Source | [https://github.com/sebastienrousseau/pacs008](https://github.com/sebastienrousseau/pacs008) |
 | Package | [PyPI](https://pypi.org/project/pacs008/) |
@@ -91,10 +91,11 @@ surfacing the schema version and hash in every result, and reporting
 to a silent pass. That is real work and it has not been done.
 
 We previously described this as blocked on whether ISO 20022 schemas may be
-redistributed. That was wrong, and is corrected here: the pacs008 package
-already ships those schemas, so serving them from this site would not be a new
-act. The licensing question is real but pre-existing, and it is tracked against
-the package rather than used as a reason the browser cannot validate.
+redistributed. That was wrong twice over, and is corrected here. The pacs008
+package already ships those schemas, so serving them here would not be a new
+act — and the ISO 20022 terms of use state the material "is intended to be used
+and reproduced freely by all interested users", subject to the attribution
+below. Nothing external prevents this feature. It is simply not built yet.
 
 Python, CLI and REST are unaffected and do perform XSD validation. The full
 record, including the correction, is in `DECISIONS.md` (D-003).
@@ -135,14 +136,22 @@ We list these because their absence is easy to assume away.
 
 ## Rule sources
 
-Scheme rules are derived from published sources rather than reproduced from
-restricted material.
-
 | ID | Publisher | Document | Effective | Verified |
 |---|---|---|---|---|
 | SWIFT-ADDR-2026 | S.W.I.F.T. SC | [SWIFT CBPR+ Removal of Unstructured Address Guidelines](https://www.swift.com/standards/iso-20022/removal-unstructured-address) | 2026-11-14 | 2026-07-28 |
 | BOE-CHAPS-2026 | Bank of England | [Policy Statement — Mandating ISO 20022 Enhanced Data in CHAPS](https://www.bankofengland.co.uk/paper/2024/policy-statement/mandating-iso-20022-enhanced-data-in-chaps) | 2026-11-14 | 2026-07-28 |
 | ISO-20022-PACS008-13 | ISO 20022 Registration Authority | [Financial Innovation & Transfer — pacs.008.001.13 Message Definition](https://www.iso20022.org/iso-20022-message-definitions) | 2025-01-01 | 2026-07-28 |
+
+### ISO 20022 attribution
+
+pacs008.com is not the official ISO 20022 website. The sole source of up-to-date materials and information on ISO 20022 message standards and the Repository is https://www.iso20022.org/.
+
+ISO 20022 material is used under the [ISO 20022 Intellectual Property Right Policy](https://www.iso20022.org/terms-use),
+which states that the material is intended to be used and reproduced freely by
+all interested users. That policy also requires the statement above, because
+the Repository changes frequently and only the official site is current.
+
+Verified against the published terms on 2026-07-29.
 
 ## Security and release integrity
 
