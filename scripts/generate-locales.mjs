@@ -43,6 +43,179 @@ function openapiEndpoints() {
  * message identifier or rule ID — so the table carries the same meaning in
  * every locale without depending on a translation being current.
  */
+/**
+ * The 2026 readiness hub.
+ *
+ * Built from the rule registry and the milestone table rather than written as
+ * prose, so the dates, rule identifiers and fixtures cannot drift from what the
+ * validator enforces. The page this replaced was a single 64-word paragraph
+ * whose own meta description promised a "complete compliance hub".
+ *
+ * Content is English in every locale, as the previous version also was. The
+ * substance is dates, message identifiers, XML element names and rule IDs,
+ * which read the same everywhere; the prose around them has not been
+ * translated and that is a known gap.
+ */
+function readinessHubBody() {
+  const DEADLINE = "2026-11-14";
+  const buildDate = new Date().toISOString().slice(0, 10);
+  const days = Math.round(
+    (Date.parse(DEADLINE + "T00:00:00Z") - Date.parse(buildDate + "T00:00:00Z")) / 86400000
+  );
+
+  const addressRules = RULE_REGISTRY.rules.filter((r) => /ADDR/.test(r.id));
+  const fixtures = addressRules
+    .flatMap((r) => [
+      ...(r.fixtures?.valid || []).map((f) => [f, r.id, "passes"]),
+      ...(r.fixtures?.invalid || []).map((f) => [f, r.id, "fails"]),
+    ])
+    .filter((v, i, a) => a.findIndex((x) => x[0] === v[0]) === i);
+
+  const sourceById = Object.fromEntries(SOURCE_REGISTRY.sources.map((s) => [s.id, s]));
+
+  return `# 2026 ISO 20022 readiness
+
+**${days} days** to **14 November 2026**, as at ${buildDate}.
+
+On that date, fully unstructured postal addresses stop being accepted in SWIFT
+CBPR+ payment messages and by the Bank of England's CHAPS validation library.
+Two other changes land the same day, and a larger set follows in November 2027.
+
+This page states what changes, who it affects, and what to check. Every rule
+below carries an identifier, an effective date, an authoritative source and a
+test fixture, so nothing here has to be taken on trust.
+
+## Are you affected?
+
+You are in scope if you send CBPR+ or CHAPS payments containing a postal
+address for any party.
+
+| | |
+|---|---|
+| **Messages** | \`pacs.008\`, \`pacs.009\`, \`pacs.004\`, \`pacs.003\` |
+| **Parties** | Debtor, creditor, ultimate debtor, ultimate creditor, and agents that carry an address |
+| **Not in scope** | \`admi.024\`, \`camt.025\`, \`camt.052\`, \`camt.053\`, \`camt.054\`, \`camt.060\` |
+| **Exempt** | Agents identified by BIC alone need no postal address (\`CBPR-ADDR-005\`) |
+
+## What actually changes
+
+The requirement is a **minimum, not a maximum**. This is the most commonly
+misread part of the mandate.
+
+| Format | \`TwnNm\` | \`Ctry\` | \`AdrLine\` | Before 14 Nov 2026 | On or after |
+|---|---|---|---|---|---|
+| Fully structured | Present | Present | Absent | Accepted | Accepted |
+| Hybrid | Present | Present | Present | Accepted | **Accepted** |
+| Fully unstructured | Absent | Absent | Present | Accepted | **Rejected** |
+
+You do **not** have to move street, building number and post code into
+structured elements. Town Name in \`<TwnNm>\` and Country in \`<Ctry>\` as a
+two-letter ISO 3166 code is sufficient. Everything else may stay in address
+lines. That combination is a hybrid address and it remains valid.
+
+[Full detail, with worked examples →](/structured-address/)
+
+## Check your data now
+
+Two tools, both running entirely in your browser. No payment data is uploaded.
+
+- **[Batch address scan](/live/)** — upload a CSV of party addresses and get a
+  readiness score, a breakdown by party, and a downloadable remediation list of
+  the records that would fail.
+- **[XSD validation](/live/)** — check an existing message against the official
+  schema for element order, cardinality and datatypes.
+
+## Test fixtures
+
+Run these through the workbench, the CLI or the API. Each maps to the rule it
+exercises, so you can confirm your pipeline reacts the way you expect.
+
+${fixtures.map(([f, id, verdict]) => `- [\`${f.split("/").pop()}\`](/${f}) — ${verdict} \`${id}\``).join("\n")}
+
+## Every milestone, not just this one
+
+November 2026 is not the end of ISO 20022 change. Swift moves to an annual
+Standards Release cycle from that date, so usage guidelines will change every
+year.
+
+${milestoneTable()}
+
+[Dated change log and feed →](/scheme-changes/)
+
+## What to check, by role
+
+### Engineering
+
+- Find every place an address is concatenated into a single line before it
+  reaches the message. That is usually where the problem is.
+- Model town and country as separate fields end to end, not just at the
+  boundary.
+- Add \`CBPR-ADDR-001\` to \`CBPR-ADDR-003\` to your pre-submission validation,
+  with the effective date, so failures surface before 14 November rather than
+  on it.
+- Add a negative test that a fully unstructured address is rejected. A rule you
+  have never seen fire is a rule you cannot rely on.
+
+### Data
+
+- Measure how many records are missing a structured town or country **now**, so
+  the remediation effort is a number rather than a guess. The batch scan
+  produces exactly this.
+- Identify the authoritative source per field. Addresses often arrive from
+  several systems with different conventions.
+- Country must be a two-letter ISO 3166 code. \`GB\`, not \`United Kingdom\` or
+  \`GBR\` — \`CBPR-ADDR-003\` fails on the latter two.
+
+### Testing
+
+- Test the day before, the day of, and the day after the effective date.
+  Effective-date logic is where date-boundary bugs live.
+- Test CBPR+ and CHAPS separately. They are modelled as distinct rules here for
+  a reason.
+- Include a hybrid address in the passing set. A test suite that only accepts
+  fully structured addresses will reject valid traffic.
+
+### Operations
+
+- Know what a rejection for this reason will look like in your monitoring, and
+  who triages it.
+- Confirm your counterparties' readiness, not only your own. A compliant message
+  can still fail if the receiving side is not ready.
+
+### Management
+
+- The exposure is the count of records that would fail today, not the count of
+  systems. Ask for the number.
+- Note the 2027 obligations below. Teams that treat November 2026 as the finish
+  line will repeat this work in twelve months.
+
+## Scheme differences
+
+| | SWIFT CBPR+ | Bank of England CHAPS |
+|---|---|---|
+| Unstructured rejected | 14 November 2026 | 14 November 2026 |
+| Minimum acceptable | Hybrid | Hybrid |
+| Enforced by | CBPR+ usage guidelines | CHAPS validation library |
+| Purpose codes | Not mandated by this change | Mandatory for all payments from November 2027 |
+| Structured remittance | Not mandated by this change | Mandatory from November 2027 |
+| Rules here | \`CBPR-ADDR-001\` – \`006\` | \`CHAPS-ADDR-001\`, \`CHAPS-PURP-001\`, \`CHAPS-RMT-001\` |
+
+## Sources
+
+Every rule on this page derives from one of these. Rules marked *announced* are
+published intentions whose exact date should be re-verified before you rely on
+them.
+
+| Source | Publisher | Document | Verified |
+|---|---|---|---|
+${SOURCE_REGISTRY.sources
+  .map((s) => `| \`${s.id}\` | ${s.publisher} | [${s.title}](${s.url}) | ${s.verified_at} |`)
+  .join("\n")}
+
+${SOURCE_REGISTRY.attribution.iso20022.statement}
+`;
+}
+
 function milestoneTable() {
   const rows = [
     ["2025-11-22", "CBPR+", "Hybrid postal address option available", "`CBPR-ADDR-004`"],
@@ -37217,9 +37390,9 @@ for (const locale of locales) {
   }));
   await write(path.join(base, "2026-readiness", "index.md"), pageTemplate({
     title: "2026 Readiness Hub — SWIFT CBPR+ & Bank of England Migration",
-    description: "Complete compliance hub for the 14 November 2026 SWIFT CBPR+ structured address mandate, MT101 interbank relay retirement, and Bank of England CHAPS LEI/Purpose code mandates.",
+    description: "What changes on 14 November 2026 for SWIFT CBPR+ and Bank of England CHAPS, who is in scope, the exceptions, and downloadable test fixtures for each rule.",
     lang: locale.lang,
-    body: `# 2026 ISO 20022 Migration Readiness Hub\n\nThe global payment industry is approaching a critical compliance milestone on **14 November 2026**. This hub consolidates mandatory requirements from **SWIFT (CBPR+)** and the **Bank of England (CHAPS)**.\n`
+    body: readinessHubBody()
   }));
   await write(path.join(base, "changelog", "index.md"), pageTemplate({
     title: sectionPageTitle(locale.key, "changelog", pageTitle(`${t.changelogTitle} | pacs008`)),

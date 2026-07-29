@@ -183,3 +183,47 @@ describe("Content truth: ISO 20022 attribution", () => {
     );
   });
 });
+
+describe("Content truth: 2026 readiness hub", () => {
+  const text = textOf(readPage("2026-readiness"));
+
+  // Regression: this page was a 64-word paragraph whose own meta description
+  // promised a "complete compliance hub". A stub on the highest-intent page on
+  // the site, 108 days from the deadline it describes.
+  it("is substantive, not a stub", () => {
+    expect(text.split(/\s+/).length).toBeGreaterThan(600);
+  });
+
+  it("states the exact deadline and the in-scope messages", () => {
+    expect(text).toContain("14 November 2026");
+    for (const m of ["pacs.008", "pacs.009", "pacs.004", "pacs.003"]) {
+      expect(text, `missing in-scope message ${m}`).toContain(m);
+    }
+  });
+
+  it("lists the excepted message types", () => {
+    for (const m of ["admi.024", "camt.025", "camt.060"]) {
+      expect(text, `missing exception ${m}`).toContain(m);
+    }
+  });
+
+  it("states that hybrid remains acceptable, which is the most misread part", () => {
+    expect(text).toContain("Hybrid");
+    expect(text).toMatch(/minimum, not a maximum/i);
+  });
+
+  it("carries rule IDs for both schemes", () => {
+    expect(text).toContain("CBPR-ADDR-001");
+    expect(text).toContain("CHAPS-ADDR-001");
+  });
+
+  it("links downloadable fixtures", () => {
+    const html = readPage("2026-readiness");
+    expect(html).toMatch(/href="?\/fixtures\/cbpr\/address\//);
+    expect(html).toMatch(/href="?\/fixtures\/chaps\/address\//);
+  });
+
+  it("carries the ISO 20022 attribution", () => {
+    expect(text).toContain("not the official ISO 20022 website");
+  });
+});
