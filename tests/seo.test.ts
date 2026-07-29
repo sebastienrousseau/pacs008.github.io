@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { readFileSync, existsSync } from "fs";
+import { readFileSync, existsSync, readdirSync } from "fs";
 import { resolve } from "path";
 import { DIST, LOCALES, readPage, readLocalePage, localePath, pageExists } from "./helpers";
 
@@ -192,5 +192,64 @@ describe("SEO: language switcher integrity", () => {
   it("switcher entry count should match the generated locale count", () => {
     // 27 non-English locales plus the English root.
     expect(items.length).toBe(LOCALES.length + 1);
+  });
+});
+
+/** Every built HTML page, including redirect stubs. */
+function allPages(dir = DIST, found: string[] = []): string[] {
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const full = resolve(dir, entry.name);
+    if (entry.isDirectory()) allPages(full, found);
+    else if (entry.name.endsWith(".html")) found.push(full);
+  }
+  return found;
+}
+
+describe("SEO: canonical URLs", () => {
+  // Regression: templates/page.html emits {{base_url}}{{permalink}}, and ssg's
+  // permalink for a page written as <route>/index.md is /<route>/index/. The
+  // build then flattens <route>/index/index.html up to <route>/index.html, so
+  // 759 of 761 pages shipped a self-referencing canonical pointing at a URL
+  // that 404s. Only the English home page, on a different template with a
+  // hardcoded "/", was correct.
+  it("no page declares a canonical ending in /index/", () => {
+    const offenders = allPages()
+      .filter((file) => /rel="canonical" href="[^"]*\/index\/"/.test(readFileSync(file, "utf-8")))
+      .map((file) => file.slice(DIST.length + 1));
+    expect(offenders, `canonicals pointing at /index/: ${offenders.slice(0, 5).join(", ")}`)
+      .toEqual([]);
+  });
+
+  it("declares the canonical each page is actually served from", () => {
+    const cases: Array<[string, string]> = [
+      [".", "https://pacs008.com/"],
+      ["about", "https://pacs008.com/about/"],
+      ["fr", "https://pacs008.com/fr/"],
+      [localePath("fr", "about"), "https://pacs008.com/fr/a-propos/"],
+      [localePath("ja", "about"), "https://pacs008.com/ja/about/"],
+      ["fr/pacs.008.001.13", "https://pacs008.com/fr/pacs.008.001.13/"],
+    ];
+    for (const [route, expected] of cases) {
+      expect(readPage(route), `${route} canonical`).toContain(
+        `<link rel="canonical" href="${expected}">`
+      );
+    }
+  });
+
+  // The canonical and the self-referencing hreflang alternate are computed the
+  // same way, so they must agree. If they ever disagree the page is telling
+  // search engines two different things about which URL owns its content.
+  it("agrees with the self-referencing hreflang alternate", () => {
+    const disagreements: string[] = [];
+    for (const locale of ["fr", "de", "ja", "ar", "pl"]) {
+      const html = readLocalePage(locale, "about");
+      const canonical = html.match(/rel="canonical" href="([^"]+)"/)?.[1];
+      const self = html.match(
+        new RegExp(`hreflang="${locale}" href="([^"]+)"`)
+      )?.[1];
+      if (canonical !== self) disagreements.push(`${locale}: ${canonical} vs ${self}`);
+    }
+    expect(disagreements, `canonical/hreflang mismatch: ${disagreements.join("; ")}`)
+      .toEqual([]);
   });
 });

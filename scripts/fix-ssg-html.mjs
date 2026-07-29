@@ -67,6 +67,32 @@ function urlFor(locale, route) {
 }
 
 /**
+ * Point rel="canonical" at the URL the page is actually served from.
+ *
+ * templates/page.html emits `{{base_url}}{{permalink}}`, and ssg's permalink
+ * for a page written as `<route>/index.md` is `/<route>/index/`. The build then
+ * flattens `public/<route>/index/index.html` up to `public/<route>/index.html`
+ * — so 759 of 761 pages shipped a self-referencing canonical pointing at a URL
+ * that 404s. Only the English home page, which uses templates/index.html and
+ * its hardcoded `/`, was correct.
+ *
+ * Derived from the file path rather than by stripping the trailing `/index/`,
+ * so it also corrects the locale home pages (`/fr/index/` to `/fr/`) and is
+ * guaranteed to agree with the self-referencing hreflang alternate, which is
+ * computed the same way.
+ */
+function normaliseCanonical(head, filePath) {
+  const { locale, route } = splitRoute(filePath);
+  const href = `${SITE_ORIGIN}${pathFor(locale, route)}`;
+  const link = `<link rel="canonical" href="${href}">`;
+
+  if (/<link[^>]*rel=["']?canonical["']?[^>]*>/i.test(head)) {
+    return head.replace(/<link[^>]*rel=["']?canonical["']?[^>]*>/i, link);
+  }
+  return `${head}\n    ${link}\n  `;
+}
+
+/**
  * Inject rel="alternate" hreflang annotations.
  *
  * The layouts previously emitted a single alternate whose href and hreflang
@@ -338,6 +364,9 @@ function repairHtml(content, filePath) {
 
   // Ensure <html> declares the page's own language and RTL direction
   head = normaliseHtmlTag(head, filePath);
+
+  // Point rel="canonical" at the URL the page is really served from
+  head = normaliseCanonical(head, filePath);
 
   // Publish hreflang alternates for pages that exist in more than one locale
   head = injectHreflang(head, filePath);

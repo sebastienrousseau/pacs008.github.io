@@ -24,10 +24,35 @@ const REGIONS = [
   /<nav[^>]*class="?breadcrumb"?[\s\S]*?<\/nav>/i,
   /<nav[^>]*aria-label="?Breadcrumb"?[\s\S]*?<\/nav>/i,
   /<div class="article-meta">[\s\S]*?<\/div>/i,
+  // The footer repeats most of the navigation and adds its own headings, so a
+  // locale page previously ended in a fully English site map.
+  /<footer[^>]*class="?footer"?[\s\S]*?<\/footer>/i,
 ];
 
 function escapeRe(s) {
   return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+/**
+ * Regex source matching a label with either ampersand spelling.
+ *
+ * The layouts write `API &amp; CLI Reference`, and the chrome keys match that.
+ * But fix-ssg-html.mjs unescapes the whole body before this runs — it has to,
+ * because ssg entity-escapes the content fragment — which turns the layout's
+ * `&amp;` into a bare `&`. The keys then matched nothing, so the three labels
+ * containing an ampersand shipped in English in all 27 locales while their
+ * neighbours translated correctly.
+ *
+ * Accepting both spellings fixes it without making this function depend on
+ * where in the pipeline it is called.
+ */
+function labelPattern(key) {
+  return escapeRe(key).replace(/&amp;|&/g, "(?:&amp;|&)");
+}
+
+/** Escape a translated value for insertion as HTML text. */
+function escapeHtml(s) {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
 /**
@@ -37,8 +62,9 @@ function escapeRe(s) {
 function rewriteRegion(region, dict, keys) {
   let out = region;
   for (const key of keys) {
-    const re = new RegExp(">(\\s*)" + escapeRe(key) + "(\\s*)<", "g");
-    out = out.replace(re, (_m, before, after) => ">" + before + dict[key] + after + "<");
+    const re = new RegExp(">(\\s*)" + labelPattern(key) + "(\\s*)<", "g");
+    const value = escapeHtml(dict[key]);
+    out = out.replace(re, (_m, before, after) => ">" + before + value + after + "<");
   }
   return out;
 }

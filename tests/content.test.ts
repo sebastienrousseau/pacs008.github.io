@@ -406,3 +406,166 @@ describe("Content truth: localised reference pages", () => {
     }
   });
 });
+
+describe("Content truth: translation data integrity", () => {
+  const files = ["chrome-copy.json", "hub-copy.json", "pages-copy.json"];
+
+  /**
+   * Unicode blocks, and which locales are allowed to use them.
+   *
+   * A translated string that carries characters from a foreign script reads as
+   * plausible text and passes every other check: nothing compares it against a
+   * reference, and a build that renders it is working correctly. This caught a
+   * real defect — Cyrillic spliced into a Japanese string — that no assertion
+   * about presence, length or fallback would have found.
+   *
+   * U+0964/U+0965 are excluded from the Devanagari range: the danda sits in
+   * that block but terminates sentences across Indic scripts, Bengali and
+   * Hindi alike.
+   */
+  const SCRIPTS: Record<string, RegExp> = {
+    cyrillic: /[Ѐ-ӿ]/,
+    arabic: /[؀-ۿ]/,
+    hebrew: /[֐-׿]/,
+    devanagari: /[ऀ-ॣ०-ॿ]/,
+    bengali: /[ঀ-৿]/,
+    thai: /[฀-๿]/,
+    hangul: /[가-힯]/,
+    kana: /[぀-ヿ]/,
+  };
+
+  const EXPECTED: Record<string, string[]> = {
+    ru: ["cyrillic"],
+    uk: ["cyrillic"],
+    ar: ["arabic"],
+    he: ["hebrew"],
+    hi: ["devanagari"],
+    bn: ["bengali", "devanagari"],
+    th: ["thai"],
+    ko: ["hangul"],
+    ja: ["kana"],
+  };
+
+  it("no locale string carries characters from a foreign script", () => {
+    const bad: string[] = [];
+    for (const file of files) {
+      const data = JSON.parse(
+        readFileSync(resolve(__dirname, "../data", file), "utf-8")
+      );
+      for (const locale of Object.keys(data)) {
+        if (locale.startsWith("_") || locale === "en") continue;
+        const allowed = new Set(EXPECTED[locale] ?? []);
+        for (const [key, value] of Object.entries<string>(data[locale])) {
+          if (typeof value !== "string") continue;
+          for (const [script, pattern] of Object.entries(SCRIPTS)) {
+            if (!allowed.has(script) && pattern.test(value)) {
+              bad.push(`${file} ${locale}.${key}: unexpected ${script}`);
+            }
+          }
+        }
+      }
+    }
+    expect(bad, `foreign-script contamination: ${bad.slice(0, 5).join("; ")}`).toEqual([]);
+  });
+});
+
+describe("Content truth: chrome labels containing an ampersand", () => {
+  const chrome = JSON.parse(
+    readFileSync(resolve(__dirname, "../data/chrome-copy.json"), "utf-8")
+  );
+
+  // Regression: fix-ssg-html unescapes the whole body — it has to, because ssg
+  // entity-escapes the content fragment — which turned the layouts' `&amp;`
+  // into a bare `&`. The chrome keys spell it `&amp;`, so the three labels
+  // containing an ampersand matched nothing and shipped in English in all 27
+  // locales, sitting between neighbours that had translated correctly.
+  // Keyed off a real locale: chrome-copy holds no "en" block, because the
+  // English labels live in the layout and that is their source of truth.
+  const AMPERSAND_KEYS = Object.keys(chrome.fr).filter((k) => k.includes("&amp;"));
+
+  it("has ampersand labels to test, or this suite proves nothing", () => {
+    expect(AMPERSAND_KEYS.length).toBeGreaterThan(2);
+  });
+
+  it("translates every ampersand label in every locale", () => {
+    const wrong: string[] = [];
+    for (const locale of LOCALES) {
+      const html = readLocalePage(locale, "about");
+      for (const key of AMPERSAND_KEYS) {
+        const value = chrome[locale]?.[key];
+        if (!value) {
+          wrong.push(`${locale}: no copy for ${key}`);
+        } else if (!html.includes(value)) {
+          wrong.push(`${locale}: ${key}`);
+        }
+      }
+    }
+    expect(wrong, `untranslated ampersand labels: ${wrong.slice(0, 6).join(", ")}`).toEqual([]);
+  });
+
+  it("leaves no English ampersand label on a locale page", () => {
+    const offenders: string[] = [];
+    for (const locale of LOCALES) {
+      const html = readLocalePage(locale, "about");
+      for (const key of AMPERSAND_KEYS) {
+        // Match the unescaped form, which is what actually ships.
+        const bare = key.replace(/&amp;/g, "&");
+        if (html.includes(`>${bare}<`)) offenders.push(`${locale}: ${bare}`);
+      }
+    }
+    expect(offenders, `English labels left behind: ${offenders.slice(0, 6).join(", ")}`).toEqual([]);
+  });
+});
+
+describe("Content truth: footer translation", () => {
+  const chrome = JSON.parse(
+    readFileSync(resolve(__dirname, "../data/chrome-copy.json"), "utf-8")
+  );
+  const TAGLINE =
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. " +
+    "Validated files, local processing, zero payload storage.";
+
+  function footerOf(html: string): string {
+    return html.match(/<footer[^>]*class="?footer"?[\s\S]*?<\/footer>/i)?.[0] ?? "";
+  }
+
+  // Regression: the footer was not in translateChrome's region list, so every
+  // locale page ended in a fully English site map repeating the navigation.
+  it("translates the footer headings in every locale", () => {
+    const wrong: string[] = [];
+    for (const locale of LOCALES) {
+      const footer = textOf(footerOf(readLocalePage(locale, "about")));
+      for (const key of ["Overview", "Message Specs", "Technical &amp; Help"]) {
+        const value = chrome[locale]?.[key];
+        if (value && !footer.includes(value)) wrong.push(`${locale}: ${key}`);
+      }
+    }
+    expect(wrong, `English footer headings: ${wrong.slice(0, 6).join(", ")}`).toEqual([]);
+  });
+
+  it("translates the footer tagline in every locale", () => {
+    const wrong = LOCALES.filter((locale) => {
+      const footer = textOf(footerOf(readLocalePage(locale, "about")));
+      return footer.includes(TAGLINE) || !footer.includes(chrome[locale][TAGLINE]);
+    });
+    expect(wrong, `English footer tagline: ${wrong.join(", ")}`).toEqual([]);
+  });
+
+  // ISO 20022 message names stay English for the same reason TwnNm and the
+  // rule IDs do: they are the standard's own terminology.
+  it("keeps ISO message names in the footer untranslated", () => {
+    const footer = footerOf(readLocalePage("fr", "about"));
+    expect(footer).toContain("pacs.008 Credit Transfer");
+  });
+
+  // The Apache Software Foundation publishes no official translation of the
+  // licence, and only the English text binds. A translated licence line would
+  // imply otherwise.
+  it("leaves the licence line in English", () => {
+    for (const locale of ["fr", "ja", "ar"]) {
+      expect(textOf(footerOf(readLocalePage(locale, "about")))).toContain(
+        "Released under the Apache License 2.0"
+      );
+    }
+  });
+});
