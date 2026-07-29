@@ -54,6 +54,21 @@ const sourceRows = sources.sources
   )
   .join("\n");
 
+/** Schemas the browser validator can use, from the generated manifest. */
+const schemaManifest = JSON.parse(
+  readFileSync(join(process.cwd(), "static", "schemas", "manifest.json"), "utf8")
+);
+const byFamily = {};
+for (const entry of Object.values(schemaManifest.schemas)) {
+  (byFamily[entry.family] ||= []).push(entry.messageType.split(".").pop());
+}
+const schemaTable =
+  "| Message family | Versions available |\n|---|---|\n" +
+  Object.keys(byFamily)
+    .sort()
+    .map((f) => `| \`${f}\` | ${byFamily[f].sort().join(", ")} |`)
+    .join("\n");
+
 const page = `---
 title: "Trust Centre | pacs008"
 description: "How pacs008 is licensed, released, and secured, what each interface can and cannot validate, and the limitations we publish rather than hide."
@@ -126,10 +141,18 @@ The browser now performs real XSD validation, using libxml2 compiled to
 WebAssembly and run in a Web Worker. It checks element order, cardinality and
 datatypes — constraints that well-formedness parsing cannot see.
 
-It is marked **beta** for one specific reason: only \`pacs.008.001.13\` is
-published here. Any other message type reports **not evaluated**, never a pass.
+It is marked **beta** because the published schema set is a snapshot. Any
+message type without a schema here reports **not evaluated**, never a pass.
 Every result names the schema and its SHA-256 hash, so a report says exactly
 what it was checked against.
+
+${schemaTable}
+
+Note what this does and does not mean for \`pain\` and \`camt\`: the browser can
+check whether such a message is **structurally valid**, which covers reading an
+incoming \`camt.110\`. The package still cannot generate or parse them. Validating
+a message is not the same as supporting it, and the message coverage table above
+is the one that describes support.
 
 If the engine or the schema fails to load, the result is **not evaluated** with
 the reason shown. That is deliberate — a validator that quietly reports success
@@ -336,6 +359,7 @@ writeFileSync(join(a11yDir, "index.md"), a11y);
  * apply to each family. Generated, so coverage can never lead the package.
  */
 const rules = JSON.parse(readFileSync(join(dataDir, "rule-registry.json"), "utf8"));
+
 const sourceById = Object.fromEntries(sources.sources.map((s) => [s.id, s]));
 
 const familyRows = capability.messages.supported

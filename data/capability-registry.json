@@ -14,74 +14,197 @@
   "capabilities": {
     "layer_0_input_safety": {
       "name": "Input Safety & Parsing (Layer 0)",
-      "python": "stable", "cli": "stable", "rest": "stable", "browser": "beta",
+      "python": "stable",
+      "cli": "stable",
+      "rest": "stable",
+      "browser": "beta",
       "evidence": "CSV/JSON parsing present; no file-size or MIME enforcement implemented (no MAX_FILE_SIZE in static/js)"
     },
     "layer_1_input_schema": {
       "name": "Input Schema Validation (Layer 1)",
-      "python": "stable", "cli": "stable", "rest": "stable", "browser": "stable",
+      "python": "stable",
+      "cli": "stable",
+      "rest": "stable",
+      "browser": "stable",
       "evidence": "validateRecords() checks required columns and empty values in try-demo.js"
     },
     "layer_2_identifiers_formats": {
       "name": "Identifier & Format Verification (Layer 2)",
-      "python": "stable", "cli": "stable", "rest": "stable", "browser": "stable",
+      "python": "stable",
+      "cli": "stable",
+      "rest": "stable",
+      "browser": "stable",
       "evidence": "IBAN mod-97 checksum and per-country length, BIC structure, ISO 4217 currency, YYYY-MM-DD date in try-demo.js"
     },
     "layer_3_xml_syntax_ns": {
       "name": "XML Syntax & Namespace Validation (Layer 3)",
-      "python": "stable", "cli": "stable", "rest": "stable", "browser": "stable",
+      "python": "stable",
+      "cli": "stable",
+      "rest": "stable",
+      "browser": "stable",
       "evidence": "xml-ingest.js parses with DOMParser, rejects malformed XML, checks the root element is Document and that the namespace is an ISO 20022 message namespace"
     },
     "layer_4_xsd_structural": {
       "name": "XSD Sequence & Cardinality Checks (Layer 4)",
-      "python": "stable", "cli": "stable", "rest": "stable", "browser": "beta",
-      "evidence": "libxml2 compiled to WebAssembly, run in a Web Worker against schemas served from this origin. Beta because only pacs.008.001.13 is published: any other message type reports 'not evaluated' rather than a pass"
+      "python": "stable",
+      "cli": "stable",
+      "rest": "stable",
+      "browser": "beta",
+      "evidence": "libxml2 compiled to WebAssembly, run in a Web Worker against 22 schemas served from this origin, covering pacs.008, pain.001/002/007/008 and camt.110/111. Beta because the schema set is a snapshot and any message type without a published schema reports 'not evaluated' rather than a pass"
     },
     "layer_5_iso_semantic": {
       "name": "ISO Semantic Consistency (Layer 5)",
-      "python": "stable", "cli": "stable", "rest": "stable", "browser": "planned",
+      "python": "stable",
+      "cli": "stable",
+      "rest": "stable",
+      "browser": "planned",
       "evidence": "No control-sum, transaction-count or cross-field consistency checks in static/js"
     },
     "layer_6_scheme_profile": {
-      "name": "Scheme Profile Rules — CBPR+, CHAPS (Layer 6)",
-      "python": "stable", "cli": "stable", "rest": "stable", "browser": "beta",
+      "name": "Scheme Profile Rules \u2014 CBPR+, CHAPS (Layer 6)",
+      "python": "stable",
+      "cli": "stable",
+      "rest": "stable",
+      "browser": "beta",
       "evidence": "Postal address classified as fully structured / hybrid / unstructured, plus LEI format (ISO 17442); no wider profile rule set"
     },
     "layer_7_effective_dates": {
-      "name": "Effective-Date Rules — 14 Nov 2026 (Layer 7)",
-      "python": "stable", "cli": "stable", "rest": "stable", "browser": "beta",
+      "name": "Effective-Date Rules \u2014 14 Nov 2026 (Layer 7)",
+      "python": "stable",
+      "cli": "stable",
+      "rest": "stable",
+      "browser": "beta",
       "evidence": "The 2026 deadline is hardcoded in the address classifier; there is no selectable effective date"
     },
     "layer_8_organisation_policy": {
       "name": "Organisation Policy Packs (Layer 8)",
-      "python": "planned", "cli": "planned", "rest": "planned", "browser": "planned",
+      "python": "planned",
+      "cli": "planned",
+      "rest": "planned",
+      "browser": "planned",
       "evidence": "Not implemented in any interface"
     }
   },
   "messages": {
     "_comment": "Verified 2026-07-28 against pacs008/templates in sebastienrousseau/pacs008 at v0.0.8. Only families with templates in the package are listed as supported. Do not publish a message page for anything marked unsupported.",
     "supported": [
-      { "family": "pacs.008", "name": "FI to FI Customer Credit Transfer", "versions": 13, "latest": "pacs.008.001.13", "range": "pacs.008.001.01 - .13" },
-      { "family": "pacs.002", "name": "FI to FI Payment Status Report", "versions": 1, "latest": "pacs.002.001.12" },
-      { "family": "pacs.003", "name": "FI to FI Customer Direct Debit", "versions": 1, "latest": "pacs.003.001.09" },
-      { "family": "pacs.004", "name": "Payment Return", "versions": 1, "latest": "pacs.004.001.11" },
-      { "family": "pacs.007", "name": "FI to FI Payment Reversal", "versions": 1, "latest": "pacs.007.001.11" },
-      { "family": "pacs.009", "name": "Financial Institution Credit Transfer", "versions": 1, "latest": "pacs.009.001.10" },
-      { "family": "pacs.010", "name": "Financial Institution Direct Debit", "versions": 1, "latest": "pacs.010.001.05" },
-      { "family": "pacs.028", "name": "FI to FI Payment Status Request", "versions": 1, "latest": "pacs.028.001.05" }
+      {
+        "family": "pacs.008",
+        "name": "FI to FI Customer Credit Transfer",
+        "versions": 13,
+        "latest": "pacs.008.001.13",
+        "range": "pacs.008.001.01 - .13"
+      },
+      {
+        "family": "pacs.002",
+        "name": "FI to FI Payment Status Report",
+        "versions": 1,
+        "latest": "pacs.002.001.12"
+      },
+      {
+        "family": "pacs.003",
+        "name": "FI to FI Customer Direct Debit",
+        "versions": 1,
+        "latest": "pacs.003.001.09"
+      },
+      {
+        "family": "pacs.004",
+        "name": "Payment Return",
+        "versions": 1,
+        "latest": "pacs.004.001.11"
+      },
+      {
+        "family": "pacs.007",
+        "name": "FI to FI Payment Reversal",
+        "versions": 1,
+        "latest": "pacs.007.001.11"
+      },
+      {
+        "family": "pacs.009",
+        "name": "Financial Institution Credit Transfer",
+        "versions": 1,
+        "latest": "pacs.009.001.10"
+      },
+      {
+        "family": "pacs.010",
+        "name": "Financial Institution Direct Debit",
+        "versions": 1,
+        "latest": "pacs.010.001.05"
+      },
+      {
+        "family": "pacs.028",
+        "name": "FI to FI Payment Status Request",
+        "versions": 1,
+        "latest": "pacs.028.001.05"
+      }
     ],
     "unsupported": [
-      { "family": "pain.*", "status": "not_implemented", "note": "No templates in the package. Relevant to the November 2026 MT101 CBPR+ retirement, which relays to pain.001. Scoped in sebastienrousseau/pacs008#13; out of scope is a legitimate outcome.", "tracking": "https://github.com/sebastienrousseau/pacs008/issues/13" },
-      { "family": "camt.*", "status": "not_implemented", "note": "No templates in the package. camt.110 becomes receive-and-consume mandatory in November 2026 and camt.110/111 both mandatory in November 2027. A known dated gap, not a current capability. Scoped in sebastienrousseau/pacs008#12.", "tracking": "https://github.com/sebastienrousseau/pacs008/issues/12" },
-      { "family": "head.001", "status": "not_implemented", "note": "Business Application Header not shipped as a standalone template." }
+      {
+        "family": "pain.*",
+        "status": "not_implemented",
+        "note": "The package cannot generate or parse pain messages. The browser workbench can now validate pain.001, pain.002, pain.007 and pain.008 against their XSDs. Structural validation only. Scoped in sebastienrousseau/pacs008#13.",
+        "tracking": "https://github.com/sebastienrousseau/pacs008/issues/13",
+        "browser_xsd": [
+          "pain.001.001.03-13",
+          "pain.002.001.03/12/14/15",
+          "pain.007.001.13",
+          "pain.008.001.02/12"
+        ]
+      },
+      {
+        "family": "camt.*",
+        "status": "not_implemented",
+        "note": "The package cannot generate or parse camt messages. The browser workbench can now validate camt.110 and camt.111 against their XSDs, which covers the November 2026 receive-and-consume obligation for reading an incoming camt.110 \u2014 but structural validation is not the same as support. Scoped in sebastienrousseau/pacs008#12.",
+        "tracking": "https://github.com/sebastienrousseau/pacs008/issues/12",
+        "browser_xsd": [
+          "camt.110.001.01",
+          "camt.111.001.01",
+          "camt.111.001.02"
+        ]
+      },
+      {
+        "family": "head.001",
+        "status": "not_implemented",
+        "note": "Business Application Header not shipped as a standalone template."
+      }
     ]
   },
   "schemes": [
-    { "id": "cbpr-plus", "name": "SWIFT CBPR+", "status": "stable", "effective_date": "2026-11-14" },
-    { "id": "chaps-uk", "name": "Bank of England CHAPS", "status": "stable", "effective_date": "2026-11-14" },
-    { "id": "t2-rtgs", "name": "Eurosystem T2 RTGS", "status": "stable", "effective_date": "2026-11-14" },
-    { "id": "fedwire", "name": "US Federal Reserve Fedwire", "status": "stable", "effective_date": "2025-03-10" },
-    { "id": "hvps-plus", "name": "HVPS+ High-Value Payments", "status": "stable", "effective_date": "2026-11-14" },
-    { "id": "sct-inst", "name": "SEPA Instant Credit Transfer", "status": "stable", "effective_date": "2025-01-01" }
+    {
+      "id": "cbpr-plus",
+      "name": "SWIFT CBPR+",
+      "status": "stable",
+      "effective_date": "2026-11-14"
+    },
+    {
+      "id": "chaps-uk",
+      "name": "Bank of England CHAPS",
+      "status": "stable",
+      "effective_date": "2026-11-14"
+    },
+    {
+      "id": "t2-rtgs",
+      "name": "Eurosystem T2 RTGS",
+      "status": "stable",
+      "effective_date": "2026-11-14"
+    },
+    {
+      "id": "fedwire",
+      "name": "US Federal Reserve Fedwire",
+      "status": "stable",
+      "effective_date": "2025-03-10"
+    },
+    {
+      "id": "hvps-plus",
+      "name": "HVPS+ High-Value Payments",
+      "status": "stable",
+      "effective_date": "2026-11-14"
+    },
+    {
+      "id": "sct-inst",
+      "name": "SEPA Instant Credit Transfer",
+      "status": "stable",
+      "effective_date": "2025-01-01"
+    }
   ]
 }

@@ -25,7 +25,7 @@ verified as of 2026-07-28.
 | Licence | Apache-2.0 |
 | Current version | 0.0.8 |
 | Ruleset version | 2026.11.0 |
-| Ruleset hash | `sha256:a9d005c53d723997c3e6b7cdb61966d02dd377d97d2695d37b5e5eec3be19115` |
+| Ruleset hash | `sha256:a27fe2e7a04f36e9645310984e7142e58d2d5467490207479e689dd6fbbb668f` |
 | Minimum Python | 3.10 (tested on 3.10, 3.11, 3.12) |
 | Source | [https://github.com/sebastienrousseau/pacs008](https://github.com/sebastienrousseau/pacs008) |
 | Package | [PyPI](https://pypi.org/project/pacs008/) |
@@ -68,7 +68,7 @@ beta for this reason.
 | Layer | Browser status | Why |
 |---|---|---|
 | Input Safety & Parsing (Layer 0) | Beta | CSV/JSON parsing present; no file-size or MIME enforcement implemented (no MAX_FILE_SIZE in static/js) |
-| XSD Sequence & Cardinality Checks (Layer 4) | Beta | libxml2 compiled to WebAssembly, run in a Web Worker against schemas served from this origin. Beta because only pacs.008.001.13 is published: any other message type reports 'not evaluated' rather than a pass |
+| XSD Sequence & Cardinality Checks (Layer 4) | Beta | libxml2 compiled to WebAssembly, run in a Web Worker against 22 schemas served from this origin, covering pacs.008, pain.001/002/007/008 and camt.110/111. Beta because the schema set is a snapshot and any message type without a published schema reports 'not evaluated' rather than a pass |
 | ISO Semantic Consistency (Layer 5) | Not implemented | No control-sum, transaction-count or cross-field consistency checks in static/js |
 | Scheme Profile Rules — CBPR+, CHAPS (Layer 6) | Beta | Postal address classified as fully structured / hybrid / unstructured, plus LEI format (ISO 17442); no wider profile rule set |
 | Effective-Date Rules — 14 Nov 2026 (Layer 7) | Beta | The 2026 deadline is hardcoded in the address classifier; there is no selectable effective date |
@@ -83,10 +83,26 @@ The browser now performs real XSD validation, using libxml2 compiled to
 WebAssembly and run in a Web Worker. It checks element order, cardinality and
 datatypes — constraints that well-formedness parsing cannot see.
 
-It is marked **beta** for one specific reason: only `pacs.008.001.13` is
-published here. Any other message type reports **not evaluated**, never a pass.
+It is marked **beta** because the published schema set is a snapshot. Any
+message type without a schema here reports **not evaluated**, never a pass.
 Every result names the schema and its SHA-256 hash, so a report says exactly
 what it was checked against.
+
+| Message family | Versions available |
+|---|---|
+| `camt.110` | 01 |
+| `camt.111` | 01, 02 |
+| `pacs.008` | 13 |
+| `pain.001` | 03, 04, 05, 06, 07, 08, 09, 10, 11, 12, 13 |
+| `pain.002` | 03, 12, 14, 15 |
+| `pain.007` | 13 |
+| `pain.008` | 02, 12 |
+
+Note what this does and does not mean for `pain` and `camt`: the browser can
+check whether such a message is **structurally valid**, which covers reading an
+incoming `camt.110`. The package still cannot generate or parse them. Validating
+a message is not the same as supporting it, and the message coverage table above
+is the one that describes support.
 
 If the engine or the schema fails to load, the result is **not evaluated** with
 the reason shown. That is deliberate — a validator that quietly reports success
@@ -124,8 +140,8 @@ We list these because their absence is easy to assume away.
 
 | Family | Status | Note |
 |---|---|---|
-| `pain.*` | Not implemented | No templates in the package. Relevant to the November 2026 MT101 CBPR+ retirement, which relays to pain.001. Scoped in sebastienrousseau/pacs008#13; out of scope is a legitimate outcome. [Tracked](https://github.com/sebastienrousseau/pacs008/issues/13) |
-| `camt.*` | Not implemented | No templates in the package. camt.110 becomes receive-and-consume mandatory in November 2026 and camt.110/111 both mandatory in November 2027. A known dated gap, not a current capability. Scoped in sebastienrousseau/pacs008#12. [Tracked](https://github.com/sebastienrousseau/pacs008/issues/12) |
+| `pain.*` | Not implemented | The package cannot generate or parse pain messages. The browser workbench can now validate pain.001, pain.002, pain.007 and pain.008 against their XSDs. Structural validation only. Scoped in sebastienrousseau/pacs008#13. [Tracked](https://github.com/sebastienrousseau/pacs008/issues/13) |
+| `camt.*` | Not implemented | The package cannot generate or parse camt messages. The browser workbench can now validate camt.110 and camt.111 against their XSDs, which covers the November 2026 receive-and-consume obligation for reading an incoming camt.110 — but structural validation is not the same as support. Scoped in sebastienrousseau/pacs008#12. [Tracked](https://github.com/sebastienrousseau/pacs008/issues/12) |
 | `head.001` | Not implemented | Business Application Header not shipped as a standalone template. |
 
 ## Scheme profiles

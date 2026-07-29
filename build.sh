@@ -23,6 +23,9 @@ echo "Preparing build content..."
 # Synchronize canonical manifest facts
 node scripts/generate-manifest-facts.mjs
 
+# Regenerate the schema manifest from the schemas actually present
+node scripts/generate-schema-manifest.mjs
+
 # Generate the Trust Centre from the canonical registries
 node scripts/generate-trust-page.mjs
 

@@ -15,7 +15,7 @@ noindex: false
 # Message and rule catalogue
 
 Generated from the pacs008 registries at ruleset `2026.11.0`
-(hash `sha256:a9d005c53d723997c3e6b7cdb61966d02dd377d97d2695d37b5e5eec3be19115`). Coverage reflects the templates shipped in
+(hash `sha256:a27fe2e7a04f36e9645310984e7142e58d2d5467490207479e689dd6fbbb668f`). Coverage reflects the templates shipped in
 the package, so it cannot claim more than the software does.
 
 ## Message families
@@ -33,8 +33,8 @@ the package, so it cannot claim more than the software does.
 
 ### Not implemented
 
-- `pain.*` — No templates in the package. Relevant to the November 2026 MT101 CBPR+ retirement, which relays to pain.001. Scoped in sebastienrousseau/pacs008#13; out of scope is a legitimate outcome.
-- `camt.*` — No templates in the package. camt.110 becomes receive-and-consume mandatory in November 2026 and camt.110/111 both mandatory in November 2027. A known dated gap, not a current capability. Scoped in sebastienrousseau/pacs008#12.
+- `pain.*` — The package cannot generate or parse pain messages. The browser workbench can now validate pain.001, pain.002, pain.007 and pain.008 against their XSDs. Structural validation only. Scoped in sebastienrousseau/pacs008#13.
+- `camt.*` — The package cannot generate or parse camt messages. The browser workbench can now validate camt.110 and camt.111 against their XSDs, which covers the November 2026 receive-and-consume obligation for reading an incoming camt.110 — but structural validation is not the same as support. Scoped in sebastienrousseau/pacs008#12.
 - `head.001` — Business Application Header not shipped as a standalone template.
 
 ## Scheme profiles

@@ -309,9 +309,14 @@
           <h3>Validate against the XSD</h3>
           <p>
             Checks element order, cardinality and datatypes against the official
-            <code>pacs.008.001.13</code> schema, using libxml2 compiled to
-            WebAssembly. The engine and schema are about 850 KB and are downloaded
-            only when you press the button, then cached.
+            ISO 20022 schemas, using libxml2 compiled to WebAssembly. The message
+            type is detected from the document namespace. Schemas are published
+            here for <code>pacs.008</code>, <code>pain.001</code>,
+            <code>pain.002</code>, <code>pain.007</code>, <code>pain.008</code>,
+            <code>camt.110</code> and <code>camt.111</code> — see the
+            <a href="/trust/">Trust Centre</a> for exact versions. Anything else
+            reports <em>not evaluated</em>. The engine is about 800 KB and is
+            downloaded only when you press the button, then cached.
           </p>
           <div class="actions">
             <button type="button" id="xsd-run" class="pill pill-ghost">Run XSD validation</button>

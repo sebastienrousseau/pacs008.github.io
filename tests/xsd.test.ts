@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeAll } from "vitest";
-import { readFileSync, existsSync } from "fs";
+import { readFileSync, existsSync, readdirSync } from "fs";
 import { resolve } from "path";
 import { validateXML } from "xmllint-wasm";
 
@@ -37,6 +37,55 @@ async function check(xml: string) {
     schema: [{ fileName: "pacs.008.001.13.xsd", contents: xsd }],
   });
 }
+
+const manifest = JSON.parse(
+  readFileSync(resolve(__dirname, "../static/schemas/manifest.json"), "utf-8")
+);
+
+describe("XSD: schema manifest", () => {
+  it("is generated from the schemas actually present, not hardcoded", () => {
+    const onDisk = readdirSync(resolve(__dirname, "../static/schemas"))
+      .filter((f) => f.endsWith(".xsd"))
+      .map((f) => f.replace(/\.xsd$/, ""))
+      .sort();
+    expect(Object.keys(manifest.schemas).sort()).toEqual(onDisk);
+  });
+
+  it("every listed schema is served", () => {
+    for (const entry of Object.values<any>(manifest.schemas)) {
+      expect(
+        existsSync(resolve(__dirname, "../public/schemas", entry.file)),
+        `${entry.file} is listed but not served`
+      ).toBe(true);
+    }
+  });
+
+  it("every schema namespace matches its message type", () => {
+    for (const [type, entry] of Object.entries<any>(manifest.schemas)) {
+      expect(entry.namespace).toBe(`urn:iso:std:iso:20022:tech:xsd:${type}`);
+    }
+  });
+
+  it("covers the families the November 2026 and 2027 obligations touch", () => {
+    const families = new Set(Object.values<any>(manifest.schemas).map((e) => e.family));
+    // camt.110 receive-mandatory Nov 2026; camt.111 mandatory Nov 2027.
+    expect(families.has("camt.110")).toBe(true);
+    expect(families.has("camt.111")).toBe(true);
+    // pain.001 is the MT101 CBPR+ relay destination.
+    expect(families.has("pain.001")).toBe(true);
+    expect(families.has("pacs.008")).toBe(true);
+  });
+
+  it("records a hash and stated provenance for each schema", () => {
+    for (const [type, entry] of Object.entries<any>(manifest.schemas)) {
+      expect(entry.sha256, type).toMatch(/^sha256:[0-9a-f]{64}$/);
+      // Not every schema states an ISO 20022 version: the 2009-era
+      // SWIFTStandards Workstation output carries only a generator line.
+      // Require that something is recorded, not that a version was invented.
+      expect(entry.isoVersion || entry.provenance, `${type} states no provenance`).toBeTruthy();
+    }
+  });
+});
 
 describe("XSD: schema asset", () => {
   it("is served from this origin", () => {

@@ -13,14 +13,31 @@
 (function () {
   "use strict";
 
-  /** Schemas served from this origin. Extend as more are vendored. */
-  var SCHEMAS = {
-    "pacs.008.001.13": {
-      url: "/schemas/pacs.008.001.13.xsd",
-      id: "pacs.008.001.13.xsd",
-      namespace: "urn:iso:std:iso:20022:tech:xsd:pacs.008.001.13",
-    },
-  };
+  /**
+   * Schemas served from this origin, loaded from a manifest generated at build
+   * time from the files actually present. Not hardcoded, so the list of
+   * validatable message types cannot claim a schema that is not there.
+   */
+  var SCHEMAS = null;
+  var schemaLoad = null;
+
+  function loadSchemas() {
+    if (schemaLoad) return schemaLoad;
+    schemaLoad = fetch("/schemas/manifest.json")
+      .then(function (r) {
+        if (!r.ok) throw new Error("manifest returned " + r.status);
+        return r.json();
+      })
+      .then(function (m) {
+        SCHEMAS = m.schemas || {};
+        return SCHEMAS;
+      })
+      .catch(function () {
+        SCHEMAS = {};
+        return SCHEMAS;
+      });
+    return schemaLoad;
+  }
 
   var worker = null;
 
@@ -43,9 +60,15 @@
    * the caller might swallow into a pass.
    */
   function validate(xml, timeoutMs) {
+    return loadSchemas().then(function (schemas) {
+      return runValidation(xml, timeoutMs, schemas);
+    });
+  }
+
+  function runValidation(xml, timeoutMs, schemas) {
     return new Promise(function (resolve) {
       var messageType = detectMessageType(xml);
-      var schema = messageType ? SCHEMAS[messageType] : null;
+      var schema = messageType ? schemas[messageType] : null;
 
       if (!schema) {
         resolve({
@@ -100,14 +123,14 @@
       }
 
       w.addEventListener("message", onMessage);
-      w.postMessage({ type: "validate", xml: xml, schemaUrl: schema.url, schemaId: schema.id });
+      w.postMessage({ type: "validate", xml: xml, schemaUrl: schema.url, schemaId: schema.file });
     });
   }
 
   window.pacs008Xsd = {
     validate: validate,
     detectMessageType: detectMessageType,
-    SCHEMAS: SCHEMAS,
+    loadSchemas: loadSchemas,
   };
 
   // ---- DOM wiring -------------------------------------------------------
