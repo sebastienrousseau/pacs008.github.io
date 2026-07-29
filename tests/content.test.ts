@@ -273,3 +273,55 @@ describe("Content truth: readiness hub translation", () => {
     expect(fr).toContain("Run these through the workbench");
   });
 });
+
+describe("Content truth: site chrome translation", () => {
+  const chrome = JSON.parse(
+    readFileSync(resolve(__dirname, "../data/chrome-copy.json"), "utf-8")
+  );
+
+  function navOf(route: string) {
+    const m = readPage(route).match(
+      /<nav[^>]*aria-label="Primary navigation"[\s\S]*?<\/nav>/i
+    );
+    return m ? textOf(m[0]) : "";
+  }
+
+  it("has chrome copy for every generated locale", () => {
+    const missing = LOCALES.filter((l) => !chrome[l]);
+    expect(missing, `locales without chrome copy: ${missing.join(", ")}`).toEqual([]);
+  });
+
+  // Regression: the layouts hardcode English labels, so every locale shipped
+  // an English navigation on all 680 pages regardless of page language.
+  it("every locale navigation is translated, not English", () => {
+    const wrong: string[] = [];
+    for (const locale of LOCALES) {
+      const nav = navOf(`${locale}/2026-readiness`);
+      const expected = chrome[locale]?.Overview;
+      if (expected && !nav.includes(expected)) wrong.push(locale);
+    }
+    expect(wrong, `locales with untranslated nav: ${wrong.join(", ")}`).toEqual([]);
+  });
+
+  it("every locale breadcrumb root is translated", () => {
+    const wrong: string[] = [];
+    for (const locale of LOCALES) {
+      const m = readPage(`${locale}/2026-readiness`).match(
+        /<nav[^>]*class="?breadcrumb"?[\s\S]*?<\/nav>/i
+      );
+      const expected = chrome[locale]?.Home;
+      if (m && expected && !textOf(m[0]).includes(expected)) wrong.push(locale);
+    }
+    expect(wrong, `locales with English breadcrumb: ${wrong.join(", ")}`).toEqual([]);
+  });
+
+  it("leaves the English navigation untouched", () => {
+    expect(navOf("about")).toContain("Overview");
+  });
+
+  // ISO 20022 message names are standard terminology and are deliberately not
+  // translated, for the same reason TwnNm and Ctry are not.
+  it("keeps ISO message identifiers in the nav", () => {
+    expect(navOf("fr/2026-readiness")).toContain("pacs.008");
+  });
+});

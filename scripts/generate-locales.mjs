@@ -37393,7 +37393,7 @@ for (const locale of locales) {
     body: `# Security & Compliance Architecture\n\npacs008 is built with a security-first posture designed for financial institutions, payment service providers, and regulated fintech platforms processing ISO 20022 message flows.\n\n## Core Security Controls\n\n- **XXE Protection**: Utilises defusedxml for all XML parsing operations.\n- **PII & GDPR Masking**: Automatic PII obfuscation for IBANs and party names in application logs.\n- **Path Traversal Defense**: Strict directory allowlisting preventing path escape vulnerabilities.\n`
   }));
   await write(path.join(base, "2026-readiness", "index.md"), pageTemplate({
-    title: "2026 Readiness Hub — SWIFT CBPR+ & Bank of England Migration",
+    title: pageTitle(hubCopy(locale.key).title),
     description: "What changes on 14 November 2026 for SWIFT CBPR+ and Bank of England CHAPS, who is in scope, the exceptions, and downloadable test fixtures for each rule.",
     lang: locale.lang,
     body: readinessHubBody(locale.key)

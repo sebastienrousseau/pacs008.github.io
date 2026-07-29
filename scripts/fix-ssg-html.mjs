@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { translateChrome } from "./translate-chrome.mjs";
 
 const publicDir = path.resolve("public");
 
@@ -316,8 +317,9 @@ function repairHtml(content, filePath) {
   // 3. Point navigation at translated pages on locale routes
   body = localiseLinks(body, filePath);
 
-  // 4. Fill body placeholders ssg leaves unresolved, then reduce whitespace
-  return minifyHtml(fillReviewDate(head + body));
+  // 4. Translate site chrome, fill unresolved placeholders, reduce whitespace
+  const localised = translateChrome(fillReviewDate(head + body), localeFromPath(filePath));
+  return minifyHtml(localised);
 }
 
 function processHtmlFiles(dir) {

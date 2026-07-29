@@ -1,5 +1,5 @@
 ---
-title: 2026 Readiness Hub — SWIFT CBPR+ & Bank of England Migration
+title: "מוכנות ל-ISO 20022 לשנת 2026 | pacs008"
 description: What changes on 14 November 2026 for SWIFT CBPR+ and Bank of England CHAPS, who is in scope, the exceptions, and downloadable test fixtures for each rule.
 lang: he-IL
 layout: page
