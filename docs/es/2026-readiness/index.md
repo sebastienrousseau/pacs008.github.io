@@ -20,7 +20,7 @@ image: /logo.webp
 
 En esa fecha, las direcciones postales totalmente no estructuradas dejarán de aceptarse en los mensajes de pago SWIFT CBPR+ y en la biblioteca de validación CHAPS del Banco de Inglaterra. Ese mismo día entran en vigor otros dos cambios, y en noviembre de 2027 llega un conjunto mayor.
 
-Every rule below carries an identifier, an effective date, an authoritative source and a test fixture, so nothing here has to be taken on trust.
+Cada regla siguiente lleva un identificador, una fecha de entrada en vigor, una fuente autorizada y un juego de pruebas: nada aquí exige confianza.
 
 ## ¿Le afecta?
 
@@ -37,11 +37,11 @@ Le afecta si envía pagos CBPR+ o CHAPS que contengan una dirección postal para
 
 El requisito es un **mínimo, no un máximo**. Es la parte del mandato que más se malinterpreta.
 
-| Format | `TwnNm` | `Ctry` | `AdrLine` | Before 14 Nov 2026 | On or after |
+| Formato | `TwnNm` | `Ctry` | `AdrLine` | Antes del 14 nov 2026 | A partir de esa fecha |
 |---|---|---|---|---|---|
-| Fully structured | Present | Present | Absent | Accepted | Accepted |
-| Hybrid | Present | Present | Present | Accepted | **Accepted** |
-| Fully unstructured | Absent | Absent | Present | Accepted | **Rejected** |
+| Totalmente estructurada | Presente | Presente | Ausente | Aceptada | Aceptada |
+| Híbrida | Presente | Presente | Presente | Aceptada | **Aceptada** |
+| Totalmente no estructurada | Ausente | Ausente | Presente | Aceptada | **Rechazada** |
 
 **No** es necesario trasladar la calle, el número de edificio ni el código postal a elementos estructurados. Basta con la localidad en `<TwnNm>` y el país en `<Ctry>` como código ISO 3166 de dos letras. El resto puede permanecer en las líneas de dirección: eso es una dirección híbrida y sigue siendo válida.
 
@@ -154,7 +154,7 @@ Every rule on this page derives from one of these. Rules marked *announced* are
 published intentions whose exact date should be re-verified before you rely on
 them.
 
-| Source | Publisher | Document | Verified |
+| Fuente | Editor | Documento | Verificado |
 |---|---|---|---|
 | `SWIFT-ADDR-2026` | S.W.I.F.T. SC | [SWIFT CBPR+ Removal of Unstructured Address Guidelines](https://www.swift.com/standards/iso-20022/removal-unstructured-address) | 2026-07-28 |
 | `BOE-CHAPS-2026` | Bank of England | [Policy Statement — Mandating ISO 20022 Enhanced Data in CHAPS](https://www.bankofengland.co.uk/paper/2024/policy-statement/mandating-iso-20022-enhanced-data-in-chaps) | 2026-07-28 |

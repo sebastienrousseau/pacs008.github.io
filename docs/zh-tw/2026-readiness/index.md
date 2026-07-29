@@ -20,7 +20,7 @@ image: /logo.webp
 
 自該日起，完全非結構化的郵政地址將不再被 SWIFT CBPR+ 付款訊息以及英格蘭銀行的 CHAPS 驗證程式庫接受。同一天另有兩項變更生效，2027 年 11 月將有更大範圍的變更。
 
-Every rule below carries an identifier, an effective date, an authoritative source and a test fixture, so nothing here has to be taken on trust.
+下列每條規則都帶有識別碼、生效日期、權威來源與測試檔案——無需僅憑信任。
 
 ## 這是否影響到您
 
@@ -37,11 +37,11 @@ Every rule below carries an identifier, an effective date, an authoritative sour
 
 該要求是**下限而非上限**。這是此強制規定中最常被誤讀的部分。
 
-| Format | `TwnNm` | `Ctry` | `AdrLine` | Before 14 Nov 2026 | On or after |
+| 格式 | `TwnNm` | `Ctry` | `AdrLine` | 2026 年 11 月 14 日之前 | 自該日起 |
 |---|---|---|---|---|---|
-| Fully structured | Present | Present | Absent | Accepted | Accepted |
-| Hybrid | Present | Present | Present | Accepted | **Accepted** |
-| Fully unstructured | Absent | Absent | Present | Accepted | **Rejected** |
+| 完全結構化 | 有 | 有 | 無 | 接受 | 接受 |
+| 混合 | 有 | 有 | 有 | 接受 | **接受** |
+| 完全非結構化 | 無 | 無 | 有 | 接受 | **拒絕** |
 
 您**無需**將街道、門牌號碼與郵遞區號移入結構化元素。在 `<TwnNm>` 中填寫城市、在 `<Ctry>` 中填寫兩位 ISO 3166 國家代碼即可。其餘內容可保留在地址行中：這屬於混合位址，依然有效。
 
@@ -154,7 +154,7 @@ Every rule on this page derives from one of these. Rules marked *announced* are
 published intentions whose exact date should be re-verified before you rely on
 them.
 
-| Source | Publisher | Document | Verified |
+| 來源 | 發布方 | 文件 | 核實 |
 |---|---|---|---|
 | `SWIFT-ADDR-2026` | S.W.I.F.T. SC | [SWIFT CBPR+ Removal of Unstructured Address Guidelines](https://www.swift.com/standards/iso-20022/removal-unstructured-address) | 2026-07-28 |
 | `BOE-CHAPS-2026` | Bank of England | [Policy Statement — Mandating ISO 20022 Enhanced Data in CHAPS](https://www.bankofengland.co.uk/paper/2024/policy-statement/mandating-iso-20022-enhanced-data-in-chaps) | 2026-07-28 |

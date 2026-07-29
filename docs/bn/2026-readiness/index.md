@@ -20,7 +20,7 @@ image: /logo.webp
 
 ওই তারিখ থেকে সম্পূর্ণ অসংগঠিত ডাক ঠিকানা SWIFT CBPR+ পেমেন্ট বার্তায় এবং ব্যাংক অব ইংল্যান্ডের CHAPS যাচাই লাইব্রেরিতে আর গ্রহণ করা হবে না। একই দিনে আরও দুটি পরিবর্তন কার্যকর হয়, এবং নভেম্বর ২০২৭-এ বৃহত্তর একটি সেট আসে।
 
-Every rule below carries an identifier, an effective date, an authoritative source and a test fixture, so nothing here has to be taken on trust.
+নিচের প্রতিটি নিয়মে একটি শনাক্তকারী, কার্যকর তারিখ, নির্ভরযোগ্য সূত্র ও পরীক্ষার ফাইল আছে — এখানে কিছুই বিশ্বাসের ওপর নিতে হয় না।
 
 ## এটি কি আপনার ক্ষেত্রে প্রযোজ্য?
 
@@ -37,11 +37,11 @@ Every rule below carries an identifier, an effective date, an authoritative sour
 
 শর্তটি **ন্যূনতম, সর্বোচ্চ নয়**। এই অংশটিই সবচেয়ে বেশি ভুল বোঝা হয়।
 
-| Format | `TwnNm` | `Ctry` | `AdrLine` | Before 14 Nov 2026 | On or after |
+| ফরম্যাট | `TwnNm` | `Ctry` | `AdrLine` | ১৪ নভে ২০২৬-এর আগে | ওই তারিখ থেকে |
 |---|---|---|---|---|---|
-| Fully structured | Present | Present | Absent | Accepted | Accepted |
-| Hybrid | Present | Present | Present | Accepted | **Accepted** |
-| Fully unstructured | Absent | Absent | Present | Accepted | **Rejected** |
+| সম্পূর্ণ সংগঠিত | আছে | আছে | নেই | গৃহীত | গৃহীত |
+| হাইব্রিড | আছে | আছে | আছে | গৃহীত | **গৃহীত** |
+| সম্পূর্ণ অসংগঠিত | নেই | নেই | আছে | গৃহীত | **প্রত্যাখ্যাত** |
 
 রাস্তা, ভবন নম্বর ও পোস্ট কোড সংগঠিত উপাদানে সরানোর **প্রয়োজন নেই**। `<TwnNm>`-এ শহর এবং `<Ctry>`-তে দুই-অক্ষরের ISO 3166 কোড হিসেবে দেশ যথেষ্ট। বাকিটা ঠিকানার লাইনে থাকতে পারে: এটি একটি হাইব্রিড ঠিকানা এবং বৈধ থাকে।
 
@@ -154,7 +154,7 @@ Every rule on this page derives from one of these. Rules marked *announced* are
 published intentions whose exact date should be re-verified before you rely on
 them.
 
-| Source | Publisher | Document | Verified |
+| সূত্র | প্রকাশক | নথি | যাচাইকৃত |
 |---|---|---|---|
 | `SWIFT-ADDR-2026` | S.W.I.F.T. SC | [SWIFT CBPR+ Removal of Unstructured Address Guidelines](https://www.swift.com/standards/iso-20022/removal-unstructured-address) | 2026-07-28 |
 | `BOE-CHAPS-2026` | Bank of England | [Policy Statement — Mandating ISO 20022 Enhanced Data in CHAPS](https://www.bankofengland.co.uk/paper/2024/policy-statement/mandating-iso-20022-enhanced-data-in-chaps) | 2026-07-28 |

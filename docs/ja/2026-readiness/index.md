@@ -20,7 +20,7 @@ image: /logo.webp
 
 同日以降、完全非構造化の郵便住所は SWIFT CBPR+ の支払メッセージおよびイングランド銀行の CHAPS 検証ライブラリで受け付けられなくなります。同日には他に 2 つの変更が施行され、2027年11月にはより大きな変更群が続きます。
 
-Every rule below carries an identifier, an effective date, an authoritative source and a test fixture, so nothing here has to be taken on trust.
+以下の各ルールには識別子、発効日、典拠、テストデータが付いています。信用に頼る必要はありません。
 
 ## 影響を受けますか
 
@@ -37,11 +37,11 @@ Every rule below carries an identifier, an effective date, an authoritative sour
 
 この要件は**上限ではなく下限**です。この点が最も誤解されています。
 
-| Format | `TwnNm` | `Ctry` | `AdrLine` | Before 14 Nov 2026 | On or after |
+| 形式 | `TwnNm` | `Ctry` | `AdrLine` | 2026年11月14日より前 | 同日以降 |
 |---|---|---|---|---|---|
-| Fully structured | Present | Present | Absent | Accepted | Accepted |
-| Hybrid | Present | Present | Present | Accepted | **Accepted** |
-| Fully unstructured | Absent | Absent | Present | Accepted | **Rejected** |
+| 完全構造化 | あり | あり | なし | 受入 | 受入 |
+| ハイブリッド | あり | あり | あり | 受入 | **受入** |
+| 完全非構造化 | なし | なし | あり | 受入 | **拒否** |
 
 番地・建物番号・郵便番号を構造化要素へ移す必要は**ありません**。`<TwnNm>` に都市名、`<Ctry>` に 2 文字の ISO 3166 国コードがあれば十分です。それ以外はアドレス行に残して構いません。これがハイブリッド住所であり、引き続き有効です。
 
@@ -154,7 +154,7 @@ Every rule on this page derives from one of these. Rules marked *announced* are
 published intentions whose exact date should be re-verified before you rely on
 them.
 
-| Source | Publisher | Document | Verified |
+| 出典 | 発行者 | 文書 | 検証日 |
 |---|---|---|---|
 | `SWIFT-ADDR-2026` | S.W.I.F.T. SC | [SWIFT CBPR+ Removal of Unstructured Address Guidelines](https://www.swift.com/standards/iso-20022/removal-unstructured-address) | 2026-07-28 |
 | `BOE-CHAPS-2026` | Bank of England | [Policy Statement — Mandating ISO 20022 Enhanced Data in CHAPS](https://www.bankofengland.co.uk/paper/2024/policy-statement/mandating-iso-20022-enhanced-data-in-chaps) | 2026-07-28 |

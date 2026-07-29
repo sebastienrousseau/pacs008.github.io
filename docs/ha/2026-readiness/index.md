@@ -20,7 +20,7 @@ image: /logo.webp
 
 Daga wannan rana, adireshin gidan waya da ba shi da tsari gaba ɗaya ba za a ƙara karɓarsa a saƙonnin biyan kuɗi na SWIFT CBPR+ ko kuma laburaren tabbatarwa na CHAPS na Bankin Ingila. A rana ɗaya wasu canje-canje biyu suna fara aiki, kuma babban rukuni zai biyo baya a Nuwamba 2027.
 
-Every rule below carries an identifier, an effective date, an authoritative source and a test fixture, so nothing here has to be taken on trust.
+Kowace ƙa'ida a ƙasa tana da mai ganowa, ranar fara aiki, majiya abin dogaro da fayil na gwaji — babu abin da ake buƙatar amincewa da shi kawai.
 
 ## Shin wannan ya shafe ka?
 
@@ -37,11 +37,11 @@ Ya shafe ka idan kana aika biyan kuɗi na CBPR+ ko CHAPS da ke ɗauke da adiresh
 
 Buƙatar ita ce **mafi ƙaranci, ba mafi girma ba**. Wannan shi ne ɓangaren da aka fi fahimta ba daidai ba.
 
-| Format | `TwnNm` | `Ctry` | `AdrLine` | Before 14 Nov 2026 | On or after |
+| Tsari | `TwnNm` | `Ctry` | `AdrLine` | Kafin 14 Nuw 2026 | Daga wannan rana |
 |---|---|---|---|---|---|
-| Fully structured | Present | Present | Absent | Accepted | Accepted |
-| Hybrid | Present | Present | Present | Accepted | **Accepted** |
-| Fully unstructured | Absent | Absent | Present | Accepted | **Rejected** |
+| Mai cikakken tsari | Akwai | Akwai | Babu | An karɓa | An karɓa |
+| Gauraye | Akwai | Akwai | Akwai | An karɓa | **An karɓa** |
+| Marar tsari gaba ɗaya | Babu | Babu | Akwai | An karɓa | **An ƙi** |
 
 **Ba sai** ka mayar da titi, lambar gini da lambar gidan waya zuwa filayen da ke da tsari ba. Birni a `<TwnNm>` da ƙasa a `<Ctry>` a matsayin lambar ISO 3166 mai haruffa biyu ya isa. Sauran na iya kasancewa a layukan adireshi: wannan adireshin gauraye ne kuma ya rage da inganci.
 
@@ -154,7 +154,7 @@ Every rule on this page derives from one of these. Rules marked *announced* are
 published intentions whose exact date should be re-verified before you rely on
 them.
 
-| Source | Publisher | Document | Verified |
+| Majiya | Mai bugawa | Takarda | An tabbatar |
 |---|---|---|---|
 | `SWIFT-ADDR-2026` | S.W.I.F.T. SC | [SWIFT CBPR+ Removal of Unstructured Address Guidelines](https://www.swift.com/standards/iso-20022/removal-unstructured-address) | 2026-07-28 |
 | `BOE-CHAPS-2026` | Bank of England | [Policy Statement — Mandating ISO 20022 Enhanced Data in CHAPS](https://www.bankofengland.co.uk/paper/2024/policy-statement/mandating-iso-20022-enhanced-data-in-chaps) | 2026-07-28 |

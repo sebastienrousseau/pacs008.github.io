@@ -111,11 +111,11 @@ ${c.affected_intro}
 
 ${c.minimum}
 
-| Format | \`TwnNm\` | \`Ctry\` | \`AdrLine\` | Before 14 Nov 2026 | On or after |
+| ${c.th_format} | \`TwnNm\` | \`Ctry\` | \`AdrLine\` | ${c.th_before} | ${c.th_after} |
 |---|---|---|---|---|---|
-| Fully structured | Present | Present | Absent | Accepted | Accepted |
-| Hybrid | Present | Present | Present | Accepted | **Accepted** |
-| Fully unstructured | Absent | Absent | Present | Accepted | **Rejected** |
+| ${c.v_structured} | ${c.v_present} | ${c.v_present} | ${c.v_absent} | ${c.v_accepted} | ${c.v_accepted} |
+| ${c.v_hybrid} | ${c.v_present} | ${c.v_present} | ${c.v_present} | ${c.v_accepted} | **${c.v_accepted}** |
+| ${c.v_unstructured} | ${c.v_absent} | ${c.v_absent} | ${c.v_present} | ${c.v_accepted} | **${c.v_rejected}** |
 
 ${c.hybrid}
 
@@ -210,7 +210,7 @@ Every rule on this page derives from one of these. Rules marked *announced* are
 published intentions whose exact date should be re-verified before you rely on
 them.
 
-| Source | Publisher | Document | Verified |
+| ${c.th_source} | ${c.th_publisher} | ${c.th_document} | ${c.th_verified} |
 |---|---|---|---|
 ${SOURCE_REGISTRY.sources
   .map((s) => `| \`${s.id}\` | ${s.publisher} | [${s.title}](${s.url}) | ${s.verified_at} |`)

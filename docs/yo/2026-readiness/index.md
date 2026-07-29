@@ -20,7 +20,7 @@ image: /logo.webp
 
 Láti ọjọ́ yẹn, àwọn àdírẹ́sì ìfìwéránṣẹ́ tí kò ní ètò rárá kò ní jẹ́ ìtẹ́wọ́gbà mọ́ nínú àwọn ìránṣẹ́ ìsanwó SWIFT CBPR+ àti nípasẹ̀ ilé-ìkàwé ìjẹ́rìísí CHAPS ti Bank of England. Ní ọjọ́ kan náà, ìyípadà méjì mìíràn tún bẹ̀rẹ̀, ìtòlẹ́sẹẹsẹ tí ó tóbi jù yóò sì tẹ̀lé ní November 2027.
 
-Every rule below carries an identifier, an effective date, an authoritative source and a test fixture, so nothing here has to be taken on trust.
+Òfin kọ̀ọ̀kan nísàlẹ̀ ní ìdámọ̀, ọjọ́ ìbẹ̀rẹ̀, orísun tí ó ní àṣẹ àti fáìlì ìdánwò — kò sí ohun tí a gbọ́dọ̀ gbà gbọ́ lásán níhìn-ín.
 
 ## Ṣé ó kàn ọ́?
 
@@ -37,11 +37,11 @@ Every rule below carries an identifier, an effective date, an authoritative sour
 
 Ìbéèrè náà jẹ́ **èyí tí ó kéré jùlọ, kì í ṣe èyí tí ó pọ̀ jùlọ**. Èyí ni apá tí a sábà ń ṣàìlóye jùlọ.
 
-| Format | `TwnNm` | `Ctry` | `AdrLine` | Before 14 Nov 2026 | On or after |
+| Ìrísí | `TwnNm` | `Ctry` | `AdrLine` | Ṣáájú 14 Nov 2026 | Láti ọjọ́ yẹn |
 |---|---|---|---|---|---|
-| Fully structured | Present | Present | Absent | Accepted | Accepted |
-| Hybrid | Present | Present | Present | Accepted | **Accepted** |
-| Fully unstructured | Absent | Absent | Present | Accepted | **Rejected** |
+| Onítọ̀nà pátápátá | Ó wà | Ó wà | Kò sí | Ìtẹ́wọ́gbà | Ìtẹ́wọ́gbà |
+| Àkópọ̀ | Ó wà | Ó wà | Ó wà | Ìtẹ́wọ́gbà | **Ìtẹ́wọ́gbà** |
+| Aláìní ètò pátápátá | Kò sí | Kò sí | Ó wà | Ìtẹ́wọ́gbà | **Ìkọ̀sílẹ̀** |
 
 **Kò pọn dandan** kí o gbé ojú-ọ̀nà, nọ́mbà ilé àti kóòdù ìfìwéránṣẹ́ lọ sínú àwọn èròjà tí ó ní ètò. Ìlú nínú `<TwnNm>` àti orílẹ̀-èdè nínú `<Ctry>` gẹ́gẹ́ bí kóòdù ISO 3166 oníléta méjì ti tó. Ìyókù lè wà nínú àwọn ìlà àdírẹ́sì: àdírẹ́sì àkópọ̀ ni èyí, ó sì ṣì wúlò.
 
@@ -154,7 +154,7 @@ Every rule on this page derives from one of these. Rules marked *announced* are
 published intentions whose exact date should be re-verified before you rely on
 them.
 
-| Source | Publisher | Document | Verified |
+| Orísun | Olùtẹ̀jáde | Àkọsílẹ̀ | Àyẹ̀wò |
 |---|---|---|---|
 | `SWIFT-ADDR-2026` | S.W.I.F.T. SC | [SWIFT CBPR+ Removal of Unstructured Address Guidelines](https://www.swift.com/standards/iso-20022/removal-unstructured-address) | 2026-07-28 |
 | `BOE-CHAPS-2026` | Bank of England | [Policy Statement — Mandating ISO 20022 Enhanced Data in CHAPS](https://www.bankofengland.co.uk/paper/2024/policy-statement/mandating-iso-20022-enhanced-data-in-chaps) | 2026-07-28 |

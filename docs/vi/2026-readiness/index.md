@@ -20,7 +20,7 @@ image: /logo.webp
 
 Từ ngày đó, địa chỉ bưu chính hoàn toàn phi cấu trúc sẽ không còn được chấp nhận trong thông điệp thanh toán SWIFT CBPR+ và bởi thư viện kiểm tra CHAPS của Ngân hàng Anh. Hai thay đổi khác cũng có hiệu lực cùng ngày, và một nhóm lớn hơn sẽ đến vào tháng 11 năm 2027.
 
-Every rule below carries an identifier, an effective date, an authoritative source and a test fixture, so nothing here has to be taken on trust.
+Mỗi quy tắc bên dưới đều có mã định danh, ngày hiệu lực, nguồn có thẩm quyền và tệp kiểm thử — không điều gì ở đây phải tin suông.
 
 ## Điều này có ảnh hưởng đến bạn không?
 
@@ -37,11 +37,11 @@ Bạn thuộc phạm vi áp dụng nếu gửi thanh toán CBPR+ hoặc CHAPS c�
 
 Yêu cầu này là **mức tối thiểu, không phải tối đa**. Đây là phần bị hiểu sai nhiều nhất.
 
-| Format | `TwnNm` | `Ctry` | `AdrLine` | Before 14 Nov 2026 | On or after |
+| Định dạng | `TwnNm` | `Ctry` | `AdrLine` | Trước 14/11/2026 | Từ ngày đó |
 |---|---|---|---|---|---|
-| Fully structured | Present | Present | Absent | Accepted | Accepted |
-| Hybrid | Present | Present | Present | Accepted | **Accepted** |
-| Fully unstructured | Absent | Absent | Present | Accepted | **Rejected** |
+| Hoàn toàn có cấu trúc | Có | Có | Không | Chấp nhận | Chấp nhận |
+| Lai | Có | Có | Có | Chấp nhận | **Chấp nhận** |
+| Hoàn toàn phi cấu trúc | Không | Không | Có | Chấp nhận | **Từ chối** |
 
 Bạn **không** phải chuyển đường phố, số nhà và mã bưu chính sang các phần tử có cấu trúc. Thành phố trong `<TwnNm>` và quốc gia trong `<Ctry>` dưới dạng mã ISO 3166 hai chữ cái là đủ. Phần còn lại có thể ở lại trong các dòng địa chỉ: đó là địa chỉ lai và vẫn hợp lệ.
 
@@ -154,7 +154,7 @@ Every rule on this page derives from one of these. Rules marked *announced* are
 published intentions whose exact date should be re-verified before you rely on
 them.
 
-| Source | Publisher | Document | Verified |
+| Nguồn | Nhà xuất bản | Tài liệu | Đã xác minh |
 |---|---|---|---|
 | `SWIFT-ADDR-2026` | S.W.I.F.T. SC | [SWIFT CBPR+ Removal of Unstructured Address Guidelines](https://www.swift.com/standards/iso-20022/removal-unstructured-address) | 2026-07-28 |
 | `BOE-CHAPS-2026` | Bank of England | [Policy Statement — Mandating ISO 20022 Enhanced Data in CHAPS](https://www.bankofengland.co.uk/paper/2024/policy-statement/mandating-iso-20022-enhanced-data-in-chaps) | 2026-07-28 |

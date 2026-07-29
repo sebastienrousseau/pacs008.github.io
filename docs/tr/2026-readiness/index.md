@@ -20,7 +20,7 @@ image: /logo.webp
 
 Bu tarihten itibaren tamamen yapılandırılmamış posta adresleri SWIFT CBPR+ ödeme mesajlarında ve İngiltere Merkez Bankası'nın CHAPS doğrulama kütüphanesinde kabul edilmeyecektir. Aynı gün iki değişiklik daha yürürlüğe girer, Kasım 2027'de ise daha geniş bir set gelir.
 
-Every rule below carries an identifier, an effective date, an authoritative source and a test fixture, so nothing here has to be taken on trust.
+Aşağıdaki her kuralın bir tanımlayıcısı, yürürlük tarihi, yetkili kaynağı ve test dosyası vardır — burada hiçbir şey güvene dayanmaz.
 
 ## Bu sizi ilgilendiriyor mu?
 
@@ -37,11 +37,11 @@ Herhangi bir taraf için posta adresi içeren CBPR+ veya CHAPS ödemeleri gönde
 
 Gereklilik bir **asgari düzeydir, azami değil**. Bu, en sık yanlış anlaşılan noktadır.
 
-| Format | `TwnNm` | `Ctry` | `AdrLine` | Before 14 Nov 2026 | On or after |
+| Biçim | `TwnNm` | `Ctry` | `AdrLine` | 14 Kas 2026 öncesi | Bu tarihten itibaren |
 |---|---|---|---|---|---|
-| Fully structured | Present | Present | Absent | Accepted | Accepted |
-| Hybrid | Present | Present | Present | Accepted | **Accepted** |
-| Fully unstructured | Absent | Absent | Present | Accepted | **Rejected** |
+| Tamamen yapılandırılmış | Var | Var | Yok | Kabul | Kabul |
+| Hibrit | Var | Var | Var | Kabul | **Kabul** |
+| Tamamen yapılandırılmamış | Yok | Yok | Var | Kabul | **Ret** |
 
 Sokak, bina numarası ve posta kodunu yapılandırılmış alanlara taşımanız **gerekmez**. `<TwnNm>` alanında şehir ve `<Ctry>` alanında iki harfli ISO 3166 ülke kodu yeterlidir. Geri kalanı adres satırlarında kalabilir: bu hibrit bir adrestir ve geçerliliğini korur.
 
@@ -154,7 +154,7 @@ Every rule on this page derives from one of these. Rules marked *announced* are
 published intentions whose exact date should be re-verified before you rely on
 them.
 
-| Source | Publisher | Document | Verified |
+| Kaynak | Yayıncı | Belge | Doğrulandı |
 |---|---|---|---|
 | `SWIFT-ADDR-2026` | S.W.I.F.T. SC | [SWIFT CBPR+ Removal of Unstructured Address Guidelines](https://www.swift.com/standards/iso-20022/removal-unstructured-address) | 2026-07-28 |
 | `BOE-CHAPS-2026` | Bank of England | [Policy Statement — Mandating ISO 20022 Enhanced Data in CHAPS](https://www.bankofengland.co.uk/paper/2024/policy-statement/mandating-iso-20022-enhanced-data-in-chaps) | 2026-07-28 |

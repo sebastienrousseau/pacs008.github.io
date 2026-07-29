@@ -20,7 +20,7 @@ image: /logo.webp
 
 Mula sa petsang iyon, hindi na tatanggapin ang ganap na hindi nakabalangkas na postal address sa mga mensahe ng bayad na SWIFT CBPR+ at ng CHAPS validation library ng Bank of England. Sa parehong araw ay may dalawa pang pagbabago, at susunod ang mas malaking hanay sa Nobyembre 2027.
 
-Every rule below carries an identifier, an effective date, an authoritative source and a test fixture, so nothing here has to be taken on trust.
+Bawat panuntunan sa ibaba ay may pagkakakilanlan, petsa ng bisa, awtoritatibong pinagmulan, at test file — walang dito ang kailangang basta paniwalaan.
 
 ## Naaapektuhan ka ba nito?
 
@@ -37,11 +37,11 @@ Kasama ka sa saklaw kung nagpapadala ka ng mga bayad na CBPR+ o CHAPS na naglala
 
 Ang kinakailangan ay **pinakamababa, hindi pinakamataas**. Ito ang bahaging pinakamadalas na mali ang pagkakaintindi.
 
-| Format | `TwnNm` | `Ctry` | `AdrLine` | Before 14 Nov 2026 | On or after |
+| Format | `TwnNm` | `Ctry` | `AdrLine` | Bago ang 14 Nob 2026 | Mula sa petsang iyon |
 |---|---|---|---|---|---|
-| Fully structured | Present | Present | Absent | Accepted | Accepted |
-| Hybrid | Present | Present | Present | Accepted | **Accepted** |
-| Fully unstructured | Absent | Absent | Present | Accepted | **Rejected** |
+| Ganap na nakabalangkas | Naroon | Naroon | Wala | Tinatanggap | Tinatanggap |
+| Hybrid | Naroon | Naroon | Naroon | Tinatanggap | **Tinatanggap** |
+| Ganap na hindi nakabalangkas | Wala | Wala | Naroon | Tinatanggap | **Tinatanggihan** |
 
 **Hindi** kailangang ilipat ang kalye, numero ng gusali at postal code sa mga nakabalangkas na elemento. Sapat na ang lungsod sa `<TwnNm>` at ang bansa sa `<Ctry>` bilang dalawang-titik na ISO 3166 code. Ang iba ay maaaring manatili sa mga linya ng address: hybrid na address iyon at nananatiling wasto.
 
@@ -154,7 +154,7 @@ Every rule on this page derives from one of these. Rules marked *announced* are
 published intentions whose exact date should be re-verified before you rely on
 them.
 
-| Source | Publisher | Document | Verified |
+| Pinagmulan | Naglathala | Dokumento | Nasuri |
 |---|---|---|---|
 | `SWIFT-ADDR-2026` | S.W.I.F.T. SC | [SWIFT CBPR+ Removal of Unstructured Address Guidelines](https://www.swift.com/standards/iso-20022/removal-unstructured-address) | 2026-07-28 |
 | `BOE-CHAPS-2026` | Bank of England | [Policy Statement — Mandating ISO 20022 Enhanced Data in CHAPS](https://www.bankofengland.co.uk/paper/2024/policy-statement/mandating-iso-20022-enhanced-data-in-chaps) | 2026-07-28 |

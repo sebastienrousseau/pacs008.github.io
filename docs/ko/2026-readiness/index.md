@@ -20,7 +20,7 @@ image: /logo.webp
 
 해당 일자부터 완전 비구조화 우편 주소는 SWIFT CBPR+ 지급 메시지와 영란은행의 CHAPS 검증 라이브러리에서 더 이상 허용되지 않습니다. 같은 날 두 가지 변경이 추가로 시행되며, 2027년 11월에는 더 큰 변경 묶음이 뒤따릅니다.
 
-Every rule below carries an identifier, an effective date, an authoritative source and a test fixture, so nothing here has to be taken on trust.
+아래 각 규칙에는 식별자, 발효일, 권위 있는 출처, 테스트 파일이 있습니다. 신뢰에 기대야 할 것은 없습니다.
 
 ## 해당되시나요?
 
@@ -37,11 +37,11 @@ Every rule below carries an identifier, an effective date, an authoritative sour
 
 이 요건은 **최대가 아니라 최소**입니다. 가장 흔히 오해되는 부분입니다.
 
-| Format | `TwnNm` | `Ctry` | `AdrLine` | Before 14 Nov 2026 | On or after |
+| 형식 | `TwnNm` | `Ctry` | `AdrLine` | 2026년 11월 14일 이전 | 그 이후 |
 |---|---|---|---|---|---|
-| Fully structured | Present | Present | Absent | Accepted | Accepted |
-| Hybrid | Present | Present | Present | Accepted | **Accepted** |
-| Fully unstructured | Absent | Absent | Present | Accepted | **Rejected** |
+| 완전 구조화 | 있음 | 있음 | 없음 | 허용 | 허용 |
+| 하이브리드 | 있음 | 있음 | 있음 | 허용 | **허용** |
+| 완전 비구조화 | 없음 | 없음 | 있음 | 허용 | **거부** |
 
 도로명, 건물번호, 우편번호를 구조화 요소로 옮길 **필요는 없습니다**. `<TwnNm>`의 도시명과 `<Ctry>`의 두 자리 ISO 3166 국가 코드면 충분합니다. 나머지는 주소 행에 남아 있어도 됩니다. 이것이 하이브리드 주소이며 계속 유효합니다.
 
@@ -154,7 +154,7 @@ Every rule on this page derives from one of these. Rules marked *announced* are
 published intentions whose exact date should be re-verified before you rely on
 them.
 
-| Source | Publisher | Document | Verified |
+| 출처 | 발행처 | 문서 | 검증일 |
 |---|---|---|---|
 | `SWIFT-ADDR-2026` | S.W.I.F.T. SC | [SWIFT CBPR+ Removal of Unstructured Address Guidelines](https://www.swift.com/standards/iso-20022/removal-unstructured-address) | 2026-07-28 |
 | `BOE-CHAPS-2026` | Bank of England | [Policy Statement — Mandating ISO 20022 Enhanced Data in CHAPS](https://www.bankofengland.co.uk/paper/2024/policy-statement/mandating-iso-20022-enhanced-data-in-chaps) | 2026-07-28 |
