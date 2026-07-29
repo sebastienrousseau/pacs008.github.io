@@ -1,24 +1,28 @@
 import fs from "fs";
 import path from "path";
+import { slugFor } from "./route-slugs.mjs";
 
 const docsDir = path.resolve("docs");
-const expectedPages = [
-  "index.md",
-  "about/index.md",
-  "message-types/index.md",
-  "message-selection/index.md",
-  "api/index.md",
-  "contact/index.md",
-  "privacy/index.md",
-  "terms/index.md",
-  "editorial/index.md",
-  "structured-address/index.md",
-  "faq/index.md",
-  "pacs-explained/index.md",
-  "glossary/index.md",
-  "security/index.md",
-  "2026-readiness/index.md",
-  "changelog/index.md"
+// Canonical route names. The published path segment is per-locale — see
+// data/route-slugs.json — so these are resolved through slugFor() rather than
+// used as paths directly.
+const expectedRoutes = [
+  "",
+  "about",
+  "message-types",
+  "message-selection",
+  "api",
+  "contact",
+  "privacy",
+  "terms",
+  "editorial",
+  "structured-address",
+  "faq",
+  "pacs-explained",
+  "glossary",
+  "security",
+  "2026-readiness",
+  "changelog"
 ];
 
 const localeDirs = [
@@ -34,7 +38,9 @@ console.log("Starting comprehensive multi-locale validation audit...");
 
 for (const loc of localeDirs) {
   const locPrefix = loc ? loc : "en (root)";
-  for (const pageRel of expectedPages) {
+  for (const route of expectedRoutes) {
+    const slug = route ? slugFor(loc || "en", route) : "";
+    const pageRel = slug ? `${slug}/index.md` : "index.md";
     const filePath = loc ? path.join(docsDir, loc, pageRel) : path.join(docsDir, pageRel);
     totalChecked++;
 

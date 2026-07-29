@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { readFileSync, readdirSync, statSync, existsSync } from "fs";
 import { resolve, join } from "path";
-import { DIST, LOCALES, readPage, textOf } from "./helpers";
+import { DIST, LOCALES, readPage, readLocalePage, localePath, textOf } from "./helpers";
 
 const manifest = JSON.parse(
   readFileSync(resolve(__dirname, "../data/product-manifest.json"), "utf-8")
@@ -100,11 +100,11 @@ describe("Content truth: privacy", () => {
 });
 
 describe("Content truth: structured address", () => {
-  const LOCALES_WITH_PAGE = ["", ...LOCALES.map((l) => `${l}/`)];
+  const LOCALES_WITH_PAGE = ["en", ...LOCALES];
 
   it("every locale states the exact deadline date", () => {
     const missing = LOCALES_WITH_PAGE.filter((prefix) => {
-      const text = textOf(readPage(`${prefix}structured-address`));
+      const text = textOf(readLocalePage(prefix, "structured-address"));
       // Either the prose date or the ISO date from the generated tables.
       return !/14 (November|novembre|noviembre|Kasım|listopada|November)|2026-11-14|14\.? ?11\.? ?2026|2026 年 11 月 14 日|2026年11月14日|14 نوفمبر 2026|14 בנובמבר 2026/.test(text);
     });
@@ -113,7 +113,7 @@ describe("Content truth: structured address", () => {
 
   it("every locale carries the normative rule IDs", () => {
     const missing = LOCALES_WITH_PAGE.filter((prefix) => {
-      const text = textOf(readPage(`${prefix}structured-address`));
+      const text = textOf(readLocalePage(prefix, "structured-address"));
       return !text.includes("CBPR-ADDR-001") || !text.includes("CHAPS-ADDR-001");
     });
     expect(missing, `locales missing rule IDs: ${missing.join(", ")}`).toEqual([]);
@@ -121,7 +121,7 @@ describe("Content truth: structured address", () => {
 
   it("every locale lists the excepted message types", () => {
     const missing = LOCALES_WITH_PAGE.filter((prefix) => {
-      const text = textOf(readPage(`${prefix}structured-address`));
+      const text = textOf(readLocalePage(prefix, "structured-address"));
       return !text.includes("admi.024") || !text.includes("camt.060");
     });
     expect(missing, `locales missing exceptions: ${missing.join(", ")}`).toEqual([]);
@@ -131,7 +131,7 @@ describe("Content truth: structured address", () => {
   // code all had to be structured. The rule is Town + Country as a minimum.
   it("no locale claims post code or street must be structured", () => {
     const overstating = LOCALES_WITH_PAGE.filter((prefix) => {
-      const text = textOf(readPage(`${prefix}structured-address`));
+      const text = textOf(readLocalePage(prefix, "structured-address"));
       return /post code, town, and country|code postal, ville et pays|Postleitzahl, Ort und Land|código postal, localidad y país|CAP, città e paese|postcode, plaats en land/.test(text);
     });
     expect(overstating, `locales overstating the requirement: ${overstating.join(", ")}`).toEqual([]);
@@ -142,7 +142,7 @@ describe("Content truth: structured address", () => {
   // fully unstructured form is removed.
   it("every locale carries the format comparison showing hybrid accepted", () => {
     const missing = LOCALES_WITH_PAGE.filter((prefix) => {
-      const text = textOf(readPage(`${prefix}structured-address`));
+      const text = textOf(readLocalePage(prefix, "structured-address"));
       return !(
         text.includes("Hybrid") &&
         text.includes("Fully unstructured") &&
@@ -241,7 +241,7 @@ describe("Content truth: readiness hub translation", () => {
   it("every locale hub renders its own title, not the English one", () => {
     const wrong: string[] = [];
     for (const locale of LOCALES) {
-      const text = textOf(readPage(`${locale}/2026-readiness`));
+      const text = textOf(readLocalePage(locale, "2026-readiness"));
       const expected = hubCopy[locale]?.title;
       if (expected && !text.includes(expected)) wrong.push(locale);
     }
@@ -254,7 +254,7 @@ describe("Content truth: readiness hub translation", () => {
   it("every locale carries the minimum-not-maximum correction", () => {
     const wrong: string[] = [];
     for (const locale of LOCALES) {
-      const text = textOf(readPage(`${locale}/2026-readiness`));
+      const text = textOf(readLocalePage(locale, "2026-readiness"));
       const expected = hubCopy[locale]?.minimum;
       if (!expected) { wrong.push(`${locale} (no string)`); continue; }
       // Probe the emphasised phrase, which is the distinctive part. A leading
@@ -269,7 +269,7 @@ describe("Content truth: readiness hub translation", () => {
   });
 
   it("untranslated keys fall back to English rather than disappearing", () => {
-    const fr = textOf(readPage("fr/2026-readiness"));
+    const fr = textOf(readLocalePage("fr", "2026-readiness"));
     expect(fr).toContain("Run these through the workbench");
   });
 });
@@ -296,7 +296,7 @@ describe("Content truth: site chrome translation", () => {
   it("every locale navigation is translated, not English", () => {
     const wrong: string[] = [];
     for (const locale of LOCALES) {
-      const nav = navOf(`${locale}/2026-readiness`);
+      const nav = navOf(localePath(locale, "2026-readiness"));
       const expected = chrome[locale]?.Overview;
       if (expected && !nav.includes(expected)) wrong.push(locale);
     }
@@ -306,7 +306,7 @@ describe("Content truth: site chrome translation", () => {
   it("every locale breadcrumb root is translated", () => {
     const wrong: string[] = [];
     for (const locale of LOCALES) {
-      const m = readPage(`${locale}/2026-readiness`).match(
+      const m = readLocalePage(locale, "2026-readiness").match(
         /<nav[^>]*class="?breadcrumb"?[\s\S]*?<\/nav>/i
       );
       const expected = chrome[locale]?.Home;
@@ -322,7 +322,7 @@ describe("Content truth: site chrome translation", () => {
   // ISO 20022 message names are standard terminology and are deliberately not
   // translated, for the same reason TwnNm and Ctry are not.
   it("keeps ISO message identifiers in the nav", () => {
-    expect(navOf("fr/2026-readiness")).toContain("pacs.008");
+    expect(navOf(localePath("fr", "2026-readiness"))).toContain("pacs.008");
   });
 });
 
@@ -335,7 +335,7 @@ describe("Content truth: localised reference pages", () => {
     const missing: string[] = [];
     for (const locale of LOCALES) {
       for (const route of ["scheme-changes", "catalogue", "design-partners"]) {
-        if (!existsSync(resolve(DIST, locale, route, "index.html"))) {
+        if (!existsSync(resolve(DIST, localePath(locale, route), "index.html"))) {
           missing.push(`${locale}/${route}`);
         }
       }
@@ -346,7 +346,7 @@ describe("Content truth: localised reference pages", () => {
   it("each locale renders its own translated headings", () => {
     const wrong: string[] = [];
     for (const locale of LOCALES) {
-      const text = textOf(readPage(`${locale}/catalogue`));
+      const text = textOf(readLocalePage(locale, "catalogue"));
       const expected = pages[locale]?.cat_title;
       if (expected && !text.includes(expected)) wrong.push(locale);
     }
@@ -359,7 +359,7 @@ describe("Content truth: localised reference pages", () => {
   it("translates the design-partners body in every locale", () => {
     const wrong: string[] = [];
     for (const locale of LOCALES) {
-      const text = textOf(readPage(`${locale}/design-partners`));
+      const text = textOf(readLocalePage(locale, "design-partners"));
       const expected = pages[locale]?.dp_h_none;
       if (!expected) {
         wrong.push(`${locale} (no translation data)`);
@@ -373,8 +373,7 @@ describe("Content truth: localised reference pages", () => {
   it("keeps the no-case-studies statement on every design-partners page", () => {
     const missing: string[] = [];
     for (const locale of ["en", ...LOCALES]) {
-      const route = locale === "en" ? "design-partners" : `${locale}/design-partners`;
-      const text = textOf(readPage(route));
+      const text = textOf(readLocalePage(locale, "design-partners"));
       // The page must never be reduced to a heading: the substantive
       // explanation of why there are no case studies has to ship with it.
       if (!text.includes(pages[locale].dp_none)) missing.push(locale);
@@ -386,7 +385,7 @@ describe("Content truth: localised reference pages", () => {
   // content, referenced by identifier from every interface. Localised pages
   // say so rather than leaving a reader to wonder.
   it("keeps normative rule text in English and explains why", () => {
-    const fr = textOf(readPage("fr/catalogue"));
+    const fr = textOf(readLocalePage("fr", "catalogue"));
     expect(fr).toContain("Fully unstructured postal address is not accepted");
     expect(fr).toContain(pages.fr.cat_rule_text_en);
   });
@@ -400,7 +399,7 @@ describe("Content truth: localised reference pages", () => {
     for (const locale of ["fr", "de", "ja"]) {
       for (const route of ["trust", "accessibility"]) {
         expect(
-          existsSync(resolve(DIST, locale, route, "index.html")),
+          existsSync(resolve(DIST, localePath(locale, route), "index.html")),
           `${locale}/${route} should stay English-canonical`
         ).toBe(false);
       }

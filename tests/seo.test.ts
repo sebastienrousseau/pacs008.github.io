@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { readFileSync, existsSync } from "fs";
 import { resolve } from "path";
-import { DIST, LOCALES, readPage, pageExists } from "./helpers";
+import { DIST, LOCALES, readPage, readLocalePage, localePath, pageExists } from "./helpers";
 
 describe("SEO: meta tags", () => {
   const html = readPage(".");
@@ -119,7 +119,7 @@ describe("SEO: hreflang annotations", () => {
   // Regression: the layouts emitted <link rel="alternate" href="" hreflang="">
   // on all 675 pages — invalid markup and no usable annotation. hreflang on
   // the switcher anchors does not count; search engines need <link> in <head>.
-  const html = readPage("fr/about");
+  const html = readLocalePage("fr", "about");
   const links = html.match(/<link rel="alternate" hreflang="[^"]+" href="[^"]+"/g) || [];
 
   it("translated pages should publish alternates", () => {
@@ -127,7 +127,19 @@ describe("SEO: hreflang annotations", () => {
   });
 
   it("should include a self-referencing alternate", () => {
-    expect(html).toContain('hreflang="fr" href="https://pacs008.com/fr/about/"');
+    expect(html).toContain(
+      `hreflang="fr" href="https://pacs008.com/${localePath("fr", "about")}/"`
+    );
+  });
+
+  // Each locale must announce its own slug, not the English path. Announcing
+  // /de/about/ for the German page would point every crawler at a noindex
+  // redirect stub instead of the page that holds the content.
+  it("announces each locale at its own translated URL", () => {
+    expect(html).toContain('hreflang="de" href="https://pacs008.com/de/ueber-uns/"');
+    expect(html).toContain('hreflang="es" href="https://pacs008.com/es/acerca-de/"');
+    // Locales the registry leaves untranslated keep the English slug.
+    expect(html).toContain('hreflang="ja" href="https://pacs008.com/ja/about/"');
   });
 
   it("should declare x-default pointing at the English page", () => {
@@ -135,7 +147,7 @@ describe("SEO: hreflang annotations", () => {
   });
 
   it("should never emit an empty href or hreflang", () => {
-    for (const route of [".", "about", "fr/about", "ar"]) {
+    for (const route of [".", "about", localePath("fr", "about"), "ar"]) {
       const page = readPage(route);
       expect(page, `${route} has an empty alternate`).not.toMatch(
         /rel="?alternate"?[^>]*(href=""|hreflang="")/

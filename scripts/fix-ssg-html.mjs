@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { translateChrome } from "./translate-chrome.mjs";
+import { slugFor, routeFor, pathFor } from "./route-slugs.mjs";
 
 const publicDir = path.resolve("public");
 
@@ -44,21 +45,25 @@ function hreflangFor(locale) {
   return HREFLANG_CODE[locale] ?? locale;
 }
 
-/** Locale directory and remaining route for a built file. */
+/**
+ * Locale and canonical route for a built file.
+ *
+ * `route` is the English identifier, not the published path segment, so
+ * /fr/preparation-2026/ and /de/bereitschaft-2026/ both resolve to
+ * "2026-readiness" and can be recognised as translations of one another.
+ */
 function splitRoute(filePath) {
   const parts = path.relative(publicDir, filePath).split(path.sep);
   if (parts[parts.length - 1] === "index.html") parts.pop();
   const hasLocale = Object.hasOwn(LOCALE_LANG, parts[0]);
-  return {
-    locale: hasLocale ? parts[0] : "en",
-    route: (hasLocale ? parts.slice(1) : parts).join("/"),
-  };
+  const locale = hasLocale ? parts[0] : "en";
+  const published = (hasLocale ? parts.slice(1) : parts).join("/");
+  return { locale, route: routeFor(locale, published), published };
 }
 
-/** Absolute URL for a route in a locale. */
+/** Absolute URL for a route in a locale, using that locale's published slug. */
 function urlFor(locale, route) {
-  const prefix = locale === "en" ? "" : `/${locale}`;
-  return `${SITE_ORIGIN}${prefix}${route ? `/${route}` : ""}/`;
+  return `${SITE_ORIGIN}${pathFor(locale, route)}`;
 }
 
 /**
@@ -75,7 +80,7 @@ function injectHreflang(head, filePath) {
 
   const available = ["en", ...Object.keys(LOCALE_LANG)].filter((candidate) => {
     const dir = candidate === "en" ? publicDir : path.join(publicDir, candidate);
-    return fs.existsSync(path.join(dir, route, "index.html"));
+    return fs.existsSync(path.join(dir, slugFor(candidate, route), "index.html"));
   });
 
   // A lone self-reference tells search engines nothing; skip pages with no
@@ -95,10 +100,10 @@ function injectHreflang(head, filePath) {
   return `${head}\n    ${links.join("\n    ")}\n  `;
 }
 
-/** Cache of translated top-level route names per locale. */
+/** Cache of published top-level path segments per locale. */
 const routeCache = new Map();
 
-/** Top-level routes that actually exist for a locale, e.g. {about, api, faq}. */
+/** Path segments that actually exist for a locale, e.g. {a-propos, api, faq}. */
 function routesForLocale(locale) {
   if (!routeCache.has(locale)) {
     const dir = path.join(publicDir, locale);
@@ -114,13 +119,14 @@ function routesForLocale(locale) {
 }
 
 /**
- * Point navigation at translated pages.
+ * Point navigation at translated pages, at their translated URLs.
  *
  * The layouts hardcode English hrefs such as /about/, so every locale page
  * shipped a nav that sent readers back to English. ssg has no locale-prefix
- * placeholder, so rewrite here instead — but only for routes that genuinely
- * exist in that locale, and never inside the language switcher, whose links
- * must keep pointing at other locales.
+ * placeholder, so rewrite here instead — resolving each English route to that
+ * locale's own slug (/about/ becomes /fr/a-propos/), only for pages that
+ * genuinely exist, and never inside the language switcher, whose links must
+ * keep pointing at other locales.
  */
 function localiseLinks(body, filePath) {
   const locale = localeFromPath(filePath);
@@ -133,10 +139,35 @@ function localiseLinks(body, filePath) {
     if (tag.includes("ap-lang-item")) return tag;
     return tag.replace(
       /href=(["']?)\/([\w.-]+)\/\1(?=[\s>])/gi,
-      (match, quote, route) =>
-        routes.has(route) ? `href=${quote}/${locale}/${route}/${quote}` : match
+      (match, quote, route) => {
+        const slug = slugFor(locale, route);
+        return routes.has(slug) ? `href=${quote}/${locale}/${slug}/${quote}` : match;
+      }
     );
   });
+}
+
+/**
+ * Repoint links that already carry a locale prefix at the translated slug.
+ *
+ * localiseLinks only handles the layouts' bare English hrefs. Body prose
+ * written in generate-locales.mjs hardcodes fully-qualified paths such as
+ * /fr/message-selection/, which after the slug change resolve to a redirect
+ * stub. They work — that is what the stubs are for — but shipping an internal
+ * link to a noindex redirect wastes a hop and tells crawlers the wrong thing.
+ *
+ * Applied to every page, not just localised ones: an English page linking to
+ * /de/about/ has the same problem.
+ */
+function retargetMovedLinks(body) {
+  return body.replace(
+    /href=(["']?)\/([\w-]+)\/([\w.-]+)\/\1(?=[\s>])/gi,
+    (match, quote, locale, route) => {
+      if (!Object.hasOwn(LOCALE_LANG, locale)) return match;
+      const slug = slugFor(locale, route);
+      return slug === route ? match : `href=${quote}/${locale}/${slug}/${quote}`;
+    }
+  );
 }
 
 /**
@@ -316,6 +347,9 @@ function repairHtml(content, filePath) {
 
   // 3. Point navigation at translated pages on locale routes
   body = localiseLinks(body, filePath);
+
+  // 3b. Repoint any hardcoded /<locale>/<english-route>/ link at the slug
+  body = retargetMovedLinks(body);
 
   // 4. Translate site chrome, fill unresolved placeholders, reduce whitespace
   const localised = translateChrome(fillReviewDate(head + body), localeFromPath(filePath));

@@ -8,6 +8,7 @@
 import { readFileSync, writeFileSync, existsSync } from "fs";
 import { createHash } from "crypto";
 import { join } from "path";
+import { validateSlugs } from "./route-slugs.mjs";
 
 const rootDir = process.cwd();
 const dataDir = join(rootDir, "data");
@@ -171,4 +172,16 @@ writeFileSync(
   )}\n`
 );
 
-console.log("Canonical manifest facts synchronised.");
+// A slug is a permanent public identifier. Validate here, in the build's
+// existing truth gate, so a collision or a non-ASCII path fails before any
+// page is written rather than after 261 redirect stubs point at nothing.
+const slugs = validateSlugs([
+  "ar", "bn", "cs", "de", "es", "fr", "ha", "he", "hi", "id", "it", "ja",
+  "ko", "nl", "pl", "pt", "ro", "ru", "sv", "th", "tl", "tr", "uk", "vi",
+  "yo", "zh", "zh-tw",
+]);
+
+console.log(
+  `Canonical manifest facts synchronised. ` +
+    `Route slugs valid: ${slugs.routes} routes, ${slugs.translatedLocales} localised.`
+);

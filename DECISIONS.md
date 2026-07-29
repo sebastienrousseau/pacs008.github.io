@@ -237,3 +237,68 @@ They are set well below current values — 600 pages against 680, 100 alternates
 against 19,488. They exist to catch collapse, not drift. A floor tight enough
 to catch a content change would be tripped by ordinary work and would get
 raised until it meant nothing.
+
+## D-005: Localised URL slugs, Latin script only
+
+**Date:** 2026-07-29
+**Status:** Implemented
+
+### Problem
+
+Every locale page was served at its English path. `/fr/2026-readiness/` held
+entirely French prose, and `/ja/structured-address/` entirely Japanese, at URLs
+that told a reader nothing in their own language.
+
+### Decision
+
+Routes publish under a per-locale slug held in `data/route-slugs.json`. The
+English route stays the internal identifier everywhere — generators, hreflang
+grouping, the sitemap and the whole test suite key off it — so only the
+published path segment changes. 18 routes, 261 URLs moved.
+
+**Only Latin-script locales get translated slugs.** Cyrillic, Arabic, Hebrew,
+Devanagari, Bengali, Thai and CJK locales keep the English slug.
+
+This is not a judgement about those languages. It is about what a URL is for
+once it leaves the address bar. A native-script path is percent-encoded the
+moment it is pasted into a ticket, a runbook, an email to a scheme operator or
+a server log — the audiences this site is written for. `/ru/подготовка-2026/`
+displays correctly in a browser and arrives as `/ru/%D0%BF%D0%BE%D0%B4...`
+everywhere else. Sixteen locales get a readable URL; eleven keep one that
+survives being copied.
+
+The choice is reversible and cheap to reverse: adding a native slug later is a
+registry edit plus one more redirect stub.
+
+### Message types are never translated
+
+`pacs.008.001.13` and its siblings keep their identifiers. They are ISO 20022
+message identifiers, not words, and a translated path would make the URL
+uncitable against the standard. This is the same rule already applied to rule
+IDs, `TwnNm`, `Ctry` and BIC.
+
+### Old URLs
+
+The site published the English paths from March 2026, so they are indexed and
+bookmarked. GitHub Pages serves static files and cannot issue a 301, so each
+retired URL keeps a stub carrying `rel=canonical`, `robots noindex`, a meta
+refresh, `location.replace` and a visible link — the last because a refresh
+that fails silently strands the reader on a blank page, which is worse than
+the 404 the stub exists to prevent.
+
+Internal links never go through a stub. `retargetMovedLinks` in
+`fix-ssg-html.mjs` repoints any hardcoded `/<locale>/<english-route>/` at the
+slug, so the stubs serve external traffic only.
+
+### Supporting checks
+
+- `validateSlugs` runs in the build's existing truth gate, before any page is
+  written: slug shape, unknown locales, and collisions both between two routes
+  in one locale and between a stub path and a published page.
+- `scripts/check-build-artifacts.mjs` fails the build if any retired URL has no
+  stub — verified to fire by removing one.
+- `tests/redirects.test.ts`: 12 tests covering both directions of the move, the
+  stub contents, sitemap inclusion and exclusion, and an invariant that no page
+  anywhere links to a retired URL. The suite opens by asserting the move is
+  non-empty, so a registry that silently emptied cannot make the rest pass
+  vacuously.

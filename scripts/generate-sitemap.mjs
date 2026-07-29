@@ -12,6 +12,7 @@
  */
 import { readFileSync, writeFileSync, readdirSync, statSync } from "fs";
 import { join, relative, sep } from "path";
+import { routeFor, pathFor, movedPaths } from "./route-slugs.mjs";
 
 const publicDir = join(process.cwd(), "public");
 const dataDir = join(process.cwd(), "data");
@@ -49,22 +50,34 @@ function collectRoutes(dir = publicDir, routes = []) {
   return routes;
 }
 
-/** Split a route into its locale and the remaining path. */
+/**
+ * Split a route into its locale and its canonical (English) path.
+ *
+ * Grouping has to key off the canonical path, not the published one: the
+ * French and German translations of the readiness hub live at
+ * /fr/preparation-2026/ and /de/bereitschaft-2026/, and keying off those would
+ * file every locale as a separate logical page with no alternates at all.
+ */
 function splitRoute(route) {
   const parts = route ? route.split("/") : [];
   const hasLocale = parts.length > 0 && LOCALES.has(parts[0]);
-  return {
-    locale: hasLocale ? parts[0] : "en",
-    path: (hasLocale ? parts.slice(1) : parts).join("/"),
-  };
+  const locale = hasLocale ? parts[0] : "en";
+  const published = (hasLocale ? parts.slice(1) : parts).join("/");
+  return { locale, path: routeFor(locale, published) };
 }
 
 function urlFor(locale, path) {
-  const prefix = locale === "en" ? "" : `/${locale}`;
-  return `${SITE}${prefix}${path ? `/${path}` : ""}/`;
+  return `${SITE}${pathFor(locale, path)}`;
 }
 
-const routes = collectRoutes().sort();
+// Redirect stubs are real files under public/, but they are noindex and own no
+// content. Listing them would ask search engines to index the very URLs the
+// stubs exist to retire.
+const stubs = new Set(movedPaths([...LOCALES]).map((m) => m.from.slice(1, -1)));
+
+const routes = collectRoutes()
+  .filter((route) => !stubs.has(route))
+  .sort();
 
 // Group by logical page so each entry can list its translations.
 const byPath = new Map();

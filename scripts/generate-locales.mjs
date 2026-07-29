@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import path from "node:path";
+import { slugFor, SLUGGED_ROUTES } from "./route-slugs.mjs";
 import { fileURLToPath } from "node:url";
 
 /**
@@ -37231,6 +37232,26 @@ async function write(filePath, content) {
 
 await fs.rm(path.join(docsDir, "en"), { recursive: true, force: true });
 
+// Remove source directories left behind when a route gained a localised slug.
+// docs/ is committed, so /fr/about/ would otherwise survive alongside the new
+// /fr/a-propos/ and ship as a stale duplicate — served content, indexed, and
+// silently frozen at whatever the generator last wrote there.
+{
+  let pruned = 0;
+  for (const locale of locales) {
+    if (locale.key === "en") continue;
+    for (const route of SLUGGED_ROUTES) {
+      if (slugFor(locale.key, route) === route) continue;
+      const stale = path.join(docsDir, locale.key, route);
+      if (existsSync(stale)) {
+        await fs.rm(stale, { recursive: true, force: true });
+        pruned += 1;
+      }
+    }
+  }
+  if (pruned > 0) console.log(`Pruned ${pruned} directory(ies) superseded by a localised slug.`);
+}
+
 await write(
   path.join(docsDir, "index.md"),
   `---
@@ -37308,50 +37329,50 @@ for (const locale of locales) {
         (step, i) => `  - name: "Step ${i + 1}"\n    text: ${JSON.stringify(step)}`
       ).join("\n")
     : undefined;
-  await write(path.join(base, "about", "index.md"), pageTemplate({
+  await write(path.join(base, slugFor(locale.key, "about"), "index.md"), pageTemplate({
     title: sectionPageTitle(locale.key, "about", pageTitle(t.aboutTitle)),
     description: localeSectionDescription(locale, t.aboutDescription),
     lang: locale.lang,
     body: aboutBody(locale.key),
     extraFrontmatter: aboutHowto
   }));
-  await write(path.join(base, "message-types", "index.md"), pageTemplate({
+  await write(path.join(base, slugFor(locale.key, "message-types"), "index.md"), pageTemplate({
     title: sectionPageTitle(locale.key, "message-types", pageTitle(t.messageTitle, "pacs008 ISO 20022")),
     description: localeSectionDescription(locale, t.messageDescription),
     lang: locale.lang,
     body: messageTypesBody(locale.key)
   }));
-  await write(path.join(base, "message-selection", "index.md"), pageTemplate({
+  await write(path.join(base, slugFor(locale.key, "message-selection"), "index.md"), pageTemplate({
     title: sectionPageTitle(locale.key, "message-selection", pageTitle(seoCopy(locale.key).selectionGuideTitle, "pacs008")),
     description: clampDescription(seoCopy(locale.key).selectionGuideDescription),
     lang: locale.lang,
     body: localizedSelectionGuide(locale.key)
   }));
-  await write(path.join(base, "api", "index.md"), pageTemplate({
+  await write(path.join(base, slugFor(locale.key, "api"), "index.md"), pageTemplate({
     title: sectionPageTitle(locale.key, "api", pageTitle(t.apiTitle)),
     description: localeSectionDescription(locale, t.apiDescription),
     lang: locale.lang,
     body: apiBody(locale.key)
   }));
-  await write(path.join(base, "contact", "index.md"), pageTemplate({
+  await write(path.join(base, slugFor(locale.key, "contact"), "index.md"), pageTemplate({
     title: sectionPageTitle(locale.key, "contact", pageTitle(`${t.contactTitle} | pacs008`)),
     description: localeSectionDescription(locale, t.contactDescription),
     lang: locale.lang,
     body: contactBody(locale.key)
   }));
-  await write(path.join(base, "privacy", "index.md"), pageTemplate({
+  await write(path.join(base, slugFor(locale.key, "privacy"), "index.md"), pageTemplate({
     title: sectionPageTitle(locale.key, "privacy", pageTitle(`${t.privacyTitle} | pacs008`)),
     description: localeSectionDescription(locale, t.privacyDescription),
     lang: locale.lang,
     body: privacyBody(locale.key)
   }));
-  await write(path.join(base, "terms", "index.md"), pageTemplate({
+  await write(path.join(base, slugFor(locale.key, "terms"), "index.md"), pageTemplate({
     title: sectionPageTitle(locale.key, "terms", pageTitle(`${t.termsTitle} | pacs008`)),
     description: localeSectionDescription(locale, t.termsDescription),
     lang: locale.lang,
     body: termsBody(locale.key)
   }));
-  await write(path.join(base, "editorial", "index.md"), pageTemplate({
+  await write(path.join(base, slugFor(locale.key, "editorial"), "index.md"), pageTemplate({
     title: sectionPageTitle(locale.key, "editorial", pageTitle(`${t.editorialTitle} | pacs008`)),
     description: localeSectionDescription(locale, t.editorialDescription),
     lang: locale.lang,
@@ -37361,44 +37382,44 @@ for (const locale of locales) {
   const saHowto = `howtoName: "How to prepare for the November 2026 structured postal address deadline"\nhowtoDescription: "Steps to audit, map, validate, and test postal address data before the SWIFT CBPR+ November 2026 deadline."\nhowto:\n` + saSteps.map(
     (step, i) => `  - name: "Step ${i + 1}"\n    text: ${JSON.stringify(step)}`
   ).join("\n");
-  await write(path.join(base, "structured-address", "index.md"), pageTemplate({
+  await write(path.join(base, slugFor(locale.key, "structured-address"), "index.md"), pageTemplate({
     title: sectionPageTitle(locale.key, "structured-address", pageTitle(`${t.structuredAddressTitle} | pacs008`)),
     description: localeSectionDescription(locale, t.structuredAddressDescription),
     lang: locale.lang,
     body: structuredAddressBody(locale.key),
     extraFrontmatter: saHowto
   }));
-  await write(path.join(base, "faq", "index.md"), pageTemplate({
+  await write(path.join(base, slugFor(locale.key, "faq"), "index.md"), pageTemplate({
     title: sectionPageTitle(locale.key, "faq", pageTitle(`${t.faqPageTitle} | pacs008`)),
     description: localeSectionDescription(locale, t.faqPageDescription),
     lang: locale.lang,
     body: faqPageBody(locale.key)
   }));
-  await write(path.join(base, "pacs-explained", "index.md"), pageTemplate({
+  await write(path.join(base, slugFor(locale.key, "pacs-explained"), "index.md"), pageTemplate({
     title: sectionPageTitle(locale.key, "pacs-explained", pageTitle(`${t.pacsExplainedTitle} | pacs008`)),
     description: localeSectionDescription(locale, t.pacsExplainedDescription),
     lang: locale.lang,
     body: pacsExplainedBody(locale.key)
   }));
-  await write(path.join(base, "glossary", "index.md"), pageTemplate({
+  await write(path.join(base, slugFor(locale.key, "glossary"), "index.md"), pageTemplate({
     title: sectionPageTitle(locale.key, "glossary", pageTitle(`${t.glossaryTitle} | pacs008`)),
     description: localeSectionDescription(locale, t.glossaryDescription),
     lang: locale.lang,
     body: glossaryBody(locale.key)
   }));
-  await write(path.join(base, "security", "index.md"), pageTemplate({
+  await write(path.join(base, slugFor(locale.key, "security"), "index.md"), pageTemplate({
     title: "Security & Compliance — pacs008 Data Protection Architecture",
     description: "Learn about pacs008 security disclosures, XXE prevention, PII masking for GDPR/PCI-DSS, SQL injection prevention, and vulnerability reporting policies.",
     lang: locale.lang,
     body: `# Security & Compliance Architecture\n\npacs008 is built with a security-first posture designed for financial institutions, payment service providers, and regulated fintech platforms processing ISO 20022 message flows.\n\n## Core Security Controls\n\n- **XXE Protection**: Utilises defusedxml for all XML parsing operations.\n- **PII & GDPR Masking**: Automatic PII obfuscation for IBANs and party names in application logs.\n- **Path Traversal Defense**: Strict directory allowlisting preventing path escape vulnerabilities.\n`
   }));
-  await write(path.join(base, "2026-readiness", "index.md"), pageTemplate({
+  await write(path.join(base, slugFor(locale.key, "2026-readiness"), "index.md"), pageTemplate({
     title: pageTitle(hubCopy(locale.key).title),
     description: "What changes on 14 November 2026 for SWIFT CBPR+ and Bank of England CHAPS, who is in scope, the exceptions, and downloadable test fixtures for each rule.",
     lang: locale.lang,
     body: readinessHubBody(locale.key)
   }));
-  await write(path.join(base, "changelog", "index.md"), pageTemplate({
+  await write(path.join(base, slugFor(locale.key, "changelog"), "index.md"), pageTemplate({
     title: sectionPageTitle(locale.key, "changelog", pageTitle(`${t.changelogTitle} | pacs008`)),
     description: localeSectionDescription(locale, t.changelogDescription),
     lang: locale.lang,

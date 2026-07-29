@@ -8,6 +8,7 @@
  */
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { join } from "path";
+import { pathFor, slugFor } from "./route-slugs.mjs";
 
 const dataDir = join(process.cwd(), "data");
 const manifest = JSON.parse(readFileSync(join(dataDir, "product-manifest.json"), "utf8"));
@@ -45,13 +46,19 @@ function pageCopy(locale) {
   return { ...PAGES.en, ...(PAGES[locale] || {}) };
 }
 
-/** Write a page for English at /route/ and for each locale at /<locale>/route/. */
+/**
+ * Write a page for English at /route/ and for each locale at its own slug —
+ * /fr/evolutions-des-schemas/, not /fr/scheme-changes/. `route` stays the
+ * English identifier so callers, hreflang grouping and tests all key off one
+ * name regardless of what each locale publishes.
+ */
 function writeLocalised(route, build) {
   for (const locale of ["en", ...LOCALES]) {
+    const slug = slugFor(locale, route);
     const dir =
       locale === "en"
-        ? join(process.cwd(), "docs", route)
-        : join(process.cwd(), "docs", locale, route);
+        ? join(process.cwd(), "docs", slug)
+        : join(process.cwd(), "docs", locale, slug);
     if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
     writeFileSync(join(dir, "index.md"), build(locale, pageCopy(locale)));
   }
@@ -488,7 +495,7 @@ layout: page
 date: "${governance.verification_date}"
 lastUpdated: true
 image: /logo.webp
-canonical: ${locale === "en" ? "/catalogue/" : `/${locale}/catalogue/`}
+canonical: ${pathFor(locale, "catalogue")}
 robots: "index, follow"
 draft: false
 noindex: false
@@ -581,7 +588,7 @@ layout: page
 date: "${governance.verification_date}"
 lastUpdated: true
 image: /logo.webp
-canonical: ${locale === "en" ? "/scheme-changes/" : `/${locale}/scheme-changes/`}
+canonical: ${pathFor(locale, "scheme-changes")}
 robots: "index, follow"
 draft: false
 noindex: false
@@ -624,7 +631,7 @@ layout: page
 date: "${governance.verification_date}"
 lastUpdated: true
 image: /logo.webp
-canonical: ${locale === "en" ? "/design-partners/" : `/${locale}/design-partners/`}
+canonical: ${pathFor(locale, "design-partners")}
 robots: "index, follow"
 draft: false
 noindex: false
@@ -670,13 +677,13 @@ ${c.dp_nodata}
 
 ${c.dp_review}
 
-[${c.dp_h_touch}](${locale === "en" ? "/contact/" : `/${locale}/contact/`})
+[${c.dp_h_touch}](${pathFor(locale, "contact")})
 
 ## ${c.dp_h_touch}
 
 ${c.dp_touch}
 
-[${product.repository}](${product.repository}) · [${c.dp_h_touch}](${locale === "en" ? "/contact/" : `/${locale}/contact/`})
+[${product.repository}](${product.repository}) · [${c.dp_h_touch}](${pathFor(locale, "contact")})
 `);
 
 const esc = (s) =>

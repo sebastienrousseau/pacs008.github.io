@@ -36,8 +36,31 @@ function check(label, actual, min) {
 }
 
 // --- Pages ----------------------------------------------------------------
+// Counts content pages and redirect stubs together; the stubs are checked
+// separately below, so a build that emitted no stubs at all would still fail.
 const pages = countPages();
-check("built pages", pages, 600);
+check("built pages", pages, 900);
+
+// --- Redirect stubs -------------------------------------------------------
+// Every URL retired by the localised-slug change has to keep resolving, and
+// GitHub Pages has no server-side redirect. A build that skipped this step
+// would 404 on 261 previously published URLs while looking otherwise healthy.
+const { movedPaths } = await import("./route-slugs.mjs");
+const LOCALES = [
+  "ar", "bn", "cs", "de", "es", "fr", "ha", "he", "hi", "id", "it", "ja",
+  "ko", "nl", "pl", "pt", "ro", "ru", "sv", "th", "tl", "tr", "uk", "vi",
+  "yo", "zh", "zh-tw",
+];
+const retired = movedPaths(LOCALES);
+const unresolvable = retired.filter(
+  ({ from }) => !existsSync(join(publicDir, ...from.split("/").filter(Boolean), "index.html"))
+);
+if (unresolvable.length > 0) {
+  failures.push(
+    `retired URLs with no redirect stub: ${unresolvable.length} ` +
+      `(first: ${unresolvable[0].from})`
+  );
+}
 
 // --- Sitemap --------------------------------------------------------------
 const sitemap = read("sitemap.xml");
