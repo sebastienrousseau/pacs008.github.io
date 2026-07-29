@@ -1,6 +1,6 @@
 ---
 title: "Message and rule catalogue | pacs008"
-description: "Every ISO 20022 message family and scheme rule pacs008 implements, with versions, effective dates, authoritative sources and downloadable test fixtures."
+description: "Coverage reflects the templates shipped in the package, so it cannot claim more than the software does."
 lang: en-GB
 layout: page
 date: "2026-07-28"
@@ -14,9 +14,8 @@ noindex: false
 
 # Message and rule catalogue
 
-Generated from the pacs008 registries at ruleset `2026.11.0`
-(hash `sha256:a27fe2e7a04f36e9645310984e7142e58d2d5467490207479e689dd6fbbb668f`). Coverage reflects the templates shipped in
-the package, so it cannot claim more than the software does.
+Generated from the pacs008 registries at ruleset `2026.11.0` (hash `sha256:a27fe2e7a04f36e9645310984e7142e58d2d5467490207479e689dd6fbbb668f`).
+Coverage reflects the templates shipped in the package, so it cannot claim more than the software does.
 
 ## Message families
 
@@ -33,9 +32,13 @@ the package, so it cannot claim more than the software does.
 
 ### Not implemented
 
-- `pain.*` — The package cannot generate or parse pain messages. The browser workbench can now validate pain.001, pain.002, pain.007 and pain.008 against their XSDs. Structural validation only. Scoped in sebastienrousseau/pacs008#13.
-- `camt.*` — The package cannot generate or parse camt messages. The browser workbench can now validate camt.110 and camt.111 against their XSDs, which covers the November 2026 receive-and-consume obligation for reading an incoming camt.110 — but structural validation is not the same as support. Scoped in sebastienrousseau/pacs008#12.
-- `head.001` — Business Application Header not shipped as a standalone template.
+We list these because their absence is easy to assume away.
+
+| Family | Status | Note |
+|---|---|---|
+| `pain.*` | Not implemented | The package cannot generate or parse pain messages. The browser workbench can now validate pain.001, pain.002, pain.007 and pain.008 against their XSDs. Structural validation only. Scoped in sebastienrousseau/pacs008#13. [Tracked](https://github.com/sebastienrousseau/pacs008/issues/13) |
+| `camt.*` | Not implemented | The package cannot generate or parse camt messages. The browser workbench can now validate camt.110 and camt.111 against their XSDs, which covers the November 2026 receive-and-consume obligation for reading an incoming camt.110 — but structural validation is not the same as support. Scoped in sebastienrousseau/pacs008#12. [Tracked](https://github.com/sebastienrousseau/pacs008/issues/12) |
+| `head.001` | Not implemented | Business Application Header not shipped as a standalone template. |
 
 ## Scheme profiles
 
@@ -50,8 +53,8 @@ the package, so it cannot claim more than the software does.
 
 ## Rules
 
-Every rule has a stable identifier that does not change across minor releases.
-A change in pass/fail behaviour requires a new ruleset version.
+Every rule has a stable identifier that does not change across minor releases. A change in pass/fail behaviour requires a new ruleset version.
+
 
 #### `CBPR-ADDR-001` — Fully unstructured postal address is not accepted
 
@@ -213,7 +216,7 @@ From November 2027 remittance information carried in CHAPS payments must be stru
 
 ## Sources
 
-| ID | Publisher | Document | Effective | Verified |
+| Source | Publisher | Document | Effective | Verified |
 |---|---|---|---|---|
 | `SWIFT-ADDR-2026` | S.W.I.F.T. SC | [SWIFT CBPR+ Removal of Unstructured Address Guidelines](https://www.swift.com/standards/iso-20022/removal-unstructured-address) | 2026-11-14 | 2026-07-28 |
 | `BOE-CHAPS-2026` | Bank of England | [Policy Statement — Mandating ISO 20022 Enhanced Data in CHAPS](https://www.bankofengland.co.uk/paper/2024/policy-statement/mandating-iso-20022-enhanced-data-in-chaps) | 2026-11-14 | 2026-07-28 |
@@ -223,5 +226,4 @@ From November 2027 remittance information carried in CHAPS payments must be stru
 
 pacs008.com is not the official ISO 20022 website. The sole source of up-to-date materials and information on ISO 20022 message standards and the Repository is https://www.iso20022.org/.
 
-Message definitions and identifiers on this page derive from ISO 20022 material,
-used under the [ISO 20022 Intellectual Property Right Policy](https://www.iso20022.org/terms-use).
+Message definitions and identifiers on this page derive from ISO 20022 material, used under the [ISO 20022 Intellectual Property Right Policy](https://www.iso20022.org/terms-use).

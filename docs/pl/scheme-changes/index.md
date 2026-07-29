@@ -1,30 +1,30 @@
 ---
-title: "Scheme change log | pacs008"
-description: "Every rule change that affects whether a message is accepted, grouped by the date it takes effect."
-lang: en-GB
+title: "Dziennik zmian schematów | pacs008"
+description: "Każda zmiana reguły decydująca o przyjęciu komunikatu, pogrupowana według daty wejścia w życie."
+lang: pl-PL
 layout: page
 date: "2026-07-28"
 lastUpdated: true
 image: /logo.webp
-canonical: /scheme-changes/
+canonical: /pl/scheme-changes/
 robots: "index, follow"
 draft: false
 noindex: false
 ---
 
-# Scheme change log
+# Dziennik zmian schematów
 
-Every rule change that affects whether a message is accepted, grouped by the date it takes effect.
+Każda zmiana reguły decydująca o przyjęciu komunikatu, pogrupowana według daty wejścia w życie.
 
-Generated from the rule registry at ruleset `2026.11.0` (hash `sha256:a27fe2e7a04f36e9645310984e7142e58d2d5467490207479e689dd6fbbb668f`).
+Wygenerowano z rejestru reguł, zestaw `2026.11.0` (hash `sha256:a27fe2e7a04f36e9645310984e7142e58d2d5467490207479e689dd6fbbb668f`).
 
-Swift moves to an annual Standards Release cycle from November 2026, so this list is expected to grow every year rather than end at the deadline.
+Od listopada 2026 Swift przechodzi na roczny cykl Standards Release, więc lista będzie rosła co roku, a nie kończyła się na terminie.
 
-Subscribe: [Atom feed](/scheme-changes.xml).
+Subskrybuj: [Atom feed](/scheme-changes.xml).
 
-## Ruleset versioning
+## Wersjonowanie zestawu reguł
 
-Rule identifiers are stable across minor releases. A change to whether a rule passes or fails requires a new ruleset version, so a report produced against a given ruleset can be reproduced later.
+Identyfikatory reguł są stabilne między wydaniami pomocniczymi. Zmiana wyniku reguły wymaga nowej wersji zestawu, aby raport pozostał odtwarzalny.
 
 ### 2027-11-01
 
@@ -45,6 +45,6 @@ Rule identifiers are stable across minor releases. A change to whether a rule pa
 - `CBPR-ADDR-004` — Hybrid postal address is accepted (cbpr-plus, info)
 
 
-## How to pin a ruleset
+## Jak przypiąć zestaw reguł
 
-Validation reports record the ruleset version and hash. Quote both when raising a discrepancy, so the exact rule set that produced a finding can be reconstructed.
+Raporty walidacji zapisują wersję i skrót zestawu. Podaj oba przy zgłaszaniu rozbieżności, aby odtworzyć dokładny zestaw.

@@ -1,30 +1,30 @@
 ---
-title: "Scheme change log | pacs008"
-description: "Every rule change that affects whether a message is accepted, grouped by the date it takes effect."
-lang: en-GB
+title: "方案变更日志 | pacs008"
+description: "每一项决定报文是否被接受的规则变更，按生效日期分组。"
+lang: zh-CN
 layout: page
 date: "2026-07-28"
 lastUpdated: true
 image: /logo.webp
-canonical: /scheme-changes/
+canonical: /zh/scheme-changes/
 robots: "index, follow"
 draft: false
 noindex: false
 ---
 
-# Scheme change log
+# 方案变更日志
 
-Every rule change that affects whether a message is accepted, grouped by the date it takes effect.
+每一项决定报文是否被接受的规则变更，按生效日期分组。
 
-Generated from the rule registry at ruleset `2026.11.0` (hash `sha256:a27fe2e7a04f36e9645310984e7142e58d2d5467490207479e689dd6fbbb668f`).
+由规则登记册生成，规则集 `2026.11.0` (hash `sha256:a27fe2e7a04f36e9645310984e7142e58d2d5467490207479e689dd6fbbb668f`).
 
-Swift moves to an annual Standards Release cycle from November 2026, so this list is expected to grow every year rather than end at the deadline.
+自 2026 年 11 月起 Swift 转为年度 Standards Release 周期，因此本列表不会止于截止日，而会逐年增加。
 
-Subscribe: [Atom feed](/scheme-changes.xml).
+订阅: [Atom feed](/scheme-changes.xml).
 
-## Ruleset versioning
+## 规则集版本管理
 
-Rule identifiers are stable across minor releases. A change to whether a rule passes or fails requires a new ruleset version, so a report produced against a given ruleset can be reproduced later.
+规则标识在小版本之间保持稳定。若规则的通过与否发生变化，须发布新的规则集版本，以便报告可重现。
 
 ### 2027-11-01
 
@@ -45,6 +45,6 @@ Rule identifiers are stable across minor releases. A change to whether a rule pa
 - `CBPR-ADDR-004` — Hybrid postal address is accepted (cbpr-plus, info)
 
 
-## How to pin a ruleset
+## 如何锁定规则集
 
-Validation reports record the ruleset version and hash. Quote both when raising a discrepancy, so the exact rule set that produced a finding can be reconstructed.
+校验报告会记录规则集版本与哈希。反映差异时请同时引用两者，以便精确还原产生该结论的规则集。

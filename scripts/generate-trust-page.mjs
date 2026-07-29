@@ -14,6 +14,49 @@ const manifest = JSON.parse(readFileSync(join(dataDir, "product-manifest.json"),
 const capability = JSON.parse(readFileSync(join(dataDir, "capability-registry.json"), "utf8"));
 const sources = JSON.parse(readFileSync(join(dataDir, "source-registry.json"), "utf8"));
 
+/**
+ * Prose for the localised reference pages, with per-key English fallback.
+ *
+ * Only scheme-changes and catalogue are localised. trust and accessibility stay
+ * English-canonical: their prose is the claim itself — licensing, security
+ * posture, what the validator does and does not check, conformance status — and
+ * an unreviewed translation would restate those in languages that cannot be
+ * verified here. The same reasoning already applied to the Apache licence text.
+ */
+const PAGES = JSON.parse(readFileSync(join(dataDir, "pages-copy.json"), "utf8"));
+
+/** Locales the site generates, matching scripts/generate-locales.mjs. */
+const LOCALES = [
+  "ar", "bn", "cs", "de", "es", "fr", "ha", "he", "hi", "id", "it", "ja",
+  "ko", "nl", "pl", "pt", "ro", "ru", "sv", "th", "tl", "tr", "uk", "vi",
+  "yo", "zh", "zh-tw",
+];
+
+const LOCALE_LANG = {
+  ar: "ar-SA", bn: "bn-BD", cs: "cs-CZ", de: "de-DE", es: "es-ES",
+  fr: "fr-FR", ha: "ha-NG", he: "he-IL", hi: "hi-IN", id: "id-ID",
+  it: "it-IT", ja: "ja-JP", ko: "ko-KR", nl: "nl-NL", pl: "pl-PL",
+  pt: "pt-BR", ro: "ro-RO", ru: "ru-RU", sv: "sv-SE", th: "th-TH",
+  tl: "tl-PH", tr: "tr-TR", uk: "uk-UA", vi: "vi-VN", yo: "yo-NG",
+  zh: "zh-CN", "zh-tw": "zh-TW", en: "en-GB",
+};
+
+function pageCopy(locale) {
+  return { ...PAGES.en, ...(PAGES[locale] || {}) };
+}
+
+/** Write a page for English at /route/ and for each locale at /<locale>/route/. */
+function writeLocalised(route, build) {
+  for (const locale of ["en", ...LOCALES]) {
+    const dir =
+      locale === "en"
+        ? join(process.cwd(), "docs", route)
+        : join(process.cwd(), "docs", locale, route);
+    if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
+    writeFileSync(join(dir, "index.md"), build(locale, pageCopy(locale)));
+  }
+}
+
 const { product, interfaces, governance } = manifest;
 const STATUS_LABEL = { stable: "Stable", beta: "Beta", planned: "Not implemented" };
 
@@ -400,66 +443,102 @@ ${r.summary}
   })
   .join("\n");
 
-const catalogue = `---
-title: "Message and rule catalogue | pacs008"
-description: "Every ISO 20022 message family and scheme rule pacs008 implements, with versions, effective dates, authoritative sources and downloadable test fixtures."
-lang: en-GB
+writeLocalised("catalogue", (locale, c) => {
+  const famRows = capability.messages.supported
+    .map((m) => {
+      const applicable = rules.rules.filter((r) => (r.messages || []).includes(m.family));
+      const ruleLinks = applicable.length ? applicable.map((r) => `\`${r.id}\``).join(", ") : "—";
+      return `| [\`${m.family}\`](${locale === "en" ? "" : `/${locale}`}/${m.latest}/) | ${m.name} | ${m.range ?? m.latest} | ${m.versions} | ${ruleLinks} |`;
+    })
+    .join("\n");
+
+  const detail = rules.rules
+    .map((r) => {
+      const src = sourceById[r.source];
+      const fx = [
+        ...(r.fixtures?.valid || []).map((f) => `[\`${f.split("/").pop()}\`](/${f}) (${c.cat_passes})`),
+        ...(r.fixtures?.invalid || []).map((f) => `[\`${f.split("/").pop()}\`](/${f}) (${c.cat_fails})`),
+      ];
+      const st = r.status === "announced" ? ` — **${c.cat_announced}**` : "";
+      return `#### \`${r.id}\` — ${r.title}${st}
+
+| | |
+|---|---|
+| ${c.cat_th_profile} | ${r.profile} |
+| ${c.cat_l_layer} | ${r.layer} |
+| ${c.cat_l_severity} | ${r.severity} |
+| ${c.cat_l_effective_from} | ${r.effective_from} |
+| ${c.cat_l_messages} | ${(r.messages || []).map((m) => `\`${m}\``).join(", ") || "—"} |
+| ${c.cat_l_path} | ${r.path_template ? `\`${r.path_template}\`` : "—"} |
+| ${c.cat_th_source} | [${r.source}](${src ? src.url : "#"}), ${c.cat_th_verified.toLowerCase()} ${src ? src.verified_at : "—"} |
+| ${c.cat_l_fixtures} | ${fx.length ? fx.join(" · ") : "—"} |
+
+${r.summary}
+
+**${c.cat_l_remediation}.** ${r.remediation}${r.note ? `\n\n*${r.note}*` : ""}
+`;
+    })
+    .join("\n");
+
+  return `---
+title: "${c.cat_title} | pacs008"
+description: "${c.cat_coverage}"
+lang: ${LOCALE_LANG[locale]}
 layout: page
 date: "${governance.verification_date}"
 lastUpdated: true
 image: /logo.webp
-canonical: /catalogue/
+canonical: ${locale === "en" ? "/catalogue/" : `/${locale}/catalogue/`}
 robots: "index, follow"
 draft: false
 noindex: false
 ---
 
-# Message and rule catalogue
+# ${c.cat_title}
 
-Generated from the pacs008 registries at ruleset \`${rules.ruleset_version}\`
-(hash \`${product.ruleset_hash}\`). Coverage reflects the templates shipped in
-the package, so it cannot claim more than the software does.
+${c.cat_generated} \`${rules.ruleset_version}\` (hash \`${product.ruleset_hash}\`).
+${c.cat_coverage}
 
-## Message families
+## ${c.cat_h_families}
 
-| Family | Name | Versions | Count | Applicable rules |
+| ${c.cat_th_family} | ${c.cat_th_name} | ${c.cat_th_versions} | ${c.cat_th_count} | ${c.cat_th_rules} |
 |---|---|---|---|---|
-${familyRows}
+${famRows}
 
-### Not implemented
+### ${c.cat_h_notimpl}
 
-${capability.messages.unsupported.map((m) => `- \`${m.family}\` — ${m.note}`).join("\n")}
+${c.cat_notimpl_intro}
 
-## Scheme profiles
+| ${c.cat_th_family} | ${c.cat_th_status} | ${c.cat_th_note} |
+|---|---|---|
+${unsupportedRows}
 
-| Profile | Name | Status | Effective |
+## ${c.cat_h_profiles}
+
+| ${c.cat_th_profile} | ${c.cat_th_name} | ${c.cat_th_status} | ${c.cat_th_effective} |
 |---|---|---|---|
-${capability.schemes.map((s) => `| \`${s.id}\` | ${s.name} | ${s.status} | ${s.effective_date} |`).join("\n")}
+${capability.schemes.map((x) => `| \`${x.id}\` | ${x.name} | ${x.status} | ${x.effective_date} |`).join("\n")}
 
-## Rules
+## ${c.cat_h_rules}
 
-Every rule has a stable identifier that does not change across minor releases.
-A change in pass/fail behaviour requires a new ruleset version.
+${c.cat_rules_intro}
 
-${ruleDetail}
+${locale === "en" ? "" : `*${c.cat_rule_text_en}*\n`}
+${detail}
 
-## Sources
+## ${c.cat_h_sources}
 
-| ID | Publisher | Document | Effective | Verified |
+| ${c.cat_th_source} | ${c.cat_th_publisher} | ${c.cat_th_document} | ${c.cat_th_effective} | ${c.cat_th_verified} |
 |---|---|---|---|---|
-${sources.sources.map((s) => `| \`${s.id}\` | ${s.publisher} | [${s.title}](${s.url}) | ${s.effective_date} | ${s.verified_at} |`).join("\n")}
+${sources.sources.map((x) => `| \`${x.id}\` | ${x.publisher} | [${x.title}](${x.url}) | ${x.effective_date} | ${x.verified_at} |`).join("\n")}
 
-## ISO 20022 attribution
+## ${c.cat_h_attr}
 
 ${sources.attribution.iso20022.statement}
 
-Message definitions and identifiers on this page derive from ISO 20022 material,
-used under the [${sources.attribution.iso20022.policy}](${sources.attribution.iso20022.terms_url}).
+${c.cat_attr_note} [${sources.attribution.iso20022.policy}](${sources.attribution.iso20022.terms_url}).
 `;
-
-const catDir = join(process.cwd(), "docs", "catalogue");
-if (!existsSync(catDir)) mkdirSync(catDir, { recursive: true });
-writeFileSync(join(catDir, "index.md"), catalogue);
+});
 
 console.log(
   `Catalogue generated: ${capability.messages.supported.length} families, ` +
@@ -494,49 +573,40 @@ const logSections = dates
   })
   .join("\n");
 
-const changelog = `---
-title: "Scheme change log | pacs008"
-description: "Dated log of scheme rule changes affecting ISO 20022 pacs messages, generated from the pacs008 rule registry. Subscribe to track CBPR+ and CHAPS obligations."
-lang: en-GB
+writeLocalised("scheme-changes", (locale, c) => `---
+title: "${c.cl_title} | pacs008"
+description: "${c.cl_intro}"
+lang: ${LOCALE_LANG[locale]}
 layout: page
 date: "${governance.verification_date}"
 lastUpdated: true
 image: /logo.webp
-canonical: /scheme-changes/
+canonical: ${locale === "en" ? "/scheme-changes/" : `/${locale}/scheme-changes/`}
 robots: "index, follow"
 draft: false
 noindex: false
 ---
 
-# Scheme change log
+# ${c.cl_title}
 
-Every rule change that affects whether a message is accepted, grouped by the
-date it takes effect. Generated from the rule registry at ruleset
-\`${rules.ruleset_version}\` (hash \`${product.ruleset_hash}\`).
+${c.cl_intro}
 
-Swift moves to an annual Standards Release cycle from November 2026, so this
-list is expected to grow every year rather than end at the deadline.
+${c.cl_generated} \`${rules.ruleset_version}\` (hash \`${product.ruleset_hash}\`).
 
-Subscribe: [Atom feed](/scheme-changes.xml).
+${c.cl_annual}
 
-## Ruleset versioning
+${c.cl_subscribe}: [Atom feed](/scheme-changes.xml).
 
-Rule identifiers are stable across minor releases. A change to whether a rule
-passes or fails requires a new ruleset version, so a report produced against
-\`${rules.ruleset_version}\` can be reproduced later.
+## ${c.cl_h_versioning}
+
+${c.cl_versioning}
 
 ${logSections}
 
-## How to pin a ruleset
+## ${c.cl_h_pin}
 
-Validation reports record the ruleset version and hash. Quote both when
-raising a discrepancy, so the exact rule set that produced a finding can be
-reconstructed.
-`;
-
-const clDir = join(process.cwd(), "docs", "scheme-changes");
-if (!existsSync(clDir)) mkdirSync(clDir, { recursive: true });
-writeFileSync(join(clDir, "index.md"), changelog);
+${c.cl_pin}
+`);
 
 /**
  * Design partner programme.

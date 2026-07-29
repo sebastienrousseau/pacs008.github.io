@@ -1,30 +1,30 @@
 ---
-title: "Scheme change log | pacs008"
-description: "Every rule change that affects whether a message is accepted, grouped by the date it takes effect."
-lang: en-GB
+title: "Rajistar canje-canjen tsari | pacs008"
+description: "Kowane canjin ƙa'ida da ke tantance ko za a karɓi saƙo, an haɗa shi bisa ranar fara aiki."
+lang: ha-NG
 layout: page
 date: "2026-07-28"
 lastUpdated: true
 image: /logo.webp
-canonical: /scheme-changes/
+canonical: /ha/scheme-changes/
 robots: "index, follow"
 draft: false
 noindex: false
 ---
 
-# Scheme change log
+# Rajistar canje-canjen tsari
 
-Every rule change that affects whether a message is accepted, grouped by the date it takes effect.
+Kowane canjin ƙa'ida da ke tantance ko za a karɓi saƙo, an haɗa shi bisa ranar fara aiki.
 
-Generated from the rule registry at ruleset `2026.11.0` (hash `sha256:a27fe2e7a04f36e9645310984e7142e58d2d5467490207479e689dd6fbbb668f`).
+An samar daga rajistar ƙa'idoji, saitin ƙa'idoji `2026.11.0` (hash `sha256:a27fe2e7a04f36e9645310984e7142e58d2d5467490207479e689dd6fbbb668f`).
 
-Swift moves to an annual Standards Release cycle from November 2026, so this list is expected to grow every year rather than end at the deadline.
+Daga Nuwamba 2026 Swift na komawa zagayen Standards Release na shekara-shekara, don haka wannan jerin zai ƙaru kowace shekara maimakon ƙarewa a ranar ƙarshe.
 
-Subscribe: [Atom feed](/scheme-changes.xml).
+Yi rijista: [Atom feed](/scheme-changes.xml).
 
-## Ruleset versioning
+## Sarrafa sigar saitin ƙa'idoji
 
-Rule identifiers are stable across minor releases. A change to whether a rule passes or fails requires a new ruleset version, so a report produced against a given ruleset can be reproduced later.
+Masu gano ƙa'ida suna tsayawa tsakanin ƙananan fitarwa. Canjin sakamakon ƙa'ida yana buƙatar sabuwar siga ta saiti, don rahoto ya ci gaba da yiwuwar sake samarwa.
 
 ### 2027-11-01
 
@@ -45,6 +45,6 @@ Rule identifiers are stable across minor releases. A change to whether a rule pa
 - `CBPR-ADDR-004` — Hybrid postal address is accepted (cbpr-plus, info)
 
 
-## How to pin a ruleset
+## Yadda ake ƙulla saitin ƙa'idoji
 
-Validation reports record the ruleset version and hash. Quote both when raising a discrepancy, so the exact rule set that produced a finding can be reconstructed.
+Rahotannin tabbatarwa suna adana sigar saiti da hash. Ambaci duka biyun idan ka bayar da rahoton bambanci, don sake gina ainihin saitin.

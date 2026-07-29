@@ -1,30 +1,30 @@
 ---
-title: "Scheme change log | pacs008"
-description: "Every rule change that affects whether a message is accepted, grouped by the date it takes effect."
-lang: en-GB
+title: "Catatan perubahan skema | pacs008"
+description: "Setiap perubahan aturan yang menentukan apakah sebuah pesan diterima, dikelompokkan menurut tanggal berlaku."
+lang: id-ID
 layout: page
 date: "2026-07-28"
 lastUpdated: true
 image: /logo.webp
-canonical: /scheme-changes/
+canonical: /id/scheme-changes/
 robots: "index, follow"
 draft: false
 noindex: false
 ---
 
-# Scheme change log
+# Catatan perubahan skema
 
-Every rule change that affects whether a message is accepted, grouped by the date it takes effect.
+Setiap perubahan aturan yang menentukan apakah sebuah pesan diterima, dikelompokkan menurut tanggal berlaku.
 
-Generated from the rule registry at ruleset `2026.11.0` (hash `sha256:a27fe2e7a04f36e9645310984e7142e58d2d5467490207479e689dd6fbbb668f`).
+Dihasilkan dari registri aturan, set aturan `2026.11.0` (hash `sha256:a27fe2e7a04f36e9645310984e7142e58d2d5467490207479e689dd6fbbb668f`).
 
-Swift moves to an annual Standards Release cycle from November 2026, so this list is expected to grow every year rather than end at the deadline.
+Sejak November 2026 Swift beralih ke siklus Standards Release tahunan, sehingga daftar ini akan bertambah tiap tahun, bukan berhenti pada tenggat.
 
-Subscribe: [Atom feed](/scheme-changes.xml).
+Berlangganan: [Atom feed](/scheme-changes.xml).
 
-## Ruleset versioning
+## Pemberian versi set aturan
 
-Rule identifiers are stable across minor releases. A change to whether a rule passes or fails requires a new ruleset version, so a report produced against a given ruleset can be reproduced later.
+Pengenal aturan stabil antar rilis minor. Perubahan hasil suatu aturan menuntut versi set baru, agar laporan tetap dapat direproduksi.
 
 ### 2027-11-01
 
@@ -45,6 +45,6 @@ Rule identifiers are stable across minor releases. A change to whether a rule pa
 - `CBPR-ADDR-004` — Hybrid postal address is accepted (cbpr-plus, info)
 
 
-## How to pin a ruleset
+## Cara mengunci set aturan
 
-Validation reports record the ruleset version and hash. Quote both when raising a discrepancy, so the exact rule set that produced a finding can be reconstructed.
+Laporan validasi mencatat versi dan hash set. Sebutkan keduanya saat melaporkan ketidaksesuaian, agar set persis dapat direkonstruksi.

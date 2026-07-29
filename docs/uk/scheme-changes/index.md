@@ -1,0 +1,50 @@
+---
+title: "Журнал змін схем | pacs008"
+description: "Кожна зміна правила, що визначає прийняття повідомлення, згрупована за датою набрання чинності."
+lang: uk-UA
+layout: page
+date: "2026-07-28"
+lastUpdated: true
+image: /logo.webp
+canonical: /uk/scheme-changes/
+robots: "index, follow"
+draft: false
+noindex: false
+---
+
+# Журнал змін схем
+
+Кожна зміна правила, що визначає прийняття повідомлення, згрупована за датою набрання чинності.
+
+Сформовано з реєстру правил, набір `2026.11.0` (hash `sha256:a27fe2e7a04f36e9645310984e7142e58d2d5467490207479e689dd6fbbb668f`).
+
+Із листопада 2026 року Swift переходить на річний цикл Standards Release, тож список зростатиме щороку, а не завершиться на терміні.
+
+Підписатися: [Atom feed](/scheme-changes.xml).
+
+## Версіювання набору правил
+
+Ідентифікатори правил стабільні між мінорними випусками. Зміна результату правила вимагає нової версії набору, щоб звіт лишався відтворюваним.
+
+### 2027-11-01
+
+- `CHAPS-PURP-001` — Purpose codes become mandatory on all CHAPS payments (chaps-uk, error) *(announced, not yet enforced)*
+- `CHAPS-RMT-001` — Structured remittance information becomes mandatory for CHAPS (chaps-uk, error) *(announced, not yet enforced)*
+
+### 2026-11-14
+
+- `CBPR-ADDR-001` — Fully unstructured postal address is not accepted (cbpr-plus, error)
+- `CBPR-ADDR-002` — Town Name is mandatory in a structured element (cbpr-plus, error)
+- `CBPR-ADDR-003` — Country is mandatory as a two-letter ISO 3166 code (cbpr-plus, error)
+- `CBPR-ADDR-005` — Agent identified by BIC only is exempt (cbpr-plus, info)
+- `CBPR-ADDR-006` — Message types excepted from the address requirement (cbpr-plus, info)
+- `CHAPS-ADDR-001` — CHAPS validation library rejects fully unstructured addresses (chaps-uk, error)
+
+### 2025-11-22
+
+- `CBPR-ADDR-004` — Hybrid postal address is accepted (cbpr-plus, info)
+
+
+## Як зафіксувати набір правил
+
+Звіти перевірки фіксують версію та хеш набору. Наводьте обидва при розбіжності, щоб відтворити точний набір.

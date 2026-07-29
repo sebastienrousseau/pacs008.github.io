@@ -1,30 +1,30 @@
 ---
-title: "Scheme change log | pacs008"
-description: "Every rule change that affects whether a message is accepted, grouped by the date it takes effect."
-lang: en-GB
+title: "Seznam změn schémat | pacs008"
+description: "Každá změna pravidla, která rozhoduje o přijetí zprávy, seskupená podle data účinnosti."
+lang: cs-CZ
 layout: page
 date: "2026-07-28"
 lastUpdated: true
 image: /logo.webp
-canonical: /scheme-changes/
+canonical: /cs/scheme-changes/
 robots: "index, follow"
 draft: false
 noindex: false
 ---
 
-# Scheme change log
+# Seznam změn schémat
 
-Every rule change that affects whether a message is accepted, grouped by the date it takes effect.
+Každá změna pravidla, která rozhoduje o přijetí zprávy, seskupená podle data účinnosti.
 
-Generated from the rule registry at ruleset `2026.11.0` (hash `sha256:a27fe2e7a04f36e9645310984e7142e58d2d5467490207479e689dd6fbbb668f`).
+Vygenerováno z registru pravidel, sada `2026.11.0` (hash `sha256:a27fe2e7a04f36e9645310984e7142e58d2d5467490207479e689dd6fbbb668f`).
 
-Swift moves to an annual Standards Release cycle from November 2026, so this list is expected to grow every year rather than end at the deadline.
+Od listopadu 2026 přechází Swift na roční cyklus Standards Release, takže seznam bude každý rok růst, nikoli skončit termínem.
 
-Subscribe: [Atom feed](/scheme-changes.xml).
+Odebírat: [Atom feed](/scheme-changes.xml).
 
-## Ruleset versioning
+## Verzování sady pravidel
 
-Rule identifiers are stable across minor releases. A change to whether a rule passes or fails requires a new ruleset version, so a report produced against a given ruleset can be reproduced later.
+Identifikátory pravidel jsou stabilní napříč menšími vydáními. Změna výsledku pravidla vyžaduje novou verzi sady, aby zůstal report reprodukovatelný.
 
 ### 2027-11-01
 
@@ -45,6 +45,6 @@ Rule identifiers are stable across minor releases. A change to whether a rule pa
 - `CBPR-ADDR-004` — Hybrid postal address is accepted (cbpr-plus, info)
 
 
-## How to pin a ruleset
+## Jak zafixovat sadu pravidel
 
-Validation reports record the ruleset version and hash. Quote both when raising a discrepancy, so the exact rule set that produced a finding can be reconstructed.
+Validační reporty zaznamenávají verzi a otisk sady. Při nesrovnalosti uveďte obojí, aby šlo přesnou sadu rekonstruovat.

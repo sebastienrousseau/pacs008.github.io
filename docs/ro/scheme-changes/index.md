@@ -1,30 +1,30 @@
 ---
-title: "Scheme change log | pacs008"
-description: "Every rule change that affects whether a message is accepted, grouped by the date it takes effect."
-lang: en-GB
+title: "Jurnal de modificări ale schemelor | pacs008"
+description: "Fiecare modificare de regulă care decide acceptarea unui mesaj, grupată după data intrării în vigoare."
+lang: ro-RO
 layout: page
 date: "2026-07-28"
 lastUpdated: true
 image: /logo.webp
-canonical: /scheme-changes/
+canonical: /ro/scheme-changes/
 robots: "index, follow"
 draft: false
 noindex: false
 ---
 
-# Scheme change log
+# Jurnal de modificări ale schemelor
 
-Every rule change that affects whether a message is accepted, grouped by the date it takes effect.
+Fiecare modificare de regulă care decide acceptarea unui mesaj, grupată după data intrării în vigoare.
 
-Generated from the rule registry at ruleset `2026.11.0` (hash `sha256:a27fe2e7a04f36e9645310984e7142e58d2d5467490207479e689dd6fbbb668f`).
+Generat din registrul de reguli, set `2026.11.0` (hash `sha256:a27fe2e7a04f36e9645310984e7142e58d2d5467490207479e689dd6fbbb668f`).
 
-Swift moves to an annual Standards Release cycle from November 2026, so this list is expected to grow every year rather than end at the deadline.
+Din noiembrie 2026 Swift trece la un ciclu anual Standards Release, deci lista va crește anual, nu se va opri la termen.
 
-Subscribe: [Atom feed](/scheme-changes.xml).
+Abonare: [Atom feed](/scheme-changes.xml).
 
-## Ruleset versioning
+## Versionarea setului de reguli
 
-Rule identifiers are stable across minor releases. A change to whether a rule passes or fails requires a new ruleset version, so a report produced against a given ruleset can be reproduced later.
+Identificatorii regulilor rămân stabili între versiuni minore. O schimbare a rezultatului unei reguli impune un set nou, astfel încât un raport să rămână reproductibil.
 
 ### 2027-11-01
 
@@ -45,6 +45,6 @@ Rule identifiers are stable across minor releases. A change to whether a rule pa
 - `CBPR-ADDR-004` — Hybrid postal address is accepted (cbpr-plus, info)
 
 
-## How to pin a ruleset
+## Cum fixați un set de reguli
 
-Validation reports record the ruleset version and hash. Quote both when raising a discrepancy, so the exact rule set that produced a finding can be reconstructed.
+Rapoartele de validare consemnează versiunea și amprenta setului. Citați-le pe ambele la o discrepanță, pentru a reconstitui setul exact.

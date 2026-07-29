@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { readFileSync, readdirSync, statSync } from "fs";
+import { readFileSync, readdirSync, statSync, existsSync } from "fs";
 import { resolve, join } from "path";
 import { DIST, LOCALES, readPage, textOf } from "./helpers";
 
@@ -323,5 +323,58 @@ describe("Content truth: site chrome translation", () => {
   // translated, for the same reason TwnNm and Ctry are not.
   it("keeps ISO message identifiers in the nav", () => {
     expect(navOf("fr/2026-readiness")).toContain("pacs.008");
+  });
+});
+
+describe("Content truth: localised reference pages", () => {
+  const pages = JSON.parse(
+    readFileSync(resolve(__dirname, "../data/pages-copy.json"), "utf-8")
+  );
+
+  it("scheme-changes and catalogue exist for every locale", () => {
+    const missing: string[] = [];
+    for (const locale of LOCALES) {
+      for (const route of ["scheme-changes", "catalogue"]) {
+        if (!existsSync(resolve(DIST, locale, route, "index.html"))) {
+          missing.push(`${locale}/${route}`);
+        }
+      }
+    }
+    expect(missing, `missing localised pages: ${missing.slice(0, 6).join(", ")}`).toEqual([]);
+  });
+
+  it("each locale renders its own translated headings", () => {
+    const wrong: string[] = [];
+    for (const locale of LOCALES) {
+      const text = textOf(readPage(`${locale}/catalogue`));
+      const expected = pages[locale]?.cat_title;
+      if (expected && !text.includes(expected)) wrong.push(locale);
+    }
+    expect(wrong, `locales without a translated catalogue title: ${wrong.join(", ")}`).toEqual([]);
+  });
+
+  // Rule summaries and remediation stay English: they are the normative rule
+  // content, referenced by identifier from every interface. Localised pages
+  // say so rather than leaving a reader to wonder.
+  it("keeps normative rule text in English and explains why", () => {
+    const fr = textOf(readPage("fr/catalogue"));
+    expect(fr).toContain("Fully unstructured postal address is not accepted");
+    expect(fr).toContain(pages.fr.cat_rule_text_en);
+  });
+
+  it("does not show the translation note on the English page", () => {
+    expect(textOf(readPage("catalogue"))).not.toContain(pages.en.cat_rule_text_en);
+  });
+
+  // trust and accessibility are deliberately English-canonical.
+  it("does not generate locale copies of trust or accessibility", () => {
+    for (const locale of ["fr", "de", "ja"]) {
+      for (const route of ["trust", "accessibility"]) {
+        expect(
+          existsSync(resolve(DIST, locale, route, "index.html")),
+          `${locale}/${route} should stay English-canonical`
+        ).toBe(false);
+      }
+    }
   });
 });
