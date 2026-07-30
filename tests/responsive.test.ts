@@ -174,30 +174,36 @@ describe("Styling: favicon", () => {
    *
    * The canonical icon is the CDN .ico, which carries 16/32/48/256.
    */
-  it("declares a same-origin icon on every content page", () => {
+  it("declares the CDN icon on every content page", () => {
     for (const route of [".", "about", "live", "fr/essayer", "ar", "ja/about"]) {
       const head = readPage(route).split("</head>")[0];
-      expect(head, `${route} does not declare /favicon.ico`).toMatch(
-        /rel="?icon"?[^>]*\/favicon\.ico|\/favicon\.ico[^>]*rel="?icon/
-      );
+      expect(head, `${route} does not declare the CDN icon`).toContain(meta.declared);
     }
   });
 
   /**
-   * The icon must not be declared from the CDN, and this is forced rather than
-   * preferred: cloudcdn.pro has Cloudflare hotlink protection on
-   * /pacs008/v1/favicon.ico, which 403s (error 1011) for any cross-site
-   * Referer. Browsers always send one when fetching a favicon declared on a
-   * page, so that URL can never render as a page icon — verified in Chrome,
-   * where the identical bytes load from this origin and time out from the CDN.
+   * The declaration only became viable once Cloudflare Hotlink Protection was
+   * turned off for /pacs008/*. Before that it 403d (error 1011) for any
+   * cross-site Referer, and browsers always send one when fetching a favicon
+   * referenced by a page — so the icon never rendered while curl without a
+   * Referer saw 200.
+   *
+   * This suite is offline and cannot prove the CDN is still reachable; that is
+   * `npm run check:cdn-icon`. What it can prove is that the fallback which makes
+   * a future re-block a degradation rather than an outage is still in place.
    */
-  it("never declares the hotlink-blocked CDN icon URL", () => {
-    for (const route of [".", "about", "live", "fr/essayer"]) {
-      const head = readPage(route).split("</head>")[0];
-      expect(head, `${route} declares the blocked CDN icon`).not.toContain(
-        meta.cdn_hotlink_block.url
-      );
-    }
+  it("keeps the same-origin fallback that survives a CDN re-block", () => {
+    const file = resolve(DIST, "favicon.ico");
+    expect(existsSync(file), "/favicon.ico fallback is missing").toBe(true);
+    const raw = readFileSync(file);
+    expect(raw.length).toBe(meta.fallback_bytes ?? raw.length);
+    // Identical to the declared CDN asset, so a fallback shows the same image.
+    expect(createHash("sha256").update(raw).digest("hex")).toBe(meta.fallback_sha256);
+  });
+
+  it("records how to restore the CDN path if it is blocked again", () => {
+    expect(meta.cdn_hotlink_block.fix).toMatch(/hotlink_protection/);
+    expect(meta.cdn_hotlink_block.verify).toBe("npm run check:cdn-icon");
   });
 
   // Safari needs a PNG here, and the CDN has none — this is the asset whose
@@ -216,14 +222,6 @@ describe("Styling: favicon", () => {
   // Browsers request this path regardless of declarations. The mirror must stay
   // byte-identical to the canonical asset, or the root request and the declared
   // icon would show different images.
-  it("mirrors the canonical icon byte-for-byte at the root path", () => {
-    const file = resolve(DIST, "favicon.ico");
-    expect(existsSync(file), "/favicon.ico is missing").toBe(true);
-    const raw = readFileSync(file);
-    expect(raw.length).toBe(meta.root_mirror.bytes);
-    expect(createHash("sha256").update(raw).digest("hex")).toBe(meta.root_mirror.sha256);
-  });
-
   // No SVG icon anywhere: that is what Safari could not render.
   it("never declares an SVG as an icon", () => {
     for (const route of [".", "about", "live"]) {

@@ -683,3 +683,56 @@ visual design rather than normalise it, so it is a separate decision.
 Verified after adoption: 218 tests, Lighthouse 100 accessibility / 100
 best-practices / 100 SEO with performance 98-100 across all seven sampled pages,
 locale validation and compliance audit clean.
+
+## D-012: The CDN favicon, once Cloudflare allowed it
+
+**Date:** 2026-07-30
+**Status:** Implemented
+
+### What changed on the CDN
+
+Cloudflare Hotlink Protection was disabled for `/pacs008/*` via a Configuration
+Rule. Before that, `/pacs008/v1/favicon.ico` returned 403 (error 1011) to any
+request carrying a cross-site `Referer`, and browsers always send one when
+fetching a favicon declared on a page — so the icon could never render, while
+`curl` without a `Referer` saw 200.
+
+The block was never path-specific, and the earlier claim that `/logos/` had a
+bypass was wrong. Hotlink Protection covers `gif, ico, jpg, jpeg, png, bmp` and
+not `svg` or `webp`. A `.png` in the same directory as the working `.svg` logo
+was equally blocked. The logo worked because of its file extension, nothing else.
+
+Side effect worth knowing: the prefix is now unprotected for *any* referrer, so
+those assets can be hotlinked by third parties. Restricting it to this origin
+would need a WAF rule on `http.referer` rather than the Hotlink Protection
+toggle.
+
+### Decision
+
+`rel=icon` points at `https://cloudcdn.pro/pacs008/v1/favicon.ico`, verified in
+Chrome against the live site before switching — not by `curl`, which is what made
+the original fault look fine.
+
+`/favicon.ico` stays as a same-origin fallback with byte-identical content.
+Browsers request that root path regardless of declarations, so if the CDN blocks
+again the icon degrades to the same image rather than disappearing. That matters
+because the first occurrence was silent and took three attempts to diagnose.
+
+`apple-touch-icon.png` remains local: the CDN has none, and Safari does not
+accept SVG for it, which was the actual cause of the iOS report.
+
+### Supporting checks
+
+`npm run check:cdn-icon` fetches the declared icon with the headers Chrome sends,
+including a cross-site `Referer`, and again cache-busted so a cached 200 cannot
+mask a rule that has since changed. It also probes without a `Referer` and labels
+that result as proving nothing, because that is precisely the check that gave
+false confidence the first time.
+
+Not a build gate: it needs the network and asserts something about a third
+party's configuration, so it would fail for reasons no commit can cause. Verified
+to exit non-zero against an unreachable URL.
+
+The offline suite asserts the fallback is present and byte-identical to the
+declared asset, and that the remediation steps stay recorded — it cannot verify
+the CDN, and does not pretend to.
