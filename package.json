@@ -11,12 +11,15 @@
     "validate": "html-validate 'public/**/*.html'",
     "test": "vitest run",
     "test:watch": "vitest",
-    "verify": "./build.sh && npm test && node scripts/validate-all-locales.mjs && node scripts/audit-full-compliance.mjs"
+    "verify": "./build.sh && npm test && node scripts/validate-all-locales.mjs && node scripts/audit-full-compliance.mjs && npm run lighthouse",
+    "lighthouse": "node scripts/check-lighthouse.mjs",
+    "wave": "node scripts/check-wave.mjs"
   },
   "devDependencies": {
     "axe-core": "4.12.1",
     "happy-dom": "20.11.1",
     "html-validate": "10.11.2",
+    "lighthouse": "13.4.1",
     "vitest": "4.1.1",
     "xmllint-wasm": "5.2.0"
   },

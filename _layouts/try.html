@@ -73,7 +73,7 @@
         --link: #0a5566; --link-hover: #073f4c; --eyebrow: #684d00;
         --btn-bg: #1d1d1f; --btn-text: #ffffff; --focus-ring: #0a5566;
         --ok: #14532d; --bad: #7f1d1d;
-        --code-bg: #14161c; --code-text: #f2f3f5;
+        --code-bg: #14161c; --code-text: #f2f3f5; --code-mute: #a1a5b0;
         --shadow-sm: 0 1px 2px rgb(29 29 31 / 0.06);
         --shadow-md: 0 12px 32px -12px rgb(29 29 31 / 0.18);
         --radius-sm: 8px; --radius-md: 14px; --radius-pill: 999px;
@@ -85,7 +85,7 @@
         --link: #40b5d0; --link-hover: #67c8de; --eyebrow: #e5b800;
         --btn-bg: #f5f5f7; --btn-text: #0b0e14; --focus-ring: #40b5d0;
         --ok: #4ade80; --bad: #f87171;
-        --code-bg: #07090e; --code-text: #e6edf3;
+        --code-bg: #07090e; --code-text: #e6edf3; --code-mute: #a1a5b0;
       }
 
       * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -172,8 +172,42 @@
       .error-table th { background: var(--bg-alt); padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--rule-strong); color: var(--ink-mute); font-weight: 700; text-transform: uppercase; font-size: 0.72rem; }
 
       .xml-out { background: var(--code-bg); color: var(--code-text); padding: 1.25rem; border-radius: var(--radius-sm); font-family: var(--type-mono); font-size: 0.82rem; line-height: 1.5; height: 240px; overflow: auto; white-space: pre-wrap; word-break: break-all; margin-top: 1rem; border: 1px solid var(--rule); }
-      .xml-placeholder { color: var(--ink-mute); font-style: italic; }
+      /* --code-mute, not --ink-mute. The code surface is dark in both themes,
+         but --ink-mute tracks the page background: in the light theme it is
+         #4d4d55, which is 2.16:1 on #14161c — a WCAG AA failure that the
+         happy-dom axe suite cannot see, because it resolves no stylesheets.
+         --code-mute is 7.3:1 on the lighter code background and higher on the
+         darker one. */
+      .xml-placeholder { color: var(--code-mute); font-style: italic; }
       .status { font-weight: 600; font-size: 0.9rem; color: var(--ink-soft); margin-top: 0.5rem; }
+
+      /* ssg's injected search trigger renders as: icon + "Search" + <kbd>K</kbd>,
+         with aria-label="Search". Its visible text therefore includes "K" while
+         its accessible name does not, which fails axe's
+         label-content-name-mismatch. The workbench has no in-nav search of its
+         own, so hiding the whole button would remove search from the page —
+         hide only the shortcut hint, which the overlay states anyway. */
+      #ssg-search-btn kbd { display: none; }
+
+      /* These two were style attributes. The site's CSP is style-src 'self'
+         'unsafe-hashes' <one hash>, so every other inline style attribute is
+         blocked — the elements shipped unstyled and each one logged a CSP
+         violation. */
+      .error-overflow-note { font-size: 0.8rem; color: var(--ink-mute); padding: 0.4rem; }
+      .xml-paste-area { width: 100%; font-family: var(--type-mono, monospace); font-size: 0.85rem; }
+
+      /* Syntax-highlighter palette. ssg's highlighter emits these as inline
+         style attributes, which the CSP blocks; fix-ssg-html rewrites them to
+         these classes after the build so no inline style ships at all. */
+      .hl-text { color: #c0c5ce; }
+      .hl-keyword { color: #bf616a; }
+      .hl-string { color: #a3be8c; }
+      .hl-surface { background-color: #2b303b; }
+      .hl-fn { color: #8fa1b3; }
+      .hl-const { color: #b48ead; }
+      .hl-num { color: #d08770; }
+      .hl-type { color: #96b5b4; }
+      .hl-comment { color: #65737e; }
 
       .footer { border-top: 1px solid var(--rule); background: var(--bg-alt); margin-top: 5rem; padding: 3.5rem 0 2rem; font-size: 0.93rem; }
     </style>
@@ -276,7 +310,7 @@
                   </thead>
                   <tbody id="error-tbody"></tbody>
                 </table>
-                <p style="font-size:0.8rem; color:var(--ink-mute); padding:0.4rem;" id="error-overflow" hidden></p>
+                <p class="error-overflow-note" id="error-overflow" hidden></p>
               </div>
               <div class="xml-out" id="xml-out"><span class="xml-placeholder" data-i18n="lw_xml_placeholder">The validated pacs.008.001.13 document will appear here — add data in step 1.</span></div>
               <div class="demo-actions">
@@ -300,7 +334,7 @@
           </p>
           <p>
             <label for="xml-paste" data-i18n="lw_xml_paste_label">or paste XML</label><br>
-            <textarea id="xml-paste" rows="6" spellcheck="false" style="width:100%;font-family:var(--type-mono,monospace);font-size:0.85rem;"></textarea>
+            <textarea id="xml-paste" rows="6" spellcheck="false" class="xml-paste-area"></textarea>
           </p>
           <div class="actions">
             <button type="button" id="xml-run" class="pill pill-ghost" data-i18n="lw_xml_run">Inspect XML</button>

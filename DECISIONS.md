@@ -497,3 +497,85 @@ is on the cascade rather than on a screenshot, because this was a cascade bug.
 the viewport in this environment and an in-page style injection did not take
 effect, so the evidence is the shipped CSS measuring 28px inline padding plus the
 regression test. Worth a look on a real device.
+
+## D-009: Lighthouse is a gate; WAVE cannot be
+
+**Date:** 2026-07-30
+**Status:** Implemented
+
+### Lighthouse
+
+`scripts/check-lighthouse.mjs` drives a real headless Chrome against a local
+HTTP server over `public/`, and fails the build below these scores:
+
+| Category | Floor | Why |
+|---|---|---|
+| accessibility | 100 | pass/fail checklist; a miss is a named defect |
+| best-practices | 100 | same |
+| seo | 100 | same |
+| performance | 90 | weighted composite of throttled timings; moves a few points run to run on identical bytes |
+
+This closes a gap `tests/axe.test.ts` states but cannot cover. That suite runs
+axe-core inside happy-dom, which resolves no stylesheets, so `color-contrast` is
+disabled rather than run against nothing. A real browser evaluates it.
+
+It samples 7 pages of 1,119, and says so in its own output. Every page comes from
+one of three layouts, so a defect on one is a defect on all; the sample covers
+all three plus an RTL locale, a CJK locale and the workbench. Served over HTTP,
+not `file://`, because service workers, fetch and CSP all behave differently on a
+file URL — a `file://` pass would not be evidence about the deployed site.
+
+Not in `build.sh`: it needs Chrome and about 90 seconds. It is in `npm run
+verify` and `npm run lighthouse`.
+
+### What it found
+
+Four defects, none visible to any existing check:
+
+1. **A shipped script did not parse.** ssg extracts inline `<script>` blocks into
+   `public/_csp/*.js` and collapses each onto one line without converting `//`
+   comments. The first comment swallowed the rest of the file. Valid HTML,
+   correct content type, plausible size, and every behaviour it attached was
+   dead. Fixed by using block comments; `scripts/check-scripts.mjs` now parses
+   every shipped script during the build.
+2. **~23,000 CSP-blocked inline styles.** The policy is `style-src 'self'
+   'unsafe-hashes' <one hash>`, so exactly one inline declaration is allowed.
+   ssg's syntax highlighter emits nine, so every code block on the site shipped
+   unstyled and logged a violation. Rewritten to classes after the build rather
+   than widening the policy; an unmapped declaration now fails the build.
+3. **Colour contrast 2.16:1** on the workbench XML placeholder. It used
+   `--ink-mute`, which tracks the page background, on a code surface that is dark
+   in both themes. A new `--code-mute` token gives 7.3:1 and 8.1:1.
+4. **`label-content-name-mismatch`** on ssg's injected search trigger: visible
+   text "Search K", accessible name "Search". The page layout hides that button
+   in favour of its own; the workbench has none of its own, so hiding the whole
+   button would remove search. The shortcut hint is hidden instead.
+
+### WAVE
+
+WAVE cannot be a build gate, and the reason is structural rather than a matter
+of effort:
+
+- The browser extension is the only free full-featured WAVE, and it is manual.
+- The WAVE API is paid, keyed, and **fetches the page itself**, so the URL must
+  be publicly reachable. It cannot see `localhost`, which means it cannot check
+  the tree that is about to be deployed — only one already deployed.
+- `wave-cli` (0.0.3-alpha, 2019) and `webaim-wave` (2019) are unofficial wrappers
+  around that same paid API. Neither runs offline.
+
+`pa11y-ci`, whose HTML_CodeSniffer engine is the closest offline equivalent, was
+installed and removed: it pulls 5 high-severity advisories through
+`globby` → `brace-expansion`. This repo went from 48 vulnerabilities to 0 and
+dropped `@axe-core/cli` for exactly that reason, so it is not a trade worth
+making for an engine that overlaps axe.
+
+`scripts/check-wave.mjs` therefore exists as an opt-in second opinion on the
+deployed site: `npm run wave -- --confirm` with `WAVE_API_KEY` set. It requires
+the explicit flag because it sends URLs to a third party, it fails on errors and
+contrast, and it reports alerts without failing on them — WAVE does not claim
+alerts are defects.
+
+**What this means for the claim.** In-browser axe coverage via Lighthouse is
+real and gated. "WAVE-clean" is not something this build can assert, and is not
+asserted. Running `npm run wave` against pacs008.com after a deploy is the way to
+check it, and it needs a paid key.

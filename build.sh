@@ -72,6 +72,10 @@ fi
 # Clean up temporary build directory
 rm -rf docs_build
 
+# Verify every shipped script actually parses. A truncated bundle is invisible
+# to every other check: valid HTML, right content type, plausible size.
+node scripts/check-scripts.mjs
+
 # Verify every internal link, canonical, hreflang and sitemap URL resolves
 node scripts/check-links.mjs
 

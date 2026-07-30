@@ -305,6 +305,33 @@
          narrower than .wrap's 1180px max-width. Desktop hid it behind the
          centring gutter; mobile did not. */
       .content-shell { padding-block: 3rem 4rem; }
+
+      /* Syntax-highlighter palette. ssg's highlighter emits these as inline
+         style attributes, which the CSP blocks; fix-ssg-html rewrites them to
+         these classes after the build so no inline style ships at all. */
+      .hl-text { color: #c0c5ce; }
+      .hl-keyword { color: #bf616a; }
+      .hl-string { color: #a3be8c; }
+      .hl-surface { background-color: #2b303b; }
+      .hl-fn { color: #8fa1b3; }
+      .hl-const { color: #b48ead; }
+      .hl-num { color: #d08770; }
+      .hl-type { color: #96b5b4; }
+      .hl-comment { color: #65737e; }
+
+      /* Rows injected by the interactive tools. These were inline style
+         attributes, which the site's own CSP (style-src 'self' 'unsafe-hashes')
+         blocks when they arrive via innerHTML — so the tables shipped unstyled
+         and the console carried a CSP violation for each one. */
+      .tool-row { border-bottom: 1px solid var(--rule); }
+      .tool-cell { padding: 0.65rem; font-size: 0.85rem; }
+      .tool-cell-key { padding: 0.65rem; font-size: 0.85rem; font-weight: 700; }
+      .tool-cell-muted { padding: 0.65rem; font-size: 0.85rem; color: var(--ink-soft); }
+      .tool-cell-new { padding: 0.65rem; font-size: 0.85rem; font-weight: 600; color: var(--link); }
+      .tool-cell-code { padding: 0.6rem; font-family: var(--type-mono, monospace); font-size: 0.85rem; font-weight: 700; color: var(--link); }
+      .tool-cell-name { padding: 0.6rem; font-size: 0.85rem; font-weight: 600; }
+      .tool-cell-desc { padding: 0.6rem; font-size: 0.85rem; color: var(--ink-soft); }
+
       .content-body { font-size: 1.06rem; line-height: 1.75; max-width: 840px; margin: 0 auto; }
       .content-body h2 {
         font-family: var(--type-display);
@@ -1253,7 +1280,7 @@
 
         updateAddressCompliance();
 
-        // 3. Schema Diff Binding
+        /* 3. Schema Diff Binding */
         function updateSchemaDiff() {
           var select = document.getElementById("diff-select");
           var body = document.getElementById("diff-body");
@@ -1261,7 +1288,7 @@
             var parts = select.value.split(" vs ");
             var items = window.pacs008Tools.compareVersions(parts[0], parts[1]);
             body.innerHTML = items.map(function(item) {
-              return '<tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.65rem; font-weight:700; font-size:0.85rem;">' + item.feature + '</td><td style="padding:0.65rem; font-size:0.85rem; color:var(--ink-soft);">' + item.v1 + '</td><td style="padding:0.65rem; font-size:0.85rem; font-weight:600; color:var(--link);">' + item.v2 + '</td></tr>';
+              return '<tr class="tool-row"><td class="tool-cell-key">' + item.feature + '</td><td class="tool-cell-muted">' + item.v1 + '</td><td class="tool-cell-new">' + item.v2 + '</td></tr>';
             }).join('');
           }
         }
@@ -1271,7 +1298,7 @@
           updateSchemaDiff();
         }
 
-        // 4. Purpose Code & LEI Lookup Binding
+        /* 4. Purpose Code & LEI Lookup Binding */
         function updatePurposeSearch() {
           var input = document.getElementById("purpose-search");
           var body = document.getElementById("purpose-body");
@@ -1279,7 +1306,7 @@
             var q = input ? input.value : "";
             var matches = window.pacs008Tools.searchPurposeCodes(q);
             body.innerHTML = matches.map(function(p) {
-              return '<tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.6rem; font-family:monospace; font-weight:700; font-size:0.85rem; color:var(--link);">' + p.code + '</td><td style="padding:0.6rem; font-weight:600; font-size:0.85rem;">' + p.name + '</td><td style="padding:0.6rem; font-size:0.85rem; color:var(--ink-soft);">' + p.desc + '</td></tr>';
+              return '<tr class="tool-row"><td class="tool-cell-code">' + p.code + '</td><td class="tool-cell-name">' + p.name + '</td><td class="tool-cell-desc">' + p.desc + '</td></tr>';
             }).join('');
           }
         }
@@ -1301,7 +1328,7 @@
           });
         }
 
-        // 5. MT103 Converter Binding
+        /* 5. MT103 Converter Binding */
         function updateMt103Convert() {
           var input = document.getElementById("mt103-input");
           var output = document.getElementById("mt103-output");

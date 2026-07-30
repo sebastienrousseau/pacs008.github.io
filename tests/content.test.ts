@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { readFileSync, readdirSync, statSync, existsSync } from "fs";
 import { resolve, join } from "path";
-import { DIST, LOCALES, readPage, readLocalePage, localePath, textOf } from "./helpers";
+import { DIST, LOCALES, readPage, readLocalePage, localePath, textOf, allCss } from "./helpers";
 
 const manifest = JSON.parse(
   readFileSync(resolve(__dirname, "../data/product-manifest.json"), "utf-8")
@@ -738,5 +738,60 @@ describe("Content truth: social preview metadata", () => {
       const og = head.match(/<meta property="og:description" content="([^"]*)"/)?.[1];
       expect(og, `${locale} og:description does not match`).toBe(own);
     }
+  });
+});
+
+describe("Content truth: shipped assets", () => {
+  /**
+   * Regression: ssg extracts inline <script> blocks into public/_csp/*.js and
+   * collapses each onto one line without converting `//` comments. The first
+   * comment then swallowed the rest of the file, and the homepage shipped a
+   * bundle that failed to parse — valid HTML, right content type, plausible
+   * size, and every behaviour it attached silently dead.
+   */
+  it("every shipped script parses", () => {
+    const broken: string[] = [];
+    for (const dir of ["_csp", "js"]) {
+      const full = resolve(DIST, dir);
+      if (!existsSync(full)) continue;
+      for (const name of readdirSync(full).filter((f) => f.endsWith(".js"))) {
+        const src = readFileSync(resolve(full, name), "utf-8");
+        try {
+          new Function(src);
+        } catch (err: any) {
+          if (/import|export/.test(src) && /Unexpected token|Cannot use import/.test(err.message)) continue;
+          broken.push(`${dir}/${name}: ${err.message}`);
+        }
+      }
+    }
+    expect(broken, `scripts that fail to parse: ${broken.join("; ")}`).toEqual([]);
+  });
+
+  /**
+   * The CSP is `style-src 'self' 'unsafe-hashes' <one hash>`, so any other
+   * inline style attribute is blocked. ssg's syntax highlighter emitted nine of
+   * them across ~23,000 occurrences: every code block shipped unstyled and
+   * logged a violation. They are rewritten to classes after the build.
+   */
+  it("ships no inline style attribute the CSP would block", () => {
+    const offenders: string[] = [];
+    for (const file of allPages()) {
+      const m = readFileSync(file, "utf-8").match(/\sstyle="[^"]*"/);
+      if (m) offenders.push(`${file.slice(DIST.length + 1)}: ${m[0].trim()}`);
+    }
+    expect(offenders, `inline styles: ${offenders.slice(0, 4).join(", ")}`).toEqual([]);
+  });
+
+  it("keeps the highlighter palette reachable as classes", () => {
+    const css = allCss();
+    const palette = JSON.parse(
+      readFileSync(resolve(__dirname, "../data/highlight-classes.json"), "utf-8")
+    ).palette;
+    const missing = Object.values<string>(palette).filter(
+      (cls) => !new RegExp(`\\.${cls}\\s*\\{`).test(css)
+    );
+    expect(missing, `palette classes with no CSS rule: ${missing.join(", ")}`).toEqual([]);
+    // And the rewrite actually happened, rather than the classes going unused.
+    expect(readPage("."), "code blocks were not rewritten to classes").toMatch(/class="[^"]*hl-/);
   });
 });

@@ -4,6 +4,14 @@ import { translateChrome } from "./translate-chrome.mjs";
 import { slugFor, routeFor, pathFor } from "./route-slugs.mjs";
 import { translateLive } from "./translate-live.mjs";
 
+/** Highlighter inline-style declarations mapped to classes; see the data file. */
+const HL_PALETTE = JSON.parse(
+  fs.readFileSync(new URL("../data/highlight-classes.json", import.meta.url), "utf8")
+).palette;
+
+/** Inline styles found that no class covers. Collected, then fails the build. */
+const unmappedStyles = new Map();
+
 const publicDir = path.resolve("public");
 
 /** Scripts that render right-to-left, keyed by primary subtag. */
@@ -235,6 +243,46 @@ function retargetMovedLinks(body) {
 }
 
 /**
+ * Replace inline style attributes with classes.
+ *
+ * The site's CSP is `style-src 'self' 'unsafe-hashes' <one hash>`, so exactly
+ * one inline style declaration is permitted and every other is blocked. ssg's
+ * syntax highlighter emits nine of them across roughly 23,000 occurrences, so
+ * every code block on the site shipped unstyled and logged a CSP violation.
+ * Lighthouse's best-practices score is what surfaced it.
+ *
+ * Rewriting to classes removes inline styles entirely, rather than widening the
+ * policy to admit them. An unmapped declaration is recorded and fails the build:
+ * a new highlighter colour must not silently ship blocked.
+ */
+function inlineStylesToClasses(html, filePath) {
+  return html.replace(/(<[a-zA-Z][\w-]*\b[^>]*?)\sstyle="([^"]*)"/g, (match, open, decl) => {
+    const cls = HL_PALETTE[decl];
+    if (!cls) {
+      if (!unmappedStyles.has(decl)) unmappedStyles.set(decl, filePath);
+      return match;
+    }
+    // Merge into an existing class attribute rather than adding a second one.
+    if (/\sclass="/.test(open)) {
+      return open.replace(/\sclass="([^"]*)"/, (_m, existing) => ` class="${existing} ${cls}"`);
+    }
+    return `${open} class="${cls}"`;
+  });
+}
+
+/** Fail the build if any inline style survived, since the CSP blocks it. */
+export function assertNoUnmappedStyles() {
+  if (unmappedStyles.size === 0) return;
+  const lines = [...unmappedStyles.entries()].map(
+    ([decl, file]) => `  - ${decl}  (first seen in ${path.relative(publicDir, file)})`
+  );
+  throw new Error(
+    `Inline style attributes the CSP will block, with no class mapping:\n${lines.join("\n")}\n\n` +
+      `Add each to data/highlight-classes.json and define the class in the layouts.`
+  );
+}
+
+/**
  * Normalise <html> so every page declares its real language and RTL locales
  * carry dir="rtl".
  *
@@ -433,6 +481,9 @@ function repairHtml(content, filePath) {
   // 3b. Repoint any hardcoded /<locale>/<english-route>/ link at the slug
   body = retargetMovedLinks(body);
 
+  // 3c. Inline styles to classes — the CSP blocks all but one hashed value
+  body = inlineStylesToClasses(body, filePath);
+
   // 4. Translate site chrome, fill unresolved placeholders, reduce whitespace
   const locale = localeFromPath(filePath);
   // translateLive replaces the contents of the workbench's data-i18n elements.
@@ -469,4 +520,5 @@ if (fs.existsSync(publicDir)) {
 
   const repaired = processHtmlFiles(publicDir);
   console.log(`Repaired HTML in ${repaired} files in public/`);
+  assertNoUnmappedStyles();
 }
