@@ -4,3 +4,6 @@ docs/.vitepress/cache/
 docs_build/
 public.build-tmp/
 public/
+
+# Diagnostic screenshots from scripts/check-mobile-overflow.mjs --screenshots
+audit/mobile_*.png

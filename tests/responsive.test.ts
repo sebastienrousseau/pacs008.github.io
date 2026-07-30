@@ -237,3 +237,94 @@ describe("Styling: favicon", () => {
     expect(readPage("about")).toMatch(/<img[^>]*cloudcdn\.pro[^>]*pacs008\.svg/);
   });
 });
+
+describe("Responsive: mobile navigation", () => {
+  const css = allCss();
+
+  /**
+   * Regression: _layouts/try.html shipped a five-item navigation with no
+   * collapse — no burger, no toggle, two media queries against page.html's
+   * fourteen. Its minimum width was ~748px, so mobile Chrome widened the layout
+   * viewport to fit it and zoomed the whole page out. The reported symptom was
+   * text clipped at the leading edge.
+   *
+   * Measured properly by `npm run mobile`, which drives real device metrics over
+   * CDP. This asserts the mechanism that fix depends on, so it cannot be removed
+   * without a test failing even when nobody runs the browser check.
+   */
+  it("every layout with a nav can collapse it", () => {
+    // Assert the markup, not the string: `ap-burger` also appears in the CSS,
+    // so a substring check passes with the control deleted — which it did, and
+    // left the menu collapsed with no way to open it.
+    for (const layout of ["page", "try"]) {
+      const src = readFileSync(resolve(__dirname, `../_layouts/${layout}.html`), "utf-8");
+      expect(src, `${layout}.html has no burger label element`).toMatch(
+        /<label[^>]*class="ap-burger"[^>]*for="ap-menu-toggle"|<label[^>]*for="ap-menu-toggle"[^>]*class="ap-burger"/
+      );
+      expect(src, `${layout}.html has no toggle input`).toMatch(
+        /<input[^>]*id="ap-menu-toggle"/
+      );
+    }
+  });
+
+  // The collapse hides the menu; the control is what reopens it. Losing the
+  // control is not an overflow fault, so the overflow check cannot catch it —
+  // the built pages have to be asserted directly.
+  it("ships the burger control on the built pages, not just in the layouts", () => {
+    for (const route of [".", "about", "live", "fr/essayer"]) {
+      const html = readPage(route);
+      expect(html, `${route} has no burger control`).toMatch(/class="?ap-burger"?/);
+      expect(html, `${route} has no toggle input`).toMatch(/id="?ap-menu-toggle"?/);
+    }
+  });
+
+  it("hides the horizontal menu below the desktop breakpoint", () => {
+    // The rule that actually does the collapsing.
+    expect(css).toMatch(/@media[^{]*max-width:\s*1180px[^{]*\{[^]*?\.ap-burger\s*\{\s*display:\s*inline-flex/);
+  });
+
+  /**
+   * Grid children default to min-width:auto and refuse to shrink below their
+   * min-content width, which long tokens like `requested_execution_date` set
+   * above a phone's width. Both halves are needed: the item must be allowed to
+   * shrink and the content must be allowed to wrap.
+   */
+  it("lets grid children shrink and long tokens wrap", () => {
+    expect(css).toMatch(/\.guide-grid\s*>\s*\*[^{]*\{[^}]*min-width:\s*0/);
+    expect(css).toMatch(/overflow-wrap:\s*anywhere/);
+  });
+
+  // A <select> sizes to its widest <option> and does not shrink. This was
+  // locale-dependent: French option text overflowed where English fitted.
+  it("keeps the sample selector within the viewport", () => {
+    expect(css).toMatch(/\.pill-select\s*\{[^}]*max-width:\s*100%/);
+  });
+});
+
+describe("Styling: brand logo", () => {
+  const logo = resolve(DIST, "logo.webp");
+
+  /**
+   * Regression: /logo.webp was a different, older mark — a teal sunburst rather
+   * than the current waves-and-sun logo. It is used by the homepage nav, the
+   * workbench nav and the PWA manifest icon, so three surfaces showed the wrong
+   * brand while content pages showed the right one.
+   */
+  it("ships at the size the PWA manifest declares", () => {
+    expect(existsSync(logo)).toBe(true);
+    const manifest = JSON.parse(readFileSync(resolve(DIST, "manifest.json"), "utf-8"));
+    const icon = (manifest.icons ?? []).find((i: any) => i.src.includes("logo.webp"));
+    expect(icon, "manifest does not reference logo.webp").toBeTruthy();
+    expect(icon.sizes).toBe("512x512");
+  });
+
+  it("is the current brand, not the superseded mark", () => {
+    // The old file was 66,712 bytes of teal-sunburst artwork. The current mark,
+    // rendered from the same source as the favicon, is far smaller. A byte-size
+    // assertion is crude but it is the one check that fails if the old asset
+    // returns, without adding an image-diff dependency.
+    const bytes = readFileSync(logo).length;
+    expect(bytes).toBeLessThan(30_000);
+    expect(bytes).toBeGreaterThan(2_000);
+  });
+});
