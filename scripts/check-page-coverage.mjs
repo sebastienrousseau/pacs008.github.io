@@ -13,7 +13,7 @@
  */
 import { readdirSync, existsSync, readFileSync } from "fs";
 import { join } from "path";
-import { slugFor, SLUGGED_ROUTES } from "./route-slugs.mjs";
+import { slugFor, SLUGGED_ROUTES, ENGLISH_ONLY_ROUTES } from "./route-slugs.mjs";
 
 const publicDir = join(process.cwd(), "public");
 
@@ -71,12 +71,35 @@ for (const route of [...LOCALE_ROUTES, ...MESSAGE_ROUTES, ...Object.keys(ENGLISH
 if (!existsSync(join(publicDir, "index.html"))) failures.push("en: no home page");
 
 // --- No locale publishes an English-only route ----------------------------
-// These pages state licensing, security posture and conformance. A locale copy
-// would restate those claims in a language that cannot be verified here.
+// These pages state licensing, security posture and conformance, or hold UI
+// strings that are not in the translation registries. A locale copy would
+// restate those claims in a language that cannot be verified here.
+//
+// A redirect stub at the locale path is fine and deliberate — it sends a reader
+// who guessed /fr/live/ to the English page instead of a 404 — so the check is
+// that anything sitting there IS a stub, not that nothing sits there. Getting
+// this wrong in the other direction would let a real translated copy of the
+// Trust Centre ship unnoticed.
+// Both markers, checked independently: the stub template emits robots before
+// refresh, and a single ordered pattern silently reported every stub as a real
+// page.
+const isRedirectStub = (html) =>
+  /<meta http-equiv="refresh"/i.test(html) &&
+  /<meta name="robots" content="noindex/i.test(html);
 for (const locale of LOCALES) {
   for (const route of Object.keys(ENGLISH_ONLY)) {
-    if (present(locale, route)) {
-      failures.push(`${locale}: has a copy of ${route}, which is English-canonical`);
+    // 404 has no locale stub: the host serves it for any unmatched path.
+    if (route === "404") {
+      if (present(locale, route)) failures.push(`${locale}: has a copy of 404`);
+      continue;
+    }
+    if (!present(locale, route)) {
+      failures.push(`${locale}: /${locale}/${route}/ has no redirect stub to the English page`);
+      continue;
+    }
+    const html = readFileSync(join(publicDir, locale, route, "index.html"), "utf8");
+    if (!isRedirectStub(html)) {
+      failures.push(`${locale}: /${locale}/${route}/ is a real page, but ${route} is English-canonical`);
     }
   }
 }
@@ -89,8 +112,10 @@ for (const locale of LOCALES) {
   const allowed = new Set([
     ...LOCALE_ROUTES.map((r) => slugFor(locale, r)),
     ...MESSAGE_ROUTES,
-    // Redirect stubs for routes this locale renamed.
+    // Redirect stubs: routes this locale renamed, plus the English-only
+    // routes a reader might guess a locale path for.
     ...SLUGGED_ROUTES.filter((r) => slugFor(locale, r) !== r),
+    ...ENGLISH_ONLY_ROUTES,
   ]);
   expectedSlugs.set(locale, allowed);
 
@@ -117,6 +142,6 @@ if (failures.length > 0) {
 console.log(
   `Page coverage OK: ${LOCALES.length} locales x ` +
     `${LOCALE_ROUTES.length + MESSAGE_ROUTES.length} routes (${localePages} pages), ` +
-    `English ${enPages}, ${Object.keys(ENGLISH_ONLY).length} English-only routes ` +
-    `with no locale copies.`
+    `English ${enPages}, ${Object.keys(ENGLISH_ONLY).length} English-canonical routes ` +
+    `reached from every locale by stub, none translated.`
 );

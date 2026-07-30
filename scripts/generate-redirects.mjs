@@ -19,9 +19,9 @@
  * reader on a blank page with no way forward, which is worse than the 404 this
  * exists to prevent.
  */
-import { mkdirSync, writeFileSync, existsSync } from "fs";
+import { mkdirSync, writeFileSync, readFileSync, existsSync } from "fs";
 import { join, resolve } from "path";
-import { movedPaths } from "./route-slugs.mjs";
+import { movedPaths, ENGLISH_ONLY_ROUTES } from "./route-slugs.mjs";
 
 const publicDir = resolve("public");
 const SITE_ORIGIN = "https://pacs008.com";
@@ -66,7 +66,22 @@ if (!existsSync(publicDir)) {
   throw new Error("public/ does not exist — run the site build first");
 }
 
-const moved = movedPaths(LOCALES);
+// English-only routes get a locale stub too: the workbench is the site's main
+// call to action, and a reader who reaches for /fr/live/ — or is sent the link
+// by a colleague — got a 404. Sending them to the English page is what the
+// navigation already does.
+const moved = [
+  ...movedPaths(LOCALES),
+  ...LOCALES.flatMap((locale) =>
+    ENGLISH_ONLY_ROUTES.map((route) => ({
+      locale,
+      route,
+      from: `/${locale}/${route}/`,
+      to: `/${route}/`,
+    }))
+  ),
+];
+
 let written = 0;
 const clobbered = [];
 
@@ -79,9 +94,20 @@ for (const { locale, from, to } of moved) {
   // replace B's content with a redirect — the exact failure the registry's
   // collision check exists to prevent, asserted again here against the built
   // tree in case a page arrives from somewhere other than the registry.
+  //
+  // An existing *stub* is fine to overwrite. Distinguishing the two keeps this
+  // script idempotent: builds remove public/ first (D-004), but running it
+  // twice by hand should not report every stub it wrote last time as a page it
+  // is about to destroy.
   if (existsSync(file)) {
-    clobbered.push(from);
-    continue;
+    const existing = readFileSync(file, "utf8");
+    const isStub =
+      /<meta http-equiv="refresh"/i.test(existing) &&
+      /<meta name="robots" content="noindex/i.test(existing);
+    if (!isStub) {
+      clobbered.push(from);
+      continue;
+    }
   }
 
   mkdirSync(dir, { recursive: true });
@@ -95,4 +121,8 @@ if (clobbered.length > 0) {
   );
 }
 
-console.log(`Redirect stubs written: ${written} old URL(s) still resolve.`);
+const retired = movedPaths(LOCALES).length;
+console.log(
+  `Redirect stubs written: ${written} ` +
+    `(${retired} retired URLs, ${written - retired} locale paths for English-only routes).`
+);

@@ -12,7 +12,7 @@
  */
 import { readFileSync, writeFileSync, readdirSync, statSync } from "fs";
 import { join, relative, sep } from "path";
-import { routeFor, pathFor, movedPaths } from "./route-slugs.mjs";
+import { routeFor, pathFor, stubPaths } from "./route-slugs.mjs";
 
 const publicDir = join(process.cwd(), "public");
 const dataDir = join(process.cwd(), "data");
@@ -72,8 +72,9 @@ function urlFor(locale, path) {
 
 // Redirect stubs are real files under public/, but they are noindex and own no
 // content. Listing them would ask search engines to index the very URLs the
-// stubs exist to retire.
-const stubs = new Set(movedPaths([...LOCALES]).map((m) => m.from.slice(1, -1)));
+// stubs exist to retire — and would file each locale stub of an English-only
+// page as a translation of it, which is the opposite of what the stub says.
+const stubs = new Set(stubPaths([...LOCALES]).map((p) => p.slice(1, -1)));
 
 const routes = collectRoutes()
   .filter((route) => !stubs.has(route))

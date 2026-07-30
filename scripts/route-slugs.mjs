@@ -95,6 +95,35 @@ export function movedPaths(locales) {
   return moved;
 }
 
+/**
+ * Routes published only in English, for which each locale still gets a stub.
+ *
+ * trust and accessibility state licensing, security posture and conformance —
+ * the prose is the claim, so an unreviewed translation would restate it in a
+ * language nobody here can verify. live is the interactive workbench, whose UI
+ * strings are not in the translation registries.
+ *
+ * A reader who guesses /fr/live/ still gets somewhere. The stub is noindex and
+ * canonicalises to the English URL, so it is not a claim that a translation
+ * exists.
+ */
+export const ENGLISH_ONLY_ROUTES = ["live", "trust", "accessibility"];
+
+/**
+ * Every path that holds a redirect stub rather than a page.
+ *
+ * Defined once because three scripts need to agree on it. generate-redirects
+ * writes them; generate-sitemap must exclude them, or the sitemap asks search
+ * engines to index the URLs the stubs exist to retire and reports the stubs as
+ * translations of the English pages; check-page-coverage must allow them.
+ */
+export function stubPaths(locales) {
+  return [
+    ...movedPaths(locales).map((m) => m.from),
+    ...locales.flatMap((l) => ENGLISH_ONLY_ROUTES.map((r) => `/${l}/${r}/`)),
+  ];
+}
+
 const SLUG_SHAPE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 /**

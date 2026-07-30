@@ -354,8 +354,40 @@ verifying the author link required quotes and reported the home page as the one
 failure out of 761 — the link was present, the check was wrong. `attr()` in
 tests/helpers.ts exists for the same reason.
 
+### Locale paths for English-only routes
+
+`/fr/live/` returned a 404. Nothing linked to it — the navigation on a French
+page correctly points at `/live/` — but the workbench is the site's main call to
+action, and a reader who reaches for the locale path, or is sent the link by a
+colleague, hit a dead end.
+
+Every locale now gets a stub at `live`, `trust` and `accessibility` pointing at
+the English page. That is what the navigation already does, and it is not a
+claim a translation exists: the stub is noindex and canonicalises to the English
+URL.
+
+Three things had to agree for that to be true rather than merely appear true:
+
+- The sitemap excludes them. Left in, it listed 81 extra URLs and reported 30
+  translated pages instead of 27 — filing each stub as an alternate of the
+  English page, the opposite of what the stub says.
+- hreflang is generated before the stubs are written, so the English pages do
+  not advertise 27 translations they do not have. A test asserts this, so the
+  ordering in build.sh cannot be changed silently.
+- The coverage check now asserts anything at those paths **is** a stub, rather
+  than that nothing is there. Getting that backwards would let a real
+  translation of the Trust Centre ship unnoticed.
+
+`stubPaths()` in route-slugs.mjs is the single definition, because
+generate-redirects writes them, generate-sitemap must exclude them and
+check-page-coverage must allow them.
+
 ### Supporting checks
 
-Four probes, each run against the built tree: a broken href, a missing page, a
-stale directory, and a removed author link. All four fail, and both scripts exit
-non-zero so the build stops.
+Six probes, each run against the built tree: a broken href, a missing page, a
+stale directory, a removed author link, a stub overwriting a real page, and a
+guessed locale path. All fail, and both scripts exit non-zero so the build stops.
+
+generate-redirects is idempotent: it overwrites an existing stub but refuses to
+overwrite a real page, so running it twice by hand does not report every stub it
+wrote last time as a page it is about to destroy.

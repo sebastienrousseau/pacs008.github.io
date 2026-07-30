@@ -166,3 +166,72 @@ describe("Localised URLs: slug hygiene", () => {
     expect(existsSync(resolve(DIST, "fr", "pacs.008.001.13", "index.html"))).toBe(true);
   });
 });
+
+describe("Localised URLs: English-only routes", () => {
+  // trust and accessibility state licensing, security posture and conformance;
+  // live is the workbench, whose UI strings are not in the registries. None is
+  // translated. But the workbench is the site's main call to action, and a
+  // reader who reached for /fr/live/ — or was sent the link — got a 404.
+  const ENGLISH_ONLY = ["live", "trust", "accessibility"];
+
+  it("resolves the locale path for every English-only route", () => {
+    const missing: string[] = [];
+    for (const locale of LOCALES) {
+      for (const route of ENGLISH_ONLY) {
+        if (!existsSync(resolve(DIST, locale, route, "index.html"))) {
+          missing.push(`${locale}/${route}`);
+        }
+      }
+    }
+    expect(missing, `404 on guessed locale paths: ${missing.slice(0, 8).join(", ")}`).toEqual([]);
+  });
+
+  it("sends the reader to the English page, not a translation", () => {
+    for (const locale of ["fr", "ja", "ar"]) {
+      for (const route of ENGLISH_ONLY) {
+        const html = readPage(`${locale}/${route}`);
+        expect(html, `${locale}/${route} target`).toContain(
+          `<link rel="canonical" href="https://pacs008.com/${route}/">`
+        );
+        expect(html, `${locale}/${route} refresh`).toContain(`content="0; url=/${route}/"`);
+      }
+    }
+  });
+
+  // The stub must not read as a claim that a translation exists. If these URLs
+  // entered the sitemap they would be filed as alternates of the English page,
+  // which is the opposite of what the stub says.
+  it("keeps them out of the sitemap", () => {
+    const sitemap = readFileSync(resolve(DIST, "sitemap.xml"), "utf-8");
+    const listed: string[] = [];
+    for (const locale of LOCALES) {
+      for (const route of ENGLISH_ONLY) {
+        if (sitemap.includes(`https://pacs008.com/${locale}/${route}/`)) {
+          listed.push(`${locale}/${route}`);
+        }
+      }
+    }
+    expect(listed, `English-only stubs in sitemap: ${listed.slice(0, 5).join(", ")}`).toEqual([]);
+  });
+
+  it("still lists the English page itself", () => {
+    const sitemap = readFileSync(resolve(DIST, "sitemap.xml"), "utf-8");
+    for (const route of ENGLISH_ONLY) {
+      expect(sitemap, `${route} missing from sitemap`).toContain(
+        `<loc>https://pacs008.com/${route}/</loc>`
+      );
+    }
+  });
+
+  // hreflang is generated before the stubs are written, which is what keeps the
+  // English page from advertising 27 translations it does not have. Asserting it
+  // here so the ordering in build.sh cannot be changed without a test failing.
+  it("does not advertise the stubs as hreflang alternates", () => {
+    const html = readPage("live");
+    for (const locale of LOCALES) {
+      expect(html, `live claims a ${locale} translation`).not.toContain(
+        `hreflang="${locale}" href="https://pacs008.com/${locale}/live/"`
+      );
+    }
+  });
+});

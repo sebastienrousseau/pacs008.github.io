@@ -395,13 +395,23 @@ describe("Content truth: localised reference pages", () => {
   });
 
   // trust and accessibility are deliberately English-canonical.
-  it("does not generate locale copies of trust or accessibility", () => {
+  // A locale path may hold a redirect stub — that is deliberate, so a reader
+  // who guessed /fr/trust/ reaches the English page rather than a 404. What it
+  // must never hold is a translated copy: these pages state licensing,
+  // security posture and conformance, and an unreviewed translation would
+  // restate those claims in a language that cannot be verified here.
+  it("serves only redirect stubs, never translations, of English-canonical pages", () => {
     for (const locale of ["fr", "de", "ja"]) {
-      for (const route of ["trust", "accessibility"]) {
-        expect(
-          existsSync(resolve(DIST, localePath(locale, route), "index.html")),
-          `${locale}/${route} should stay English-canonical`
-        ).toBe(false);
+      for (const route of ["trust", "accessibility", "live"]) {
+        const file = resolve(DIST, locale, route, "index.html");
+        expect(existsSync(file), `${locale}/${route} should resolve, not 404`).toBe(true);
+        const html = readFileSync(file, "utf-8");
+        expect(html, `${locale}/${route} is a real page, not a stub`).toMatch(
+          /<meta http-equiv="refresh"/
+        );
+        expect(html, `${locale}/${route} stub should point at the English page`).toContain(
+          `href="https://pacs008.com/${route}/"`
+        );
       }
     }
   });
