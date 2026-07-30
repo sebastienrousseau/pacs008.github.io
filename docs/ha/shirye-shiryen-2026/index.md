@@ -16,7 +16,7 @@ image: /logo.webp
 
 # Shirye-shiryen ISO 20022 na 2026
 
-**Kwana 108** zuwa **14 ga Nuwamba 2026**, ya zuwa 2026-07-29.
+**Kwana 107** zuwa **14 ga Nuwamba 2026**, ya zuwa 2026-07-30.
 
 Daga wannan rana, adireshin gidan waya da ba shi da tsari gaba ɗaya ba za a ƙara karɓarsa a saƙonnin biyan kuɗi na SWIFT CBPR+ ko kuma laburaren tabbatarwa na CHAPS na Bankin Ingila. A rana ɗaya wasu canje-canje biyu suna fara aiki, kuma babban rukuni zai biyo baya a Nuwamba 2027.
 

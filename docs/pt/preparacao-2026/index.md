@@ -16,7 +16,7 @@ image: /logo.webp
 
 # Preparação ISO 20022 para 2026
 
-**108 dias** até **14 de novembro de 2026**, em 2026-07-29.
+**107 dias** até **14 de novembro de 2026**, em 2026-07-30.
 
 Nessa data, os endereços postais totalmente não estruturados deixam de ser aceites nas mensagens de pagamento SWIFT CBPR+ e pela biblioteca de validação CHAPS do Banco de Inglaterra. No mesmo dia entram em vigor outras duas alterações, e em novembro de 2027 segue-se um conjunto maior.
 

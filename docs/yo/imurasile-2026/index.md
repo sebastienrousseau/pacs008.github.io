@@ -16,7 +16,7 @@ image: /logo.webp
 
 # Ìmúrasílẹ̀ ISO 20022 fún 2026
 
-**Ọjọ́ 108** sí **14 November 2026**, ní 2026-07-29.
+**Ọjọ́ 107** sí **14 November 2026**, ní 2026-07-30.
 
 Láti ọjọ́ yẹn, àwọn àdírẹ́sì ìfìwéránṣẹ́ tí kò ní ètò rárá kò ní jẹ́ ìtẹ́wọ́gbà mọ́ nínú àwọn ìránṣẹ́ ìsanwó SWIFT CBPR+ àti nípasẹ̀ ilé-ìkàwé ìjẹ́rìísí CHAPS ti Bank of England. Ní ọjọ́ kan náà, ìyípadà méjì mìíràn tún bẹ̀rẹ̀, ìtòlẹ́sẹẹsẹ tí ó tóbi jù yóò sì tẹ̀lé ní November 2027.
 

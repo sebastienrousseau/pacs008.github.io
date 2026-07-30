@@ -302,3 +302,60 @@ slug, so the stubs serve external traffic only.
   anywhere links to a retired URL. The suite opens by asserting the move is
   non-empty, so a registry that silently emptied cannot make the rest pass
   vacuously.
+
+## D-006: Link and coverage gates in the build
+
+**Date:** 2026-07-30
+**Status:** Implemented
+
+### Problem
+
+The site is 1,022 files across 28 locales, produced by a pipeline that rewrites
+hrefs three times after generation — locale prefixing, slug retargeting and
+chrome translation — on top of a per-locale slug map and 261 redirect stubs.
+
+Every one of those mechanisms edits links, and a broken internal link is
+invisible to the page that holds it. Nothing fails; the reader lands on a 404.
+Existing checks could not have caught one: the artefact floors count pages, the
+compliance audit reads each page in isolation, and the test suite asserts
+specific links rather than sweeping all of them.
+
+Asked to validate the links, the first sweep found the favicon and
+apple-touch-icon pointing at `/pacs008/v1/logos/pacs008.svg` on all 761 pages —
+site-relative, while the logo is served from cloudcdn.pro. Every page had a
+404 favicon, and had since the CDN logo was adopted.
+
+### Decision
+
+Two gates run at the end of every build, before the artefact floors.
+
+`scripts/check-links.mjs` resolves every href and src against the built tree,
+plus three classes of URL the site advertises rather than links: `rel=canonical`,
+`hreflang` alternates, and sitemap `<loc>`. Those three are separated because a
+canonical or hreflang pointing at a 404 is worse than a broken anchor — it is
+the site telling search engines the wrong thing, which is exactly what D-005
+found on 759 pages.
+
+`scripts/check-page-coverage.mjs` checks the converse: that every locale
+publishes every route at its own slug, that English publishes the English-only
+routes, that no locale holds a copy of an English-canonical page, and that
+nothing unexpected sits at a locale's top level.
+
+That last check is the important one. A stale directory surviving a rename
+still serves, still gets indexed, and is frozen at whatever last wrote it —
+the failure the slug migration had to prune 261 instances of. A checker that
+only looked for missing pages would have called that tree healthy.
+
+### Attribute quoting
+
+Both gates accept quoted and bare attribute values. ssg minifies some pages and
+not others, so `href="/about/"` and `href=/about/` both ship. A first pass at
+verifying the author link required quotes and reported the home page as the one
+failure out of 761 — the link was present, the check was wrong. `attr()` in
+tests/helpers.ts exists for the same reason.
+
+### Supporting checks
+
+Four probes, each run against the built tree: a broken href, a missing page, a
+stale directory, and a removed author link. All four fail, and both scripts exit
+non-zero so the build stops.

@@ -16,7 +16,7 @@ image: /logo.webp
 
 # ISO 20022-beredskap 2026
 
-**108 dagar** till **14 november 2026**, per 2026-07-29.
+**107 dagar** till **14 november 2026**, per 2026-07-30.
 
 Från det datumet accepteras inte längre helt ostrukturerade postadresser i SWIFT CBPR+-betalningsmeddelanden eller av Bank of Englands CHAPS-valideringsbibliotek. Samma dag träder ytterligare två ändringar i kraft, och i november 2027 följer en större uppsättning.
 

@@ -16,7 +16,7 @@ image: /logo.webp
 
 # Sẵn sàng ISO 20022 cho 2026
 
-**108 ngày** đến **14 tháng 11 năm 2026**, tính đến 2026-07-29.
+**107 ngày** đến **14 tháng 11 năm 2026**, tính đến 2026-07-30.
 
 Từ ngày đó, địa chỉ bưu chính hoàn toàn phi cấu trúc sẽ không còn được chấp nhận trong thông điệp thanh toán SWIFT CBPR+ và bởi thư viện kiểm tra CHAPS của Ngân hàng Anh. Hai thay đổi khác cũng có hiệu lực cùng ngày, và một nhóm lớn hơn sẽ đến vào tháng 11 năm 2027.
 

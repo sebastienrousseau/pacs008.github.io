@@ -16,7 +16,7 @@ image: /logo.webp
 
 # Kesiapan ISO 20022 untuk 2026
 
-**108 hari** menuju **14 November 2026**, per 2026-07-29.
+**107 hari** menuju **14 November 2026**, per 2026-07-30.
 
 Mulai tanggal tersebut, alamat pos yang sepenuhnya tidak terstruktur tidak lagi diterima dalam pesan pembayaran SWIFT CBPR+ maupun oleh pustaka validasi CHAPS Bank of England. Dua perubahan lain berlaku pada hari yang sama, dan rangkaian yang lebih besar menyusul pada November 2027.
 

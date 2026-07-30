@@ -69,6 +69,12 @@ fi
 # Clean up temporary build directory
 rm -rf docs_build
 
+# Verify every internal link, canonical, hreflang and sitemap URL resolves
+node scripts/check-links.mjs
+
+# Verify the built tree holds exactly the pages it should, no more and no less
+node scripts/check-page-coverage.mjs
+
 # Fail if any generated artefact came out degenerate
 node scripts/check-build-artifacts.mjs
 

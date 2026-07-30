@@ -569,3 +569,37 @@ describe("Content truth: footer translation", () => {
     }
   });
 });
+
+describe("Content truth: author attribution", () => {
+  // Required on every page in every locale. The footer credit must be a link
+  // to the author's own site, not bare text.
+  const AUTHOR = /href=(?:"https:\/\/sebastienrousseau\.com\/"|https:\/\/sebastienrousseau\.com\/)\s+rel=(?:"author"|author)/;
+
+  /** Redirect stubs hold no footer; they are not pages. */
+  function contentPages(): string[] {
+    return allPages().filter(
+      (f) => !/<meta http-equiv="refresh"/i.test(readFileSync(f, "utf-8"))
+    );
+  }
+
+  it("every page links the copyright name to the author's site", () => {
+    const missing = contentPages()
+      .filter((f) => !AUTHOR.test(readFileSync(f, "utf-8")))
+      .map((f) => f.slice(DIST.length + 1));
+    expect(missing, `pages without the author link: ${missing.slice(0, 6).join(", ")}`)
+      .toEqual([]);
+  });
+
+  // The three layouts render different footers — page, home and workbench —
+  // and each had its own copy of the credit line.
+  it("covers all three layouts, not just the page layout", () => {
+    for (const route of [".", "live", localePath("fr", "about")]) {
+      expect(readPage(route), `${route} has no author link`).toMatch(AUTHOR);
+    }
+  });
+
+  it("keeps the credit adjacent to the copyright notice", () => {
+    const text = textOf(readPage("."));
+    expect(text).toMatch(/©\s*2023[–-]2026\s*Sebastien Rousseau/);
+  });
+});

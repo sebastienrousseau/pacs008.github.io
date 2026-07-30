@@ -16,7 +16,7 @@ image: /logo.webp
 
 # Gotowość ISO 20022 na 2026
 
-**108 dni** do **14 listopada 2026**, stan na 2026-07-29.
+**107 dni** do **14 listopada 2026**, stan na 2026-07-30.
 
 Od tego dnia adresy pocztowe całkowicie niestrukturalne przestaną być akceptowane w komunikatach płatniczych SWIFT CBPR+ oraz przez bibliotekę walidacyjną CHAPS Banku Anglii. Tego samego dnia wchodzą w życie dwie inne zmiany, a w listopadzie 2027 nastąpi szerszy zestaw.
 
