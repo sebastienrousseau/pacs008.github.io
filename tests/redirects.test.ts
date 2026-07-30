@@ -168,11 +168,12 @@ describe("Localised URLs: slug hygiene", () => {
 });
 
 describe("Localised URLs: English-only routes", () => {
-  // trust and accessibility state licensing, security posture and conformance;
-  // live is the workbench, whose UI strings are not in the registries. None is
-  // translated. But the workbench is the site's main call to action, and a
-  // reader who reached for /fr/live/ — or was sent the link — got a 404.
-  const ENGLISH_ONLY = ["live", "trust", "accessibility"];
+  // trust and accessibility state licensing, security posture and conformance,
+  // where the prose is the claim. The workbench used to be on this list on the
+  // grounds that its strings were not in a registry — a description of the
+  // tooling, not a reason — so the strings were put in one and /live/ is now
+  // translated. See data/live-copy.json.
+  const ENGLISH_ONLY = ["trust", "accessibility"];
 
   it("resolves the locale path for every English-only route", () => {
     const missing: string[] = [];
@@ -223,14 +224,35 @@ describe("Localised URLs: English-only routes", () => {
     }
   });
 
-  // hreflang is generated before the stubs are written, which is what keeps the
-  // English page from advertising 27 translations it does not have. Asserting it
-  // here so the ordering in build.sh cannot be changed without a test failing.
+  // hreflang is generated before the stubs are written, which is what keeps an
+  // English-canonical page from advertising 27 translations it does not have.
+  // Asserting it here so the ordering in build.sh cannot change silently.
   it("does not advertise the stubs as hreflang alternates", () => {
-    const html = readPage("live");
+    const html = readPage("trust");
     for (const locale of LOCALES) {
-      expect(html, `live claims a ${locale} translation`).not.toContain(
+      expect(html, `trust claims a ${locale} translation`).not.toContain(
+        `hreflang="${locale}" href="https://pacs008.com/${locale}/trust/"`
+      );
+    }
+  });
+
+  // The workbench is the opposite case: it *is* translated, so it must
+  // advertise each locale at its slug — and never at the retired /xx/live/ path,
+  // which is now a noindex stub.
+  it("advertises the workbench translations at their slugs, not the stub paths", () => {
+    const html = readPage("live");
+    expect(html).toContain('hreflang="fr" href="https://pacs008.com/fr/essayer/"');
+    expect(html).toContain('hreflang="de" href="https://pacs008.com/de/ausprobieren/"');
+    // Only locales with a translated slug retired /xx/live/. The others publish
+    // the workbench there, so /ar/live/ is the page, not a stub.
+    for (const locale of LOCALES) {
+      const slug = ROUTES.live?.[locale];
+      if (!slug) continue;
+      expect(html, `live points at the retired ${locale} path`).not.toContain(
         `hreflang="${locale}" href="https://pacs008.com/${locale}/live/"`
+      );
+      expect(html, `live omits the ${locale} translation`).toContain(
+        `hreflang="${locale}" href="https://pacs008.com/${locale}/${slug}/"`
       );
     }
   });

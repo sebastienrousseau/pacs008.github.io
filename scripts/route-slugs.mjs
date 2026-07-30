@@ -98,16 +98,30 @@ export function movedPaths(locales) {
 /**
  * Routes published only in English, for which each locale still gets a stub.
  *
- * trust and accessibility state licensing, security posture and conformance —
- * the prose is the claim, so an unreviewed translation would restate it in a
- * language nobody here can verify. live is the interactive workbench, whose UI
- * strings are not in the translation registries.
+ * Both state licensing, security posture or conformance, where the prose *is*
+ * the claim: an unreviewed translation would restate it in a language nobody
+ * here can verify. The Apache licence text is excluded for the same reason.
  *
- * A reader who guesses /fr/live/ still gets somewhere. The stub is noindex and
- * canonicalises to the English URL, so it is not a claim that a translation
- * exists.
+ * The workbench used to be on this list, on the grounds that its strings were
+ * not in the translation registries. That was a description of the tooling, not
+ * a reason — it is the site's main call to action, so the strings were put in a
+ * registry instead. See data/live-copy.json.
+ *
+ * A reader who guesses /fr/trust/ still gets somewhere. The stub is noindex and
+ * canonicalises to the English URL, so it is not a claim a translation exists.
  */
-export const ENGLISH_ONLY_ROUTES = ["live", "trust", "accessibility"];
+export const ENGLISH_ONLY_ROUTES = ["trust", "accessibility"];
+
+/**
+ * English routes retired outright, mapped to what replaced them.
+ *
+ * /try/ and /live/ were two source pages with identical content, each
+ * canonicalising to itself — duplicate content splitting its own signals. 785
+ * pages linked /live/; only the workbench's own navigation linked /try/. /live/
+ * wins on that evidence, and /try/ keeps a stub because it was published and
+ * indexed.
+ */
+export const RETIRED_ROUTES = { try: "/live/" };
 
 /**
  * Every path that holds a redirect stub rather than a page.
@@ -121,6 +135,7 @@ export function stubPaths(locales) {
   return [
     ...movedPaths(locales).map((m) => m.from),
     ...locales.flatMap((l) => ENGLISH_ONLY_ROUTES.map((r) => `/${l}/${r}/`)),
+    ...Object.keys(RETIRED_ROUTES).map((r) => `/${r}/`),
   ];
 }
 

@@ -8,8 +8,22 @@
     "A slug, once published, is permanent. Changing one requires a new redirect stub, never an edit in place."
   ],
   "latin_script_locales": [
-    "cs", "de", "es", "fr", "ha", "id", "it", "nl", "pl", "pt",
-    "ro", "sv", "tl", "tr", "vi", "yo"
+    "cs",
+    "de",
+    "es",
+    "fr",
+    "ha",
+    "id",
+    "it",
+    "nl",
+    "pl",
+    "pt",
+    "ro",
+    "sv",
+    "tl",
+    "tr",
+    "vi",
+    "yo"
   ],
   "routes": {
     "2026-readiness": {
@@ -318,6 +332,24 @@
       "tr": "kosullar",
       "vi": "dieu-khoan",
       "yo": "awon-ofin"
+    },
+    "live": {
+      "cs": "vyzkousejte",
+      "de": "ausprobieren",
+      "es": "probar",
+      "fr": "essayer",
+      "ha": "gwada",
+      "id": "coba",
+      "it": "prova",
+      "nl": "uitproberen",
+      "pl": "wyprobuj",
+      "pt": "experimentar",
+      "ro": "incearca",
+      "sv": "prova",
+      "tl": "subukan",
+      "tr": "deneyin",
+      "vi": "dung-thu",
+      "yo": "dan-wo"
     }
   }
 }

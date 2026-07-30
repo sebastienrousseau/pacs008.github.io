@@ -391,3 +391,109 @@ guessed locale path. All fail, and both scripts exit non-zero so the build stops
 generate-redirects is idempotent: it overwrites an existing stub but refuses to
 overwrite a real page, so running it twice by hand does not report every stub it
 wrote last time as a page it is about to destroy.
+
+## D-007: Translating the workbench
+
+**Date:** 2026-07-30
+**Status:** Mechanism complete; copy complete in 4 of 27 locales
+
+### Problem
+
+`/live/` is the site's main call to action and was English-only. A French reader
+following "Voir en direct" left their language. The previous decision — a
+redirect stub to the English page — was the right stopgap and the wrong answer.
+
+The earlier justification was that the workbench's strings "are not in the
+translation registries". That describes the tooling, not a reason. So they were
+put in one.
+
+### Mechanism
+
+The workbench has no Markdown substance: the page is `_layouts/try.html`, and
+ssg has no per-locale template. Each translatable unit therefore carries a
+`data-i18n` key, and `scripts/translate-live.mjs` replaces that element's
+contents after the build.
+
+Marking the **element**, not the text, is what makes the translations usable.
+The English sentences wrap inline `<code>`, `<strong>`, `<em>` and `<a>`; keying
+each text fragment separately would have frozen every language into English word
+order. The cost is that values are HTML, so `validateLiveCopy()` checks tag
+parity, `**` emphasis parity, and that ISO identifiers survive verbatim. All
+three are things a plausible translation gets wrong while still rendering.
+
+Replacement counts nested same-name tags to find the close tag. Matching to the
+first `</p>` would truncate mid-element and orphan close tags, because the page
+nests `<span>` in `<li>` and `<code>` in `<p>`.
+
+### `/try/` was a duplicate
+
+`docs/try/` and `docs/live/` were byte-identical apart from a canonical pointing
+at itself — duplicate content splitting its own signals. 785 pages linked
+`/live/`; only the workbench's own navigation linked `/try/`, and that was a bug
+too. `/live/` won on the evidence and `/try/` keeps a stub.
+
+### Partial copy is declared, not hidden
+
+`_pending_locales` in `data/live-copy.json` names the 23 locales whose copy is
+outstanding. They render English by per-key fallback — what the page did before
+it was localised at all, so no regression.
+
+Two tests assert the list both ways: a locale cannot be dropped from it without
+failing, and cannot be claimed as done without failing either. A third asserts
+pending locales fall back to readable English rather than blanks. The count also
+prints on every build.
+
+### Social preview metadata
+
+Found while verifying the first translated page. ssg derives `og:description`,
+`twitter:description` and the JSON-LD description by scraping rendered text, and
+the scrape includes HTML comments — so a comment in `_layouts/page.html`
+explaining why the page title is not an `<h1>` was the social-share description
+on around 760 pages.
+
+It also broke localisation: the scrape runs while the layout is still English, so
+every locale workbench advertised English copy. All three now mirror
+`<meta name="description">`, which comes from translated front matter.
+
+The duplicate `description` meta that carried it survived an existing dedupe step
+because the pattern was `content=["'][^"']*["']`, which cannot match content
+containing the other quote character — and the scraped text says "the document's
+single h1".
+
+## D-008: Container padding is padding-block, never the shorthand
+
+**Date:** 2026-07-30
+**Status:** Implemented
+
+### Problem
+
+Reported from a phone: body text sat flush against the viewport edge with no
+gutter, and headings ran off the right.
+
+`.wrap` supplies `padding: 0 1.75rem`. `.content-shell` sits on the same element
+and set `padding: 3rem 0 4rem` — equal specificity, declared later, and a
+shorthand, so it reset the horizontal padding to zero.
+
+Desktop hid it completely. `.wrap` is `max-width: 1180px; margin: 0 auto`, so any
+viewport wider than 1180px still had a centring gutter that looked like padding.
+Every viewport narrower than that had none.
+
+### Decision
+
+A class that shares an element with `.wrap` states vertical padding as
+`padding-block` and horizontal as `padding-inline`, never the `padding`
+shorthand. Fixed in `.content-shell`, `.guide-grid` and `.ap-nav-wrap`.
+
+`.guide-grid` restated `1.75rem` and so was correct by luck rather than by
+construction; it is now correct by construction.
+
+### Supporting checks
+
+`tests/responsive.test.ts` asserts no class combined with `.wrap` uses the
+`padding` shorthand — verified to fail against the original rule. The invariant
+is on the cascade rather than on a screenshot, because this was a cascade bug.
+
+**Not visually confirmed at phone width.** Chrome's window resize did not change
+the viewport in this environment and an in-page style injection did not take
+effect, so the evidence is the shipped CSS measuring 28px inline padding plus the
+regression test. Worth a look on a real device.

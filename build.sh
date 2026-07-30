@@ -32,6 +32,9 @@ node scripts/generate-trust-page.mjs
 # Regenerate locale content
 node scripts/generate-locales.mjs
 
+# Write the workbench page for English and every locale
+node scripts/generate-live-pages.mjs
+
 # Create a temporary copy of docs directory for ssg compilation
 rm -rf docs_build
 mkdir -p docs_build

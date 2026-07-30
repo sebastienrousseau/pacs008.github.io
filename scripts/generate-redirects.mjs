@@ -21,7 +21,7 @@
  */
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from "fs";
 import { join, resolve } from "path";
-import { movedPaths, ENGLISH_ONLY_ROUTES } from "./route-slugs.mjs";
+import { movedPaths, ENGLISH_ONLY_ROUTES, RETIRED_ROUTES } from "./route-slugs.mjs";
 
 const publicDir = resolve("public");
 const SITE_ORIGIN = "https://pacs008.com";
@@ -34,6 +34,7 @@ const LOCALES = [
 ];
 
 const LOCALE_LANG = {
+  en: "en-GB",
   ar: "ar-SA", bn: "bn-BD", cs: "cs-CZ", de: "de-DE", es: "es-ES",
   fr: "fr-FR", ha: "ha-NG", he: "he-IL", hi: "hi-IN", id: "id-ID",
   it: "it-IT", ja: "ja-JP", ko: "ko-KR", nl: "nl-NL", pl: "pl-PL",
@@ -80,6 +81,14 @@ const moved = [
       to: `/${route}/`,
     }))
   ),
+  // Retired English routes. /try/ was a byte-identical duplicate of /live/;
+  // it was published and indexed, so it keeps resolving.
+  ...Object.entries(RETIRED_ROUTES).map(([route, to]) => ({
+    locale: "en",
+    route,
+    from: `/${route}/`,
+    to,
+  })),
 ];
 
 let written = 0;

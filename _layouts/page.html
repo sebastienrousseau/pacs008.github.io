@@ -298,7 +298,13 @@
       }
 
       /* ==== Article body ==== */
-      .content-shell { padding: 3rem 0 4rem; }
+      /* padding-block, not the `padding` shorthand: this element also carries
+         .wrap, which supplies `padding: 0 1.75rem`. A shorthand here has equal
+         specificity and comes later, so it reset the horizontal padding to zero
+         and the body text sat flush against the viewport edge on every screen
+         narrower than .wrap's 1180px max-width. Desktop hid it behind the
+         centring gutter; mobile did not. */
+      .content-shell { padding-block: 3rem 4rem; }
       .content-body { font-size: 1.06rem; line-height: 1.75; max-width: 840px; margin: 0 auto; }
       .content-body h2 {
         font-family: var(--type-display);
@@ -677,7 +683,9 @@
       @media (max-width: 380px) {
         /* Watch-strap widths: logo-only brand (aria-label keeps the name),
            tighter padding — every target stays 44px. */
-        .ap-nav-wrap { padding: 0 0.75rem; }
+        /* Deliberately tighter than .wrap's 1.75rem, expressed as
+           padding-inline so it cannot also zero the vertical padding. */
+        .ap-nav-wrap { padding-inline: 0.75rem; }
         .ap-brand span { display: none; }
         .ap-nav-right { gap: 0.15rem; }
       }

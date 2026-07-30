@@ -9,6 +9,7 @@ import { readFileSync, writeFileSync, existsSync } from "fs";
 import { createHash } from "crypto";
 import { join } from "path";
 import { validateSlugs } from "./route-slugs.mjs";
+import { validateLiveCopy } from "./translate-live.mjs";
 
 const rootDir = process.cwd();
 const dataDir = join(rootDir, "data");
@@ -181,7 +182,21 @@ const slugs = validateSlugs([
   "yo", "zh", "zh-tw",
 ]);
 
+const LOCALES_ALL = [
+  "ar", "bn", "cs", "de", "es", "fr", "ha", "he", "hi", "id", "it", "ja",
+  "ko", "nl", "pl", "pt", "ro", "ru", "sv", "th", "tl", "tr", "uk", "vi",
+  "yo", "zh", "zh-tw",
+];
+// Workbench copy is HTML, so a translation that drops an <a> loses a link and
+// one that drops a <code> turns a message identifier into prose. Both render
+// fine, so only a parity check catches them.
+const live = validateLiveCopy(
+  LOCALES_ALL,
+  readFileSync(join(process.cwd(), "_layouts", "try.html"), "utf8")
+);
+
 console.log(
   `Canonical manifest facts synchronised. ` +
-    `Route slugs valid: ${slugs.routes} routes, ${slugs.translatedLocales} localised.`
+    `Route slugs valid: ${slugs.routes} routes, ${slugs.translatedLocales} localised. ` +
+    `Workbench copy valid: ${live.keys} keys, ${live.complete}/${LOCALES_ALL.length} locales complete.`
 );

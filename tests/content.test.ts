@@ -402,7 +402,7 @@ describe("Content truth: localised reference pages", () => {
   // restate those claims in a language that cannot be verified here.
   it("serves only redirect stubs, never translations, of English-canonical pages", () => {
     for (const locale of ["fr", "de", "ja"]) {
-      for (const route of ["trust", "accessibility", "live"]) {
+      for (const route of ["trust", "accessibility"]) {
         const file = resolve(DIST, locale, route, "index.html");
         expect(existsSync(file), `${locale}/${route} should resolve, not 404`).toBe(true);
         const html = readFileSync(file, "utf-8");
@@ -611,5 +611,131 @@ describe("Content truth: author attribution", () => {
   it("keeps the credit adjacent to the copyright notice", () => {
     const text = textOf(readPage("."));
     expect(text).toMatch(/©\s*2023[–-]2026\s*Sebastien Rousseau/);
+  });
+});
+
+describe("Content truth: workbench translation", () => {
+  const live = JSON.parse(
+    readFileSync(resolve(__dirname, "../data/live-copy.json"), "utf-8")
+  );
+
+  it("publishes the workbench in every locale", () => {
+    const missing = LOCALES.filter(
+      (l) => !existsSync(resolve(DIST, localePath(l, "live"), "index.html"))
+    );
+    expect(missing, `locales without a workbench: ${missing.join(", ")}`).toEqual([]);
+  });
+
+  // The workbench copy is being translated locale by locale. The gap is
+  // declared in the data rather than hidden here, and asserted both ways: a
+  // locale cannot be quietly dropped from the list without this failing, and it
+  // cannot be quietly claimed as done either.
+  it("declares exactly the locales whose copy is still untranslated", () => {
+    const declared = [...live._pending_locales].sort();
+    const actual = LOCALES.filter(
+      (l) => Object.keys(live[l] || {}).length < Object.keys(live.en).length
+    ).sort();
+    expect(actual, "the pending list in live-copy.json is out of date").toEqual(declared);
+  });
+
+  // The workbench is the site's main call to action. A locale rendering it in
+  // English means a reader who followed "Voir en direct" left their language.
+  it("renders its own language wherever the copy exists", () => {
+    const wrong: string[] = [];
+    for (const locale of LOCALES) {
+      if (live._pending_locales.includes(locale)) continue;
+      const text = textOf(readPage(localePath(locale, "live")));
+      const expected = live[locale]?.lw_h1;
+      if (!expected) wrong.push(`${locale} (declared done, no copy)`);
+      else if (!text.includes(expected)) wrong.push(locale);
+    }
+    expect(wrong, `workbench not translated: ${wrong.join(", ")}`).toEqual([]);
+  });
+
+  // A pending locale must fall back to readable English, never to blanks.
+  it("falls back to English for a pending locale rather than emitting nothing", () => {
+    for (const locale of live._pending_locales.slice(0, 4)) {
+      const text = textOf(readPage(localePath(locale, "live")));
+      expect(text, `${locale} workbench is empty`).toContain(live.en.lw_h1);
+    }
+  });
+
+  it("leaves no English heading behind on a translated workbench", () => {
+    const offenders: string[] = [];
+    for (const locale of LOCALES) {
+      if (live._pending_locales.includes(locale)) continue;
+      const html = readPage(localePath(locale, "live"));
+      for (const en of ["Add your payment data", "Batch address readiness scan",
+                        "Inspect an existing XML file", "Validate against the XSD"]) {
+        if (html.includes(`>${en}<`)) offenders.push(`${locale}: ${en}`);
+      }
+    }
+    expect(offenders, `English left behind: ${offenders.slice(0, 6).join(", ")}`).toEqual([]);
+  });
+
+  // Values are HTML, so a translation can drop a link or turn an identifier
+  // into prose while still rendering. Both must survive.
+  it("keeps the inline links and ISO identifiers in every locale", () => {
+    const broken: string[] = [];
+    for (const locale of LOCALES) {
+      if (live._pending_locales.includes(locale)) continue;
+      const html = readPage(localePath(locale, "live"));
+      for (const id of ["pacs.008.001.13", "ChrgBr", "TwnNm", "town_name", "camt.111"]) {
+        if (!html.includes(id)) broken.push(`${locale}: lost ${id}`);
+      }
+      if (!/href="\/trust\/"/.test(html)) broken.push(`${locale}: lost the Trust Centre link`);
+    }
+    expect(broken, `${broken.slice(0, 6).join(", ")}`).toEqual([]);
+  });
+
+  // Replacement counts nested same-name tags to find the close tag. Getting
+  // that wrong truncates mid-element and leaves orphaned close tags.
+  it("leaves no data-i18n marker unreplaced and no orphaned markup", () => {
+    for (const locale of ["fr", "de", "ja", "ar"]) {
+      if (live._pending_locales.includes(locale)) continue;
+      const html = readPage(localePath(locale, "live"));
+      expect(html, `${locale} has an empty translated element`).not.toMatch(
+        /data-i18n="[^"]+"><\/(?:p|li|h2|h3|span|button|label|option)>/
+      );
+    }
+  });
+});
+
+describe("Content truth: social preview metadata", () => {
+  // Regression: ssg derives og:description by scraping rendered page text, and
+  // the scrape included an HTML comment from _layouts/page.html explaining why
+  // the page title is not an <h1>. That comment was the social-share
+  // description on around 760 pages.
+  it("no page advertises the layout's source comment", () => {
+    const offenders = allPages()
+      .filter((f) => {
+        const head = readFileSync(f, "utf-8").split("</head>")[0];
+        return /Two h1 elements|the document's single h1/.test(head);
+      })
+      .map((f) => f.slice(DIST.length + 1));
+    expect(offenders, `pages leaking the comment: ${offenders.slice(0, 4).join(", ")}`).toEqual([]);
+  });
+
+  // The duplicate survived because the dedupe pattern was content=["'][^"']*["'],
+  // which cannot match content containing the other quote character — and the
+  // scraped text contains an apostrophe.
+  it("emits exactly one description meta per page", () => {
+    const offenders = allPages()
+      .filter((f) => {
+        const head = readFileSync(f, "utf-8").split("</head>")[0];
+        return (head.match(/<meta\s+name="description"/g) || []).length > 1;
+      })
+      .map((f) => f.slice(DIST.length + 1));
+    expect(offenders, `pages with duplicate descriptions: ${offenders.slice(0, 4).join(", ")}`)
+      .toEqual([]);
+  });
+
+  it("matches the social description to the page's own translated one", () => {
+    for (const locale of ["fr", "ja"]) {
+      const head = readPage(localePath(locale, "live")).split("</head>")[0];
+      const own = head.match(/<meta name="description" content="([^"]*)"/)?.[1];
+      const og = head.match(/<meta property="og:description" content="([^"]*)"/)?.[1];
+      expect(og, `${locale} og:description does not match`).toBe(own);
+    }
   });
 });

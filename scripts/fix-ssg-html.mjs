@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { translateChrome } from "./translate-chrome.mjs";
 import { slugFor, routeFor, pathFor } from "./route-slugs.mjs";
+import { translateLive } from "./translate-live.mjs";
 
 const publicDir = path.resolve("public");
 
@@ -90,6 +91,43 @@ function normaliseCanonical(head, filePath) {
     return head.replace(/<link[^>]*rel=["']?canonical["']?[^>]*>/i, link);
   }
   return `${head}\n    ${link}\n  `;
+}
+
+/**
+ * Make the social and structured-data descriptions match the page's own.
+ *
+ * ssg derives og:description, twitter:description and the JSON-LD description
+ * by scraping rendered page text, and that scrape includes HTML comments. A
+ * comment in _layouts/page.html explaining why the page title is not an <h1>
+ * became the social-share description on around 760 pages: "... the page content
+ * supplies the document's single h1. Two h1 elements made heading navigation
+ * ambiguous for screen reader users ...".
+ *
+ * It also broke localisation. The scrape happens while the layout is still
+ * English, so every locale workbench page advertised English copy to anything
+ * reading og:description — a link shared from /fr/essayer/ previewed in English.
+ *
+ * `<meta name="description">` comes from front matter and is already translated,
+ * so it is the right source for all three.
+ */
+function normaliseSocialMeta(head) {
+  const own = head.match(
+    /<meta\s+name=["']description["']\s+content=["']([^"']*)["']/i
+  );
+  if (!own) return head;
+  const desc = own[1];
+
+  let out = head;
+  for (const attr of ['property="og:description"', 'name="twitter:description"']) {
+    const re = new RegExp(`<meta\\s+${attr}\\s+content="[^"]*">`, "i");
+    out = out.replace(re, `<meta ${attr} content="${desc}">`);
+  }
+  // JSON-LD carries its own copy of the same scraped text.
+  out = out.replace(
+    /("description":")(?:[^"\\]|\\.)*(")/,
+    (_m, open, close) => open + desc.replace(/\\/g, "\\\\").replace(/"/g, '\\"') + close
+  );
+  return out;
 }
 
 /**
@@ -350,14 +388,26 @@ function repairHtml(content, filePath) {
       return unescapeHtmlString(match);
     });
 
-    // Deduplicate author & description metas in head if duplicated
+    // Deduplicate author & description metas in head if duplicated.
+    //
+    // The content pattern must be quote-aware. It was ["'][^"']*["'], which
+    // cannot match content containing the other quote character — so ssg's
+    // scraped second description, which reads "...the document's single h1...",
+    // was never recognised as a duplicate and shipped alongside the real one on
+    // 711 pages. The apostrophe in "document's" was the whole reason.
+    //
+    // The first occurrence wins, and ssg emits the front-matter description
+    // first, so the surviving tag is the translated one.
     const seenMetas = new Set();
-    head = head.replace(/<meta\s+name=["'](author|description|keywords|viewport)["']\s+content=["'][^"']*["']\s*\/?>/gi, (match, name) => {
-      const lowerName = name.toLowerCase();
-      if (seenMetas.has(lowerName)) return "";
-      seenMetas.add(lowerName);
-      return match;
-    });
+    head = head.replace(
+      /<meta\s+name=["'](author|description|keywords|viewport)["']\s+content=(?:"[^"]*"|'[^']*')\s*\/?>/gi,
+      (match, name) => {
+        const lowerName = name.toLowerCase();
+        if (seenMetas.has(lowerName)) return "";
+        seenMetas.add(lowerName);
+        return match;
+      }
+    );
   } else {
     body = content;
   }
@@ -367,6 +417,9 @@ function repairHtml(content, filePath) {
 
   // Point rel="canonical" at the URL the page is really served from
   head = normaliseCanonical(head, filePath);
+
+  // Make og/twitter/JSON-LD descriptions match the page's own translated one
+  head = normaliseSocialMeta(head);
 
   // Publish hreflang alternates for pages that exist in more than one locale
   head = injectHreflang(head, filePath);
@@ -381,7 +434,14 @@ function repairHtml(content, filePath) {
   body = retargetMovedLinks(body);
 
   // 4. Translate site chrome, fill unresolved placeholders, reduce whitespace
-  const localised = translateChrome(fillReviewDate(head + body), localeFromPath(filePath));
+  const locale = localeFromPath(filePath);
+  // translateLive replaces the contents of the workbench's data-i18n elements.
+  // It runs before translateChrome so the nav and footer are still recognised:
+  // the workbench layout carries its own copies of both.
+  const localised = translateChrome(
+    translateLive(fillReviewDate(head + body), locale),
+    locale
+  );
   return minifyHtml(localised);
 }
 

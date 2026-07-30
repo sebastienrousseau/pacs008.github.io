@@ -26,7 +26,7 @@ const LOCALES = [
 /** Routes every locale must publish. */
 const LOCALE_ROUTES = [
   "2026-readiness", "about", "api", "catalogue", "changelog", "contact",
-  "design-partners", "editorial", "faq", "glossary", "message-selection",
+  "design-partners", "editorial", "faq", "glossary", "live", "message-selection",
   "message-types", "pacs-explained", "privacy", "scheme-changes", "security",
   "structured-address", "terms",
 ];
@@ -40,9 +40,11 @@ const MESSAGE_ROUTES = JSON.parse(
 const ENGLISH_ONLY = {
   trust: "prose is the claim itself; an unreviewed translation would restate licensing and security posture",
   accessibility: "conformance statement; same reasoning as trust",
-  live: "interactive workbench; UI strings are not in the translation registries",
   404: "served by the host for any unmatched path, in one language",
 };
+
+/** Retired English routes that keep a stub. */
+const RETIRED = { try: "/live/" };
 
 const failures = [];
 
