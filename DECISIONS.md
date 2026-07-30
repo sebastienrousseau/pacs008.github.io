@@ -237,3 +237,449 @@ They are set well below current values — 600 pages against 680, 100 alternates
 against 19,488. They exist to catch collapse, not drift. A floor tight enough
 to catch a content change would be tripped by ordinary work and would get
 raised until it meant nothing.
+
+## D-005: Localised URL slugs, Latin script only
+
+**Date:** 2026-07-29
+**Status:** Implemented
+
+### Problem
+
+Every locale page was served at its English path. `/fr/2026-readiness/` held
+entirely French prose, and `/ja/structured-address/` entirely Japanese, at URLs
+that told a reader nothing in their own language.
+
+### Decision
+
+Routes publish under a per-locale slug held in `data/route-slugs.json`. The
+English route stays the internal identifier everywhere — generators, hreflang
+grouping, the sitemap and the whole test suite key off it — so only the
+published path segment changes. 18 routes, 261 URLs moved.
+
+**Only Latin-script locales get translated slugs.** Cyrillic, Arabic, Hebrew,
+Devanagari, Bengali, Thai and CJK locales keep the English slug.
+
+This is not a judgement about those languages. It is about what a URL is for
+once it leaves the address bar. A native-script path is percent-encoded the
+moment it is pasted into a ticket, a runbook, an email to a scheme operator or
+a server log — the audiences this site is written for. `/ru/подготовка-2026/`
+displays correctly in a browser and arrives as `/ru/%D0%BF%D0%BE%D0%B4...`
+everywhere else. Sixteen locales get a readable URL; eleven keep one that
+survives being copied.
+
+The choice is reversible and cheap to reverse: adding a native slug later is a
+registry edit plus one more redirect stub.
+
+### Message types are never translated
+
+`pacs.008.001.13` and its siblings keep their identifiers. They are ISO 20022
+message identifiers, not words, and a translated path would make the URL
+uncitable against the standard. This is the same rule already applied to rule
+IDs, `TwnNm`, `Ctry` and BIC.
+
+### Old URLs
+
+The site published the English paths from March 2026, so they are indexed and
+bookmarked. GitHub Pages serves static files and cannot issue a 301, so each
+retired URL keeps a stub carrying `rel=canonical`, `robots noindex`, a meta
+refresh, `location.replace` and a visible link — the last because a refresh
+that fails silently strands the reader on a blank page, which is worse than
+the 404 the stub exists to prevent.
+
+Internal links never go through a stub. `retargetMovedLinks` in
+`fix-ssg-html.mjs` repoints any hardcoded `/<locale>/<english-route>/` at the
+slug, so the stubs serve external traffic only.
+
+### Supporting checks
+
+- `validateSlugs` runs in the build's existing truth gate, before any page is
+  written: slug shape, unknown locales, and collisions both between two routes
+  in one locale and between a stub path and a published page.
+- `scripts/check-build-artifacts.mjs` fails the build if any retired URL has no
+  stub — verified to fire by removing one.
+- `tests/redirects.test.ts`: 12 tests covering both directions of the move, the
+  stub contents, sitemap inclusion and exclusion, and an invariant that no page
+  anywhere links to a retired URL. The suite opens by asserting the move is
+  non-empty, so a registry that silently emptied cannot make the rest pass
+  vacuously.
+
+## D-006: Link and coverage gates in the build
+
+**Date:** 2026-07-30
+**Status:** Implemented
+
+### Problem
+
+The site is 1,022 files across 28 locales, produced by a pipeline that rewrites
+hrefs three times after generation — locale prefixing, slug retargeting and
+chrome translation — on top of a per-locale slug map and 261 redirect stubs.
+
+Every one of those mechanisms edits links, and a broken internal link is
+invisible to the page that holds it. Nothing fails; the reader lands on a 404.
+Existing checks could not have caught one: the artefact floors count pages, the
+compliance audit reads each page in isolation, and the test suite asserts
+specific links rather than sweeping all of them.
+
+Asked to validate the links, the first sweep found the favicon and
+apple-touch-icon pointing at `/pacs008/v1/logos/pacs008.svg` on all 761 pages —
+site-relative, while the logo is served from cloudcdn.pro. Every page had a
+404 favicon, and had since the CDN logo was adopted.
+
+### Decision
+
+Two gates run at the end of every build, before the artefact floors.
+
+`scripts/check-links.mjs` resolves every href and src against the built tree,
+plus three classes of URL the site advertises rather than links: `rel=canonical`,
+`hreflang` alternates, and sitemap `<loc>`. Those three are separated because a
+canonical or hreflang pointing at a 404 is worse than a broken anchor — it is
+the site telling search engines the wrong thing, which is exactly what D-005
+found on 759 pages.
+
+`scripts/check-page-coverage.mjs` checks the converse: that every locale
+publishes every route at its own slug, that English publishes the English-only
+routes, that no locale holds a copy of an English-canonical page, and that
+nothing unexpected sits at a locale's top level.
+
+That last check is the important one. A stale directory surviving a rename
+still serves, still gets indexed, and is frozen at whatever last wrote it —
+the failure the slug migration had to prune 261 instances of. A checker that
+only looked for missing pages would have called that tree healthy.
+
+### Attribute quoting
+
+Both gates accept quoted and bare attribute values. ssg minifies some pages and
+not others, so `href="/about/"` and `href=/about/` both ship. A first pass at
+verifying the author link required quotes and reported the home page as the one
+failure out of 761 — the link was present, the check was wrong. `attr()` in
+tests/helpers.ts exists for the same reason.
+
+### Locale paths for English-only routes
+
+`/fr/live/` returned a 404. Nothing linked to it — the navigation on a French
+page correctly points at `/live/` — but the workbench is the site's main call to
+action, and a reader who reaches for the locale path, or is sent the link by a
+colleague, hit a dead end.
+
+Every locale now gets a stub at `live`, `trust` and `accessibility` pointing at
+the English page. That is what the navigation already does, and it is not a
+claim a translation exists: the stub is noindex and canonicalises to the English
+URL.
+
+Three things had to agree for that to be true rather than merely appear true:
+
+- The sitemap excludes them. Left in, it listed 81 extra URLs and reported 30
+  translated pages instead of 27 — filing each stub as an alternate of the
+  English page, the opposite of what the stub says.
+- hreflang is generated before the stubs are written, so the English pages do
+  not advertise 27 translations they do not have. A test asserts this, so the
+  ordering in build.sh cannot be changed silently.
+- The coverage check now asserts anything at those paths **is** a stub, rather
+  than that nothing is there. Getting that backwards would let a real
+  translation of the Trust Centre ship unnoticed.
+
+`stubPaths()` in route-slugs.mjs is the single definition, because
+generate-redirects writes them, generate-sitemap must exclude them and
+check-page-coverage must allow them.
+
+### Supporting checks
+
+Six probes, each run against the built tree: a broken href, a missing page, a
+stale directory, a removed author link, a stub overwriting a real page, and a
+guessed locale path. All fail, and both scripts exit non-zero so the build stops.
+
+generate-redirects is idempotent: it overwrites an existing stub but refuses to
+overwrite a real page, so running it twice by hand does not report every stub it
+wrote last time as a page it is about to destroy.
+
+## D-007: Translating the workbench
+
+**Date:** 2026-07-30
+**Status:** Mechanism complete; copy complete in 4 of 27 locales
+
+### Problem
+
+`/live/` is the site's main call to action and was English-only. A French reader
+following "Voir en direct" left their language. The previous decision — a
+redirect stub to the English page — was the right stopgap and the wrong answer.
+
+The earlier justification was that the workbench's strings "are not in the
+translation registries". That describes the tooling, not a reason. So they were
+put in one.
+
+### Mechanism
+
+The workbench has no Markdown substance: the page is `_layouts/try.html`, and
+ssg has no per-locale template. Each translatable unit therefore carries a
+`data-i18n` key, and `scripts/translate-live.mjs` replaces that element's
+contents after the build.
+
+Marking the **element**, not the text, is what makes the translations usable.
+The English sentences wrap inline `<code>`, `<strong>`, `<em>` and `<a>`; keying
+each text fragment separately would have frozen every language into English word
+order. The cost is that values are HTML, so `validateLiveCopy()` checks tag
+parity, `**` emphasis parity, and that ISO identifiers survive verbatim. All
+three are things a plausible translation gets wrong while still rendering.
+
+Replacement counts nested same-name tags to find the close tag. Matching to the
+first `</p>` would truncate mid-element and orphan close tags, because the page
+nests `<span>` in `<li>` and `<code>` in `<p>`.
+
+### `/try/` was a duplicate
+
+`docs/try/` and `docs/live/` were byte-identical apart from a canonical pointing
+at itself — duplicate content splitting its own signals. 785 pages linked
+`/live/`; only the workbench's own navigation linked `/try/`, and that was a bug
+too. `/live/` won on the evidence and `/try/` keeps a stub.
+
+### Partial copy is declared, not hidden
+
+`_pending_locales` in `data/live-copy.json` names the 23 locales whose copy is
+outstanding. They render English by per-key fallback — what the page did before
+it was localised at all, so no regression.
+
+Two tests assert the list both ways: a locale cannot be dropped from it without
+failing, and cannot be claimed as done without failing either. A third asserts
+pending locales fall back to readable English rather than blanks. The count also
+prints on every build.
+
+### Social preview metadata
+
+Found while verifying the first translated page. ssg derives `og:description`,
+`twitter:description` and the JSON-LD description by scraping rendered text, and
+the scrape includes HTML comments — so a comment in `_layouts/page.html`
+explaining why the page title is not an `<h1>` was the social-share description
+on around 760 pages.
+
+It also broke localisation: the scrape runs while the layout is still English, so
+every locale workbench advertised English copy. All three now mirror
+`<meta name="description">`, which comes from translated front matter.
+
+The duplicate `description` meta that carried it survived an existing dedupe step
+because the pattern was `content=["'][^"']*["']`, which cannot match content
+containing the other quote character — and the scraped text says "the document's
+single h1".
+
+## D-008: Container padding is padding-block, never the shorthand
+
+**Date:** 2026-07-30
+**Status:** Implemented
+
+### Problem
+
+Reported from a phone: body text sat flush against the viewport edge with no
+gutter, and headings ran off the right.
+
+`.wrap` supplies `padding: 0 1.75rem`. `.content-shell` sits on the same element
+and set `padding: 3rem 0 4rem` — equal specificity, declared later, and a
+shorthand, so it reset the horizontal padding to zero.
+
+Desktop hid it completely. `.wrap` is `max-width: 1180px; margin: 0 auto`, so any
+viewport wider than 1180px still had a centring gutter that looked like padding.
+Every viewport narrower than that had none.
+
+### Decision
+
+A class that shares an element with `.wrap` states vertical padding as
+`padding-block` and horizontal as `padding-inline`, never the `padding`
+shorthand. Fixed in `.content-shell`, `.guide-grid` and `.ap-nav-wrap`.
+
+`.guide-grid` restated `1.75rem` and so was correct by luck rather than by
+construction; it is now correct by construction.
+
+### Supporting checks
+
+`tests/responsive.test.ts` asserts no class combined with `.wrap` uses the
+`padding` shorthand — verified to fail against the original rule. The invariant
+is on the cascade rather than on a screenshot, because this was a cascade bug.
+
+**Not visually confirmed at phone width.** Chrome's window resize did not change
+the viewport in this environment and an in-page style injection did not take
+effect, so the evidence is the shipped CSS measuring 28px inline padding plus the
+regression test. Worth a look on a real device.
+
+## D-009: Lighthouse is a gate; WAVE cannot be
+
+**Date:** 2026-07-30
+**Status:** Implemented
+
+### Lighthouse
+
+`scripts/check-lighthouse.mjs` drives a real headless Chrome against a local
+HTTP server over `public/`, and fails the build below these scores:
+
+| Category | Floor | Why |
+|---|---|---|
+| accessibility | 100 | pass/fail checklist; a miss is a named defect |
+| best-practices | 100 | same |
+| seo | 100 | same |
+| performance | 90 | weighted composite of throttled timings; moves a few points run to run on identical bytes |
+
+This closes a gap `tests/axe.test.ts` states but cannot cover. That suite runs
+axe-core inside happy-dom, which resolves no stylesheets, so `color-contrast` is
+disabled rather than run against nothing. A real browser evaluates it.
+
+It samples 7 pages of 1,119, and says so in its own output. Every page comes from
+one of three layouts, so a defect on one is a defect on all; the sample covers
+all three plus an RTL locale, a CJK locale and the workbench. Served over HTTP,
+not `file://`, because service workers, fetch and CSP all behave differently on a
+file URL — a `file://` pass would not be evidence about the deployed site.
+
+Not in `build.sh`: it needs Chrome and about 90 seconds. It is in `npm run
+verify` and `npm run lighthouse`.
+
+### What it found
+
+Four defects, none visible to any existing check:
+
+1. **A shipped script did not parse.** ssg extracts inline `<script>` blocks into
+   `public/_csp/*.js` and collapses each onto one line without converting `//`
+   comments. The first comment swallowed the rest of the file. Valid HTML,
+   correct content type, plausible size, and every behaviour it attached was
+   dead. Fixed by using block comments; `scripts/check-scripts.mjs` now parses
+   every shipped script during the build.
+2. **~23,000 CSP-blocked inline styles.** The policy is `style-src 'self'
+   'unsafe-hashes' <one hash>`, so exactly one inline declaration is allowed.
+   ssg's syntax highlighter emits nine, so every code block on the site shipped
+   unstyled and logged a violation. Rewritten to classes after the build rather
+   than widening the policy; an unmapped declaration now fails the build.
+3. **Colour contrast 2.16:1** on the workbench XML placeholder. It used
+   `--ink-mute`, which tracks the page background, on a code surface that is dark
+   in both themes. A new `--code-mute` token gives 7.3:1 and 8.1:1.
+4. **`label-content-name-mismatch`** on ssg's injected search trigger: visible
+   text "Search K", accessible name "Search". The page layout hides that button
+   in favour of its own; the workbench has none of its own, so hiding the whole
+   button would remove search. The shortcut hint is hidden instead.
+
+### WAVE
+
+WAVE cannot be a build gate, and the reason is structural rather than a matter
+of effort:
+
+- The browser extension is the only free full-featured WAVE, and it is manual.
+- The WAVE API is paid, keyed, and **fetches the page itself**, so the URL must
+  be publicly reachable. It cannot see `localhost`, which means it cannot check
+  the tree that is about to be deployed — only one already deployed.
+- `wave-cli` (0.0.3-alpha, 2019) and `webaim-wave` (2019) are unofficial wrappers
+  around that same paid API. Neither runs offline.
+
+`pa11y-ci`, whose HTML_CodeSniffer engine is the closest offline equivalent, was
+installed and removed: it pulls 5 high-severity advisories through
+`globby` → `brace-expansion`. This repo went from 48 vulnerabilities to 0 and
+dropped `@axe-core/cli` for exactly that reason, so it is not a trade worth
+making for an engine that overlaps axe.
+
+`scripts/check-wave.mjs` therefore exists as an opt-in second opinion on the
+deployed site: `npm run wave -- --confirm` with `WAVE_API_KEY` set. It requires
+the explicit flag because it sends URLs to a third party, it fails on errors and
+contrast, and it reports alerts without failing on them — WAVE does not claim
+alerts are defects.
+
+**What this means for the claim.** In-browser axe coverage via Lighthouse is
+real and gated. "WAVE-clean" is not something this build can assert, and is not
+asserted. Running `npm run wave` against pacs008.com after a deploy is the way to
+check it, and it needs a paid key.
+
+## D-010: Favicon assets, and why the first fix did not work
+
+**Date:** 2026-07-30
+**Status:** Implemented
+
+### What was wrong
+
+D-006 changed the icon `href` from a site-relative path to the CDN URL, which
+stopped it 404ing. The icon still did not appear, because the 404 was only one of
+four problems and the others were in the asset itself:
+
+- The CDN logo is a **127 KB, 162-path SVG with a 4654x4935 viewBox**. It is
+  artwork, not an icon: non-square, so any square slot letterboxes or distorts
+  it, and its detail is meaningless at 16px.
+- **Safari does not support SVG for `apple-touch-icon` at all.** The report came
+  from iOS Safari, so that alone accounted for it.
+- There was **no `/favicon.ico`**. Browsers request that path regardless of what
+  the document declares, and it was a 404.
+- A single `sizes="any"` declaration gave the browser nothing to select between.
+
+### Decision
+
+The canonical icon is the CDN's own `.ico` at
+`https://cloudcdn.pro/pacs008/v1/favicon.ico`, which carries 16, 32, 48 and a
+256px frame — so no separate PNG sizes are needed at all.
+
+`/favicon.ico` is a byte-identical mirror of it, because browsers request that
+root path regardless of what the document declares.
+
+`apple-touch-icon.png` is the one asset the CDN does not provide, and Safari does
+not accept SVG for it — that is precisely what was missing on iOS. It is derived
+from frame [3] (256x256) of the same canonical `.ico`, resized to 180x180 with
+alpha removed, because iOS composites it onto the home screen and ignores
+transparency. Deriving it from the canonical asset rather than from the logo
+artwork means it cannot drift from the declared icon.
+
+**The nav logo also loads from the CDN**, deliberately; that was never the defect.
+
+### An error worth recording
+
+The first attempt concluded "the CDN offers no icon sizes" and self-hosted
+generated rasters instead. That conclusion came from probing only
+`/pacs008/v1/logos/` — the directory holding the logo — and never the level
+above it, where `favicon.ico` actually lives. A canonical, correctly-sized,
+multi-frame icon existed the whole time. Absence of evidence was reported as
+evidence of absence, on the strength of one directory.
+
+Provenance and hashes are recorded in `data/favicon.json`, and tests assert the
+root mirror stays byte-identical to the canonical asset and that no SVG is ever
+declared as an icon.
+
+Verified in a real browser rather than from the markup: all four fetch 200 and
+decode at their declared dimensions under the live CSP.
+
+### What kept hiding this
+
+Three separate greps in this work returned nothing and were read as "absent" when
+the truth was "present but unquoted". ssg minifies some pages and drops attribute
+quotes, so `rel="icon"` ships as `rel=icon`. The same trap produced a false
+report that the homepage lacked the author link. Anything asserting on built HTML
+must accept both forms — `attr()` in tests/helpers.ts exists for this.
+
+## D-011: Skeletonic as the base layer
+
+**Date:** 2026-07-30
+**Status:** Implemented
+
+### Decision
+
+The project's own framework, `@sebastienrousseau/skeletonic-stylus` 2.0.0
+(skeletonic.com), supplies base styling for every HTML element. Vendored at
+`static/css/skeletonic.min.css`, 4,981 bytes, provenance and hash recorded in
+`data/skeletonic.json`.
+
+### Why this did not require rewriting the design
+
+Skeletonic wraps its entire output in `@layer skeletonic`. **Unlayered CSS always
+beats layered CSS, regardless of specificity** — so linking it ahead of the
+site's own stylesheet gives every element a consistent base while the existing
+design keeps precedence automatically. No specificity fight, no `!important`, and
+no per-component migration needed to adopt it.
+
+A test asserts the layer wrapper is still there and that the site's own CSS is
+*not* inside a layer, because if either changed the precedence would invert and
+the framework would start overriding the site.
+
+### Self-hosted, not CDN
+
+The CSP is `style-src 'self'`. A third-party stylesheet host would be blocked,
+and widening the policy to admit one is a worse trade than checking in 5 KB. The
+link carries an SRI hash, matching how ssg's own stylesheets are emitted.
+
+### What is not done
+
+This is adoption as the base layer, which is what "consistency in all HTML
+elements" requires. It is **not** a component-level migration: the site's nav,
+cards, tables and workbench panels are still its own bespoke CSS rather than
+Skeletonic's `navbar`, `card` and `alert` components. That would change the
+visual design rather than normalise it, so it is a separate decision.
+
+Verified after adoption: 218 tests, Lighthouse 100 accessibility / 100
+best-practices / 100 SEO with performance 98-100 across all seven sampled pages,
+locale validation and compliance audit clean.

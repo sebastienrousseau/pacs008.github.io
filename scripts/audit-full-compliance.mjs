@@ -4,6 +4,7 @@ import path from "path";
 const publicDir = path.resolve("public");
 
 let htmlFilesChecked = 0;
+let redirectStubsSkipped = 0;
 let seoErrors = 0;
 let a11yErrors = 0;
 let mobileErrors = 0;
@@ -30,9 +31,23 @@ function getAllHtmlFiles(dir, fileList = []) {
 const htmlFiles = getAllHtmlFiles(publicDir);
 
 for (const filePath of htmlFiles) {
-  htmlFilesChecked++;
   const relPath = path.relative(publicDir, filePath);
   const content = fs.readFileSync(filePath, "utf8");
+
+  // Redirect stubs for URLs retired by the localised-slug change are not
+  // pages: they carry no heading and no description because they hold no
+  // content, and they declare noindex so nothing asks a crawler to treat them
+  // as one. Auditing them for SEO would report 522 defects that describe the
+  // stubs working exactly as intended. Scoped to the stub shape rather than to
+  // noindex generally, so a real page that went noindex by mistake is still
+  // audited.
+  if (/<meta http-equiv="refresh"/i.test(content) &&
+      /<meta name="robots" content="noindex/i.test(content)) {
+    redirectStubsSkipped++;
+    continue;
+  }
+
+  htmlFilesChecked++;
 
   // 1. Mobile Responsiveness (Viewport check)
   if (!/name=["']?viewport["']?/i.test(content)) {
@@ -102,6 +117,7 @@ if (fs.existsSync(a11yReportPath) && fs.existsSync(wcagReportPath)) {
 console.log("-------------------------------------------------");
 console.log("COMPLIANCE AUDIT RESULTS:");
 console.log(`- Total HTML Files Audited: ${htmlFilesChecked}`);
+console.log(`- Redirect Stubs Skipped:   ${redirectStubsSkipped}`);
 console.log(`- Mobile Viewport Errors:   ${mobileErrors}`);
 console.log(`- SEO & Structured Errors:  ${seoErrors}`);
 console.log(`- WCAG 2.2 AAA Alt Errors:  ${a11yErrors}`);

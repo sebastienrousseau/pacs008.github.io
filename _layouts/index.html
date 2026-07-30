@@ -25,8 +25,33 @@
 
     <!-- hreflang alternates are injected per page by scripts/fix-ssg-html.mjs -->
     <link rel="canonical" href="{{url}}" />
-    <link rel="icon" type="image/svg+xml" href="/pacs008/v1/logos/pacs008.svg" sizes="any" />
+    <!-- Favicon. Served from this origin, not the CDN, and that is forced rather
+         than preferred: cloudcdn.pro has Cloudflare hotlink protection on
+         /pacs008/v1/favicon.ico, which returns 403 (Cloudflare error 1011) for
+         any cross-site Referer. Browsers always send a Referer when fetching a
+         favicon declared on a page, so the CDN URL can never render as a page
+         icon. The /logos/ path has a bypass, which is why the nav logo works.
+         Verified: identical bytes load in Chrome from this origin and time out
+         from the CDN.
+
+         The bytes ARE the CDN's canonical .ico (16/32/48 + a 256px frame), so
+         the artwork matches the brand exactly. It also replaces a stale icon
+         that had been shipping: the previously committed favicon.ico was an
+         older teal sunburst mark, not the current logo.
+
+         apple-touch-icon is derived from frame [3] of that same .ico, with alpha
+         removed because iOS composites it onto the home screen and ignores
+         transparency. Safari does not accept SVG here, which is why nothing
+         appeared on iOS. -->
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="preload" href="/fonts/source-serif-4-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- Skeletonic CSS (skeletonic.com) — the project's own framework, vendored
+         because the CSP is style-src 'self'. It wraps everything in
+         @layer skeletonic, and unlayered CSS always beats layered CSS, so this
+         gives every HTML element a consistent base while the site's own
+         stylesheet below keeps precedence. Provenance: data/skeletonic.json. -->
+    <link rel="stylesheet" href="/css/skeletonic.min.css" integrity="sha384-m3IoEkr7bPhgf7sPFcLfBi0Sc8jPdNX1pTq5AQn8S8/FrHskDcis1CRjtnWars6I" crossorigin="anonymous">
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#0b0e14" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
@@ -95,6 +120,17 @@
       a:hover { color: var(--link-hover); }
 
       .wrap { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 1.75rem; }
+
+      /* Syntax-highlighter palette — see data/highlight-classes.json. */
+      .hl-text { color: #c0c5ce; }
+      .hl-keyword { color: #bf616a; }
+      .hl-string { color: #a3be8c; }
+      .hl-surface { background-color: #2b303b; }
+      .hl-fn { color: #8fa1b3; }
+      .hl-const { color: #b48ead; }
+      .hl-num { color: #d08770; }
+      .hl-type { color: #96b5b4; }
+      .hl-comment { color: #65737e; }
       .skip-link { position: absolute; top: -100px; left: 1rem; background: var(--btn-bg); color: var(--btn-text); padding: 0.5rem 1rem; border-radius: var(--radius-sm); z-index: 2000; }
       .skip-link:focus { top: 1rem; }
 
@@ -235,7 +271,7 @@ pacs008 -t pacs.008.001.13 -d payments.csv --scheme cbpr-plus --dry-run</code></
 
     <footer class="footer">
       <div class="wrap">
-        <p>&copy; 2023&ndash;2026 Sebastien Rousseau &middot; <a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a> &middot; <a href="/">pacs008.com</a></p>
+        <p>&copy; 2023&ndash;2026 <a href="https://sebastienrousseau.com/" rel="author">Sebastien Rousseau</a> &middot; <a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a> &middot; <a href="/">pacs008.com</a></p>
       </div>
     </footer>
 

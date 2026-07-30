@@ -26,9 +26,33 @@
 
     <!-- hreflang alternates are injected per page by scripts/fix-ssg-html.mjs -->
     <link rel="canonical" href="{{url}}" />
-    <link rel="icon" type="image/svg+xml" href="/pacs008/v1/logos/pacs008.svg" sizes="any" />
-    <link rel="apple-touch-icon" href="/pacs008/v1/logos/pacs008.svg" />
+    <!-- Favicon. Served from this origin, not the CDN, and that is forced rather
+         than preferred: cloudcdn.pro has Cloudflare hotlink protection on
+         /pacs008/v1/favicon.ico, which returns 403 (Cloudflare error 1011) for
+         any cross-site Referer. Browsers always send a Referer when fetching a
+         favicon declared on a page, so the CDN URL can never render as a page
+         icon. The /logos/ path has a bypass, which is why the nav logo works.
+         Verified: identical bytes load in Chrome from this origin and time out
+         from the CDN.
+
+         The bytes ARE the CDN's canonical .ico (16/32/48 + a 256px frame), so
+         the artwork matches the brand exactly. It also replaces a stale icon
+         that had been shipping: the previously committed favicon.ico was an
+         older teal sunburst mark, not the current logo.
+
+         apple-touch-icon is derived from frame [3] of that same .ico, with alpha
+         removed because iOS composites it onto the home screen and ignores
+         transparency. Safari does not accept SVG here, which is why nothing
+         appeared on iOS. -->
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="preload" href="/fonts/source-serif-4-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- Skeletonic CSS (skeletonic.com) — the project's own framework, vendored
+         because the CSP is style-src 'self'. It wraps everything in
+         @layer skeletonic, and unlayered CSS always beats layered CSS, so this
+         gives every HTML element a consistent base while the site's own
+         stylesheet below keeps precedence. Provenance: data/skeletonic.json. -->
+    <link rel="stylesheet" href="/css/skeletonic.min.css" integrity="sha384-m3IoEkr7bPhgf7sPFcLfBi0Sc8jPdNX1pTq5AQn8S8/FrHskDcis1CRjtnWars6I" crossorigin="anonymous">
     <link rel="manifest" href="/manifest.json" />
     <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
     <meta name="theme-color" content="#0b0e14" media="(prefers-color-scheme: dark)" />
@@ -298,7 +322,40 @@
       }
 
       /* ==== Article body ==== */
-      .content-shell { padding: 3rem 0 4rem; }
+      /* padding-block, not the `padding` shorthand: this element also carries
+         .wrap, which supplies `padding: 0 1.75rem`. A shorthand here has equal
+         specificity and comes later, so it reset the horizontal padding to zero
+         and the body text sat flush against the viewport edge on every screen
+         narrower than .wrap's 1180px max-width. Desktop hid it behind the
+         centring gutter; mobile did not. */
+      .content-shell { padding-block: 3rem 4rem; }
+
+      /* Syntax-highlighter palette. ssg's highlighter emits these as inline
+         style attributes, which the CSP blocks; fix-ssg-html rewrites them to
+         these classes after the build so no inline style ships at all. */
+      .hl-text { color: #c0c5ce; }
+      .hl-keyword { color: #bf616a; }
+      .hl-string { color: #a3be8c; }
+      .hl-surface { background-color: #2b303b; }
+      .hl-fn { color: #8fa1b3; }
+      .hl-const { color: #b48ead; }
+      .hl-num { color: #d08770; }
+      .hl-type { color: #96b5b4; }
+      .hl-comment { color: #65737e; }
+
+      /* Rows injected by the interactive tools. These were inline style
+         attributes, which the site's own CSP (style-src 'self' 'unsafe-hashes')
+         blocks when they arrive via innerHTML — so the tables shipped unstyled
+         and the console carried a CSP violation for each one. */
+      .tool-row { border-bottom: 1px solid var(--rule); }
+      .tool-cell { padding: 0.65rem; font-size: 0.85rem; }
+      .tool-cell-key { padding: 0.65rem; font-size: 0.85rem; font-weight: 700; }
+      .tool-cell-muted { padding: 0.65rem; font-size: 0.85rem; color: var(--ink-soft); }
+      .tool-cell-new { padding: 0.65rem; font-size: 0.85rem; font-weight: 600; color: var(--link); }
+      .tool-cell-code { padding: 0.6rem; font-family: var(--type-mono, monospace); font-size: 0.85rem; font-weight: 700; color: var(--link); }
+      .tool-cell-name { padding: 0.6rem; font-size: 0.85rem; font-weight: 600; }
+      .tool-cell-desc { padding: 0.6rem; font-size: 0.85rem; color: var(--ink-soft); }
+
       .content-body { font-size: 1.06rem; line-height: 1.75; max-width: 840px; margin: 0 auto; }
       .content-body h2 {
         font-family: var(--type-display);
@@ -677,7 +734,9 @@
       @media (max-width: 380px) {
         /* Watch-strap widths: logo-only brand (aria-label keeps the name),
            tighter padding — every target stays 44px. */
-        .ap-nav-wrap { padding: 0 0.75rem; }
+        /* Deliberately tighter than .wrap's 1.75rem, expressed as
+           padding-inline so it cannot also zero the vertical padding. */
+        .ap-nav-wrap { padding-inline: 0.75rem; }
         .ap-brand span { display: none; }
         .ap-nav-right { gap: 0.15rem; }
       }
@@ -926,7 +985,7 @@
           </div>
         </div>
         <div class="footer-legal">
-          <p>&copy; 2023&ndash;2026 Sebastien Rousseau. Released under the Apache License 2.0.</p>
+          <p>&copy; 2023&ndash;2026 <a href="https://sebastienrousseau.com/" rel="author">Sebastien Rousseau</a>. Released under the Apache License 2.0.</p>
           <ul>
             <li><a href="/editorial/">Editorial Policy</a></li>
             <li><a href="/privacy/">Privacy Policy</a></li>
@@ -1245,7 +1304,7 @@
 
         updateAddressCompliance();
 
-        // 3. Schema Diff Binding
+        /* 3. Schema Diff Binding */
         function updateSchemaDiff() {
           var select = document.getElementById("diff-select");
           var body = document.getElementById("diff-body");
@@ -1253,7 +1312,7 @@
             var parts = select.value.split(" vs ");
             var items = window.pacs008Tools.compareVersions(parts[0], parts[1]);
             body.innerHTML = items.map(function(item) {
-              return '<tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.65rem; font-weight:700; font-size:0.85rem;">' + item.feature + '</td><td style="padding:0.65rem; font-size:0.85rem; color:var(--ink-soft);">' + item.v1 + '</td><td style="padding:0.65rem; font-size:0.85rem; font-weight:600; color:var(--link);">' + item.v2 + '</td></tr>';
+              return '<tr class="tool-row"><td class="tool-cell-key">' + item.feature + '</td><td class="tool-cell-muted">' + item.v1 + '</td><td class="tool-cell-new">' + item.v2 + '</td></tr>';
             }).join('');
           }
         }
@@ -1263,7 +1322,7 @@
           updateSchemaDiff();
         }
 
-        // 4. Purpose Code & LEI Lookup Binding
+        /* 4. Purpose Code & LEI Lookup Binding */
         function updatePurposeSearch() {
           var input = document.getElementById("purpose-search");
           var body = document.getElementById("purpose-body");
@@ -1271,7 +1330,7 @@
             var q = input ? input.value : "";
             var matches = window.pacs008Tools.searchPurposeCodes(q);
             body.innerHTML = matches.map(function(p) {
-              return '<tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.6rem; font-family:monospace; font-weight:700; font-size:0.85rem; color:var(--link);">' + p.code + '</td><td style="padding:0.6rem; font-weight:600; font-size:0.85rem;">' + p.name + '</td><td style="padding:0.6rem; font-size:0.85rem; color:var(--ink-soft);">' + p.desc + '</td></tr>';
+              return '<tr class="tool-row"><td class="tool-cell-code">' + p.code + '</td><td class="tool-cell-name">' + p.name + '</td><td class="tool-cell-desc">' + p.desc + '</td></tr>';
             }).join('');
           }
         }
@@ -1293,7 +1352,7 @@
           });
         }
 
-        // 5. MT103 Converter Binding
+        /* 5. MT103 Converter Binding */
         function updateMt103Convert() {
           var input = document.getElementById("mt103-input");
           var output = document.getElementById("mt103-output");

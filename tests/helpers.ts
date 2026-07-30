@@ -20,8 +20,11 @@ export const LOCALES = [
 ];
 
 /**
- * Read a built page. Pass "." for the homepage, otherwise a route such as
- * "about" or "fr/about".
+ * Read a built page. Pass "." for the homepage, otherwise a literal built path
+ * such as "about" or "fr/a-propos".
+ *
+ * Prefer localePath() over hand-writing a locale path: pages are published
+ * under translated slugs, so "fr/about" is a redirect stub, not the page.
  */
 export function readPage(route: string): string {
   const file =
@@ -34,6 +37,30 @@ export function pageExists(route: string): boolean {
   const file =
     route === "." ? resolve(DIST, "index.html") : resolve(DIST, route, "index.html");
   return existsSync(file);
+}
+
+/** Canonical route -> published slug, from the same registry the build uses. */
+const SLUGS: Record<string, Record<string, string>> = JSON.parse(
+  readFileSync(resolve(__dirname, "../data/route-slugs.json"), "utf-8")
+).routes;
+
+/**
+ * Built path for a canonical route in a locale, e.g. localePath("fr", "about")
+ * is "fr/a-propos".
+ *
+ * Tests address pages by the English route throughout. Resolving the slug in
+ * one place means a slug change is a registry edit, not a sweep through the
+ * suite — and a test that reached for the old path would be asserting against
+ * a redirect stub without noticing.
+ */
+export function localePath(locale: string, route: string): string {
+  if (locale === "en") return route;
+  return `${locale}/${SLUGS[route]?.[locale] ?? route}`;
+}
+
+/** Read a built page by locale and canonical route. */
+export function readLocalePage(locale: string, route: string): string {
+  return readPage(localePath(locale, route));
 }
 
 /**

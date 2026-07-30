@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { readPage, readStaticJs, LOCALES } from "./helpers";
+import { readPage, readLocalePage, readStaticJs, LOCALES } from "./helpers";
 
 describe("Accessibility: landmark structure", () => {
   // ssg minifies the homepage (dropping attribute quotes) but leaves interior
@@ -58,7 +58,7 @@ describe("Accessibility: document language", () => {
   });
 
   it("interior locale pages should declare their language too", () => {
-    expect(readPage("fr/about")).toMatch(/<html lang="?fr/);
+    expect(readLocalePage("fr", "about")).toMatch(/<html lang="?fr/);
     expect(readPage("about")).toMatch(/<html lang="?en/);
   });
 });

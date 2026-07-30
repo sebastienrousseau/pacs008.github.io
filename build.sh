@@ -32,6 +32,9 @@ node scripts/generate-trust-page.mjs
 # Regenerate locale content
 node scripts/generate-locales.mjs
 
+# Write the workbench page for English and every locale
+node scripts/generate-live-pages.mjs
+
 # Create a temporary copy of docs directory for ssg compilation
 rm -rf docs_build
 mkdir -p docs_build
@@ -51,6 +54,11 @@ ssg -n=pacs008 -c=docs_build -t=_layouts -o=public -f=config.toml
 # Repair escaped head metas & body HTML fragments emitted by ssg
 node scripts/fix-ssg-html.mjs
 
+# Keep every URL published before the localised slugs landed resolving.
+# Must run after fix-ssg-html: the stubs are not pages and must not be given
+# hreflang annotations or have their links rewritten.
+node scripts/generate-redirects.mjs
+
 # Rebuild sitemap.xml from the pages that actually shipped.
 # ssg's own sitemap depends on cache state from a previous build and comes out
 # empty on a cold build, which is what CI and every deploy do.
@@ -63,6 +71,16 @@ fi
 
 # Clean up temporary build directory
 rm -rf docs_build
+
+# Verify every shipped script actually parses. A truncated bundle is invisible
+# to every other check: valid HTML, right content type, plausible size.
+node scripts/check-scripts.mjs
+
+# Verify every internal link, canonical, hreflang and sitemap URL resolves
+node scripts/check-links.mjs
+
+# Verify the built tree holds exactly the pages it should, no more and no less
+node scripts/check-page-coverage.mjs
 
 # Fail if any generated artefact came out degenerate
 node scripts/check-build-artifacts.mjs

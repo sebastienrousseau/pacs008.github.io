@@ -3,7 +3,7 @@ title: "Try pacs008 in Your Browser"
 description: "Drop in a CSV, use the sample, or paste your own records — validation runs instantly, entirely in your browser, zero payload storage."
 lang: en-GB
 layout: try
-date: "2026-07-27"
+date: "2026-07-29"
 name: pacs008
 short_name: pacs008
 start_url: /

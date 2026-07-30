@@ -1,6 +1,16 @@
 import fs from "fs";
 import path from "path";
 import { translateChrome } from "./translate-chrome.mjs";
+import { slugFor, routeFor, pathFor } from "./route-slugs.mjs";
+import { translateLive } from "./translate-live.mjs";
+
+/** Highlighter inline-style declarations mapped to classes; see the data file. */
+const HL_PALETTE = JSON.parse(
+  fs.readFileSync(new URL("../data/highlight-classes.json", import.meta.url), "utf8")
+).palette;
+
+/** Inline styles found that no class covers. Collected, then fails the build. */
+const unmappedStyles = new Map();
 
 const publicDir = path.resolve("public");
 
@@ -44,21 +54,88 @@ function hreflangFor(locale) {
   return HREFLANG_CODE[locale] ?? locale;
 }
 
-/** Locale directory and remaining route for a built file. */
+/**
+ * Locale and canonical route for a built file.
+ *
+ * `route` is the English identifier, not the published path segment, so
+ * /fr/preparation-2026/ and /de/bereitschaft-2026/ both resolve to
+ * "2026-readiness" and can be recognised as translations of one another.
+ */
 function splitRoute(filePath) {
   const parts = path.relative(publicDir, filePath).split(path.sep);
   if (parts[parts.length - 1] === "index.html") parts.pop();
   const hasLocale = Object.hasOwn(LOCALE_LANG, parts[0]);
-  return {
-    locale: hasLocale ? parts[0] : "en",
-    route: (hasLocale ? parts.slice(1) : parts).join("/"),
-  };
+  const locale = hasLocale ? parts[0] : "en";
+  const published = (hasLocale ? parts.slice(1) : parts).join("/");
+  return { locale, route: routeFor(locale, published), published };
 }
 
-/** Absolute URL for a route in a locale. */
+/** Absolute URL for a route in a locale, using that locale's published slug. */
 function urlFor(locale, route) {
-  const prefix = locale === "en" ? "" : `/${locale}`;
-  return `${SITE_ORIGIN}${prefix}${route ? `/${route}` : ""}/`;
+  return `${SITE_ORIGIN}${pathFor(locale, route)}`;
+}
+
+/**
+ * Point rel="canonical" at the URL the page is actually served from.
+ *
+ * templates/page.html emits `{{base_url}}{{permalink}}`, and ssg's permalink
+ * for a page written as `<route>/index.md` is `/<route>/index/`. The build then
+ * flattens `public/<route>/index/index.html` up to `public/<route>/index.html`
+ * — so 759 of 761 pages shipped a self-referencing canonical pointing at a URL
+ * that 404s. Only the English home page, which uses templates/index.html and
+ * its hardcoded `/`, was correct.
+ *
+ * Derived from the file path rather than by stripping the trailing `/index/`,
+ * so it also corrects the locale home pages (`/fr/index/` to `/fr/`) and is
+ * guaranteed to agree with the self-referencing hreflang alternate, which is
+ * computed the same way.
+ */
+function normaliseCanonical(head, filePath) {
+  const { locale, route } = splitRoute(filePath);
+  const href = `${SITE_ORIGIN}${pathFor(locale, route)}`;
+  const link = `<link rel="canonical" href="${href}">`;
+
+  if (/<link[^>]*rel=["']?canonical["']?[^>]*>/i.test(head)) {
+    return head.replace(/<link[^>]*rel=["']?canonical["']?[^>]*>/i, link);
+  }
+  return `${head}\n    ${link}\n  `;
+}
+
+/**
+ * Make the social and structured-data descriptions match the page's own.
+ *
+ * ssg derives og:description, twitter:description and the JSON-LD description
+ * by scraping rendered page text, and that scrape includes HTML comments. A
+ * comment in _layouts/page.html explaining why the page title is not an <h1>
+ * became the social-share description on around 760 pages: "... the page content
+ * supplies the document's single h1. Two h1 elements made heading navigation
+ * ambiguous for screen reader users ...".
+ *
+ * It also broke localisation. The scrape happens while the layout is still
+ * English, so every locale workbench page advertised English copy to anything
+ * reading og:description — a link shared from /fr/essayer/ previewed in English.
+ *
+ * `<meta name="description">` comes from front matter and is already translated,
+ * so it is the right source for all three.
+ */
+function normaliseSocialMeta(head) {
+  const own = head.match(
+    /<meta\s+name=["']description["']\s+content=["']([^"']*)["']/i
+  );
+  if (!own) return head;
+  const desc = own[1];
+
+  let out = head;
+  for (const attr of ['property="og:description"', 'name="twitter:description"']) {
+    const re = new RegExp(`<meta\\s+${attr}\\s+content="[^"]*">`, "i");
+    out = out.replace(re, `<meta ${attr} content="${desc}">`);
+  }
+  // JSON-LD carries its own copy of the same scraped text.
+  out = out.replace(
+    /("description":")(?:[^"\\]|\\.)*(")/,
+    (_m, open, close) => open + desc.replace(/\\/g, "\\\\").replace(/"/g, '\\"') + close
+  );
+  return out;
 }
 
 /**
@@ -75,7 +152,7 @@ function injectHreflang(head, filePath) {
 
   const available = ["en", ...Object.keys(LOCALE_LANG)].filter((candidate) => {
     const dir = candidate === "en" ? publicDir : path.join(publicDir, candidate);
-    return fs.existsSync(path.join(dir, route, "index.html"));
+    return fs.existsSync(path.join(dir, slugFor(candidate, route), "index.html"));
   });
 
   // A lone self-reference tells search engines nothing; skip pages with no
@@ -95,10 +172,10 @@ function injectHreflang(head, filePath) {
   return `${head}\n    ${links.join("\n    ")}\n  `;
 }
 
-/** Cache of translated top-level route names per locale. */
+/** Cache of published top-level path segments per locale. */
 const routeCache = new Map();
 
-/** Top-level routes that actually exist for a locale, e.g. {about, api, faq}. */
+/** Path segments that actually exist for a locale, e.g. {a-propos, api, faq}. */
 function routesForLocale(locale) {
   if (!routeCache.has(locale)) {
     const dir = path.join(publicDir, locale);
@@ -114,13 +191,14 @@ function routesForLocale(locale) {
 }
 
 /**
- * Point navigation at translated pages.
+ * Point navigation at translated pages, at their translated URLs.
  *
  * The layouts hardcode English hrefs such as /about/, so every locale page
  * shipped a nav that sent readers back to English. ssg has no locale-prefix
- * placeholder, so rewrite here instead — but only for routes that genuinely
- * exist in that locale, and never inside the language switcher, whose links
- * must keep pointing at other locales.
+ * placeholder, so rewrite here instead — resolving each English route to that
+ * locale's own slug (/about/ becomes /fr/a-propos/), only for pages that
+ * genuinely exist, and never inside the language switcher, whose links must
+ * keep pointing at other locales.
  */
 function localiseLinks(body, filePath) {
   const locale = localeFromPath(filePath);
@@ -133,10 +211,75 @@ function localiseLinks(body, filePath) {
     if (tag.includes("ap-lang-item")) return tag;
     return tag.replace(
       /href=(["']?)\/([\w.-]+)\/\1(?=[\s>])/gi,
-      (match, quote, route) =>
-        routes.has(route) ? `href=${quote}/${locale}/${route}/${quote}` : match
+      (match, quote, route) => {
+        const slug = slugFor(locale, route);
+        return routes.has(slug) ? `href=${quote}/${locale}/${slug}/${quote}` : match;
+      }
     );
   });
+}
+
+/**
+ * Repoint links that already carry a locale prefix at the translated slug.
+ *
+ * localiseLinks only handles the layouts' bare English hrefs. Body prose
+ * written in generate-locales.mjs hardcodes fully-qualified paths such as
+ * /fr/message-selection/, which after the slug change resolve to a redirect
+ * stub. They work — that is what the stubs are for — but shipping an internal
+ * link to a noindex redirect wastes a hop and tells crawlers the wrong thing.
+ *
+ * Applied to every page, not just localised ones: an English page linking to
+ * /de/about/ has the same problem.
+ */
+function retargetMovedLinks(body) {
+  return body.replace(
+    /href=(["']?)\/([\w-]+)\/([\w.-]+)\/\1(?=[\s>])/gi,
+    (match, quote, locale, route) => {
+      if (!Object.hasOwn(LOCALE_LANG, locale)) return match;
+      const slug = slugFor(locale, route);
+      return slug === route ? match : `href=${quote}/${locale}/${slug}/${quote}`;
+    }
+  );
+}
+
+/**
+ * Replace inline style attributes with classes.
+ *
+ * The site's CSP is `style-src 'self' 'unsafe-hashes' <one hash>`, so exactly
+ * one inline style declaration is permitted and every other is blocked. ssg's
+ * syntax highlighter emits nine of them across roughly 23,000 occurrences, so
+ * every code block on the site shipped unstyled and logged a CSP violation.
+ * Lighthouse's best-practices score is what surfaced it.
+ *
+ * Rewriting to classes removes inline styles entirely, rather than widening the
+ * policy to admit them. An unmapped declaration is recorded and fails the build:
+ * a new highlighter colour must not silently ship blocked.
+ */
+function inlineStylesToClasses(html, filePath) {
+  return html.replace(/(<[a-zA-Z][\w-]*\b[^>]*?)\sstyle="([^"]*)"/g, (match, open, decl) => {
+    const cls = HL_PALETTE[decl];
+    if (!cls) {
+      if (!unmappedStyles.has(decl)) unmappedStyles.set(decl, filePath);
+      return match;
+    }
+    // Merge into an existing class attribute rather than adding a second one.
+    if (/\sclass="/.test(open)) {
+      return open.replace(/\sclass="([^"]*)"/, (_m, existing) => ` class="${existing} ${cls}"`);
+    }
+    return `${open} class="${cls}"`;
+  });
+}
+
+/** Fail the build if any inline style survived, since the CSP blocks it. */
+export function assertNoUnmappedStyles() {
+  if (unmappedStyles.size === 0) return;
+  const lines = [...unmappedStyles.entries()].map(
+    ([decl, file]) => `  - ${decl}  (first seen in ${path.relative(publicDir, file)})`
+  );
+  throw new Error(
+    `Inline style attributes the CSP will block, with no class mapping:\n${lines.join("\n")}\n\n` +
+      `Add each to data/highlight-classes.json and define the class in the layouts.`
+  );
 }
 
 /**
@@ -293,20 +436,38 @@ function repairHtml(content, filePath) {
       return unescapeHtmlString(match);
     });
 
-    // Deduplicate author & description metas in head if duplicated
+    // Deduplicate author & description metas in head if duplicated.
+    //
+    // The content pattern must be quote-aware. It was ["'][^"']*["'], which
+    // cannot match content containing the other quote character — so ssg's
+    // scraped second description, which reads "...the document's single h1...",
+    // was never recognised as a duplicate and shipped alongside the real one on
+    // 711 pages. The apostrophe in "document's" was the whole reason.
+    //
+    // The first occurrence wins, and ssg emits the front-matter description
+    // first, so the surviving tag is the translated one.
     const seenMetas = new Set();
-    head = head.replace(/<meta\s+name=["'](author|description|keywords|viewport)["']\s+content=["'][^"']*["']\s*\/?>/gi, (match, name) => {
-      const lowerName = name.toLowerCase();
-      if (seenMetas.has(lowerName)) return "";
-      seenMetas.add(lowerName);
-      return match;
-    });
+    head = head.replace(
+      /<meta\s+name=["'](author|description|keywords|viewport)["']\s+content=(?:"[^"]*"|'[^']*')\s*\/?>/gi,
+      (match, name) => {
+        const lowerName = name.toLowerCase();
+        if (seenMetas.has(lowerName)) return "";
+        seenMetas.add(lowerName);
+        return match;
+      }
+    );
   } else {
     body = content;
   }
 
   // Ensure <html> declares the page's own language and RTL direction
   head = normaliseHtmlTag(head, filePath);
+
+  // Point rel="canonical" at the URL the page is really served from
+  head = normaliseCanonical(head, filePath);
+
+  // Make og/twitter/JSON-LD descriptions match the page's own translated one
+  head = normaliseSocialMeta(head);
 
   // Publish hreflang alternates for pages that exist in more than one locale
   head = injectHreflang(head, filePath);
@@ -317,8 +478,21 @@ function repairHtml(content, filePath) {
   // 3. Point navigation at translated pages on locale routes
   body = localiseLinks(body, filePath);
 
+  // 3b. Repoint any hardcoded /<locale>/<english-route>/ link at the slug
+  body = retargetMovedLinks(body);
+
+  // 3c. Inline styles to classes — the CSP blocks all but one hashed value
+  body = inlineStylesToClasses(body, filePath);
+
   // 4. Translate site chrome, fill unresolved placeholders, reduce whitespace
-  const localised = translateChrome(fillReviewDate(head + body), localeFromPath(filePath));
+  const locale = localeFromPath(filePath);
+  // translateLive replaces the contents of the workbench's data-i18n elements.
+  // It runs before translateChrome so the nav and footer are still recognised:
+  // the workbench layout carries its own copies of both.
+  const localised = translateChrome(
+    translateLive(fillReviewDate(head + body), locale),
+    locale
+  );
   return minifyHtml(localised);
 }
 
@@ -346,4 +520,5 @@ if (fs.existsSync(publicDir)) {
 
   const repaired = processHtmlFiles(publicDir);
   console.log(`Repaired HTML in ${repaired} files in public/`);
+  assertNoUnmappedStyles();
 }

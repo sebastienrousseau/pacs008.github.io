@@ -1,0 +1,15 @@
+{
+  "_comment": "Inline style declarations emitted by ssg's syntax highlighter, mapped to the classes fix-ssg-html rewrites them into. The site's CSP is style-src 'self' 'unsafe-hashes' <one hash>, so any inline style attribute other than that one hash is blocked: the code blocks shipped unstyled and logged a CSP violation for each of 23,000 occurrences. Rewriting to classes removes inline styles entirely rather than widening the policy.",
+  "_invariant": "fix-ssg-html fails the build on an inline style it cannot map, so a new highlighter colour cannot silently ship blocked.",
+  "palette": {
+    "color:#c0c5ce;": "hl-text",
+    "color:#bf616a;": "hl-keyword",
+    "color:#a3be8c;": "hl-string",
+    "background-color:#2b303b;": "hl-surface",
+    "color:#8fa1b3;": "hl-fn",
+    "color:#b48ead;": "hl-const",
+    "color:#d08770;": "hl-num",
+    "color:#96b5b4;": "hl-type",
+    "color:#65737e;": "hl-comment"
+  }
+}

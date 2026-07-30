@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { readPage, attr, textOf } from "./helpers";
+import { readPage, readLocalePage, localePath, attr, textOf } from "./helpers";
 
 describe("Navigation structure", () => {
   const html = readPage(".");
@@ -32,13 +32,13 @@ describe("Navigation structure", () => {
 describe("Navigation: localisation", () => {
   it("French pages should link to French routes", () => {
     const html = readPage("fr");
-    expect(html).toMatch(attr("href", "/fr/about/"));
-    expect(html).toMatch(attr("href", "/fr/contact/"));
+    expect(html).toMatch(attr("href", `/${localePath("fr", "about")}/`));
+    expect(html).toMatch(attr("href", `/${localePath("fr", "contact")}/`));
   });
 
   it("German pages should link to German routes", () => {
     const html = readPage("de");
-    expect(html).toMatch(attr("href", "/de/about/"));
+    expect(html).toMatch(attr("href", `/${localePath("de", "about")}/`));
   });
 });
 

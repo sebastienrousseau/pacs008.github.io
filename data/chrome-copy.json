@@ -1,6 +1,5 @@
 {
   "_comment": "Site chrome (navigation, breadcrumb, meta labels) translated per locale and applied post-build by scripts/fix-ssg-html.mjs. Keys are the exact English source strings in _layouts/. A missing key falls back to English. Machine-translated pending native review.",
-  "en": {},
   "fr": {
     "Overview": "Présentation",
     "Message Specs": "Spécifications",
@@ -29,7 +28,14 @@
     "Scheme Change Log": "Journal des évolutions de schéma",
     "pacs Messages Explained": "Les messages pacs expliqués",
     "Structured Address (2026)": "Adresse structurée (2026)",
-    "Security &amp; Compliance": "Sécurité et conformité"
+    "Security &amp; Compliance": "Sécurité et conformité",
+    "Technical &amp; Help": "Technique et aide",
+    "Selection Guide": "Guide de sélection",
+    "FAQs": "FAQ",
+    "Privacy Policy": "Politique de confidentialité",
+    "Terms of Use": "Conditions d'utilisation",
+    "Contact": "Contact",
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.": "Compensation et règlement ISO 20022 open source, adaptés aux schémas. Fichiers validés, traitement local, aucun stockage de données."
   },
   "de": {
     "Overview": "Überblick",
@@ -59,7 +65,14 @@
     "Scheme Change Log": "Änderungsprotokoll der Verfahren",
     "pacs Messages Explained": "pacs-Nachrichten erklärt",
     "Structured Address (2026)": "Strukturierte Adresse (2026)",
-    "Security &amp; Compliance": "Sicherheit und Compliance"
+    "Security &amp; Compliance": "Sicherheit und Compliance",
+    "Technical &amp; Help": "Technik und Hilfe",
+    "Selection Guide": "Auswahlhilfe",
+    "FAQs": "FAQ",
+    "Privacy Policy": "Datenschutzerklärung",
+    "Terms of Use": "Nutzungsbedingungen",
+    "Contact": "Kontakt",
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.": "Open-Source-Clearing und -Settlement nach ISO 20022, schemabewusst. Validierte Dateien, lokale Verarbeitung, keine Speicherung von Nutzdaten."
   },
   "es": {
     "Overview": "Descripción general",
@@ -89,7 +102,14 @@
     "Scheme Change Log": "Registro de cambios de esquema",
     "pacs Messages Explained": "Mensajes pacs explicados",
     "Structured Address (2026)": "Dirección estructurada (2026)",
-    "Security &amp; Compliance": "Seguridad y cumplimiento"
+    "Security &amp; Compliance": "Seguridad y cumplimiento",
+    "Technical &amp; Help": "Técnica y ayuda",
+    "Selection Guide": "Guía de selección",
+    "FAQs": "Preguntas frecuentes",
+    "Privacy Policy": "Política de privacidad",
+    "Terms of Use": "Condiciones de uso",
+    "Contact": "Contacto",
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.": "Compensación y liquidación ISO 20022 de código abierto, conscientes del esquema. Archivos validados, procesamiento local, cero almacenamiento de datos."
   },
   "it": {
     "Overview": "Panoramica",
@@ -119,7 +139,14 @@
     "Scheme Change Log": "Registro modifiche degli schemi",
     "pacs Messages Explained": "I messaggi pacs spiegati",
     "Structured Address (2026)": "Indirizzo strutturato (2026)",
-    "Security &amp; Compliance": "Sicurezza e conformità"
+    "Security &amp; Compliance": "Sicurezza e conformità",
+    "Technical &amp; Help": "Tecnica e assistenza",
+    "Selection Guide": "Guida alla scelta",
+    "FAQs": "FAQ",
+    "Privacy Policy": "Informativa sulla privacy",
+    "Terms of Use": "Condizioni d'uso",
+    "Contact": "Contatti",
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.": "Compensazione e regolamento ISO 20022 open source, consapevoli dello schema. File validati, elaborazione locale, nessuna conservazione dei dati."
   },
   "nl": {
     "Overview": "Overzicht",
@@ -149,7 +176,14 @@
     "Scheme Change Log": "Wijzigingslog schema's",
     "pacs Messages Explained": "pacs-berichten uitgelegd",
     "Structured Address (2026)": "Gestructureerd adres (2026)",
-    "Security &amp; Compliance": "Beveiliging en naleving"
+    "Security &amp; Compliance": "Beveiliging en naleving",
+    "Technical &amp; Help": "Techniek en hulp",
+    "Selection Guide": "Keuzehulp",
+    "FAQs": "Veelgestelde vragen",
+    "Privacy Policy": "Privacyverklaring",
+    "Terms of Use": "Gebruiksvoorwaarden",
+    "Contact": "Contact",
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.": "Open source ISO 20022-clearing en -settlement, schemabewust. Gevalideerde bestanden, lokale verwerking, geen opslag van gegevens."
   },
   "pt": {
     "Overview": "Visão geral",
@@ -179,7 +213,14 @@
     "Scheme Change Log": "Registo de alterações de esquema",
     "pacs Messages Explained": "Mensagens pacs explicadas",
     "Structured Address (2026)": "Endereço estruturado (2026)",
-    "Security &amp; Compliance": "Segurança e conformidade"
+    "Security &amp; Compliance": "Segurança e conformidade",
+    "Technical &amp; Help": "Técnica e ajuda",
+    "Selection Guide": "Guia de seleção",
+    "FAQs": "Perguntas frequentes",
+    "Privacy Policy": "Política de privacidade",
+    "Terms of Use": "Termos de uso",
+    "Contact": "Contato",
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.": "Compensação e liquidação ISO 20022 de código aberto, cientes do esquema. Arquivos validados, processamento local, zero armazenamento de dados."
   },
   "pl": {
     "Overview": "Przegląd",
@@ -209,7 +250,14 @@
     "Scheme Change Log": "Dziennik zmian schematów",
     "pacs Messages Explained": "Komunikaty pacs wyjaśnione",
     "Structured Address (2026)": "Adres strukturalny (2026)",
-    "Security &amp; Compliance": "Bezpieczeństwo i zgodność"
+    "Security &amp; Compliance": "Bezpieczeństwo i zgodność",
+    "Technical &amp; Help": "Techniczne i pomoc",
+    "Selection Guide": "Przewodnik wyboru",
+    "FAQs": "Częste pytania",
+    "Privacy Policy": "Polityka prywatności",
+    "Terms of Use": "Warunki korzystania",
+    "Contact": "Kontakt",
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.": "Otwartoźródłowy rozrachunek i rozliczanie ISO 20022, świadome schematów. Zwalidowane pliki, przetwarzanie lokalne, zero przechowywania danych."
   },
   "ro": {
     "Overview": "Prezentare generală",
@@ -239,7 +287,14 @@
     "Scheme Change Log": "Jurnal de modificări ale schemelor",
     "pacs Messages Explained": "Mesajele pacs explicate",
     "Structured Address (2026)": "Adresă structurată (2026)",
-    "Security &amp; Compliance": "Securitate și conformitate"
+    "Security &amp; Compliance": "Securitate și conformitate",
+    "Technical &amp; Help": "Tehnic și ajutor",
+    "Selection Guide": "Ghid de alegere",
+    "FAQs": "Întrebări frecvente",
+    "Privacy Policy": "Politica de confidențialitate",
+    "Terms of Use": "Condiții de utilizare",
+    "Contact": "Contact",
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.": "Compensare și decontare ISO 20022 open source, conștiente de scheme. Fișiere validate, procesare locală, zero stocare de date."
   },
   "cs": {
     "Overview": "Přehled",
@@ -269,7 +324,14 @@
     "Scheme Change Log": "Seznam změn schémat",
     "pacs Messages Explained": "Zprávy pacs vysvětleny",
     "Structured Address (2026)": "Strukturovaná adresa (2026)",
-    "Security &amp; Compliance": "Bezpečnost a soulad"
+    "Security &amp; Compliance": "Bezpečnost a soulad",
+    "Technical &amp; Help": "Technika a pomoc",
+    "Selection Guide": "Průvodce výběrem",
+    "FAQs": "Časté dotazy",
+    "Privacy Policy": "Zásady ochrany soukromí",
+    "Terms of Use": "Podmínky použití",
+    "Contact": "Kontakt",
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.": "Otevřený clearing a zúčtování ISO 20022 se znalostí schémat. Validované soubory, lokální zpracování, žádné ukládání dat."
   },
   "sv": {
     "Overview": "Översikt",
@@ -299,7 +361,14 @@
     "Scheme Change Log": "Ändringslogg för scheman",
     "pacs Messages Explained": "pacs-meddelanden förklarade",
     "Structured Address (2026)": "Strukturerad adress (2026)",
-    "Security &amp; Compliance": "Säkerhet och efterlevnad"
+    "Security &amp; Compliance": "Säkerhet och efterlevnad",
+    "Technical &amp; Help": "Teknik och hjälp",
+    "Selection Guide": "Valguide",
+    "FAQs": "Vanliga frågor",
+    "Privacy Policy": "Integritetspolicy",
+    "Terms of Use": "Användarvillkor",
+    "Contact": "Kontakt",
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.": "Öppen källkod för ISO 20022-clearing och -avveckling, schemamedveten. Validerade filer, lokal bearbetning, ingen lagring av data."
   },
   "ru": {
     "Overview": "Обзор",
@@ -329,7 +398,14 @@
     "Scheme Change Log": "Журнал изменений схем",
     "pacs Messages Explained": "Сообщения pacs: разбор",
     "Structured Address (2026)": "Структурированный адрес (2026)",
-    "Security &amp; Compliance": "Безопасность и соответствие"
+    "Security &amp; Compliance": "Безопасность и соответствие",
+    "Technical &amp; Help": "Техника и помощь",
+    "Selection Guide": "Руководство по выбору",
+    "FAQs": "Частые вопросы",
+    "Privacy Policy": "Политика конфиденциальности",
+    "Terms of Use": "Условия использования",
+    "Contact": "Контакты",
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.": "Клиринг и расчёты ISO 20022 с открытым исходным кодом и учётом схем. Проверенные файлы, локальная обработка, никакого хранения данных."
   },
   "uk": {
     "Overview": "Огляд",
@@ -359,7 +435,14 @@
     "Scheme Change Log": "Журнал змін схем",
     "pacs Messages Explained": "Повідомлення pacs: пояснення",
     "Structured Address (2026)": "Структурована адреса (2026)",
-    "Security &amp; Compliance": "Безпека та відповідність"
+    "Security &amp; Compliance": "Безпека та відповідність",
+    "Technical &amp; Help": "Техніка та допомога",
+    "Selection Guide": "Посібник із вибору",
+    "FAQs": "Часті питання",
+    "Privacy Policy": "Політика конфіденційності",
+    "Terms of Use": "Умови використання",
+    "Contact": "Контакти",
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.": "Кліринг і розрахунки ISO 20022 з відкритим кодом та врахуванням схем. Перевірені файли, локальна обробка, жодного зберігання даних."
   },
   "tr": {
     "Overview": "Genel bakış",
@@ -389,7 +472,14 @@
     "Scheme Change Log": "Şema değişiklik günlüğü",
     "pacs Messages Explained": "pacs mesajları açıklanıyor",
     "Structured Address (2026)": "Yapılandırılmış adres (2026)",
-    "Security &amp; Compliance": "Güvenlik ve uyum"
+    "Security &amp; Compliance": "Güvenlik ve uyum",
+    "Technical &amp; Help": "Teknik ve yardım",
+    "Selection Guide": "Seçim kılavuzu",
+    "FAQs": "SSS",
+    "Privacy Policy": "Gizlilik politikası",
+    "Terms of Use": "Kullanım koşulları",
+    "Contact": "İletişim",
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.": "Açık kaynaklı, şema farkındalıklı ISO 20022 takas ve mutabakat. Doğrulanmış dosyalar, yerel işleme, sıfır veri saklama."
   },
   "ar": {
     "Overview": "نظرة عامة",
@@ -419,7 +509,14 @@
     "Scheme Change Log": "سجل تغييرات المخططات",
     "pacs Messages Explained": "شرح رسائل pacs",
     "Structured Address (2026)": "العنوان المهيكل (2026)",
-    "Security &amp; Compliance": "الأمن والامتثال"
+    "Security &amp; Compliance": "الأمن والامتثال",
+    "Technical &amp; Help": "التقنية والمساعدة",
+    "Selection Guide": "دليل الاختيار",
+    "FAQs": "الأسئلة الشائعة",
+    "Privacy Policy": "سياسة الخصوصية",
+    "Terms of Use": "شروط الاستخدام",
+    "Contact": "اتصل بنا",
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.": "مقاصة وتسوية ISO 20022 مفتوحة المصدر ومراعية للمخططات. ملفات مُتحقَّق منها ومعالجة محلية ودون تخزين أي بيانات."
   },
   "he": {
     "Overview": "סקירה",
@@ -449,7 +546,14 @@
     "Scheme Change Log": "יומן שינויי סכמות",
     "pacs Messages Explained": "הודעות pacs בהסבר",
     "Structured Address (2026)": "כתובת מובנית (2026)",
-    "Security &amp; Compliance": "אבטחה וציות"
+    "Security &amp; Compliance": "אבטחה וציות",
+    "Technical &amp; Help": "טכני ועזרה",
+    "Selection Guide": "מדריך בחירה",
+    "FAQs": "שאלות נפוצות",
+    "Privacy Policy": "מדיניות פרטיות",
+    "Terms of Use": "תנאי שימוש",
+    "Contact": "צור קשר",
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.": "סליקה וסילוק ISO 20022 בקוד פתוח, מותאמים לסכמות. קבצים מאומתים, עיבוד מקומי, אפס שמירת נתונים."
   },
   "hi": {
     "Overview": "अवलोकन",
@@ -479,7 +583,14 @@
     "Scheme Change Log": "स्कीम परिवर्तन लॉग",
     "pacs Messages Explained": "pacs संदेश समझाए गए",
     "Structured Address (2026)": "संरचित पता (2026)",
-    "Security &amp; Compliance": "सुरक्षा और अनुपालन"
+    "Security &amp; Compliance": "सुरक्षा और अनुपालन",
+    "Technical &amp; Help": "तकनीकी और सहायता",
+    "Selection Guide": "चयन मार्गदर्शिका",
+    "FAQs": "सामान्य प्रश्न",
+    "Privacy Policy": "गोपनीयता नीति",
+    "Terms of Use": "उपयोग की शर्तें",
+    "Contact": "संपर्क",
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.": "मुक्त-स्रोत, स्कीमा-सजग ISO 20022 भुगतान समाशोधन और निपटान। सत्यापित फ़ाइलें, स्थानीय प्रसंस्करण, शून्य डेटा भंडारण।"
   },
   "bn": {
     "Overview": "সংক্ষিপ্ত বিবরণ",
@@ -509,7 +620,14 @@
     "Scheme Change Log": "স্কিম পরিবর্তনের তালিকা",
     "pacs Messages Explained": "pacs বার্তার ব্যাখ্যা",
     "Structured Address (2026)": "সংগঠিত ঠিকানা (২০২৬)",
-    "Security &amp; Compliance": "নিরাপত্তা ও সম্মতি"
+    "Security &amp; Compliance": "নিরাপত্তা ও সম্মতি",
+    "Technical &amp; Help": "কৌশল ও সহায়তা",
+    "Selection Guide": "নির্বাচন নির্দেশিকা",
+    "FAQs": "সাধারণ প্রশ্ন",
+    "Privacy Policy": "গোপনীয়তা নীতি",
+    "Terms of Use": "ব্যবহারের শর্তাবলি",
+    "Contact": "যোগাযোগ",
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.": "মুক্ত-উৎস, স্কিম-সচেতন ISO 20022 নিষ্পত্তি ও নিকাশ। যাচাই করা ফাইল, স্থানীয় প্রক্রিয়াকরণ, শূন্য ডেটা সংরক্ষণ।"
   },
   "id": {
     "Overview": "Ikhtisar",
@@ -539,7 +657,14 @@
     "Scheme Change Log": "Catatan perubahan skema",
     "pacs Messages Explained": "Penjelasan pesan pacs",
     "Structured Address (2026)": "Alamat terstruktur (2026)",
-    "Security &amp; Compliance": "Keamanan dan kepatuhan"
+    "Security &amp; Compliance": "Keamanan dan kepatuhan",
+    "Technical &amp; Help": "Teknis dan bantuan",
+    "Selection Guide": "Panduan pemilihan",
+    "FAQs": "Tanya jawab",
+    "Privacy Policy": "Kebijakan privasi",
+    "Terms of Use": "Ketentuan penggunaan",
+    "Contact": "Kontak",
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.": "Kliring dan penyelesaian ISO 20022 sumber terbuka yang sadar skema. Berkas tervalidasi, pemrosesan lokal, tanpa penyimpanan data."
   },
   "th": {
     "Overview": "ภาพรวม",
@@ -569,7 +694,14 @@
     "Scheme Change Log": "บันทึกการเปลี่ยนแปลงสคีม",
     "pacs Messages Explained": "อธิบายข้อความ pacs",
     "Structured Address (2026)": "ที่อยู่แบบมีโครงสร้าง (2026)",
-    "Security &amp; Compliance": "ความปลอดภัยและการปฏิบัติตามกฎ"
+    "Security &amp; Compliance": "ความปลอดภัยและการปฏิบัติตามกฎ",
+    "Technical &amp; Help": "เทคนิคและความช่วยเหลือ",
+    "Selection Guide": "คู่มือการเลือก",
+    "FAQs": "คำถามที่พบบ่อย",
+    "Privacy Policy": "นโยบายความเป็นส่วนตัว",
+    "Terms of Use": "เงื่อนไขการใช้งาน",
+    "Contact": "ติดต่อ",
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.": "การหักบัญชีและชำระดุล ISO 20022 แบบโอเพนซอร์สที่เข้าใจสคีมา ไฟล์ที่ตรวจสอบแล้ว ประมวลผลในเครื่อง ไม่เก็บข้อมูลใด ๆ"
   },
   "vi": {
     "Overview": "Tổng quan",
@@ -599,7 +731,14 @@
     "Scheme Change Log": "Nhật ký thay đổi sơ đồ",
     "pacs Messages Explained": "Giải thích thông điệp pacs",
     "Structured Address (2026)": "Địa chỉ có cấu trúc (2026)",
-    "Security &amp; Compliance": "Bảo mật và tuân thủ"
+    "Security &amp; Compliance": "Bảo mật và tuân thủ",
+    "Technical &amp; Help": "Kỹ thuật và trợ giúp",
+    "Selection Guide": "Hướng dẫn chọn",
+    "FAQs": "Câu hỏi thường gặp",
+    "Privacy Policy": "Chính sách quyền riêng tư",
+    "Terms of Use": "Điều khoản sử dụng",
+    "Contact": "Liên hệ",
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.": "Bù trừ và quyết toán ISO 20022 nguồn mở, hiểu lược đồ. Tệp đã xác thực, xử lý cục bộ, không lưu trữ dữ liệu."
   },
   "ja": {
     "Overview": "概要",
@@ -629,7 +768,14 @@
     "Scheme Change Log": "スキーム変更履歴",
     "pacs Messages Explained": "pacs メッセージ解説",
     "Structured Address (2026)": "構造化住所（2026）",
-    "Security &amp; Compliance": "セキュリティとコンプライアンス"
+    "Security &amp; Compliance": "セキュリティとコンプライアンス",
+    "Technical &amp; Help": "技術とヘルプ",
+    "Selection Guide": "選択ガイド",
+    "FAQs": "よくある質問",
+    "Privacy Policy": "プライバシーポリシー",
+    "Terms of Use": "利用規約",
+    "Contact": "お問い合わせ",
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.": "スキームを踏まえたオープンソースの ISO 20022 クリアリングと決済。検証済みファイル、ローカル処理、データ保存なし。"
   },
   "ko": {
     "Overview": "개요",
@@ -659,7 +805,14 @@
     "Scheme Change Log": "스킴 변경 기록",
     "pacs Messages Explained": "pacs 메시지 해설",
     "Structured Address (2026)": "구조화 주소(2026)",
-    "Security &amp; Compliance": "보안 및 컴플라이언스"
+    "Security &amp; Compliance": "보안 및 컴플라이언스",
+    "Technical &amp; Help": "기술 및 도움말",
+    "Selection Guide": "선택 가이드",
+    "FAQs": "자주 묻는 질문",
+    "Privacy Policy": "개인정보 처리방침",
+    "Terms of Use": "이용약관",
+    "Contact": "문의",
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.": "스킴을 이해하는 오픈소스 ISO 20022 청산 및 결제. 검증된 파일, 로컬 처리, 데이터 저장 없음."
   },
   "zh": {
     "Overview": "概览",
@@ -689,7 +842,14 @@
     "Scheme Change Log": "方案变更日志",
     "pacs Messages Explained": "pacs 报文详解",
     "Structured Address (2026)": "结构化地址（2026）",
-    "Security &amp; Compliance": "安全与合规"
+    "Security &amp; Compliance": "安全与合规",
+    "Technical &amp; Help": "技术与帮助",
+    "Selection Guide": "选择指南",
+    "FAQs": "常见问题",
+    "Privacy Policy": "隐私政策",
+    "Terms of Use": "使用条款",
+    "Contact": "联系我们",
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.": "开源、方案感知的 ISO 20022 支付清算与结算。校验过的文件、本地处理、零数据留存。"
   },
   "zh-tw": {
     "Overview": "概覽",
@@ -719,7 +879,14 @@
     "Scheme Change Log": "方案變更紀錄",
     "pacs Messages Explained": "pacs 訊息詳解",
     "Structured Address (2026)": "結構化位址（2026）",
-    "Security &amp; Compliance": "安全與合規"
+    "Security &amp; Compliance": "安全與合規",
+    "Technical &amp; Help": "技術與協助",
+    "Selection Guide": "選擇指南",
+    "FAQs": "常見問題",
+    "Privacy Policy": "隱私政策",
+    "Terms of Use": "使用條款",
+    "Contact": "聯絡我們",
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.": "開源、方案感知的 ISO 20022 支付清算與結算。驗證過的檔案、本機處理、零資料留存。"
   },
   "ha": {
     "Overview": "Bayani gabaɗaya",
@@ -749,7 +916,14 @@
     "Scheme Change Log": "Rajistar canje-canjen tsari",
     "pacs Messages Explained": "Bayanin saƙonnin pacs",
     "Structured Address (2026)": "Adireshi mai tsari (2026)",
-    "Security &amp; Compliance": "Tsaro da bin ƙa'ida"
+    "Security &amp; Compliance": "Tsaro da bin ƙa'ida",
+    "Technical &amp; Help": "Fasaha da taimako",
+    "Selection Guide": "Jagorar zaɓi",
+    "FAQs": "Tambayoyi",
+    "Privacy Policy": "Manufar sirri",
+    "Terms of Use": "Sharuɗɗan amfani",
+    "Contact": "Tuntuɓe mu",
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.": "Sasantawa da daidaita biyan kuɗi na ISO 20022 na buɗaɗɗen tushe, mai fahimtar tsare-tsare. Fayiloli da aka tantance, sarrafawa a wuri, babu adana bayanai."
   },
   "tl": {
     "Overview": "Pangkalahatang-ideya",
@@ -779,7 +953,14 @@
     "Scheme Change Log": "Talaan ng pagbabago sa scheme",
     "pacs Messages Explained": "Paliwanag sa mga mensaheng pacs",
     "Structured Address (2026)": "Nakabalangkas na address (2026)",
-    "Security &amp; Compliance": "Seguridad at pagsunod"
+    "Security &amp; Compliance": "Seguridad at pagsunod",
+    "Technical &amp; Help": "Teknikal at tulong",
+    "Selection Guide": "Gabay sa pagpili",
+    "FAQs": "Mga madalas itanong",
+    "Privacy Policy": "Patakaran sa pagkapribado",
+    "Terms of Use": "Mga tuntunin ng paggamit",
+    "Contact": "Kontak",
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.": "Open source at scheme-aware na ISO 20022 clearing at settlement. Nabalidang mga file, lokal na pagproseso, walang imbakan ng datos."
   },
   "yo": {
     "Overview": "Àkópọ̀",
@@ -809,6 +990,13 @@
     "Scheme Change Log": "Ìwé ìyípadà ètò",
     "pacs Messages Explained": "Àlàyé àwọn ìránṣẹ́ pacs",
     "Structured Address (2026)": "Àdírẹ́sì onítọ̀nà (2026)",
-    "Security &amp; Compliance": "Ààbò àti ìbámu"
+    "Security &amp; Compliance": "Ààbò àti ìbámu",
+    "Technical &amp; Help": "Imọ-ẹrọ àti ìrànwọ́",
+    "Selection Guide": "Ìtọ́sọ́nà yíyàn",
+    "FAQs": "Ìbéèrè lóòrèkóòrè",
+    "Privacy Policy": "Ìlànà àṣírí",
+    "Terms of Use": "Àwọn òfin ìlò",
+    "Contact": "Kan sí wa",
+    "Open-source, scheme-aware ISO 20022 payment clearing and settlement. Validated files, local processing, zero payload storage.": "Ìsọdọ̀tun àti ìpinnu ìsanwó ISO 20022 orísun ṣíṣí, tí ó mọ àwọn ètò. Àwọn fáìlì tí a ṣàyẹ̀wò, ìṣiṣẹ́ ládùúgbò, kò sí ìpamọ́ dátà."
   }
 }
