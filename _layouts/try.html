@@ -25,17 +25,25 @@
 
     <!-- hreflang alternates are injected per page by scripts/fix-ssg-html.mjs -->
     <link rel="canonical" href="{{url}}" />
-    <!-- Favicon. The canonical asset is the CDN .ico, which carries 16, 32, 48
-         and a 256px frame — so no separate PNG sizes are needed. /favicon.ico is
-         a byte-identical mirror, because browsers request that root path
-         regardless of what the document declares.
+    <!-- Favicon. Served from this origin, not the CDN, and that is forced rather
+         than preferred: cloudcdn.pro has Cloudflare hotlink protection on
+         /pacs008/v1/favicon.ico, which returns 403 (Cloudflare error 1011) for
+         any cross-site Referer. Browsers always send a Referer when fetching a
+         favicon declared on a page, so the CDN URL can never render as a page
+         icon. The /logos/ path has a bypass, which is why the nav logo works.
+         Verified: identical bytes load in Chrome from this origin and time out
+         from the CDN.
 
-         apple-touch-icon is the one thing the CDN does not offer, and Safari
-         does not accept SVG for it, which is why nothing appeared on iOS. It is
-         derived from the 256px frame of the same .ico, so it cannot drift from
-         the declared icon, with alpha removed because iOS composites it onto the
-         home screen and ignores transparency. -->
-    <link rel="icon" href="https://cloudcdn.pro/pacs008/v1/favicon.ico" sizes="16x16 32x32 48x48">
+         The bytes ARE the CDN's canonical .ico (16/32/48 + a 256px frame), so
+         the artwork matches the brand exactly. It also replaces a stale icon
+         that had been shipping: the previously committed favicon.ico was an
+         older teal sunburst mark, not the current logo.
+
+         apple-touch-icon is derived from frame [3] of that same .ico, with alpha
+         removed because iOS composites it onto the home screen and ignores
+         transparency. Safari does not accept SVG here, which is why nothing
+         appeared on iOS. -->
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="preload" href="/fonts/source-serif-4-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
     <!-- Skeletonic CSS (skeletonic.com) — the project's own framework, vendored

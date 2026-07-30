@@ -1,5 +1,5 @@
 {
-  "_comment": "Favicon provenance. The canonical icon is the CDN .ico; everything else is derived from it so nothing can drift.",
+  "_comment": "Favicon provenance. The artwork is the CDN's canonical .ico, but it is served from this origin because the CDN blocks it \u2014 see cdn_hotlink_block.",
   "canonical": "https://cloudcdn.pro/pacs008/v1/favicon.ico",
   "canonical_frames": [
     "16x16 ICO",
@@ -9,7 +9,7 @@
   ],
   "root_mirror": {
     "file": "static/favicon.ico",
-    "why": "Browsers request /favicon.ico at the site root regardless of declarations. A byte-identical mirror answers it without diverging in appearance.",
+    "why": "Serves the declared icon and also answers the implicit /favicon.ico root request browsers make regardless of declarations. Byte-identical to the CDN canonical asset, so it cannot drift in appearance.",
     "bytes": 45675,
     "sha256": "fd062615ab158d0d49effa8b1b3b779c0e712fb9d2eba8941230cc5d379aec54"
   },
@@ -19,5 +19,14 @@
     "bytes": 13514,
     "sha256": "70f497ddf91a2930e99ead021bffe027c5c56415c3b0024f36367f67025aad22"
   },
-  "note": "The nav logo also loads from the CDN, deliberately. That was never the defect."
+  "note": "The nav logo also loads from the CDN, deliberately. That was never the defect.",
+  "declared": "/favicon.ico",
+  "cdn_hotlink_block": {
+    "url": "https://cloudcdn.pro/pacs008/v1/favicon.ico",
+    "symptom": "403 Cloudflare error 1011 for any request carrying a cross-site Referer; 200 with no Referer.",
+    "why_it_matters": "Browsers always send a Referer when fetching a favicon declared on a page, so this URL cannot render as a page icon. Verified in Chrome: identical bytes load from this origin and time out from the CDN, while the CDN logo SVG loads fine.",
+    "scope": "Path-specific. /pacs008/v1/logos/ has a hotlink bypass, which is why the nav logo works.",
+    "to_serve_from_the_cdn": "Add /pacs008/v1/favicon.ico to the Cloudflare hotlink-protection bypass, then this declaration can point at the CDN."
+  },
+  "replaced_stale_icon": "The previously committed static/favicon.ico was a different, older logo \u2014 a teal sunburst rather than the current waves-and-sun mark \u2014 so the live root favicon was stale artwork as well as the declarations being broken."
 }

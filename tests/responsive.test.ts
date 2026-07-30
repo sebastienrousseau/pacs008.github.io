@@ -174,10 +174,29 @@ describe("Styling: favicon", () => {
    *
    * The canonical icon is the CDN .ico, which carries 16/32/48/256.
    */
-  it("declares the canonical CDN icon on every content page", () => {
+  it("declares a same-origin icon on every content page", () => {
     for (const route of [".", "about", "live", "fr/essayer", "ar", "ja/about"]) {
       const head = readPage(route).split("</head>")[0];
-      expect(head, `${route} does not declare the canonical icon`).toContain(meta.canonical);
+      expect(head, `${route} does not declare /favicon.ico`).toMatch(
+        /rel="?icon"?[^>]*\/favicon\.ico|\/favicon\.ico[^>]*rel="?icon/
+      );
+    }
+  });
+
+  /**
+   * The icon must not be declared from the CDN, and this is forced rather than
+   * preferred: cloudcdn.pro has Cloudflare hotlink protection on
+   * /pacs008/v1/favicon.ico, which 403s (error 1011) for any cross-site
+   * Referer. Browsers always send one when fetching a favicon declared on a
+   * page, so that URL can never render as a page icon — verified in Chrome,
+   * where the identical bytes load from this origin and time out from the CDN.
+   */
+  it("never declares the hotlink-blocked CDN icon URL", () => {
+    for (const route of [".", "about", "live", "fr/essayer"]) {
+      const head = readPage(route).split("</head>")[0];
+      expect(head, `${route} declares the blocked CDN icon`).not.toContain(
+        meta.cdn_hotlink_block.url
+      );
     }
   });
 
