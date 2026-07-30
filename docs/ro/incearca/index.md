@@ -1,6 +1,6 @@
 ---
-title: "Try pacs008 in Your Browser"
-description: "Drop in a CSV, use the sample, or paste your own records — validation runs instantly, entirely in your browser, zero payload storage."
+title: "Încercați pacs008 în browserul dumneavoastră"
+description: "Trageți un CSV, folosiți eșantionul sau lipiți propriile înregistrări — validarea este instantanee, integral în browser, fără stocarea datelor."
 lang: ro-RO
 layout: try
 date: "2026-07-29"
@@ -15,7 +15,7 @@ image: /logo.webp
 canonical: "/ro/incearca/"
 ---
 
-## Technical Security Guarantee
+## Garanție tehnică de securitate
 
-- **Client-Side Storage Only**: No network requests or telemetry are sent to external web servers.
-- **2026 Readiness**: Generates structured addresses and mandatory Purpose Codes required by SWIFT CBPR+ and Bank of England CHAPS.
+- **Doar stocare pe partea clientului**: nu se trimit cereri de rețea sau telemetrie către servere web externe.
+- **Conformitate 2026**: generează adrese structurate și codurile de scop obligatorii cerute de SWIFT CBPR+ și Banca Angliei CHAPS.

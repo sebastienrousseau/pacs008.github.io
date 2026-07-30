@@ -1,6 +1,6 @@
 ---
-title: "Try pacs008 in Your Browser"
-description: "Drop in a CSV, use the sample, or paste your own records — validation runs instantly, entirely in your browser, zero payload storage."
+title: "Coba pacs008 di peramban Anda"
+description: "Letakkan sebuah CSV, gunakan contoh, atau tempel catatan Anda sendiri — validasi berjalan seketika, sepenuhnya di peramban Anda, tanpa penyimpanan data."
 lang: id-ID
 layout: try
 date: "2026-07-29"
@@ -15,7 +15,7 @@ image: /logo.webp
 canonical: "/id/coba/"
 ---
 
-## Technical Security Guarantee
+## Jaminan keamanan teknis
 
-- **Client-Side Storage Only**: No network requests or telemetry are sent to external web servers.
-- **2026 Readiness**: Generates structured addresses and mandatory Purpose Codes required by SWIFT CBPR+ and Bank of England CHAPS.
+- **Hanya penyimpanan di sisi klien**: tidak ada permintaan jaringan atau telemetri yang dikirim ke server web eksternal.
+- **Kesiapan 2026**: menghasilkan alamat terstruktur dan Kode Tujuan wajib yang disyaratkan SWIFT CBPR+ dan Bank of England CHAPS.

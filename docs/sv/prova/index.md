@@ -1,6 +1,6 @@
 ---
-title: "Try pacs008 in Your Browser"
-description: "Drop in a CSV, use the sample, or paste your own records — validation runs instantly, entirely in your browser, zero payload storage."
+title: "Prova pacs008 i din webbläsare"
+description: "Släpp en CSV, använd exemplet eller klistra in dina egna poster — valideringen sker direkt, helt i din webbläsare, utan lagring av data."
 lang: sv-SE
 layout: try
 date: "2026-07-29"
@@ -15,7 +15,7 @@ image: /logo.webp
 canonical: "/sv/prova/"
 ---
 
-## Technical Security Guarantee
+## Teknisk säkerhetsgaranti
 
-- **Client-Side Storage Only**: No network requests or telemetry are sent to external web servers.
-- **2026 Readiness**: Generates structured addresses and mandatory Purpose Codes required by SWIFT CBPR+ and Bank of England CHAPS.
+- **Endast lagring på klientsidan**: inga nätverksanrop eller telemetridata skickas till externa webbservrar.
+- **Beredskap 2026**: skapar strukturerade adresser och de obligatoriska Purpose Codes som SWIFT CBPR+ och Bank of England CHAPS kräver.

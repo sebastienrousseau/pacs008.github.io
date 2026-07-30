@@ -1,6 +1,6 @@
 ---
-title: "Try pacs008 in Your Browser"
-description: "Drop in a CSV, use the sample, or paste your own records — validation runs instantly, entirely in your browser, zero payload storage."
+title: "Subukan ang pacs008 sa inyong browser"
+description: "Maghulog ng CSV, gamitin ang halimbawa, o i-paste ang sarili ninyong mga rekord — agad ang balidasyon, buo sa inyong browser, walang iniimbak na datos."
 lang: tl-PH
 layout: try
 date: "2026-07-29"
@@ -15,7 +15,7 @@ image: /logo.webp
 canonical: "/tl/subukan/"
 ---
 
-## Technical Security Guarantee
+## Teknikal na katiyakan sa seguridad
 
-- **Client-Side Storage Only**: No network requests or telemetry are sent to external web servers.
-- **2026 Readiness**: Generates structured addresses and mandatory Purpose Codes required by SWIFT CBPR+ and Bank of England CHAPS.
+- **Imbakan sa panig ng kliyente lamang**: walang kahilingan sa network o telemetriyang ipinapadala sa panlabas na web server.
+- **Kahandaan sa 2026**: bumubuo ng mga nakabalangkas na address at ng kailangang Purpose Codes na hinihingi ng SWIFT CBPR+ at ng Bank of England CHAPS.

@@ -1,6 +1,6 @@
 ---
-title: "Try pacs008 in Your Browser"
-description: "Drop in a CSV, use the sample, or paste your own records — validation runs instantly, entirely in your browser, zero payload storage."
+title: "আপনার ব্রাউজারে pacs008 ব্যবহার করে দেখুন"
+description: "একটি CSV ফেলুন, নমুনা ব্যবহার করুন, বা নিজের রেকর্ড পেস্ট করুন — যাচাই তাৎক্ষণিক, সম্পূর্ণ আপনার ব্রাউজারে, কোনো ডেটা সংরক্ষণ ছাড়াই।"
 lang: bn-BD
 layout: try
 date: "2026-07-29"
@@ -15,7 +15,7 @@ image: /logo.webp
 canonical: "/bn/live/"
 ---
 
-## Technical Security Guarantee
+## কৌশলগত নিরাপত্তার নিশ্চয়তা
 
-- **Client-Side Storage Only**: No network requests or telemetry are sent to external web servers.
-- **2026 Readiness**: Generates structured addresses and mandatory Purpose Codes required by SWIFT CBPR+ and Bank of England CHAPS.
+- **কেবল ক্লায়েন্ট-প্রান্তে সংরক্ষণ**: বাইরের ওয়েব সার্ভারে কোনো নেটওয়ার্ক অনুরোধ বা টেলিমেট্রি পাঠানো হয় না।
+- **2026 প্রস্তুতি**: SWIFT CBPR+ ও ব্যাংক অফ ইংল্যান্ড CHAPS যে গঠিত ঠিকানা ও আবশ্যক উদ্দেশ্য কোড চায়, তা তৈরি করে।

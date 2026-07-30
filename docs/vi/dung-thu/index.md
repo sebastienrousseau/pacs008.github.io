@@ -1,6 +1,6 @@
 ---
-title: "Try pacs008 in Your Browser"
-description: "Drop in a CSV, use the sample, or paste your own records — validation runs instantly, entirely in your browser, zero payload storage."
+title: "Dùng thử pacs008 trong trình duyệt của bạn"
+description: "Kéo một tệp CSV vào, dùng mẫu có sẵn hoặc dán bản ghi của bạn — việc kiểm tra diễn ra tức thì, hoàn toàn trong trình duyệt, không lưu trữ dữ liệu."
 lang: vi-VN
 layout: try
 date: "2026-07-29"
@@ -15,7 +15,7 @@ image: /logo.webp
 canonical: "/vi/dung-thu/"
 ---
 
-## Technical Security Guarantee
+## Bảo đảm an toàn kỹ thuật
 
-- **Client-Side Storage Only**: No network requests or telemetry are sent to external web servers.
-- **2026 Readiness**: Generates structured addresses and mandatory Purpose Codes required by SWIFT CBPR+ and Bank of England CHAPS.
+- **Chỉ lưu trữ phía máy khách**: không có yêu cầu mạng hay dữ liệu đo lường nào được gửi tới máy chủ web bên ngoài.
+- **Sẵn sàng cho 2026**: tạo địa chỉ có cấu trúc và các Mã mục đích bắt buộc theo yêu cầu của SWIFT CBPR+ và Ngân hàng Anh CHAPS.

@@ -1,6 +1,6 @@
 ---
-title: "Try pacs008 in Your Browser"
-description: "Drop in a CSV, use the sample, or paste your own records — validation runs instantly, entirely in your browser, zero payload storage."
+title: "Gwada pacs008 a cikin burauzarka"
+description: "Ka sauke fayil ɗin CSV, ka yi amfani da samfurin, ko ka manna bayanan ka — tantancewa na faruwa nan take, gaba ɗaya a cikin burauzarka, ba tare da adana bayanai ba."
 lang: ha-NG
 layout: try
 date: "2026-07-29"
@@ -15,7 +15,7 @@ image: /logo.webp
 canonical: "/ha/gwada/"
 ---
 
-## Technical Security Guarantee
+## Tabbacin tsaro na fasaha
 
-- **Client-Side Storage Only**: No network requests or telemetry are sent to external web servers.
-- **2026 Readiness**: Generates structured addresses and mandatory Purpose Codes required by SWIFT CBPR+ and Bank of England CHAPS.
+- **Ajiya a gefen abokin ciniki kawai**: ba a aika wata buƙatar hanyar sadarwa ko bayanan aunawa zuwa sabar yanar gizo na waje ba.
+- **Shirye-shiryen 2026**: yana samar da adireshi masu tsari da Lambobin Manufa da SWIFT CBPR+ da Bankin Ingila CHAPS ke buƙata.

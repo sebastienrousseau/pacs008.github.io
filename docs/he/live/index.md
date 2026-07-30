@@ -1,6 +1,6 @@
 ---
-title: "Try pacs008 in Your Browser"
-description: "Drop in a CSV, use the sample, or paste your own records — validation runs instantly, entirely in your browser, zero payload storage."
+title: "נסו את pacs008 בדפדפן שלכם"
+description: "גררו קובץ CSV, השתמשו בדוגמה או הדביקו רשומות משלכם — האימות מיידי, כולו בדפדפן שלכם, בלי שמירת נתונים."
 lang: he-IL
 layout: try
 date: "2026-07-29"
@@ -15,7 +15,7 @@ image: /logo.webp
 canonical: "/he/live/"
 ---
 
-## Technical Security Guarantee
+## ערובה אבטחתית טכנית
 
-- **Client-Side Storage Only**: No network requests or telemetry are sent to external web servers.
-- **2026 Readiness**: Generates structured addresses and mandatory Purpose Codes required by SWIFT CBPR+ and Bank of England CHAPS.
+- **אחסון בצד הלקוח בלבד**: לא נשלחות בקשות רשת או נתוני מדידה לשרתי אינטרנט חיצוניים.
+- **מוכנות 2026**: מפיק כתובות מובנות וקודי מטרה נדרשים שדורשים SWIFT CBPR+ ובנק אנגליה CHAPS.
