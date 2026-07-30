@@ -162,39 +162,60 @@ describe("Styling: Skeletonic framework", () => {
 });
 
 describe("Styling: favicon", () => {
-  // Regression: the icon links pointed at the CDN logo — a 127 KB, 162-path,
-  // 4654x4935 artwork. Unusable at 16px, and Safari does not support SVG for
-  // apple-touch-icon at all, so nothing showed on iOS.
-  const ICONS = [
-    ["favicon.ico", 48],
-    ["favicon-32.png", 32],
-    ["favicon-16.png", 16],
-    ["apple-touch-icon.png", 180],
-  ] as const;
+  const meta = JSON.parse(
+    readFileSync(resolve(__dirname, "../data/favicon.json"), "utf-8")
+  );
 
-  it("ships a square raster for every declared size", () => {
-    const missing = ICONS.filter(([f]) => !existsSync(resolve(DIST, f))).map(([f]) => f);
-    expect(missing, `icon assets missing: ${missing.join(", ")}`).toEqual([]);
+  /**
+   * Regression, in two stages. First the icon href was site-relative while the
+   * logo is on the CDN, so it 404d. Fixing that was not enough: the CDN *logo*
+   * is a 127 KB, 162-path, 4654x4935 artwork — unusable at 16px — and Safari
+   * does not accept SVG for apple-touch-icon at all, which is what iOS showed.
+   *
+   * The canonical icon is the CDN .ico, which carries 16/32/48/256.
+   */
+  it("declares the canonical CDN icon on every content page", () => {
+    for (const route of [".", "about", "live", "fr/essayer", "ar", "ja/about"]) {
+      const head = readPage(route).split("</head>")[0];
+      expect(head, `${route} does not declare the canonical icon`).toContain(meta.canonical);
+    }
   });
 
-  it("declares them all, self-hosted, on every content page", () => {
-    for (const route of [".", "about", "live", "fr/essayer"]) {
-      const head = readPage(route).split("</head>")[0];
-      for (const [file] of ICONS) {
-        expect(head, `${route} does not declare ${file}`).toContain(`/${file}`);
-      }
-      expect(head, `${route} still points an icon at the CDN`).not.toMatch(
-        /rel=["']?(?:icon|apple-touch-icon)["']?[^>]*cloudcdn/
+  // Safari needs a PNG here, and the CDN has none — this is the asset whose
+  // absence caused the original report.
+  it("ships an apple-touch-icon PNG, which the CDN does not provide", () => {
+    expect(existsSync(resolve(DIST, "apple-touch-icon.png"))).toBe(true);
+    const raw = readFileSync(resolve(DIST, "apple-touch-icon.png"));
+    expect(createHash("sha256").update(raw).digest("hex")).toBe(meta.apple_touch_icon.sha256);
+    for (const route of [".", "about", "live"]) {
+      expect(readPage(route)).toMatch(
+        /rel="?apple-touch-icon"?[^>]*\/apple-touch-icon\.png|\/apple-touch-icon\.png[^>]*rel="?apple-touch-icon/
       );
     }
   });
 
-  // Browsers request /favicon.ico at the site root regardless of declarations.
-  it("answers the root favicon.ico request", () => {
-    expect(existsSync(resolve(DIST, "favicon.ico"))).toBe(true);
+  // Browsers request this path regardless of declarations. The mirror must stay
+  // byte-identical to the canonical asset, or the root request and the declared
+  // icon would show different images.
+  it("mirrors the canonical icon byte-for-byte at the root path", () => {
+    const file = resolve(DIST, "favicon.ico");
+    expect(existsSync(file), "/favicon.ico is missing").toBe(true);
+    const raw = readFileSync(file);
+    expect(raw.length).toBe(meta.root_mirror.bytes);
+    expect(createHash("sha256").update(raw).digest("hex")).toBe(meta.root_mirror.sha256);
   });
 
-  // The nav logo is deliberately CDN-hosted; that is not what broke.
+  // No SVG icon anywhere: that is what Safari could not render.
+  it("never declares an SVG as an icon", () => {
+    for (const route of [".", "about", "live"]) {
+      const head = readPage(route).split("</head>")[0];
+      expect(head, `${route} declares an SVG icon`).not.toMatch(
+        /rel="?(?:icon|apple-touch-icon)"?[^>]*\.svg/
+      );
+    }
+  });
+
+  // The nav logo is deliberately CDN-hosted; that was never the defect.
   it("leaves the nav logo on the CDN", () => {
     expect(readPage("about")).toMatch(/<img[^>]*cloudcdn\.pro[^>]*pacs008\.svg/);
   });

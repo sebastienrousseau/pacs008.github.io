@@ -602,14 +602,34 @@ four problems and the others were in the asset itself:
 
 ### Decision
 
-Square rasters derived from the logo, self-hosted: `favicon.ico` (48/32/16),
-`favicon-32.png`, `favicon-16.png`, and a 180x180 `apple-touch-icon.png` with
-alpha removed, because iOS composites it onto the home screen and does not honour
-transparency.
+The canonical icon is the CDN's own `.ico` at
+`https://cloudcdn.pro/pacs008/v1/favicon.ico`, which carries 16, 32, 48 and a
+256px frame — so no separate PNG sizes are needed at all.
 
-Self-hosted because the CDN offers no icon sizes — `favicon.ico`, `favicon.png`
-and sized variants all 404 there. **The nav logo still loads from the CDN**; that
-was never the defect and the CDN choice is deliberate.
+`/favicon.ico` is a byte-identical mirror of it, because browsers request that
+root path regardless of what the document declares.
+
+`apple-touch-icon.png` is the one asset the CDN does not provide, and Safari does
+not accept SVG for it — that is precisely what was missing on iOS. It is derived
+from frame [3] (256x256) of the same canonical `.ico`, resized to 180x180 with
+alpha removed, because iOS composites it onto the home screen and ignores
+transparency. Deriving it from the canonical asset rather than from the logo
+artwork means it cannot drift from the declared icon.
+
+**The nav logo also loads from the CDN**, deliberately; that was never the defect.
+
+### An error worth recording
+
+The first attempt concluded "the CDN offers no icon sizes" and self-hosted
+generated rasters instead. That conclusion came from probing only
+`/pacs008/v1/logos/` — the directory holding the logo — and never the level
+above it, where `favicon.ico` actually lives. A canonical, correctly-sized,
+multi-frame icon existed the whole time. Absence of evidence was reported as
+evidence of absence, on the strength of one directory.
+
+Provenance and hashes are recorded in `data/favicon.json`, and tests assert the
+root mirror stays byte-identical to the canonical asset and that no SVG is ever
+declared as an icon.
 
 Verified in a real browser rather than from the markup: all four fetch 200 and
 decode at their declared dimensions under the live CSP.

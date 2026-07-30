@@ -1,0 +1,23 @@
+{
+  "_comment": "Favicon provenance. The canonical icon is the CDN .ico; everything else is derived from it so nothing can drift.",
+  "canonical": "https://cloudcdn.pro/pacs008/v1/favicon.ico",
+  "canonical_frames": [
+    "16x16 ICO",
+    "32x32 ICO",
+    "48x48 ICO",
+    "256x256 PNG"
+  ],
+  "root_mirror": {
+    "file": "static/favicon.ico",
+    "why": "Browsers request /favicon.ico at the site root regardless of declarations. A byte-identical mirror answers it without diverging in appearance.",
+    "bytes": 45675,
+    "sha256": "fd062615ab158d0d49effa8b1b3b779c0e712fb9d2eba8941230cc5d379aec54"
+  },
+  "apple_touch_icon": {
+    "file": "static/apple-touch-icon.png",
+    "why": "Not available on the CDN, and Safari does not accept SVG for apple-touch-icon \u2014 this is what was missing on iOS. Derived from frame [3] (256x256) of the canonical .ico, resized to 180x180 with alpha removed, because iOS composites it onto the home screen and ignores transparency.",
+    "bytes": 13514,
+    "sha256": "70f497ddf91a2930e99ead021bffe027c5c56415c3b0024f36367f67025aad22"
+  },
+  "note": "The nav logo also loads from the CDN, deliberately. That was never the defect."
+}

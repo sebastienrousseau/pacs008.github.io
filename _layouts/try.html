@@ -25,15 +25,17 @@
 
     <!-- hreflang alternates are injected per page by scripts/fix-ssg-html.mjs -->
     <link rel="canonical" href="{{url}}" />
-    <!-- Favicon set. The CDN logo is a 127 KB, 162-path, 4654x4935 artwork:
-         unusable at 16px, and Safari does not support SVG for apple-touch-icon
-         at all, which is why nothing showed on iOS. These are square rasters
-         derived from it, self-hosted because the CDN offers no icon sizes. The
-         nav logo still loads from the CDN. /favicon.ico also answers the
-         root-path request browsers make regardless of these declarations. -->
-    <link rel="icon" href="/favicon.ico" sizes="48x48">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+    <!-- Favicon. The canonical asset is the CDN .ico, which carries 16, 32, 48
+         and a 256px frame — so no separate PNG sizes are needed. /favicon.ico is
+         a byte-identical mirror, because browsers request that root path
+         regardless of what the document declares.
+
+         apple-touch-icon is the one thing the CDN does not offer, and Safari
+         does not accept SVG for it, which is why nothing appeared on iOS. It is
+         derived from the 256px frame of the same .ico, so it cannot drift from
+         the declared icon, with alpha removed because iOS composites it onto the
+         home screen and ignores transparency. -->
+    <link rel="icon" href="https://cloudcdn.pro/pacs008/v1/favicon.ico" sizes="16x16 32x32 48x48">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="preload" href="/fonts/source-serif-4-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
     <!-- Skeletonic CSS (skeletonic.com) — the project's own framework, vendored
