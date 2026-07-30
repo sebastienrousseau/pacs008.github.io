@@ -13,7 +13,8 @@
     "test:watch": "vitest",
     "verify": "./build.sh && npm test && node scripts/validate-all-locales.mjs && node scripts/audit-full-compliance.mjs && npm run lighthouse",
     "lighthouse": "node scripts/check-lighthouse.mjs",
-    "wave": "node scripts/check-wave.mjs"
+    "wave": "node scripts/check-wave.mjs",
+    "check:cdn-icon": "node scripts/check-cdn-icon.mjs"
   },
   "devDependencies": {
     "axe-core": "4.12.1",
