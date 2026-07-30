@@ -736,3 +736,74 @@ to exit non-zero against an unreachable URL.
 The offline suite asserts the fallback is present and byte-identical to the
 declared asset, and that the remediation steps stay recorded — it cannot verify
 the CDN, and does not pretend to.
+
+## D-013: The mobile fault was the nav, not only the gutter
+
+**Date:** 2026-07-30
+**Status:** Implemented
+
+### What was actually wrong
+
+D-008 fixed a `padding`-shorthand collision that zeroed the horizontal gutter,
+and that fix was correct — but it was not the whole fault, and the page stayed
+broken on a phone. Three further causes, all on the workbench layout:
+
+1. **`_layouts/try.html` had no mobile navigation.** A five-item menu in one row
+   with no collapse: no burger, no toggle, two media queries against page.html's
+   fourteen. Its minimum width was ~748px.
+2. **Grid children would not shrink.** `min-width` defaults to `auto`, so
+   `.guide-rail` and `.tool-col` were floored at their min-content width — set by
+   unbreakable tokens like `requested_execution_date`. 365px in English, 389px in
+   French.
+3. **The sample `<select>` sized to its widest `<option>`** and does not shrink.
+   331px in French, where English fitted — so this one was locale-dependent.
+
+Each is fixed at the mechanism rather than the symptom: the burger pattern is
+ported from page.html with the same class names and breakpoints; grid children get
+`min-width: 0` *and* their tokens get `overflow-wrap: anywhere`, because either
+alone is insufficient; the select gets `max-width: 100%`.
+
+### Why three rounds of "verified" were wrong
+
+The check was measuring the wrong quantity. `scrollWidth - innerWidth` is the
+obvious metric and it reads **zero on a page that is visibly broken**, because
+mobile Chrome does not produce a horizontal scrollbar for content it cannot fit —
+it widens the layout viewport and zooms out. The first version of
+`scripts/check-mobile-overflow.mjs` scored the workbench 0px overflow while it was
+rendering at 749px on a 375px phone.
+
+The assertion is now: **the layout viewport must equal the device width.** Element
+culprits are measured against the device width too, since `innerWidth` is itself
+inflated on an affected page.
+
+Chrome's window-resize API also never changed the viewport in this environment,
+which is why earlier verification ran at desktop width while claiming to be
+mobile. The check now drives device metrics over CDP directly — Node 22+ ships a
+global `WebSocket`, so this needs no puppeteer.
+
+### Brand logo
+
+`/logo.webp` was a different, older mark — a teal sunburst, not the current
+waves-and-sun logo. It feeds the homepage nav, the workbench nav and the PWA
+manifest icon, so three surfaces showed the wrong brand while every content page
+showed the right one. Regenerated from the same source as the favicon: one file,
+three surfaces, no markup change. 66,712 bytes down to 13,706.
+
+### ssg's floating search trigger
+
+`#ssg-search-btn` is `position: fixed; z-index: 9998` at the top right, landing
+exactly on the burger. page.html hides it because it has its own in-nav search;
+this layout has none, so hiding it would remove search from the page. Moved to the
+bottom corner instead.
+
+### Supporting checks
+
+`npm run mobile` — 4 viewports x 8 pages, including three locales, because two of
+the three faults were locale-dependent and English passed.
+
+A weak test caught in the act: `expect(src).toContain("ap-burger")` passed with
+the burger control deleted, because the string also appears in the CSS. Deleting
+the control leaves the menu collapsed and unopenable — which no overflow metric
+can detect. The assertion now matches the label element and the toggle input, in
+the built pages as well as the layouts, and was verified to fail with the control
+removed.

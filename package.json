@@ -11,10 +11,11 @@
     "validate": "html-validate 'public/**/*.html'",
     "test": "vitest run",
     "test:watch": "vitest",
-    "verify": "./build.sh && npm test && node scripts/validate-all-locales.mjs && node scripts/audit-full-compliance.mjs && npm run lighthouse",
+    "verify": "./build.sh && npm test && node scripts/validate-all-locales.mjs && node scripts/audit-full-compliance.mjs && npm run lighthouse && npm run mobile",
     "lighthouse": "node scripts/check-lighthouse.mjs",
     "wave": "node scripts/check-wave.mjs",
-    "check:cdn-icon": "node scripts/check-cdn-icon.mjs"
+    "check:cdn-icon": "node scripts/check-cdn-icon.mjs",
+    "mobile": "node scripts/check-mobile-overflow.mjs"
   },
   "devDependencies": {
     "axe-core": "4.12.1",

@@ -232,6 +232,88 @@
       .hl-type { color: #96b5b4; }
       .hl-comment { color: #65737e; }
 
+
+
+
+
+      /* ssg injects a floating search trigger at position:fixed, z-index 9998,
+         top-right — which lands exactly on top of the burger. page.html hides it
+         because it has its own in-nav search button; this layout has none, so
+         hiding it would remove search from the page entirely. Move it clear of
+         the header instead, to the bottom corner, where nothing else sits. */
+      @media (max-width: 1180px) {
+        #ssg-search-btn {
+          top: auto !important;
+          bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+          right: 1rem !important;
+          left: auto !important;
+        }
+      }
+
+      /* A <select> sizes itself to its widest <option> and does not shrink, so
+         this was locale-dependent: the French "Virement SEPA (2 enregistrements,
+         EUR)" made it 331px and pushed the page over on a 375px screen while
+         English fitted. Any locale with longer option text would do the same,
+         which is why the overflow check measures a translated page and not only
+         English. */
+      .pill-select { max-width: 100%; min-width: 0; }
+      .demo-actions { min-width: 0; }
+      .demo-actions > * { max-width: 100%; }
+
+      /* Grid children default to min-width:auto, so they refuse to shrink below
+         their min-content width. Long unbreakable tokens — <code>
+         requested_execution_date</code>, address_line1, pacs.008.001.13 — set
+         that floor at ~365px in English and ~389px in French, which is wider than
+         a phone. The grid item then cannot fit and mobile Chrome zooms the page
+         out. Both halves are needed: min-width:0 lets the item shrink, and
+         wrapping the tokens lets the content follow it. */
+      .guide-grid > *, .tool-col, .demo-grid > *, .demo-panel { min-width: 0; }
+      .guide-block code,
+      .info-list code,
+      .check-list code,
+      .readiness-hint code { overflow-wrap: anywhere; }
+      .guide-block, .info-list li, .check-list li { overflow-wrap: break-word; }
+
+      /* Mobile navigation. This layout previously had none: a five-item menu in
+         one row with no collapse, against page.html's burger. Its minimum width
+         was ~748px, so on any phone mobile Chrome widened the layout viewport to
+         fit it and zoomed the whole page out — text clipped at the leading edge,
+         the reader panning sideways. scripts/check-mobile-overflow.mjs measures
+         this; it is deliberately the same class names and breakpoints as
+         page.html so the two layouts collapse identically. */
+      .ap-toggle { position: absolute; opacity: 0; pointer-events: none; }
+      .ap-burger {
+        display: none; align-items: center; justify-content: center;
+        width: 44px; height: 44px; cursor: pointer;
+        font-size: 1.2rem; color: var(--ink); border-radius: var(--radius-sm);
+        border: 1px solid var(--rule-strong); user-select: none;
+      }
+      .ap-toggle:focus-visible ~ .ap-nav-wrap .ap-burger {
+        outline: 3px solid var(--focus-ring, var(--link)); outline-offset: 2px;
+      }
+      .ap-toggle:checked ~ .ap-nav-wrap .ap-burger { color: var(--link); border-color: var(--link); }
+
+      @media (max-width: 1180px) {
+        .ap-nav-wrap { grid-template-columns: auto auto; }
+        .ap-brand { grid-row: 1; grid-column: 1; }
+        .ap-nav-right { grid-row: 1; grid-column: 2; }
+        .ap-burger { display: inline-flex; }
+        .ap-nav nav { display: none; grid-row: 2; grid-column: 1 / -1; }
+        .ap-toggle:checked ~ .ap-nav-wrap nav { display: block; }
+        .ap-menu {
+          display: block; width: 100%; justify-self: stretch;
+          padding: 0.25rem 0 1rem;
+          max-height: calc(100dvh - 76px); overflow: auto;
+        }
+        .ap-menu > li { display: block; }
+        .ap-menu > li + li { border-top: 1px solid var(--rule); }
+        .ap-menu > li > a {
+          display: flex; justify-content: center; min-height: 48px;
+          font-size: 1rem; font-weight: 600;
+        }
+      }
+      @media (max-width: 720px) { .ap-cta-mini { display: none; } }
+
       .footer { border-top: 1px solid var(--rule); background: var(--bg-alt); margin-top: 5rem; padding: 3.5rem 0 2rem; font-size: 0.93rem; }
     </style>
   </head>
@@ -239,6 +321,7 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <header class="ap-nav">
+      <input class="ap-toggle" id="ap-menu-toggle" type="checkbox" aria-label="Toggle navigation" />
       <div class="wrap ap-nav-wrap">
         <a class="ap-brand" href="/" aria-label="pacs008 home">
           <img src="/logo.webp" alt="pacs008" width="26" height="26" />
@@ -259,6 +342,7 @@
             <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" width="16" height="16"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2"/></svg>
           </button>
           <a class="ap-cta-mini" href="/live/">See it live&nbsp;&rsaquo;</a>
+          <label class="ap-burger" for="ap-menu-toggle" aria-hidden="true"><span class="ap-burger-icon">☰</span></label>
         </div>
       </div>
     </header>
