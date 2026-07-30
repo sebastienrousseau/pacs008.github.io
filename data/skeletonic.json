@@ -1,0 +1,12 @@
+{
+  "_comment": "Provenance for the vendored Skeletonic CSS framework. Vendored rather than loaded from a CDN because the site's CSP is style-src 'self' \u2014 a third-party stylesheet host would be blocked, and widening the policy to admit one is a worse trade than checking in 5 KB.",
+  "_integration": "Skeletonic wraps everything in @layer skeletonic. Unlayered CSS always beats layered CSS regardless of specificity, so the framework supplies consistent base styling for every HTML element while the site's own stylesheet \u2014 which ssg extracts unlayered from the layouts \u2014 keeps precedence. That is why adopting it does not require rewriting the existing design.",
+  "package": "@sebastienrousseau/skeletonic-stylus",
+  "version": "2.0.0",
+  "license": "(MIT OR Apache-2.0)",
+  "homepage": "https://skeletonic.com/",
+  "file": "static/css/skeletonic.min.css",
+  "bytes": 4981,
+  "sha256": "2f800f1830a47f355935be97bff4bb1e927581593826dd6e920271d6d05e8c89",
+  "integrity": "sha384-m3IoEkr7bPhgf7sPFcLfBi0Sc8jPdNX1pTq5AQn8S8/FrHskDcis1CRjtnWars6I"
+}

@@ -1,5 +1,8 @@
 import { describe, it, expect } from "vitest";
-import { allCss, readPage } from "./helpers";
+import { readFileSync, existsSync } from "fs";
+import { resolve } from "path";
+import { createHash } from "crypto";
+import { allCss, readPage, DIST } from "./helpers";
 
 describe("Responsive: viewport", () => {
   it("pages should set a responsive viewport", () => {
@@ -102,5 +105,97 @@ describe("Responsive: horizontal gutters", () => {
     // The overflowing heading in the report was a symptom of the missing
     // gutter, but a long unbroken token would overflow regardless.
     expect(css).toMatch(/\.content-body h2\{[^}]*overflow-wrap:\s*break-word/);
+  });
+});
+
+describe("Styling: Skeletonic framework", () => {
+  const meta = JSON.parse(
+    readFileSync(resolve(__dirname, "../data/skeletonic.json"), "utf-8")
+  );
+
+  it("is vendored at the recorded version and hash", () => {
+    const file = resolve(__dirname, "../static/css/skeletonic.min.css");
+    expect(existsSync(file), "skeletonic.min.css is not vendored").toBe(true);
+    const raw = readFileSync(file);
+    expect(createHash("sha256").update(raw).digest("hex")).toBe(meta.sha256);
+    expect(raw.length).toBe(meta.bytes);
+  });
+
+  it("ships and is linked from every content page", () => {
+    expect(existsSync(resolve(DIST, "css/skeletonic.min.css"))).toBe(true);
+    const missing = [".", "about", "live", "trust", "fr/essayer", "ar", "ja/about"]
+      .filter((r) => !readPage(r).includes("skeletonic.min.css"));
+    expect(missing, `pages without the framework: ${missing.join(", ")}`).toEqual([]);
+  });
+
+  /**
+   * The integration relies on cascade layers: Skeletonic wraps everything in
+   * @layer skeletonic, and unlayered CSS always beats layered CSS regardless of
+   * specificity. That is what lets the framework style every element while the
+   * site's own design keeps precedence — so if the layer wrapper ever vanished,
+   * the framework would start overriding the site instead.
+   */
+  it("keeps its rules inside @layer so the site's own CSS still wins", () => {
+    const css = readFileSync(resolve(DIST, "css/skeletonic.min.css"), "utf-8");
+    expect(css).toMatch(/@layer\s+skeletonic/);
+    // And the site's own stylesheet must not be inside a layer, or the
+    // precedence relationship inverts.
+    expect(allCss()).not.toMatch(/@layer[^;{]*\{[\s\S]*\.content-body\s*\{/);
+  });
+
+  it("loads before the site stylesheet, so source order matches intent", () => {
+    const head = readPage("about").split("</head>")[0];
+    const skeletonic = head.indexOf("skeletonic.min.css");
+    const own = head.search(/_csp\/[a-f0-9]+\.css/);
+    expect(skeletonic).toBeGreaterThan(-1);
+    expect(own).toBeGreaterThan(-1);
+    expect(skeletonic, "skeletonic must be linked before the site stylesheet").toBeLessThan(own);
+  });
+
+  // Self-hosted deliberately: the CSP is style-src 'self', so a CDN stylesheet
+  // would be blocked and widening the policy is the worse trade.
+  it("is self-hosted rather than loaded from a third party", () => {
+    const head = readPage("about").split("</head>")[0];
+    expect(head).toContain('href="/css/skeletonic.min.css"');
+    expect(head).not.toMatch(/href="https?:\/\/[^"]*skeletonic/);
+  });
+});
+
+describe("Styling: favicon", () => {
+  // Regression: the icon links pointed at the CDN logo — a 127 KB, 162-path,
+  // 4654x4935 artwork. Unusable at 16px, and Safari does not support SVG for
+  // apple-touch-icon at all, so nothing showed on iOS.
+  const ICONS = [
+    ["favicon.ico", 48],
+    ["favicon-32.png", 32],
+    ["favicon-16.png", 16],
+    ["apple-touch-icon.png", 180],
+  ] as const;
+
+  it("ships a square raster for every declared size", () => {
+    const missing = ICONS.filter(([f]) => !existsSync(resolve(DIST, f))).map(([f]) => f);
+    expect(missing, `icon assets missing: ${missing.join(", ")}`).toEqual([]);
+  });
+
+  it("declares them all, self-hosted, on every content page", () => {
+    for (const route of [".", "about", "live", "fr/essayer"]) {
+      const head = readPage(route).split("</head>")[0];
+      for (const [file] of ICONS) {
+        expect(head, `${route} does not declare ${file}`).toContain(`/${file}`);
+      }
+      expect(head, `${route} still points an icon at the CDN`).not.toMatch(
+        /rel=["']?(?:icon|apple-touch-icon)["']?[^>]*cloudcdn/
+      );
+    }
+  });
+
+  // Browsers request /favicon.ico at the site root regardless of declarations.
+  it("answers the root favicon.ico request", () => {
+    expect(existsSync(resolve(DIST, "favicon.ico"))).toBe(true);
+  });
+
+  // The nav logo is deliberately CDN-hosted; that is not what broke.
+  it("leaves the nav logo on the CDN", () => {
+    expect(readPage("about")).toMatch(/<img[^>]*cloudcdn\.pro[^>]*pacs008\.svg/);
   });
 });

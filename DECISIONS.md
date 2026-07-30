@@ -579,3 +579,87 @@ alerts are defects.
 real and gated. "WAVE-clean" is not something this build can assert, and is not
 asserted. Running `npm run wave` against pacs008.com after a deploy is the way to
 check it, and it needs a paid key.
+
+## D-010: Favicon assets, and why the first fix did not work
+
+**Date:** 2026-07-30
+**Status:** Implemented
+
+### What was wrong
+
+D-006 changed the icon `href` from a site-relative path to the CDN URL, which
+stopped it 404ing. The icon still did not appear, because the 404 was only one of
+four problems and the others were in the asset itself:
+
+- The CDN logo is a **127 KB, 162-path SVG with a 4654x4935 viewBox**. It is
+  artwork, not an icon: non-square, so any square slot letterboxes or distorts
+  it, and its detail is meaningless at 16px.
+- **Safari does not support SVG for `apple-touch-icon` at all.** The report came
+  from iOS Safari, so that alone accounted for it.
+- There was **no `/favicon.ico`**. Browsers request that path regardless of what
+  the document declares, and it was a 404.
+- A single `sizes="any"` declaration gave the browser nothing to select between.
+
+### Decision
+
+Square rasters derived from the logo, self-hosted: `favicon.ico` (48/32/16),
+`favicon-32.png`, `favicon-16.png`, and a 180x180 `apple-touch-icon.png` with
+alpha removed, because iOS composites it onto the home screen and does not honour
+transparency.
+
+Self-hosted because the CDN offers no icon sizes — `favicon.ico`, `favicon.png`
+and sized variants all 404 there. **The nav logo still loads from the CDN**; that
+was never the defect and the CDN choice is deliberate.
+
+Verified in a real browser rather than from the markup: all four fetch 200 and
+decode at their declared dimensions under the live CSP.
+
+### What kept hiding this
+
+Three separate greps in this work returned nothing and were read as "absent" when
+the truth was "present but unquoted". ssg minifies some pages and drops attribute
+quotes, so `rel="icon"` ships as `rel=icon`. The same trap produced a false
+report that the homepage lacked the author link. Anything asserting on built HTML
+must accept both forms — `attr()` in tests/helpers.ts exists for this.
+
+## D-011: Skeletonic as the base layer
+
+**Date:** 2026-07-30
+**Status:** Implemented
+
+### Decision
+
+The project's own framework, `@sebastienrousseau/skeletonic-stylus` 2.0.0
+(skeletonic.com), supplies base styling for every HTML element. Vendored at
+`static/css/skeletonic.min.css`, 4,981 bytes, provenance and hash recorded in
+`data/skeletonic.json`.
+
+### Why this did not require rewriting the design
+
+Skeletonic wraps its entire output in `@layer skeletonic`. **Unlayered CSS always
+beats layered CSS, regardless of specificity** — so linking it ahead of the
+site's own stylesheet gives every element a consistent base while the existing
+design keeps precedence automatically. No specificity fight, no `!important`, and
+no per-component migration needed to adopt it.
+
+A test asserts the layer wrapper is still there and that the site's own CSS is
+*not* inside a layer, because if either changed the precedence would invert and
+the framework would start overriding the site.
+
+### Self-hosted, not CDN
+
+The CSP is `style-src 'self'`. A third-party stylesheet host would be blocked,
+and widening the policy to admit one is a worse trade than checking in 5 KB. The
+link carries an SRI hash, matching how ssg's own stylesheets are emitted.
+
+### What is not done
+
+This is adoption as the base layer, which is what "consistency in all HTML
+elements" requires. It is **not** a component-level migration: the site's nav,
+cards, tables and workbench panels are still its own bespoke CSS rather than
+Skeletonic's `navbar`, `card` and `alert` components. That would change the
+visual design rather than normalise it, so it is a separate decision.
+
+Verified after adoption: 218 tests, Lighthouse 100 accessibility / 100
+best-practices / 100 SEO with performance 98-100 across all seven sampled pages,
+locale validation and compliance audit clean.
