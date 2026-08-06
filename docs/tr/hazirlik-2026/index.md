@@ -16,7 +16,7 @@ image: /logo.webp
 
 # 2026 ISO 20022 hazırlığı
 
-**14 Kasım 2026**'ya **107 gün**, 2026-07-30 itibarıyla.
+**14 Kasım 2026**'ya **100 gün**, 2026-08-06 itibarıyla.
 
 Bu tarihten itibaren tamamen yapılandırılmamış posta adresleri SWIFT CBPR+ ödeme mesajlarında ve İngiltere Merkez Bankası'nın CHAPS doğrulama kütüphanesinde kabul edilmeyecektir. Aynı gün iki değişiklik daha yürürlüğe girer, Kasım 2027'de ise daha geniş bir set gelir.
 

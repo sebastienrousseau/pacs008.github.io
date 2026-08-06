@@ -16,7 +16,7 @@ image: /logo.webp
 
 # Kahandaan sa ISO 20022 para sa 2026
 
-**107 araw** bago ang **14 Nobyembre 2026**, sa 2026-07-30.
+**100 araw** bago ang **14 Nobyembre 2026**, sa 2026-08-06.
 
 Mula sa petsang iyon, hindi na tatanggapin ang ganap na hindi nakabalangkas na postal address sa mga mensahe ng bayad na SWIFT CBPR+ at ng CHAPS validation library ng Bank of England. Sa parehong araw ay may dalawa pang pagbabago, at susunod ang mas malaking hanay sa Nobyembre 2027.
 

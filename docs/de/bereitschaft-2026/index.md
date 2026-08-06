@@ -16,7 +16,7 @@ image: /logo.webp
 
 # ISO 20022 Readiness 2026
 
-**107 Tage** bis zum **14. November 2026**, Stand 2026-07-30.
+**100 Tage** bis zum **14. November 2026**, Stand 2026-08-06.
 
 An diesem Tag werden vollständig unstrukturierte Postanschriften in SWIFT-CBPR+-Zahlungsnachrichten und von der CHAPS-Validierungsbibliothek der Bank of England nicht mehr akzeptiert. Zwei weitere Änderungen treten am selben Tag in Kraft, ein größeres Paket folgt im November 2027.
 

@@ -16,7 +16,7 @@ image: /logo.webp
 
 # Připravenost na ISO 20022 v roce 2026
 
-**107 dní** do **14. listopadu 2026**, k datu 2026-07-30.
+**100 dní** do **14. listopadu 2026**, k datu 2026-08-06.
 
 Od tohoto dne přestanou být zcela nestrukturované poštovní adresy přijímány v platebních zprávách SWIFT CBPR+ i validační knihovnou CHAPS Bank of England. Téhož dne nabývají účinnosti další dvě změny a v listopadu 2027 následuje rozsáhlejší soubor.
 
