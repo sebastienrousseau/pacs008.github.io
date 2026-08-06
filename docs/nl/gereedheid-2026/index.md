@@ -16,7 +16,7 @@ image: /logo.webp
 
 # ISO 20022-gereedheid 2026
 
-**107 dagen** tot **14 november 2026**, per 2026-07-30.
+**100 dagen** tot **14 november 2026**, per 2026-08-06.
 
 Vanaf die datum worden volledig ongestructureerde postadressen niet meer geaccepteerd in SWIFT CBPR+-betaalberichten en door de CHAPS-validatiebibliotheek van de Bank of England. Diezelfde dag gaan nog twee wijzigingen in, en in november 2027 volgt een groter pakket.
 

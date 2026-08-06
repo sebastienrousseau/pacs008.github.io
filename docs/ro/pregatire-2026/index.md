@@ -16,7 +16,7 @@ image: /logo.webp
 
 # Pregătire ISO 20022 pentru 2026
 
-**107 zile** până la **14 noiembrie 2026**, la data de 2026-07-30.
+**100 zile** până la **14 noiembrie 2026**, la data de 2026-08-06.
 
 De la acea dată, adresele poștale complet nestructurate nu vor mai fi acceptate în mesajele de plată SWIFT CBPR+ și de biblioteca de validare CHAPS a Băncii Angliei. În aceeași zi intră în vigoare alte două modificări, iar în noiembrie 2027 urmează un set mai amplu.
 

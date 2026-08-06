@@ -16,7 +16,7 @@ image: /logo.webp
 
 # Conformità ISO 20022 2026
 
-**107 giorni** al **14 novembre 2026**, al 2026-07-30.
+**100 giorni** al **14 novembre 2026**, al 2026-08-06.
 
 Da quella data gli indirizzi postali completamente non strutturati non saranno più accettati nei messaggi di pagamento SWIFT CBPR+ né dalla libreria di validazione CHAPS della Bank of England. Lo stesso giorno entrano in vigore altre due modifiche, e a novembre 2027 ne seguirà un insieme più ampio.
 
