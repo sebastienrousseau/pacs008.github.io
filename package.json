@@ -28,5 +28,6 @@
   "overrides": {
     "esbuild": ">=0.25.0"
   },
-  "version": ""
+  "version": "",
+  "license": "Apache-2.0 OR MIT"
 }
