@@ -22,7 +22,7 @@
     "happy-dom": "21.0.4",
     "html-validate": "10.11.2",
     "lighthouse": "13.4.1",
-    "vitest": "4.1.11",
+    "vitest": "4.1.12",
     "xmllint-wasm": "5.2.0"
   },
   "overrides": {
