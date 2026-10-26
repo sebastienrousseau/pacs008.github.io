@@ -34,6 +34,7 @@
 import { createServer } from "http";
 import { readFile, stat, writeFile } from "fs/promises";
 import { join, extname, resolve } from "path";
+import { resolvePublicPath } from "./static-path.mjs";
 import * as chromeLauncher from "chrome-launcher";
 
 const publicDir = resolve("public");
@@ -75,8 +76,9 @@ const MIME = {
 
 const server = createServer(async (req, res) => {
   try {
-    const url = decodeURIComponent(req.url.split("?")[0]);
-    let file = join(publicDir, url);
+    // Refuse any request path that resolves outside public/ (404 below).
+    let file = resolvePublicPath(publicDir, req.url);
+    if (!file) throw new Error("outside public/");
     const info = await stat(file).catch(() => null);
     if (!info || info.isDirectory()) file = join(file, "index.html");
     const body = await readFile(file);
