@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [main, "feat/**"]
 
+# Build and audit only: read the repository, nothing else.
+permissions:
+  contents: read
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -28,7 +32,7 @@ jobs:
 
       - name: Install ssg CLI
         run: |
-          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+          echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
           export PATH="$HOME/.cargo/bin:$PATH"
           which ssg || cargo install ssg --version 0.0.48
 
