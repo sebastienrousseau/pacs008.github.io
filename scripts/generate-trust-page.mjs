@@ -686,8 +686,15 @@ ${c.dp_touch}
 [${product.repository}](${product.repository}) · [${c.dp_h_touch}](${pathFor(locale, "contact")})
 `);
 
+// Escapes for element text and for the double-quoted attribute values below
+// (<category term="...">), so quotes are escaped too.
 const esc = (s) =>
-  String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
 
 const feed = `<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">

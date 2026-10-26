@@ -33,7 +33,8 @@
  */
 import { createServer } from "http";
 import { readFile, stat, writeFile } from "fs/promises";
-import { join, extname, resolve } from "path";
+import { join, extname, resolve, sep } from "path";
+import { resolvePublicPath } from "./static-path.mjs";
 import * as chromeLauncher from "chrome-launcher";
 
 const publicDir = resolve("public");
@@ -75,10 +76,16 @@ const MIME = {
 
 const server = createServer(async (req, res) => {
   try {
-    const url = decodeURIComponent(req.url.split("?")[0]);
-    let file = join(publicDir, url);
+    // Refuse any request path that resolves outside public/ (404 below).
+    let file = resolvePublicPath(publicDir, req.url);
+    if (!file) throw new Error("outside public/");
+    if (file === publicDir) file = join(publicDir, "index.html");
+    // The containment check again, on each value a read uses: CodeQL's
+    // js/path-injection counts only a guard it can see at the read.
+    if (!file.startsWith(publicDir + sep)) throw new Error("outside public/");
     const info = await stat(file).catch(() => null);
     if (!info || info.isDirectory()) file = join(file, "index.html");
+    if (!file.startsWith(publicDir + sep)) throw new Error("outside public/");
     const body = await readFile(file);
     res.writeHead(200, { "content-type": MIME[extname(file)] ?? "application/octet-stream" });
     res.end(body);
