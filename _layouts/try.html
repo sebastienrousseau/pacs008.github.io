@@ -232,6 +232,32 @@
       .hl-type { color: #96b5b4; }
       .hl-comment { color: #65737e; }
 
+      /* Token colours for ssg's class-based highlighter. Since ssg moved to
+         mdx-gen's classed output, code is wrapped in syntect scope classes
+         (span class "comment line python"), but the highlight.css it writes
+         styles only the code box, so every token rendered one colour. No
+         literal pre tag in this comment: ssg's highlight pass stops at the
+         first one not followed by a language-tagged code element. These are
+         base16-ocean.dark's rules (the theme behind the palette above) from
+         syntect's css_for_theme_with_class_style, limited to palette colours and
+         scoped to pre.highlight so .string or .comment cannot hit site classes.
+         CSS matches a scope's classes as a set where syntect matches a dotted
+         prefix, so .string also hits "meta string" and "storage type string":
+         .meta.string resets to text and the storage rule follows the string one.
+         Shim: delete this block once ssg's highlight.css colours the tokens
+         (upstream draft, DECISIONS.md D-015). */
+      pre.highlight { background-color: #2b303b; border: 0; }
+      /* On the root scope span, so the base colour beats .content-body pre. */
+      pre.highlight code > span { color: #c0c5ce; }
+      pre.highlight .comment, pre.highlight .punctuation.definition.comment { color: #65737e; }
+      pre.highlight .variable, pre.highlight .entity.name.tag, pre.highlight .string.other.link { color: #bf616a; }
+      pre.highlight .string, pre.highlight .constant.other.symbol, pre.highlight .entity.other.inherited-class { color: #a3be8c; }
+      pre.highlight .keyword, pre.highlight .storage, pre.highlight .meta.selector { color: #b48ead; }
+      pre.highlight .constant, pre.highlight .entity.other.attribute-name, pre.highlight .keyword.other.unit { color: #d08770; }
+      pre.highlight .support.function, pre.highlight .constant.other.color, pre.highlight .string.regexp, pre.highlight .constant.character.escape { color: #96b5b4; }
+      pre.highlight .entity.name.function, pre.highlight .meta.require, pre.highlight .support.function.any-method, pre.highlight .variable.function, pre.highlight .keyword.other.special-method, pre.highlight .entity.other.attribute-name.id, pre.highlight .punctuation.definition.entity { color: #8fa1b3; }
+      pre.highlight .meta.string, pre.highlight .keyword.operator, pre.highlight .variable.parameter.function, pre.highlight .punctuation.definition.string, pre.highlight .punctuation.definition.variable, pre.highlight .punctuation.definition.parameters, pre.highlight .punctuation.definition.array { color: #c0c5ce; }
+
 
 
 

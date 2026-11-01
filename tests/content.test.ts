@@ -791,7 +791,40 @@ describe("Content truth: shipped assets", () => {
       (cls) => !new RegExp(`\\.${cls}\\s*\\{`).test(css)
     );
     expect(missing, `palette classes with no CSS rule: ${missing.join(", ")}`).toEqual([]);
-    // And the rewrite actually happened, rather than the classes going unused.
-    expect(readPage("."), "code blocks were not rewritten to classes").toMatch(/class="[^"]*hl-/);
+  });
+
+  /**
+   * ssg up to 0.0.48 coloured tokens with inline styles, rewritten to the
+   * palette classes above. Later releases emit syntect scope classes instead
+   * (`<span class="comment line python">`) and ship no CSS for them, so code
+   * rendered in one colour. The layouts colour those classes; this pins that
+   * the markup still uses them and that every colour comes from the palette.
+   */
+  it("colours the highlighter's scope classes from the palette", () => {
+    const palette = JSON.parse(
+      readFileSync(resolve(__dirname, "../data/highlight-classes.json"), "utf-8")
+    ).palette;
+    const allowed = new Set(
+      Object.keys(palette).map((decl) => decl.match(/#[0-9a-f]{6}/i)![0].toLowerCase())
+    );
+    const rules = [...allCss().matchAll(/pre\.highlight \.[^{}]*\{([^}]*)\}/g)];
+    expect(rules.length, "no CSS rule colours a highlighter scope class").toBeGreaterThan(0);
+    const foreign = rules
+      .flatMap((rule) => rule[1].match(/#[0-9a-f]{3,8}\b/gi) ?? [])
+      .filter((colour) => !allowed.has(colour.toLowerCase()));
+    expect(foreign, "token colours outside the palette").toEqual([]);
+    expect(readPage("."), "code blocks no longer carry scope classes").toMatch(
+      /<pre class="highlight[^"]*"><code[^>]*><span class="source /
+    );
+  });
+
+  // The token colours are scoped to pre.highlight, which ssg adds in a pass
+  // that gives up on the rest of a page at the first <pre> not followed by a
+  // language-tagged <code>. A block it skipped would render in one colour.
+  it("marks every language-tagged code block for the token colours", () => {
+    const skipped = allPages()
+      .filter((f) => readFileSync(f, "utf-8").includes('<pre><code class="language-'))
+      .map((f) => f.slice(DIST.length + 1));
+    expect(skipped, `pages with unmarked code blocks: ${skipped.slice(0, 4).join(", ")}`).toEqual([]);
   });
 });
