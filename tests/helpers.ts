@@ -93,24 +93,34 @@ export function textOf(html: string): string {
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
     .replace(/<style[\s\S]*?<\/style>/gi, " ")
     .replace(/<[^>]+>/g, "")
-    // Decode entities. ssg escapes apostrophes as &#x27;, so a French string
-    // like "L'exigence" will not match its source text unless decoded — an
-    // assertion comparing against translation data would fail on punctuation
-    // rather than on content.
-    .replace(/&#x27;|&apos;/gi, "'")
-    .replace(/&quot;/gi, '"')
-    .replace(/&#x2F;/gi, "/")
-    .replace(/&nbsp;/gi, " ")
-    .replace(/&lt;/gi, "<")
-    .replace(/&gt;/gi, ">")
-    .replace(/&amp;/gi, "&")
+    // Decode entities, so an assertion compares content rather than how the
+    // generator chose to escape it: ssg writes apostrophes as &#x27;, and since
+    // 0.0.62 its minifier keeps entities as authored, so the layouts' own
+    // &copy; and &ndash; ship as written rather than as the characters.
+    .replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, decodeEntity)
     .replace(/\s+/g, " ");
 }
 
+/** Named entities the site's sources and ssg's escaping actually use. */
+const NAMED_ENTITIES: Record<string, string> = {
+  amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ",
+  copy: "\u00a9", ndash: "\u2013", mdash: "\u2014", hellip: "\u2026",
+  lsaquo: "\u2039", rsaquo: "\u203a", laquo: "\u00ab", raquo: "\u00bb",
+  middot: "\u00b7", rarr: "\u2192", larr: "\u2190",
+};
+
+/** One entity body (`copy`, `#169`, `#xA9`) to its character, or unchanged. */
+function decodeEntity(whole: string, body: string): string {
+  if (body[0] !== "#") return NAMED_ENTITIES[body.toLowerCase()] ?? whole;
+  const hex = body[1] === "x" || body[1] === "X";
+  const code = parseInt(body.slice(hex ? 2 : 1), hex ? 16 : 10);
+  return Number.isNaN(code) ? whole : String.fromCodePoint(code);
+}
+
 /**
- * ssg minifies HTML and drops quotes around simple attribute values, so
- * `href="/fr/"` ships as `href=/fr/`. This matches an attribute whose value
- * may be quoted or bare.
+ * ssg up to 0.0.61 dropped quotes around simple attribute values, so
+ * `href="/fr/"` shipped as `href=/fr/`; from 0.0.62 its own minifier keeps
+ * them. This matches an attribute whose value may be quoted or bare.
  */
 export function attr(name: string, value: string): RegExp {
   const v = value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");

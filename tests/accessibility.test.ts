@@ -99,7 +99,7 @@ describe("Accessibility: images", () => {
 describe("Accessibility: decorative content", () => {
   it("flag emoji in the language switcher should be hidden from AT", () => {
     const html = readPage(".");
-    const items = html.match(/<a class=ap-lang-item[^>]*>.*?<\/a>/g) || [];
+    const items = html.match(/<a\b[^>]*\sclass=["']?ap-lang-item\b[^>]*>.*?<\/a>/g) || [];
     expect(items.length).toBeGreaterThan(0);
     for (const item of items) {
       expect(

@@ -857,3 +857,62 @@ compliance checks, the link check and the tests.
 - `scripts/check-links.mjs` now also fails when a link, canonical, hreflang or
   sitemap URL resolves to a stub rather than a page. Verified to fire by
   injecting a link to `/fr/terms/`.
+
+---
+
+## D-015: Build with the latest ssg; fix the site forward
+
+**Date:** 2026-11-01
+**Status:** Implemented
+
+### Problem
+
+CI and the deploy installed ssg 0.0.48, released months before 0.0.72. Eight
+tests failed on any newer release, so the pin stayed and the site was built
+with a generator that no longer matched what its own author ships.
+
+### Decision
+
+Both workflows install the newest stable ssg from crates.io through
+`.github/actions/setup-ssg`, which resolves the version, caches the binary
+under that version and installs with `--locked`. Nothing names a version. A
+release that changes the output is fixed here, in the site or its tests.
+
+### What the eight failures were
+
+- **Six were the tests, not the site.** ssg 0.0.62 replaced `minify-html`
+  with its own minifier, which keeps attribute quotes and entities as
+  written. Five assertions matched unquoted attributes (`class=ap-nav`,
+  `class=skip-link ... href=#main-content`, `<a class=ap-lang-item`, which
+  three tests share) and one read `&copy;` as text. They now accept either
+  quoting, ignore attribute order, and decode entities generally. On a newer
+  ssg, "every language switcher link resolves" passed by checking zero
+  links for the same reason; it now checks all 28.
+- **One was a bug here.** `normaliseSocialMeta` in `fix-ssg-html.mjs` read
+  the page description with `["'][^"']*["']`, which stops at the first
+  apostrophe. Under 0.0.48 apostrophes shipped as `&#x27;`; now they ship
+  raw, so French and other pages advertised a truncated `og:description`
+  ("utilisez l"). The pattern is quote-aware, like the dedupe beside it.
+- **One was an ssg bug.** ssg now emits syntect scope classes on code
+  tokens (`<span class="comment line python">`) instead of inline colours,
+  but its `highlight.css` styles only the box. Every code block rendered in
+  one colour. The layouts now carry base16-ocean.dark's scope rules (the
+  theme behind `data/highlight-classes.json`), scoped to `pre.highlight`.
+  Compared character by character in headless Chrome against the 0.0.48
+  build, the colours match on all 14,550 highlighted characters sampled
+  across 65 code blocks. This block is a shim, marked in the layouts:
+  delete it once ssg's stylesheet colours the tokens.
+
+Building the shim found a second ssg bug: the pass that adds
+`class="highlight"` stops at the first `<pre>` not followed by a
+language-tagged `<code>`, including one inside a CSS comment, and leaves
+the rest of the page unmarked. The layouts keep that tag out of their
+`<head>`, and a test fails on any page with an unmarked block.
+
+Both ssg bugs have a minimal reproduction and a drafted upstream report,
+not yet filed.
+
+### Also changed by the upgrade
+
+0.0.48 dropped `<message_type>` and the other placeholders from the CLI
+usage block on the API reference; 0.0.72 renders them.

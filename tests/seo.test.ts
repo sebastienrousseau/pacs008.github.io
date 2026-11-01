@@ -169,7 +169,7 @@ describe("SEO: hreflang annotations", () => {
 
 describe("SEO: language switcher integrity", () => {
   const html = readPage(".");
-  const items = html.match(/<a class=ap-lang-item[^>]*>/g) || [];
+  const items = html.match(/<a\b[^>]*\sclass=["']?ap-lang-item\b[^>]*>/g) || [];
 
   it("should render a language switcher", () => {
     expect(items.length).toBeGreaterThan(0);
@@ -181,7 +181,7 @@ describe("SEO: language switcher integrity", () => {
   it("every language switcher link should resolve to a built page", () => {
     const dead: string[] = [];
     for (const item of items) {
-      const href = item.match(/href=([^\s>]+)/)?.[1];
+      const href = item.match(/href=["']?([^"'\s>]+)/)?.[1];
       if (!href) continue;
       const route = href === "/" ? "." : href.replace(/^\/|\/$/g, "");
       if (!pageExists(route)) dead.push(href);

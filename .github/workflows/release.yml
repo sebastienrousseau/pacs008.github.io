@@ -25,17 +25,8 @@ jobs:
       - name: Setup Rust toolchain
         uses: dtolnay/rust-toolchain@stable
 
-      - name: Cache cargo binaries
-        uses: actions/cache@v4
-        with:
-          path: ~/.cargo/bin
-          key: ${{ runner.os }}-cargo-ssg-0.0.48
-
-      - name: Install ssg CLI
-        run: |
-          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
-          export PATH="$HOME/.cargo/bin:$PATH"
-          which ssg || cargo install ssg --version 0.0.48
+      - name: Install the latest ssg
+        uses: ./.github/actions/setup-ssg
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -47,9 +38,7 @@ jobs:
         run: npm ci
 
       - name: Build site with ssg
-        run: |
-          export PATH="$HOME/.cargo/bin:$PATH"
-          npm run build
+        run: npm run build
 
       - name: Validate locale content
         run: node scripts/validate-all-locales.mjs

@@ -1,18 +1,18 @@
 # pacs008.github.io
 
-Marketing and documentation site for `pacs008`, built with **`ssg`** (Static Site Generator v0.0.48) and deployed via GitHub Pages.
+Marketing and documentation site for `pacs008`, built with the latest release of **`ssg`** (Static Site Generator) and deployed via GitHub Pages.
 
 ## Overview
 
 This repository hosts the official multi-locale documentation and marketing portal for the [`pacs008`](https://github.com/sebastienrousseau/pacs008) ISO 20022 toolkit.
 
-The site is built exclusively using [`static-site-generator`](https://github.com/sebastienrousseau/static-site-generator) (Rust `ssg` CLI v0.0.48).
+The site is built exclusively using [`static-site-generator`](https://github.com/sebastienrousseau/static-site-generator) (Rust `ssg` CLI). CI and every deploy install the newest release from crates.io; nothing pins an older one. When a release changes the output, the site is fixed forward.
 
 ## Development & Build Commands
 
 ### Prerequisites
 
-- Rust & `ssg` CLI (`static-site-generator` v0.0.48)
+- Rust & the latest `ssg` CLI: `cargo install ssg --locked`, or `cargo:ssg = "latest"` in mise
 - Node.js >= 20.0.0 (optional, for validation utilities)
 
 ### Local Dev Server

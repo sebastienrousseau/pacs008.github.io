@@ -5,7 +5,7 @@ describe("Navigation structure", () => {
   const html = readPage(".");
 
   it("should render the primary nav header", () => {
-    expect(html).toMatch(/<header class=ap-nav/);
+    expect(html).toMatch(/<header\b[^>]*\sclass=["']?ap-nav\b/);
   });
 
   it("primary nav should have an accessible name", () => {
@@ -13,7 +13,10 @@ describe("Navigation structure", () => {
   });
 
   it("should expose a skip link to the main landmark", () => {
-    expect(html).toMatch(/class=skip-link[^>]*href=#main-content/);
+    // Attribute order is the generator's choice, so find the link, then check it.
+    const skip = (html.match(/<a\b[^>]*>/g) ?? []).find((tag) => attr("class", "skip-link").test(tag));
+    expect(skip, "no skip link").toBeDefined();
+    expect(skip).toMatch(attr("href", "#main-content"));
   });
 
   it("should link to the core sections", () => {

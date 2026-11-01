@@ -1,0 +1,46 @@
+name: Set up the latest ssg
+description: >-
+  Install the newest stable ssg release from crates.io. The site is always
+  built with the latest ssg, never a pinned one: when a release changes the
+  output, the site is fixed forward. The cache is keyed on the resolved
+  version, so a new release is installed on the first run after it ships.
+
+outputs:
+  version:
+    description: The ssg version installed
+    value: ${{ steps.resolve.outputs.version }}
+
+runs:
+  using: composite
+  steps:
+    - name: Resolve the latest ssg release
+      id: resolve
+      shell: bash
+      run: |
+        set -euo pipefail
+        version=$(curl -fsSL --retry 3 -A "pacs008.github.io CI (github.com/sebastienrousseau/pacs008.github.io)" \
+          https://crates.io/api/v1/crates/ssg | jq -r '.crate.max_stable_version')
+        if [[ ! "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+          echo "::error::could not resolve the latest ssg release (got '$version')"
+          exit 1
+        fi
+        echo "version=$version" >> "$GITHUB_OUTPUT"
+
+    - name: Cache the ssg binary
+      uses: actions/cache@v4
+      with:
+        path: ~/.cargo/bin/ssg
+        key: ${{ runner.os }}-ssg-${{ steps.resolve.outputs.version }}
+
+    - name: Install ssg
+      shell: bash
+      env:
+        SSG_VERSION: ${{ steps.resolve.outputs.version }}
+      run: |
+        set -euo pipefail
+        echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
+        ssg="$HOME/.cargo/bin/ssg"
+        if [[ "$("$ssg" --version 2>/dev/null || true)" != "ssg $SSG_VERSION" ]]; then
+          cargo install ssg --version "$SSG_VERSION" --locked --force
+        fi
+        "$ssg" --version
