@@ -133,7 +133,7 @@ describe("SEO: hreflang annotations", () => {
   });
 
   // Each locale must announce its own slug, not the English path. Announcing
-  // /de/about/ for the German page would point every crawler at a noindex
+  // /de/about/ for the German page would point every crawler at a
   // redirect stub instead of the page that holds the content.
   it("announces each locale at its own translated URL", () => {
     expect(html).toContain('hreflang="de" href="https://pacs008.com/de/ueber-uns/"');
@@ -251,5 +251,19 @@ describe("SEO: canonical URLs", () => {
     }
     expect(disagreements, `canonical/hreflang mismatch: ${disagreements.join("; ")}`)
       .toEqual([]);
+  });
+});
+
+describe("SEO: sitemaps", () => {
+  // ssg writes a Google News sitemap with empty publication dates that lists
+  // /404/. generate-sitemap.mjs removes it so sitemap.xml is the only list.
+  it("ships sitemap.xml as the only sitemap", () => {
+    const sitemaps = readdirSync(DIST).filter((f) => /sitemap.*\.xml$/i.test(f));
+    expect(sitemaps).toEqual(["sitemap.xml"]);
+  });
+
+  it("never lists the not-found page", () => {
+    const xml = readFileSync(resolve(DIST, "sitemap.xml"), "utf-8");
+    expect(xml).not.toContain("/404/</loc>");
   });
 });
