@@ -129,8 +129,16 @@ describe("Rendered links", { timeout: 180_000 }, () => {
     const wrong: string[] = [];
     for (const page of pages.filter((p) => p.includes("adres") || p.includes("structured"))) {
       const html = readFileSync(servedFile(page)!, "utf-8");
-      const window = new Window({ url: `${SITE}${page}` });
-      window.document.write(html.replace(/<script[\s\S]*?<\/script>/gi, ""));
+      // Scripts stay off here: this checks the markup the build wrote.
+      const window = new Window({
+        url: `${SITE}${page}`,
+        settings: {
+          disableJavaScriptFileLoading: true,
+          disableCSSFileLoading: true,
+          enableJavaScriptEvaluation: false,
+        },
+      });
+      window.document.write(html);
       const items = [...window.document.querySelectorAll("a.ap-lang-item")];
       for (const a of items) {
         const lang = a.getAttribute("data-lang") ?? "";
