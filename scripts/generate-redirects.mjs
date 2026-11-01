@@ -7,13 +7,18 @@
  * Pages serves static files and cannot issue a 301, so the only way an old URL
  * keeps working is a file at the old path that sends the reader on.
  *
- * Each stub carries all four signals, because they do different jobs:
+ * Each stub carries three signals, because they do different jobs:
  *
- *   rel=canonical      tells a crawler which URL owns the content
- *   robots noindex     keeps the stub itself out of the index
- *   meta refresh       moves a reader with JavaScript disabled
+ *   meta refresh       an instant refresh, which Google treats as a permanent
+ *                      redirect, and which moves a reader without JavaScript
+ *   rel=canonical      names the same target, so the two signals agree
  *   location.replace   moves everyone else without a history entry, so Back
  *                      returns to where they came from rather than bouncing
+ *
+ * There is deliberately no robots noindex. With it, Search Console filed every
+ * stub under "Excluded by noindex" and treated it as a dead page rather than a
+ * move, so nothing the old URL had earned passed to the new one. Without it a
+ * stub is reported as "Page with redirect", which is what it is.
  *
  * A visible link is included too: a refresh that silently fails leaves the
  * reader on a blank page with no way forward, which is worse than the 404 this
@@ -21,7 +26,12 @@
  */
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from "fs";
 import { join, resolve } from "path";
-import { movedPaths, ENGLISH_ONLY_ROUTES, RETIRED_ROUTES } from "./route-slugs.mjs";
+import {
+  movedPaths,
+  ENGLISH_ONLY_ROUTES,
+  RETIRED_ROUTES,
+  isRedirectStub,
+} from "./route-slugs.mjs";
 
 const publicDir = resolve("public");
 const SITE_ORIGIN = "https://pacs008.com";
@@ -52,7 +62,6 @@ function stub(lang, to) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Moved</title>
 <link rel="canonical" href="${target}">
-<meta name="robots" content="noindex, follow">
 <meta http-equiv="refresh" content="0; url=${to}">
 </head>
 <body>
@@ -109,11 +118,7 @@ for (const { locale, from, to } of moved) {
   // twice by hand should not report every stub it wrote last time as a page it
   // is about to destroy.
   if (existsSync(file)) {
-    const existing = readFileSync(file, "utf8");
-    const isStub =
-      /<meta http-equiv="refresh"/i.test(existing) &&
-      /<meta name="robots" content="noindex/i.test(existing);
-    if (!isStub) {
+    if (!isRedirectStub(readFileSync(file, "utf8"))) {
       clobbered.push(from);
       continue;
     }

@@ -107,7 +107,7 @@ export function movedPaths(locales) {
  * a reason — it is the site's main call to action, so the strings were put in a
  * registry instead. See data/live-copy.json.
  *
- * A reader who guesses /fr/trust/ still gets somewhere. The stub is noindex and
+ * A reader who guesses /fr/trust/ still gets somewhere. The stub redirects and
  * canonicalises to the English URL, so it is not a claim a translation exists.
  */
 export const ENGLISH_ONLY_ROUTES = ["trust", "accessibility"];
@@ -137,6 +137,17 @@ export function stubPaths(locales) {
     ...locales.flatMap((l) => ENGLISH_ONLY_ROUTES.map((r) => `/${l}/${r}/`)),
     ...Object.keys(RETIRED_ROUTES).map((r) => `/${r}/`),
   ];
+}
+
+/**
+ * True for a redirect stub written by generate-redirects.mjs.
+ *
+ * The instant meta refresh is the signature: no page on the site uses one, and
+ * it is what makes a crawler treat the stub as a redirect. Defined once so the
+ * scripts that must tell a stub from a page cannot drift apart.
+ */
+export function isRedirectStub(html) {
+  return /<meta http-equiv="refresh" content="0; url=/i.test(html);
 }
 
 const SLUG_SHAPE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
