@@ -254,7 +254,12 @@ function localiseSwitcher(body, filePath) {
     const lang = tag.match(/data-lang=(["']?)([\w-]+)\1/i)?.[2]?.toLowerCase();
     if (!lang || (lang !== "en" && !Object.hasOwn(LOCALE_LANG, lang))) return tag;
     const href = pathFor(lang, available.has(lang) ? route : "");
-    return tag.replace(/href=(["'])[^"']*\1|href=[^\s>]+/i, `href="${href}"`);
+    // Keep the attribute's existing quoting: ssg minifies some pages to bare
+    // values, and the switcher must look the same on every page.
+    return tag.replace(
+      /href=(["']?)[^\s>"']*\1(?=[\s>])/i,
+      (_m, quote) => `href=${quote}${href}${quote}`
+    );
   });
 }
 
