@@ -13,7 +13,12 @@
  */
 import { readdirSync, existsSync, readFileSync } from "fs";
 import { join } from "path";
-import { slugFor, SLUGGED_ROUTES, ENGLISH_ONLY_ROUTES } from "./route-slugs.mjs";
+import {
+  slugFor,
+  SLUGGED_ROUTES,
+  ENGLISH_ONLY_ROUTES,
+  isRedirectStub,
+} from "./route-slugs.mjs";
 
 const publicDir = join(process.cwd(), "public");
 
@@ -82,12 +87,7 @@ if (!existsSync(join(publicDir, "index.html"))) failures.push("en: no home page"
 // that anything sitting there IS a stub, not that nothing sits there. Getting
 // this wrong in the other direction would let a real translated copy of the
 // Trust Centre ship unnoticed.
-// Both markers, checked independently: the stub template emits robots before
-// refresh, and a single ordered pattern silently reported every stub as a real
-// page.
-const isRedirectStub = (html) =>
-  /<meta http-equiv="refresh"/i.test(html) &&
-  /<meta name="robots" content="noindex/i.test(html);
+// isRedirectStub comes from route-slugs.mjs, the one definition of a stub.
 for (const locale of LOCALES) {
   for (const route of Object.keys(ENGLISH_ONLY)) {
     // 404 has no locale stub: the host serves it for any unmatched path.

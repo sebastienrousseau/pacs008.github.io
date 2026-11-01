@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { isRedirectStub } from "./route-slugs.mjs";
 
 const publicDir = path.resolve("public");
 
@@ -36,13 +37,11 @@ for (const filePath of htmlFiles) {
 
   // Redirect stubs for URLs retired by the localised-slug change are not
   // pages: they carry no heading and no description because they hold no
-  // content, and they declare noindex so nothing asks a crawler to treat them
-  // as one. Auditing them for SEO would report 522 defects that describe the
-  // stubs working exactly as intended. Scoped to the stub shape rather than to
-  // noindex generally, so a real page that went noindex by mistake is still
-  // audited.
-  if (/<meta http-equiv="refresh"/i.test(content) &&
-      /<meta name="robots" content="noindex/i.test(content)) {
+  // content, and they redirect so nothing asks a crawler to treat them as
+  // one. Auditing them for SEO would report 522 defects that describe the
+  // stubs working exactly as intended. Scoped to the stub signature (an
+  // instant meta refresh, see isRedirectStub) so a real page is still audited.
+  if (isRedirectStub(content)) {
     redirectStubsSkipped++;
     continue;
   }

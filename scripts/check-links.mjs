@@ -16,9 +16,15 @@
  * A canonical or hreflang pointing at a 404 is worse than a broken anchor: it
  * is the site actively telling search engines the wrong thing, and it shipped
  * on 759 pages before this check existed.
+ *
+ * Resolving is not enough on its own. A redirect stub resolves, but a link,
+ * hreflang or sitemap entry pointing at one sends crawlers through a hop to a
+ * URL the site has retired, so every target is also checked for being a stub.
+ * The stubs' own links are exempt: pointing onwards is what they are for.
  */
 import { readFileSync, readdirSync, existsSync, statSync } from "fs";
 import { join, relative, sep, posix } from "path";
+import { isRedirectStub } from "./route-slugs.mjs";
 
 const publicDir = join(process.cwd(), "public");
 const SITE = "https://pacs008.com";
@@ -63,6 +69,24 @@ function resolves(pathname) {
   return ok;
 }
 
+/** Does a site-absolute path resolve to a redirect stub rather than a page? */
+const stubCache = new Map();
+function isStub(pathname) {
+  if (stubCache.has(pathname)) return stubCache.get(pathname);
+  const clean = decodeURIComponent(pathname.replace(/[?#].*$/, ""));
+  const rel = clean.replace(/^\/+/, "").replace(/\/+$/, "");
+  const file = join(publicDir, ...(rel ? rel.split("/") : []), "index.html");
+  const stub = existsSync(file) && isRedirectStub(readFileSync(file, "utf8"));
+  stubCache.set(pathname, stub);
+  return stub;
+}
+
+/** Record a target that is missing, or that is a stub when a page is due. */
+function check(kind, target, page) {
+  if (!resolves(target)) record(kind, target, page);
+  else if (isStub(target)) record(`${kind}-to-stub`, target, page);
+}
+
 /** Absolute site URLs count as internal; off-site URLs are not our problem. */
 function internalPath(url) {
   if (url.startsWith(`${SITE}/`)) return url.slice(SITE.length);
@@ -90,6 +114,7 @@ let hreflangChecked = 0;
 for (const file of files) {
   const page = relative(publicDir, file).split(sep).join("/");
   const html = readFileSync(file, "utf8");
+  const fromStub = isRedirectStub(html);
 
   // --- href and src ------------------------------------------------------
   // Attribute values may be quoted or bare: ssg minifies some pages.
@@ -106,7 +131,11 @@ for (const file of files) {
       path ?? posix.normalize(posix.join(posix.dirname(`/${page}`), raw));
 
     hrefsChecked += 1;
-    if (!resolves(resolved)) record("link", resolved, page);
+    if (fromStub) {
+      if (!resolves(resolved)) record("link", resolved, page);
+    } else {
+      check("link", resolved, page);
+    }
   }
 
   // --- rel=canonical -----------------------------------------------------
@@ -116,7 +145,9 @@ for (const file of files) {
     const path = internalPath(href);
     canonicalsChecked += 1;
     if (path === null) record("canonical-offsite", href, page);
-    else if (!resolves(path)) record("canonical", path, page);
+    else if (fromStub) {
+      if (!resolves(path)) record("canonical", path, page);
+    } else check("canonical", path, page);
   }
 
   // --- hreflang alternates ----------------------------------------------
@@ -126,7 +157,7 @@ for (const file of files) {
     const path = internalPath(href);
     hreflangChecked += 1;
     if (path === null) record("hreflang-offsite", href, page);
-    else if (!resolves(path)) record("hreflang", path, page);
+    else check("hreflang", path, page);
   }
 }
 
@@ -138,12 +169,14 @@ if (existsSync(sitemapFile)) {
   for (const m of xml.matchAll(/<loc>([^<]+)<\/loc>/g)) {
     const path = internalPath(m[1]);
     sitemapChecked += 1;
-    if (path === null || !resolves(path)) record("sitemap", m[1], "sitemap.xml");
+    if (path === null) record("sitemap", m[1], "sitemap.xml");
+    else check("sitemap", path, "sitemap.xml");
   }
   for (const m of xml.matchAll(/<xhtml:link[^>]*href="([^"]+)"/g)) {
     const path = internalPath(m[1]);
     sitemapChecked += 1;
-    if (path === null || !resolves(path)) record("sitemap-alternate", m[1], "sitemap.xml");
+    if (path === null) record("sitemap-alternate", m[1], "sitemap.xml");
+    else check("sitemap-alternate", path, "sitemap.xml");
   }
 }
 
@@ -170,4 +203,7 @@ if (broken.size > 0) {
   process.exit(1);
 }
 
-console.log("All internal links, canonicals, hreflang alternates and sitemap URLs resolve.");
+console.log(
+  "All internal links, canonicals, hreflang alternates and sitemap URLs " +
+    "resolve to pages, none of them to a redirect stub."
+);

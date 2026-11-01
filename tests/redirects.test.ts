@@ -63,11 +63,14 @@ describe("Localised URLs: redirect stubs", () => {
     }
   });
 
-  it("keeps stubs out of the index", () => {
+  // An instant refresh is a redirect to Google. Adding noindex made Search
+  // Console file all of them under "Excluded by noindex" instead, as dead
+  // pages rather than moves, so nothing the old URL earned reached the new one.
+  it("makes each stub a plain redirect, not a noindex page", () => {
     for (const path of sample) {
-      expect(readPage(path), `${path} is indexable`).toMatch(
-        /<meta name="robots" content="noindex, follow">/
-      );
+      const html = readPage(path);
+      expect(html, `${path} refresh`).toMatch(/<meta http-equiv="refresh" content="0; url=/);
+      expect(html, `${path} still noindex`).not.toMatch(/<meta name="robots"/);
     }
   });
 
@@ -117,7 +120,7 @@ describe("Localised URLs: internal links", () => {
   }
 
   // The stubs keep external links alive. An *internal* link to a retired URL
-  // is just a wasted hop through a noindex page, and it tells a crawler the
+  // is just a wasted hop through a redirect, and it tells a crawler the
   // site itself believes the old URL is current.
   it("no page links to a URL the slug change retired", () => {
     const offenders: string[] = [];
@@ -238,7 +241,7 @@ describe("Localised URLs: English-only routes", () => {
 
   // The workbench is the opposite case: it *is* translated, so it must
   // advertise each locale at its slug — and never at the retired /xx/live/ path,
-  // which is now a noindex stub.
+  // which is now a redirect stub.
   it("advertises the workbench translations at their slugs, not the stub paths", () => {
     const html = readPage("live");
     expect(html).toContain('hreflang="fr" href="https://pacs008.com/fr/essayer/"');

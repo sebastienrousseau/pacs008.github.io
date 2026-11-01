@@ -284,7 +284,8 @@ bookmarked. GitHub Pages serves static files and cannot issue a 301, so each
 retired URL keeps a stub carrying `rel=canonical`, `robots noindex`, a meta
 refresh, `location.replace` and a visible link — the last because a refresh
 that fails silently strands the reader on a blank page, which is worse than
-the 404 the stub exists to prevent.
+the 404 the stub exists to prevent. (D-014 dropped `robots noindex`: with it,
+Search Console filed the stubs as dead pages rather than redirects.)
 
 Internal links never go through a stub. `retargetMovedLinks` in
 `fix-ssg-html.mjs` repoints any hardcoded `/<locale>/<english-route>/` at the
@@ -807,3 +808,52 @@ the control leaves the menu collapsed and unopenable — which no overflow metri
 can detect. The assertion now matches the label element and the toggle input, in
 the built pages as well as the layouts, and was verified to fail with the control
 removed.
+
+## D-014: Language links are resolved at build time; stubs are redirects
+
+**Date:** 2026-11-01
+**Status:** Implemented
+
+### Problem
+
+Search Console reported 1,540 URLs not indexed against 743 indexed. 1,243 were
+404s of one shape: a locale prefix holding another locale's slug, such as
+`/ja/adiresi-eleto/` (the Yoruba slug under the Japanese prefix) or
+`/zh/yayin-ilkeleri/`. A further 263 were "Excluded by noindex": the redirect
+stubs from D-005, at paths such as `/fr/pacs-explained/` and `/tr/terms/`.
+
+Neither came from the static markup, which is why the link gate (D-006) was
+green throughout. A script in `_layouts/page.html` rewrote links in the
+browser. On a locale page it took the current path, swapped the locale prefix
+and kept the slug for every language-switcher entry, and it prefixed nav and
+footer links such as `/trust/` with the locale. On an English page it sent
+every switcher entry to `/<locale>/<english-route>/`, which is a stub.
+Googlebot renders pages before extracting links, so it published all of them.
+Reproduced by running the site's own scripts in happy-dom against the built
+tree: 1,591 rendered 404 links and 1,033 rendered links to stubs across 140
+sampled pages.
+
+### Decision
+
+The script is gone. `fix-ssg-html.mjs` writes every switcher entry at build
+time from the same registry and the same page-exists test that produce the
+hreflang alternates, so the two cannot disagree. A locale with no page for the
+route gets its home page, never a stub. Locale pages' home links (`/`) become
+the locale home at build time too, which was the script's only other job.
+
+Stubs drop `robots noindex`. An instant meta refresh is a redirect to Google;
+with noindex beside it, each stub was filed as a dead page, not a move. They
+keep `rel=canonical` to the same target, `location.replace` and the visible
+link. `isRedirectStub()` in `route-slugs.mjs` is now the one definition of a
+stub (an instant refresh), shared by the redirect writer, the coverage and
+compliance checks, the link check and the tests.
+
+### Supporting checks
+
+- `tests/rendered-links.test.ts` renders five routes in every locale, runs the
+  page scripts, and fails on any rendered 404 link, any rendered link to a stub,
+  or a switcher entry that is not the target locale's own slug. Seen failing on
+  the old build before the fix.
+- `scripts/check-links.mjs` now also fails when a link, canonical, hreflang or
+  sitemap URL resolves to a stub rather than a page. Verified to fire by
+  injecting a link to `/fr/terms/`.

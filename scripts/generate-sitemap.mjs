@@ -10,7 +10,7 @@
  * shipped is what gets listed. It also lets the sitemap carry xhtml:link
  * alternates, which the ssg output never included even when it was populated.
  */
-import { readFileSync, writeFileSync, readdirSync, statSync } from "fs";
+import { readFileSync, writeFileSync, readdirSync, statSync, rmSync } from "fs";
 import { join, relative, sep } from "path";
 import { routeFor, pathFor, stubPaths } from "./route-slugs.mjs";
 
@@ -70,7 +70,7 @@ function urlFor(locale, path) {
   return `${SITE}${pathFor(locale, path)}`;
 }
 
-// Redirect stubs are real files under public/, but they are noindex and own no
+// Redirect stubs are real files under public/, but they redirect and own no
 // content. Listing them would ask search engines to index the very URLs the
 // stubs exist to retire — and would file each locale stub of an English-only
 // page as a translation of it, which is the opposite of what the stub says.
@@ -125,6 +125,13 @@ ${entries.join("\n")}
 `;
 
 writeFileSync(join(publicDir, "sitemap.xml"), xml);
+
+// ssg also writes news-sitemap.xml, a Google News sitemap built from its own
+// page list. The site publishes no news, every entry's publication_date is
+// empty (which the News schema rejects), and the list includes /404/, a "Page
+// not found" page. A second sitemap that disagrees with this one is the site
+// telling crawlers two different things, so sitemap.xml is the only one.
+rmSync(join(publicDir, "news-sitemap.xml"), { force: true });
 
 const translated = [...byPath.values()].filter((s) => s.size > 1).length;
 console.log(
