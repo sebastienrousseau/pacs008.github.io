@@ -48,7 +48,7 @@ find docs_build -name 'README.md' -delete
 node scripts/patch-ssg-frontmatter.mjs docs_build
 
 # Run ssg static site generator
-echo "Compiling site with ssg..."
+echo "Compiling site with $(ssg --version)..."
 ssg build -c docs_build -t _layouts -o public -f config.toml
 
 # Repair escaped head metas & body HTML fragments emitted by ssg
