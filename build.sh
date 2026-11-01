@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Build pacs008 with Static Site Generator (SSG v0.0.48)
+# Build pacs008 with the latest Static Site Generator (ssg) release
 SERVE=0
 [[ "${1:-}" == "--serve" ]] && SERVE=1
 
@@ -49,7 +49,7 @@ node scripts/patch-ssg-frontmatter.mjs docs_build
 
 # Run ssg static site generator
 echo "Compiling site with ssg..."
-ssg -n=pacs008 -c=docs_build -t=_layouts -o=public -f=config.toml
+ssg build -c docs_build -t _layouts -o public -f config.toml
 
 # Repair escaped head metas & body HTML fragments emitted by ssg
 node scripts/fix-ssg-html.mjs
