@@ -139,6 +139,19 @@ function normaliseSocialMeta(head) {
 }
 
 /**
+ * Locales that publish a real page for a route, English first.
+ *
+ * Runs before generate-redirects.mjs writes its stubs, so a file found here is
+ * always a page and never a redirect.
+ */
+function localesWithPage(route) {
+  return ["en", ...Object.keys(LOCALE_LANG)].filter((candidate) => {
+    const dir = candidate === "en" ? publicDir : path.join(publicDir, candidate);
+    return fs.existsSync(path.join(dir, slugFor(candidate, route), "index.html"));
+  });
+}
+
+/**
  * Inject rel="alternate" hreflang annotations.
  *
  * The layouts previously emitted a single alternate whose href and hreflang
@@ -149,11 +162,7 @@ function normaliseSocialMeta(head) {
  */
 function injectHreflang(head, filePath) {
   const { locale, route } = splitRoute(filePath);
-
-  const available = ["en", ...Object.keys(LOCALE_LANG)].filter((candidate) => {
-    const dir = candidate === "en" ? publicDir : path.join(publicDir, candidate);
-    return fs.existsSync(path.join(dir, slugFor(candidate, route), "index.html"));
-  });
+  const available = localesWithPage(route);
 
   // A lone self-reference tells search engines nothing; skip pages with no
   // translated siblings, such as English-only legal pages.
@@ -198,7 +207,12 @@ function routesForLocale(locale) {
  * placeholder, so rewrite here instead — resolving each English route to that
  * locale's own slug (/about/ becomes /fr/a-propos/), only for pages that
  * genuinely exist, and never inside the language switcher, whose links must
- * keep pointing at other locales.
+ * keep pointing at other locales. The home link (/) becomes the locale's home.
+ *
+ * This used to be finished in the browser by a script that prefixed every
+ * remaining nav and footer href with the locale, which turned /trust/ into the
+ * /fr/trust/ redirect stub. Everything is resolved here now, at build time,
+ * where the result can be checked.
  */
 function localiseLinks(body, filePath) {
   const locale = localeFromPath(filePath);
@@ -209,13 +223,38 @@ function localiseLinks(body, filePath) {
 
   return body.replace(/<a\b[^>]*>/gi, (tag) => {
     if (tag.includes("ap-lang-item")) return tag;
-    return tag.replace(
-      /href=(["']?)\/([\w.-]+)\/\1(?=[\s>])/gi,
-      (match, quote, route) => {
+    return tag
+      .replace(/href=(["']?)\/([\w.-]+)\/\1(?=[\s>])/gi, (match, quote, route) => {
         const slug = slugFor(locale, route);
         return routes.has(slug) ? `href=${quote}/${locale}/${slug}/${quote}` : match;
-      }
-    );
+      })
+      .replace(/href=(["']?)\/\1(?=[\s>])/i, `href=$1/${locale}/$1`);
+  });
+}
+
+/**
+ * Point each language-switcher entry at this page in the target locale.
+ *
+ * The layout ships every entry pointing at a locale's home page, and a
+ * client-side script used to rewrite them by swapping the locale prefix while
+ * keeping the current slug. Slugs are per locale, so that built URLs such as
+ * /ja/adiresi-eleto/ (the Yoruba slug under the Japanese prefix): about 1,200
+ * 404s that Googlebot found by rendering the page, plus links from English
+ * pages to locale redirect stubs. Resolving the target here, from the same
+ * registry the hreflang alternates use, makes the switcher agree with them.
+ *
+ * A locale that has no page for this route gets its home page instead, never
+ * a redirect stub.
+ */
+function localiseSwitcher(body, filePath) {
+  const { route } = splitRoute(filePath);
+  const available = new Set(localesWithPage(route));
+
+  return body.replace(/<a\b[^>]*\bap-lang-item\b[^>]*>/gi, (tag) => {
+    const lang = tag.match(/data-lang=(["']?)([\w-]+)\1/i)?.[2]?.toLowerCase();
+    if (!lang || (lang !== "en" && !Object.hasOwn(LOCALE_LANG, lang))) return tag;
+    const href = pathFor(lang, available.has(lang) ? route : "");
+    return tag.replace(/href=(["'])[^"']*\1|href=[^\s>]+/i, `href="${href}"`);
   });
 }
 
@@ -477,6 +516,9 @@ function repairHtml(content, filePath) {
 
   // 3. Point navigation at translated pages on locale routes
   body = localiseLinks(body, filePath);
+
+  // 3a. Language switcher: same page, target locale's own slug
+  body = localiseSwitcher(body, filePath);
 
   // 3b. Repoint any hardcoded /<locale>/<english-route>/ link at the slug
   body = retargetMovedLinks(body);

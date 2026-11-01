@@ -1176,54 +1176,6 @@
       })();
     </script>
   
-    <script>
-      (function() {
-        var path = window.location.pathname;
-        var match = path.match(/^\/([a-z]{2}(?:-[a-z]{2})?)\//i);
-        var currentLocale = match ? match[1].toLowerCase() : "";
-        var knownLocales = [
-          "ar", "bn", "cs", "de", "es", "fr", "ha", "he", "hi", "id", "it", "ja", "ko",
-          "nl", "pl", "pt", "ro", "ru", "sv", "th", "tl", "tr", "uk", "vi", "yo", "zh", "zh-tw"
-        ];
-
-        if (currentLocale && knownLocales.indexOf(currentLocale) !== -1) {
-          var brand = document.querySelector(".ap-brand");
-          if (brand) brand.setAttribute("href", "/" + currentLocale + "/");
-
-          document.querySelectorAll(".ap-menu a, .ap-footer a").forEach(function(a) {
-            var href = a.getAttribute("href");
-            if (href && href.indexOf("/") === 0 && href.indexOf("//") !== 0) {
-              var parts = href.split("/").filter(Boolean);
-              if (parts.length === 0 || knownLocales.indexOf(parts[0].toLowerCase()) === -1) {
-                a.setAttribute("href", "/" + currentLocale + (href === "/" ? "/" : href));
-              }
-            }
-          });
-
-          var subPath = path.substring(currentLocale.length + 1);
-          if (!subPath.startsWith("/")) subPath = "/" + subPath;
-
-          document.querySelectorAll(".ap-lang-item").forEach(function(a) {
-            var targetLang = (a.getAttribute("data-lang") || a.getAttribute("lang") || "").toLowerCase();
-            var targetHref = "/";
-            if (targetLang === "en") {
-              targetHref = subPath;
-            } else if (knownLocales.indexOf(targetLang) !== -1) {
-              targetHref = "/" + targetLang + subPath;
-            }
-            a.setAttribute("href", targetHref);
-          });
-        } else {
-          var subPath = path.startsWith("/") ? path : "/" + path;
-          document.querySelectorAll(".ap-lang-item").forEach(function(a) {
-            var targetLang = (a.getAttribute("data-lang") || a.getAttribute("lang") || "").toLowerCase();
-            if (targetLang && targetLang !== "en" && knownLocales.indexOf(targetLang) !== -1) {
-              a.setAttribute("href", "/" + targetLang + subPath);
-            }
-          });
-        }
-      })();
-    </script>
     <script src="/js/pacs008-tools.js"></script>
     <script>
       (function () {
