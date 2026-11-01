@@ -119,11 +119,15 @@ function normaliseCanonical(head, filePath) {
  * so it is the right source for all three.
  */
 function normaliseSocialMeta(head) {
+  // Quote-aware, like the dedupe pattern below: ["'][^"']*["'] stops at the
+  // first apostrophe, so "utilisez l'échantillon" was copied out as
+  // "utilisez l". Since ssg 0.0.62 apostrophes ship raw rather than as &#x27;.
   const own = head.match(
-    /<meta\s+name=["']description["']\s+content=["']([^"']*)["']/i
+    /<meta\s+name=["']description["']\s+content=(?:"([^"]*)"|'([^']*)')/i
   );
   if (!own) return head;
-  const desc = own[1];
+  // Written back inside double quotes, so a single-quoted value's " must be escaped.
+  const desc = own[1] ?? own[2].replace(/"/g, "&quot;");
 
   let out = head;
   for (const attr of ['property="og:description"', 'name="twitter:description"']) {
